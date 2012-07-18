@@ -1,0 +1,258 @@
+\version[concept]
+\mainlanguage[fr]
+\setuppapersize[A4]
+\setupbodyfont[12pt]
+\setupheader[state=none]
+\setupfooter[state=none]
+\setupheads[alternative=middle]
+\setuptextrules[style=italic, width=5cm]
+\setupindenting[none]%medium]
+%\setuppagenumber[state=stop]
+\packed
+%\showframe[margin,edge, text]
+%\setupinmargin[distance=-5cm]
+
+
+
+\def\Semaine #1, #2. #3\par{\page[preference]\textrule[top]{#2}\inleft{\framed{#1}}#3}%
+\def\pn{\par\noindent}
+\def\Vacances#1.{\subject{\bf\tfb Vacances #1}}
+
+\def\TD#1. #2.{{TD #1. #2}}
+\def\td#1. #2.{{\it TD #1'. #2}}
+\def\Maple#1. {{\it Maple #1. }}
+\def\ds #1. {{Devoir surveillé. }}
+\def\Problème#1. {Problème. }
+
+
+
+
+\starttext
+\title{Agenda 2012-2013}
+
+
+\subject{Analyse}
+
+\subsubject{Suites}
+
+\subsubject{Limites, continuité}
+
+\subsubject{Dérivation, développements limités}
+
+\subsubject{Rquations différentielles}
+
+\subsubject{Fonctions de plusieurs variables}
+
+
+
+\subject{Algèbre}
+
+
+\subsubject{Nombres complexes}
+
+\subsubject{Polynômes}
+
+\subsubject{Systèmes d'équations linéaires}
+
+\subsubject{Matrices}
+
+\subsubject{Expaces vectoriels}
+
+\subsubject{Applications linéaires}
+
+
+\subject{Géométrie}
+
+
+\subsubject{Géométrie euclidienne du plan}
+
+\subsubject{Géométrie euclidienne de l'espace}
+
+
+\subject{Probabilités}
+
+\subsubject{Ensembles}
+
+\subsubject{Dénombrement}
+
+\subsubject{Probabilités}
+
+\subsubject{Variables aléatoires}
+
+
+
+\Semaine 1, 3--8 septembre. 
+{\bf Révisions, développements limités}\pn
+\TD 1. Développements limités, limites et équivalents.\pn
+\td 1. Trigonométrie.
+
+\Semaine 2, 10--15 septembre. {\bf Séries numériques I.}\pn
+\TD 2. Séries numériques I.\pn
+\td 1. Trigonométrie.\pn
+\Problème a. Etude de série
+
+\Semaine 3, 17--22 septembre. {\bf Séries numériques II.}\pn
+\TD 3. Séries numériques II.\pn
+\td 2. Courbes paramétrées.\pn
+\ds 1. Reste de séries et constante d'Euler
+
+\Semaine 4, 24--29 septembre. {\bf Métrique des courbes.}\pn
+\TD 4. Métrique des courbes.\pn
+\td 2. Courbes paramétrées.\pn
+\Problème b. Courbes, courbure, longueur, repère de Frenet. 
+
+\Semaine 5, 1--6 octobre. {\bf Séries entières I.}\pn
+\TD 5. Séries entières I (rayon de convergence).\pn
+\td 3. Opérations élémentaires : rang, déterminant, inverse, système.
+
+\Semaine 6, 8--13 octobre. {\bf Séries entières II.}\pn
+\TD 6. Séries entières (calcul, études).\pn
+\td 3. Opérations élémentaires : rang, déterminant, inverse, système.\pn
+\Maple 1. Programmation (tests, boucles, procédures...)
+
+\Semaine 7, 15--20 octobre. {\bf Formes n-linéaires alternées, déterminant}\pn
+\TD 7. Déterminant.\pn
+\td 4. Algèbre linéaire : familles libres, génératrices, bases, noyau, image, matrices.\pn 
+\Maple 1. Programmation (tests, boucles, procédures...).\pn
+\ds 2. Permutations avec points fixes (sup/séries numériques/entières).\pn 
+\Problème c. Suites adjacentes, séries et intégrales
+
+\Semaine 8, 22--26 octobre.
+
+
+\Vacances de la Toussaint.
+
+\Semaine 9, 12--17 novembre. 
+{\bf Polynôme caractéristique, vecteurs et espaces propres}\pn
+\TD 8. Polynôme caractéristique et valeurs propres. .\pn
+\td 4. Algèbre linéaire : familles libres, génératrices, bases, noyau, image, matrices. \pn
+\Problème d. Matrice, puissance et système différentiel
+
+\Semaine 10, 19--24 novembre. 
+{\bf Diagonalisation}\pn
+\TD 9. Diagonalisation.\pn
+\td 5. Primitives.
+
+\Semaine 11, 26 novembre--1 décembre. 
+{\bf Trigonalisation}\pn
+\TD 10. Trigonalisation.\pn
+\td 5. Primitives.\pn
+\ds 3. Exponentielle de matrice
+
+\Semaine 12, 3--8 décembre. 
+{\bf Intégrales généralisées}\pn
+\TD 11. Intégrales généralisées.\pn
+\td 6. Décomposition en éléments simples .\pn
+\Maple 2. Algèbre linéaire, diagonalisation 
+
+\Semaine 13, 10--15 décembre. 
+{\bf Fonctions définies par une intégrale à un paramètre. }\pn
+\TD 12. Intégrales à un paramètre.\pn 
+\td 6. Décomposition en éléments simples.\pn
+\Maple 2. Algèbre linéaire, diagonalisation\pn
+\Problème e. Deux intégrales à un paramètre.  
+
+\Semaine 14, 17--21 décembre. 
+{\bf Concours Blanc}
+\ds 4. Transformée de Laplace.\pn
+\ds 5. Applications linéaires et équations différentielles\pn
+\Problème f. Limite de Cesaro et séries entières.
+
+\Vacances de Noël. 
+
+\Semaine 15, 7--12 janvier. 
+{\bf Surfaces, plan tangent, surfaces usuelles}\pn
+\TD 13. Surfaces et nappes paramétrées.\pn
+\td 7. Surfaces, volumes, Fubini et changement de variable.
+
+\Semaine 16, 14--19 janvier. 
+{\bf Quadriques. }\pn
+\TD 14. Réduction des quadriques.\pn
+\td 7. Surfaces, volumes, Fubini et changement de variable.
+
+\Semaine 17, 21--26 janvier. 
+{\bf Enveloppes, développées, développantes.}\pn 
+\TD 15. Enveloppes, développées, développantes.\pn 
+\td 8. Intersection, projection, droites incluses dans une surface. \pn
+\Problème g. Etude d'une surface cubique. 
+
+\Semaine 18, 28 janvier--2 février. 
+{\bf Séries de Fourier}\pn
+\TD 16. Séries de Fourier.\pn
+\td 8. Intersection, projection, droites incluses dans une surface. \pn
+\Maple 3. Séries de Fourier, courbes, surfaces. 
+\Problème h. Surface et développante.
+
+\Semaine 19, 4--9 février. 
+{\bf Espaces préhilbertiens.} \pn
+\TD 17. Produit scalaire, orthogonalité.\pn
+\td 9. Orthonormalisation, projections orthogonales et distances.\pn
+\Maple 3. Séries de Fourier, courbes, surfaces.\pn
+\ds 6. Surfaces et courbes. 
+
+\Semaine 20, 11--16 février.
+{\bf Endomorphismes symétriques, orthogonaux, formes quadratiques} \pn
+\TD 18. Isométries, matrices symétriques et formes quadratiques.\pn
+\td 9. Orthonormalisation, projections orthogonales et distances.\pn
+
+\Semaine 21, 18--22 février. 
+{\bf Fonctions de plusieurs variables I}\pn
+\TD 19. Limites, continuité et dérivation.\pn
+\td 10. Equations aux dérivées partielles.\pn
+
+\Vacances de février. 
+
+\Semaine 22, 11--16 mars.  dd
+{\bf Fonctions de plusieurs variables II}\pn
+\TD 20. Recherche d'extrema.\pn
+\td 10. Equations aux dérivées partielles.\pn
+
+\Semaine 23, 18--23 mars. 
+{\bf Equations différentielles et analyse vectorielle}\pn
+\TD 21. Equations et systèmes différentiels.\pn
+\td 11. .\pn
+\Maple 4. \pn
+\ds 7.
+
+\Semaine 24, 25--30 mars. 
+{\bf Géométrie : 2 épreuves de la banque PT}\pn
+\TD 22. révisions et pratique (géométrie).\pn
+\td 11. .\pn
+\Maple 4. 
+
+\Semaine 25, 2--6 avril. 
+{\bf Analyse : 2 épreuves de la banque PT}\pn
+\TD 23. révisions et pratique (analyse).\pn
+\td 12. .\pn
+
+\Semaine 26, 8--13 avril.
+{\bf Algèbre linéaire : 2 épreuves de la banque PT}\pn
+\TD 24. révisions et pratique (algèbre).\pn
+\td 12. .\pn
+
+\Semaine 27, 15--19 avril. 
+{\bf Révisions de PTSI : 2 épreuves des petites mines}\pn
+\ds 8. 
+
+\Vacances de printemps. 
+
+\Semaine 28, {\it 6--11 mai}. 
+
+\Semaine 29, 13--18 mai. 
+
+\Semaine 30, {\it 21--25 mai}. 
+
+\Semaine 31, 27 mai--1 juin. 
+
+
+\Semaine 32, 3 juin--8 juin.
+
+\Semaine 33, 10--15 juin. 
+
+\Semaine 34, 17--22 juin.
+
+\Semaine 35, 24--29 juin. 
+
+\Vacances d'été. 
+\stoptext
+\bye
