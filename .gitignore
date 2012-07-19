@@ -1,1 +1,7 @@
-/.gitignore~
+*.tuc
+*.top
+*.log
+*.tex~
+BCPST_2012/*
+
+.gitignore~

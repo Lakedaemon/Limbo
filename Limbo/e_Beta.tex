@@ -49,7 +49,7 @@
 \def\ShowR{\startcolumns[n=2,rule=on]\ctxlua{for i=1,\the\RecordCount,1 do context("\\csname Record"..i.."\\endcsname\\crlf") end}\stopcolumns}
 \def\R{\dosingleargument\do@R}%
 \def\framed@options{[height=fit]}%
-\def\do@R[#1]#2\R{#2{\getparameters[??LD][#1]%
+\def\do@R[#1]#2{#2{\getparameters[??LD][#1]%
 	\ifx\??LDtitle\undefined\def\Record{#2}\else\@EA\@EA\@EA\def\@EA\@EA\@EA\@framedTitle\@EA\@EA\@EA{\@EA\@EA\@EA\inframed\@EA\framed@options\@EA{\??LDtitle}}\def\@content{#2}\@EA\@EA\@EA\def\@EA\@EA\@EA\Record\@EA\@EA\@EA{\@EA\@content\@framedTitle}\fi
 	\global\advance\RecordCount1\relax\edef\temp{Record\the\RecordCount}\@EA\@EA\@EA\gdef\@EA\csname\@EA\temp\@EA\endcsname\@EA{\Record}}%
 }%

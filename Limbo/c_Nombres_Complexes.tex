@@ -1,5 +1,7 @@
 \startcomponent c_Nombres_Complexes
-\project project_Res_Mathematica
+\project P_Res_Mathematica
+\environment e_Beta
+\environment e_Maths
 %\definecolor [darkred] [r=.5, g=.0, b=.0]
 
 % \startcolor[darkgreen]           
@@ -10,30 +12,52 @@
 
 \starttext
 \enablemode[book] 
+\disablemode[summary] 
 
 \chapter{Nombres Complexes}
 
-La construction de $\ob C$ étant hors-programme, nous admettrons les définitions suivantes.
+Nous admettons la construction de $\ob C$, qui est hors-programme.
 
 \section{Forme additive}
 
-\Définition Un nombre complexe est un nombre de la forme \R[title=forme additive]$z=x+iy$\R, avec $x$ et  $y$ réels et $i^2=-1$.
+\Définition Un nombre complexe est du type \R[title=forme additive]{$z=x+iy$}, avec $x$ et  $y$ réels et $i^2=-1$.
 
-\Propriété L'ensemble $\ob C$ des nombres complexes est muni des opérations $+$ et $\times$ définies par 
-\R[title=$+$ et $\times$]{
-$$
-\eqalign{
-	(a + ib) + (c + id) &:= (a + c) + i(b + d)\Z\qquad\qquad\mbox{\bf Addition}\Z\cr
-	(a + ib) \times (c + id)&:=(ac - bd) + i(ad + bc)\Z\qquad\mbox{\bf Multiplication}\Z\cr
-}
-$$}\R
+\Exemples $\pi$, $i$, $1+i\sqrt2$,\unknown
 
-Théorème L'ensemble $(\ob C, +, \times)$ est un corps commutatif, i.e pour $x$, $y$, $z$ dans $\ob C$
-\startformula
-\eqalign{
-x\times y & \in \ob C
+\Propriété L'ensemble $\ob C$ des nombres complexes est muni d'une addition et d'une multiplication définies par 
+
+
+\Eq[*,C,r]{
+\NC (x + iy) + (x' + iy') := x + x' + i(y + y')\HC{$+$}\NC\NR
+\NC (x + iy)(x' + iy') :=xx' - yy' + i(xy' + yx')\HC{$\times$}\NC\NR
 }
-\stopformula
+
+
+\Théorème $(\ob C, +, \times)$ est un corps commutatif. 
+Ainsi pour $x$, $y$, $z$ dans $\ob C$, on a
+\Eq[*,C,c,C,r]{
+\NC x+y=y+x\NC et\NC xy=yx\HC{commutativité}\NC\NR
+\NC(x+y)+z=x+(y+z)\NC et\NC(xy)z=x(yz)\HC{associativité}\NC\NR
+\NC x(y+z)=xy+xz\NC et\NC(x+y)z=xz+yz\HC{distributivité}\NC\NR
+}
+
+
+\Remarque L'addition (resp. la multiplication) est interne à $\ob C$ et admet $0$ (resp. $1$) comme élément neutre. 
+Ainsi, pour $z$ et $z'$ dans $\ob C$, on a 
+\Eq[C,c,C,r]{
+\NC z+z'\in\ob C\NC et\NC zz'\in\ob C \HC{loi interne}\NC\NR
+\NC 0+z=z+0=x\NC et\NC 1\times z=z\times 1=z \HC{élément neutre}\NC\NR
+}
+
+\Remarque tous les éléments de $\ob C$ (resp. non nuls) admettent un unique inverse noté $-z$ (resp $1/z$) pour l'addition (resp. la multiplication) :
+\Eq[C,r]{
+\NC \forall z\in\ob C,\exists!y\in\ob C: y+z=z+y=0.\HC{$y=-z$ opposé de $z$}\NC\NR
+\NC \forall z\in\ob C^*,\exists!y\in\ob C: yz=zy=1.\HC{$y=1/z$ inverse de $z$}\NC\NR
+}
+
+tLes lois $+$ et $\times$ sont internes à $\ob C$ et disposent chacune d'un élément neutre. 
+Ainsi, pour $z$ et $z'$ dans $\ob C$, on a 
+\
 
 Un ensemble $E$ muni de deux opérations $+$ et $\times$ forme un corps $(E,+,\cdots)$ si, et~seulement si, les onze propriétés suivantes sont satisfaites :
 i) L'ensemble $E$ n'est pas vide : 
@@ -85,6 +109,7 @@ $$
 
 \chapter{Fiches}
 \disablemode[book]
+\enablemode[summary] 
 \eightpoint
 \ShowR
 

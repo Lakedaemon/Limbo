@@ -1,13 +1,15 @@
 \startenvironment e_Maths
 \project project_Res_Mathematica
 \unprotect
+\definefloat[centeredTable][centeredTables][table]
+\setupfloat[centeredTable][default={fixed,none}]
 
 
-\let\W\right
 \let\ob\mathbb
 
 \long\def\Application : #1\par{\noindent{\eightpts{\it Application : }#1}\medskip}
 
+\def\Center#1{\placecenteredTable{}{#1}}%
 \def\Conseil : #1\par{{%
 	\eightpoint
 	\noindent
@@ -16,16 +18,39 @@
 	}%
 	#1\medskip
 }}%
+\def\CTab#1{\Center{\Tab{#1}}}%
+
 
 \def\Définition{\dosingleargument\Définition@do}%
 \def\Définition@do[#1]#2\par{{\getparameters[??LD][#1]}Définition. \ignorespaces #2\medskip}%
 
 \long\def\Démonstration. #1\CQFD{\noindent{\eightpoint Démonstration. #1}\bigskip}
 
+\def\Eq{\dosingleargument\Eq@do}%
+\def\Eq@process#1{%
+	\def\c{}%
+	\processaction[#1][
+		r=>\def\c{rh\FramedCell|},%
+		c=>\def\c{c|},
+		C=>\def\c{cm|},
+		*=>\let\Eq@Remember\relax]%
+   %  default=>\relax,
+    % unknown=>\unknown{... \commalistelement ...}
+    %
+\@EA\@EA\@EA\def\@EA\@EA\@EA\Eq@columns\@EA\@EA\@EA{\@EA\Eq@columns\c}
+}%
+\def\Eq@do[#1]#2{{\def\Eq@columns{|}\processcommalist[#1]\Eq@process
+\ifx\Eq@Remember\undefined
+	\@EA\CTab\@EA{\@EA[\Eq@columns]#2}\else
+	\@EA\R\@EA{\@EA\CTab\@EA{\@EA[\Eq@columns]#2}}\fi
+}}%
+
+
 \def\Exemple{\def\Exemple@text{Exemple}\dosingleargument\Exemple@do}%
 \def\Exemple@do[#1]#2\par{{\getparameters[??LD][#1]}{\eightpoint\Exemple@text. \ignorespaces #2}\medskip}%
 \def\Exemples{\def\Exemple@text{Exemples}\dosingleargument\Exemple@do}%
 
+\let\F\over
 %\def\FramedCell@command{\inframed[offset=-0.2ex]}%
 \def\FramedCell#1{\inframed[offset=-0.2ex]{ #1 }}%
 
@@ -47,13 +72,15 @@
 \long\def\Rappels. #1\par{\noindent{\eightpoint{\it Rappels. }#1}\medskip}
 
 
-\def\Remarque{\noindent{\it Remarque}}
-%
-\def\Remarques{\noindent{\it Remarques}}
-%
+\def\Remarque{\noindent{\it Remarque. }}%
+\def\Remarques{\noindent{\it Remarques. }}%
+
+\def\Tab#1{\starttabulate#1\stoptabulate}%
 
 \def\Théorème{\dosingleargument\Théorème@do}%
 \def\Théorème@do[#1]#2\par{{\getparameters[??LD][#1]}Théorème. \ignorespaces #2\medskip}%
+
+\let\W\right
 
 \protect
 \stopenvironment
