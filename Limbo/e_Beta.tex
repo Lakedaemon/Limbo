@@ -1,0 +1,67 @@
+\startenvironment e_Beta
+\project project_Res_Mathematica
+\unprotect
+
+
+
+
+%\setuplayout[...]
+
+
+
+%\startluacode
+%	userdata = userdata or { }
+%	records = { }
+%	function userdata.remember(str)
+%		table.insert(records, str)
+%	end
+%\stopluacode
+
+%\def\R{\dostartbuffer[record][R][S]}
+%\def\U{\groupedcommand{aa}{bb}}
+%\def\R{\dostartbuffer[record][startrecord][stoprecord]}
+
+
+
+%\def\S{\ctxlua{thirddata.foo.clean_lines(buffers.getcontent('foo'))}}
+%\def\R#1{\dostartbuffer[record][R][S]#1\ctxlua{userdata.remember(buffers.getcontent('record'))}}%
+%\def\R#1{\dostartbuffer[record][R][S]#1\ctxlua{userdata.remember(buffers.getcontent('record'))}}%
+%\def\S{\ctxlua{userdata.remember(buffers.getcontent('record'))}}%
+%\def\T#1\T{\startbuffer['record']#1\stopbuffer\ctxlua{userdata.remember(buffers.getcontent('record'))}}
+
+
+%\def\T#1\T{#1\ctxlua{userdata.remember("\luaescapestring{#1}")}}
+
+
+
+
+
+%%%% Modes
+\def\Z#1\Z{\startmode[book]#1\stopmode}%
+\def\Y#1\Y{\startmode[slide]#1\stopmode}%
+\def\X#1\X{\startmode[summary]#1\stopmode}%
+
+\def\Quad{\Z\quad\Z}%
+\def\Qquad{\Z\qquad\Z}%
+
+%%% Fiches
+\newcount\RecordCount\global\RecordCount0\relax
+\def\ShowR{\startcolumns[n=2,rule=on]\ctxlua{for i=1,\the\RecordCount,1 do context("\\csname Record"..i.."\\endcsname\\crlf") end}\stopcolumns}
+\def\R{\dosingleargument\do@R}%
+\def\framed@options{[height=fit]}%
+\def\do@R[#1]#2\R{#2{\getparameters[??LD][#1]%
+	\ifx\??LDtitle\undefined\def\Record{#2}\else\@EA\@EA\@EA\def\@EA\@EA\@EA\@framedTitle\@EA\@EA\@EA{\@EA\@EA\@EA\inframed\@EA\framed@options\@EA{\??LDtitle}}\def\@content{#2}\@EA\@EA\@EA\def\@EA\@EA\@EA\Record\@EA\@EA\@EA{\@EA\@content\@framedTitle}\fi
+	\global\advance\RecordCount1\relax\edef\temp{Record\the\RecordCount}\@EA\@EA\@EA\gdef\@EA\csname\@EA\temp\@EA\endcsname\@EA{\Record}}%
+}%
+
+
+
+%\def\T#1\T{#1\global\advance\RecordCount1\relax\@EA\gdef\csname Record\the\RecordCount\endcsname{#1}}%
+
+%\def\Show{\startcolumns[n=2,rule=on]\ctxlua{for i,v in ipairs(records) do context("\\crlf") context(v) end}\stopcolumns}%
+
+
+
+
+\protect
+\stopenvironment

@@ -1,0 +1,59 @@
+\startenvironment e_Maths
+\project project_Res_Mathematica
+\unprotect
+
+
+\let\W\right
+\let\ob\mathbb
+
+\long\def\Application : #1\par{\noindent{\eightpts{\it Application : }#1}\medskip}
+
+\def\Conseil : #1\par{{%
+	\eightpoint
+	\noindent
+	\llap{%
+		$\underline{\mbox{Conseil}}$ : 
+	}%
+	#1\medskip
+}}%
+
+\def\Définition{\dosingleargument\Définition@do}%
+\def\Définition@do[#1]#2\par{{\getparameters[??LD][#1]}Définition. \ignorespaces #2\medskip}%
+
+\long\def\Démonstration. #1\CQFD{\noindent{\eightpoint Démonstration. #1}\bigskip}
+
+\def\Exemple{\def\Exemple@text{Exemple}\dosingleargument\Exemple@do}%
+\def\Exemple@do[#1]#2\par{{\getparameters[??LD][#1]}{\eightpoint\Exemple@text. \ignorespaces #2}\medskip}%
+\def\Exemples{\def\Exemple@text{Exemples}\dosingleargument\Exemple@do}%
+
+%\def\FramedCell@command{\inframed[offset=-0.2ex]}%
+\def\FramedCell#1{\inframed[offset=-0.2ex]{ #1 }}%
+
+\def\Notation{\noindent{\it Notation}}%
+
+\def\Propriété{\dosingleargument\Propriété@do}%
+\long\def\Propriété@do[#1]#2\par{{\getparameters[??LD][#1]}Propriété. \ignorespaces #2\medskip}%
+
+\let\Q\left
+
+\def\Rappel : #1\par{{%
+	\eightpoint
+	\noindent
+	\llap{%
+		$\underline{\mbox{Rappel}}$ : 
+	}%
+	#1\medskip
+}}%
+\long\def\Rappels. #1\par{\noindent{\eightpoint{\it Rappels. }#1}\medskip}
+
+
+\def\Remarque{\noindent{\it Remarque}}
+%
+\def\Remarques{\noindent{\it Remarques}}
+%
+
+\def\Théorème{\dosingleargument\Théorème@do}%
+\def\Théorème@do[#1]#2\par{{\getparameters[??LD][#1]}Théorème. \ignorespaces #2\medskip}%
+
+\protect
+\stopenvironment
