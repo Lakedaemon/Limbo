@@ -1,0 +1,221 @@
+\startenvironment e_Limbo
+\unprotect
+
+
+%\Cursus μMφΦψΨτTθΘβB
+% μ m Maths   (MP)
+% φ Φ Physics (PC)
+% ψ Ψ        (PSI)
+% τ t Techno  (PT)
+% θ Θ      (TSI)
+% β b Bio     (Bcpst)
+% βμφτ
+
+
+% mark up
+%
+% id
+% t for title
+% p for program
+%
+% l for level
+% */**
+%
+% i for index
+% u for usage
+% */**
+%
+
+%% process the Limbo xml files
+\startxmlsetups xml:limbo
+\xmlsetsetup{maths}{*}{-} 
+\xmlsetsetup{maths}{part|chapter|section|subsection|concept|text|definition|example|figure|property|theorem|remark|OL}{xml:*} 
+\stopxmlsetups 
+
+\xmlregistersetup{xml:limbo} 
+
+\startluacode 
+    L = L or {}
+    M = M or {}
+    
+    L.labelPrefix = ""
+    
+function L.process(node, mathId) 
+  local nodeId = lxml.id(node)
+  -- local mathId = lxml.att(nodeId,"id") -- notworking
+  local data = --lxml.content(nodeId) --
+  xml.content(nodeId)
+
+
+  if string.sub(data, 1, 9) == "<![CDATA[" then data = data.sub(data, 10, string.len(data) - 3) end
+
+  M[L.labelPrefix .. mathId] = data
+end 
+
+ L.course = "β"
+
+ function L.setCourse(text)
+   L.course = text
+ end
+ 
+ function L.getString(node)
+  local nodeId = lxml.id(node)
+  local data = xml.content(nodeId)
+  if string.sub(data, 1, 9) == "<![CDATA[" then 
+  	return data.sub(data, 10, string.len(data) -3) 
+  else 
+  	return data 
+  end
+end
+ 
+ 
+function L.isInCourse(text)
+  if text then else return true end
+  local test = string.explode(text, "-")
+  if test[1] and string.find(test[1], L.course) then return true end
+  if test[2] and string.find(test[2], L.course) then return false end
+  return true
+end
+
+function L.processChapter(node, t, p)
+  if L.isInCourse(p) then 
+  	context.chapter(t)
+  	lxml.flush(node)
+  end
+end
+
+function L.processSection(node, t, p)
+  if L.isInCourse(p) then 
+  	context.section(t)
+  	lxml.flush(node)
+  end
+end
+
+function L.processSubsection(node, t, p)
+  if L.isInCourse(p) then 
+  	context.subsection(t)
+  	lxml.flush(node)
+  end
+end
+
+
+
+function L.processConcept(node, t, p, i)
+  if L.isInCourse(p) then 
+    context("\\noindent")
+    context.inmargin(t)
+    if i~= "" then context.index(i) end
+    lxml.flush(node)
+  end
+end
+
+function L.processDefinition(node, p)
+  if not L.isInCourse(p) then return end
+  context("\\Définition "..L.getString(node).. "\\par")
+end
+
+function L.processExample(node, p)
+  if not L.isInCourse(p) then return end
+  context("\\Exemple "..L.getString(node))
+end
+
+function L.processFigure(node, p)
+  if not L.isInCourse(p) then return end
+  context(L.getString(node))
+end
+
+function L.processExample(node, p)
+  if not L.isInCourse(p) then return end
+  context("\\Exemples "..L.getString(node))
+end
+
+function L.processProperty(node, p)
+  if not L.isInCourse(p) then return end
+  context("\\Propriété "..L.getString(node))
+end
+
+function L.processTheorem(node, p)
+  if not L.isInCourse(p) then return end
+  context("\\Théorème "..L.getString(node))
+end
+
+function L.processText(node, p)
+  if not L.isInCourse(p) then return end
+  context(L.getString(node))
+end
+
+function L.processRemark(node, p)
+  if not L.isInCourse(p) then return end
+  context("\\Remarque "..L.getString(node))
+end
+
+function L.processOL(node, p)
+  if not L.isInCourse(p) then return end
+  context("OL: "..L.getString(node))
+end
+\stopluacode 
+
+
+
+\startxmlsetups xml:part
+\xmlflush{#1}
+\stopxmlsetups 
+
+\def\isOfCourse#1{}
+
+\def\getIndex#1{[[\xmlatt{#1}{i}]]}
+\def\getProgram#1{[[\xmlatt{#1}{p}]]}
+\def\getTitle#1{[[\xmlatt{#1}{t}]]}
+
+\startxmlsetups xml:chapter
+\ctxlua{L.processChapter("#1",[[\xmlatt{#1}{t}]],[[\xmlatt{#1}{p}]])}%
+\stopxmlsetups
+
+\startxmlsetups xml:section
+\ctxlua{L.processSection("#1",[[\xmlatt{#1}{t}]],[[\xmlatt{#1}{p}]])}%
+\stopxmlsetups
+
+\startxmlsetups xml:subsection
+\ctxlua{L.processSubsection("#1",[[\xmlatt{#1}{t}]],[[\xmlatt{#1}{p}]])}%
+\stopxmlsetups
+
+\startxmlsetups xml:concept
+%\ctxlua{L.processConcept("#1",[[\xmlatt{#1}{t}]],[[\xmlatt{#1}{p}]],[[\xmlatt{#1}{i}]])}%
+\ctxlua{L.processConcept("#1",\getTitle{#1},\getProgram{#1},\getIndex{#1})}%
+\stopxmlsetups
+
+\startxmlsetups xml:text
+\ctxlua{L.processText("#1",[[\xmlatt{#1}{p}]])}%
+\stopxmlsetups 
+
+\startxmlsetups xml:definition
+\ctxlua{L.processDefinition("#1",[[\xmlatt{#1}{p}]])}%
+\stopxmlsetups
+
+\startxmlsetups xml:example
+\ctxlua{L.processExample("#1",[[\xmlatt{#1}{p}]])}%
+\stopxmlsetups
+
+\startxmlsetups xml:figure
+\ctxlua{L.processFigure("#1",[[\xmlatt{#1}{p}]])}%
+\stopxmlsetups
+
+\startxmlsetups xml:property
+\ctxlua{L.processProperty("#1",[[\xmlatt{#1}{p}]])}%
+\stopxmlsetups
+
+\startxmlsetups xml:theorem
+\ctxlua{L.processTheorem("#1",[[\xmlatt{#1}{p}]])}%
+\stopxmlsetups
+
+\startxmlsetups xml:OL
+\ctxlua{L.processOL("#1",[[\xmlatt{#1}{p}]])}%
+\stopxmlsetups
+
+\def\setupCourse#1{\ctxlua{L.setCourse("#1")}}
+
+%% get knowledge
+%\def\S#1{\ctxlua{context(M["#1"])}}%
+%\setupinmargin[width=fit]
+\protect
+\stopenvironment

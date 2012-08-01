@@ -1,0 +1,126 @@
+\unprotect
+\startluacode
+    L = L or {}
+    M = M or {}
+    
+    L.labelPrefix = ""
+    function L.remember(string)
+      context(string)
+      M[L.labelPrefix .. string] = buffers.getcontent('M')
+    end
+\stopluacode
+
+\def\LabelPrefix#1{\ctxlua{L.labelPrefix="#1:"}}%
+\def\A{\dosingleargument\A@do}%
+\def\A@do[#1]#2. {\getparameters[??L][id=#2,#1]\dostartbuffer[M][A@do][ø]}%
+\def\ø{\ctxlua{L.remember("\??Lid")}}%
+
+
+\def\Debug{\ctxlua{for i,v in ipairs(M) do context("\\crlf") context(v) end}}%
+
+\def\S#1{\ctxlua{context(M["#1"])}}%
+\protect
+
+\LabelPrefix{$ℂ(+,×)$}%
+
+\A construction. 
+Nous admettons la construction de $ℂ$, qui est hors-programme.\ø
+
+\A nombre complexe. 
+Un nombre complexe est du type \R[title=forme additive]{$z=x+iy$}, avec $x$ et  $y$ réels et $i^2=-1$.\ø
+
+%\def\AB[#1]#2{\ctxlua{ M[L.labelPrefix .. "#1"] = #2}}
+
+%\processXMLbuffer[gah]
+
+
+%\startxmlsetups xml:demo:base
+%\xmlsetsetup{demo}{*}{-}
+%\xmlsetsetup{demo}{C|M}{xml:demo:*}
+%\stopxmlsetup
+
+%\defineXMLenvironment[C]{gg}{hh}
+
+%\xmlregisterdocumentsetup{demo}{xml:demo:base}
+
+
+
+%\startxmlsetups xml:demo:C
+%\title{Contents}
+%\placelist[chapter]
+%\page
+%\xmlflush{#1}
+%\stopxmlsetups
+
+%\startxmlsetups xml:demo:M
+%\xmlname {#1}
+%\xmlflush{#1}%\xmlflush{#1}\endgraf
+%\stopxmlsetups
+
+%\startluacode
+%m = lxml.load("bo","test.xml")
+%local p = "xml://chapter/b[position()=3]"
+%local l = lxml.filter(m,p) -- returns a list (with one entry)
+%context(l[1])
+%lxml.flush(l[1])
+%\stopluacode
+
+
+
+%\startxmlsetups xml:maths:base
+%\xmlsetsetup{maths}{*}{-}
+%\xmlsetsetup{maths}{chapter}{xml:maths:*}
+%\xmlsetsetup{maths}{chapter/b}{xml:maths:chapter:b}
+%\stopxmlsetups
+%\xmlregisterdocumentsetup{maths}{xml:maths:base}
+
+
+%\startxmlsetups xml:maths:chapter
+%\xmlflush{#1}
+%\stopxmlsetups
+
+%\startxmlsetups xml:maths:chapter:b
+%\edef\gah{\xmlflush{#1}}
+%\meaning\gah
+
+%\ctxlua{
+%context("\luaescapestring{\xmlflush{#1}}")}\endgraf
+%\stopxmlsetups
+
+%\xmlprocessfile{maths}{Nombres_complexes.xml}{}
+
+%\S{$ℂ(+,×)$:construction}
+%\S{$ℂ(+,×)$:nombre complexe}
+%\S{$ℂ(+,×)$:go}
+%m = lxml.load("bo","test.xml")
+%local p = "chapter/b[position()=2]"
+%local l = lxml.filter(m,p) -- returns a list (with one entry)
+%lxml.displayverbatim(l[1])
+
+
+\startluacode
+--local m = lxml.load("mo","Limbo_Nombres_complexes.xml") -- 
+local m = lxml.id("maths")
+local l = lxml.filter(m,"b") -- returns a list (with one entry)
+context("gahh")
+local a = xml.content(l[1]) 
+context(a)
+context(l[2])
+\stopluacode
+
+%document.user = document.user or {} 
+%function document.user.string(root) 
+%  root = lxml.id(root) 
+%  for r, d, k in xml.elements(root,"b") do 
+%    local data = xml.content(d[k])
+%    local cdata = "<![CDATA["
+%    if string.sub(data, 1, 9) == cdata then data = data.sub(data, 10, string.len(data) -3) end
+%    tex.print(0,"\\bigskip")
+%    tex.print(0, data)
+%  end
+%end
+
+%\input m_Nombres_Complexes.tex
+%\xmlprocessbuffer{main}{what}{} 
+
+%\Debug

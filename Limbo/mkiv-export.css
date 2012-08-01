@@ -1,0 +1,334 @@
+/*
+
+	author    : Hans Hagen, PRAGMA-ADE, Hasselt NL
+	copyright : PRAGMA ADE / ConTeXt Development Team
+	license   : see context related readme files
+	comment   : companion to cld-mkiv-export.xml
+
+*/
+
+document:before {
+	content: attr(title) ;
+	font-size: 44pt ;
+	font-weight: bold ;
+	margin-bottom: 1em ;
+}
+
+document {
+	font-family: "Lucida Bright", "DejaVu Serif", serif ;
+	font-size: 12pt ;
+	width: 50em ;
+	padding: 1em ;
+}
+
+section {
+	display: block ;
+}
+
+delimited[detail=quotation]:before {
+	content: "[",
+}
+
+delimited[detail=quotation]:after {
+	content: "]",
+}
+
+delimited[detail=quotation] {
+    display: inline
+}
+
+delimited[detail=quote]:before {
+	content: "(",
+}
+
+delimited[detail=quote]:after {
+	content: ")",
+}
+
+delimited[detail=quote] {
+    display: inline
+}
+
+list {
+	display: block ;
+}
+
+listitem[detail=chapter] {
+	display: block ;
+	margin-top: 1em ;
+	font-weight: bold ;
+}
+
+listitem[detail=section] {
+	display: block ;
+}
+
+listitem[detail=subsection] {
+	display: block ;
+}
+
+listtag {
+	display: inline-block ;
+	width: 5em ;
+}
+
+listcontent {
+}
+
+listpage {
+	display: none ;
+}
+
+verbatimblock {
+	background-color: #9999FF ;
+	display: block ;
+	padding: 1em ;
+	margin-bottom: 1em ;
+	margin-top: 1em ;
+	font-family: "Lucida Console", "DejaVu Sans Mono", monospace ;
+}
+
+verbatimlines+verbatimlines {
+	display: block ;
+	margin-top: 1em ;
+}
+
+verbatimline {
+	display: block ;
+	white-space: pre-wrap ;
+}
+
+verbatim {
+	white-space: pre-wrap ;
+	color: #666600 ;
+	font-family: "Lucida Console", "DejaVu Sans Mono", monospace ;
+}
+
+break {
+	display: block ;
+	margin-bottom: 1em ;
+}
+
+sectioncontent {
+	display: block ;
+	margin-top: 1em ;
+	margin-bottom: 1em ;
+}
+
+section[detail=chapter], section[detail=title] {
+	margin-top: 3em ;
+	margin-bottom: 2em ;
+}
+
+section[detail=section], section[detail=subject] {
+	margin-top: 2.5em ;
+	margin-bottom: 2.5em ;
+}
+
+section[detail=subsection], section[detail=subsubject] {
+	margin-top: 2em ;
+	margin-bottom: 2em ;
+}
+
+section[detail=summary], section[detail=subsummary] {
+	margin-top: 1em ;
+	margin-bottom: 1em ;
+}
+
+section[detail=chapter]>sectionnumber {
+	display: inline-block ;
+	margin-right: 1em ;
+	font-size: 3em ;
+	font-weight: bold ;
+}
+
+section[detail=chapter]>sectiontitle, section[detail=title]>sectiontitle {
+	font-size: 3em ;
+	font-weight: bold ;
+}
+
+section[detail=section]>sectionnumber {
+	display: inline-block ;
+	margin-right: 1em ;
+	font-size: 2.5em ;
+	font-weight: bold ;
+}
+
+section[detail=section]>sectiontitle, section[detail=subject]>sectiontitle {
+	font-size: 2.5em ;
+	font-weight: bold ;
+}
+
+section[detail=summary]>sectiontitle {
+	display: block ;
+	margin-top: 1em ;
+	margin-bottom: 1em ;
+	font-weight: bold ;
+	border-bottom-style: solid ;
+	border-color: #9999FF ;
+	border-width: .15em;
+}
+
+section[detail=subsection]>sectionnumber {
+	display: inline-block ;
+	margin-right: 1em ;
+	font-size: 2em ;
+	font-weight: bold ;
+}
+
+section[detail=subsection]>sectiontitle, section[detail=subsubject]>sectiontitle{
+	font-size: 2em ;
+	font-weight: bold ;
+}
+
+section[detail=subsummary]>sectiontitle {
+	display: block ;
+	margin-top: 1em ;
+	margin-bottom: 1em ;
+	font-weight: bold ;
+	border-color: #9999FF ;
+	border-bottom-style: dotted ;
+	border-width: .15em;
+}
+
+table {
+	display: table ;
+}
+
+tablerow {
+	display: table-row ;
+}
+
+tablecell[align=middle] {
+	display: table-cell ;
+	text-align: center ;
+	padding: .1em ;
+}
+
+tablecell[align=flushleft] {
+	display: table-cell ;
+	text-align: left ;
+	padding: .1em ;
+}
+
+tablecell[align=flushright] {
+	display: table-cell ;
+	text-align: right ;
+	padding: .1em ;
+}
+
+tablecell {
+	display: table-cell ;
+	text-align: left ;
+	padding: .1em ;
+}
+
+tabulate {
+	display: table ;
+	margin-top: 1em ;
+	margin-bottom: 1em ;
+	margin-left: 2.5em ;
+}
+
+tabulaterow {
+	display: table-row ;
+}
+
+tabulatecell[align=middle] {
+	display: table-cell ;
+	text-align: center ;
+	padding-right: 1em ;
+}
+
+tabulatecell[align=flushleft] {
+	display: table-cell ;
+	text-align: left ;
+	padding-right: 1em ;
+}
+
+tabulatecell[align=flushright] {
+	display: table-cell ;
+	text-align: right ;
+	padding-right: 1em ;
+}
+
+tabulatecell {
+	display: table-cell ;
+	text-align: left ;
+	padding-right: 1em ;
+}
+
+itemgroup {
+	display: block ;
+}
+
+item {
+	display: block ;
+}
+
+itemtag {
+	display: inline-block ;
+	width: 2em ;
+}
+
+itemcontent {
+}
+
+register {
+	display: none ;
+}
+
+float {
+	display: block ;
+	margin-top: 1em ;
+	margin-bottom: 1em ;
+	margin-left: 2.5em ;
+}
+
+floatcontent {
+}
+
+floatcaption {
+	display: block ;
+	margin-top: 0.5em ;
+	color: #666600 ;
+}
+
+floattag {
+	font-weight: bold ;
+	margin-right: 1em ;
+}
+
+floattext {
+}
+
+sorting, synonym {
+	display: inline ;
+	font-variant: small-caps ;
+}
+
+mpgraphic:before { /* does not work with empty element */
+	content: "[runtime metapost graphic]" ;
+}
+
+mpgraphic {
+	display: inline ;
+}
+
+/* xhtml */
+
+a[href] {
+	text-decoration: none ;
+	color: inherit ;
+}
+
+a[href]:hover {
+	color: #770000 ;
+	text-decoration: underline ;
+}
+
+/* debugging */
+
+S1:before, S2:before, S3:before, S4:before, S5:before, S6:before, S7:before, S8:before, S9:before, S0:before {
+	content: " ";
+}

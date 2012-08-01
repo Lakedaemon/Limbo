@@ -1,0 +1,240 @@
+\startenvironment environment_Maths
+\unprotect
+%%% todo
+
+% ? context way to type
+%
+%\startformula
+%\eqalign{
+%ℜe(λs+μz)&=λℜe(s)+μℜe(z)\cr
+%ℑm(λs+μz)&=λℑm(s)+μℑm(z)\cr
+%}\qquad(λ, μ, s, z) ∈ ℝ^2×ℂ^2
+%\stopformula
+%
+
+% ? use \startalign inside \Eq
+
+% ? fix CDATA
+
+% trim spaces
+
+
+
+% setup
+\mainlanguage[fr]
+\fr
+
+\definefloat[centeredTable][centeredTables][table]
+\setupfloat[centeredTable][default={fixed,none}]
+\setupinmargin[style=\bfxx\setupinterlinespace]
+\usemodule[tikz]
+
+
+
+
+
+
+
+
+\startuseMPgraphic{FunnyFrame}
+picture p ; numeric w, h, o ;
+p := textext.rt(\MPstring{FunnyFrame}) ;
+w := OverlayWidth ; h := OverlayHeight ; o := BodyFontSize ;
+p := p shifted (2o,h-ypart center p) ; draw p ;
+drawoptions (withpen pencircle scaled 1pt withcolor .625red) ;
+draw (2o,h)--(0,h)--(0,0)--(w,0)--(w,h)--(xpart urcorner p,h) ;
+draw boundingbox p ;
+setbounds currentpicture to unitsquare xyscaled(w,h) ;
+\stopuseMPgraphic
+
+
+
+\startuseMPgraphic{GraphicDefinition}
+picture p ; numeric o ; path a, b ; pair c ;
+p := textext.rt(\MPstring{OverlayDefinition}) ;
+o := BodyFontSize ;
+a := unitsquare xyscaled (OverlayWidth,OverlayHeight) squeezed 2pt ;
+p := p shifted (2o,OverlayHeight-ypart center p) ;
+pickup pencircle scaled OverlayLineWidth ;
+b := a squeezed 2pt;
+fill b withcolor OverlayColor ;
+draw b withcolor OverlayLineColor ;
+b := (boundingbox p) squeezed 2pt;
+fill b withcolor OverlayColor ;
+draw b withcolor OverlayLineColor ;
+draw p withcolor black ;
+setbounds currentpicture to a ;
+\stopuseMPgraphic
+                                                                   
+\defineoverlay[OverlayDefinition][\useMPgraphic{GraphicDefinition}]
+
+\startuseMPgraphic{GraphicProperty}
+picture p ; numeric o ; path a, b ; pair c ;
+p := textext.rt(\MPstring{OverlayProperty}) ;
+o := BodyFontSize ;
+a := unitsquare xyscaled (OverlayWidth,OverlayHeight);
+p := p shifted (2o,OverlayHeight-ypart center p) ;
+pickup pencircle scaled OverlayLineWidth ;
+b := a superellipsed .95;
+fill b withcolor OverlayColor ;
+draw b withcolor OverlayLineColor ;
+b := (boundingbox p) superellipsed .95;
+fill b withcolor OverlayColor ;
+draw b withcolor OverlayLineColor ;
+draw p withcolor black ;
+setbounds currentpicture to a ;
+\stopuseMPgraphic
+                                                                   
+\defineoverlay[OverlayProperty][\useMPgraphic{GraphicProperty}]
+
+%fill p withcolor .850white ; draw p withcolor .625yellow ;
+
+
+
+%\startuniqueMPgraphic{GraphicDefinitio}
+%path p ; p := fullsquare
+%xyscaled (\overlaywidth,\overlayheight) squeezed 2pt ;
+%pickup pencircle scaled 1pt ;
+%fill p withcolor .850white ; draw p withcolor .625yellow ;
+%\stopuniqueMPgraphic
+
+
+
+
+
+
+\setupframedtexts
+[Definition]
+[backgroundcolor=lightgray,
+framecolor=darkred,
+rulethickness=2pt,
+offset=\bodyfontsize,
+before={\blank[big,medium]},
+after={\blank[big]},
+width=\textwidth]
+
+
+\setupframedtexts
+[Property]
+[backgroundcolor=lightgray,
+framecolor=darkred,
+rulethickness=2pt,
+offset=\bodyfontsize,
+before={\blank[big,medium]},
+after={\blank[big]},
+width=\textwidth]
+
+
+
+\defineframedtext[Definition][frame=off,background=OverlayDefinition,before={}]
+\defineframedtext[Property][frame=off,background=OverlayProperty,before={}]
+
+\def\FrameTitle#1#2{\setMPtext{#1}{\hbox spread 1em{\hss\strut#2\hss}}}\setMPtext{#1}{} % initialize the text variable
+
+
+%\def\App#1:#2→#3:#4→#5\ppA{\Eq[C,C,C,C]{
+%\NC #1:\NC #2\NC \to\NC #3\NC\NR
+%\NC\NC #4\NC \mapsto\NC #5\NC\NR}
+%}
+
+
+\FrameTitle{OverlayDefinition}{Zapf (1)}
+\FrameTitle{OverlayProperty}{Zapf (2)}
+%\FrameTitle{Zapf (1)}
+%\StartFrame
+%Coming back to the use of typefaces in electronic
+%publishing: many of the new typographers receive their
+%knowledge and information about the rules of typography from
+%books, from computer magazines or the instruction manuals
+%which they get with the purchase of a PC or software.
+%\StopFrame
+
+
+%definition
+
+%%  obsolete
+\let\ob\mathbb
+
+\long\def\Application : #1\par{\noindent{\eightpts{\it Application : }#1}\medskip}
+
+\def\Center#1{\placecenteredTable{}{#1}}%
+\def\Conseil : #1\par{{%
+	\eightpoint
+	\noindent
+	\llap{%
+		$\underline{\mbox{Conseil}}$ : 
+	}%
+	#1\medskip
+}}%
+\def\CTab#1{\Center{\Tab{#1}}}%
+
+
+\def\Définition{\dosingleargument\Définition@do}%
+\def\Hypothèses@empty{}%
+\def\Définition@do[#1]#2\par{\def\Hypotheses{#1}\unless\ifx\Hypotheses\Hypothèses@empty\FrameTitle{OverlayDefinition}{#1}\fi\startDefinition\ignorespaces #2\stopDefinition\medskip}%
+
+\long\def\Démonstration. #1\CQFD{\noindent{\eightpoint Démonstration. #1}\bigskip}
+
+\def\Eq{\dosingleargument\Eq@do}%
+\def\Eq@process#1{%
+	\def\c{}%
+	\processaction[#1][
+		r=>\def\c{rh\FramedCell|},%
+		c=>\def\c{c|},
+		C=>\def\c{cm|},
+		*=>\let\Eq@Remember\relax]%
+   %  default=>\relax,
+    % unknown=>\unknown{... \commalistelement ...}
+    %
+\@EA\@EA\@EA\def\@EA\@EA\@EA\Eq@columns\@EA\@EA\@EA{\@EA\Eq@columns\c}
+}%
+\def\Eq@do[#1]#2{{\def\Eq@columns{|}\processcommalist[#1]\Eq@process
+\ifx\Eq@Remember\undefined
+	\@EA\CTab\@EA{\@EA[\Eq@columns]#2}\else
+	\@EA\R\@EA{\@EA\CTab\@EA{\@EA[\Eq@columns]#2}}\fi
+}}%
+
+\def\Et{\text{ et }}%
+\def\EtQ{\quad\Et\quad}
+\def\EtQQ{\qquad\Et\qquad}
+
+\def\Exemple{\def\Exemple@text{Exemple}\dosingleargument\Exemple@do}%
+\def\Exemple@do[#1]#2\par{{\getparameters[??LD][#1]}{\eightpoint\Exemple@text. \ignorespaces #2}\medskip}%
+\def\Exemples{\def\Exemple@text{Exemples}\dosingleargument\Exemple@do}%
+
+\let\F\over
+%\def\FramedCell@command{\inframed[offset=-0.2ex]}%
+\def\FramedCell#1{\inframed[offset=-0.2ex]{ #1 }}%
+
+\def\Notation{\noindent{\it Notation}}%
+
+\def\Propriété{\dosingleargument\Propriété@do}%
+\long\def\Propriété@do[#1]#2\par{\def\Hypothèses{#1}\unless\ifx\Hypotheses\Hypothèses@empty\FrameTitle{OverlayProperty}{#1}\fi\startProperty\ignorespaces #2\stopProperty\medskip}%
+\def\Définition@do[#1]#2\par{\def\Définition@hypotheses{#1}\unless\ifx\Définition@hypotheses\Définition@hypothèses@empty\FrameTitle{OverlayDefinition}{#1}\fi\startDefinition\ignorespaces #2\stopDefinition\medskip}%
+
+\let\Q\left
+
+\def\Rappel : #1\par{{%
+	\eightpoint
+	\noindent
+	\llap{%
+		$\underline{\mbox{Rappel}}$ : 
+	}%
+	#1\medskip
+}}%
+\long\def\Rappels. #1\par{\noindent{\eightpoint{\it Rappels. }#1}\medskip}
+
+
+\def\Remarque{\noindent{\it Remarque. }}%
+\def\Remarques{\noindent{\it Remarques. }}%
+
+\def\Tab#1{\starttabulate#1\stoptabulate}%
+
+\def\Théorème{\dosingleargument\Théorème@do}%
+\def\Théorème@do[#1]#2\par{{\getparameters[??LD][#1]}Théorème. \ignorespaces #2\par\medskip}%
+
+\def\VTab#1{\vcenter{\Tab{#1}}}%
+\let\W\right
+
+\protect
+\stopenvironment
