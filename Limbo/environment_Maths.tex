@@ -194,6 +194,10 @@ width=\textwidth]
 	\@EA\R\@EA{\@EA\CTab\@EA{\@EA[\Eq@columns]#2}}\fi
 }}%
 
+
+
+\def\Eqalign#1{\Matrix{[n=2,align={right,left}]#1}}%
+
 \def\Et{\text{ et }}%
 \def\EtQ{\quad\Et\quad}
 \def\EtQQ{\qquad\Et\qquad}
@@ -206,6 +210,8 @@ width=\textwidth]
 %\def\FramedCell@command{\inframed[offset=-0.2ex]}%
 \def\FramedCell#1{\inframed[offset=-0.2ex]{ #1 }}%
 
+
+\def\Matrix#1{\startmatrix#1\stopmatrix}%
 \def\Notation{\noindent{\it Notation}}%
 
 \def\Propriété{\dosingleargument\Propriété@do}%

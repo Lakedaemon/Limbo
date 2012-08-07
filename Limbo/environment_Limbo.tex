@@ -36,22 +36,7 @@
 
 \startluacode 
     L = L or {}
-    M = M or {}
-    
-    L.labelPrefix = ""
-    
-function L.process(node, mathId) 
-  local nodeId = lxml.id(node)
-  -- local mathId = lxml.att(nodeId,"id") -- notworking
-  local data = --lxml.content(nodeId) --
-  xml.content(nodeId)
-
-
-  if string.sub(data, 1, 9) == "<![CDATA[" then data = data.sub(data, 10, string.len(data) - 3) end
-
-  M[L.labelPrefix .. mathId] = data
-end 
-
+  
  L.course = "β"
 
  function L.setCourse(text)
@@ -69,88 +54,81 @@ end
 end
  
  
-function L.isInCourse(text)
-  if text then else return true end
-  local test = string.explode(text, "-")
-  if test[1] and string.find(test[1], L.course) then return true end
-  if test[2] and string.find(test[2], L.course) then return false end
+function L.isInCourse(node)
+  program = xml.filter(lxml.id(node),"xml://./attribute(p)")
+  if program~=nil then 
+    local test = string.explode(program, "-")
+    if test[1] and string.find(test[1], L.course) then return true end
+    if test[2] and string.find(test[2], L.course) then return false end
+  end
   return true
 end
 
-function L.processChapter(node, t, p)
-  if L.isInCourse(p) then 
-  	context.chapter(t)
-  	lxml.flush(node)
-  end
+function L.getIndex(node)
+  return xml.filter(lxml.id(node),"xml://./attribute(i)")
 end
 
-function L.processSection(node, t, p)
-  if L.isInCourse(p) then 
-  	context.section(t)
-  	lxml.flush(node)
-  end
+function L.getTitle(node)
+  return xml.filter(lxml.id(node),"xml://./attribute(t)")
 end
 
-function L.processSubsection(node, t, p)
-  if L.isInCourse(p) then 
-  	context.subsection(t)
-  	lxml.flush(node)
-  end
+function L.getProgram(node)
+  return xml.filter(lxml.id(node),"xml://./attribute(p)")
 end
 
 
-
-function L.processConcept(node, t, p, i)
-  if L.isInCourse(p) then 
+function L.processConcept(node)
+  if L.isInCourse(node) then 
     context("\\noindent")
-    context.inmargin(t)
-    if i~= "" then context.index(i) end
+    context.inmargin(L.getTitle(node))
+    index = L.getIndex(node)
+    if index~= nil then context.index(index) end
     lxml.flush(node)
   end
 end
 
-function L.processDefinition(node, p)
-  if not L.isInCourse(p) then return end
-  context("\\Définition "..L.getString(node).. "\\par")
-end
-
-function L.processExample(node, p)
-  if not L.isInCourse(p) then return end
+function L.processExample(node)
+  if not L.isInCourse(node) then return end
   context("\\Exemple "..L.getString(node))
 end
 
-function L.processFigure(node, p)
-  if not L.isInCourse(p) then return end
+function L.processFigure(node)
+  if not L.isInCourse(node) then return end
   context(L.getString(node))
 end
 
-function L.processExample(node, p)
-  if not L.isInCourse(p) then return end
+function L.processExample(node)
+  if not L.isInCourse(node) then return end
   context("\\Exemples "..L.getString(node))
 end
 
-function L.processProperty(node, p)
-  if not L.isInCourse(p) then return end
-  context("\\Propriété "..L.getString(node))
+
+
+function L.processSection(node, command)
+  if L.isInCourse(node) then 
+    context(command .. "{" .. L.getTitle(node) .. "}")  	
+  end
 end
 
-function L.processTheorem(node, p)
-  if not L.isInCourse(p) then return end
-  context("\\Théorème "..L.getString(node))
+function L.processStatement(node, command)
+  if not L.isInCourse(node) then return end
+  context(command..L.getString(node).. "\\par")
 end
 
-function L.processText(node, p)
-  if not L.isInCourse(p) then return end
+
+
+function L.processText(node)
+  if not L.isInCourse(node) then return end
   context(L.getString(node))
 end
 
-function L.processRemark(node, p)
-  if not L.isInCourse(p) then return end
+function L.processRemark(node)
+  if not L.isInCourse(node) then return end
   context("\\Remarque "..L.getString(node))
 end
 
-function L.processOL(node, p)
-  if not L.isInCourse(p) then return end
+function L.processOL(node)
+  if not L.isInCourse(node) then return end
   context("OL: "..L.getString(node))
 end
 \stopluacode 
@@ -168,48 +146,47 @@ end
 \def\getTitle#1{[[\xmlatt{#1}{t}]]}
 
 \startxmlsetups xml:chapter
-\ctxlua{L.processChapter("#1",[[\xmlatt{#1}{t}]],[[\xmlatt{#1}{p}]])}%
+\ctxlua{L.processSection("#1", "\\chapter ")}%
 \stopxmlsetups
 
 \startxmlsetups xml:section
-\ctxlua{L.processSection("#1",[[\xmlatt{#1}{t}]],[[\xmlatt{#1}{p}]])}%
+\ctxlua{L.processSection("#1", "\\section ")}%
 \stopxmlsetups
 
 \startxmlsetups xml:subsection
-\ctxlua{L.processSubsection("#1",[[\xmlatt{#1}{t}]],[[\xmlatt{#1}{p}]])}%
+\ctxlua{L.processSection("#1", "\\subsection ")}%
 \stopxmlsetups
 
 \startxmlsetups xml:concept
-%\ctxlua{L.processConcept("#1",[[\xmlatt{#1}{t}]],[[\xmlatt{#1}{p}]],[[\xmlatt{#1}{i}]])}%
-\ctxlua{L.processConcept("#1",\getTitle{#1},\getProgram{#1},\getIndex{#1})}%
+\ctxlua{L.processConcept("#1")}%
 \stopxmlsetups
 
 \startxmlsetups xml:text
-\ctxlua{L.processText("#1",[[\xmlatt{#1}{p}]])}%
+\ctxlua{L.processText("#1")}%
 \stopxmlsetups 
 
 \startxmlsetups xml:definition
-\ctxlua{L.processDefinition("#1",[[\xmlatt{#1}{p}]])}%
+\ctxlua{L.processStatement("#1", "\\Définition ")}%
 \stopxmlsetups
 
 \startxmlsetups xml:example
-\ctxlua{L.processExample("#1",[[\xmlatt{#1}{p}]])}%
+\ctxlua{L.processExample("#1")}%
 \stopxmlsetups
 
 \startxmlsetups xml:figure
-\ctxlua{L.processFigure("#1",[[\xmlatt{#1}{p}]])}%
+\ctxlua{L.processFigure("#1")}%
 \stopxmlsetups
 
 \startxmlsetups xml:property
-\ctxlua{L.processProperty("#1",[[\xmlatt{#1}{p}]])}%
+\ctxlua{L.processStatement("#1", "\\Propriété ")}%
 \stopxmlsetups
 
 \startxmlsetups xml:theorem
-\ctxlua{L.processTheorem("#1",[[\xmlatt{#1}{p}]])}%
+\ctxlua{L.processStatement("#1", "\\Théorème ")}%
 \stopxmlsetups
 
 \startxmlsetups xml:OL
-\ctxlua{L.processOL("#1",[[\xmlatt{#1}{p}]])}%
+\ctxlua{L.processOL("#1")}%
 \stopxmlsetups
 
 \def\setupCourse#1{\ctxlua{L.setCourse("#1")}}

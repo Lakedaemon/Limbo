@@ -141,7 +141,7 @@ en toute cohérente puisque
 
 <section t="Forme algébrique (additive)" p="β">
 
-<concept title="Nombre complexe">
+<concept t="Nombre complexe">
 <definition>
 Un nombre complexe est du type \R[title=forme additive]{$z=x+iy$}, avec $x$ et  $y$ réels et $i^2=-1$.</definition>
 <example>$π$,$i$, $1+i\sqrt2$,…</example>
