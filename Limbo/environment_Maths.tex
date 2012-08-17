@@ -28,108 +28,12 @@
 \setupfloat[centeredTable][default={fixed,none}]
 \setupinmargin[style=\bfxx\setupinterlinespace]
 \usemodule[tikz]
+%\usetikzlibrary{patterns}
+%\usemodule[pstricks]
+%\usePSTRICKSmodule[pst-barcode]
 
 
-
-
-
-
-
-
-\startuseMPgraphic{FunnyFrame}
-picture p ; numeric w, h, o ;
-p := textext.rt(\MPstring{FunnyFrame}) ;
-w := OverlayWidth ; h := OverlayHeight ; o := BodyFontSize ;
-p := p shifted (2o,h-ypart center p) ; draw p ;
-drawoptions (withpen pencircle scaled 1pt withcolor .625red) ;
-draw (2o,h)--(0,h)--(0,0)--(w,0)--(w,h)--(xpart urcorner p,h) ;
-draw boundingbox p ;
-setbounds currentpicture to unitsquare xyscaled(w,h) ;
-\stopuseMPgraphic
-
-
-
-\startuseMPgraphic{GraphicDefinition}
-picture p ; numeric o ; path a, b ; pair c ;
-p := textext.rt(\MPstring{OverlayDefinition}) ;
-o := BodyFontSize ;
-a := unitsquare xyscaled (OverlayWidth,OverlayHeight) squeezed 2pt ;
-p := p shifted (2o,OverlayHeight-ypart center p) ;
-pickup pencircle scaled OverlayLineWidth ;
-b := a squeezed 2pt;
-fill b withcolor OverlayColor ;
-draw b withcolor OverlayLineColor ;
-b := (boundingbox p) squeezed 2pt;
-fill b withcolor OverlayColor ;
-draw b withcolor OverlayLineColor ;
-draw p withcolor black ;
-setbounds currentpicture to a ;
-\stopuseMPgraphic
-                                                                   
-\defineoverlay[OverlayDefinition][\useMPgraphic{GraphicDefinition}]
-
-\startuseMPgraphic{GraphicProperty}
-picture p ; numeric o ; path a, b ; pair c ;
-p := textext.rt(\MPstring{OverlayProperty}) ;
-o := BodyFontSize ;
-a := unitsquare xyscaled (OverlayWidth,OverlayHeight);
-p := p shifted (2o,OverlayHeight-ypart center p) ;
-pickup pencircle scaled OverlayLineWidth ;
-b := a superellipsed .95;
-fill b withcolor OverlayColor ;
-draw b withcolor OverlayLineColor ;
-b := (boundingbox p) superellipsed .95;
-fill b withcolor OverlayColor ;
-draw b withcolor OverlayLineColor ;
-draw p withcolor black ;
-setbounds currentpicture to a ;
-\stopuseMPgraphic
-                                                                   
-\defineoverlay[OverlayProperty][\useMPgraphic{GraphicProperty}]
-
-%fill p withcolor .850white ; draw p withcolor .625yellow ;
-
-
-
-%\startuniqueMPgraphic{GraphicDefinitio}
-%path p ; p := fullsquare
-%xyscaled (\overlaywidth,\overlayheight) squeezed 2pt ;
-%pickup pencircle scaled 1pt ;
-%fill p withcolor .850white ; draw p withcolor .625yellow ;
-%\stopuniqueMPgraphic
-
-
-
-
-
-
-\setupframedtexts
-[Definition]
-[backgroundcolor=lightgray,
-framecolor=darkred,
-rulethickness=2pt,
-offset=\bodyfontsize,
-before={\blank[big,medium]},
-after={\blank[big]},
-width=\textwidth]
-
-
-\setupframedtexts
-[Property]
-[backgroundcolor=lightgray,
-framecolor=darkred,
-rulethickness=2pt,
-offset=\bodyfontsize,
-before={\blank[big,medium]},
-after={\blank[big]},
-width=\textwidth]
-
-
-
-\defineframedtext[Definition][frame=off,background=OverlayDefinition,before={}]
-\defineframedtext[Property][frame=off,background=OverlayProperty,before={}]
-
-\def\FrameTitle#1#2{\setMPtext{#1}{\hbox spread 1em{\hss\strut#2\hss}}}\setMPtext{#1}{} % initialize the text variable
+\def\SetupHypotheses#1#2{\doifemptyelse{#2}{\setupMPvariables[#1][Hypotheses=0]}{\setupMPvariables[#1][Hypotheses=1]\setMPtext{Hypotheses}{\hbox spread 1em{\hss\strut#2\hss}}}}
 
 
 %\def\App#1:#2→#3:#4→#5\ppA{\Eq[C,C,C,C]{
@@ -137,25 +41,16 @@ width=\textwidth]
 %\NC\NC #4\NC \mapsto\NC #5\NC\NR}
 %}
 
-
-\FrameTitle{OverlayDefinition}{Zapf (1)}
-\FrameTitle{OverlayProperty}{Zapf (2)}
-%\FrameTitle{Zapf (1)}
-%\StartFrame
-%Coming back to the use of typefaces in electronic
-%publishing: many of the new typographers receive their
-%knowledge and information about the rules of typography from
-%books, from computer magazines or the instruction manuals
-%which they get with the purchase of a PC or software.
-%\StopFrame
-
-
-%definition
-
 %%  obsolete
-\let\ob\mathbb
+%\let\ob\mathbb
 
-\long\def\Application : #1\par{\noindent{\eightpts{\it Application : }#1}\medskip}
+\def\e{{\rm e}}%
+%% beware
+\def\d{{\rm d}}%
+\def\≢{\not\equiv}%
+\def\ssi{{\it ssi} }
+
+\long\def\Application : #1\par{\noindent{\eightpts{\it Application : }#1}\medskip}%
 
 \def\Center#1{\placecenteredTable{}{#1}}%
 \def\Conseil : #1\par{{%
@@ -167,11 +62,6 @@ width=\textwidth]
 	#1\medskip
 }}%
 \def\CTab#1{\Center{\Tab{#1}}}%
-
-
-\def\Définition{\dosingleargument\Définition@do}%
-\def\Hypothèses@empty{}%
-\def\Définition@do[#1]#2\par{\def\Hypotheses{#1}\unless\ifx\Hypotheses\Hypothèses@empty\FrameTitle{OverlayDefinition}{#1}\fi\startDefinition\ignorespaces #2\stopDefinition\medskip}%
 
 \long\def\Démonstration. #1\CQFD{\noindent{\eightpoint Démonstration. #1}\bigskip}
 
@@ -202,21 +92,74 @@ width=\textwidth]
 \def\EtQ{\quad\Et\quad}
 \def\EtQQ{\qquad\Et\qquad}
 
-\def\Exemple{\def\Exemple@text{Exemple}\dosingleargument\Exemple@do}%
-\def\Exemple@do[#1]#2\par{{\getparameters[??LD][#1]}{\eightpoint\Exemple@text. \ignorespaces #2}\medskip}%
-\def\Exemples{\def\Exemple@text{Exemples}\dosingleargument\Exemple@do}%
+\def\Exemple#1{{\tenpoint Exemple : #1\crlf\crlf}}
+\def\Exercise#1{{\tenpoint Exercice : #1\crlf\crlf}}
+%\def\Exemple{\def\Exemple@text{Exemple}\dosingleargument\Exemple@do}%
+%\def\Exemple@do[#1]#2\par{{\getparameters[??LD][#1]}{\eightpoint\Exemple@text. \ignorespaces #2}\medskip}%
+%\def\Exemples{\def\Exemple@text{Exemples}\dosingleargument\Exemple@do}%
 
 \let\F\over
-%\def\FramedCell@command{\inframed[offset=-0.2ex]}%
-\def\FramedCell#1{\inframed[offset=-0.2ex]{ #1 }}%
-
+\def\Inframed#1{\inframed[toffset=-0.4ex,boffset=-0.4ex]{#1}}%
 
 \def\Matrix#1{\startmatrix#1\stopmatrix}%
 \def\Notation{\noindent{\it Notation}}%
 
-\def\Propriété{\dosingleargument\Propriété@do}%
-\long\def\Propriété@do[#1]#2\par{\def\Hypothèses{#1}\unless\ifx\Hypotheses\Hypothèses@empty\FrameTitle{OverlayProperty}{#1}\fi\startProperty\ignorespaces #2\stopProperty\medskip}%
-\def\Définition@do[#1]#2\par{\def\Définition@hypotheses{#1}\unless\ifx\Définition@hypotheses\Définition@hypothèses@empty\FrameTitle{OverlayDefinition}{#1}\fi\startDefinition\ignorespaces #2\stopDefinition\medskip}%
+% obsolete \less
+\def\Le{<}
+
+\def\Ou{\text{ ou }}%
+\def\OuQ{\quad\Ou\quad}
+\def\OuQQ{\qquad\Ou\qquad}
+
+\def\Proof#1{{\tenpoint Preuve : #1\crlf\crlf}}
+
+\startuniqueMPgraphic{Frame}{Hypotheses,Title,Value,Shape}
+  numeric o, l, m ; path a, b ; pair c ; 
+  o := BodyFontSize ;
+  a := unitsquare xyscaled (OverlayWidth,OverlayHeight);
+  l := OverlayLineWidth * 0.5 * \MPvar{Value};
+  pickup pencircle scaled l ;
+  b := a if  \MPvar{Shape} = 1: superellipsed .95; 
+  elseif  \MPvar{Shape} = 0: squeezed 2pt; fi;
+  fill b withcolor OverlayColor ;
+  draw b withcolor OverlayLineColor ;
+  setbounds currentpicture to a ;
+  if \MPvar{Title} = 1:
+    picture q ;
+    q := textext.rt(\MPstring{Title}) ;
+    if  \MPvar{Shape} = 1:
+      q := q shifted (OverlayWidth/2-xpart center q,OverlayHeight + o/2 + 1pt + ypart center q);
+      b := (boundingbox q)   superellipsed .95;  
+    elseif  \MPvar{Shape} = 0:
+        q := q shifted (OverlayWidth/2-xpart center q,OverlayHeight + ypart center q);
+        b := (boundingbox q)  squeezed 2pt;  
+    fi;
+    fill b withcolor OverlayColor ;
+    pickup pencircle scaled  (OverlayLineWidth * 0.5);
+    draw b withcolor OverlayLineColor ;
+    draw q withcolor black ;
+  fi;
+  if \MPvar{Hypotheses} = 1:
+    picture p ;
+    p := textext.rt(\MPstring{Hypotheses}) ;
+    p := p shifted (OverlayWidth/2-xpart center p,0) ;
+    b := (boundingbox p) if  \MPvar{Shape} = 1: superellipsed .95; 
+     elseif  \MPvar{Shape} = 0: squeezed 2pt; fi;
+    fill b withcolor OverlayColor ;
+    pickup pencircle scaled  (OverlayLineWidth * 0.5);
+    draw b withcolor OverlayLineColor ;
+    draw p withcolor black ;
+  fi;
+\stopuniqueMPgraphic    
+
+\defineoverlay[OverlayStatement][\useMPgraphic{Frame}]
+\setupframedtexts[Statement][backgroundcolor=lightgray,framecolor=darkred,rulethickness=2pt,offset=\bodyfontsize,before={\blank[big,medium]},after={\blank[big]},width=\textwidth,autowidth=force,location=lohi]
+
+\defineframedtext[Statement][frame=off,background=OverlayStatement]
+
+\setupframedtexts[S][width=\textwidth,autowidth=force]
+\defineframedtext[S][frame=off]
+
 
 \let\Q\left
 
@@ -231,13 +174,12 @@ width=\textwidth]
 \long\def\Rappels. #1\par{\noindent{\eightpoint{\it Rappels. }#1}\medskip}
 
 
-\def\Remarque{\noindent{\it Remarque. }}%
-\def\Remarques{\noindent{\it Remarques. }}%
+\def\Remarque#1{\noindent{\it Remarque. }#1\crlf\crlf}%
+
+%\def\Statement{\dosingleargument\Statement@do}%
+%\long\def\Statement@do[#1]#2\par{\SetupHypotheses{Frame}{#1}\placefigure[right,nonumber]{}{\startStatement\ignorespaces #2\stopStatement}}%
 
 \def\Tab#1{\starttabulate#1\stoptabulate}%
-
-\def\Théorème{\dosingleargument\Théorème@do}%
-\def\Théorème@do[#1]#2\par{{\getparameters[??LD][#1]}Théorème. \ignorespaces #2\par\medskip}%
 
 \def\VTab#1{\vcenter{\Tab{#1}}}%
 \let\W\right

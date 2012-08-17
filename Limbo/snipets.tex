@@ -65,7 +65,10 @@ Un nombre complexe est du type \R[title=forme additive]{$z=x+iy$}, avec $x$ et  
 %lxml.flush(l[1])
 %\stopluacode
 
+%\definecolor [darkred] [r=.5, g=.0, b=.0]
 
+% \startcolor[darkgreen]           
+%\stopcolor
 
 %\startxmlsetups xml:maths:base
 %\xmlsetsetup{maths}{*}{-}
@@ -73,7 +76,14 @@ Un nombre complexe est du type \R[title=forme additive]{$z=x+iy$}, avec $x$ et  
 %\xmlsetsetup{maths}{chapter/b}{xml:maths:chapter:b}
 %\stopxmlsetups
 %\xmlregisterdocumentsetup{maths}{xml:maths:base}
-
+%\startMPpage
+%draw hlingrid(-1, 4, 1, 4cm, 7cm) shifted(-1cm,0cm);
+%draw vlingrid(-1, 5, 1, 5cm, 5cm) shifted(0cm,-1cm);
+%drawarrow ((-0.5cm,0cm)..(5cm,0cm)) withpen pencircle scaled 2pt;
+%drawarrow ((0,-0.5cm)..(0cm,3cm)) withpen pencircle scaled 2pt;
+%\draw[-triangle 60,thick] (0,0) -- node [anchor=south,sloped] {$x\vec i+y\vec j$} node [anchor=north,sloped,pos=0.6,color=red] {$x+yi$} (4.3,2.4) node [anchor=south] {$M$};
+%\draw[-triangle 45,thick] (0,0) -- node [anchor=east,pos=0.65] {$y\vec j$} (0,2.4);
+%\stopMPpage
 function L.process(node, mathId) 
   local nodeId = lxml.id(node)
   -- local mathId = lxml.att(nodeId,"id") -- notworking

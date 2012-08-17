@@ -1,21 +1,24 @@
-<?xml version='1.0' standalone='yes?>
+<?xml version='1.0' standalone='yes'?>
 <part id="Algèbre">
 
 <chapter t="Logique" p="β">
 
-<text id="$∈$">Le symbole $∈$ signifie \quote{élément de}, \quote{dans} ou \quote{appartient à}.</text>
-<text id="$∀$">Le symbole $∀$ signifie \quote{pour chaque}, \quote{pour tout} ou \quote{quel que soit}.</text>
-<text id="$∃$">Le symbole $∃$ signifie \quote{il existe} ou \quote{on peut trouver}.</text>
-<text id="$⇒$">Le symbole $⇒$ signifie \quote{implique}.</text>
-<text id="$⇔$">Le symbole $⇔$ signifie \quote{équivaut à} ou \quote{si et seulement si}.</text>
-<text id="$:$">Le symbole $:$ signifie \quote{tel que} ou \quote{pour lequel}.</text>
-<text id="$\{⋯\}$">Le symbole $\{⋯\}$ signifie \quote{ensemble}.</text>
+<notation i="logique+symboles">\startitemize[packed]
+\item Le symbole \quote{$∈$} signifie \quote{élément de}, \quote{dans} ou \quote{appartient à}.
+\item Le symbole \quote{$∀$} signifie \quote{pour chaque}, \quote{pour tout} ou \quote{quel que soit}.
+\item Le symbole \quote{$∃$} signifie \quote{il existe} ou \quote{on peut trouver}.
+\item Le symbole \quote{$⇒$} signifie \quote{implique}.
+\item Le symbole \quote{$⇔$} signifie \quote{équivaut à} ou \quote{si et seulement si}.
+\item Le symbole \quote{$:$} signifie \quote{tel que} ou \quote{pour lequel}.
+\item Le symbole \quote{$\{⋯\}$} signifie \quote{ensemble}.
+\stopitemize
+</notation>
 
 
 </chapter>
 <chapter t="Structures algébriques" p="-β">
 
-<concept t="Corps" i="Structure+Corps">
+<concept t="Corps" i="structure+corps">
 <definition>
 Un ensemble $E$ muni de deux opérations $+$ et $\times$ forme un corps $(E,+,\cdots)$ si, et~seulement si, les onze propriétés suivantes sont satisfaites :
 i) L'ensemble $E$ n'est pas vide : 
@@ -81,20 +84,19 @@ xii) L'opération $\times$ est commutative dans $E$ :
 <text>
 Historiquement, la constatation que les nombres réels ne suffisent pas pour résoudre certaines équations polynômiales 
 du second degré telle que
-$$
+\startformula 
 x^2=-1
-\eqdef{Ceq}
-$$ 
+\stopformula 
 a motivé l'invention des nombres complexes : les nombres $a+ib$ pour lesquels $a$ et $b$ sont des nombres réels 
 et pour lesquels $i$ désigne une solution de l'équation \eqref{Ceq}. 
 \bigskip
 L'ensemble $ℂ$ des nombres complexes permet de résoudre toutes les équations po\-ly\-nô\-mia\-les 
 du second degré et possède la propriété fondamentale suivante : 
 
-\Theoreme [Index=Theoreme@Théorème!de d'Alembert;Title=Théorème de d'Alembert-Gauss] 
-Toute équation polynômiale de degré supérieur ou égal à $1$ admet au moins une solution dans~$ℂ$. 
+<theorem> [Index=Theoreme@Théorème!de d'Alembert;Title=Théorème de d'Alembert-Gauss] 
+Toute équation polynômiale de degré supérieur ou égal à $1$ admet au moins une solution dans~$ℂ$. </theorem>
 
-L'ensemble $ℂ$ des nombres complexes présente des avantages par rapport à l'ensemble $\ob R$ des nombres réels, 
+L'ensemble $ℂ$ des nombres complexes présente des avantages par rapport à l'ensemble $ℝ$ des nombres réels, 
 qui ne résident pas uniquement dans ces propriétés liées aux polynômes. D'ailleurs, une méthode classique très employée pour résoudre un problème réel consiste à faire le détour dans l'ensemble $ℂ$ suivant : \medskip
  \noindent
 a) transformer le problème réel en problème complexe, en général plus facile. 
@@ -114,111 +116,455 @@ et la seconde forme s'emploie plutôt dans un contexte multiplicatif.
 
 </section>
 
-<section t="Construction" p="β">
+<section t="Construction" p="-β+β">
 
-<text p="βμφτ">
-Nous admettons la construction de $ℂ$, qui est hors-programme.</text>
+<text p="βμφτ">On admet l'existence d'un corps commutatif $(ℂ,+,×)$ contenant les nombres réels ainsi qu'un élément $i$ vérifiant $i^2=-1$.
+</text>
 
-<text id="Construction de $ℂ$" p="-βμφτ">
+<group p="-βμφτ">
+<text>
 Etant données l'addition et la multiplication entre nombres réels, en posant  
-\Eq[*,C,r]{
-\NC (x,y) + (x',y') := (x + x',y + y')\HC{$+$}\NC\NR
-\NC (x, y)×(x',y') := (xx' - yy', xy' + yx'),\HC{$×$}\NC\NR
-}
+\startformula
+\startmatrix
+\NC (x,y) + (x',y') := (x + x',y + y')\NC\Inframed{$+$}\NR
+\NC (x, y)×(x',y') := (xx' - yy', xy' + yx'),\NC\Inframed{$×$}\NR
+\stopmatrix
+\stopformula
 on munit l'ensemble $ℂ:=ℝ^2$ des nombres complexes de deux lois $+$ et $×$, qui lui conférent une structure de corps multiplicatif, 
-contenant (un corps isomorphe à) $ℝ$.\medskip\noindent
+contenant (un corps isomorphe à) $ℝ$.</text>
 
-Pour simplifier l'utilisation de ces nombres, $(x,0)$ sera desormais noté $x$, $(0,1)$ sera noté $i$ et $(x,y)$ sera noté $x+iy$, 
+<notation>Pour simplifier l'utilisation de ces nombres, $(x,0)$ sera desormais noté $x$, $(0,1)$ sera noté $i$ et $(x,y)$ sera noté $x+iy$, 
 en toute cohérente puisque 
 \startformula
 (x,y)= (x,0) + (0,1) × (y,0) = x + iy
 \stopformula
+</notation>
 
-\Remarque $i×i=-1$ et $\{(x,0):x∈ℝ\}$ forme un sous-corps de $ℂ$ isomorphe à $ℝ$.
-</text>
+<remark>$i×i=-1$ et $\{(x,0):x∈ℝ\}$ forme un sous-corps de $ℂ$ isomorphe à $ℝ$.</remark>
+</group>
 
 </section>
 
 <section t="Forme algébrique (additive)" p="β">
 
-<concept t="Nombre complexe">
-<definition>
-Un nombre complexe est du type \R[title=forme additive]{$z=x+iy$}, avec $x$ et  $y$ réels et $i^2=-1$.</definition>
-<example>$π$,$i$, $1+i\sqrt2$,…</example>
+<subsection t="Corps $ℂ$ et identités remarquables">
 
+<concept t="Nombre complexe" i="nombre complexe">
+<text>Les complexes sont définis à partir des réels et d'un nombre $i$ vérifiant $i^2=-1$.</text>
+  <definition h="$x,y∈ℝ$" m="l">Un nombre complexe est du type $z=x+iy$.</definition>
+  <uses>
+    <item>Résolution d'équations algébriques  \startsdformula x^2+1=0\stopsdformula</item>
+    <item>Mise sous forme canonique (b)</item>
+    <item>Géométrie dans le plan</item>
+    <item>Résolution de problèmes réels, en les transposant au plan complexe</item>
+  </uses>
+  <example>$π$,$i$, $1+i\sqrt2$,…</example>
+  <remark>Le couple $(x,y)$ de nombres réels vérifiant $z=x+iy$ est unique.</remark>
+<proof>Soient $x,y,x',z'∈ℝ$ tels que $x+iy=x'+iy'$. En remarquant que $x-x'=i(y'-y)$ et en passant au carré, il suit $(x-x')^2=-(y-y')^2$ et donc que 
+\startformula
+\underbrace{(x-x')^2}_{⩾0}+\underbrace{(y-y')^2}_{∈ℝ} = 0 
+\stopformula
+Comme une somme de nombres positifs est nulle \ssi chaque nombre positif est nul. En conclusion, il vient $x=x'$ et $y=y'$ d'où l'unicité attendue. 
+</proof>
+  </concept>
+
+<concept t="$+$ et $×$">
+<text>L'addition et la multiplication des nombres complexes sont définies à partir de l'addition et de la multiplication des nombres réels de la façon suivante : </text>
+  <definition  p="β" m="l">
+    \startformula\startmatrix
+      \NC (x + iy) + (x' + iy')\NC:=\NC(x + x') + i(y + y')\NC\Inframed{$+$}\NR
+      \NC (x + iy) × (x' + iy')\NC:=\NC(xx' - yy') + i(xy' + yx')\NC\Inframed{$×$}\NR
+    \stopmatrix\stopformula
+  </definition>
+  <remark>On vérifie que $i×i=-1$.</remark>
+    <text>La structure de corps commutatif confère à $ℂ$ des propriétés particulièrement intéressantes pour le calcul.
+  </text>
 </concept>
 
-<definition id="Lois $+$ et $×$ de $ℂ$">L'ensemble $ℂ$ des nombres complexes est muni d'une addition et d'une multiplication définies par 
-\Eq[*,C,r]{
-\NC (x + iy) + (x' + iy') := x + x' + i(y + y')\HC{$+$}\NC\NR
-\NC (x + iy) × (x' + iy') :=xx' - yy' + i(xy' + yx')\HC{$×$}\NC\NR
-}</definition>
+  <concept t="loi interne\\élément neutre">
+  <text>La somme et le produit  de nombres complexes est un nombre complexe et ajouter $0$ ou multiplier par $1$ ne modifie pas un nombre complexe. 
+ </text>
+    <property h="$z,z'∈ℂ$">
+      \startformula 
+      \startmatrix
+        \NC z+z' ∈ ℂ\NC\Et\NC z×z' ∈ ℂ\NC\Inframed{loi interne}\NR
+        \NC 0 + z = z + 0 = z\NC\Et\NC 1×z=z×1=z\NC\Inframed{élément neutre}\NR
+      \stopmatrix
+      \stopformula
+    </property>
+  </concept>
+  <concept t="opposé\\inverse">
+    <text>Un nombre complexe $z$ admet un unique opposé $-z$ et un unique inverse $z^{-1}$ si~$z≠0$.</text>
+    <property>
+      \startformula \startmatrix
+        \NC ∀ z∈ ℂ,\NC ∃!y∈ ℂ: \NC y+z=z+y=0.\NC\Inframed{opposé $-z$}\NR
+        \NC ∀ z∈ ℂ^*,\NC ∃!y∈ ℂ: \NC y×z=z×y=1.\NC\Inframed{inverse $z^{-1}$}\NR
+      \stopmatrix\stopformula
+    </property>
+    <remarks>
+    <remark>L'inverse de $z≠0$ est noté $z^{-1}$ ou $1/z$.</remark>
+    <remark>Soustraire revient à ajouter l'opposé et diviser revient à multiplier par l'inverse.
+      \startformula
+        s-z:=s+(-z)\EtQ {s\F z}:= s×{1\F z}.
+      \stopformula
+    </remark>
+    <remark>Le nombre $0$ est absorbant, autrement dit $z×0 = 0×z = 0 \qquad(z∈ℂ)$.
+      </remark>
+     <remark>Il n'est pas possible de diviser par $0$ car $0$ ne possède pas d'inverse. 
+    </remark>
+    </remarks>
+    <concept t="$ℂ$ est intègre">
+      <text>Les nombres complexes non nuls étant tous inversibles, le corps $ℂ$ est intègre.</text>
+      <corollary m="+" h="$s,z∈ℂ$">Un produit de nombres complexes est nul \ssi l'un de ses facteurs est nul
+        \startformula
+          s×z = 0 ⟺ s = 0 \OuQ z=0
+        \stopformula
+      </corollary>
+      <uses>
+        <item>Racines des polynômes : $(x-3)(x+2)$ s'annule uniquement en $x=3$ et en $x=-2$</item>
+        <item>Résolution d'équation : $\cos(ϑ)\sin(ϑ)=0⟺ϑ≡0\ [{π\F2}]$.</item>
+        <item>Tableau de signe</item>
+      </uses>
+    </concept>
+  </concept>
+  <concept t="associativité\\commutativité\\distributivité">
+  <text>L'associativité et la commutativité de $+$ et $×$ ainsi que la distributivité de $×$ sur $+$ 
+  simplifient énormément le calcul et allègent les notations</text>
+  <property h="$x,y,z∈ℂ$">
+    \startformula 
+      \startmatrix
+        \NC(x+y)+z=x+(y+z)\NC\Et \NC (xy)z=x(yz)\NC\Inframed{associativité}\NR
+        \NC x+y=y+x\NC\Et \NC xy=yx\NC\Inframed{commutativité}\NR
+        \NC x(y+z)=xy+xz\NC\Et \NC (x+y)z=xz+yz\NC\Inframed{distributivité}\NR
+      \stopmatrix
+    \stopformula
+  </property>
+  <uses>
+    <item>Suppression de parentheses inutiles
+      \startsdformula\startmatrix
+        \NC a+((b+c)+d)=a+b+c+d\NR
+        \NC a×((b×c)×d)=a×b×c×d\NR
+        \stopmatrix
+      \stopsdformula
+    </item>
+    <item>Le résultat d'un produit ou d'une somme ne dépend pas de l'ordre des opérations effectuées : 
+      \startsdformula\startmatrix
+        \NC a+b+c+d = b+d+a+c\NR
+        \NC a×b×c×d = b×d×a×c\NR
+      \stopmatrix\stopsdformula
+  </item>
+  <item>Calcul mental : $5^2×3^3×2^3=(2×3)×3^2×(5×2)^2=5400$</item>
+  <item>Double produit $(a+b)×(c+d) = ac+ bc + ad + bd$.</item>
+  <item>Factorisation/développement $a(b+c+d+⋯+z) = ab+ac+ad+⋯+az$.</item>
+  </uses>
+  <remark>On calcule dans $ℂ$ comme dans $ℝ$, en utilisant en plus que $i^2=-1$.</remark>
+
+  </concept>
+  
+  
+<concept t="Identité fondamentale" i="identité+fondamentale">
+  <text>L'identité suivante interviendra également dans d'autres chapitres. Elle joue un rôle majeur pour les mathématiques</text>
+  <property m="+l" h="$x, y ∈ ℂ$, $n ∈ ℕ$">
+    \startformula
+      x^n-y^n=(x-y)\sum_{k+\ell=n-1}x^ky^\ell
+    \stopformula
+  </property>
+  <uses>
+    <item>Factorisation : $x^3-1=(x-1)(x^2+x+1)$</item>
+    <item>Sommation : $1+2+⋯+2^n=2^{n+1}-1$</item>
+    <item>Mise sous forme canonique (c)</item>
+    <item p ="-β">Inversion d'opérateurs</item>
+  </uses>
+</concept>
+<concept t="Identité remarquable">
+  <text>Sa variante la plus couramment utilisée est celle pour $n=2$.</text>
+  <corollary t="Identité remarquable" m="+l" i="identité+remarquable" h="$x, y ∈ ℂ$">
+    \startformula
+      x^2-y^2=(x-y)(x+y)
+    \stopformula
+  </corollary>
+  <uses>
+    <item>Calcul mental : $23×17=400-9$</item>
+    <item>Factorisation : $(x+2)^2-9=(x-1)×(x+5)$</item>
+  </uses>
+</concept>
 
 
-<theorem id="$ℂ$ est un corps commutatif">$(ℂ, +, ×)$ est un corps commutatif. 
-Ainsi pour $x$, $y$, $z$ dans $ℂ$, on a
-\Eq[*,C,c,C,r]{
-\NC x+y=y+x\NC et \NC xy=yx\HC{commutativité}\NC\NR
-\NC(x+y)+z=x+(y+z)\NC et \NC(xy)z=x(yz)\HC{associativité}\NC\NR
-\NC x(y+z)=xy+xz\NC et \NC(x+y)z=xz+yz\HC{distributivité}\NC\NR
-}</theorem>
 
-<text id="Dans $ℂ$, $+$ et $×$ sont internes et admettent un élément neutre">L'addition (resp. la multiplication) est interne à $ℂ$ et admet $0$ (resp. $1$) comme élément neutre. 
-Ainsi, pour $z$ et $z'$ dans $ℂ$, on a 
-\Eq[C,c,C,r]{
-\NC z+z' ∈ ℂ\NC et \NC zz' ∈ ℂ \HC{loi interne}\NC\NR
-\NC 0 + z = z + 0 = x\NC et \NC 1z=z1=z \HC{élément neutre}\NC\NR
-}
-</text>
+<concept t="Coefficients du binôme">
+<text>Le coefficient du binôme ${n\choose k}$, que l'on prononce \quote{$n$ et $k$} ou encore \quote{$k$ parmi $n$}, est défini de la façon suivante : </text>
+<definition p="β" m="l" i="coefficients+du binôme" h="$0⩽k⩽n$">
+\startsdformula
+{n\choose k}:={n!\F k!(n-k)!}
+\stopsdformula
+</definition>
+<uses>
+<item>Binôme de Newton</item>
+<item>Ensembles : ${n\choose k}$ est le nombre de parties à $k$ éléments d'un ensemble de cardinal $n$.
+</item>
+<item> Dénombrement : ${n\choose k}$ est le nombre de combinaisons de $k$ éléments choisis parmi $n$.</item>
+</uses>
+<remark>La notation $C_n^k$, qui désignait le nombre ${n\choose k}$ au lycée, ne sera plus employée desormais.\medskip</remark>
+</concept>
 
-<text id="Inversibilité dans $ℂ$ pour $+$ et $×$">Chaque élément de $ℂ$ (resp. non nul) admet un unique inverse noté $-z$ (resp $1/z$) pour $+$ (resp. pour $×$) :
-\Eq[C,r]{
-\NC ∀ z∈ ℂ,∃!y∈ ℂ: y+z=z+y=0.\HC{$y=-z$ opposé de $z$}\NC\NR
-\NC ∀ z∈ ℂ^*,∃!y∈ ℂ: yz=zy=1.\HC{$y=1/z$ inverse de $z$}\NC\NR
-}</text>
-
-
-<OL id="On calcule dans $ℂ$ comme dans $ℝ">Pour résumer, on calcule dans $ℂ$ comme dans $ℝ$, en exploitant la relation $i^2=-1$. 
-Ceci est dû au fait que $ℝ$ et $ℂ$, étant des corps commutatifs, sont régis par des règles de calcul analogues (développement, factorisation,…).</OL>
-
-<concept t="Parties réelles et imaginaires">
-<definition>Les parties réelles et imaginaires d'un nombre complexe $z$ sont les uniques nombres réels $ℜe(z)$ et $ℑm(z)$ tels que \R{$z=ℜe(z)+iℑm(z)$}.</definition>
-<example>$ℜe(1+i\sqrt2)=1$, $ℑm(1+i\sqrt2)=\sqrt2$</example>
-
-<property todo="context">Les application partie réelle $z→ℜe(z)$ et partie imaginaire $z→Im(z)$ sont $ℝ$-linéaires. Ainsi, on a 
-\R{\startformula
-\VTab{[|M|]
-\NC ℜe(λs+μz)=λℜe(s)+μℜe(z)\NC\NR
-\NC ℑm(λs+μz)=λℑm(s)+μℑm(z)\NC\NR
-} \qquad (λ, μ, s, z) ∈ ℝ^2×ℂ^2
-\stopformula}
+<property p="β" m="r" h="$0⩽k⩽n$">
+Le nombre ${n\choose k}$ est un entier.
 </property>
+<example>${7!\F 3!4!}={5040\F6*24}=35$ est bien un entier.</example>
+<exercise>Prouver cette propriété par récurence sur $n$.</exercise>
+
+<group>
+<property m="l" h="$0⩽k\Le n$">
+\startformula
+{n\choose k}+{n\choose k+1}={n+1\choose k+1}.
+\stopformula
+</property>
+<uses>
+<item>Triangle de Pascal</item>
+</uses>
+
+<text>
+\startformula 
+\startmatrix
+\NC 1\NR
+\NC 1\NC 1\NR
+\NC 1\NC 2\NC 1\NR
+\NC 1\NC 3\NC 3\NC 1\NR
+\NC 1\NC 4\NC 6\NC 4\NC 1\NR
+\NC ⋯\NC ⋯\NC ⋯\NC ⋯\NC ⋯\NC ⋯\NR
+\stopmatrix
+\stopformula
+</text>
+</group>
+
+
+
+<concept t="Binôme\\de Newton">
+<text>Le triangle de Pascal permet de calculer rapidement les coefficients du binôme : </text>
+<property t="Binôme de Newton" m="+l" i="identité+binôme de Newton" h="$a, b ∈ ℂ$, $n ∈ ℕ$"> 
+\startformula
+(a+b)^n=\sum_{k+\ell=n}{n\choose k}a^kb^\ell
+\stopformula
+</property>
+<uses>
+<item>Linéarisation d'expressions trigonométriques : \startsdformula\cos^4(ϑ)={\cos(4ϑ)+3\cos(2ϑ)+1\F8}.
+\stopsdformula</item>
+<item>Probabilités : loi binomiale</item>
+<item>Matrices : calcul de puissances</item>
+</uses>
+<exercise>A prouver par récurencer sur $n$.</exercise>
 </concept>
 
-<subsection t="Identités remarquables">
-
-<property id="$x^n-y^n$">[$n∈ℕ$ et $(x,y)∈ℂ^2$]
-\R{\startformula
-x^n-y^n=(x-y)\sum_{k+\ell=n-1}x^ky^\ell
-\stopformula}</property>
-
-
-
+<concept t="Identités remarquables">
+<text>Les variantes du binôme les plus couramment utilisées sont celles pour $n=2$ et $\pm b$.</text>
+ 
+<corollary t="Identités remarquables" m="+l" i="identité+remarquable"  h="$a,b ∈ ℂ$">
+\startformula
+\startmatrix
+\NC (a+b)^2=a^2+2ab+b^2\NR
+\NC (a-b)^2=a^2-2ab+b^2\NR
+\stopmatrix
+\stopformula
+</corollary>
+<uses>
+<item>Calcul mental : $23^2 = 400 + 2*60 + 9$.</item>
+<item>Mise sous forme canonique (a)</item>
+</uses>
+</concept>
 </subsection>
 
 
-<text id="Lien de $ℂ$ avec le plan">Structurellement, l'ensemble des nombres complexes est étroitement lié au plan affine : 
-\bigskip
-\Définition[{$\sc P$ plan affine muni d'un repère orthonormal $(O,\vec i,\vec j)$}] 
+<subsection t="Parties réelles et imaginaires">
+
+<concept t="Parties réelles et imaginaires" i="nombre complexe+parties réelles et imaginaires">
+<text p="β">Chaque complexe $z$ admet une partie réelle $ℜe(z)$ et une partie imaginaire $ℑm(z)$, deux nombres réels définis par les identités suivantes</text>
+<definition h="$x,y∈ℝ$" m="l">
+  \startformula 
+    ℜe(x+iy):=x\EtQ ℑm(x+iy):=y
+  \stopformula
+</definition>
+
+<remarks>
+<remark>on a $z=ℜe(z)+iℑm(z)\quad(z∈ℂ)$.</remark>
+<remark m="!">Malgré son nom, la partie imaginaire est un nombre réel.</remark>
+</remarks>
+
+<example>$ℜe(1+i\sqrt2)=1$, $ℑm(1+i\sqrt2)=\sqrt2$</example>
+</concept>
+
+<concept t="linéarité" i="application linéaire+parties réelles et imaginaires">
+<text>La partie réelle et la partie imaginaire sont $ℝ$-linéaires.</text>
+<property h="$λ,μ ∈ ℝ$, $s,z ∈ℂ $" m="l">
+\startformula
+\startmatrix
+\NC ℜe(λs+μz)=λℜe(s)+μℜe(z)\NR
+\NC ℑm(λs+μz)=λℑm(s)+μℑm(z)\NR
+\stopmatrix
+\stopformula
+</property>
+<remarks>
+<remark>On peut sortir le $+$ des \quote{parties}.
+\startsdformula
+\startmatrix
+\NC ℜe(s+z)=ℜe(s)+ℜe(z)\NR
+\NC ℑm(s+z)=ℑm(s)+ℑm(z)\NR
+\stopmatrix
+\stopsdformula
+</remark>
+<remark>On peut sortir les réels $λ$ des \quote{parties}.
+\startsdformula
+\startmatrix
+\NC ℜe(λz)=λℜe(z)\NR
+\NC ℑm(λz)=λℑm(z)\NR
+\stopmatrix
+\stopsdformula
+</remark>
+</remarks>
+</concept>
+
+<concept t="égalité" i="nombre complexe+égalité">
+<text>Deux complexes $s$ et $z$ sont égaux \ssi leurs parties réelles et imaginaires sont égales.</text>
+<property m="l">
+\startformula
+s = z ⟺  \startcases
+\NC ℜe(s)=ℜe(z)\NR
+\NC ℑm(s)=ℑm(z)\NR
+ \stopcases
+\stopformula
+</property>
+<uses>
+<item> 1 problème complexe = 2 problèmes réels.</item>
+<item>Racines carrées $z=x+iy$ de $s=a+ib$ : \startformula
+s = z^2 ⟺\startcases 
+a=x^2-y^2\NR
+b=2xy \NR
+\stopcases
+\stopformula</item>
+</uses>
+</concept>
+</subsection>
+
+<concept t="nombre complexe réel" i="nombre complexe+réel">
+<text>Un complexe $z$ est un nombre réel \ssi sa partie imaginaire est nulle.</text>
+<property h="$z∈ℂ$" m="l"> 
+\startformula 
+z\text{ est réel} ⟺ ℑm(z)=0
+\stopformula
+</property>
+<remark>L'ensemble des nombres complexes réels (autrement dit $ℝ$) est parfois appelé droite réelle</remark>
+</concept>
+
+<concept t="imaginaire pur" i="nombre complexe+imaginaire pur">
+<text>Un complexe $z$ est dit imaginaire pur \ssi sa partie réelle est nulle.</text>
+<definition h="$z∈ℂ$" m="l">
+\startformula 
+z\text{ est imaginaire pur} ⟺ ℜe(z)=0.
+\stopformula
+</definition>
+<remark>L'ensemble des nombres complexes imaginaires purs (autrement dit $iℝ$) est parfois appelé droite imaginaire pure.</remark>
+
+</concept>
+
+<subsection t="Conjugué d'un nombre complexe"> 
+
+<concept t="Conjuguaison" i="nombre complexe+conjugué">
+
+<text>A chaque complexe $z$ est associé un unique nombre complexe conjugué $\bar z$.</text>
+<definition h="$x,y ∈ ℝ$" m="l">
+\startsdformula
+\overline {x+iy} := x-iy
+\stopsdformula
+</definition>
+<example>$\overline {1+i\sqrt2} := 1-i\sqrt2$,\quad $\overline {3i} := -3i$ et $\bar 7 := 7$</example>
+</concept>
+
+<concept t="lien">
+<text>
+Il est possible d'exprimer $z$ et son conjugué en fonction des parties réelles et imaginaires de $z$ et inversement.</text>
+<property h="$z∈ℂ$">
+\startformula 
+\startcases
+  \NC ℜe(z)={z+\overline z\F 2}\NR
+  \NC ℑm(z)={z-\overline z\F2i}\NR
+\stopcases \EtQQ \startcases[style=\displaystyle]
+\NC z=ℜe(z)+i ℑm(z)\NR 
+\NC\overline z=ℜe(z)-i ℑm(z)\NR
+\stopcases
+\stopformula
+</property>
+<remark>
+La conjuguaison permet de caractériser les complexes $z$ qui sont réels ou imaginaires purs. 
+\startformula 
+\startmatrix
+\NC z\text{ est réel} ⟺ \bar z = z. \NR
+\NC z\text{ est imaginaire pur} ⟺ \bar z = -z. \NR
+\stopmatrix
+\stopformula
+</remark>
+</concept>
+
+<concept t="linéarité" i="application linéaire+conjuguaison">
+<text>La conjuguaison $z\mapsto\overline z$ est $ℝ$-linéaire.</text>
+<property h="$λ,μ ∈ ℝ$, $s,z ∈ℂ $" m="l">
+\startsdformula
+\overline{λs+μz}=λ\overline s+μ\overline z
+\stopsdformula
+</property>
+<remarks>
+<remark>Le conjugué d'une somme est la somme des conjugués
+\startsdformula\overline{s+z}=\overline s + \overline z
+\stopsdformula
+</remark>
+<remark>On peut sortir les réels $λ$ de la conjuguaison.
+\startsdformula
+\overline{λz}=λ\overline z
+\stopsdformula
+</remark>
+</remarks>
+</concept>
+
+<concept t="produit\\quotient\\puissance"><text>Le conjugué d'un produit est le produit des conjugués, de même pour le quotient et la puissance (à condition d'être définis).</text>
+<property  m="l">
+\startsdformula
+\overline{s×z}\NC=\NC\overline s×\overline z
+\stopsdformula
+</property>
+<property  m="c">
+\startsdformula
+\overline{\thinspace s\thinspace\F z}={\thinspace\overline s\thinspace\F \overline z}
+\stopsdformula
+</property>
+<property  m="r">
+\startsdformula
+\overline{z^n}=(\overline z)^n
+\stopsdformula
+</property></concept><concept t="involution"><text>On ne change pas un nombre complexe $z$ en le conjuguant deux fois.</text>
+<property h="$z ∈ℂ$" m="l">
+\startsdformula
+\overline{\thinspace\overline{z}\thinspace}= z
+\stopsdformula
+</property>
+<remark>Le nombre $\overline z$ est le conjugué de $z$ et le nombre $z$ est le conjugué de $\overline z$. 
+Autrement~dit, les nombres $z$ et $\overline z$ sont conjugués. 
+</remark>
+</concept>
+</subsection>
+
+
+<subsection t="Lien géométrique">
+
+<concept t="affixe\\image"><text>Les nombres complexes peuvent être canoniquement associés aux points et aux vecteurs d'un plan muni d'un repère orthonormé.</text>
+<definition h="$(O,\vec i,\vec j)$ repère orthonormé du plan $\sc P$"> 
 \startitemize
 \item L'affixe d'un point $M$ de coordonnées $(x,y)$ est le nombre complexe $x+iy$.
 Inversement, l'image de $x+iy$ est le point $M$ de coordonnées $(x,y)$.
 \item L'affixe d'un vecteur $x\vec i+y\vec j$ est le nombre complexe $x+iy$.
-Inversement, au nombre complexe $x+iy$ est associé le vecteur $x\vec i+y\vec j$.\stopitemize</text>
+Inversement, au nombre complexe $x+iy$ est associé le vecteur $x\vec i+y\vec j$.\stopitemize
+</definition>
 
-<danger id="Lien de $ℂ$ avec le plan:!">Ne pas confondre le nombre complexe $i$ avec le vecteur $\vec i$.</danger>
+<remark m="!">Ne pas confondre le nombre complexe $i$ avec le vecteur $\vec i$.</remark>
 
-<figure id="Lien de $ℂ$ avec le plan:figure">\starttikzpicture
+<figure><![CDATA[\starttikzpicture
 \clip (-1,-1) rectangle (5.4,3.1);
 \draw[blue!20,ultra thin] (-0.5,-0.5) grid (5.4,3.1);
 \draw[-] (-0.5,0) -- (5,0) coordinate (x axis);
@@ -231,12 +577,16 @@ Inversement, au nombre complexe $x+iy$ est associé le vecteur $x\vec i+y\vec j$
 \draw[-open triangle 60,thick] (0,0) -- node [pos=0.4,anchor=east] {$\vec j$} (0,1);
 \draw[-open triangle 60,thick] (0,0) -- node [pos=0.4,anchor=north] {$\vec i$} (1,0);
 \node [anchor=north east] (O) at (0,0) {$O$};
-\stoptikzpicture</figure>
+\stoptikzpicture]]></figure>
+</concept>
 
-<text id="Lien de $ℂ$ avec le plan:+">Géométriquement, l'addition de deux nombres complexes $s=a+ib$ et $z=c+id$ s'interprètre 
-par la règle du parallèlogramme. Ainsi, sur la figure suivante, les points $O$, $M$, $P$ et $Q$, d'affixes~respectives $0$, $s$, $z$ et $s+z$, 
-forment un parallèlogramme.
 
+<concept t="addition">
+<text>Géométriquement, l'addition de deux nombres complexes $s=a+ib$ et $z=c+id$ s'interprètre 
+alors par la règle du parallèlogramme. Ainsi, sur la figure suivante, les points $O$, $M$, $P$ et $Q$, d'affixes~respectives $0$, $s$, $z$ et $s+z$, 
+forment un parallèlogramme.</text>
+
+<figure><![CDATA[
 \starttikzpicture[scale=0.8]
 \draw[-] (-0.2,0) -- (6.5,0) coordinate (x axis);
 \draw[-] (0,-0.2) -- (0,4.5) coordinate (y axis);
@@ -254,138 +604,18 @@ forment un parallèlogramme.
 \draw[dashed] (6,4) -- (0,4) node [color=red,anchor=east] {$b+d$};
 \draw[dashed] (6,4) -- (6,0) node [color=red,anchor=north] {$a+c$};
 \node [anchor=north east] (O) at (0,0) {$O$};
-\stoptikzpicture</text>
-
-</section>
-
-</chapter>
-</part>
+\stoptikzpicture]]></figure>
+</concept>
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-
-\Section Introduction C, Introduction. 
-
-\Section Construction
-
-\Section CorpsC, Forme algébrique des nombres complexes. 
-
-\Subsection ConstructionC, Construction de $\ob C$ et lien géométrique. 
-
-
-
-
-
-
-\Section DefinitionC, Définition algébrique de $\ob C$. 
-
-
-L'identité suivante est très importante et sert en particulier à calculer la somme d'une suite géomètrique. 
-\bigskip
-
-\Propriete [$n\in\ob N$ et $(a,b)\in\ob C^2$]
-$$
-a^n-b^n=(a-b)\sum_{k=0}^{n-1}a^kb^{n-1-k}=(a-b)\sum_{k+\ell=n-1}a^kb^\ell.
-$$
-En particulier, l'identité remarquable $a^2-b^2=(a-b)(a+b)$ est une conséquence immédiate 
-de la relation précédente pour l'entier $n=2$. 
-\bigskip
-
-\Definition 
-Pour des entiers $n\ge k\ge 0$, on pose 
-$$
-{n\choose k}:={n!\F k!(n-k)!}.
-$$
-
-Le symbôle ${n\choose k}$ se lit ``$n$ et $k$'' et le nombre qu'il représente se note parfois $c_n^k$ 
-et satisfait la propriété suivante : 
-
-\Propriete
-Pour $0\le k\le n$, le nombre ${n\choose k}$ est un entier. De plus, si $0\le k<n$, on a 
-$$
-{n\choose k}+{n\choose k+1}={n+1\choose k+1}.
-$$
-
-L'identité suivante est fondamentale. On l'emploie par exemple pour linéariser des expressions trigonométriques. 
-
-\Propriete [Title=Binôme de Newton;$n\in\ob N$ et $(a,b)\in\ob C^2$] 
-$$
-(a+b)^n=\sum_{k=0}^n{n\choose k}a^kb^{n-k}=\sum_{k+\ell=n}{n\choose k}a^kb^\ell.
-$$
-
-\noindent
-Les identités remarquables $(a+b)^2=a^2+2ab+b^2$ et $(a-b)^2=a^2-2ab+b^2$ sont des conséquences 
-immédiates du binôme de Newton pour l'entier $n=2$. 
-\bigskip
-
-\Subsection CProjections, Parties réelles et imaginaires. 
-
-La définition du corps $\ob C$ implique que chaque nombre complexe $z$ peut se mettre sous la forme $z=x+iy$, où $x$ et $y$ sont des nombres réels, 
-et que cette écriture est unique, ce~qui nous permet de définir les parties réelles et imaginaires du nombre $z$. 
-\bigskip
-
-\Definition [$z=x+iy$ nombre complexe, avec $x$ et $y$ nombres réels] 
-La partie réelle $\re(z)$ et la partie imaginaire $\im(z)$ du nombre $z$ sont définis par 
-$$
-\re(z):=x\qquad\mbox{et}\qquad\im(z):=y. 
-$$
-
-\Remarque : malgré son nom, la partie imaginaire est un nombre réel. 
-
-\noindent
-Une égalité entre nombres complexes se traduit par un système de deux égalités entre nombres réels. 
-\medskip
-
-\Propriete 
-Deux nombres complexes $s$ et $z$ sont égaux si et seulement s'ils ont même parties réelles et même parties imaginaires. 
-$$
-s=z\qquad\Longleftrightarrow\qquad
-\Q\{\eqalign{
-\re(s)=\re(z),\cr
-\im(s)=\im(z).
-}\W.
-$$
-
-
-\Propriete La partie réelle et la partie imaginaire sont des applications $\ob R$-linéaires. Autrement dit, elles vérifient 
-$$
-\forall(s,z)\in\ob C^2, \qquad\forall(\lambda,\mu)\in\ob R^2, \qquad\Q\{
-\eqalign{\re(\lambda s+\mu z)&=\lambda \re(s)+\mu\re(z),\cr
-\im(\lambda s+\mu z)&=\lambda\im(s)+\mu\im(z).}\W.
-$$
-
-\noindent
-Exercice : Prouver la propriété précédente. 
-
-\Subsection CConjugaison, Conjugué d'un nombre complexe. 
-
-
-Le corps $\ob C$ est naturellement muni d'une application remarquable : la conjugaison $z\mapsto\overline z$. 
-\medskip
-
-\Definition [$z=x+iy$ nombre complexe avec $x$ et $y$ nombres réels]
-Le conjugé du nombre $z$ est le nombre complexe $\overline z$ défini par 
-$$
-\overline z:=x-iy. 
-$$
-
+<concept t="conjuguaison">
+<text>
 Géomètriquement, la conjugaison est une symétrie par rapport à la droite réelle. 
 Les~points $M$ et $P$ d'affixes respectives $z$ et $\overline z$ sont symétriques par rapport à l'axe $(O,\vec i)$. 
+</text>
 
-\centerline{
-\tikzpicture
+<figure><![CDATA[
+\starttikzpicture
 \clip (-1,-1.9) rectangle (5.5,1.9);
 \draw[-] (-0.5,0) -- (5,0) coordinate (x axis);
 \draw[-] (0,-1.7) -- (0,1.7) coordinate (y axis);
@@ -401,82 +631,32 @@ Les~points $M$ et $P$ d'affixes respectives $z$ et $\overline z$ sont symétriqu
 \draw[|-triangle 45,thick] (4.3,0) -- node [anchor=west] {$-y\vec j$} (4.3,-1.4);
 \draw[-open triangle 60,thick] (0,0) -- node [pos=0.4,anchor=east] {$\vec j$} (0,1);
 \draw[-open triangle 60,thick] (0,0) -- node [anchor=north,pos=0.2] {$\vec i$} (1,0);
-\endtikzpicture}%
+\stoptikzpicture]]>
+</figure>
+</concept>
 
-\noindent
-Il est possible d'exprimer un nombre $z$ et son conjugué $\overline z$ en fonction des parties réelles et imaginaires $\re(z)$ et $\im(z)$
-$$
-\forall z\in\ob C, \qquad z=\re(z)+i\ \im(z)\quad\mbox{et}\quad \overline z=\re(z)-i\ \im(z)
-$$
-et vice versa
-$$
-\forall z\in\ob C, \qquad \re(z)={z+\overline z\F 2}\quad\mbox{et}\quad\im(z)={z-\overline z\F2i}. 
-$$
-La conjugaison et les parties réelles et imaginaires permettent de caractériser 
-simplement les nombres complexes qui sont des nombres réels et ceux qui sont imaginaires purs. 
-\medskip
+</subsection>
+</section>
 
-\Propriete 
-Un nombre complexe $z$ est un nombre réel si, et seulement si, sa partie imagnaire est nulle. 
-$$
-z\mbox{ est réel}\quad\Longleftrightarrow\quad \overline z=z\quad\Longleftrightarrow\quad z=\re(z)\quad\Longleftrightarrow\quad\im(z)=0
-$$
+<section t="Forme trigonométrique (multiplicative)">
 
-\Propriete 
-Un nombre complexe $z$ est imaginaire pur si, et seulement si, sa partie réelle est nulle. 
-$$
-z\mbox{ est imaginaire pur}\quad\Longleftrightarrow\quad \overline z=-z\quad\Longleftrightarrow\quad z=i\ \im(z)\quad\Longleftrightarrow\quad\re(z)=0.
-$$
+<subsection t="Module d'un nombre complexe">
 
-On ne change pas un nombre complexe en le conjuguant successivement deux fois. 
-\medskip
+<concept t="Module">
 
-\Bullet Le nombre $\overline z$ est le conjugué de $z$ et le nombre $z$ est le conjugué de $\overline z$. Autrement~dit, les nombres $z$ et $\overline z$ sont conjugués. 
-$$
-\forall z\in\ob C,\qquad \overline{\thinspace\overline z\thinspace}=z.
-$$
-
-Le conjugué d'une somme est la somme des conjugués ; le conjugué d'une différence est la différence des conjugués et 
-le conjugué d'un nombre multiplié par une constante réelle est le produit de son conjugué par la constante réelle. 
-\medskip
-
-\Bullet
-La conjuguaison $z\mapsto\overline z$ est une application $\ob R$-linéaire. Autrement dit 
-$$
-\forall (s,z)\in\ob C^2,\qquad\forall(\lambda,\mu)\in\ob R^2, 
-\qquad \lambda s+\mu z=\lambda\overline s+\mu\overline z.
-$$
-
-
-\Bullet Le conjugué d'un produit est le produit des conjugués. 
-$$
-\forall (s,z)\in\ob C^2, \qquad \overline{s\times z}=\overline s\times \overline z.
-$$
-
-
-\Bullet Le conjugué d'un quotient est le quotient des conjugués. 
-$$
-\forall (s,z)\in\ob C\times\ob C^*, \qquad 
-\overline{\Q({s\F z}\W)}={\thinspace\overline s\thinspace\F \overline z}.
-$$
-
-Une conséquence immédiate de ces propriétés est que le conjugué d'une puissance est la puissance du conjugué : 
-$$
-\forall z\in\ob C^*, \qquad\forall n\in\ob Z, \qquad \overline{z^n}=\overline z^n.
-$$
-
-\Section CModule, Module d'un nombre complexe. 
-
-\Definition 
-Pour chaque nombre complexe $z=x+iy$, avec $x$ et $y$ nombres réels, le mo\-du\-le du nombre $z$ est le nombre réel positif $|z|$ défini par 
-$$
+<definition>
+Le module d'un nombre complexe $z=x+iy$, avec $x$ et $y$ réels, est le nombre réel positif  
+\startformula 
 |z|:=\sqrt{z\overline z}=\sqrt{x^2+y^2}. 
-$$
-\medskip
+\stopformula
+</definition>
+
+<remark>
 Dans un plan affine muni d'un repère orthonormé $(O,\vec i,\vec j)$, la distance de l'origine $O$ à un point $M$ d'affixe $z=x+iy$ 
 est le module $|z|=\sqrt{x^2+y^2}$ de l'affixe du point $M$. 
+</remark>
 
-\centerline{
+<figure>
 \tikzpicture
 \clip (-1,-0.7) rectangle (6.5,2.7);
 \draw[-] (-0.5,0) -- (6,0) coordinate (x axis);
@@ -488,73 +668,70 @@ est le module $|z|=\sqrt{x^2+y^2}$ de l'affixe du point $M$.
 \draw[-triangle 45,thick] (5.3,0) -- node [anchor=east] {$y\vec j$} (5.3,2.4);
 \draw[-open triangle 60,thick] (0,0) -- node [pos=0.4,anchor=east] {$\vec j$} (0,1);
 \draw[-open triangle 60,thick] (0,0) -- node [anchor=north] {$\vec i$} (1,0);
-\endtikzpicture}%
+\endtikzpicture
+</figure>
 
-Le module et la conjugaison étant liés par la relation 
-$$
-\forall z\in\ob C, \qquad |z|^2=z\overline z. 
-$$
+<remark>
+Le module et la conjugaison sont liés par la relation 
+\startformula 
+∀z∈ℂ, \qquad |z|^2=z\overline z. 
+\stopformula
+</remark>
+</concept>
 
-\goodbreak
-Une méthode classique pour mettre le quotient $s/z$ sous sa forme algébrique est : 
+<method>[Pour mettre l'inverse $1/z$ d'un nombre complexe $z=x+iy$ non nul sous la forme $a+ib$] 
+Multiplier numérateur et dénominateur par le conjugué de $z$. 
+\startformula 
+{1\F z}={\overline z\F z\overline z}={\overline z\F |z|^2}={x\F x^2+y^2}-i {y\F x^2+y^2}.
+\stopformula 
+</method>
 
-\Methode [Pour mettre l'inverse $1/z$ d'un nombre complexe {$z=x+iy$} non nul sous la~forme $a+ib$] 
-On multiplie numérateur et dénominateur par le conjugué de $z$. 
-$$
-\forall z\in\ob C, \qquad {1\F z}={\overline z\F z\overline z}={\overline z\F |z|^2}={x-iy\F x^2+y^2}={x\F x^2+y^2}-i {y\F x^2+y^2}.
-$$
-
-\noindent
+<exercise>
 Exercice : Mettre sous la forme algèbrique $x+iy$ les nombres complexes suivants :
-$$
+\startformula 
 {2+i\sqrt3\F\sqrt3-2i}\qquad\mbox{et}\qquad {(3+i)(2-i)\F2+i}.
-$$
+\stopformula 
+</exercise>
 
-\noindent Le module possède les propriétés suivantes 
-\bigskip
+<property>Le module possède les propriétés d'une norme
+\startformula
+\Matrix{
+\NC ∀z∈ℂ,\qquad |z|⩾0\NC\text{(positive)}\NR
+\NC ∀λ∈ℝ, ∀z∈ℂ,\qquad |λz|=λ|z|\NC\text{positivité homogène}\NR
+\NC |z|=0 ⟹ z=0\NC\text{(\quote{définie})}\NR
+\NC ∀ s,z ∈ℂ, \qquad \big||s|-|z|\big|  |s+z| ⩽ |s|+|z|\NC\text{(inégalités triangulaires)}\NR
+}
+\stopformula
+</property>
 
-\Bullet L'application $z\mapsto|z|$ est bien définie et à valeurs réelles positives :
-$$
-\forall z\in\ob C, \qquad|z|\ge0.
-$$
+<remark>Dans un plan affine muni d'un repère orthonormé $(O,\vec i,\vec j)$, la distance d'un point $M$ d'affixe $z=x+iy$ 
+à un point $Q$ d'affixe $s=x'+iy'$ est 
+\startformula 
+QM=\sqrt{(x-x')^2+(y-y')^2}=|z-s|.
+\stopformula
+</remark>
 
-\Bullet L'application $z\mapsto|z|$ est dite ``définie'' :
-$$
-\forall z\in\ob C, \qquad|z|=0\ \Longleftrightarrow\ z=0.
-$$
-
-\Remarque : Ne pas confondre cette propriété ``définie'' avec la propriété standard ``défini=existe". 
-\medskip 
-
-\Bullet Inégalités triangulaires :
-$$
-\forall (s,z)\in\ob C^2, \qquad\B| |s|-|z|\B| \le |s+z|\le |s|+|z|.\eqdef{eqtriangulaire}
-$$
-
-Dans un plan affine muni d'un repère orthonormé $(O,\vec i,\vec j)$, la distance d'un point $M$ d'affixe $z=x_1+iy_1$ 
-à un point $Q$ d'affixe $a=x_2+iy_2$ est 
-$$
-QM=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}=|z-a|.
-$$
+<remark m="!+">Ne pas confondre la propriété \quote{définie} des normes ou du produit scalaire avec la notion standard d'existence, de définition correcte des objets mathématiques.</remark>
 
 
+<definition h="$a∈ℂ$, $r>0$">
+Le disque ouvert de centre $a$ et de rayon $r$ est l'ensemble 
+\startformula 
+\sc D(a,r):=\{z∈ℂ:|z-a|\Le r\}. 
+\stopformula
+Le disque fermé de centre $a$ et de rayon $r$ est l'ensemble 
+\startformula 
+\overline{\sc D}(a,r):=\{z∈ℂ:|z-a|⩽ r\}. 
+\stopformula
+Le cercle de centre $a$ et de rayon $r$ est l'ensemble
+\startformula 
+\sc C(a,r):=\{z∈ℂ:|z-a|=r\}. 
+\stopformula
+</definition>
 
 
-\Definition [$a$ nombre complexe et $r>0$ nombre réel] 
-\item{$\bullet$} Le disque ouvert de centre $a$ et de rayon $r$ est l'ensemble 
-$$
-\sc D(a,r):=\{z\in\ob C:|z-a|<r\}. $$
-\item{$\bullet$} Le disque fermé de centre $a$ et de rayon $r$ est l'ensemble 
-$$
-\overline{\sc D}(a,r):=\{z\in\ob C:|z-a|\le r\}. $$
-\item{$\bullet$} Le cercle de centre $a$ et de rayon $r$ est l'ensemble
-$$
-\sc C(a,r):=\{z\in\ob C:|z-a|=r\}. 
-$$
-
-
-\centerline{
-\tikzpicture
+<figure><![CDATA[
+\starttikzpicture
 %\clip (-1.3,-0.5) rectangle (7,6);
 \node [circle,fill=gray,pattern=north west lines,pattern color=gray,draw=red,thick] at (1,4.5) {$\sc D(a,r)$};
 \node [circle,fill=gray,pattern=north west lines,pattern color=gray,draw=gray,thick] at (0,3) {$\overline{\sc D}(a,r)$};
@@ -563,20 +740,15 @@ $$
 \node [label={[label distance=-0.3cm]-45:$a$}] at (4,3) {$\times$};
 \draw [->] (4,3) -- node [anchor=south,sloped] {rayon $r$}++(200:2cm);
 \draw [->] (4,3) -- node [anchor=south,sloped,pos=0.4] {$|z-a|$}++(50:2.5cm) node [label={[label distance=-0.3cm]-45:$z$}] {$\times$};
-\endtikzpicture}
+\stoptikzpicture]]>
+</figure>
 
 
-La relation \eqref{eqtriangulaire} étant également satisfaite par le nombre $z'=-z$, elle est équivalente 
-à l'inégalité triangulaire
-$$
-\forall (s,z)\in\ob C^2, \qquad\Q| |s|-|z|\W| \le |s-z|\le |s|+|z|, 
-$$
-qui s'interprète géométriquement de la fa\c con suivante : le coté d'un triangle est plus petit que la somme 
+
+<group><text>Les inégalités triangulaires s'interprètent géométriquement de la fa\c con suivante : le coté d'un triangle est plus petit que la somme 
 des deux autres cotés et plus grand que leur différence. 
-
-
-\medskip
-\hfill
+</text>
+<pstricks><![CDATA[
 \pspicture*[](-1,-0.7)(8.8,3.5)
 \psaxes*[labels=none,ticks=none]{-}(0,0)(-.5,-.5)(8.8,3.3)
 \psline[linewidth=1pt,arrowsize=6pt]{->}(0,2)
@@ -593,104 +765,64 @@ des deux autres cotés et plus grand que leur différence.
 \psline[linewidth=1.5pt,arrowsize=6pt]{-}(6,3)(8,1)
 \rput{-45}(7.1,2.2){{\bf distance}}
 \rput{-45}(6.7,2){$MP=|s-z|$}
-\endpspicture
-\hfill\null
-\medskip
+\endpspicture]]>
+</pstricks>
+</group>
 
+<property>
 \noindent
 Le module d'un produit est le produit des modules. 
-$$
-{
-\forall (s,z)\in\ob C^2}, \qquad{|s\times z|=|s|\times|z|}.
-$$
-
-\noindent
+\startformula 
+∀ (s,z)∈ℂ^2, \qquad |s\times z|=|s|\times|z|.
+\stopformula
 Un nombre complexe a même module que son conjugué. 
-$$
-{\forall z\in\ob C}, \qquad
-{|z|=|\overline z|}.
-$$
-
-\noindent
+\startformula 
+∀ z∈ℂ, \qquad
+|z|=|\overline z|.
+\stopformula
 Le module d'un quotient est le quotient des modules. 
-$$
-{\forall (s,z)\in\ob C\times \ob C^*}, \qquad
-{\Q|{s\F z}\W|={\thinspace|s|\thinspace\F|z|}}.
-$$
+\startformula 
+∀ (s,z)∈ℂ\times ℂ^*, \qquad
+\Q|{s\F z}\W|={\thinspace|s|\thinspace\F|z|}.
+\stopformula
 En particulier, le module d'une puissance est la puissance du module. 
-$$
-{\forall z\in\ob C^*}, \qquad
-{\forall n\in\ob Z}, \qquad 
-{\Q|z^n\W|=|z|^n}.
-$$
+\startformula 
+∀ z∈ℂ^*, \qquad
+∀ n∈ℤ, \qquad 
+\Q|z^n\W|=|z|^n.
+\stopformula
 Les parties réelles et imaginaires d'un nombre sont majorées par son module : 
-$$
-{
-\forall z\in\ob C}, \qquad 
-{\b|\re(z)\b|\le |z|}\quad\mbox{et}\quad
-{\b|\im(z)\b|\le|z|}. 
-$$
+\startformula 
+∀ z∈ℂ, \qquad \big|ℜe(z)\big|⩽ |z|\EtQ \big|ℑm(z)\big|⩽|z|. 
+\stopformula
 Le module d'un nombre réel est égal à sa valeur absolue. 
-$$
-\forall x\in\ob R, \qquad \underbrace{|x|}_{\mbox{module}}=\underbrace{|x|}_{\vtop{\mbox{valeur absolue}}}
-$$
+\startformula 
+∀ x∈ℝ, \qquad \underbrace{|x|}_{\text{module}}=\underbrace{|x|}_{\vtop{\text{valeur absolue}}}
+\stopformula
+</property>
 
-\Section CTrigonometrie, Forme trigonométrique des nombres complexes. 
-
-\Subsection CGroupeU, Groupe $\ob U$ des nombres complexes de module $1$. 
-
-Commen\c cons par introduire une nouvelle structure algèbrique : la structure de groupe. 
-\medskip
+</subsection>
 
 
-\Definition [] Un ensemble $E$ muni d'une opération $\otimes$ est un groupe si, et seulement, si 
-les cinq propriétés suivantes sont satisfaites : 
-\item{i)}L'ensemble $E$ n'est pas vide : 
-$$
-\exists a\in E.
-$$ 
-\item{ii)}L'opération $\otimes$ est interne à $E$ : 
-$$
-\forall (a,b)\in E^2, \qquad a\otimes b\mbox{ est défini}\quad\mbox{et}\quad a\otimes b\in E
-$$
-\item{iii)}L'opération $\otimes$ admet un élément neutre, noté $e$, dans $E$ : 
-$$
-\exists e\in E:\qquad \forall a\in E,\qquad e\otimes a=a\otimes e=a
-$$
-\item{iv)}Chaque élément de l'ensemble $E$ admet un inverse pour la loi $\otimes$ : 
-$$
-\forall a\in E, \qquad \exists b\in E:\qquad a\otimes b=e=b\otimes a
-$$
-\item{v)}L'opération $\otimes$ est associative dans $E$ :
-$$
-\forall (a,b,c)\in E^3, \qquad(a\otimes b)\otimes c=a\otimes (b\otimes c)
-$$ 
+<subsection t="Nombres complexes de module $1$">
 
-\Definition [] Un groupe $(E,\otimes)$ est commutatif (ou abélien) si, et seulement si, 
-\item{vi)}L'opération $\otimes$ est commutative dans $E$ : 
-$$
-\forall (a,b)\in E^2, \qquad a\otimes b=b\otimes a
-$$
-\bigskip
 
-%Exemples
+<concept t="Nombre de module $1$">
+<definition>On note $𝕌$ l'ensemble des nombres complexes de module $1$.
+\startformula 
+𝕌:=\{z∈ℂ:|z|=1\}.
+\stopformula
+</definition>
 
-Cette nouvelle structure permet de mémoriser plus facilement les propriétés de~$\ob C$. 
-Ainsi, au paragraphe \xref{secDefinitionC}, % Fix that
- les propriétés i) à vi) signifient que {$(\ob C,+)$ est un groupe abélien}
-et les propriétés viii) à xii) signifient que {$(\ob C^*,\times)$ est un groupe commutatif}. Il reste alors à~mémoriser la~propriété viii) 
-affirmant que l'opération $\times$ est distributive sur la loi $+$. 
-\medskip
+<property p="β">$(𝕌,×)$ est un groupe commutatif. En particulier, le produit, le quotient et l'inverse de nombres complexes de module $1$ est de module $1$.
+</property>
+</concept>
 
-{{ \noindent
-{\bf Propriété.} L'ensemble $\ob U:=\{z\in\ob C:|z|=1\}$ des nombres complexes de module $1$ forme un groupe abélien 
-pour la multiplication $\times$. 
-}}
-\bigskip
-
-L'ensemble $\ob U$ forme un cercle de centre $0$ et~de~rayon~$1$, 
-appelé cercle unité et parfois appelé cercle trigonométrique pour des raisons, qui seront détaillées plus loin. 
-\par\noindent\hfill
+<concept t="cercle trigonométrique">
+<definition>Le cercle de centre $0$ et de rayon $1$ que forme l'ensemble $𝕌$ est  
+appelé \quote{cercle unité} ou \quote{cercle trigonométrique}. 
+</definition>
+<pstricks><![CDATA[
 \pspicture*[](-2,-2)(2,2)
 \psaxes*[labels=none,ticks=none]{<->}(0,0)(-2,-2)(2,2)
 \pscircle[linewidth=1pt,linecolor=red](0,0){1.5}
@@ -704,43 +836,23 @@ appelé cercle unité et parfois appelé cercle trigonométrique pour des raison
 \rput{0}(0,1.5){$+$}
 \rput{0}(0,-1.5){$+$}
 \psline[linewidth=.5pt]{-}(1.06066,1.06066)(1.3,1.3)
-\rput{0}(1.5,1.5){\red$\ob U$}
-\endpspicture
-\hfill\null\medskip
+\rput{0}(1.5,1.5){\red$𝕌$}
+\endpspicture]]>
+</pstricks>
+</concept>
 
-{{ \quad Soit $(E,\oplus)$ un groupe. Pour montrer qu'un sous-ensemble $F$ 
-de l'ensemble $E$
+</subsection>
 
-\noindent 
-est un groupe pour la loi $\oplus$, 
-c'est-à-dire que $(F,\otimes)$ est un sous-groupe de $(E,\otimes)$, 
-
-\noindent\ 
-il suffit de prouver que :
-
-\noindent
-\quad $\bullet$ $F$ est non vide
-
-\noindent
-\quad $\bullet$ $F$ est inclus dans $E$
-
-\noindent
-\quad{$\bullet$} $\forall (x,y)\in F^2,x\otimes y^{-1}\in F$\quad(où $y^{-1}$ désigne l'inverse de $y$ pour la loi $\otimes$ de $E$)}}
-\bigskip
-
-\noindent 
-Exercice. Prouver que $(\ob Z,+)$ et que $(\ob R^*,\times)$ sont des groupes (abéliens).
-
-\Subsection CArgument, Argument d'un nombre complexe non nul. 
-
-\Definition [] L'argument d'un nombre complexe $z$ de module $1$ est la longueur $\theta$ en~radian 
-de l'arc du cercle trigonométrique allant de $1$ à $z$ dans le sens direct. Cette~longueur, qui est unique modulo $2\pi$, 
-est notée 
-$$
-\arg(z)\equiv\theta\quad[2\pi].
-$$
+<subsection t="Argument d'un nombre complexe non nul">
 
 
+<definition>
+L'argument d'un nombre complexe $z$ de module $1$ est la longueur $ϑ$ en~radian 
+de l'arc du cercle trigonométrique allant de $1$ à $z$ dans le sens direct. Cette longueur, qui est unique modulo $2\pi$, 
+est notée $\arg(z)≡ϑ\quad[2π]$.
+</definition>
+
+<pstricks><![CDATA[
 \pspicture*[](-2,-2)(2,2)
 \psaxes*[labels=none,ticks=none]{<->}(0,0)(-2,-2)(2,2)
 \rput{0}(1.7,-.2){$1$}
@@ -751,24 +863,26 @@ $$
 \rput{110}(-0.51303,1.40954){+}
 \rput{0}(-0.7,1.6){z}
 \rput{0}(1.3,1.3){\red$\theta$}
-\endpspicture
+\endpspicture]]>
+</pstricks>
 
 
+<remark>
 Pour chaque nombre complexe $z$ {\bf non nul}, le nombre $z/|z|$ est bien défini 
-et appartient au cercle unité $\ob U$. En effet, il est de module $1$ car 
-$$
+et appartient au cercle unité $𝕌$. En effet, il est de module $1$ car 
+\startformula 
 \Q|{z\F |z|}\W|={|z|\F|z|}=1. 
-$$
+\stopformula
+</remark>
 
-\Definition [] L'argument d'un nombre complexe $z$ {\bf non nul} est l'argument de $z/|z|$. 
+<definition>L'argument d'un nombre complexe $z≠0$  est l'argument de $z/|z|$. </definition>
+
+<remark>
 Notant $O$, $P$, $M$ les points du plan complexe d'affixe respective $0$, $1$ et $z$, 
-c'est la mesure $\theta$ de l'angle orienté $(\vec {OP},\vec {OM})$ en radian, qui est unique modulo $2\pi$, notée 
-$$
-\arg(z)\equiv\theta\quad[2\pi].
-$$
+c'est la mesure $ϑ$ de l'angle orienté $(\vec {OP},\vec {OM})$ en radian, qui est unique modulo $2π$, notée 
+$ \arg(z)≡ϑ\quad[2π]$.</remark>
 
-\medskip
-\hfill
+<pstricks><![CDATA[
 \pspicture*[](-.5,-.5)(3,3)
 \psaxes*[labels=none,ticks=none]{-}(0,0)(-.5,-.5)(3,3)
 \psline[linewidth=1.5pt,arrowsize=6pt]{->}(2,0)
@@ -786,85 +900,88 @@ $$
 \rput{0}(2.1,.8){\red $\theta$}
 \rput{0}(1.5,1.8){\red${ z\F |z|}$}
 \rput{41.6335}(1.49482,1.32873){$+$}
-\endpspicture
-\hfill\null
-\medskip
-
-\Propriete Deux nombres complexes non nuls sont égaux si, et seulement s'ils ont même module et même argument. 
-$$
-{\forall (s,z)\in(\ob C^*)^2}, \qquad {s=z\ \Longleftrightarrow\ \Q\{\eqalign{
-|s|&=|z|
-\cr
-\arg(s)&\equiv\arg(z)\quad[2\pi]
-}\W.}
-$$
-
-\Propriete [$z$ et $s$ nombres complexes non nuls] 
-$$
-\arg(z\times s)=\arg(z)+\arg(s)\quad[2\pi]\qquad\mbox{et} \arg\Q({z\F s}\W)=\arg(z)-\arg(s)\quad[2\pi].
-$$
-
-La propriété suivante est une conséquence immédiate des relations précédente.
-\medskip
+\endpspicture]]>
+</pstricks>
 
 
-\Propriete [$z$ nombre complexe non nul] 
-$$
-\arg(\overline z)\equiv-\arg(z)\quad[2\pi]\qquad\mbox{et}\qquad \arg\Q({1\F z}\W)\equiv-\arg(z)\quad[2\pi]
-$$
+<property>
+Deux nombres complexes non nuls sont égaux si, et seulement s'ils ont même module et même argument. 
+\startformula 
+s=z ⟺ \startcases \NC |s|=|z|\NR
+\NC \arg(s)≡\arg(z)\quad[2π]\NR
+\stopcases
+\stopformula
+</property>
 
-\Subsection Ccosinus, Cosinus et sinus. 
+<property h="$z, s ∈ ℂ^*$"> 
+\startformula 
+\arg(z×s)=\arg(z)+\arg(s)\quad[2π]\EtQ \arg\Q({z\F s}\W)=\arg(z)-\arg(s)\quad[2π].
+\stopformula
+</property>
 
+
+<corollary h="$z≠0$">
+\startformula 
+\arg(\overline z)≡-\arg(z)\quad[2π]\EtQ \arg\Q({1\F z}\W)\equiv-\arg(z)\quad[2π]
+\stopformula
+</corollary>
+
+</subsection>
+
+<subsection t="Cosinus et sinus">
+
+<text>
 Parce qu'il permet de définir les fonctions trigonométriques cosinus et sinus, 
 le cercle de centre $0$ et de rayon $1$ est parfois appelé cercle trigonométrique. 
-\medskip
+</text>
 
 
-\Definition [] Pour chaque nombre réel $\theta$, les parties réelles et imaginaires 
+<definition>Pour chaque nombre réel $ϑ$, les parties réelles et imaginaires 
 de l'unique nombre complexe $z$ de module $1$ et d'argument 
-$\theta$ sont notées $\cos(\theta)$ et $\sin(\theta)$. 
+$ϑ$ sont notées $\cos(ϑ)$ et $\sin(ϑ)$. </definition>
 
-%\pspicture*[](-3,-3)(5.2,3)
-%\psaxes*[labels=none,ticks=none]{<->}(0,0)(-3,-3)(3,3)
-%\pscircle[linewidth=1pt,fillcolor=white](0,0){2.5}
-%\rput{40}(0.7,.8){rayon$=1$}
-%\rput{40}(1.91511,1.60697){$+$}
-%\rput{0}(3.6,1.8){$z=\cos(\theta)+i\sin(\theta)$}
-%\rput{0}(0,1.60697){$+$}
-%\rput{0}(-.7,1.60697){\red$i\ \sin(\theta)$}
-%\psline[linewidth=1.5pt,linecolor=red,linestyle=dotted]{-}(0,1.60697)(1.91511,1.60697)
-%\psline[linewidth=1.5pt,linecolor=red,linestyle=dotted]{-}(1.911511,0)(1.91511,1.60697)
-%\psline[linewidth=1.5pt,arrowsize=6pt]{->}(1.91511,1.60697)
-%\psarc[linecolor=red]{->}(0,0){1}{0}{40}
-%\rput{0}(1.1,0.4){\red $\theta$}
-%\rput{0}(1.91511,0){$+$}
-%\rput{0}(1.91511,-0.3){\red$\cos(\theta)$}
-%\psline[linewidth=.5pt]{-}(-1.76777,1.76777)(-2,2)
-%\rput{0}(-2.2,2.2){$\ob U$}
-%\rput{0}(-.2,2.7){$i$}
-%\rput{0}(0,2.5){$+$}
-%\rput{0}(-.2,-.2){$0$}
-%\rput{0}(2.5,0){$+$}
-%\rput{0}(2.7,.2){$1$}
-%\endpspicture
+<pstricks><![CDATA[
+\pspicture*[](-3,-3)(5.2,3)
+\psaxes*[labels=none,ticks=none]{<->}(0,0)(-3,-3)(3,3)
+\pscircle[linewidth=1pt,fillcolor=white](0,0){2.5}
+\rput{40}(0.7,.8){rayon$=1$}
+\rput{40}(1.91511,1.60697){$+$}
+\rput{0}(3.6,1.8){$z=\cos(\theta)+i\sin(\theta)$}
+\rput{0}(0,1.60697){$+$}
+\rput{0}(-.7,1.60697){\red$i\ \sin(\theta)$}
+\psline[linewidth=1.5pt,linecolor=red,linestyle=dotted]{-}(0,1.60697)(1.91511,1.60697)
+\psline[linewidth=1.5pt,linecolor=red,linestyle=dotted]{-}(1.911511,0)(1.91511,1.60697)
+\psline[linewidth=1.5pt,arrowsize=6pt]{->}(1.91511,1.60697)
+\psarc[linecolor=red]{->}(0,0){1}{0}{40}
+\rput{0}(1.1,0.4){\red $\theta$}
+\rput{0}(1.91511,0){$+$}
+\rput{0}(1.91511,-0.3){\red$\cos(\theta)$}
+\psline[linewidth=.5pt]{-}(-1.76777,1.76777)(-2,2)
+\rput{0}(-2.2,2.2){$𝕌$}
+\rput{0}(-.2,2.7){$i$}
+\rput{0}(0,2.5){$+$}
+\rput{0}(-.2,-.2){$0$}
+\rput{0}(2.5,0){$+$}
+\rput{0}(2.7,.2){$1$}
+\endpspicture]]>
+</pstricks>
 
-\noindent
-Les fonctions cosinus $x\mapsto\cos(x)$ et sinus $x\mapsto\sin(x)$ sont $2\pi$-périodiques 
-$$
-\forall x\in\ob R, \quad \cos(x+2\pi)=\cos(x)\quad\mbox{et} \quad\sin(x+2\pi)=\sin(x)
-$$
+<property>
+Les fonctions cosinus $x↦\cos(x)$ et sinus $x↦\sin(x)$ sont $2π$-périodiques 
+\startformula 
+\cos(x+2π)=\cos(x)\EtQ\sin(x+2π)=\sin(x)\qquad(x∈ℝ)
+\stopformula
 et bornées 
-$$
-\forall x\in\ob R, \qquad-1\le \cos(x)\le 1\quad\mbox{et}\quad-1\le\sin(x)\le1.
-$$
+\startformula 
+-1⩽ \cos(x)⩽ 1 \EtQ -1⩽\sin(x)⩽1\qquad(x∈ℝ).
+\stopformula
 De plus, en pivotant le cercle trigonométrique d'un quart de tour, on peut exprimer le cosinus en fonction du sinus et vice versa, 
-$$
-\forall x\in\ob R, \quad \cos\Q(x+{\pi\F2}\W)=-\sin(x) \quad\mbox{et} \quad
-\sin\Q(x+{\pi\F2}\W)=\cos(x), \eqdef{translationFTC}
-$$ 
-comme on peut le voir sur le graphe $y=\cos(x)$ et $y=\sin(x)$ suivants : 
+\startformula 
+\cos\Q(x+{π\F2}\W)=-\sin(x) \EtQ \sin\Q(x+{π\F2}\W)=\cos(x), (x∈ℝ)
+\stopformula 
+</property>
 
-
+<pstricks><![CDATA[
 \pspicture*[](-6.8,-1.2)(6.8,1.2)
 %\psset{xunit=1cm, yunit=2cm}
 \psplot[linecolor=red,plotpoints=1000]{-6.8}{6.8}{x 3.1415 div 180 mul sin}
@@ -873,6 +990,7 @@ comme on peut le voir sur le graphe $y=\cos(x)$ et $y=\sin(x)$ suivants :
 \rput{0}(3.1415,0){$+$}
 \rput{0}(3.18,.2){$\pi$}
 \rput{0}(-1.5708,0){$+$}
+
 \rput{0}(-1.79,.2){$-{\pi\F2}$}
 \rput{0}(1.5708,0){$+$}
 \rput{0}(1.65,.2){${\pi\F2}$}
@@ -897,9 +1015,10 @@ comme on peut le voir sur le graphe $y=\cos(x)$ et $y=\sin(x)$ suivants :
 \rput{0}(-5.5,-1){\blue cosinus}
 \psline[linewidth=.5pt]{-}(-6,-.6)(-6.7,-.40485)
 \rput{0}(-5.5,-.6){\red sinus}
-\endpspicture
+\endpspicture]]>
+</pstricks>
 
-\centerline{
+<figure i="graphe+cosinus et sinus" t="Graphes $y=\cos(x)$ et $y=\sin(x)$"><![CDATA[
 	\tikzpicture[domain=-4:4,samples=66]
 		\draw[very thin,color=gray,step={(1.570796327,1)}] (-4.1,-1.1) grid (4.1,1.1);
 		\draw[->] (0,0) -- (4.2,0) node[below] {$x$};
@@ -908,170 +1027,138 @@ comme on peut le voir sur le graphe $y=\cos(x)$ et $y=\sin(x)$ suivants :
 		\node[rotate=-45,color=red] at (1.45,0.4) {$\cos x$};
 		\draw[color=blue,smooth] plot (\x,{sin(\x r)});
 		\node[rotate=-45,color=blue] at (3.1,0.4) {$\sin x$};
-	\endtikzpicture
-}%
-\Figure [Index=Courbes!cosinus et sinus] Graphes $y=\cos(x)$ et $y=\sin(x)$.
+	\endtikzpicture]]>
+</figure>
 
-\noindent
-Les fonctions {cosinus et sinus sont continues et indéfiniment dérivables sur $\ob R$} et on a 
-$$
-{
-\forall x\in\ob R,\quad
-\cos'(x)=-\sin(x)\quad\mbox{et}\quad \sin'(x)=\cos(x).}\eqdef{deriverFTC}
-$$
-Il résulte de \eqref{deriverFTC} et \eqref{translationFTC} que l'on peut dériver $n$ fois 
-ces fonctions de~la fa\c con suivante : 
-$$
-{\forall n\in\ob N}, \quad\forall x\in\ob R, \quad {\cos^{(n)}(x)=\cos\Q(x+n{\pi\F2}\W)}
-\quad\mbox{et}\quad{\sin^{(n)}(x)=\sin\Q(x+n{\pi\F2}\W)}.
-$$
-Exercice. Prouver l'identité précédente. 
-\bigskip
 
-\Subsection CExp, Exponentielle d'un nombre complexe.
+<property>
+Les fonctions cosinus et sinus sont continues et indéfiniment dérivables sur $ℝ$ et on a 
+\startformula
+\cos'(x)=-\sin(x)\EtQ \sin'(x)=\cos(x)\qquad(x∈ℝ).
+\stopformula
+Il résulte des deux propriétés précédentes que l'on peut dériver $n$ fois de~la fa\c con suivante : 
+\startformula 
+\cos^{(n)}(x)=\cos\Q(x+n{π\F2}\W)
+\EtQ
+\sin^{(n)}(x)=\sin\Q(x+n{π\F2}\W).\qquad(n∈ℕ, \ x∈ℝ)
+\stopformula
+</property>
 
-La fonction exponentielle est initialement définie sur l'ensemble $\ob R$, 
-en tant que bijection réciproque du logarithme népérien $\ln:x\mapsto\int_1^x{\d t\F t}$. 
+</subsection>
+
+<subsection t="Exponentielle d'un nombre complexe">.
+
+<text>La fonction exponentielle est initialement définie sur l'ensemble $ℝ$, 
+en tant que bijection réciproque du logarithme népérien $\ln:x↦\int_1^x{\d t\F t}$. 
 On la prolonge dans un premier temps à l'ensemble des nombres imaginaires purs pour la prolonger, 
 dans un second temps, à~l'ensemble des nombres complexes. 
-\bigskip
+</text>
  
-\Definition [] Pour chaque {$\theta\in\ob R$}, l'exponentielle du nombre imaginaire pur $i\theta$ est 
-$$
-{\e^{i\theta}:=\cos\theta+i\sin\theta}.
-$$
-\medskip
-\noindent
-L'exponentielle transforme un nombre imaginaire pur en nombre complexe de $\ob U$ : 
-$$
-{\forall \theta\in\ob R}, \qquad {\Q|\e^{i\theta}\W|=1}.
-$$
-De plus, la fonction $\theta\mapsto\e^{i\theta}$ est un morphisme du groupe $(\ob R,+)$ dans le groupe $(\ob U,\times)$. 
-Autrement dit, l'exponentielle satisfait 
-$$
-{\forall (\theta,\varphi)\in\ob R^2}, \qquad {\e^{i(\theta+\varphi)}=\e^{i\theta}\times\e^{i\varphi}}.
-$$
+<definition>Pour $ϑ∈ℝ$, l'exponentielle du nombre imaginaire pur $iϑ$ est 
+$\e^{iϑ}:=\cos(ϑ)+i\sin(ϑ)$.
+</definition>
 
-\noindent
-Chaque nombre complexe peut se mettre sous la forme trigonométrique (la forme trigonométrique du nombre complexe $0$ n'étant pas unique) : 
-\bigskip
-\Propriete [] Pour chaque nombre complexe {$z\neq0$}, il existe un unique nombre $r>0$ 
-et un nombre réel $\theta$, unique modulo $2\pi$, tels que 
-$$
-z=r\e^{i\theta}. \eqdef{formtrig}
-$$
+
+<property>
+L'exponentielle transforme un nombre imaginaire pur en élément du cercle trigonométrique $𝕌$ :  
+\startformula 
+\Q|\e^{iϑ}\W|=1\qquad(ϑ∈ℝ)
+\stopformula
+De plus, l'exponentielle satisfait 
+\startformula 
+\e^{i(ϑ+\varphi)}=\e^{iϑ}×\e^{i\varphi}\qquad(ϑ,φ ∈ ℝ).
+\stopformula
+</property>
+
+<text>
+Chaque nombre complexe peut se mettre sous forme trigonométrique (la forme trigonométrique du nombre complexe $0$ n'étant pas unique) : 
+</text>
+
+<property>Pour $z≠0$, il existe deux nombres réels $r>0$ et $ϑ$, tels que 
+$z=r\e^{iϑ}$.
 Cette expression est la forme trigonométrique de $z$ et l'on a 
-$r=|z|$ et $\arg z\equiv\theta\ \,[2\pi]$. 
-\bigskip
+$r=|z|$ et $\arg(z)≡ϑ\ [2π]$. 
+</property>
 
+<definition>L'exponentielle d'un nombre complexe $z=x+iy$, avec $x$ et $y$ réels, est 
+\startformula 
+\e^z:=\e^x×\e^{iy}.
+\stopformula
+</definition>
 
-\Definition [] L'exponentielle d'un nombre complexe $z=x+iy$, avec $x$ et $y$ réels, est 
-$$
-\e^z:=\e^x\times\e^{iy}.
-$$
+<corollary>
+\startformula 
+|\e^z|=\e^{ℜe(z)}\EtQ \arg(\e^z)≡ℑm(z)\quad[2π] \qquad(z∈ℂ)
+\stopformula
+</corollary>
 
-\noindent
-En particulier, on a 
-$$
-{\forall z\in\ob C}, \qquad {|\e^z|=\e^{\re(z)}}\qquad\mbox{et}
-\qquad{\arg(\e^z)\equiv\im(z)\quad[2\pi]}.
-$$
+<property>
+La fonction exponentielle est un morphisme de groupes de $(ℂ,+)$ dans $(ℂ^*,×)$. Autrement dit, 
+\startformula 
+\e^{s+z}=\e^s×\e^z\qquad(s,z ∈ℂ).
+\stopformula
+</property>
 
-
-\bigskip
-\noindent
-La fonction exponentielle est un morphisme du groupe $(\ob C,+)$ dans le groupe $(\ob C^*,\times)$. Autrement dit, 
-l'exponentielle satisfait la propriété fondamentale suivante : 
-$$
-{\forall (s,z)\in\ob C^2}, \qquad{\e^{s+z}=\e^s\times\e^z}.\eqdef{expfon}
-$$
-
-
-\bigskip
-\noindent
+<property>
 L'exponentielle d'un nombre complexe $z$ n'est jamais nulle et son inverse est $\e^{-z}$.  
-$$
-{\forall z\in\ob C}, \qquad {\e^z\neq0}\qquad\mbox{et}\qquad {{1\F\e^z}=\e^{-z}}.
-$$
+\startformula 
+\e^z≠0 \EtQ {1\F\e^z}=\e^{-z} \qquad(z∈ℂ)
+\stopformula
 A fortiori, la puissance positive ou non d'une exponentielle se calcule très simplement : 
-$$
-{\forall z\in\ob C},\qquad {\forall n\in\ob Z},\qquad {(\e^z)^n=\e^{nz}}. 
-$$
+\startformula 
+(\e^z)^n=\e^{nz}\qquad(z∈ℂ, n∈ℤ) 
+\stopformula
+</property>
 
-Enfin, on résoud facilement les équations du type $\e^z=a$ pour $a\neq0$ à l'aide de \eqref{expfon} et de la propriété suivante. 
-$$
-{
-\e^z=1\quad \Longleftrightarrow\quad \exists k\in\ob Z: z=2\pi i k\quad \Longleftrightarrow\quad z\in2\pi i\ob Z}.
-$$
+<text>Enfin, on résoud facilement les équations du type $\e^z=a$ pour $a≠0$ : 
+\startformula 
+\e^z=1\quad ⟺ ∃k∈ℤ: z=2πik ⟺ z ∈ 2πiℤ.
+\stopformula
+</text>
+
+<property>Pour $z∈ℂ$, la fonction $x↦\e^{zx}$ est indéfiniment dérivable sur $ℝ$ et on a 
+\startformula 
+{\d\F\d x}\e^{zx}=z\e^{zx}\qquad(x∈ℝ).
+\stopformula
+En particulier, on a $(\e^x)'=\e^x$ pour chaque nombre réel $x$. </property>
+
+</subsection>
+
+</section>
 
 
-\Propriete [] Pour $z\in\ob C$, la fonction {$x\mapsto \e^{zx}$ est indéfiniment dérivable sur $\ob R$} et on a 
-$$
-\forall x\in\ob R, \qquad {{\d\F\d x}\e^{zx}=z\e^{zx}}.
-$$
-En particulier, on a $(\e^x)'=\e^x$ pour chaque nombre réel $x$. 
 
-\Section Trigo, Trigonométrie. 
+<section t="Trigonométrie"> 
 
-\Subsection Tan, Tangente.
+<subsection t="Tangente">
 
+<text>
 Les solutions de l'équation trigonométrique $\cos(x)=0$ se caractérisent très simplement. 
 Ainsi, pour chaque nombre réel $x$, on a 
-$$
-{\cos x=0\ \Longleftrightarrow\ x\equiv {\pi\F2}\quad[\pi]}.
-$$
-La fonction tangente $x\mapsto\tan(x)$ est alors définie 
-comme le quotient de la fonction sinus par la fonction cosinus pour les nombres réels n'annulant pas le dénumérateur du quotient. 
-$$
-{
-\forall x\not\equiv {\pi\F2}\quad[\pi]}, \qquad {\tan(x):={\sin(x)\F\cos(x)}}.
-$$
-La fonction tangente est $\pi$-périodique, autrement dit 
-$$
-{
-\forall x\not\equiv {\pi\F2}\quad[\pi]}, \qquad {\tan(x+\pi)=\tan(x)},
-$$ 
+\startformula 
+\cos x=0 ⟺ x≡{π\F2}\quad[π].
+\stopformula
+</text>
+
+<definition>
+La fonction tangente est le quotient de la fonction sinus par la fonction cosinus. 
+\startformula 
+\tan(x):={\sin(x)\F\cos(x)}\qquad(x\≢{π\F2}\quad[π]).
+\stopformula
+</definition>
+
+<property>La fonction tangente est $π$-périodique, autrement dit 
+\startformula 
+\tan(x+π)=\tan(x)\qquad(x\≢{π\F2}\quad[π]).
+\stopformula 
 et impaire, autrement dit 
-$$
-{
-\forall x\not\equiv {\pi\F2}\quad[\pi]}, \qquad {\tan(-x)=-\tan(x)}, 
-$$
-comme on peut le voir sur le graphe suivant : 
+\startformula 
+\tan(-x)=-\tan(x)\qquad(x\≢{π\F2}\quad[π]). 
+\stopformula
+</property>
 
-%% Mathematica : Table[{x,Tan[x]},{x,-Pi/2+0.32,Pi/2-0.32,0.02}]%
-%%\readdata{\tangraph}{Graphes/GraphTan.txt}
-%%\psset{xunit=.6cm,yunit=.6cm}
-%\pspicture*[](-7,-3)(7,3)
-%\psaxes*[labels=none,ticks=none]{<->}(0,0)(-7,-3)(7,3)
-%\dataplot[plotstyle=curve,linewidth=.5pt,linecolor=red]{\tangraph}
-%\rput{0}(6.283,0){\dataplot[plotstyle=curve,linewidth=.5pt,linecolor=red]{\tangraph}}
-%\rput{0}(3.1415,0){\dataplot[plotstyle=curve,linewidth=.5pt,linecolor=red]{\tangraph}}
-%\rput{0}(-3.1415,0){\dataplot[plotstyle=curve,linewidth=.5pt,linecolor=red]{\tangraph}}
-%\rput{0}(-6.283,0){\dataplot[plotstyle=curve,linewidth=.5pt,linecolor=red]{\tangraph}}
-%\psline[linestyle=dashed,linewidth=.3pt]{-}(1.5707,-3)(1.5707,3)
-%\psline[linestyle=dashed,linewidth=.3pt]{-}(4.7122,-3)(4.7122,3)
-%\psline[linestyle=dashed,linewidth=.3pt]{-}(-1.5707,-3)(-1.5707,3)
-%\psline[linestyle=dashed,linewidth=.3pt]{-}(-4.7122,-3)(-4.7122,3)
-%\rput{0}(1.35,-.3){\scalebox{.5}{${\pi\F2}$}}
-%\rput{0}(4.4,-.3){\scalebox{0.5}{${3\pi\F2}$}}
-%\rput{0}(-1.9,-.3){\scalebox{.5}{$-{\pi\F2}$}}
-%\rput{0}(-5.1,-.3){\scalebox{0.5}{$-{3\pi\F2}$}}
-%\rput{0}(0.2,-.2){\scalebox{.5}{$0$}}
-%\rput{0}(3.34,-.2){\scalebox{.5}{$\pi$}}
-%\rput{0}(6.5,-.2){\scalebox{.5}{$2\pi$}}
-%\rput{0}(-2.9,-.2){\scalebox{.5}{$-\pi$}}
-%\rput{0}(0,1){\scalebox{.5}{$+$}}
-%\rput{0}(0,-1){\scalebox{.5}{$+$}}
-%\rput{0}(-0.3,1){\scalebox{.5}{$1$}}
-%\rput{0}(-.4,-1){\scalebox{.5}{$-1$}}
-%\rput{0}(-.3,2.9){\scalebox{.5}{$y$}}
-%\rput{0}(6.9,.3){\scalebox{.5}{$x$}}
-%\endpspicture
-%$$
-\medskip
-
-\centerline{%
-	\tikzpicture[scale=0.5]
+<figure i="graphe+tangente" t="Graphe $y=\tan(x)$"><![CDATA[
+	\starttikzpicture[scale=0.5]
 		\draw[clip] (-4.8,-3.1) rectangle (4.8,3.1);
 		\draw[very thin,color=gray,clip,step={(1.570796327,1)}] (-4.8,-3.1) grid (4.8,3.1);
 		\draw[->] (0,0) -- (4.2,0) node[below] {$x$};
@@ -1079,385 +1166,389 @@ comme on peut le voir sur le graphe suivant :
 		\draw[domain=-4.55:-1.75,samples=66,color=red,smooth] plot (\x,{tan(\x r)}) ;
 		\draw[domain=-1.4:1.4,samples=66,color=red,smooth] plot (\x,{tan(\x r)}) ;
 		\draw[domain=1.75:4.55,samples=66,color=red,smooth] plot (\x,{tan(\x r)}) ;
-	\endtikzpicture
-}%
-\Figure [Index=Courbes!Tangente] Graphe $y=\tan(x)$. 
-\medskip
+	\stoptikzpicture]]>
+</figure>
 
-\noindent
+
+<property>
 La fonction tangente est indéfiniment dérivable sur son ensemble de définition et 
-$$
-\forall x\not\equiv{\pi\F2}\quad[\pi], \quad{\tan'(x)=1+\tan(x)^2={1\F\cos(x)^2}}.
-$$
+\startformula
+\tan'(x)=1+\tan(x)^2={1\F\cos(x)^2}\qquad\Q(x\≢{π\F2}\quad[π]\W).
+\stopformula 
+</property>
 
-\Subsection Cotan, Cotangente. 
+</subsection>
 
-Les solutions de l'équation trigonométrique $\sin(x)=0$ se caractérisent très simplement. 
+<subsection t="Cotangente"> 
+
+<text>Les solutions de l'équation trigonométrique $\sin(x)=0$ se caractérisent très simplement. 
 Ainsi, pour chaque nombre réel $x$, on a 
-$$
-{\sin x=0\ \Longleftrightarrow\ x\equiv 0\quad[\pi]}.
-$$
-La fonction cotangente $x\mapsto\cotan(x)$ est alors définie 
-comme le quotient de la fonction cosinus par la fonction sinus pour les nombres réels n'annulant pas le dénumérateur. 
-$$
-{
-\forall x\not\equiv 0\quad[\pi]}, \qquad {\cotan(x):={\cos(x)\F\sin(x)}}.
-$$
-La fonction cotangente est $\pi$-périodique, autrement dit 
-$$
-{
-\forall x\not\equiv 0\quad[\pi]}, \qquad {\cot(x+\pi)=\cot(x)}
-$$ 
+\startformula
+\sin x=0 ⟺ x≡0\quad[π].
+\stopformula 
+</text>
+
+<definition>
+La fonction cotangente est le quotient de la fonction cosinus par la fonction sinus 
+\startformula
+\cot(x):={\cos(x)\F\sin(x)}\qquad(x\≢0\quad[π])
+\stopformula 
+</definition>
+
+<property>
+La fonction cotangente est $π$-périodique, autrement dit 
+\startformula
+\cot(x+π)=\cot(x)\qquad(x\≢0\quad[π])
+\stopformula  
 et impaire, autrement dit 
-$$
-{
-\forall x\not\equiv 0\quad[\pi]}, \qquad {\cot(-x)=-\cot(x)}, 
-$$ 
-comme on peut le voir sur le graphe suivant : 
+\startformula
+\cot(-x)=-\cot(x) \qquad(x\≢0\quad[π])
+\stopformula  
+</property>
 
-% Mathematica : Table[{x,Cot[x]},{x,0.32,Pi-0.32,0.02}]
-%%\readdata{\cotgraph}{Graphes/GraphCot.txt}
-%%\psset{xunit=.6cm,yunit=.6cm}
-%\pspicture*[](-7,-3)(7,3)
-%\psaxes*[labels=none,ticks=none]{<->}(0,0)(-7,-3)(7,3)
-%\dataplot[plotstyle=curve,linewidth=.5pt,linecolor=red]{\cotgraph}
-%\rput{0}(6.283,0){\dataplot[plotstyle=curve,linewidth=.5pt,linecolor=red]{\cotgraph}}
-%\rput{0}(3.1415,0){\dataplot[plotstyle=curve,linewidth=.5pt,linecolor=red]{\cotgraph}}
-%\rput{0}(-3.1415,0){\dataplot[plotstyle=curve,linewidth=.5pt,linecolor=red]{\cotgraph}}
-%\rput{0}(-6.283,0){\dataplot[plotstyle=curve,linewidth=.5pt,linecolor=red]{\cotgraph}}
-%\psline[linestyle=dashed,linewidth=.3pt]{-}(3.1415,-3)(3.1415,3)
-%\psline[linestyle=dashed,linewidth=.3pt]{-}(6.283,-3)(6.283,3)
-%\psline[linestyle=dashed,linewidth=.3pt]{-}(-3.1415,-3)(-3.1415,3)
-%\psline[linestyle=dashed,linewidth=.3pt]{-}(-6.283,-3)(-6.283,3)
-%\rput{0}(1.35,-.3){\scalebox{.5}{${\pi\F2}$}}
-%\rput{0}(4.4,-.3){\scalebox{0.5}{${3\pi\F2}$}}
-%\rput{0}(-1.9,-.3){\scalebox{.5}{$-{\pi\F2}$}}
-%\rput{0}(-5.1,-.3){\scalebox{0.5}{$-{3\pi\F2}$}}
-%\rput{0}(-0.2,-.2){\scalebox{.5}{$0$}}
-%\rput{0}(2.94,-.2){\scalebox{.5}{$\pi$}}
-%\rput{0}(6,-.2){\scalebox{.5}{$2\pi$}}
-%\rput{0}(-6.65,-.2){\scalebox{.5}{$-2\pi$}}
-%\rput{0}(-3.4,-.2){\scalebox{.5}{$-\pi$}}
-%\rput{0}(0,1){\scalebox{.5}{$+$}}
-%\rput{0}(0,-1){\scalebox{.5}{$+$}}
-%\rput{0}(-0.3,1){\scalebox{.5}{$1$}}
-%\rput{0}(-.4,-1){\scalebox{.5}{$-1$}}
-%\rput{0}(-.3,2.9){\scalebox{.5}{$y$}}
-%\rput{0}(6.9,-.3){\scalebox{.5}{$x$}}
-%\endpspicture
-\medskip
-
-\centerline{%
-	\tikzpicture[scale=0.5]
+<figure i="graphe+cotangente" t="Graphe $ y=\cot(x)$"><![CDATA[
+\starttikzpicture[scale=0.5]
 		\draw[clip] (-3.2,-3.1) rectangle (3.2,3.1);
 		\draw[very thin,color=gray,clip,step={(1.570796327,1)}] (-3.2,-3.1) grid (3.2,3.1);
 		\draw[->] (0,0) -- (3.2,0) node[below] {$x$};
 		\draw[->] (0,0) -- (0,3.2) node[left] {$y$};
 		\draw[domain=-3:-0.1,samples=66,color=red,smooth] plot (\x,{cot(\x r)}) ;
 		\draw[domain=0.1:3,samples=66,color=red,smooth] plot (\x,{cot(\x r)}) ;
-	\endtikzpicture
-}%
-\Figure [Index=Courbes!Cotangente]  Graphe $ y=\cot(x)$. 
-\medskip
+	\stoptikzpicture]]>
+</figure>
 
-\noindent
+
+<property>
 Les fonctions tangentes et cotangentes sont inverses l'une de l'autre : 
-$$
-{
-\forall x\not\equiv 0\quad\Q[{\pi\F2}\W]}, \qquad {\cot(x)={1\F\tan(x)}}. 
-$$
-La fonction {cotangente est indéfiniment dérivable sur son ensemble de définition} et 
-$$
-\forall x\not\equiv0\quad[\pi], \quad\cot'(x)=-1-\cot(x)^2=-{1\F\sin(x)^2}
-$$
+\startformula
+\cot(x)={1\F\tan(x)}. \qquad\Q(x\≢0\quad\Big[{π\F2}\Big]\W)
+\stopformula 
+La fonction cotangente est indéfiniment dérivable sur son ensemble de définition et 
+\startformula
+\cot'(x)=-1-\cot(x)^2=-{1\F\sin(x)^2}\qquad\Q(x\≢0\quad[π]\W).
+\stopformula 
+</property>
 
-\Subsection FormCos, Propriétes des fonctions trigonométriques.
-\bigskip
+</subsection>
 
+<subsection t="Propriétes des fonctions trigonométriques">
 
-%\Section Parité
-%
-%La fonction cosinus est paire et la fonction sinus est impaire, autrement dit 
-%$$
-%\forall x\in\ob R, \quad {\cos(-x)=\cos(x)}\quad\mbox{et}\quad {\sin(-x)=-\sin(x)}.
-%$$
+<property>
+La fonction cosinus est paire et la fonction sinus est impaire, autrement dit 
+\startformula
+\cos(-x)=\cos(x)\EtQ\sin(-x)=-\sin(x)\qquad(x∈ℝ).
+\stopformula 
+</property>
 
+<property>
+Les fonction cosinus et sinus sont $2π$-périodiques. Autrement dit
+\startformula
+\cos(x+2π)=\cos(x)\EtQ\sin(x+2π)=\sin(x)\qquad(x∈ℝ).
+\stopformula 
+</property>
 
-%\Section Périodicité
-% 
-%$$
-%\forall x\in\ob R, \qquad{\cos(x+2\pi)=\cos(x)},\qquad{\sin(x+2\pi)=\sin(x),}
-%$$
-
-\Concept [] Anti-période $\pi$
+<concept t="Anti-période $π$">
  
-$$
-\forall x\in\ob R, \qquad{\cos(x+\pi)=-\cos(x)}\qquad\mbox{et}\qquad{\sin(x+\pi)=-\sin(x).}
-$$
-Symétrie centrale du cercle trigonométrique par rapport à l'origine du repère.
-\bigskip
+<property>Les fonction cosinus et sinus sont $2π$-périodiques
+\startformula
+\cos(x+π)=-\cos(x)\EtQ\sin(x+π)=-\sin(x)\qquad(x∈ℝ).
+\stopformula </property>
 
-\Concept [] Angles supplémentaires
+<text>Ceci est du à la symétrie centrale du cercle trigonométrique par rapport à l'origine du repère.</text>
 
-$$
-\forall x\in\ob R, \qquad{\cos(\pi-x)=-\cos(x)}\qquad\mbox{et}\qquad{\sin(\pi-x)=\sin(x).}
-$$
-Symétrie du cercle trigonométrique par rapport à l'axe des ordonnées. 
-\bigskip
-\Concept [] Angles complémentaires
+</concept>
 
-$$
-\forall x\in\ob R, \qquad{\cos\Q({\pi\F2}-x\W)=\sin(x)}\qquad\mbox{et}
-\qquad{\sin\Q({\pi\F2}-x\W)=\cos(x).}
-$$
-Symétrie du cercle trigonométrique par rapport à la première bissectrice du repère...
-\bigskip
-\Concept [] Relations d'Euler
+<concept t="Angles supplémentaires">
 
-$$
-{\forall\theta\in\ob R}, \qquad {\ds\cos\theta=\re(\e^{i\theta})={\e^{i\theta}+\e^{-i\theta}\F2}}\quad\mbox{et}\quad
-{\ds\sin\theta=\im(\e^{i\theta})={\e^{i\theta}-\e^{-i\theta}\F2i}}
-$$
+<property>
+\startformula
+\cos(π-x)=-\cos(x)\EtQ\sin(π-x)=\sin(x)\qquad(x∈ℝ).
+\stopformula
+</property>
+
+<text>
+Ceci est du à la symétrie du cercle trigonométrique par rapport à l'axe des ordonnées. 
+</text>
+
+</concept>
+
+<concept t="Angles complémentaires">
+
+<property>
+\startformula
+\cos\Q({π\F2}-x\W)=\sin(x)\EtQ\sin\Q({π\F2}-x\W)=\cos(x)\qquad(x∈ℝ).
+\stopformula 
+Ceci est du à la symétrie du cercle trigonométrique par rapport à la première bissectrice du repère...
+</property>
+</concept>
+
+<concept t="Relations d'Euler">
+
+<property>
+\startformula
+\cos(x)={\e^{ix}+\e^{-ix}\F2}\EtQ \sin(x)={\e^{ix}-\e^{-ix}\F2i}\qquad(x∈ℝ).
+\stopformula
+</property>
+<text>
 Ces relations fondamentales permettent de transformer un problème tri\-go\-no\-mé\-tri\-que réel 
 en problème trigonométrique complexe et réciproquement.
-\bigskip
+</text>
+</concept>
 
+<concept t="Formules d'addition">
 
-\Concept [] Formules d'addition
+<property h="$a,b∈ℝ$"> 
+\startformula 
+\startmatrix
+\NC \cos(a+b)=\cos a\cos b-\sin a\sin b,\NC \cos(a-b)=\cos a\cos b+\sin a \sin b,\NR
+\NC \sin(a+b)=\sin a\cos b+\cos a\sin b,\NC \sin(a-b)=\sin a\cos b-\cos a\sin b,\NR
+\NC \tan(a+b)={\tan a+\tan b\F1-\tan a\tan b},\NC \tan(a-b)={\tan a-\tan b\F1+\tan a\tan b}.\NR
+\stopmatrix
+\stopformula
+lorsque les tangentes sont définies...
+</property>
+</concept>
 
-\noindent
-Soient {$a$ et $b$ des nombres réels}. Alors, on a 
-$$
-\eqalign{
-&{\cos(a+b)=\cos a\cos b-\sin a\sin b},\qquad{\cos(a-b)=\cos a\cos b+\sin a \sin b},
-\cr
-&{\sin(a+b)=\sin a\cos b+\cos a\sin b},\qquad{\sin(a-b)=\sin a\cos b-\cos a\sin b},
-\cr
-&{\ds\tan(a+b)={\tan a+\tan b\F1-\tan a\tan b}}\ \qquad\mbox{et}\qquad \tan(a-b)={\tan a-\tan b\F1+\tan a\tan b},
-}
-$$
-si les tangentes sont définies...
-\bigskip
+<concept t="Duplication de l'angle">
 
-\Concept [] Duplication de l'angle
-
-\noindent
-Pour chaque {$x\in\ob R$}, on a 
-$$
-{\cos(2x)=\cos^2x-\sin^2x}, \qquad{\sin(2x)=2\sin x\cos x}\quad\mbox{et}\quad
+<property h="$x∈ℝ$"> 
+\startformula 
+\cos(2x)=\cos^2x-\sin^2x, \qquad \sin(2x)=2\sin x\cos x \EtQ
 \tan(2x)={2\tan x\F1-\tan^2x}.
-$$
+\stopformula
+</property>
+<text>
 Ces formules permettent de déduire la valeur du cosinus, du sinus ou de la tangente d'un angle doublé de la valeur de ces fonctions 
-pour l'angle. 
-\bigskip
+pour l'angle</text>
+</concept>
  
-\Concept [] Formule de Moivre
+<concept t="Formule de Moivre">
 
-$$
-{\forall \theta\in\ob R}, \qquad{\forall n\in\ob Z}, \qquad {\cos(n\theta)+i\sin(n\theta)=(\cos\theta+i\sin\theta)^n}. 
-$$
+\startformula 
+\cos(nϑ)+i\sin(nϑ)=(\cosϑ+i\sinϑ)^n}\qquad(n∈ℤ, ϑ∈ℝ).
+\stopformula
+<text>
 La formule précédente est à utiliser en conjonction avec le binôme de Newton. 
-\bigskip
+</text>
 
-Exercice. Développer $\cos(6\theta)$. 
-\bigskip
+</concept>
  
 
-\Concept [] Relation entre cosinus et sinus
+<concept t="Relation entre cosinus et sinus">
  
-$$
-\forall x\in\ob R,\qquad{\cos^2x+\sin^2x=1}.\eqdef{coscpsinc}
-$$
+<property m="+">
+\startformula 
+\cos^2x+\sin^2x=1\qquad(x∈ℝ).
+\stopformula
+</property>
+<text>
 Géométriquement, cette relation signifie que le point d'affixe $\cos x+i\sin x$ appartient 
-au~cercle de centre $0$ et de rayon $1$ 
-\bigskip
+au cercle de centre $0$ et de rayon $1$ 
+</text>
+</concept>
 
-\Concept [] Linéarisation d'un produit 
+<concept t="Linéarisation d'un produit"> 
 
-Pour chaque couple $(a,b)$ de nombres réels, on a 
-$$
-\eqalign{
-\sin a \sin b={\cos(a-b)-\cos(a+b)\F2},&\qquad\sin a\cos b={\sin(a+b)+\sin(a-b)\F2_{\strut}}\cr
-\mbox{et }\quad\cos a\cos b^{\strut}=&{\cos(a+b)+\cos(a-b)\F2}.
-}\eqdef{lin}
-$$
+<property h="$a,b∈ℝ$">
+\startformula 
+\sin a \sin b={\cos(a-b)-\cos(a+b)\F2},\qquad \sin a\cos b={\sin(a+b)+\sin(a-b)\F2}\EtQ\cos a\cos b={\cos(a+b)+\cos(a-b)\F2}.
+\stopformula
+</property>
+<text>
 Ces formules permettent de transformer un produit de fonctions trigonométriques en sommes de cosinus ou de sinus. 
 C'est très utile pour les intégrer, par exemple. 
-\bigskip
+</text>
 
-
-\Concept [] Factorisation d'une somme 
-
-\noindent
-Soient {$p$ et $q$ des nombres réels}. Alors, on a 
-\medskip
-\noindent
-{$\ds\cos p+\cos q=2\cos\Q(\!{p+q\F2}\!\W)\cos\Q(\!{p-q\F2}\!\W)$}, \hfill
-{$\ds\cos p-\cos q=-2\sin\Q(\!{p+q\F2}\!\W)\sin\Q(\!{p-q\F2}\!\W)$},
-\medskip
-\noindent
-{$\ds\sin p+\sin q=2\sin\Q({p+q\F2}\W)\cos\Q({p-q\F2}\W)$},\hfill
-{$\ds\sin p-\sin q=2\cos\Q({p+q\F2}\W)\sin\Q({p-q\F2}\W)$}.
-\medskip
-\noindent
+</concept>
+<concept t="Factorisation d'une somme">
+<property h="$p,q∈ℝ$">
+\startformula
+\startmatrix
+\NC \cos p+\cos q \NC = 2\cos\Q({p+q\F2}\W)\cos\Q({p-q\F2}\W)\NR
+\NC\cos p-\cos q\NC =-2\sin\Q({p+q\F2}\W)\sin\Q({p-q\F2}\W)\NR
+\NC\sin p+\sin q\NC =2\sin\Q({p+q\F2}\W)\cos\Q({p-q\F2}\W)\NR
+\NC\sin p-\sin q\NC =2\cos\Q({p+q\F2}\W)\sin\Q({p-q\F2}\W)\NR
+\stopmatrix
+\stopformula
+</property>
+<text>
 Ces formules permettent de factoriser des expressions trigonométriques. 
 C'est très utile pour résoudre des équations trigonométriques. 
-\bigskip
+</text>
+</concept>
 
-\Concept [] Tangente de l'angle moitié 
+<concept t="Tangente de l'angle moitié">
 
-\noindent
-Soit {$x\not\equiv \pi\ \,[2\pi]$} un nombre réel et soit 
-{$\ds t:=\tan{x\F 2}$}. Alors, on a 
-$$
-{\cos x={1-t^2\F1+t^2}}\qquad\mbox{et}\qquad
-{\sin x={2t\F1+t^2}}.
-$$
-Si le nombre $x$ satisfait de plus {$\ds x\not\equiv {\pi\F2}\ \,[\pi]$}, on a 
-$$
-{\tan x={2t\F1-t^2}}.
-$$
+<property h="$t:=\tan{x/2}$ pour $x\≢ π\quad[2π]$">
+\startformula 
+\cos x={1-t^2\F1+t^2}\EtQ\sin x={2t\F1+t^2}.
+\stopformula
+De plus, si $x\≢{π\F2}\quad[π]$, on a 
+\startformula 
+\tan x={2t\F1-t^2}.
+\stopformula
+</property>
+<text>
 Ces formules, qui permettent d'exprimer le cosinus, le sinus et la tangente d'un angle en fonction 
 de la tangente de l'angle moitié, servent essentiellement à effectuer des changements de variables dans les intégrales. 
-\bigskip
+</text>
+</concept>
+</subsection>
 
-\Subsection LineTrigo, Applications classiques.
+<subsection t="Applications classiques">
 
-\bigskip
-\Concept Equation trigonométrique $f(x)=f(a)$
- 
-\noindent
-Pour {$a\in\ob R$}, on a 
-$$
-\eqalign{
-&{\cos(x)=\cos(a)\ \Longleftrightarrow\ x\equiv a\ [2\pi]\ \mbox{ ou }\ x\equiv -a\ [2\pi]}
-\cr
-&{\sin(x)=\sin(a)\ \Longleftrightarrow\ x\equiv a\ [2\pi]\ \mbox{ ou }\ x\equiv \pi-a\ [2\pi]}
-}
-$$
-Si de plus {$\ds a\not\equiv{\pi\F2}\ \,[\pi]$}, on a 
-$$
-{\tan(x)=\tan(a)\ \Longleftrightarrow\ x\equiv a\ [\pi]}. 
-$$ 
+<concept t="Equation trigonométrique $f(x)=f(a)$">
 
-\Concept Equation trigonométrique $a\cos(x)+b\sin(x)=c$ 
+<property h="$a∈ℝ$">
+\startformula 
+\startmatrix
+\NC\cos(x)=\cos(a) ⟺ x≡a\quad[2π] \OuQ x≡ -a\quad [2π]\NR
+\NC\sin(x)=\sin(a) ⟺ x≡ a\quad [2π] \OuQ x≡ π-a\quad [2π]\NR
+\stopmatrix
+\stopformula
+Si de plus $a\≢{π\F2}\quad[π]$, on a 
+\startformula 
+\tan(x)=\tan(a) ⟺ x≡ a\quad [π]. 
+\stopformula 
+</property>
+</concept>
 
+
+<concept t="Equation trigonométrique $a\cos(x)+b\sin(x)=c$"> 
+
+<text>
 Soient $a$ et $b$ des nombres réels tels que $(a,b)\neq(0,0)$. 
 \bigskip
 
 
-{{ \centerline{\bf Technique à retenir}
-\medskip
-\noindent\hfill$\ds
-a\cos(x)+b\sin(x)=\underbrace{\sqrt{a^2+b^2}}_{\ss r}\Bigg(\underbrace{{a\F\sqrt{a^2+b^2}}}_{\cos(\theta)}\cos(x)
-+\underbrace{{b\F\sqrt{a^2+b^2}}}_{\sin(\theta)}\sin(x)\Bigg)=r\cos(x-\theta).
-$\hfill\null\par
-}}
-\bigskip
+<technique>
+\startformula 
+a\cos(x)+b\sin(x)=\underbrace{\sqrt{a^2+b^2}}_{r}\Bigg(\underbrace{{a\F\sqrt{a^2+b^2}}}_{\cos(ϑ)}\cos(x)
++\underbrace{{b\F\sqrt{a^2+b^2}}}_{\sin(ϑ)}\sin(x)\Bigg)=r\cos(x-ϑ).
+\stopformula
+</technique>
+
 
 \noindent
 Pour résoudre l'équation trigonométrique  
-$$
-a\cos(x)+b\sin(x)=c, \eqdef{eqtrig}
-$$
+\startformula 
+a\cos(x)+b\sin(x)=c,
+\stopformula
 
-on la transforme pour la mettre sous la forme $\ds\cos(\theta)\cos(x)+\sin(\theta)\sin(x)={c\F r}$, 
+on la transforme pour la mettre sous la forme $\cos(ϑ)\cos(x)+\sin(ϑ)\sin(x)={c\F r}$, 
 c'est-à-dire sous une forme étudiée au paragraphe précédent : 
-$$
-\cos(x-\theta)={c\F r}. 
-$$ 
-Pour cela, on divise \eqref{eqtrig} par le nombre strictement positif $r:=\sqrt{a^2+b^2}$ pour~obtenir~que 
-$$
-\eqref{eqtrig}\ \Longleftrightarrow\ {a\F\sqrt{a^2+b^2}}\cos(x)+{b\F\sqrt{a^2+b^2}}\sin(x)={c\F r}.
-$$
+\startformula 
+\cos(x-ϑ)={c\F r}. 
+\stopformula 
+Pour cela, on divise l'équation de départ par le nombre $r:=\sqrt{a^2+b^2}$ pour~obtenir~que 
+\startformula 
+a\cos(x)+b\sin(x)=c ⟺ {a\F\sqrt{a^2+b^2}}\cos(x)+{b\F\sqrt{a^2+b^2}}\sin(x)={c\F r}.
+\stopformula
 Puis, on remarque alors que le point de coordonnées $\Q({a\F\sqrt{a^2+b^2}},{b\F\sqrt{a^2+b^2}}\W)$ 
-appartient au cercle trigonométrique et donc qu'il existe un nombre réel $\theta$, unique modulo $2\pi$, tel que 
-$$
+appartient au cercle trigonométrique et donc qu'il existe un nombre réel $ϑ$, unique modulo $2π$, tel que 
+\startformula 
 \Q\{\eqalign{
-\cos(\theta)={a\F\sqrt{a^2+b^2}},
+\cos(ϑ)={a\F\sqrt{a^2+b^2}},
 \cr
-\sin(\theta)={b\F\sqrt{a^2+b^2}}.}
-\W.\eqdef{eqtrig2}
-$$
+\sin(ϑ)={b\F\sqrt{a^2+b^2}}.}
+\W.
+\stopformula
 On en déduit alors que 
-$$
-\eqref{eqtrig}\ \Longleftrightarrow\ \cos(\theta)\cos(x)+\sin(\theta)\sin(x)={c\F r}
-$$
+\startformula 
+a\cos(x)+b\sin(x)=c\ ⟺\ \cos(ϑ)\cos(x)+\sin(ϑ)\sin(x)={c\F r}
+\stopformula
 puis que 
-$$
-\eqref{eqtrig}\ \Longleftrightarrow\ \cos(x-\theta)={c\F r}.
-$$
+\startformula 
+a\cos(x)+b\sin(x)=c\ ⟺\ \cos(x-ϑ)={c\F r}.
+\stopformula
 Deux cas peuvent se produire : 
 \medskip
+\startitemize
+\item Si $|c|⩽ r$, il existe un nombre réel $τ$ tel que 
+\startformula 
+\cos(τ)={c\F r}
+\stopformula
+et les solutions réelles de l'équation de départ sont les nombres $x$ vérifiant 
+\startformula 
+x≡ϑ+τ\quad[2π] \OuQ x≡ ϑ-τ\quad[2π].
+\stopformula
+\item Si $|c|>r$, l'équation de départ n'admet aucune solution réelle. 
+\stopitemize
+</text>
+</concept>
 
-\qquad$\bullet$ Si $|c|\le r$, il existe un nombre réel $\tau$ tel que 
-$$
-\cos(\tau)={c\F r}
-$$
-et les solutions réelles de l'équation \eqref{eqtrig} sont les nombres $x$ vérifiant 
-$$
-x\equiv\theta+\tau\quad[2\pi] \quad\mbox{ou}\quad x\equiv \theta-\tau\quad[2\pi].
-$$
-\qquad\quad$\bullet$ Si $|c|>r$, l'équation \eqref{eqtrig} n'admet aucune solution réelle. 
-\bigskip
+<concept t="Linéarisation">
 
-
-\Concept [] Linéarisation
-
-\noindent
+<text>
 Linéariser une expression trigonométrique, c'est l'écrire comme une somme de constantes, de cosinus et de sinus. Ainsi, 
 une linéarisation des expressions $\cos^2(x)$ et $\sin^2(x)$ est 
-$$
-\forall x\in\ob R, \qquad {\cos^2(x)={1+\cos(2x)\F2}}\quad\mbox{et}\quad
-{\sin^2(x)={1-\sin(2x)\F2}}.
-$$
-Pour linéariser une fonction trigonométrique, on utilise les formules \eqref{lin} ainsi que les~relations d'Euler 
-conjointement au binôme de Newton. Ainsi, pour linéariser les expressions $\cos^n(x)$ et $\sin^n(x)$ pour des entiers $n\ge3$, 
+\startformula 
+\cos^2(x)={1+\cos(2x)\F2}\EtQ\sin^2(x)={1-\sin(2x)\F2}\qquad(x∈ℝ).
+\stopformula
+</text>
+
+<text>
+Pour linéariser une fonction trigonométrique, on utilise les formules de lin,arisation de produit ainsi que les relations d'Euler 
+conjointement au binôme de Newton. Ainsi, pour linéariser les expressions $\cos^n(x)$ et $\sin^n(x)$ pour des entiers $n⩾3$, 
 on écrit 
-$$
-{
-\eqalign{
-\cos^n(x)&=\Q({\e^{ix}+\e^{-ix}\F 2}\W)^n={1\F 2^n}\sum_{0\le k\le n}\Q({n\atop k}\W)\e^{i(n-2k)x}, 
-\cr
-\sin^n(x)&=\Q({\e^{ix}-\e^{-ix}\F 2i}\W)^n={1\F(2i)^n}\sum_{0\le k\le n}\Q({n\atop k}\W)(-1)^k\e^{i(n-2k)x},
-}}
-$$
+\startformula 
+\startmatrix
+\NC \cos^n(x) \NC=\Q({\e^{ix}+\e^{-ix}\F 2}\W)^n={1\F 2^n}\sum\limits_{0⩽ k⩽ n}\Q({n\atop k}\W)\e^{i(n-2k)x}\NR 
+\NC \sin^n(x) \NC=\Q({\e^{ix}-\e^{-ix}\F 2i}\W)^n={1\F(2i)^n}\sum\limits_{0⩽ k⩽ n}\Q({n\atop k}\W)(-1)^k\e^{i(n-2k)x}
+\stopmatrix
+\stopformula
 puis on transforme les exponentielles complexes en cosinus et en sinus via les relations d'Euler en remarquant que 
-$$
-\forall x\in\ob R, \qquad \e^{ix}+\e^{-ix}=2\cos(x)\quad\mbox{et}\quad\e^{ix}-\e^{-ix}=2i\sin(x). 
-$$
+\startformula 
+\e^{ix}+\e^{-ix}=2\cos(x)\EtQ\e^{ix}-\e^{-ix}=2i\sin(x)\qquad(x∈ℝ). 
+\stopformula
+</text>
 
-Exercice. Pour $x\in\ob R$, montrer que $\ds \cos^4(x)={\cos(4x)\F8}+{\cos(2x)\F2}+{3\F8}$. 
-\bigskip
+<exercise>Pour $x∈ℝ$, montrer que $\cos^4(x)={\cos(4x)\F8}+{\cos(2x)\F2}+{3\F8}$. </exercise>
 
-\Concept [] Développement d'une expression trigonométrique 
+</concept>
 
-\noindent
+<concept t="Développement d'une expression trigonométrique"> 
+
+<text>
 Développer une expression trigonométrique, c'est écrire une expression trigonométrique 
 en fonction de $\cos(x)$ et de $\sin(x)$. En quelque sorte, c'est l'inverse de la linéarisation. 
 somme de constantes, de cosinus et de sinus. Ainsi, les formules suivantes forment 
 un~``développement'' des quantités $\cos(2x)$ et $\sin(2x)$. 
-$$
-\forall x\in\ob R, \qquad\cos(2x)=\cos^2(x)-\sin^2(x)=2\cos^2(x)-1\quad\mbox{et}\quad\sin(2x)=2\sin(x)\cos(x). 
-$$
+\startformula 
+∀ x∈ℝ, \qquad\cos(2x)=\cos^2(x)-\sin^2(x)=2\cos^2(x)-1\quad\mbox{et}\quad\sin(2x)=2\sin(x)\cos(x). 
+\stopformula
 Pour développer une fonction trigonométrique, on utilise les formules d'addition ainsi que la~formule de Moivre 
-conjointement au binôme de Newton. Ainsi, pour développer les expressions $\cos(nx)$ et $\sin(nx)$ pour des entiers $n\ge3$, 
+conjointement au binôme de Newton. Ainsi, pour développer les expressions $\cos(nx)$ et $\sin(nx)$ pour des entiers $n⩾3$, 
 on écrit 
-$$
-{
-\cos(nx)+i\sin(nx)=(\cos x+i\sin x)^n=\sum_{0\le k\le n}\Q({n\atop k}\W)\cos^k(x)i^{n-k}\sin^{n-k}(x), 
-}
-$$
-en simplifiant éventuellement les termes de puissance paire via la relation \eqref{coscpsinc}. 
+\startformula 
+\cos(nx)+i\sin(nx)=(\cos x+i\sin x)^n=\sum\limits_{0⩽ k⩽ n}\Q({n\atop k}\W)\cos^k(x)i^{n-k}\sin^{n-k}(x), 
+\stopformula
+en simplifiant éventuellement les termes de puissance paire via la relation $\cos^2x+\sin^2x=1$. 
+</text>
 
-Exercice. Pour chaque nombre réel $x$, démontrer que 
-$$
-\cos(3x)=4\cos^3(x)-3\cos(x)\qquad\mbox{ et }\qquad \sin(3x)=3\sin(x)-4\sin^3(x).
-$$ 
+<exercise> Pour chaque nombre réel $x$, démontrer que 
+\startformula 
+\cos(3x)=4\cos^3(x)-3\cos(x)\EtQ\sin(3x)=3\sin(x)-4\sin^3(x).
+\stopformula 
 Si $\tan(x)$ et $\tan(3x)$ sont définies, prouver de plus que
-$$
+\startformula 
 \tan(3x)={3\tan(x)-\tan^3(x)\F1-3\tan^2(x)}.
-$$
+\stopformula
+</exercise>
+</concept>
+
+
+</subsection>
+</section>
+</chapter>
+</part>
+
+
+
+
+ 
+<!--
+
 
 \Section Eq2emedg, Equations polynômiales du second degré. 
 
