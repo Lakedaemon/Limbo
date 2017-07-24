@@ -1,0 +1,385 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+
+<chapter t="Structures algébriques" p="-β+β">
+
+<section t="Groupes"> 
+
+<subsection t="Groupes">
+
+<definition> Un ensemble $G$ muni d'une opération {\bf interne} $\star$ forme un groupe si, et~seulement si, 
+les cinq propriétés suivantes sont satisfaites.\NR lf
+i) L'ensemble $G$ n'est pas vide : 
+\startformula 
+ ∃ a ∈ G.
+\stopformula 
+\noindent ii) L'opération $\star$ est interne à $G$ : 
+\startformula 
+ ∀ (x,y) ∈ G^2, \qquad x\star y\mbox{ est défini}\EtQ x\star y ∈ G
+\stopformula
+\noindent iii) L'opération $\star$ admet un élément neutre, noté $e$, dans $G$ : 
+\startformula 
+ ∃ e ∈ G:\qquad  ∀ x ∈ G,\qquad e\star x=x\star e=e
+\stopformula
+\noindent iv) Chaque élément de l'ensemble $G$ admet un inverse pour la loi $\star$ : 
+\startformula 
+ ∀ x ∈ G, \qquad  ∃ y ∈ G:\qquad x\star y=y\star x=e
+\stopformula
+\noindent v) L'opération $\star$ est associative dans $G$ :
+\startformula 
+ ∀ (x,y,z) ∈ G^3, \qquad(x\star y)\star z=x\star(y\star z)
+\stopformula</definition>
+
+<definition> Un groupe $(G,\star)$ est dit commutatif (ou abélien) si, et~seulement si, 
+L'opération $\star$ est commutative dans $G$ : 
+\startformula 
+ ∀ (x,y) ∈ G^2, \qquad x\star y=y\star x
+\stopformula
+</definition>
+
+<remark>En ce qui concerne les groupes, on utilise essentiellement deux notations. 
+La~loi~$\star$, l'élément $x\star y$, l'élément neutre, l'inverse de $x$ et $\underbrace{x\star x\star \cdots\star x}_{\text{$n$ fois}}$ sont notés : 
+\medskip
+\noindent
+Pour la notation additive : respectivement $+$, $x+y$, $0$, $-x$ et $nx$.
+\medskip
+\noindent
+Pour la notation multiplicative (utilisée en particulier pour les groupes non-commutatifs) : respectivement $ ×$, $xy$, $1$, $x^{-1}$ et $x^n$.
+</remark>
+
+<example> $( ℂ,+)$, $( ℂ^*,  ×)$, $\Q(\{f:I\to I: f\mbox{ bijection}\}, \circ\W)$, $( ℝ^n,+)$, $\Q(Gl_n( ℝ),  ×\W)$... </example>
+
+<remark>Dans un groupe $(G,\star)$, l'élément neutre $e$ est unique et l'inverse pour $\star$ de chaque vecteur $x$ est unique. </remark>
+
+</subsection><subsection t="Sous-groupes">
+
+<definition>Un sous-groupe d'un groupe $(G,\star)$ est un groupe $(H, \otimes)$ inclus dans $G$ dont la loi
+$\otimes$ est la restriction à $H$ de la loi $\otimes$ de~$G$.  \bigskip</definition>
+
+<remark>pour simplifier, un sous-groupe $H$ de $G$ est un groupe plus petit que $H$ (au sens de l'inclusion), muni de la même opération (de la même structure). </remark>
+
+<remark>Prouver que $H$ est un groupe est beaucoup trop bourrin via les propriétés i) à v) alors que 
+c'est sans douleur via les sous-groupes. </remark>
+
+<property>Soit $(G,\star)$ un groupe. Alors $(\{e\},\star)$ et $(G,\star)$ sont deux sous-groupes de $(G,\star)$. </property>
+
+<property>Si $H$ est un sous-groupe de $(G,\star)$, alors $H$ contient l'élément neutre $e$ de $G$ pour la loi $\star$. </property>
+
+<property>Un ensemble $H$ forme un sous-groupe d'un groupe $(G,\star)$ si, et~seulement~si
+$H≠∅$, $H ⊂ G$ et si 
+\startformula 
+∀ (x,y) ∈ H^2,\qquad x\star y^{-1} ∈ H, 
+\stopformula
+c'est-à-dire si $H$ est stable par la loi $\star$ et par passage à l'inverse
+\startformula
+\System{
+\NC  ∀ (x,y) ∈ H^2, \qquad x\star y ∈ H\NR 
+\NC  ∀ x ∈ H, \qquad x^{-1} ∈ H}
+\stopformula</property>
+
+
+<exercise>Prouver que $( ℤ, +)$ et que $\Q(\{z ∈ ℂ:z^n=1\}, ×\W)$ sont des groupes ($n ∈ ℕ^*$). </exercise>
+
+
+</subsection><subsection t="Morphismes de groupes">
+
+<definition>
+Un morphisme des groupes $(G,\star)$ et $(H,\otimes)$ est une application $f:G\to H$ vérifiant 
+\startformula 
+ ∀ (x,y) ∈G^2 , \qquad  f(x\star y)=f(x)\otimes f(y) .
+\stopformula 
+</definition>
+
+<definition>un morphisme de groupe $f:(G,\star)\to(H,\otimes)$ est un isomorphisme de groupes si, 
+et seulement si $f:G\to H$ est bijective. </definition>
+
+<remark>Dans le cas précédent, on dit alors que les groupes $(G,\star)$ et $(H,\otimes)$ sont isomorphes. </remark>
+
+<property>Si $f:(G,\star)\to(H,\otimes)$ est un isomorphisme, alors, sa bijection réciproque $f^{-1}:(H,\otimes)\to(G,\star)$ 
+en est également un. </property>
+
+<property>Soit $f:(G,\star)\to (H,\otimes)$ un morphisme de groupes. Alors, l'ensemble 
+\startformula 
+\Ker f:=\{x ∈ G:f(x)=e_H\}
+\stopformula
+est un sous groupe de $(G,\star)$, appelé noyau du morphisme de groupes $f$. </property>
+
+<property>Soit $f:(G,\star)\to (H,\otimes)$ un morphisme de groupes. Alors, l'ensemble 
+\startformula 
+\IM f:=\{f(x):x ∈ G\}
+\stopformula
+est un sous groupe de $(H,\otimes)$, appelé image du morphisme de groupes $f$. </property>
+
+                             
+
+</subsection></section><section t="Anneaux">
+
+<subsection t="Anneaux">
+
+<definition> Un ensemble $A$ muni de deux opérations {\bf internes} $+$ et $ ×$ forme un anneau (unitaire) si, et~seulement si, 
+les dix propriétés suivantes sont satisfaites.\NR lf
+\noindent{i)} L'ensemble $A$ n'est pas vide : 
+\startformula 
+ ∃ a ∈ A.
+\stopformula 
+\noindent{ii)} L'opération $+$ est interne à $A$ : 
+\startformula 
+ ∀ (x,y) ∈ A^2, \qquad x+y\mbox{ est défini}\EtQ x+y ∈ A
+\stopformula
+\noindent{iii)} L'opération $+$ admet un élément neutre, noté $0$, dans $A$ : 
+\startformula 
+ ∃ 0 ∈ A:\qquad  ∀ x ∈ E,\qquad 0+x=x+0=x
+\stopformula
+\noindent{iv)} Chaque élément de l'ensemble $A$ admet un inverse (opposé) pour la loi $+$ : 
+\startformula 
+ ∀ x ∈ A, \qquad  ∃ y ∈ A:\qquad x+y=0=y+x
+\stopformula
+\noindent{v)} L'opération $+$ est associative dans $A$ :
+\startformula 
+ ∀ (x,y,z) ∈ A^3, \qquad(x+y)+z=x+(y+z)
+\stopformula 
+\noindent{vi)} L'opération $+$ est commutative dans $A$ : 
+\startformula 
+ ∀ (x,y) ∈ A^2, \qquad x+y=y+x
+\stopformula
+\noindent{vii)} L'opération $ ×$ est distributive sur l'opération $+$ dans $A$ : 
+\startformula 
+ ∀(x,y,z) ∈ A^3, \qquad x ×(y+z)=x × y+x × z\EtQ (y+z) × x=y × x+z × x.
+\stopformula 
+\noindent{viii)} L'opération $ ×$ est interne à $A$ : 
+\startformula 
+ ∀ (x,y) ∈ A^2,\qquad x × y\mbox{ est défini}\quad \mbox{et}\quad x × y ∈ A
+\stopformula
+\noindent{ix)} L'opération $ ×$ admet un élément neutre non nul dans $A$, noté $1$ (Anneau unitaire):
+\startformula 
+ ∃ 1 ∈ A, \qquad\mbox{ différent de }0: \qquad  ∀ x ∈ A, \qquad x ×1=1 × x=x.
+\stopformula 
+\noindent{x)} L'opération $ ×$ est associative dans $A$
+\startformula 
+ ∀ (x,y,z) ∈ A^3, \qquad(x × y) × z=x ×(y × z)
+\stopformula </definition>
+
+<definition>Un anneau $(A,+, ×)$ est commutatif si, et seulement si, 
+\bigskip
+\noindent xi) L'opération $ ×$ est commutative dans $A$ : 
+\startformula 
+ ∀ (x,y) ∈ A^2, \qquad x × y=y × x
+\stopformula</definition>
+
+                             
+
+<example>$( ℂ,+, ×)$, $( ℝ,+, ×)$, $( ℚ, +, ×)$, $\Q(\mc F(I, ℝ),+, ×\W)$, $\Q(\mc M_n( ℝ),+, ×\W)$, $\mc L(E,+,\circ )$... </example>
+
+<remark>Si $(A,+, ×)$ est un anneau, alors $(A,+)$ est un groupe commutatif. A fortiori, l'élément neutre $0$ est unique, de même que 
+l'inverse pour $ ×$ (l'opposé) de chaque vecteur~$x$, qui est noté $-x$. L'élément neutre $1$ pour la loi $ ×$ est également unique. 
+</remark>
+
+</subsection><subsection t="Sous-anneaux">
+
+<definition>Un sous-anneau d'un anneau $(A,+, ×)$ est un anneau $(B, \star, \otimes)$ inclus dans $A$ dont les lois
+$\star$ et $\otimes$ sont les restrictions à $B$ des lois $+$ et $ ×$ de~$A$.  \bigskip</definition>
+
+<remark>pour simplifier, un sous-anneau $B$ de $A$ est un anneau plus petit que $A$ (au sens de l'inclusion), muni des mêmes opérations (de la même structure). </remark>
+
+<remark>Prouver que $A$ est un anneau est beaucoup trop bourrin via les propriétés i) à x) alors que 
+c'est sans douleur via les sous-anneaux. </remark>
+
+<property>Si $B$ est un sous-anneau de $(A,+, ×)$, alors $B$ contient les éléments neutres $0$ et $1$ de $A$ pour les lois $+$ et $ ×$. </property>
+
+<property h="$A(+,×)$ anneau">Un ensemble $B$ forme un sous-anneau de $A$ \ssi
+$B≠∅$, $B⊂A$ et si 
+\startformula 
+ ∀ (x,y) ∈ B^2,\qquad x-y ∈ B\EtQ x×y ∈ B. 
+\stopformula
+c'est-à-dire si $B$ est stable pour les lois $×$ et $+$ ainsi que par passage à l'opposé
+\startformula
+\System{
+\NC ∀ (x,y) ∈ B^2, \qquad x×y ∈ B \NR
+\NC ∀ (x,y) ∈ B^2, \qquad x+y ∈ B \NR
+\NC ∀ x ∈ B, \qquad -x ∈ B\NR
+}
+\stopformula</property>
+
+<exercise> Prouver que $( ℤ, +, ×)$ est un anneau.</exercise>
+
+</subsection><subsection t="Propriétés">
+
+<concept t="Identité algèbrique">
+<theorem t="Egalité fondamentale" h="$ab=ba$ pour $a,b∈A$ anneau"> 
+\startformula 
+a^n-b^n=(a-b)\sum_{k=0}^{n-1}a^kb^{n-1-k}\qquad(n∈ℕ)
+\stopformula</theorem>
+</concept>
+
+<remark>cette égalité est vraie pour $n=0$ avec la convention selon laquelle $a^0=b^0=1$ et selon laquelle une somme vide est nulle. </remark>
+
+
+<concept t="Binôme de Newton">
+<theorem h="$ab=ba$ pour $a,b∈A$ anneau" t="Binôme de Newton">
+\startformula 
+(a+b)^n=\sum_{0 ⩽ k ⩽ n}{n\choose k}a^kb^{n-k}\qquad(n∈ℕ)
+\stopformula</theorem>
+<remark>cette égalité est vraie pour $n=0$ avec la convention selon laquelle $a^0=b^0=1$ et selon laquelle une somme vide est nulle. </remark>
+</concept>
+
+<concept t="Distributivité et sommes"><text>
+Soient $A$ un anneau, $n ∈ ℕ^*$, $a ∈ A$ et $(b_1,\cdots, b_n) ∈ A^n$. alors, on a 
+\startformula 
+\Align{
+\NC a\sum_{1 ⩽ k ⩽ n}b_k=a(b_1+b_2+\cdots+b_n)=(ab_1+ab_2+\cdots+ab_n)=\sum_{1 ⩽ k ⩽ n}ab_k\NR 
+\NC \Q(\sum_{1 ⩽ k ⩽ n}b_k\W)a=(b_1+b_2+\cdots+b_n)a=(b_1a+b_2a+\cdots+b_na)=\sum_{1 ⩽ k ⩽ n}b_ka
+}
+\stopformula</text>
+</concept>
+
+<concept t="Double distributivité"><text>
+Soient $A$ un anneau, $(m,n)$ un couple d'entiers strictements positifs, $(a_1,\cdots, a_m) ∈ A^m$ et $(b_1,\cdots, b_n) ∈ A^n$. alors, on a 
+\startformula 
+\Q(\sum_{1 ⩽ k ⩽ m}a_k\W) ×\Q(\underbrace{\sum_{1 ⩽ ℓ ⩽ n}b_ℓ}_c\W)=\sum_{1 ⩽ k ⩽
+m}\Q(a_k\underbrace{\sum_{1 ⩽ ℓ ⩽ n}b_ℓ}_c\W) =\sum_{1 ⩽ k ⩽ m}\Q(\sum_{1 ⩽ ℓ ⩽ n}a_kb_ℓ\W) \stopformula On a
+également \startformula  \Q(\underbrace{\sum_{1 ⩽ k ⩽ m}a_k}_d\W) ×\Q(\sum_{1 ⩽ ℓ ⩽ n}b_ℓ\W)=\sum_{1 ⩽ ℓ ⩽
+n}\Q(\Q(\underbrace{\sum_{1 ⩽ k ⩽ m}a_k}_d\W)b_ℓ\W) =\sum_{1 ⩽ ℓ ⩽ n}\Q(\sum_{1 ⩽ k ⩽ m}a_kb_ℓ\W)
+\stopformula</text>
+</concept>
+
+<property>Soient $A$ un anneau, $(m,n)$ un couple d'entiers strictements positifs, $(a_1,\cdots, a_m) ∈ A^m$ et $(b_1,\cdots, b_n) ∈ A^n$. alors, on a 
+\startformula 
+\sum_{1 ⩽ k ⩽ m}\Q(\sum_{1 ⩽ ℓ ⩽ n}a_kb_ℓ\W)=\sum_{1 ⩽ ℓ ⩽ n}\Q(\sum_{1 ⩽ k ⩽ m}a_kb_ℓ\W)
+\stopformula</property>
+
+<remark>cette propriété est également une conséquence de la propriété, plus g'enérale, de Fubini. </remark>
+
+<property i="Théorème+de Fubini" t="héorème de Fubini">
+soit $(G,+)$ un groupe commutatif. Soient $(n,p)$ un couple d'entiers positifs et soient $(a_{k,ℓ})$ une famille d'éléments de $G$ avec $1 ⩽ k ⩽ m$ et $1 ⩽ ℓ ⩽ n$. 
+Alors, 
+\startformula 
+\sum_{\scriptstyle1 ⩽ k ⩽ m\atop\scriptstyle1 ⩽ℓ ⩽ n}a_{k,ℓ}:=\sum_{k=1}^m\ \sum_{ℓ=1}^na_{k,ℓ}=\sum_{ℓ=1}^n\ \sum_{k=1}^ma_{k,ℓ}
+\stopformula</property>
+
+                                             
+<theorem t="Théorème de Fubini">
+soit $(G,+)$ un groupe commutatif, 
+soient $(n,p)$ un couple d'entiers positifs et soient $(a_{k,ℓ})$ une famille d'éléments de $G$. 
+Alors, 
+\startformula 
+	\sum_{k=1}^n\sum_{ℓ=1}^ka_{k,ℓ}=\sum_{ℓ=1}^n\sum_{k=ℓ}^na_{k,ℓ}.
+\stopformula</theorem>
+
+
+
+</subsection></section><section t="Corps">
+
+
+
+<subsection t="Corps">
+
+<definition> Un ensemble $ 𝕂$ muni de deux opérations $+$ et $ ×$ 
+forme un corps si, et~seulement si, les onze propriétés suivantes sont satisfaites.
+\bigskip
+\noindent\qquad\llap{i)}\ L'ensemble $ 𝕂$ n'est pas vide : 
+\startformula 
+ ∃ a ∈  𝕂.
+\stopformula 
+\noindent\qquad\llap{ii)}\ L'opération $+$ est interne à $ 𝕂$ : 
+\startformula 
+ ∀ (a,b) ∈  𝕂^2, \qquad a+b\mbox{ est défini}\EtQ a+b ∈  𝕂
+\stopformula
+\noindent\qquad\llap{iii)}\ L'opération $+$ admet un élément neutre, noté $0$, dans $ 𝕂$ : 
+\startformula 
+ ∃ 0 ∈  𝕂:\qquad  ∀ a ∈  𝕂,\qquad 0+a=a+0=a
+\stopformula
+\noindent\qquad\llap{iv)}\ Chaque élément de l'ensemble $ 𝕂$ admet un inverse pour la loi $+$ : 
+\startformula 
+ ∀ a ∈  𝕂, \qquad  ∃ b ∈  𝕂:\qquad a+b=0=b+a
+\stopformula
+\noindent\qquad\llap{v)}\ L'opération $+$ est associative dans $ 𝕂$ :
+\startformula 
+ ∀ (a,b,c) ∈  𝕂^3, \qquad(a+b)+c=a+(b+c)
+\stopformula 
+\noindent\qquad\llap{vi)}\ L'opération $+$ est commutative dans $ 𝕂$ : 
+\startformula 
+ ∀ (a,b) ∈  𝕂^2, \qquad a+b=b+a
+\stopformula
+\noindent\qquad\llap{vii)}\ L'opération $ ×$ est distributive sur l'opération $+$ dans $ 𝕂$ : 
+\startformula 
+ ∀(a,b,c) ∈  𝕂^3, \qquad a ×(b+c)=a × b+a × c\EtQ (b+c) × a=b × a+c × a.
+\stopformula 
+\noindent\qquad\llap{viii)}\ L'opération $ ×$ est interne à $ 𝕂$ : 
+\startformula 
+ ∀ (a,b) ∈  𝕂^2,\qquad a × b\mbox{ est défini}\EtQ a × b ∈  𝕂
+\stopformula
+\noindent\qquad\llap{ix)}\ L'opération $ ×$ admet un élément neutre non nul dans $ 𝕂$, noté $1$ :
+\startformula 
+ ∃ 1 ∈  𝕂, \qquad\mbox{ différent de }0: \qquad  ∀ a ∈  𝕂, \qquad a ×1=1 × a=a.
+\stopformula 
+\noindent\qquad\llap{x)}\ Chaque élément non nul de $ 𝕂$ est inversible pour $ ×$ : 
+\startformula 
+ ∀ a ∈  𝕂, \qquad\mbox{différent de }0, \qquad  ∃ b ∈  𝕂:\qquad a × b=b × a=1. 
+\stopformula
+\noindent\qquad\llap{xi)}\ L'opération $ ×$ est associative dans $ 𝕂$
+\startformula 
+ ∀ (a,b,c) ∈  𝕂^3, \qquad(a × b) × c=a ×(b × c)
+\stopformula</definition>
+
+
+<definition>Un corps $( 𝕂,+, ×)$ est commutatif si, et seulement si, 
+\noindent\qquad\llap{xii)}\ L'opération $ ×$ est commutative dans $ 𝕂$ : 
+\startformula 
+ ∀ (a,b) ∈  𝕂^2, \qquad a × b=b × a
+\stopformula</definition>
+
+
+<example>$( ℂ,+, ×)$, $( ℝ,+, ×)$ et $( ℚ, +, ×)$ sont des corps commutatifs. </example>
+
+
+<remark>Un corps est un anneau dans lequel tout élément non nul admet un inverse. </remark>
+
+                                                                                                 
+</subsection><subsection t="Sous-corps">
+
+
+<definition>Un sous-corps d'un corps $( 𝕂,+, ×)$ est un corps $(L,+,×)$ inclus dans $ 𝕂$ 
+dont les lois sont les restrictions à $L$ des lois $+$ et $ ×$ de $ 𝕂$. </definition>
+
+<remark>pour simplifier, un sous-corps $L$ de $ 𝕂$ est un corps plus petit que $ 𝕂$ (au sens de l'inclusion), 
+muni des mêmes opérations (de la même structure). </remark>
+
+<remark>Prouver que $L$ est un corps est beaucoup trop bourrin via les propriétés i) à xi) alors que 
+c'est sans douleur via les sous-corps. </remark>
+
+<property>Si $L$ est un sous-corps de $( 𝕂,+, ×)$, alors $L$ contient les éléments neutres $0$ et $1$ de $ 𝕂$ 
+pour les lois $+$ et $ ×$. </property>
+
+<property>Un ensemble $L$ forme un sous-corps d'un corps $( 𝕂,+, ×)$ si, et~seulement~si
+$L≠∅$, $L ⊂  𝕂$ et si $L$ est stable pour les lois $+$ et $ ×$. 
+\startformula 
+\Align{
+	\NC  ∀ (x,y) ∈ B^2, \qquad x+y ∈ B\NR 
+	\NC  ∀ (x,y) ∈ B^2, \qquad x × y ∈ B}
+\stopformula</property>
+
+<exercise> prouver que $Q[i]:=\{a+ib:(a,b) ∈ ℚ^2\}$ est un sous corps de $( ℂ,+, ×)$. </exercise>
+
+<remark>Un sous-anneau d'un corps $( 𝕂, +, ×)$ est un corps. </remark>
+
+</subsection></section><section t="Algèbres">
+
+       
+<definition>Un ensemble $A$ muni de deux opérations internes $+$ et $ ×$ et d'une opération externe $ ⋅$ 
+sur un corps $ 𝕂$ forme une algèbre $(A,+,⋅, ×)$ si, et~seulement~si, 
+\medskip
+\noindent\qquad\llap{i)}\ L'ensemble $A$ muni des lois $+$ et $ ×$ forme un anneau $(A,+, ×)$.
+\medskip
+\noindent\qquad\llap{ii)}\ L'ensemble $A$ muni des lois $+$ et $ ⋅$ forme un $ 𝕂$-espace vectoriel $(A,+, ⋅)$. 
+\medskip
+\noindent\qquad\llap{iii)}\ Mobilité du scalaire : 
+\startformula 
+ ∀  λ ∈ 𝕂, \quad ∀ (x,y) ∈ A^2,\qquad  λ.(x × y)=( λ.x) × y=x ×( λ.y).
+\stopformula</definition>
+
+
+
+<example>$\mc L(E,+, ⋅, ×)$ et $ 𝕂[X]$, l'ensemble des polynômes à coefficients dans $ 𝕂$, 
+sont des algèbres sur le corps $ 𝕂$. </example>
+
+</section></chapter></part>

@@ -1,0 +1,197 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Analyse">
+
+<chapter t="Développements limités" p="β">
+
+
+<concept t="notation" p="-β+β"><text>Nous allons abbréger  \quote{développement limité à l'ordre $n$ en $a$} par $\DL_a^n$ et nous noterons le $\DL_a^n$ d'une fonction $f$ de la façon suivante :  
+\startformula 
+\DL_a^n[f]=∑\limits_{k=0}^n c_k(x-a)^k
+\stopformula</text>
+</concept>
+
+
+<concept t="Développement limité"><text>Une fonction admet un développement limité à l'ordre $n$ en $a$ \ssi elle se comporte essentiellement au voisinage de $a$ comme un polynôme de degré inférieur à $n$ </text>
+<definition h= "$f:I→ℂ$, $a∈I$">
+\startformula 
+\Align{[align=middle]\NC f\text{ a un } \DL_a^n⟺∃(c_0,⋯,c_n)∈ℂ^{n+1}:\NR
+\NC f(x)= ∑\limits_{k=0}^n c_k(x-a)^k+o_a\big((x-a)^n\big)
+}
+\stopformula </definition>
+<remark>Lorsqu'il existe, le développement limité  d'une fonction en un point à l'ordre $n$ est unique . Autrement dit, les coefficients $c_0,⋯c_n$ sont uniques.</remark> 
+
+<remark>Si $f$ admet en $a$ un développement limité à l'ordre $n$, alors $f$ admet pour chaque entier $m∈⟦0,n⟧$ un développement limité en $a$ à l'ordre $m$ et vérifie
+\startformula 
+f(x)= ∑\limits_{k=0}^m c_k(x-a)^k+o_a\big((x-a)^m\big)
+\stopformula
+Autrement dit, le DL à l'ordre $m$ de $f$ est la troncature à l'ordre $m$ du DL de $f$ à l'ordre $n$ (i.e. on ne garde que les termes de degré inférieur à $m$).</remark>
+<remark>Une fonction $f$ a un $\DL_a^n$ \ssi sa translatée $x↦f(a+x)$ a un $\DL_0^n$. 
+\startformula 
+f\text{ a un }\DL_a^n⟺∃(c_0,⋯,c_n)∈ℂ^{n+1}:f(a+u)= ∑\limits_{k=0}^n c_ku^k+o_a\big(u^n\big)
+\stopformula</remark>
+</concept>
+<concept t="existence"><text>La somme, le produit et les multiples de fonctions avec un $\DL_a^n$ admettent un $\DL_a^n$.</text> 
+<property> 
+\startformula 
+f\Et g \text{ ont un } \DL_a^n⟹\System {
+		\NC λf\text{ a un } \DL_a^n\NR
+		\NC f+g\text{ a un } \DL_a^n\NR
+		\NC f×g\text{ a un } \DL_a^n\NR
+}
+\stopformula 
+</property>
+</concept>
+
+<concept t="quotient"><text>Si $f$ et $g$ admettent un $\DL_a^n$ et si $g(a)≠0$, alors ${f\F g}$ admet un $\DL_a^n$. </text>
+<property> 
+\startformula 
+\SystemR{
+	\NC f\text{ avec }\DL_a^n\NR
+	\NC g\text{ avec }\DL_{f(a)}^n\NR
+	\NC g(a)≠0
+} ⟹ {f\F g} \text{ a un }\DL_a^n
+\stopformula 
+</property>
+</concept>
+
+<concept t="composée"><text>Si $f$ admet un $\DL_a^n$, si $g$ admet un $\DL_{f(a)}^n$ et si la composée $g∘f$ est bien définie autour de $a$, alors elle admet un $\DL_a^n$.</text>
+<property h="$f:I→ℂ$; $g:J→ℂ$"> 
+\startformula 
+\SystemR{
+	\NC f\text{ avec }\DL_a^n\NR
+	\NC g\text{ avec }\DL_{f(a)}^n\NR
+	\NC g∘f\text{ définie}
+}
+	⟹ g∘f\text{ a un }\DL_a^n
+\stopformula 
+</property>
+</concept>
+
+<concept t="calcul">
+<combination>
+<property h="$f,g$ avec $\DL_a^n$" m="-"> 
+\startformula 
+\DL_a^n[f+g]=\DL_a^n[f]+\DL_a^n[g]
+\stopformula
+</property> 
+<property h="$f$ avec $\DL_a^n$, $λ∈ℂ$" m="-"> 
+\startformula 
+\DL_a^n[λf]=λ\DL_a^n[f]
+\stopformula
+</property> 
+</combination>
+<combination>
+<property h="$f,g$ avec $\DL_a^n$" m="-"> 
+\startformula 
+\DL_a^n[f×g]=\limits^*\DL_a^n[f] ×\DL_a^n[g]
+\stopformula
+</property> 
+<property h="$f$ avec $\DL_a^n$, $g$ avec $\DL_{f(a)}^n$" m="-"> 
+\startformula 
+\DL_a^n[g∘f]=\limits^*\DL_{f(a)}^n[g]∘\DL_a^n[f]
+\stopformula
+</property> 
+</combination>
+<remark>L'égalite $=\limits^*$ signifie que le membre de droite est tronqué à l'ordre $n$ (on enlève ses termes de degré strictement supérieurs à $n$). </remark>
+</concept>
+
+
+<concept t="quotient">
+<property h="$n ⩾0$" m="+">
+\startformula 
+{1\F 1-x}= ∑_{k=0}^nx^k+o_0(x^n)
+\stopformula
+</property>
+<remark>Cette formule est la plus important de toutes car elle permet d'effectuer les quotient de développment limités.</remark>
+<remark> Sans somme, cettte formule devient
+\startformula 
+{1\F 1-x}= 1+x+x²+⋯+x^n+o_0(x^n)
+\stopformula</remark>
+</concept>
+
+
+<concept t="A connaître">
+<combination>
+<property h="$n ⩾0$" m="+">
+\startformula 
+\e^x= ∑_{k=0}^n{x^k\F k!}+o_0(x^n)
+\stopformula
+</property>
+<property h="$n ⩾0$" m="+">
+\startformula 
+\ln(1+x)= ∑_{k=1}^n(-1)^{k-1}{x^k\F k}+o_0(x^n)
+\stopformula
+</property>
+
+</combination>
+<combination>
+<property h="$n ⩾0$" m="+">
+\startformula 
+\cos(x)= ∑_{k=0}^n(-1)^k{x^{2k}\F (2k)!}+o_0(x^{2n})
+\stopformula
+</property>
+<property h="$n ⩾0$" m="+">
+\startformula 
+\sin(x)= ∑_{k=0}^n(-1)^k{x^{2k+1}\F (2k+1)!}+o_0(x^{2n+1})
+\stopformula
+</property>
+
+</combination>
+<property h="$n ⩾0$, $α∈ℂ$" m="+">
+\startformula 
+(1+x)^α= 1+∑_{k=1}^nα(α-1)⋯(α-k+1){x^k\F k!}+o_0(x^n)
+\stopformula
+</property>
+</concept>
+
+
+<concept t="Formule de Taylor-Young"><text>Une fonction de classe $\mc C^n$ au voisinage d'un point $a$ admet un $\DL_a^n$.</text>
+<theorem h="$a∈I$ intervalle, $f∈\mc C^n(I,ℂ)$" m="+">
+\startformula 
+f(x)= ∑_{k=0}^n{f^{(k)}(a)\F k!}(x-a)^k+o_a\big((x-a)^n\big).
+\stopformula
+</theorem>
+</concept>
+
+<concept t="primitive"><text>Les primitives $F$ d'une fonction $f$ admettant un $\DL_a^n$ admettent un $\DL_a^{n+1}$. </text>
+<property h="$F'=f$ a un $\DL_a^n$" m="-">
+\startformula 
+\DL_a^{n+1}[F]'=\DL_a^n[f]
+\stopformula
+</property>
+<remark>Si $f:I → ℂ$ est continue sur $I$ et admet le $\DL_a^n$ 
+\startformula 
+f(x)= ∑_{k=0}^n α_k(x-a)^k+o_a\big((x-a)^n\big), 
+\stopformula
+alors, une primitive $F$ de $f$ admet le $\DL_a^{n+1}$ 
+\startformula 
+F(x)=F(a)+ ∑_{k=0}^{n+1} α_k{(x-a)^{k+1}\F k+1}+o_a\big((x-a)^{n+1}\big). 
+\stopformula 
+Plus simplement, le DL d'une primitive est une primitive du DL</remark>
+<remark>on peut intégrer un $\DL_a$ pour trouver de $\DL$ d'une primitive (on y gagne un ordre de précision). 
+Ne pas oublier la constante d'intégration </remark>
+</concept>
+
+<concept t="dérivée">
+<property h="$f'$ a un $\DL_a^n$" m="-">
+\startformula 
+\DL_a^{n+1}[f]'=\DL_a^n[f']
+\stopformula
+</property>
+<remark>Si $f:I → ℂ$ est une fonction dérivable sur $I$ 
+dont la dérivée $f'$ admet le $\DL_a^n$ suivant 
+\startformula 
+f'(x)= ∑_{k=0}^n α_k(x-a)^k+o_a\big((x-a)^n\big), 
+\stopformula
+alors, la fonction $f$ admet un $\DL_a^{n+1}$ donné par 
+\startformula 
+f(x)=f(0)+ ∑_{k=0}^{n+1} α_k{(x-a)^{k+1}\F k+1}+o_a\Big((x-a)^{n+1}\Big).
+\stopformula
+Plus simplement, le DL d'une dérivée est, lorsqu'il existe, la dérivée du DL
+</remark>
+<remark> Si $f'$ admet un $\DL_a$, alors $f$ admet aussi un $\DL_a$ que l'on peut dériver pour trouver celui de $f'$ (on y perd un ordre de précision). </remark>
+</concept>
+
+
+</chapter>
+</part>

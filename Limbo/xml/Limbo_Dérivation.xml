@@ -1,0 +1,463 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Analyse">
+
+<chapter t="Dérivation">
+
+<text>Dans tout ce chapitre, le symbole $𝕂$ désigne le corps $𝕂= ℝ$ ou le corps $𝕂= ℂ$. </text>
+
+<section t="Dérivée en un point, fonction dérivée">
+
+<subsection t="Définition locale">
+
+<concept t="nombre\\dérivée"><text>Le nombre dérivée de $f$ en $a$ est la limite de son taux d'accroissement en $a$.</text>
+<definition h="$a∈I$ intervale, $f:I→ 𝕂$">
+\startformula 
+f'(a)= \lim_{x→a}{f(x)-f(a)\F x-a} 
+\stopformula
+</definition>
+<remark>Le nombre dérivé en $a$ est unique lorsqu'il existe.</remark>
+<remark>Une fonction $f:I→𝕂$ est dérivable en $a∈I$ \ssi $f$ admet un nombre dérivé en $a$.</remark>
+<remark>Cette définition est encore valable si l'on remplace $𝕂$ par $𝕂^n$ à l'arrivée.</remark>
+<remark>Le nombre dérivée est la limite des taux d'accroissements en $a$ et on utilise aussi le changement de variable $x=a+h$ 
+pour écrire que 
+\startformula 
+f'(a)=\lim_{h → 0}{f(a+h)-f(a)\F h}, 
+\stopformula</remark>
+<example>l'identité $x ↦ x$ est dérivable en chaque point $a∈ℝ$.</example>
+</concept>
+
+
+<concept t="dérivée\\à gauche\\à droite"><combination>
+<definition h="$a∈I$ intervale, $f:I→ 𝕂$">
+\startformula 
+f'_g(a)= \lim_{x→a^-}{f(x)-f(a)\F x-a} 
+\stopformula
+</definition>
+<definition h="$a∈I$ intervale, $f:I→ 𝕂$">
+\startformula 
+f'_d(a)= \lim_{x→a^+}{f(x)-f(a)\F x-a} 
+\stopformula
+</definition></combination>
+<remark>Lorsqu'elles existent, les dérivées à droite et à gauche en $a$ sont uniques</remark>
+</concept>
+
+<concept t="lien">
+<property h="$a∈I$ intervale, $f:I→ 𝕂$">
+\startformula 
+f \text{ dérivable en } a⟺ \System{
+\NC f \text{ dérivable à gauche en } a\NR
+\NC f \text{ dérivable à droite en } a\NR
+\NC f'_g(a)=f'_d(a)}
+\stopformula
+</property>
+<example>La valeur absolue $f:x ↦|x|$ n'est pas dérivable en $0$ car $f'_g(0)=-1$ et $f'_d(0)=1$.</example>
+</concept>
+
+<concept t="condition nécessaire"><property h="$a∈I$ intervalle, $f:I →𝕂$">
+\startformula 
+f \text{ dérivable en $a$} ⟹ f \text{ continue en $a$}
+\stopformula</property>
+<remark>La continuité en $a$ est une condition nécéssaire pour que $f$ soit dérivable en $a$. </remark>
+</concept>
+
+<concept t="dérivée\\complexe">
+<theorem h="$a∈I$ intervalle, $f:I →ℂ$">
+\startformula 
+ f\text{ dérivable en $a$ } ⟺ \System{
+\NC ℜe f\NR
+\NC ℑm f
+}\text{ dérivable en $a$ } 
+\stopformula
+En cas de dérivabilité
+\startformula 
+f'(a) = (ℜe f)'(a) + i (ℑm f)'(a)
+\stopformula
+</theorem>
+</concept>
+
+</subsection><subsection t="Opérations">
+
+<concept t="somme\\multiple\\produit">
+<combination>
+<property h="$f$ et $g$ dérivables en $a$">
+\startformula 
+\System {\NC f + g \text{ dérivable en }a\NR
+\NC (f+g)'(a)=f'(a)+g'(a)}
+\stopformula
+</property>
+<property h="$λ∈𝕂$ et $f$ dérivable en $a$">
+\startformula 
+\System {\NC λ⋅f \text{ dérivable en }a\NR
+(λ⋅f)'(a)=λ⋅f'(a)}
+\stopformula
+</property>
+</combination>
+<property h="$f$ et $g$ dérivables en $a$">
+\startformula 
+\System {\NC f ×g \text{ dérivable en }a\NR
+\NC (f×g)'(a)=f'(a)×g(a)+f(a)×g'(a)}
+\stopformula
+</property>
+<remark>Les fonctions polynômes $x ↦ ∑_{k=0}^n a_kx^k$ sont dérivables sur $ℝ$. </remark>
+</concept>
+
+<concept t="quotient">
+<property h="$f$ et $g$ dérivables en $a$, $g(a)≠0$">
+\startformula 
+\System{\NC {f\F g} \text{ dérivable en }a\NR
+\NC \Q({f\F g}\W)'(a)={f'(a)×g(a)-f(a)×g'(a)\F g(a)^2}}
+\stopformula
+</property>
+<remark>Une fonction $g$ dérivable en $a$ est continue en $a$. Si de plus $g(a)≠0$, la fonction $g$ ne s'annule pas autour de $a$, le quotient $1/g$ est définie autour de $a$, dérivable en $a$ et satisfait 
+\startformula 
+\Q({1\F g}\W)'(a)=-{g'(a)\F g(a)^2}.
+\stopformula
+En particulier, on peut dériver le quotient $f/g=f ×{1\F g}$ en écrivant 
+\startformula 
+\Q({f\F g}\W)'(a)=f'(a) × {1\F g(a)}+f(a) ×{-g'(a)\F g(a)^2}.
+\stopformula</remark>
+<remark>Les fractions rationnelles (quotient de deux polynômes) sont dérivables sur $ℝ$ privé des points annulant leur dénominateur.</remark>
+</concept>
+
+
+<concept t="composée">
+<theorem h="$f:I→ℝ$ et  $g:J → 𝕂$">
+\startformula 
+\SystemR{
+\NC f\text{ dérivable en } a\NR
+ f(I)⊂ J\NR
+\NC  g\text{ dérivable en } f(a)\NR
+}⟹\System{
+\NC g ∘ f \text{ dérivable en } a\NR
+\NC  (g ∘ f)'(a)=f'(a) × g' ∘ f(a)
+}
+\stopformula
+</theorem>
+</concept>
+
+<concept t="bijection réciproque">
+<theorem h="$f$ bijection dérivable en $a$ avec $f'(a)≠0$"> 
+\startformula 
+\System{
+\NC f^{-1} \text{ dérivable en } b=f(a)\NR
+\NC \big(f^{-1}\big)'(b)={1\F f'\Big(f^{-1}(b)\Big)}
+}
+\stopformula
+</theorem>
+</concept>
+
+</subsection><subsection t="Définition globale">
+
+<concept t="dérivabilité sur un ensemble">
+<definition h="$f:E → 𝕂$">
+\startformula 
+f\text{ dérivable  sur }D ⊂ E ⟺ f \text{ dérivable en chaque point } x∈D
+\stopformula
+</definition>
+<remark>La dérivabilité en un point $a$ est une notion locale alors que la dérivabilité sur un intervalle est une notion globale. 
+Cette définition est le lien entre les deux notions.</remark>
+</concept>
+
+<concept t="fonction dérivée">
+<definition h="$f:E → 𝕂$ dérivable sur $D$">
+\startformula 
+\Align{
+\NC f': D\NC  → 𝕂\NR
+\NC  x\NC  ↦ f'(x)}
+\stopformula 
+</definition>
+<remark>La fonction dérivée $f'$ de l'application $f$ est plus rarement notée $\displaystyle {\d f\F \d x}$ ou encore $Df$</remark> 
+<remark>Il existe des fonctions continues sur $ ℝ$ qui ne sont dérivables en aucun point. </remark>
+</concept>
+
+<concept t="classe $\mc C^1$">
+<definition>
+\startformula 
+\mc C^1(I,𝕂):=\{f:I→𝕂 \text{ dérivable sur }I: f'∈\mc C^0(I)\}.
+\stopformula
+</definition>
+<remark>$f$ est de classe $\mc C^0$ sur $I$ \ssi $f$ est continue sur $I$.</remark>
+<remark>$f$ est de classe $\mc C^1$ sur $I$ \ssi $f$ est dérivable de dérivée continue sur $I$.</remark>
+</concept>
+
+
+</subsection><subsection t="Dérivées itérées">
+
+<concept t="dérivée $n\high{ième}$">
+<definition h="$I$ intervalle, $n⩾2$, $f:I → 𝕂$">
+\startformula 
+f \text{ $n$ fois dérivable sur }I ⟺ \System{
+\NC f\text{ dérivable sur } I\NR
+\NC f' \text{dérivable $n-1$ fois sur }I} 
+\stopformula
+Auquel cas, on pose 
+\startformula 
+ ∀ x ∈ I,\qquad f^{(n)}(x):=(f')^{(n-1)}(x)
+\stopformula
+</definition>
+<remark>Etant donnés une fonction $f:I → 𝕂$, par convention, on note 
+\startformula 
+ ∀ x ∈ I, \qquad f^{(0)}(x):=f(x).
+\stopformula
+La fonction $f^{(0)}=f$ est parfois appelée dérivée d'ordre $0$ de la fonction $f$.
+</remark>
+<remark>Etant donnée une application $f:I → 𝕂$ $n$ fois dérivable sur $I$, on a
+\startformula 
+ ∀ x ∈ I, \qquad f^{(n)}(x):=\underbrace{{\d\F \d x}{\d\F\d x}{\d\F \d x}\cdots{\d\F \d x}{\d\F \d x}}_{\displaystyle n\mbox{ dérivations successives}}\!\!\!\!f(x)
+\stopformula</remark>
+<remark>la dérivée $n\high{ième}$ de la fonction $f$ se note $\displaystyle f^{(n)}$ ou plus rarement $\displaystyle{\d^n\F\d x^n}f$ ou $\displaystyle D^nf$. </remark>
+</concept>
+
+<concept t="dérivations successives">
+<property h="$f:I → 𝕂$ $n$ fois dérivable sur $I$"> \startformula 
+ ∀ p ∈⟦0, n⟧, ∀ x ∈ I, f^{(n)}(x)=\Q(f^{(p)}\W)^{(n-p)}(x).
+\stopformula
+</property>
+</concept>
+
+
+<concept t="espace $\mc C^k$">
+<definition h="$n∈ℕ^*$">
+\startformula 
+\mc C^n(I, 𝕂):=\{f:I → 𝕂 \text{ dérivable} : f'∈\mc C^{n-1}(I, 𝕂)\}
+\stopformula
+</definition>
+<remark>Pour $n ∈ ℕ$, l'ensemble $(\mc C^n(I, 𝕂), +, .)$ est constitué des fonctions $f:I → 𝕂$ de classe $\mc C^n$ sur $I$, 
+c'est à dire des applications $f:I → 𝕂$ dérivables $n$ fois sur $I$ dont les dérivées $f$, $f'$, $f'', \cdots, f^{(n)}$ sont continues sur $I$. </remark>
+<remark>$\mc C^n(I, 𝕂)$ forme un $𝕂$-espace vectoriel pour les lois $+$ et $⋅$</remark>
+<remark>Pour chaque entier $n ⩾0$, on a $\mc C^{n+1}(I, 𝕂) ⊂\mc C^n(I, 𝕂)$. 
+La suite des ensembles $\mc C^n(I, 𝕂)$, construite par récurence à partir de $n=1$, est décroissante au sens de l'inclusion.</remark>
+<remark>On note souvent $\mc C^n(I)$ plutôt que $\mc C^n(I, 𝕂)$.</remark>
+</concept>
+
+<concept t="espace $\mc C^∞$">
+<definition>
+\startformula 
+\mc C^∞(I, 𝕂):=\{f:I → 𝕂: ∀n∈ℕ, f∈\mc C^n(I, 𝕂)\}
+\stopformula
+</definition>
+<remark>$f$ est de classe $\mc C^∞$ sur $I$ \ssi elle est indéfiniment dérivable sur $I$</remark>
+<remark>$\mc C^∞(I, 𝕂)$ forme un $𝕂$-espace vectoriel pour les lois $+$ et $⋅$</remark>
+</concept>
+
+</subsection><subsection t=" Opérations sur les dérivées itérées. ">
+
+
+<concept t="somme\\multiple\\linéarité">
+<combination>
+<property h="$f, g∈\mc C^n(I)$">
+\startformula 
+\System {\NC f + g ∈\mc C^n(I)\NR
+\NC (f+g)^{(n)}=f^{(n)}+g^{(n)}}
+\stopformula
+</property>
+<property h="$λ∈𝕂$ et $f∈\mc C^n(I)$">
+\startformula 
+\System {\NC λ⋅f ∈\mc C^n(I)\NR
+(λ⋅f)^{(n)}=λ⋅f^{(n)}}
+\stopformula
+</property>
+</combination>
+<remark>Les propriétés précédentes sont également valables lorsque l'on remplace la condition \quote{de classe $\mc C^n$} par \quote{$n$ fois dérivable}</remark>
+<remark>Dériver $n$ fois est une opération linéaire. En particulier, pour $λ,μ∈𝕂$ et $f, g∈\mc C^n(I)$, 
+la fonction $ λ f+ μ g$ est de classe $\mc C^n$ sur $I$ et  
+\startformula 
+ (λf+ μg)^{(n)}= λ f^{(n)}+ μ g^{(n)}
+ \stopformula
+ </remark>
+</concept>
+
+<concept t="formule de Leibniz">
+<theorem h="$f, g∈\mc C^n(I)$">
+\startformula 
+\System {
+\NC f ×g ∈\mc C^n(I)\NR
+\NC (f×g)^{(n)}= ∑_{k=0}^n{n\choose k}f^{(k)}×g^{(n-k)}}
+\stopformula
+</theorem>
+<remark>Cette propriété est également valable lorsque l'on remplace la condition \quote{de classe $\mc C^n$} par \quote{$n$ fois dérivable}</remark>
+<remark>Les fonctions polynômes sont de classe $\mc C^∞$ sur $ℝ$.</remark>
+</concept>
+
+<concept t="quotient">
+<property h="$f, g∈\mc C^n(I)$">
+\startformula 
+∀x∈I, g(x)≠0 ⟹ {f\F g} ∈\mc C^n(I)
+\stopformula
+</property>
+<remark>Cette propriété est également valable si l'on remplace la condition \quote{de classe $\mc C^n$} par \quote{$n$ fois dérivable}.</remark>
+<remark>Les fractions rationnelles (quotient de deux polynômes) sont de classe $\mc C^ ∞$ sur $ ℝ$ privé des points annulant leur dénominateur.</remark>
+</concept>
+
+<concept t="composée">
+<theorem h="$f∈\mc C^n(I,ℝ)$, $g∈\mc C^n(J)$">
+\startformula 
+∀x∈I, f(x)∈J ⟹ g ∘ f ∈\mc C^n(I)
+\stopformula
+</theorem>
+<remark>Cette propriété est également valable si l'on remplace la condition \quote{de classe $\mc C^n$} par \quote{$n$ fois dérivable}.</remark>
+</concept>
+
+
+<concept t="bijection réciproque">
+<theorem h="$f∈\mc C^n(I,J)$"> 
+\startformula 
+∀x∈I, f'(x)≠0⟹f^{-1} ∈\mc C^n(J)
+\stopformula
+</theorem>
+</concept>
+
+</subsection></section><section t=" Etude globale des fonctions dérivables. ">
+
+<subsection t=" Extrema locaux. ">
+
+<concept t="point critique">
+<definition h="$f:I→ ℝ$ dérivable, $a∈I$ intervalle">
+\startformula 
+a \text{ point critique de }f ⟺ f'(a)=0
+\stopformula
+</definition>
+</concept>
+
+<concept t="extremum et point critique">
+<property h="$a∈]b,c[$,  $f:]b,c[→ ℝ$ dérivable, ">
+\startformula 
+f \text{ a un extremum en }a⟹ f'(a)=0
+\stopformula
+</property>
+<remark>Cette propriété est fondamentale car elle permet de réduire la recherche des extremums locaux à l'étude d'un nombre fini de points. </remark>
+<remark>Pour trouver le maximum d'une fonction sur un segment $[a,b]$ par exemple, on commence par chercher les points critiques de $f$ sur l'intervalle $\Q]a,b\W[$ puis on regarde si ces points critiques sont des maxima et on les compare aux valeurs au bord du segment (c'est à dire en $a$ et en $b$).</remark>
+<remark>L'algorithme d'étude précédent est extrémement performant si on l'utilise en conjonction 
+avec le théorème de compacité (une fonction continue sur un segment admet un maximum et un minimum global).</remark>
+</concept>
+
+<exercise> Trouver le maximum de la fonction $x ↦ x^n(1-x)$ sur $\Q[0,+ ∞\W[$. </exercise>
+
+</subsection><subsection t=" Théorème de Rolle, accroissements finis, prolongement $\mc C^1$. ">
+
+
+<concept t="théorème de Rolle">
+<theorem h="$f:[a,b] → ℝ$ continue, dérivable sur $]a,b[$">
+\startformula 
+f(a)=f(b)⟹ (∃c ∈]a,b[: f'(c)=0) 
+\stopformula
+</theorem>
+</concept>
+
+<concept t="égalité des accroissements finis">
+<theorem h="$f:[a,b] → ℝ$ continue, dérivable sur $]a,b[$">
+\startformula 
+∃c ∈]a,b[: f(b)-f(a)=f'(c)(b-a)
+\stopformula
+</theorem>
+</concept>
+
+<concept t="inégalités des accroissements finis">
+<theorem h="$f:[a,b] → ℝ$ continue, dérivable sur $]a,b[$">
+\startformula 
+ \big(∀ x ∈[a,b], m ⩽ f'(x) ⩽ M\big) ⟹ \big(m(b-a) ⩽ f(b)-f(a) ⩽ M(b-a)\big)
+\stopformula</theorem>
+<theorem h="$f:[a,b] → ℂ$ continue, dérivable sur $]a,b[$">
+\startformula 
+ ∀ x ∈]a,b[, \big|f'(x)\big| ⩽ M⟹ \big|f(b)-f(a)\big| ⩽ M|b-a|
+\stopformula
+</theorem>
+<remark>si la dérivée $f'$ d'une application $f:I → ℂ$ est majorée par $M$ sur $I$, alors, l'application $f$ est $M$-lipschitzienne sur $I$. </remark>
+<exercise>Etudier la limite de la suite définie par récurence par $u_0 ∈ ℝ$ et $u_{n+1}=\arctan(u_n)$ pour $n ⩾1$. </exercise>
+</concept>
+
+<concept t="prolongement $\mc C^1$">
+<theorem h="$f:[a,b] → ℂ$ continue, de classe $\mc C^1$ sur $\Q]a,b\W]$">
+\startformula 
+\lim_{x→a}f(x)\text{ existe }⟹ f\text{ de classe $\mc C^1$ sur }[a,b
+\stopformula
+</theorem>
+</concept>
+
+
+</subsection><subsection t="Fonctions monotones">
+
+<concept t="fonctions constantes">
+<theorem h="$f$ dérivable sur $I$ intervalle">
+\startformula 
+f\text{ constante sur } I ⟺ ∀x∈I, f'(x)=0
+\stopformula</theorem>
+</concept>
+
+<concept t="monotonie">
+<property h="$f:I→ℝ$ dérivable sur $I$ intervalle">
+\startformula 
+\Align{
+\NC f\text{ croissante sur } I \NC ⟺ \NC ∀x∈I, f'(x)⩾0\NR
+\NC f\text{ décroissante sur } I \NC ⟺ \NC ∀x∈I, f'(x)⩽0}
+\stopformula</property>
+<remark>Cette propriété est vraie également lorsque $f$ est continue mais pas dérivable aux extrémitiés de $I$</remark>
+</concept>
+
+<concept t="stricte monotonie">
+<property h="$f:I→ℝ$ dérivable sur $I$ intervalle">
+\startformula 
+\Align{
+\NC ∀x∈I, f'(x)>0\NC⟹ \NC f\text{ croissante stricte sur } I\NR
+ \NC ∀x∈I, f'(x)\Le 0\NC⟹\NC f\text{ décroissante stricte sur }I}
+\stopformula</property>
+<remark>Cette propriété est vraie également lorsque $f$ est continue mais pas dérivable aux extrémitiés de $I$</remark>
+<remark>Il existe des fonctions strictement croissantes dont la dérivée s'annule,  comme $x ↦ x^3$.</remark>
+<exercise>Prouver que $x ↦ \arcsin(x)$ est strictement croissante sur $[-1,1]$. </exercise>
+</concept>
+
+</subsection><subsection t="Fonctions convexes">
+
+<concept t="convexité" m="-β+β">
+<definition h="$f:I → ℝ$, $I$ intervalle">
+\startformula
+f\text{ convexe sur } I ⟺ ∀x,y ∈ I, f(ax+by) ⩾ af(x)+bf(y)
+\stopformula 
+</definition>
+<remark>De manière identique, la concavité est définie par : 
+\startformula
+f\text{ concave sur } I ⟺ ∀x,y ∈ I, f(ax+by) ⩽ af(x)+bf(y)
+\stopformula 
+</remark>
+<remark>une fonction est convexe (resp. concave) si tout sous-arc de son graphe est sous (resp. au dessus de ) sa corde.</remark>
+</concept>
+
+<figure>\pspicture*[](-1.1,-3)(4,1.2)
+\psaxes*[labels=none,ticks=none]{->}(-0.5,-2)(-1,-3)(4,1.1)
+\psplot[linecolor=blue,plotpoints=1000]{0.001}{10}{x log}
+\psplot[linecolor=red,plotpoints=1000]{0.02}{3.52}{0.02 log 3.52 log 0.02 log sub x 0.02 sub 3.52 div mul add}
+\parametricplot[plotstyle=curve,linecolor=magenta, linestyle=dashed]{0}{1}{1.3 0.02 log 3.52 log 0.02 log sub 1.3 0.02 sub 3.52 div mul add t mul 1.3 log 1 t sub mul add}
+\rput{0}(1.3,0.5){\blue $f(ax+by)$}
+\rput{0}(2.2,-1.3){\red $af(x)+bf(y)$}
+\rput{0}(1.31,-0.9){\black $ ×$}
+\rput{0}(1.31,0.1){\black $ ×$}
+\endpspicture</figure>
+
+
+<concept t="inégalité de convexité" m="-β">
+<property h="$f:I → ℝ$ convexe">
+\startformula 
+∀ n⩾2, ∀ x_1,⋯,x_n ∈ I,  ∀ λ_1,⋯ λ_n ∈ℝ^+,  ∑_{1 ⩽ k ⩽ n} λ_k=1 ⟹ 
+f\Q( ∑_{1 ⩽ k ⩽ n} λ_kx_k\W) ⩽  ∑_{1 ⩽ k ⩽ n} λ_k f(x_k).
+\stopformula</property>
+</concept>
+
+<concept t="caractérisation">
+<combination>
+<property h="$f∈\mc C^1(I,ℝ)$">
+\startformula 
+f \text{ convexe sur }I ⟺ f' \text{ croissante  sur }I
+\stopformula
+</property>
+<property h="$f∈\mc C^2(I,ℝ)$">\startformula 
+f \text{ convexe sur }I ⟺ ∀x∈I,f'(x)⩾0.
+\stopformula</property>
+</combination>
+<remark>$f$ est convexe sur $I$ \ssi $-f$ est concave sur $I$.</remark>
+<remark>On a la même propriété avec \quote{concave} à la place de \quote{convexe} et \quote{décroissante} à la place de \quote{croissante}</remark>
+<remark>Si elle est convexe (resp. concave), une courbe de classe $\mc C^1$ est située au dessus (resp. au dessous) de ses tangentes. </remark>
+<remark>Etant donnée une courbe convexe (resp. concave), les cordes dont l'une extrémité est fixée sur la courbe et dont l'autre extrémité décrit la courbe (dans le sens positif) sont 
+de pente croissante (resp. décroissante). </remark>
+</concept>
+
+</subsection></section></chapter></part>

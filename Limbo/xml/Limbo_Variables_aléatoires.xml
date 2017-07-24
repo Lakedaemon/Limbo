@@ -1,0 +1,533 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Probabilités">
+
+<chapter t="Variables aléatoires">
+<section t="Variables aléatoires finies">
+
+<concept t="variable aléatoire"><text>Une variable aléatoire  est une application d'un espace probabilisable dans $ℝ$.</text>
+<definition h="$(Ω, \mc T)$ probabilisable">
+\startformula 
+X: Ω→ℝ \text{Variable Aléatoire}
+\stopformula
+</definition>
+<remark>Variable aléatoire pourra être abrégé \quote{v.a.}</remark>
+</concept>
+
+<concept t="univers image">
+<definition h="$X$ v.a. sur $Ω$">
+\startformula 
+X(Ω) \text{ Univers image}
+\stopformula
+</definition>
+<remark>Pour le calcul de probabilités, l'univers image $X(Ω)$ sert davantage et est donc plus important que l'univers $Ω$. </remark>
+</concept>
+
+<concept t="variable aléatoire finie"><text>Une variable aléatoire finie est une variable aléatoire dont l'univers image est fini.</text>
+<definition h="$X$ v.a. sur $Ω$">
+\startformula 
+X \text{v.a. finie}⟺ X(Ω)\text{fini}
+\stopformula
+</definition>
+<remark>Si $X(Ω)=\{x_1,⋯,x_n\}$, alors le système complet associé à $X$ est la famille
+\startformula 
+\{(X=x_1),⋯(X=x_n)\}
+\stopformula</remark>
+</concept>
+
+<concept t="tribu image" m="-β+β">
+<property h="$X$ v.a. sur $(Ω,\mc T)$">
+\startformula 
+\mc T_X:=\{A⊂X(Ω):(X∈A)∈\mc T\}\text{ tribu image}
+\stopformula
+</property>
+<remark>$\mc T_X$ est une tribu de l'univers image, de sorte que $(X(Ω),\mc T_X)$ est un espace probabilisable.</remark>
+<remark>Pour le calcul de probabilités, les événements de la tribu image servent davantage et sont donc plus importants que les événements de l'univers $Ω$.</remark>
+<remark>Etant donné un événement $A$ de la tribu image, on notera parfois  
+\startformula 
+(X∈A):=X^{-1}(A)=\{ω∈Ω:X(ω)∈A\}. 
+\stopformula</remark>
+<remark>Etant donné $x∈ℝ$, on notera également
+\startformula 
+(X=x)=\{ω∈Ω:X(ω)=x\} \EtQ  (X⩽x)=\{ω∈Ω:X(ω)⩽x\}
+\stopformula</remark>
+</concept>
+
+<concept t="probabilité image" m="-β+β">
+<property h="$X$ v.a. sur $(Ω,\mc T, ℙ)$">
+\startformula 
+\Function{ℙ_X:\mc T_X→[0,1]|A↦ℙ(X∈A)} \text{ probabilité} 
+\stopformula
+</property>
+<remark>En particulier, $(X(Ω),X(\mc T), ℙ_X)$ est un espace probabilisé. C'est l'espace probabilisé image de $(Ω,\mc T, ℙ)$ par $X$. </remark>
+</concept>
+
+</section>
+<section t="Probabilités">
+
+<concept t="fonction de répartition">
+<definition h="$X$ v.a. sur $(Ω,ℙ)$">
+\startformula 
+\Function{F_X:ℝ→[0,1]|x↦ℙ(X⩽x)}\text{ fonction de répartition de }X
+\stopformula
+</definition>
+</concept>
+
+<concept t="caractérisation">
+<property h="$f:ℝ→[0,1]$">
+\startformula 
+f \text{ fonction de répartition} ⟺ \System{
+\NC f \text{ croissante}\NR
+\NC F→\limits_{-∞}0\NR
+\NC F→\limits_{+∞}1
+}\stopformula
+</property>
+<remark>La donnée d'une v.a. $X$ détermine complétement la fonction de répartition de $X$. La réciproque est fausse (et n'a pas de sens).</remark>
+</concept>
+
+
+<concept t="densité">
+<definition h="$X$ v.a. finie">
+\Function{f_X:X(Ω)→[0,1]|x↦ℙ(X=x)}\text{ densité de }X
+</definition>
+<remark>La densité de $X$ est également appelée (abusivement ?) \quote{loi de probabilité de $X$}.</remark>
+</concept>
+
+<concept t="caractérisation">
+<property h="$f:ℝ→ℝ^+$">
+\startformula 
+f \text{ densité} ⟺ ∃A⊂ℝ : \System{
+\NC A\text{ fini }\NR
+\NC ∀x\∉A, f(x)=0\NR
+\NC ∑_{x∈A}f(x)=1
+}\stopformula
+</property>
+<remark>La donnée d'une v.a. $X$ détermine complétement la densité de $X$. La réciproque est fausse (et n'a pas de sens).</remark>
+</concept>
+
+<concept t="lien">
+<combination>
+<property h="$X$ v.a. finie sur $(Ω,ℙ)$">
+\startformula 
+∀x∈ℝ, F_X(x)=∑_{y∈X(Ω)\atop y⩽x}f_X(y)
+\stopformula
+</property>
+<property h="$X$ v.a. finie sur $(Ω,ℙ)$">
+\startformula 
+∀x∈ℝ,  f_X(x)=F_X(x)-F_X(x^-)
+\stopformula
+</property>
+</combination>
+<remark>Le rapport entre fonction de répartition et fonction de densité est un peu le même que le rapport entre primitive et dérivée, à partir de l'une, on peut retrouver l'autre.</remark>
+</concept>
+
+</section>
+<section t="Espérance et variance">
+
+<subsection t="Espérance">
+
+<concept t="espérance">
+<definition h="$X$ va finie">
+\startformula 
+𝔼(X)=∑_{x∈X(Ω)}xℙ(X=x)
+\stopformula
+</definition>
+<remark>En particulier, avec $Ω=\{x_1,⋯,x_n\}$, on a 
+\startformula 
+𝔼(X)=∑_{k=1}^nx_kℙ(X=x_k)
+\stopformula
+</remark>
+<remark>Une variable aléatoire est \quote{centrée} \ssi son espérance est nulle.</remark>
+<remark>Une variable aléatoire positive et \quote{centrée} est presque surement nulle.
+\startformula 
+\SystemR{
+\NC X⩾0\NR
+\NC 𝔼(X)=0
+} ⟹ P\big(X=0\big)=1
+\stopformula
+</remark>
+</concept>
+
+<concept t="linéarité">
+<property h="$X,Y$ va finie, $λ,μ∈ℝ$">
+\startformula 
+𝔼(λX+μY)=λ𝔼(X)+μ𝔼(Y)
+\stopformula</property>
+<remark>Pour centrer une va, il suffit de lui soustraire son espérance et de considérer $X-𝔼(X)$</remark>
+</concept>
+
+<concept t="positivité\\NR
+\NC oissance">
+<combination>
+<property h="$0⩽X$ va finie">
+\startformula 
+0⩽𝔼(X)
+\stopformula</property>
+<property h="$a⩽X⩽b$ va finie">
+\startformula 
+a⩽𝔼(X)⩽b
+\stopformula</property>
+<property h="$X⩽Y$ va finies">
+\startformula 
+𝔼(X)⩽𝔼(Y)
+\stopformula</property>
+</combination>
+</concept>
+
+<concept t="formule de transfert">
+<property h="$X$ va finie, $f:ℝ→ℝ$">
+\startformula 
+𝔼\big(f(X)\big)=∑_{x∈X(Ω)}f(x)ℙ(X=x)
+\stopformula
+</property>
+<remark>Cette formule permet de déterminer l'espérance d'une v.a. composée $Y=f(X)$, que l'on peut également calculer via la formule  
+\startformula 
+𝔼(Y)=∑_{y∈Y(Ω)}xℙ(Y=y)
+\stopformula</remark>
+</concept>
+
+<concept t="moments">
+<definition h="$X$ va finie, $k⩾1$">
+\startformula 
+𝔼(X^k)\text{ moment d'ordre $k$ de } X
+\stopformula</definition>
+</concept>
+
+</subsection><subsection t="Variance">
+
+<concept t="variance">
+<text>La variance est le moment d'ordre $2$ de la va centrée $X-𝔼(X)$</text>
+<definition h="$X$ va finie">
+\startformula 
+V(X)=𝔼\Q((X-𝔼(X))^2\W)
+\stopformula
+</definition>
+<remark>Une va de variance nulle est presque surement égale à son espérance, 
+\startformula 
+V(X)=0⟹ P\big(X=𝔼(X)\big)=1
+\stopformula</remark>
+</concept>
+
+<concept t="formule de Kœnig-Huygens"><text>La variance est la différence de l'espérance du carré et du carré de l'espérance.</text>
+<property h="$X$ va finie">
+\startformula 
+V(X)=𝔼(X²)-𝔼(X)²
+\stopformula
+</property>
+</concept>
+
+<concept t="relation">
+<property h="$X$ va finie, $λ,μ∈ℝ$">
+\startformula 
+V(λX+μ)=λ²V(X)
+\stopformula</property>
+</concept>
+
+<concept t="positivité">
+<property h="$X$ va finie">
+\startformula 
+V(X)⩾0
+\stopformula</property>
+</concept>
+
+</subsection><subsection t="Ecart type">
+
+<concept t="écart type">
+<text>L'écart type est la racine carrée de la variance</text>
+<definition h="$X$ va finie">
+\startformula 
+σ(X)=\sqrt{V(X)}
+\stopformula
+</definition>
+<remark>Une variable aléatoire est \quote{réduite} \ssi son écart-type vaut 1 \ssi sa variance vaut 1.</remark>
+<remark>Pour réduire une va $X$, il suffit de la diviser par $σ(X)$ et de considérer $Y={X\F\sigma(X)}$.</remark> 
+</concept>
+
+<concept t="relation">
+<property h="$X$ va finie, $λ,μ∈ℝ$">
+\startformula 
+σ(λX+μ)=|λ|σ(X)
+\stopformula</property>
+</concept>
+
+<concept t="positivité">
+<property h="$X$ va finie">
+\startformula 
+σ(X)⩾0
+\stopformula</property>
+</concept>
+
+<concept t="Inégalité de Bienaymé-Tchebychev">
+<theorem h="$X$ va finie, $a>0$">
+\startformula 
+ℙ\big(|X-𝔼(X)|⩾a\big)⩽{σ(X)²\F a²}
+\stopformula</theorem>
+</concept>
+</subsection>
+
+</section>
+<section t="Lois usuelles">
+
+<subsection t="Loi certaine">
+
+<concept t="loi certaine">
+<definition h="$X$ va">
+\startformula 
+X \text{ certaine, égale à } m⟺ X(Ω)=\{m\}
+\stopformula
+</definition>
+<remark>Pour une telle v.a., on a $ℙ(X=m)=1$ et l'on dit que $X$ suit la loi certaine égale à $m$.</remark>
+</concept>
+
+<concept t="densité\\fonction de répartition">
+<combination>
+<property h="$X$ certaine égale à $m$">
+\startformula 
+f_X(x)=\System{
+\NC 1 \Si x=m\NR
+\NC 0 \text{ sinon}
+}
+\stopformula
+</property>
+<property h="$X$ certaine égale à $m$">
+\startformula 
+F_X(x)=\System{
+\NC 0 \Si x\Le m\NR
+\NC 1 \Si x⩾m
+}
+\stopformula
+</property></combination>
+</concept>
+
+<concept t="espérance\\variance\\écart type">
+<combination>
+<property h="$X$ certaine égale à $m$">
+\startformula 
+𝔼(X)=m
+\stopformula
+</property>
+<property h="$X$ certaine égale à $m$">
+\startformula 
+V(X)=0
+\stopformula
+</property>
+<property h="$X$ certaine égale à $m$">
+\startformula 
+σ(X)=0
+\stopformula
+</property></combination>
+</concept>
+
+</subsection>
+<subsection t="Loi uniforme">
+
+<concept t="loi uniforme"><text>Une v.a. finie suit la loi uniforme lorsque tous ses événements élémentaires sont équiprobables.</text>
+<definition h="$X$ va finie">
+\startformula 
+X ↪\mc U(X(Ω)) ⟺ ∀x∈X(Ω), ℙ(X=x)={1\F \card(Ω)}
+\stopformula
+</definition>
+<remark>Le symbôle $X ↪\mc U(E)$ est une abbréviation pour \quote{$X$ suit la loi uniforme sur l'ensemble $E$}.</remark>
+</concept>
+
+<concept t="densité\\fonction de répartition">
+<combination>
+<property h="$X↪\mc U(\{x_1,⋯,x_n\})$">
+\startformula 
+f_X(x)=\System{
+\NC {1\F n} \Si x∈X(Ω)\NR
+\NC 0 \text{ sinon}
+}
+\stopformula
+</property>
+<property h="$X↪\mc U(\{x_1,⋯,x_n\})$">
+\startformula 
+F_X(x)=\System{
+\NC 0 \Si x\Le x_1\NR
+\NC {k\F n} \Si x_k⩽x\Le x_{k+1}\NR
+\NC 1 \Si x_n⩽x
+}
+\stopformula
+</property></combination>
+</concept>
+
+<concept t="espérance\\variance">
+<combination>
+<property h="$X↪\mc U(\{x_1,⋯,x_n\})$" >
+\startformula 
+𝔼(X)={1\F n} ∑_{k=1}^Nx_k
+\stopformula
+</property>
+<property h="$X↪\mc U(\{x_1,⋯,x_n\})$" m="-β+β">
+\startformula 
+V(X)={1\F n} ∑_{k=1}^Nx_k²-𝔼(X)^2
+\stopformula
+</property>
+</combination>
+<remark>L'espérance d'une va de loi uniforme est la moyenne des valeurs prises par la va.</remark>
+<remark>La variance d'une va de loi uniforme est la différence de la moyenne des carrées prises des valeurs et du carré de la moyenne des valeurs prises par la va </remark>
+<remark>L'égalité suivante est à connaitre et permet de trouver la variance dans de le cas simple de la loi uniforme sur $⟦1,n⟧$
+\startformula 
+ ∑_{k=1}^nk^2={(2n+1)(n+1)n\F 6}
+\stopformula</remark>
+<remark>Si $X$ est de loiuniforme sur $⟦1,n⟧$ alors, on a 
+\startformula 
+𝔼(X)={1\F n}∑_{k=1}^nk={n+1\F 2}\EtQ V(X)={(2n+1)(n+1)\F 6}-\Q({n+1\F 2}\W)^2={n^2-1\F 12}
+\stopformula
+</remark>
+</concept>
+
+
+
+</subsection>
+
+<subsection t="Loi de Bernouilli">
+
+<concept t="loi de Bernouilli">
+<definition h="$X$ va, $p∈[0,1]$">
+\startformula
+X ↪ \mc B(p)⟺ \System{
+\NC X(Ω)=\{0,1\}\NR
+\NC ℙ(X=1)=p
+}
+\stopformula
+</definition>
+<remark>Le symbôle $X ↪ \mc B(p)$ est une abbréviation pour \quote{$X$ suit la loi de Bernoulli de paramètre $p$}.</remark>
+<remark>Notant $q=1-p$, on a $q=ℙ(X=0)$.</remark>
+<remark>La loi de bernouilli de paramètre $p={1\F 2}$ est la loi uniforme sur $\{0,1\}$.</remark>
+</concept>
+
+<concept t="densité\\fonction de répartition">
+<combination>
+<property h="$X↪\mc B(p)$">
+\startformula 
+f_X(x)=\System{
+\NC q \Si x=0\NR
+\NC p \Si x=1\NR
+\NC 0 \text{ sinon}
+}
+\stopformula
+</property>
+<property h="$X↪\mc B(p)$">
+\startformula 
+F_X(x)=\System{
+\NC 0 \Si x\Le 0\NR
+\NC q \Si 0\Le x\Le 1\NR
+\NC 1 \Si 1⩽x
+}
+\stopformula
+</property></combination>
+</concept>
+
+
+<concept t="espérance\\variance">
+<combination>
+<property h="$X↪\mc B(p)$" >
+\startformula 
+𝔼(X)=p
+\stopformula
+</property>
+<property h="$X↪\mc B(p)$">
+\startformula 
+V(X)=pq
+\stopformula
+</property>
+</combination>
+</concept>
+
+</subsection>
+
+<subsection t="Loi binomiale">
+<concept t="loi binomiale">
+<definition h="$X$ va, $p∈[0,1]$, $n⩾1$">
+\startformula
+X ↪ \mc B(n,p)⟺ \System{
+\NC X(Ω)=⟦0,n⟧\NR
+\NC ∀ k∈⟦0,n⟧, ℙ(X=k)={n\choose k} p^k(1-p)^{n-k}
+}
+\stopformula
+</definition>
+<remark>Le symbôle $X ↪ \mc B(n,p)$ est une abbréviation pour \quote{$X$ suit la loi binomiale de paramètres $n$ et $p$}.</remark>
+<remark>Notant $q=1-p$, on a $ℙ(X=k)={n\choose k} p^kq^{n-k}$.</remark>
+<remark>La loi binomiale associée aux paramètres $n=1$ et $p$ est la loi de bernouilli de paramètre $p$.</remark>
+</concept>
+
+<concept t="densité">
+<property h="$X↪\mc B(n,p)$">
+\startformula 
+f_X(x)=\System{
+\NC {n\choose k} p^k(1-p)^{n-k} \Si x∈⟦0,n⟧\NR
+\NC 0 \text{ sinon}
+}
+\stopformula
+</property>
+
+</concept>
+
+
+<concept t="espérance\\variance">
+<combination>
+<property h="$X↪\mc B(n,p)$" >
+\startformula 
+𝔼(X)=np
+\stopformula
+</property>
+<property h="$X↪\mc B(n,p)$">
+\startformula 
+V(X)=npq
+\stopformula
+</property>
+</combination>
+<remark>La somme de $n$ variables aléatoires suivant une loi de Bernoulli de paramètre $p$ suit une loi binomiale de paramètres $n$ et $p$.</remark>
+</concept>
+
+</subsection>
+
+<subsection t="Loi hypergéométrique">
+
+<concept t="formule de Vandermonde">
+<property h="$a,b,n∈ℕ$">
+\startformula 
+∑_{k=0}^n{a\choose k}{b\choose n-k}={a+b\choose n}
+\stopformula
+</property></concept>
+
+<concept t="loi hypergéométrique">
+<definition h="$X$ va, $p∈[0,1]$, $0⩽n⩽N$ et $Np∈ℕ$">
+\startformula
+X ↪ \mc H(N,n,p)⟺ \System{
+\NC X(Ω)=⟦0,n⟧\NR
+\NC ∀ k∈⟦0,n⟧, ℙ(X=k)={{Np\choose k}{N(1-p)\choose n-k}\F  {N\choose n}}
+}
+\stopformula
+</definition>
+<remark>Le symbôle $X ↪ \mc H(N,n,p)$ est une abbréviation pour \quote{$X$ suit la loi hypergéométrique de paramètres $N$ , $n$ et $p$}.</remark>
+<remark>Notant $q=1-p$, on a $ ℙ(X=k)={{Np\choose k}{Nq\choose n-k}\F  {N\choose n}}$.</remark>
+</concept>
+
+<concept t="espérance\\variance">
+<combination>
+<property h="$X ↪ \mc H(N,n,p)$" >
+\startformula 
+𝔼(X)=np
+\stopformula
+</property>
+<property h="$X ↪ \mc H(N,n,p)$" m="-β+β">
+\startformula 
+V(X)=npq{N-n\F N-1}
+\stopformula
+</property>
+</combination>
+</concept>
+
+<concept>
+<property h="$n⩾0$, $p∈[0,1]$">
+\startformula 
+\lim_{N→+∞}{{Np\choose k}{N(1-p)\choose n-k}\F  {N\choose n}}={n\choose k}p^kq^{n-k}
+\stopformula
+</property>
+</concept>
+
+</subsection>
+</section>
+</chapter>
+</part>

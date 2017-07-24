@@ -1,0 +1,43 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+\centerline{\bfb DEVOIR SURVEILLE 2}
+\blank[big]
+\startList\item\exo{C29}
+\item\exo{C32}
+\item\exo{Adb}
+\item\exo{C31}
+\sym{Problème}\exo{C30}
+\stopList
+
+\iftrue
+\page
+\centerline{\bfb CORRECTION DU DEVOIR SURVEILLE 2}
+\blank[big]
+\startList
+\item\solution{C29}
+\item\solution{C32}
+\item\solution{Adb}
+\item\solution{C31}
+\sym{Problème}\solution{C30}
+\stopList
+\fi
+\stoptext
+\stopcomponent
+\endinput

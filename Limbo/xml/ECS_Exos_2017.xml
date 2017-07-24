@@ -1,0 +1,295 @@
+<?xml version='1.0' standalone='yes'?>
+<root>
+<!-- -->
+<chapter t="Révisions, suites de référence">
+
+
+
+<subject t="fraction">
+<exo p="exercise[@id='ECSB1.1a']"/>
+<exo p="exercise[@id='ECSB1.1b']"/>
+<exo p="exercise[@id='ECSB1.1c']"/>
+<exo p="exercise[@id='ECSB1.1d']"/>
+</subject>
+
+<exo p="exercise[@id='ECSB1.2a']"/>
+<exo p="exercise[@id='ECSB1.2b']"/>
+<subject t="puissance">
+</subject>
+
+<exo p="exercise[@id='Base2']"/>
+
+<subject t="Suites de référence">
+<exo p="exercise[@id='Anu']"/>
+
+<subject t="Suite géométrique">
+<exo p="exercise[@id='C34']"/>
+</subject>
+
+
+<subject t="récurrence linéaire">
+<exo p="exercise[@id='C37']"/>
+<exo p="exercise[@id='Buo']"/>
+</subject>
+
+</subject>
+</chapter>
+
+<!-- -->
+<chapter t="Logique">
+
+<exo p="exercise[@id='Base2']"/>
+<filter p="field[@type='logique']/.."/>
+</chapter>
+
+
+<!-- -->
+<chapter t="Récurrences, sommes, produits">
+
+<subject t="Récurrence">
+<exo p="exercise[@id='F2.1']"/>
+<exo p="exercise[@id='F2.2']"/>
+<exo p="exercise[@id='C193']"/>
+<exo p="exercise[@id='Bij']"/>
+<exo p="exercise[@id='F2.6']"/>
+<exo p="exercise[@id='Apx']"/>
+</subject>
+
+<subject t="Récurrence à 2 pas">
+<exo p="exercise[@id='F2.3']"/>
+<exo p="exercise[@id='F2.4']"/>
+</subject>
+
+<subject t="Récurrence ou somme telescopique">
+<exo p="exercise[@id='Acs']"/>
+<exo p="exercise[@id='Act']"/>
+<exo p="exercise[@id='Acv']"/>
+</subject>
+
+<subject t="Somme telescopique">
+<exo p="exercise[@id='F2.8']"/>
+<exo p="exercise[@id='F2.9']"/>
+</subject>
+
+
+
+<subject t="Somme de Bernouilli">
+</subject>
+
+<!--<filter p="field[@type='récurrences']/.."/>-->
+
+<subject t="Sommes">
+<exo p="exercise[@id='F2.7']"/>
+<filter p="field[@type='somme']/.."/>
+</subject>
+
+<subject t="Produits">
+<exo p="exercise[@id='Base2']"/>
+
+
+<filter p="field[@type='produit']/.."/>
+</subject>
+
+<subject t="Factorielles">
+</subject>
+</chapter>
+
+<!-- -->
+<chapter t="Suites et $ℝ$">
+
+<exo p="exercise[@id='C43']"/>
+<exo p="exercise[@id='C44']"/>
+<exo p="exercise[@id='C42']"/>
+<exo p="exercise[@id='C40']"/>
+<exo p="exercise[@id='C38']"/>
+<exo p="exercise[@id='C36']"/>
+<exo p="exercise[@id='Bso']"/>
+<exo p="exercise[@id='LSL0.12']"/>
+<exo p="exercise[@id='Amp']"/>
+<exo p="exercise[@id='Amr']"/>
+<exo p="exercise[@id='Ami']"/>
+<exo p="exercise[@id='Amj']"/>
+<exo p="exercise[@id='Ams']"/>
+<exo p="exercise[@id='Amu']"/>
+<exo p="exercise[@id='Amv']"/>
+<exo p="exercise[@id='Amw']"/>
+<exo p="exercise[@id='Amx']"/>
+<exo p="exercise[@id='Anw']"/>
+<exo p="exercise[@id='Bec']"/>
+<exo p="exercise[@id='C35']"/>
+
+<subject t="suite adjacentes">
+<exo p="exercise[@id='Amx']"/>
+<exo p="exercise[@id='Amz']"/>
+<exo p="exercise[@id='Bsq']"/>
+<exo p="exercise[@id='Buz']"/>
+<exo p="exercise[@id='C41']"/>
+</subject>
+
+
+<subject t="suite récurrentes">
+<exo p="exercise[@id='Amt']"/>
+<exo p="exercise[@id='Bgp']"/>
+<exo p="exercise[@id='Bto']"/>
+<exo p="exercise[@id='C33']"/>
+
+<subject t="suite homéographique">
+<exo p="exercise[@id='LSL0.21']"/>
+<exo p="exercise[@id='Amf']"/>
+<exo p="exercise[@id='Amg']"/>
+<exo p="exercise[@id='Ana']"/>
+</subject>
+</subject>
+
+<exo p="exercise[@id='Ant']"/>
+
+<dm p="exercise[@id='Suite19']" sol=""/>
+<dm p="exercise[@id='C5']" sol=""/>
+<dm p="exercise[@id='C30']" sol=""/>
+<dm p="exercise[@id='Suite40']" sol=""/>
+
+
+
+</chapter>
+
+<!-- -->
+<chapter t="Ensembles et applications">
+</chapter>
+
+<!-- -->
+<chapter t="Limite et continuité">
+</chapter>
+
+
+
+<!-- -->
+<chapter t="Combinatoire">
+</chapter>
+
+
+<!-- -->
+<chapter t="Probabilités sur un univers fini">
+</chapter>
+
+
+
+<!-- -->
+<chapter t="Systèmes linéaires">
+</chapter>
+
+
+
+<!-- -->
+<chapter t="Espaces vectoriels I">
+</chapter>
+
+
+<!-- -->
+<chapter t="Etude globale des fonctions">
+</chapter>
+
+
+<!-- -->
+<chapter t="Dérivation">
+</chapter>
+
+
+
+<!-- -->
+<chapter t="Matrices">
+</chapter>
+
+
+
+<!-- -->
+<chapter t="VAR et lois usuelles (univers fini)">
+</chapter>
+
+
+<!-- -->
+<chapter t="Intégration I (sur un segment)">
+
+
+<section t="Sommes de Riemann">
+<exo p="exercise[@id='Apn']"/>
+<exo p="exercise[@id='Apo']"/>
+</section>
+</chapter>
+
+
+
+<!-- -->
+<chapter t="Nombres complexes">
+</chapter>
+
+
+
+<!-- -->
+<chapter t="Polynômes">
+</chapter>
+
+
+<!-- -->
+<chapter t="Espace vectoriel II (dimension finie)">
+</chapter>
+
+
+<!-- -->
+<chapter t="Espace vectoriel III (sommes et supplémentaires)">
+</chapter>
+
+
+
+<!-- -->
+<chapter t="Etude asymptotique des suites">
+
+<exo p="exercise[@id='Amn']"/>
+<exo p="exercise[@id='Buy']"/>
+<dm p="exercise[@id='C60']" sol=""/>
+</chapter>
+
+
+<!-- -->
+<chapter t="Séries numériques">
+
+<exo p="exercise[@id='Box']"/>
+</chapter>
+
+
+<!-- -->
+<chapter t="Espaces probabilisés et VAR (univers quelconque)">
+</chapter>
+
+
+<!-- -->
+<chapter t="Espaces vectoriels IV (applications linéaires)">
+</chapter>
+
+
+<!-- -->
+<chapter t="Dérivées successives, comparaison des fonctions">
+</chapter>
+
+
+
+<!-- -->
+<chapter t="Intégration II (sur un intervalle)">
+</chapter>
+
+
+
+<!-- -->
+<chapter t="VAR et lois usuelles III (densité)">
+</chapter>
+
+
+<!-- -->
+<chapter t="Développements limités, Formule de Taylor">
+</chapter>
+
+
+<!-- -->
+<chapter t="Extrema, fonctions convexes">
+</chapter>
+
+</root>

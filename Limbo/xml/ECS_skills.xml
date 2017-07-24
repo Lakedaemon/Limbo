@@ -1,0 +1,18 @@
+<?xml version='1.0' standalone='yes'?>
+<root>
+<chapter t="Calcul">
+
+<subject t="fractions">
+<skill t="décomposer en produits de nombres premiers"/>
+<skill t="mettre au même dénominateur">Utiliser le PPCM</skill>
+</subject>
+
+<subject t="puissances">
+
+<subject t="racines"/>
+</subject>
+
+<subject t="logarithme"/>
+
+</chapter>
+</root>

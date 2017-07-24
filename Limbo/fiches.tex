@@ -1,0 +1,1308 @@
+\startproduct Dis_fiches
+\project project_Dis
+\definepapersize[emc][width=29.7cm,height=21cm]
+\setuppapersize[emc][emc]
+\setuplayout[backspace=0.5cm,topspace=0.5cm,width=26.7cm,header=0.5cm,footer=0.5cm, headerdistance=0.5cm,footerdistance=0.5cm]
+
+\defineitemgroup[List][levels=4]
+\setupitemgroup[List][1][n,joinedup,nowhite]
+\setupitemgroup[List][2][n,joineup,nowhite]
+\setupitemgroup[List][3][3,joineup,nowhite]
+\setupitemgroup[List][4][4,joineup,nowhite]
+%\starttext
+%\completecontent%[criterium=all]
+%\stoptext
+
+%\xmlprocessfile{maths}{xml/Limbo_Méthodes_de_calcul.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Dérivées_et_primitives.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Suites.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Systèmes.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Matrices.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Logique.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Nombres_complexes.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Intégration.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Ensembles_et_applications.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Limites.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Polynômes.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Probabilités.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Variables_aléatoires.xml}{}
+
+\def\fiche#1{{\bf #1.} }
+\def\rare#1{{\darkgray #1}}
+
+%\starttext
+%\chapter{Fiches}
+%\completeFiches
+%\stopcolumns
+%\stoptext
+
+%\starttext
+%\completeindex
+%\stoptext
+\starttext
+\begingroup\eightpoint\startcolumns[n=2,rule=on]
+\iffalse\chapter{Nombres complexes}
+\section{Forme algébrique (additive)}
+
+
+
+\startList
+\item \fiche{Nombre complexe} Un nombre complexe est un nombre du type $z=x+iy$ avec $x,y$ réels et $i^2=-1$.
+\item \fiche{Opérations} \startformula\startmatrix
+      \NC (x + iy) + (x' + iy')\NC=\NC(x + x') + i(y + y')\NC\Inframed{$+$}\NR
+      \NC (x + iy) × (x' + iy')\NC=\NC(xx' - yy') + i(xy' + yx')\NC\Inframed{$×$}\NR
+    \stopmatrix\stopformula
+\stopList
+
+\subsection{Parties réelles et imaginaires}
+
+\item \fiche{Définition} Pour $x,y$ nombres réels, les parties réeeles et imaginaires du nombre complexe $z=x+iy$ sont les nombres réels $ ℜe(z):=x$ et $ℑm(z):=y$
+\item\fiche{Linéarité} Pour $s, z$ nombres complexes et $λ, μ$ nombres réels,  
+\startformula
+\startmatrix
+\NC ℜe(λs+μz)=λℜe(s)+μℜe(z)\NR
+\NC ℑm(λs+μz)=λℑm(s)+μℑm(z)\NR
+\stopmatrix
+\stopformula
+\item \fiche{Caractérisation} Pour $s, z$ nombres complexes, \startformula
+s = z ⟺  \startcases
+\NC ℜe(s)=ℜe(z)\NR
+\NC ℑm(s)=ℑm(z)\NR
+ \stopcases
+\stopformula
+
+\item \fiche{réel} Un nombre réel est un nombre complexe de partie imaginaire nulle
+$$
+z∈ℝ⟺ℜe(z)=z⟺ℑm(z)=0⟺ \overline z = z
+$$
+
+\item \fiche{imaginaire pur} Un nombre imaginaire pur est un nombre complexe de partie réelle nulle
+$$
+z∈iℝ⟺ℜe(z)=0⟺iℑm(z)=z⟺ \overline z = -z
+$$
+
+\subsection{Conjugué}
+
+\item \fiche{Définition} Pour $x,y$ nombres réels, le conjugué de $z=x+iy$ est le nombre complexe $\overline z = x-iy$
+
+
+\item\fiche{lien avec les parties réeles et imaginaires}
+\startformula  \startcases[style=\displaystyle]
+\NC z = ℜe(z) + i ℑm(z)\NR 
+\NC\overline z = ℜe(z) - i ℑm(z)\NR
+\stopcases
+\qquad
+\startcases
+  \NC ℜe(z)={z+\overline z\F 2}\NR
+  \NC ℑm(z)={z-\overline z\F2i}\NR
+\stopcases\stopformula
+
+\item\fiche{Linéarité} Pour $s, z$ nombres complexes et $λ, μ$ nombres réels,  
+\startformula
+\overline{λs+μz}=λ\overline{s}+μ\overline{z}
+\stopformula
+
+\item\fiche{Produit, quotient, puissances}  
+\Align{
+\NC \overline{sz}\NC =\overline{s}\overline{z}\NR
+\NC \overline{s\F z}\NC={\overline{s}\F\overline{z}}\qquad(z≠0)\NR
+\NC {\overline s^n}\NC= {\overline s}^n\qquad(n∈ℤ, s≠0 \text{ si }n<0)
+}
+\item\fiche{involution} Pour $z$ complexe $\overline{\overline z} = z$. 
+
+
+\section{Forme trigonométrique (multiplicative)}
+
+\section{module}
+
+\startList
+\item \fiche{Module} Le module d'un nombre complexe $z=x+iy$ est le nombre réel positif ou nul $|z|=\sqrt{x^2+y^2}$.
+\item \fiche{}
+\stopList
+\fi
+
+\chapter{Intégration sur un segment (version 7)}
+
+\section{Définition}
+
+
+\startList
+
+\item \fiche{Primitive} $F$ est une primitive sur l'intervalle $I$ d'une application $f$ définie sur $I$ si, et seulement si, $F$ est dérivable sur $I$ et vérifie $\underbrace{\forall x∈I, F'(x)=f(x)}_{F'=f}$
+\item\fiche{Caractérisation des primitives} Si $F$ est une primitive de $f$ sur un intervalle I, alors 
+\startformula 
+G:I → 𝕂\mbox{ est une primitive de f sur }I\  ⟺\   ∃ c ∈ 𝕂 :  ∀ x ∈ I,  G(x)=F(x)+c
+\stopformula
+
+\item \fiche{Primitives des fonctions continues} Toute fonction continue $f$ sur un intervalle $I$ admet une primitive sur $I$.
+\item \fiche{Intégrale des fonctions continues} Si $f$ est continue sur $[a,b]$, l'intégrale de $f$ de $a$ à $b$ est le nombre 
+$$
+\int_a^bf(x)\d x=\Q[F(x)\W]_a^b=F(b)-F(a),
+$$
+où $F$ désigne n'importe quelle primitive $F$ de $f$ sur $[a,b]$.
+\iffalse \crlf En particulier, pour toute fonction $f$ dérivable, de dérivée continue (de classe $\mc C^1$) sur $I$, on a 
+\startformula 
+\int_a^xf'(t)\d t=[f]_a^x=f(x)-f(a). 
+\stopformula
+\fi
+
+\item \fiche{Théorème fondamental de l'analyse} Si $f$ est continue sur un intervalle $I$ contenant $a$, alors l'unique primitive de $f$ s'annulant en $a$ est l'application $F$ définie par 
+\startformula 
+\Align{
+\NC F: I\NC  → ℝ\NR
+\NC  x\NC  ↦  \int_a^xf(t)\d t}
+\stopformula
+Par ailleurs, $F$ est dérivable, de dérivée continue sur $I$ (de classe $\mc C^1$)
+
+\item\fiche{Subdivision} Une subdivision de $[a,b]$ est une famille $(x_0,…x_n)$ de nombres réels vérifiant $a=x_0\Le x_1\Le …\Le x_n=b$.
+
+\item \fiche{Intégrale des fonctions continues par morceaux (P.M.)} Si $a=x_0\Le x_1\Le…\Le x_n=b$ est une subdivision adaptée à la fonction continue par morceaux $f:[a,b]→ℝ$, alors l'intégrale de $f$ de $a$ à $b$ est le nombre
+$$
+\int_a^bf(x)\d x = \sum_{k=1}^n\int_{x_{k-1}}^{x_k} f_k(x)\d x,
+$$
+Pour $k∈⟦1,n⟧$, on rappelle que la restriction de $f$ à l'intervalle $]x_{k-1},x_k[$ est prolongeable par continuité en une fonction continue $f_k:[x_{k-1},x_k]→𝕂$
+
+\item\fiche{Convention} On pose  $\int_a^af=0$ et $ \int_b^af:=-\int_a^bf$ lorsque l'intégrale de droite est définie.
+
+
+%\stopList
+\section{Propriétés}
+%\startList
+
+
+%\item \fiche{Parties réelles et imaginaires} $f:[a,b]→ℂ$ est continue (par morceaux) sur $[a,b]$ si, et seulement si, sa partie réelle et sa partie imaginaires le sont aussi et dans ce cas, $\int_a^bf=\int_a^bℜe(f) +i\int_a^bℑm(g)$.
+\item \fiche{Relation de Chasles} Si $f$ est continue (par morceaux) sur un segment $S$ contenant $a$, $b$ et $c$ alors $\int_a^cf=\int_a^bf+\int_b^cf$ (les trois intégrales sont définies)
+\item \fiche{Linéarité} Si $f$ et $g$ sont continues (p. m.) sur $[a,b]$ et si $ λ, μ ∈ ℝ$, alors $\int_a^b(λ f+ μ g)= λ\int_a^bf+ μ\int_a^bg$
+\item \fiche{Positivité} Si $f$ est continue (par morceaux) sur $[a,b]$, à valeurs positives ou nulles, alors $\int_a^bf ⩾0$
+\item \fiche{Croissance} Si $f$ et $g$ sont continues (p. m.) sur $[a,b]$ et si $\underbrace{∀ x ∈[a,b], f(x) ⩽ g(x)}_{f ⩽ g}$, alors $\int_a^bf ⩽ \int_a^bg$.
+\item \fiche{Cas des fonctions continues, positives, d'intégrale nulle} Si $f$ est continue sur $[a,b]$, à valeurs positives ou nulles, alors 
+$$
+\int_a^bf(x)\d x =0 \quad ⟺ \quad\underbrace{\forall x∈[a,b], f(x)=0}_{f=0}
+$$
+\item \fiche{Valeur absolue} Si $f:[a,b]→ℝ$ est continue (par morceaux), alors $|f|$ l'est aussi et $\Q|\int_a^bf\W| ⩽ \int_a^b|f|$
+
+\item \fiche{Sommes de Riemann} Si $f$ est continue sur $[0,1]$ alors $\displaystyle\lim_{n→∞}{1\F n}\sum_{k=1}^nf\Q({k\F n}\W) = \int_0^1f(x)\d x$. 
+
+\section{Outils fondamentaux}
+
+\item \fiche{Intégration par partie} Si $f$ et $g$ deux fonctions dérivables, de dérivées continues (de classe $\mc C^1$) sur $[a,b]$, alors 
+\startformula 
+\int_a^bf(x)g'(x)\d x=\big[f(x)g(x)\big]_a^b-\int_a^bf'(x)g(x)\d x. 
+\stopformula
+
+
+\item \fiche{changement de variable (non bijectif)} Si $f$ est continu sur un intervalle $I$ et si $φ:[a,b]→I$ est dérivable, de dérivée continue (de classe $\mc C^1$), alors 
+\startformula 
+\int_a^bf\big( φ(u)\big) φ'(u)\d u=\int_{ φ(a)}^{ φ(b)}f(x)\d x.
+\stopformula
+
+\item \fiche{Changement de variable} Si $f$ est continue (par morceaux) sur $[a,b]$ et si 
+\startList \item $φ:[c,d] →[a,b]$ est une bijection
+\item $φ$ est dérivable et de dérivée continue (de classe $\mc C^1$) sur $[c,d]$
+\item $φ^{-1}$ est dérivable, de dérivée continue (de classe $\mc C^1$) sur $[a,b]$
+\stopList
+alors 
+\startformula 
+\int_a^bf(x)\d x=\int_{ φ^{-1}(a)}^{ φ^{-1}(b)}f\big( φ(u)\big) φ'(u)\d u 
+\stopformula
+
+\section{Dérivées et primitives}
+
+\item Pour $x$ dans un intervalle sur lequel les fonctions sont dérivables pour les dérivées (et continues pour les primitives),   \crlf
+\Align{
+\NC (x^α)'\NC=\NC α x^{α-1}\qquad(α∈ℝ)\NC Monômes  \NC \int x^α\d x \NC=\NC \System{
+  \NC {x^{α+1}\F α+1} +c \qquad(α≠-1)\NR
+  \NC \ln|x| + c \qquad (α=-1)
+}\NR
+ \NC \big(\ln|x|\big)'\NC=\NC{1\F x}\qquad (x≠0)\NC Logarithme\NC \int{\d x \F x} \NC=\NC \ln|x] +c\NR
+ \NC (\e^x)'\NC=\NC\e^x\NC Exponentielle\NC \int\e^x\d x \NC=\NC \e^x + c\NR
+ \NC \cos'(x) \NC=\NC -\sin(x)\NC Cosinus\NC \int\sin(x)\d x \NC=\NC -\cos(x) + c\NR
+\NC \sin'(x) \NC=\NC \cos(x)\NC Sinus  \NC \int\cos(x)\d x\NC=\NC\sin(x)+c\NR
+ \NC \tan'(x)\NC=\NC{1\F \cos^2(x)}= 1+\tan^2(x)\NC Tangente\NC \int{\d x\F \cos^2(x)} \NC=\NC\int\big(1+\tan^2(x)\big)\d x = \tan(x) + c\NR 
+ \NC \arctan'(x)\NC=\NC{1\F1+x^2}\NC Arctangente\NC \int{\d x\F1+x^2}\NC=\NC\arctan(x)+c
+}
+
+
+\chapter{Variables aléatoires réelles (discrètes, sur un univers fini)}
+
+Dans tout ce chapitre, $(Ω, \sc P(Ω), P)$ désigne un espace probabilisé fini ($Ω=\{ω_1, …,ω_n\}$). \crlf
+Lorsque $p∈[0,1]$, on pose $q=1-p$.
+
+\section{Variable aléatoire réelle}
+
+\item \fiche{VAR} Une variable aléatoire réelle est une application $X:Ω→ℝ$.
+\item \fiche{VAR certaine} $X$ est une VAR certaine ssi il existe $c∈ℝ$ tel que $∀ω∈Ω, X(ω)=c$.
+\item \fiche{VAR quasi-certaine} $X$ est une VAR quasi-certaine ssi il existe $c∈ℝ$ tel que $P(X=c)=1$.
+\item \fiche{Univers image} L'univers image d'une VAR $X$ est $X(Ω)=\{X(ω):ω∈Ω\}$.
+\item \fiche{Système complet} Le système complet associé à une VAR $X$ est $\{(X=x)\}_{x∈X(Ω)}$.
+\item \fiche{loi d'une VAR} La loi d'une VAR $X$ est la probabilité $P_X$ définie sur $X(Ω)$ par 
+$$
+P_X(A) = P(X∈A)\qquad(A \text{ événement de } X(Ω))
+$$
+{\it Remarque : elle est complètement déterminée par la donnée de $P(X=x)$ pour $x∈X(Ω)$}
+\item \fiche{fonction de répartition d'une VAR} La fonction de répartition d'une VAR $X$ est l'application $F_X:ℝ→[0,1]$ définie par 
+$$
+F_X(x)=P(X⩽x)\qquad(x∈ℝ)
+$$
+
+\item \fiche{Propriétés de $F_X$} La fonction de répartition $F_X$ d'une var $X$  est croissante sur $ℝ$, continue à droite et vérifie 
+$$\lim_{x→-∞}F_X(x)=0  \text{ et } \lim_{x→∞}F_X(x)=1$$
+{\it Pour une VAR discrète sur un ensemble fini, elle est aussi en escalier (constante par morceaux)}
+
+\section {Espérance}
+
+\item \fiche{Espérance} L'espérance d'une VAR discrète finie $X$ est le nombre réel 
+$$
+E(X) = \sum_{x∈ X(Ω)}xP(X=x)
+$$
+\item \fiche{VAR centrée} Une VAR $X$ est centrée ssi son espérance est nulle
+
+\item \fiche{Théorème de transfert} Pour une VAR $X$ et pour $g:X(Ω)→ℝ$, on a 
+$$
+E(g(X)) = \sum_{x∈ X(Ω)}g(x)P(X=x)
+$$
+
+\item \fiche{Transformation affine} Pour une VAR  $X$, on a 
+$$
+E(aX+b)=aE(X)+b\qquad(a,b∈ℝ)
+$$
+\item \fiche{Positivité} Si $X$ est une VAR vérifiant $\underbrace{∀ ω∈Ω, X(ω) ⩾ 0}_{X ⩾ 0}$ (p.s.), alors $E(X)⩾0$.
+\item \fiche{Croissance} Si $X$ et $Y$ vérifient $\underbrace{∀ ω∈Ω, X(ω) ⩽ Y(ω)}_{X ⩽ Y}$ (p.s.), alors $E(X)⩽E(Y)$.
+\item \fiche{Cas des VAR positives, d'espérance nulle} Si $X$ vérifie $\underbrace{∀ ω∈Ω, X(ω) ⩾ 0}_{X ⩾ 0}$ (p.s.), alors 
+$$
+E(X) = 0 \quad ⟺ \quad P(X = 0) = 1 \quad ⟺ \quad X = 0\text{ p.s.}
+$$
+
+\section{Variance et écart type}
+
+\item \fiche{Variance} La variance d'une VAR  $X$ est le nombre réel positif ou nul 
+$$
+V(X) = E\Big(\big(X-E(X)\big)^2\Big)
+$$
+\item \fiche{Formule de Koenig-Huygens} Pour une VAR  $X$, on a $V(X) = E(X^2)-E(X)^2$
+\item \fiche{Variance nulle} Pour une VAR $X$, on a 
+$$
+V(X) = 0 ⟺ X = E(X) \text{ p.s.}
+$$
+\item \fiche{Transformation affine} Pour une VAR  $X$, on a 
+$$
+V(aX+b)=a^2V(X)\qquad(a,b∈ℝ)
+$$
+\item \fiche{Ecart type} L'ecart type d'une VAR  $X$ est le nombre réel positif ou nul $σ_(X) = \sqrt{V(X)}$
+\item \fiche{VAR centrée réduite} Une VAR $X$ est centrée et réduite ssi son espérance est nulle et sa variance vaut $1$ (son écart type vaut $1$)
+
+\section{Lois usuelles}
+\item \fiche{loi certaine} $X$ suit la loi certaine ssi $X=c$ p.s. Dans ce cas, on a $E(X)= c $ et $V(X) = 0$. 
+\item \fiche{loi de Bernouilli de paramètre $p∈[0,1]$}  
+$$X\hookrightarrow B(p)\quad⟺\quad P(X=1)=p \text{ et  } P(X=0)=q
+$$
+Dans ce cas, on a $E(X)= p$ et $V(X) = pq$.
+\item \fiche{loi binomiale de paramètre $n∈ℕ^*$ et $p∈[0,1]$} 
+$$
+X\hookrightarrow B(n,p)\quad⟺\quad
+P(X=k)={n\choose k}p^kq^{n-k}\qquad(0⩽k⩽n)
+$$
+Dans ce cas, on a $E(X)=np$ et $V(X)=npq$.
+\item \fiche{loi uniforme} $X$ suit la loi uniforme sur $⟦1,n⟧$ ssi $X\hookrightarrow \sc U(⟦1,n⟧)$ ssi 
+$$
+P(X=k)={1\F n}\qquad(1⩽k⩽n)
+$$
+Dans ce cas, on a $E(X)= {n+1\F2}$ et $V(X) = {n^2-1\F 12}$. 
+
+
+\chapter{Polynômes}
+
+\section{Forme additive}
+
+\item\fiche{Polynôme} Un polynôme à coefficients dans $𝕂$ est une expression symbolique du type 
+\startformula 
+P = ∑_{k=0}^na_kX^k\NC\qquad (n⩾0\text{ et } (a_0,⋯,a_n)∈𝕂^{n+1})
+\stopformula
+L'ensemble de tous les polynômes à coefficients dans $𝕂$ est noté $𝕂[X]$.\blank[medium]
+
+\item \fiche{Opérations algébriques} La somme, les multiples (plus généralement les combinaisons linéaires), les produits, les dérivées, les primitives et les composées (obtenus par substitution)   
+de polynômes à coefficients dans $𝕂$ sont des polynômes à coefficients dans $𝕂$. \crlf Pour $n⩾0$, $P=∑_{k=0}^na_kX^k$ et $Q=∑_{k=0}^nb_kX^k$, on a  
+\startList\item (somme) $\displaystyle P + Q = ∑_{k=0}^n(a_k+b_k)X^k$
+\item (multiplication par un scalaire) $\displaystyle λ P = ∑_{k=0}^nλ a_kX^k$ pour $λ∈𝕂$
+\item (produit) $\displaystyle P × Q = ∑_{k=0}^{2n}c_kX^k$ avec $\displaystyle c_k = ∑_{i=0}^ka_ib_{k-i} \qquad (0⩽ k⩽ 2n)$
+\item (dérivation) $\displaystyle P' = \sum_{k=1}^n k a_kX^{k-1} = ∑_{k=0}^{n-1}(k+1)a_{k+1}X^k$
+\item (primitives) Les primitives de $P$ sont les polynomes 
+\startformula
+c + \sum_{k=0}^n{a_k\F k+1}X^{k+1} = c + ∑_{k=1}^{n+1}{a_{k-1}\F k}X^k\qquad (c∈𝕂)
+\stopformula
+\item (substitution) le polynome $\displaystyle P(Q)=∑_{k=0}^na_kQ^k$ est obtenu en substituant $Q$ à l'indeterminée $X$.
+\stopList
+En particulier $P=P(X)$.\blank[medium]
+
+\item \fiche{degré} Le degré d'un polynôme non nul $P= ∑_{k=0}^na_kX^k$ est le nombre entier naturel
+\startformula 
+\deg(P)=\max\{k⩾0:a_k≠0\}.
+\stopformula
+Par convention $\deg(0)=-∞$.\blank[medium]
+
+\item L'ensemble de tous les polynômes à coefficients dans $𝕂$, de degré au plus  $n$, est noté $𝕂_n[X]$.
+\startformula 
+𝕂_n[X]=\Q\{P∈𝕂[X]:\deg(P)⩽n\W\}
+\stopformula
+
+\item \fiche{Opérations}\startList\item (multiplication par un scalaire) $\deg(λP) = \deg(P)$  pour $λ∈𝕂^*$.
+\item (produit) $\deg(PQ) = \deg(P)+\deg(Q)$  pour $P$ et $Q$ polynômes non nuls.
+\item (somme) $\deg(P+Q) ⩽\max(\deg(P), \deg(Q))$ avec égalité si $\deg(P)≠\deg(Q)$. 
+\item (dérivée) $\deg(P') = \System{\NC \deg(P) -1 \NC \text{ si } \deg(P)⩾1\NR \NC -∞ \NC\text{ sinon } }$ 
+\stopList
+
+\section{Forme multiplicative}
+
+\item \fiche{Division euclidienne} Pour $P∈𝕂[X]$ et $D∈𝕂[X]^*$, il existe un unique $(Q,R)∈𝕂[X]$ tel que 
+\startformula
+P = QD+R \text{ et } \deg(R)<\deg(D)
+\stopformula
+
+\item \fiche{Diviseur et multiple} Soient $P$ et $Q$ dans $𝕂[X]$. 
+\startformula
+\SystemR{
+\NC D \text{ est un diviseur de } P \NR
+\NC P \text{ est un multiple de } D \NR} ⟺ D | P ⟺ ∃ Q∈𝕂[X]\text{ tel que } P = QD
+\stopformula
+
+\item \fiche{Racine} $a∈𝕂$ est une racine de $P∈𝕂[X]$ $⟺ P(a)=0 ⟺ (X-a) | P$ 
+
+\item \fiche{Multiplicité} Soit $a∈𝕂$ et $P∈𝕂[K]$.
+\startformula
+\text{$a$ est racine de $P$ de multiplicité $m$} ⟺ \System{
+\NC P(a)=0\NR
+\NC ⋮\NR
+\NC P^{(m-1)}(a)=0\NR
+\NC P^{(m)}(a)≠0\NR}⟺ \System{\NC (X-a)^m | P\NR
+\NC  (X-a)^{m+1} \not| P\NR} 
+\stopformula
+
+\item \fiche{Théorème de D'Alembert-Gauss} Tout polynôme non constant $P∈ℂ[X]$ admet une racine~dans~$ℂ$.
+
+\item \fiche{Décomposition sur $ℂ$} Pour chaque polynôme non constant $P∈ℂ[X]$, il existe une constante $α∈ℂ^*$ et des nombres complexes $(z_1,⋯,z_n)$ uniques à permutation près tels que 
+\startformula
+P =α∏_{k=1}^{\deg(P)}(X-z_k)
+\stopformula
+
+\item \fiche{Décomposition sur $ℂ$ avec multiplicité} Pour chaque polynôme non constant $P∈ℂ[X]$, il existe un entier $K⩾1$, une constante $α∈ℂ^*$ et des nombres complexes $(z_1,⋯,z_K)$ associés à des multiplicités $(n_1,⋯ ,n_K)$ uniques à permutation près tels que 
+\startformula
+P =α∏_{k=1}^K(X-z_k)^{n_k}
+\stopformula
+De plus, on a $\deg(P)=n_1+⋯+n_K$
+
+\item \fiche{Décomposition sur $ℝ$ avec multiplicité} Pour chaque polynôme non constant $P∈ℝ[X]$, il existe deux entiers $K⩾0$ et $L⩾0$, une constante $α∈ℂ^*$, des nombres réels $(r_1,⋯,r_K)$ et des trinômes du second degré sans racines réelles $(Q_1, ⋯, Q_L)$ (de discriminant strictement négatif) associés à des multiplicités $(n_1,⋯ ,n_K)$ et $(m_1, ⋯, m_L)$ uniques à permutation près tels que 
+$$
+P =α∏_{k=1}^K(X-r_k)^{n_k}∏_{ℓ=1}^LQ_ℓ^{m_ℓ}
+$$
+De plus, on a $\deg(P)=n_1+⋯+n_K + 2m_1 + ⋯+ 2m_L$
+
+\chapter{Espaces vectoriels}
+
+\item \fiche{Espace vectoriel}
+\startformula 
+(E,+,⋅)\text{ $𝕂$- espace vectoriel} ⟺  \System{
+\NC + \text{ loi interne, associative, commutative,}\NR
+\NC \text{ admettant un élément neutre $0∈E$, }\NR
+\NC \text{  tous les $x∈E$ sont  inversibles pour }+\NR
+\NC ⋅ \text{ loi externe, associative, distributive sur $+$}\NR
+\NC ∀x∈E, 1⋅x=x
+}
+\stopformula
+
+
+\item \fiche{Combinaisons linéaires}Soit $E$ un espace vectoriel sur $𝕂$
+\startformula 
+\Align{\NC x \text{ combi. linéaire de } x_1,⋯,x_n∈E\NR
+\NC \text{pour les coeffs } λ_1,⋯,λ_n∈𝕂}⟺ x= ∑_{k=1}^n λ_k.x_k
+\stopformula
+
+\item \fiche{Produit nul} Dans un $𝕂$-espace vectoriel $(E,+,⋅)$, on a  
+\startformula 
+ λ.x=0 ⟺  λ=0 \text{ ou } x=0
+\stopformula
+
+\item \fiche{sous-espace vectoriel} $F$ est un $𝕂$-sous-espace vectoriel de $E$ si, et seulement si, 
+\startList
+\item $F$ est un ensemble non vide {\it (en général, on montre que $0_E∈F$)}.
+\item $F$ est inclus dans $E$, qui est un $𝕂$-espace vectoriel.
+\item $F$ est stable par combinaison linéaire, c'est-à-dire
+\startformula 
+ ∀ ( λ, μ) ∈ 𝕂^2 , \qquad   ∀ (x,y) ∈ F^2 ,\qquad  λ. x+ μ. y ∈ F, 
+\stopformula
+\stopList
+
+
+\item \fiche{intersection} Une intersection de sous-espaces vectoriels de $E$ est un sous-espace vectoriel de $E$
+
+
+\item \fiche{Espace vectoriel engendré} L'espace vectoriel engendré par une partie~$A$ d'un espace vectoriel~$E$ est le plus petit sous-espace vectoriel de $E$ (pour l'inclusion) contenant $A$. 
+\startformula 
+\Vect(A) = ∩\limits_{A⊂F \text{ sev de }E}F
+\stopformula
+
+\item \fiche{caractérisation} L'espace vectoriel engendré par une partie~$A$ d'un espace vectoriel~$E$ est l'ensemble des combinaisons linéaires qu'il est possible de former avec les éléments de~$A$
+\startformula 
+\Vect(A)=\Q\{ ∑_{k=1}^n λ_kx_k: n⩾1,(x_1,⋯,x_n)∈A^n,(λ_1,⋯, λ_n) ∈ 𝕂^n\W\}.
+\stopformula
+Lorsque $A = \{x_1, \cdots, x_n\}$, on a plus simplement
+\startformula 
+\Vect(A)=\Q\{ ∑_{k=1}^n λ_kx_k: (λ_1,⋯, λ_n) ∈ 𝕂^n\W\}.
+\stopformula 
+
+
+\item \fiche{Famille génératrice} Soit  $\mc F = (e_1,\cdots,e_n)$ une famille finie de vecteurs de $E$. alors
+\startformula 
+\mc F \text{ engendre } E ⟺ E=\Vect(\mc F) ⟺  ∀x∈E, ∃(λ_1,⋯,λ_n)∈𝕂^n: x= λ_1e_1+⋯+λ_ne_n.
+\stopformula
+
+\item \fiche{Famille libre} Soit  $\mc F = (e_1,\cdots,e_n)$ une famille finie de vecteurs de $E$. alors
+
+\startformula 
+\mc F \text{ est libre si, et seulement si, }   ∑_{k=1}^nλ_kx_k=0 ⟺ λ_1=⋯ =λ_n=0
+\stopformula
+Une famille est libre \ssi il existe une seule combinaison linéaire nulle de ses vecteurs (celle
+dont tous les coefficients sont nuls). 
+
+\item \fiche{Famille liée} Une famille finie $\mc F = (e_1,\cdots,e_n)$ est liée si, et seulement si, elle n'est pas libre
+\startformula 
+\mc F \text{ est liée si, et seulement si, }   ∃(λ_1,⋯,λ_n)≠(0,⋯,0): ∑_{k=1}^nλ_kx_k=0
+\stopformula
+Une telle relation est appelée une relation de dépendance linéaire.
+
+\item \fiche{Base} Une base d'un espace vectoriel $E$ est une famille finie de vecteurs de $E$ qui est libre et génératrice.
+
+\item \fiche{Coordonnées} Si $\mc B=(e_1, ⋯,e_n)$ est une base d'un $𝕂$-espace vectoriel $E$, alors chaque vecteur $x$ de $E$ se décompose de manière unique sur $\mc B$
+\startformula 
+(e_1,⋯,e_n)\text{ base de }E ⟺  ∀ x ∈ E,   ∃!( x_1,⋯, x_n)∈𝕂^n: x= ∑_{k=1}^n x_ke_k
+\stopformula
+Les nombres $(x_1,⋯, x_n)$ sont appelés coordonnées (ou composantes) du vecteur $x$ dans la base $(e_1,⋯,e_n)$. La matrice des coordonnées de $x$ dans la base $\mc B$ est la matrice colonne
+$$
+\mc Mat_{\mc B}(x)=\Matrix{\NC x_1\NR\NC⋮\NR\NC x_n\NR}
+$$
+
+\item \fiche{Espaces vectoriels de référence}
+\startList
+\item $𝕂^n$ est un espace vectoriel, de base canonique $\Q((0, ⋯, 0, \underset {k}{1},0,⋯,0)\W)_{1⩽k⩽n}$
+\item $𝕂_n[X]$ est un $𝕂$ espace vectoriel, de base canonique $\Q(X^k\W)_{0⩽k⩽n}$
+\item $\{0\}$, $\mc M_{n,p}(𝕂)$, $𝕂^N$, $\mc F(𝕂,𝕂)$ sont des $𝕂$-espaces vectoriels
+\item $ℂ$ est un $ℝ$-espace vectoriel de base canonique $(1, i)$
+\stopList
+
+
+
+\iffalse
+
+La construction des polynômes formels n'est pas au programme, on pourra identier polynômes et fonctions polynomiales. Les démonstrations des résultats de ce paragraphe ne sont pas exigibles. Ensemble 𝕂[X]K[X] des polynômes à coefficients dans KK.
+Opérations algébriques.
+
+Ensembles 𝕂n[X]Kn[X] des polynômes à coefficients dans 𝕂K de degré au plus nn.
+Division euclidienne. Multiples et diviseurs.
+Racines, ordre de multiplicité d'une racine.Cas du trinôme.
+Caractérisation de la multiplicité par factorisation d'une puissance de (X−a)(X−a).
+Théorème de d'Alembert-Gauss.Résultat admis. Exemples simples de factorisation dans ℂ[X]C[X] et ℝ[X]R[X] de polynômes de ℝ[X]R[X]. Les méthodes devront être indiquées.
+\fi
+
+\chapter{Théorie de la dimension}
+
+\item \fiche{Dimension finie} Un EV $E$ est de dimension finie $⟺$ il existe une famille 
+génératrice finie de~$E$
+
+\item \fiche{Cardinal} Si $\mc F$ est une famille libre et si $\mc G$ est une famille génératrice d'un EV $E$, alors 
+\startformula
+\card(\mc F)⩽\card(\mc G)
+\stopformula
+
+\item \fiche{Dimension infinie} Lorsque l'espace vectoriel $E$ n'est pas de dimension finie, on dit qu'il est de dimension infinie et l'on note $\dim_𝕂(E)=+∞$. \crlf
+
+\item \fiche{Caractérisation de la dimension infinie} Si $E$ est un espace vectoriel, 
+\startformula
+E \text{ de dimension infinie } ⟺ E \text{ contient des familles libres de cardinal arbitrairement grand.} 
+\stopformula
+
+
+\item \fiche{Théorème de la base incomplète} Toute famille libre (ou vide) d'un EV $E$, engendré par une famille finie $\mc G$, peut être complétée avec des vecteurs de $\mc G$ pour en constituer une base.
+\startformula
+\System{\NC (e_1,⋯, e_m) \text{ libre}\NR
+\NC (f_1,⋯,f_n) \text{ génératrice}}
+⟹ \Align{
+\NC ∃p∈⟦0,n⟧ \Et 1⩽i_1\Le ⋯\Le i_p⩽n:\NR
+\NC( e_1,⋯,e_m,f_{i_1},⋯,f_{i_p})\text{ base}}
+\stopformula
+
+\item \fiche{Existence des bases} Tout espace vectoriel de dimension finie admet une base.
+
+\item \fiche{Dimension} Par convention, $\dim_𝕂\{0\}=0$ et la dimension d'un $𝕂$-espace vectoriel $E≠\{0\}$ engendré par une famille finie est l'unique nombre entier positif vérifiant 
+\startformula
+\Align{
+\NC \dim_𝕂(E)\NC = \max\{\card(\mc F):\mc F\text{ famille libre de }E\}\NR
+\NC\NC = \min\{\card(\mc F):\mc F\text{ famille génératrice de }E\}\NR
+\NC\NC= \card(\mc B)\qquad (\mc B\text{ base de }E)
+}
+\stopformula
+{\it Les bases ont exactement $\dim(E)$ éléments, les familles libres ont au plus $\dim(E)$ éléments et les familles génératrices ont au moins $\dim(E)$ éléments.}
+\blank[medium]
+
+\item \fiche{Caractérisation des bases} Si $\mc F$ est une famille de $n$ vecteurs d'un EV de dimension $n$, alors
+\startformula 
+\NC \mc F \text{ libre } \NC ⟺ \mc F \text{ génératrice}\NR
+ \NC\NC⟺ \mc F \text{ base}
+\stopformula
+
+\item \fiche{Sous-espace} Si $F$ est un sous espace d'un espace vectoriel $E$ de dimension finie, alors $F$ est de dimension finie et 
+\startformula 
+\dim_𝕂(F)⩽\dim_𝕂(E)
+\stopformula
+
+\item \fiche{Egalité} Si $F$ est un sous espace d'un espace vectoriel $E$ de dimension finie, alors 
+\startformula 
+F=E ⟺ \dim_ 𝕂(F)=\dim_𝕂(E)
+\stopformula
+
+\item \fiche{Rang d'une famille} Le rang d'une famille finie de vecteurs $\mc F$ est la dimension de l'espace qu'ils engendrent
+\startformula 
+\rg(\mc F)=\dim\Vect(\mc F)
+\stopformula
+
+
+\item \fiche{Rang et matrices} 
+Si $X_1,⋯,X_n$ sont les matrices de $x_1,⋯,x_n$  dans $\mc B$ et si $M$ est la matrice rectangulaire dont les colonnes sont $X_1,⋯,X_n$ alors 
+\startformula 
+\rg(x_1,⋯,x_n)=\rg(X_1,⋯, X_n)=\rg(M)
+\stopformula
+{\it Le rang d'une famille de vecteurs est le rang de leurs matrices coordonnées (dans n'importe quelle base)}\blank[medium]
+
+
+\item \fiche{Rang et familles} Si $\mc F$ est une famille finie de vecteurs d'un espace vectoriel $E$.
+\startformula 
+\Align{
+\NC \mc F \text{ famille génératrice de } E \NC ⟺ \rg(\mc F)=\dim(E)\NR
+\NC \mc F \text{ famille libre de } E \NC ⟺ \rg(\mc F)=\card(\mc F)}
+\stopformula
+
+
+\item \fiche{Dimensions de référence} pour $n⩾1$ et $p⩾1$, on a
+\startformula 
+\dim_𝕂(𝕂^n)=n\qquad \dim_𝕂\big(𝕂_n[X]\big)=n+1\qquad\dim_𝕂\mc M_{n,p}(𝕂)=np
+\stopformula
+
+\item \fiche{Espaces sur $ℂ$ et $ℝ$} Si $E$ est un $ℂ$-espace vectoriel, alors $E$ est également un $ℝ$-espace vectoriel. \crlf 
+De plus, si $E$ est engendré par une famille finie, alors 
+\startformula 
+\dim_ℝ(E)=2 ×\dim_ℂ(E)
+\stopformula
+{\it Si $e_1, ⋯, e_n$ est une base du  $ℂ$-EV $E$, alors $e_1, ⋯, e_n, i.e_1, ⋯, i.e_n$ est une base du $ℝ$-EV $E$. }
+\blank[medium]
+
+\item \fiche{Produit cartésien} si $E$ et $F$ sont des $𝕂$-espaces vectoriels, alors $E×F$ l'est également pour les opérations définies par 
+\startformula
+\Align{
+\NC (x,y)+(x', y') \NC = (x+x', y+y') \qquad \text{ pour $(x,y)$ et $(x',y')$ dans $E×F$}\NR
+\NC λ.(x,y) \NC = (λ.x, λ.y) \qquad \text{ pour $λ∈𝕂$ et $(x,y)$ dans $E×F$}\NR
+}
+\stopformula
+Si $E$ et $F$ sont de dimensions finies, on a 
+\startformula 
+\dim_𝕂(E×F) = \dim_𝕂(E) + \dim_𝕂(F)
+\stopformula
+{\it En particulier, si $e_1, ⋯, e_n$ est une base de $E$ et $f_1, ⋯, f_k$ est une base de $F$, alors  $(e_1, 0), ⋯, (e_n, 0), (0, f_1), ⋯, (0, f_k)$ est une base de $E×F$.}
+\blank[medium]
+
+\item \fiche{Sommes d'espaces vectoriels} La somme de $n$ sous-espaces vectoriels $E_1, ⋯E_n$ d'un $𝕂$-espace vectoriel $E$ est l'espace vectoriel
+\startformula
+E_1+⋯+E_n=\{x_1+⋯+x_n:(x_1,⋯,x_n)∈E_1×⋯×E_n\}
+\stopformula 
+
+\item \fiche{Somme directe} On dit que la somme $E_1+⋯+E_n$ est directe et l'on note $E_1⊕⋯⊕E_n$ à la place de $E_1+⋯+E_n$ si, et seulement si, pour $(x_1,⋯,x_n)∈E_1×⋯×E_n$, 
+\startformula
+ x_1+⋯+x_n=0\quad ⟹ \quad x_1=⋯=x_n=0
+\stopformula
+
+\item \fiche{Dimension d'une somme directe} Si $E_1, ⋯,E_n$ sont des sous-espaces de dimension finie d'un espace vectoriel $E$ en somme directe, alors
+\startformula
+\dim(E_1⊕⋯⊕E_n) = \dim(E_1)+⋯+\dim(E_n)
+\stopformula
+
+
+\item \fiche{Somme de deux espaces} Si $F$ et $G$ sont deux sous-espaces vectoriels de $E$, alors
+\startformula
+\Align{
+\NC F+G\NC =\{x+y:x∈F,y∈G\}\NR
+\NC F⊕G\NC ⟺  \quad F∩G = \{0\}\NR
+}
+\stopformula
+
+\item \fiche{Dimension de la somme de deux espaces} Si $F$ et $G$ sont deux sous-espaces vectoriels de dimension finie de $E$, alors
+\startformula
+\Align{
+\NC \dim(F+G)\NC =\dim(F)+\dim(G)-\dim(F∩G)\NR
+\NC \dim(F⊕G)\NC =\dim(F)+\dim(G)\NR
+}
+\stopformula
+
+\item \fiche{Supplémentaire} Si $F$ et $G$ sont des sous-espaces d'un espace vectoriel $E$, alors
+\startformula
+\text{$F$ et $G$ sont supplémentaires dans $E$} \quad ⟺\quad E=F⊕G \quad ⟺\quad \System{\NC E = F+G\NR \NC F⊕G\NR} 
+\stopformula
+
+
+\item \fiche{Supplémentaire en dimension finie} Tout sous-espace $F$ d'un espace vectoriel $E$ de dimension finie admet un supplémentaire $G$ dans $E$. De plus, on a 
+\startformula
+\dim_𝕂(G)=\dim_𝕂(E)-\dim_𝕂(F)
+\stopformula
+
+\item \fiche{Sommes directes et bases} Soient $E_1, ⋯, E_n$ des sous-espaces vectoriels de $E$ munis de bases (finies) $\mc B_1, ⋯, \mc B_n$. Alors
+\startformula
+E_1⊕⋯⊕E_n \quad ⟺\quad \big(\mc B_1, ⋯, \mc B_n\big) \text{ est une base de } E_1+⋯+E_n
+\stopformula
+
+
+\chapter{Etude asymptotique}
+
+\section{suites}
+
+\item \fiche{suite négligeable} Une suite $u$ est négligeable devant une suite $v$ si, et seulement s'il existe une suite $ε$ de limite nulle telle que $u_n=v_nε_n$ à partir d'un certain rang
+\startformula 
+u_n = o(v_n)\quad ⟺ \quad u_n = v_nε_n \text{ pour $n⩾N$ avec } \lim ε_n=0
+\stopformula
+{\it A la condition que la suite $v$ ne s'annule pas à partir d'un certain rang, on a }
+\startformula 
+u_n = o(v_n)\quad ⟺\quad  \lim {u_n\F v_n}=0
+\stopformula
+
+
+\item \fiche{opérations} Soient $u$, $v$, $u'$, $v'$ et $w$ des suites. Alors
+\startformula
+\Align{
+\NC u=o(v)\text{ et } v = o(w) \NC ⟹ \NC u=o(w) \NC \text{(transitivité)}\NR
+\NC u=o(w) \text{ et } v = o(w) \NC ⟹ \NC u+v=o(w) \NC \text{(addition)}\NR
+\NC u=o(v) \NC ⟺ \NC λu=o(v) \NC  \text{(multiple, $λ∈ℝ^*$)}\NR
+\NC \NC ⟺ \NC u=o(λw)\NC  \text{(multiple, $λ∈ℝ^*$)}\NR
+\NC u=o(v) \text{ et } u' = o(v') \NC ⟹ \NC uv=o(vv') \NC \text{(multiplication 1)}\NR
+\NC u=o(v) \NC ⟹ \NC uw=o(vw) \NC \text{(multiplication 2)}\NR
+}
+\stopformula
+
+{\it Remarque, ce sont ces propriétés qui justifient que 
+\startformula 
+\Align{
+\NC\ln(n)=o(n)=o(n²)\qquad  -5o(1)= o(1) = o(12)\NR 
+\NC o(1)+o(1)= o(1)\qquad \ln(n).o(n) = o\big(n\ln(n)\big)=o(n²)\NR
+}
+\stopformula
+}
+
+\item \fiche{suite équivalente} La suite $u$ est équivalente à la suite $v$ si, et seulement s'il existe une suite $α$ de limite $1$ telle que $u_n=v_nα_n$ à partir d'un certain rang
+\startformula 
+u_n ∼ v_n\quad ⟺ \quad  u_n = v_n + o(v_n) \quad ⟺ \quad u_n = v_nα_n \text{ pour $n⩾N$ avec } \lim α_n=1
+\stopformula
+{\it A la condition que la suite $v$ ne s'annule pas à partir d'un certain rang, on a }
+\startformula 
+u_n ∼ v_n\quad ⟺\quad  \lim {u_n\F v_n}=1
+\stopformula
+
+\item \fiche{signe} si $u∼v$ alors $u$ et $v$ ont le même signe à partir d'un certain rang. De plus, si $u$ ne s'annule pas à partir d'un certain rang, alors, $v$ ne s'annule pas non plus à partir d'un certain rang
+
+\item \fiche{opérations} Soient $u$, $v$, $U$, $V$ et $w$ des suites. Alors
+\startformula
+\Align{
+\NC u∼u \NC  \NC  \NC \text{(reflexivité)}\NR	
+\NC u∼v\NC ⟺ \NC v∼u \NC \text{(symétrie)}\NR
+\NC u∼v\text{ et } v ∼w \NC ⟹ \NC u∼w \NC \text{(transitivité)}\NR
+\NC u∼v \NC ⟺ \NC λu∼λv \NC  \text{(multiple, $λ∈ℝ^*$)}\NR
+\NC u∼v \text{ et } U ∼V \NC ⟹ \NC uU∼vV \NC \text{(compatibilité avec la multiplication)}\NR
+\NC u∼v \NC ⟹ \NC u^n∼v^n \NC \text{(compatibilité avec les puissances, $n∈ℕ$)}\NR
+\NC u∼v \NC ⟹ \NC u^n∼v^n \NC \text{(compatibilité avec les puissances, $n∈ℤ^*$, $u_n≠0$ pour $n⩾N$)}\NR
+\NC u∼v \text{ et } U ∼V \NC ⟹ \NC {u\F U}∼{v\F V}\NC \text{(compatibilité avec le quotient, $U_n≠0$ pour $n⩾N$)}\NR
+}
+\stopformula
+{\it Remarque, ce sont ces propriétés qui justifient que 
+	\startformula 
+n∼n+1∼n+2\qquad  n+2∼n+1∼n\qquad  n^3= (n+1)^3 \qquad  {(n + 2)^2\F (n+1)^3} ∼ {n^2\F n^3}={1\F n}
+\stopformula
+}
+
+\item \fiche{limites} Soient $u$ une suite et $ℓ∈ℝ^*$. 
+\startformula 
+\Align{
+\NC \lim u = 0 \NC ⟺ u = o(1)\NR
+\NC \lim u = ℓ \NC ⟺ u∼ℓ\NR
+}\stopformula
+
+\item \fiche{Théorème de croissance comparée} Pour $α>0$, on a  
+\startformula
+\ln(n) = o(n^α)\qquad n=o\big(\e^{αn}\big)\qquad\e^{αn}=o\big(n!\big)
+\stopformula
+
+
+\section{Fonctions}
+
+Dans cette section, les fonctions sont définies sur un ensemble $D⊂ℝ$ quit contient ou est au contact de $a∈ℝ∪\{-∞, +∞\}$.
+\blank[medium]
+
+Pour simplifier les énoncés, on note $\mc V_a$ et l'on appelle voisinage de $a$ tout ensemble du type 
+\startformula
+\mc V_a = \System{
+\NC D∩]a-δ, a+δ[ \NC \quad (δ>0) \NC \text{ si $a∈ℝ$}\NR  
+\NC D∩[b, +∞[ \NC \quad (b∈ℝ) \NC \text{si $a=+∞$}\NR
+\NC D∩]-∞, b[ \NC \quad(b∈ℝ) \NC \text{ si $a=-∞$}\NR
+}
+\stopformula
+
+{\bf Pour une fonction, on doit toujours préciser en quel point $a$ l'estimation a lieu\crlf
+\it Les propriétés suivantes sont les mêmes que pour les suites avec $x→a$ au lieu de~$n→+∞$. }
+\blank[medium]
+
+
+\item \fiche{fonctions négligeables} Une fonction $f:D→ℝ$ est négligeable devant une fonction $g:D→ℝ$ au voisinage de  $a$  si, et seulement s'il existe une fonction $ε:D→ℝ$ de limite nulle 
+en $a$ telle que $f(x)=g(x)ε(x)$ au voisinage de $a$ (pour $x∈\mc V_a$)
+\startformula 
+f(x) = o_a\big(g(x)\big)⟺ f(x) = g(x)ε(x) \text{ pour $x∈\mc V_a$ avec } \lim_{x→a} ε(x)=0
+\stopformula 
+{\it A la condition que la fonction $f$ ne s'annule sur un visinage de $a$, on a }
+\startformula 
+f(x) = o_a\big(g(x)\big)\quad ⟺\quad  \lim_{x→a} {f(x)\F g(x)}=0
+\stopformula
+
+\item \fiche{opérations} Soient $f$, $g$, $h$, $F$, $G$ des fonctions de $D→ℝ$. Alors
+\startformula
+\Align{
+\NC f(x)=o_a\big(g(x)\big)\text{ et } g(x) = o_a\big(h(x)\big) \NC ⟹ \NC f(x)=o_a\big(h(x)\big) \NC \text{(transitivité)}\NR
+\NC f(x)=o_a\big(h(x)\big) \text{ et } g(x) = o_a\big(h(x)\big) \NC ⟹ \NC f(x)+g(x)=o_a\big(h(x)\big) \NC \text{(addition)}\NR
+\NC f(x)=o_a\big(g(x)\big) \NC ⟺ \NC λf(x)=o_a\big(g(x)\big) \NC  \text{(multiple, $λ∈ℝ^*$)}\NR
+\NC \NC ⟺ \NC f(x)=o_a\big(λg(x)\big)\NC  \text{(multiple, $λ∈ℝ^*$)}\NR
+\NC f(x)=o_a\big(g(x)\big) \text{ et } F(x)= o_a\big(G(x)\big) \NC ⟹ \NC f(x)g(x)=o_a\big(F(x)G(x)\big) \NC \text{(multiplication 1)}\NR
+\NC f(x)=o_a\big(g(x)\big) \NC ⟹ \NC f(x)h(x)=o_a\big(g(x)h(x)\big) \NC \text{(multiplication 2)}\NR
+}
+\stopformula
+
+\item \fiche{fonction équivalente} La fonction $f$ est équivalente à la fonction $g$ en $a$ si, et seulement s'il existe une fonction $α$ de limite $1$ en $a$ telle que $f(x)=g(x)α(x)$ au voisinage de $a$
+\startformula 
+f(x) ∼\limits_a g(x)\quad ⟺ \quad f(x) = g(x)+o\limits_a\big(g(x)\big)\quad ⟺ \quad f(x) = g(x)α(x) \text{ pour $x∈\mc V_a$ avec } \lim_{x→a} α(x)=1
+\stopformula
+{\it A la condition que la suite $g(x)$ ne s'annule pas au voisinage de $a$, on a }
+\startformula 
+f(x) ∼\limits_a g(x)\quad ⟺\quad  \lim_{x→a} {f(x)\F g(x)}=1
+\stopformula
+
+\item \fiche{signe} si $f(x)∼\limits_ag(x)$ alors $f$ et $g$ ont le même signe au voisinage de $a$. De plus, si $f$ ne s'annule pas au voisinage de $a$, alors, $g$ ne s'annule pas non plus au voisinage de $a$.
+
+\item \fiche{opérations} Soient $f$, $g$, $F$, $H$ et $g$ des fonctions de $D$ dans $ℝ$. Alors
+\startformula
+\Align{
+\NC f∼\limits_af \NC  \NC  \NC \text{(reflexivité)}\NR	
+\NC f∼\limits_ag\NC ⟺ \NC g∼\limits_af \NC \text{(symétrie)}\NR
+\NC f\limits∼_ag\text{ et } g ∼\limits_ah \NC ⟹ \NC f∼_ah \NC \text{(transitivité)}\NR
+\NC f∼\limits_ag \NC ⟺ \NC λf∼\limits_aλg \NC  \text{(multiple, $λ∈ℝ^*$)}\NR
+\NC f∼\limits_ag \text{ et } F ∼\limits_aG \NC ⟹ \NC fF∼_agG \NC \text{(compatibilité avec la multiplication)}\NR
+\NC f∼\limits_ag \NC ⟹ \NC f^n∼\limits_ag^n \NC \text{(compatibilité avec les puissances, $n∈ℕ$)}\NR
+\NC f∼\limits_ag \NC ⟹ \NC f^n∼\limits_ag^n \NC \text{(compatibilité avec les puissances, $n∈ℤ^*$, $f(x)≠0$ pour $x∈\mc V_a$)}\NR
+\NC f∼\limits_ag \text{ et } F ∼\limits_aG \NC ⟹ \NC {f\F F}∼\limits_a{g\F G}\NC \text{(compatibilité avec le quotient, $F(x)≠0$ pour $x∈\mc V_a$)}\NR
+}
+\stopformula
+
+
+\item \fiche{limites} Soient $f:D→ℝ$ une fonction et $ℓ∈ℝ^*$. 
+\startformula 
+\Align{
+\NC \lim_a f(x) = 0 \NC ⟺ f(x) = o_a(1)\NR
+\NC \lim_a f(x) = ℓ \NC ⟺ f(x)∼\limits_aℓ\NR
+}\stopformula
+
+\item \fiche{Théorème de croissance comparée} Pour $α>0$, on a  
+\startformula
+\ln(x) = o_∞(x^α)\qquad x=o_∞\big(\e^{αx}\big)\qquad  x^α\ln(x) = o_{0^+}\big(1\big)\qquad  x\e^{αx} = o_{-∞}(1)
+\stopformula
+
+
+\item \fiche{Développements limités de référence} Pour $n⩾0$, on a 
+\startformula 
+\Align{
+\NC {1\F 1-u} \NC =\displaystyle ∑_{k=0}^nu^k+o_0(u^n)\NR
+\NC \e^u\NC =\displaystyle ∑_{k=0}^n{u^k\F k!}+o_0(u^n)\NR
+\NC \ln(1+u)\NC =\displaystyle ∑_{k=1}^n(-1)^{k-1}{u^k\F k}+o_0(u^n)\NR
+\NC \cos(u)\NC=\displaystyle ∑_{k=0}^n(-1)^k{u^{2k}\F (2k)!}+o_0(u^{2n})\NR
+\NC \sin(u)\NC=\displaystyle ∑_{k=0}^n(-1)^k{u^{2k+1}\F (2k+1)!}+o_0(u^{2n+1})\NR
+\NC (1+u)^α\NC =\displaystyle 1+∑_{k=1}^nα(α-1)⋯(α-k+1){u^k\F k!}+o_0(u^n)\NR
+\NC \arctan(u)\NC = u +o_0(u)\NR
+}
+\stopformula
+{\it Remarque, la formule $ (1+u)^α = 1+αu+{α(α-1)\F 2}u²+o_0(u²)$ suffit en général dans les exercices.}
+
+\stopList
+
+\chapter{Séries numériques}
+
+Dans ce chapitre, $u$ désigne une suite de $ℝ^ℕ$ et $S$ désigne la suite des sommes partielles de $u$ définie par 
+\startformula
+S_n = ∑_{k=0}^nu_k\qquad(n⩾0)
+\stopformula
+{\it Remarque : une suite $v$ peut être considérée comme une série de terme général $u$ défini par 
+\startformula
+u_0= v_0 \text{ et }u_k=v_k-u_{v-1}\qquad (k⩾1)
+\stopformula}
+
+\section{séries quelconques}
+
+\startList\item \fiche{Série} On dit que la série de terme général $u∈ℝ^ℕ$ converge ou qu'elle est de nature convergente si, et seulement si, la suite des sommes partielles de $u$ converge
+\startformula
+∑_{k=0}^∞u_k\text{ converge } ⟺ S \text{ converge}
+\stopformula
+En cas de divergence de $S$, on dit que la série diverge ou qu'elle est de nature divergente. \crlf
+
+\item \fiche{Somme de la série} En cas de convergence de la suite $S$ des sommes partielles, sa limite $ℓ$ est appelée somme de la série et est notée
+\startformula
+∑_{k=0}^∞u_k = ℓ =\lim S =  \lim_{n→∞}∑_{k=0}^nu_k
+\stopformula
+
+\item \fiche{Suite des restes} La suite des reste $R$ d'une série convergente de terme général $u$ est définie par 
+\startformula
+R_n = ∑_{k=0}^∞u_k -S_n = \sum_{k=n+1}^∞u_k\qquad (n⩾0)
+\stopformula
+{\it En particulier, on a $\sum_{k=0}^∞u_k = S_n+R_n$ pour $n⩾0$}
+\blank[medium]
+
+\item \fiche{Condition nécéssaire de convergence} Si $u∈ℝ^ℕ$ est le terme général d'une série convergente, alors $u$ converge vers $0$.
+\startformula
+∑_{k=0}^∞u_k \text{ converge } ⟹\lim u= 0
+\stopformula
+
+\item \fiche{Relation de Chasles} Pour $u∈ℝ^ℕ$ et $m∈ℕ$, on a 
+\startformula
+∑_{k=0}^∞u_k\text{ converge } ⟺ ∑_{k=m}^∞u_k\text{ converge } 
+\stopformula
+Et en cas de convergence, on a 
+\startformula
+∑_{k=0}^∞u_k = ∑_{k=0}^{m-1}u_k + ∑_{k=m}^∞u_k
+\stopformula
+{\it Remarque : la convergence d'une série ne dépend que de ce qui se passe au voisinage de l'infini.}
+
+\item \fiche{Linéarité} Soient $(λ,μ)∈ℝ^2$ et $u$ et $v$ les termes généraux de deux séries convergentes.Alors 
+\startformula
+∑_{k=0}^∞(λu_k+μv_k) \text{ converge et }∑_{k=0}^∞(λu_k+μv_k)=λ∑_{k=0}^∞u_k+μ∑_{k=0}^∞v_k
+\stopformula
+
+\item \fiche{Addition} Si $∑u_n$ et $∑v_n$ convergent, alors $∑(u_n+v_n)$ converge\crlf
+ Si $∑u_n$ converge et si  $∑v_n$ diverge, alors $∑(u_n+v_n)$ diverge.\crlf
+ 
+\item \fiche{Convergence absolue} On dit qu'une série de terme général $u$ converge absolument si et seulement si la série de terme général $|u|$ converge
+\startformula
+∑_{k=0}^∞u_k\text{ converge absolument} ⟺ ∑_{k=0}^∞|u_k|\text{ converge}
+\stopformula 
+\item \fiche{Convergence absolue et simple} Si la série $∑u_k$ converge absolument, alors la série $∑u_k$ converge et de plus
+\startformula
+\Q|∑_{k=0}^∞u_k\W|⩽ ∑_{k=0}^∞|u_k|
+\stopformula 
+
+\section{séries à termes positifs}
+
+Dans cette section $u$ est à terme positifs ou nuls (mais les énoncés sont aussi valables pour les suites négatives ou nulles quite à tout multiplier par $-1$)
+En pratique, il faut que $u$ reste de signe constant à partir d'un certain rang.
+\blank[medium]
+
+\item \fiche{équivalent} Soient $u$ et $v$ deux suites à termes positifs ou nuls. Si $u∼v$, alors les séries de termes généraux $u$ et $v$ ont la même nature
+{\it Plus généralement, on a }
+\startformula 
+\SystemR{
+	\NC u∼v\NR
+	\NC u_n \text{ de signe constant pour $n⩾N$}\NR}
+	⟹ ∑_{n=0}^∞u_k \text{ a même nature que }  ∑_{n=0}^∞v_k
+	\stopformula
+
+\item \fiche{inégalité} Soient $u$ et $v$ deux suites telles que $0⩽u_n⩽v_n$ pour $n⩾0$. \crlf
+Si $∑u_k$ diverge, alors $∑v_k$ diverge  \crlf
+Si $∑v_k$ converge, alors $∑u_k$ converge et on a 
+\startformula 
+0⩽∑_{n=0}^∞u_k⩽  ∑_{n=0}^∞v_k
+\stopformula
+
+
+\item \fiche{petit o} Soient $u$ et $v$ deux suites à termes positifs ou nuls telles que $u_n=o(v_n)$. \crlf
+Si $∑u_k$ diverge, alors $∑v_k$ diverge  \crlf
+Si $∑v_k$ converge, alors $∑u_k$ converge.
+
+	
+\section{séries de référence}
+
+\item \fiche{Série de Riemann} Pour $α∈ℝ$, on a 
+\startformula 
+∑_{n=1}^∞{1\F n^α} \text{ converge } \quad ⟺\quad  α>1
+\stopformula
+
+\item \fiche{Série géométrique et dérivées} Pour $x∈ℝ$, les séries $∑x^n$, $∑nx^{n-1}$ et $∑n(n-1)x^{n-2}$ convergent si, et seulement si, $-1<x<1$. De plus, on a 
+\startformula 
+\Align{
+\NC\displaystyle∑_{n=0}^∞ x^n \NC={1\F 1-x}\NR 
+\NC\displaystyle∑_{n=1}^∞ nx^{n-1} \NC={1\F (1-x)²}\NR 
+\NC\displaystyle∑_{n=2}^∞ n(n-1)a^{n-2} \NC={2\F (1-a)^3}\NR 
+}\qquad -1<x<1
+\stopformula
+
+\item \fiche{Exponentielle} Pour $x∈ℝ$, la série $∑_{n=0}^∞ {x^n\F n!}$, converge et 
+\startformula 
+∑_{n=0}^∞ {x^n\F n!} =\e^x\qquad -1<x<1
+\stopformula
+
+
+\stopList
+
+
+
+
+\chapter{Probabilités sur un espace quelconque}
+
+\startList
+
+Dans tout ce chapitre, $Ω$ désigne un ensemble quelconque. \crlf
+Lorsque $p∈[0,1]$, on pose $q=1-p$.
+
+\section{Espace probabilisé}
+
+\item \fiche{Ensemble dénombrable} Soit $E$ un ensemble.
+\startformula
+\Align{
+\NC E \text{est dénombrable} \NC⟺ \NC \text{il existe une surjection } f:ℕ→E\NR
+\NC\NC⟺ \NC\text{il existe une injection } f:E→ℕ\NR}
+\stopformula
+
+\item\fiche{Ensembles dénombrables de référence} $ℕ$, $ℤ$ et $ℚ$ sont dénombrables alors que $ℝ$ ne l'est pas.\crlf
+Un sous-ensemble d'un ensemble dénombrable est dénombrable (tout ensemble fini est dénombrable).
+
+\item\fiche{Réunion et intersection} $I$ ensemble et $(A_i)_{i∈I}$ famille de parties de $Ω$ indicée par $I$
+\startformula
+\bigcup\limits_{i∈I}A_i=\{x∈Ω:∃i∈I, x∈A_i\}\qquad\text{et}\qquad \bigcap\limits_{i∈I}A_i=\{x∈Ω:∀i∈I, x∈A_i\}
+\stopformula
+
+\item \fiche{Tribu} Une tribu d'événements de $Ω$ est un ensemble $\sc A⊂\sc P(Ω)$ de parties de $Ω$ contenant $Ω$ 
+et stable par passage au complémentaire et par réunion dénombrable
+\startformula
+\System{
+\NC Ω∈\sc A\NR
+\NC ∀A∈\sc A,\qquad \overline A∈\sc A\NR
+\NC ∀ (A_i)_{i∈I}∈{\sc A}^I \text{ avec $I$ dénombrable}, \qquad \bigcup\limits_{i∈I}A_i∈\sc A\NR 
+}
+\stopformula
+{\it On appelle aussi $σ$-algèbres les tribus et $σ$-additivité la stabilité par réunion dénombrable}
+
+
+\item \fiche{Propriétés} Une tribu $\sc A$ contient l'ensemble vide $\varnothing$ et est stable par intersection dénombrable
+\startformula
+∀(A_i)_{i∈I}∈{\sc A}^I \text{ avec $I$ dénombrable}, \qquad \bigcap\limits_{i∈I}A_i∈\sc A
+\stopformula
+
+\item \fiche{Exemples} $\sc P(Ω)$ est la tribu discrète et $\{Ω, \varnothing\}$ est la tribu grossière de $Ω$.
+
+\item \fiche{Espace probabilisable} $(Ω, \sc A)$ est un espace probabilisable $⟺ \sc A$ est une tribu de $Ω$.
+
+\item \fiche{Système complet} Un système complet d'événements d'un espace probabilisable $(Ω, \sc A)$ est une famille dénombrable $(A_i)_{i∈I}\sc A^I$ d'événements dont la réunion vaut $Ω$ et incompatibles deux à deux 
+\startformula
+\bigcup_{i∈I}A_i=Ω\qquad\text{et}\qquad i≠j⟹ A_i∩A_j=\varnothing
+\stopformula
+
+\item \fiche{Tribu engendrée} La tribu $\sc T$ engendrée par un ensemble $E$ de parties de $Ω$ est la plus petite tribu (au sens de l'inclusion) de $Ω$ contenant $E$.
+\startformula
+{\sc T} = \bigcap\limits_{E⊂{\sc A}\text{ tribu de }Ω} {\sc A}
+\stopformula
+
+\item \fiche{Tribu engendrée par un système complet d'événements} La tribu $\sc T$ engendrée par un système complet d'événements $(A_i)_{i∈I}$ est la tribu définie par 
+\startformula
+{\sc T} = \Q\{\bigcup_{j∈J}A_j:J⊂I\W\}
+\stopformula
+{\it avec la convention que $\bigcup_{j∈\varnothing}A_j=\varnothing$}
+
+\item \fiche{Probabilité} Une probabilité sur un espace probabilisable $(Ω,\sc A$ est une application $P:\sc A→[0,1]$ vérifiant $P(Ω)=1$ et 
+\startformula
+\stopformula
+
+\item \fiche{Espace Probabilisé} $(Ω,\sc A, P)$ est un espace probabilisé si, et seulement si, $(Ω, \sc A)$ est un espace probabilisable dont $P$ est une probabilité.
+
+\item\fiche{Additivité} Si $(A_i)_{1⩽i⩽n}$ sont des événements mutuellemens incompatibles alors
+\startformula
+ P\Q(\bigcup\limits_{1⩽i⩽n}A_i\W)=∑_{i=1}^nP(A_i)
+\stopformula
+
+\item\fiche{Complémentaire} Si $A$ est un événement, alors $P(\overline A)=1-P(A)$. 
+\item\fiche{Réunion} Si $A$ et $B$ sont des événements, alors $P(A∪B)=P(A)+P(B)-P(A∩B)$
+
+\item\fiche{Evénements} Soit $A$ un événement
+\startformula
+\Align{
+\NC A \text{ est presque sûr } \NC⟺ \NC P(A)=1\NR
+\NC A \text{ est négligeable } \NC⟺ \NC P(A)=0\NR
+}
+\stopformula
+{\it Un événement presque sûr est aussi appelé événement quasi certain}
+
+
+\item\fiche{Théorème de la limite monotone} Pour toute suite croissante (au sens de l'inclusion) d'événements $(A_n)_{n⩾0}$,on a 
+\startformula
+P\Q(\bigcup_{n⩾0}A_i\W)=\lim_{n→∞}P(A_i)
+\stopformula
+Pour toute suite cdéroissante (au sens de l'inclusion) d'événements $(A_n)_{n⩾0}$,on a 
+\startformula
+P\Q(\bigcap_{n⩾0}A_i\W)=\lim_{n→∞}P(A_i)
+\stopformula
+
+\item\fiche{Corrolaire} Pour toute suite d'événements $(A_n)_{n⩾0}$,on a 
+\startformula
+\Align{
+\NC P\Q(\bigcup_{n⩾0}A_i\W)\NC =\NC \displaystyle\lim\limits_{n→∞}P\Q(\bigcup_{0⩽i⩽n}A_i\W)\NR
+\NC P\Q(\bigcap_{n⩾0}A_i\W)\NC =\NC \displaystyle\lim_{n→∞}P\Q(\bigcap_{0⩽i⩽n}A_i\W)\NR
+}
+\stopformula
+
+
+\item\fiche{Indépendance mutuelle} Des événements $(A_i)_{i∈I}$ sont mutuellements indépendants (avec $I$ dénombrable) si, et seulement si
+$$
+∀J⊂I,\qquad P\Q(\bigcap_{j∈J}A_j\W)=∏_{j∈J}P(A_j)
+$$
+
+
+
+\section{Variable aléatoire réelle}
+
+\item \fiche{VAR} Une variable aléatoire réelle sur $(Ω,\sc A)$ est une application $X:Ω→ℝ$ vérifiant
+\startformula
+∀ x∈ℝ, \qquad \{ω∈Ω:X(ω)⩽x\}∈\sc A
+\stopformula
+{\it Autrement dit, les ensembles $[X⩽x]$ sont des événements pour $x∈ℝ$}
+\blank[medium]
+
+
+%\item \fiche{VAR certaine} $X$ est une VAR certaine ssi il existe $c∈ℝ$ tel que $∀ω∈Ω, X(ω)=c$.
+%\item \fiche{VAR quasi-certaine} $X$ est une VAR quasi-certaine ssi il existe $c∈ℝ$ tel que $P(X=c)=1$.
+%\item \fiche{Univers image} L'univers image d'une VAR $X$ est $X(Ω)=\{X(ω):ω∈Ω\}$.
+%\item \fiche{Système complet} Le système complet associé à une VAR $X$ est $\{(X=x)\}_{x∈X(Ω)}$.
+
+{\it Remarque : la loi d'une VAR $X$ est la probabilité $P_X$ définie sur $ℝ$ par 
+$$
+P_X(A) = P([X∈A])\qquad(A \text{ événement de } ℝ),
+$$
+l'ensemble $ℝ$ étant muni de la tribu engendrée par les intervalles du type $]-∞, x]$ pour $x∈ℝ$. }
+\blank[medium]
+
+\item \fiche{fonction de répartition d'une VAR} La fonction de répartition d'une VAR $X$ est l'application $F_X:ℝ→[0,1]$ définie par 
+$$
+F_X(x)=P(X⩽x)\qquad(x∈ℝ)
+$$
+{\it Remarque : la loi de $X$ est complètement déterminée par la donnée de $F_X$}
+
+
+\item \fiche{Propriétés de $F_X$} La fonction de répartition $F_X$ d'une var $X$  est croissante sur $ℝ$, continue à droite et vérifie 
+\startformula
+\lim_{x→-∞}F_X(x)=0  \text{ et } \lim_{x→∞}F_X(x)=1
+\stopformula
+
+\section {Variable aléatoires réelles discrètes}
+
+
+\item \fiche{VAR discrète} Une VAR $X:(Ω, \sc A)→ℝ$ est discrète $⟺$ $X(Ω)$ est dénombrable.
+
+{\it Remarque : La loi d'une VAR discrète est complétement déterminée par la donnée des valeurs $P(X=x)$ pour $x∈X(Ω)$.}
+\blank[medium]
+
+
+\item \fiche{Tribu engendrée par une VAR discrète} La tribu $\sc A_X$ des événements liés à $X$ est la tribu engendrée par le système complet $([X=x])_{x∈X(Ω)}$.
+\blank[small]
+{\it Cette tribu est appelée tribu engendrée par la VAR $X$ et constitue l'information apportée par $X$.}
+
+\blank[medium]
+{\it Remarque : Si $X$ est une VAR discrète et si $g:X(Ω)→ℝ$ est une application, alors $Y=g(X)$ est une VAR discrète. }
+
+
+
+\item \fiche{Espérance} $X$ VAR discrète admet une espérance $⟺$ $\sum\limits_{x∈ X(Ω)}xP(X=x)$ converge absolument.
+Auquel cas, l'espérance de $X$ est la somme de cette série
+\startformula
+E(X) = \sum_{x∈ X(Ω)}xP(X=x)
+\stopformula
+
+
+\item \fiche{Théorème de transfert} Soit $X$ une VAR discrète et $g:X(Ω)→ℝ$. La VAR discrète $g(X)$ admet une espèrance si, et seulement si, la série $\sum_{x∈ X(Ω)}g(x)P(X=x)$ converge absolument.
+Dans ce cas, on a 
+\startformula
+E(g(X)) = \sum_{x∈ X(Ω)}g(x)P(X=x)
+\stopformula
+
+\item \fiche{Transformation affine} Soient $a∈ℝ^*$ et $b∈ℝ$. Une VAR  $X$ admet une espérance si, et seulement si la VAR $aX+b$ admet une espérance. 
+Dans ce cas, on a 
+\startformula
+E(aX+b)=aE(X)+b\qquad(a,b∈ℝ)
+\stopformula
+
+
+\item \fiche{Moments} Le moment d'ordre $r∈ℕ$ d'une VAR discrète $X$ est, s'il existe, le nombre 
+\startformula
+m_r(X)=E(X^r)
+\stopformula
+{\it Remarque si $X$ admet un moment d'ordre $r∈ℕ^*$ alors $X$ admet des moments d'ordre $k∈⟦0,r⟧$.}
+
+\item \fiche{Positivité} Si $X$ est une VAR discrète vérifiant $\underbrace{∀ ω∈Ω, X(ω) ⩾ 0}_{X ⩾ 0}$ (p.s.), alors $E(X)⩾0$.
+\item \fiche{Croissance} Si $X$ et $Y$ vérifient $\underbrace{∀ ω∈Ω, X(ω) ⩽ Y(ω)}_{X ⩽ Y}$ (p.s.), alors $E(X)⩽E(Y)$.
+\item \fiche{Cas des VAR positives, d'espérance nulle} Si $X$ vérifie $\underbrace{∀ ω∈Ω, X(ω) ⩾ 0}_{X ⩾ 0}$ (p.s.), alors 
+\startformula
+E(X) = 0 \quad ⟺ \quad P(X = 0) = 1 \quad ⟺ \quad X = 0\text{ p.s.}
+\stopformula
+
+\section{Variance et écart type}
+
+\item \fiche{Variance} La variance d'une VAR discrète $X$ est, lorsqu'elle existe, le nombre réel positif ou nul 
+\startformula
+V(X) = E\Big(\big(X-E(X)\big)^2\Big)
+\stopformula
+{\it Remarque : Une VAR discrète admet un moment d'ordre $2$ $⟺$ elle admet une esperance et une variance.}
+
+\item \fiche{Formule de Koenig-Huygens} Si une VAR discrète $X$ admet un moment d'ordre $2$, alors 
+\startformula
+V(X) = E(X^2)-E(X)^2
+\stopformula
+
+\item \fiche{Variance nulle} Pour une VAR discrète $X$, on a 
+\startformula
+V(X) = 0 ⟺ X = E(X) \text{ p.s.}
+\stopformula
+
+\item \fiche{Transformation affine}  Soient $a∈ℝ^*$ et $b∈ℝ$. Une VAR discrète $X$ admet une variance si, et seulement si la VAR discrète $aX+b$ admet une variance. 
+Dans ce cas, on a  
+\startformula
+V(aX+b)=a^2V(X)\qquad(a,b∈ℝ)
+\stopformula
+{\it La formule est trivialement vraie si $a=0$}
+
+\item \fiche{Ecart type} L'ecart type d'une VAR discrète $X$ admettant une variance est le nombre réel positif ou nul $σ_(X) = \sqrt{V(X)}$
+\item \fiche{VAR centrée réduite} Une VAR discrète $X$ est centrée et réduite ssi son espérance est nulle et sa variance vaut $1$ (son écart type vaut $1$)
+
+\section{Lois usuelles}
+\item \fiche{loi certaine} $X$ suit la loi certaine ssi $X=c$ p.s. Dans ce cas, on a $E(X)= c $ et $V(X) = 0$. 
+\item \fiche{loi de Bernouilli de paramètre $p∈[0,1]$}  
+$$X\hookrightarrow B(p)\quad⟺\quad P(X=1)=p \text{ et  } P(X=0)=q
+$$
+Dans ce cas, on a $E(X)= p$ et $V(X) = pq$.
+\item \fiche{loi binomiale de paramètre $n∈ℕ^*$ et $p∈[0,1]$} 
+$$
+X\hookrightarrow B(n,p)\quad⟺\quad
+P(X=k)={n\choose k}p^kq^{n-k}\qquad(0⩽k⩽n)
+$$
+Dans ce cas, on a $E(X)=np$ et $V(X)=npq$.
+\item \fiche{loi uniforme} $X$ suit la loi uniforme sur $⟦1,n⟧$ ssi $X\hookrightarrow \sc U(⟦1,n⟧)$ ssi 
+$$
+P(X=k)={1\F n}\qquad(1⩽k⩽n)
+$$
+Dans ce cas, on a $E(X)= {n+1\F2}$ et $V(X) = {n^2-1\F 12}$. 
+\item \fiche{loi géométrique} $X$ suit la loi géométrique de paramètre $p∈]0,1[$ ssi $X\hookrightarrow \sc G(p)$ ssi 
+$$
+P(X=k)=q^{k-1}p\qquad(1⩽k)
+$$
+Dans ce cas, on a $E(X)= {1\F p}$ et $V(X) = {q\F p^2}$.
+\item \fiche{loi de poisson} $X$ suit la loi de poisson de paramètre $λ>0[$ ssi $X\hookrightarrow \sc P(λ)$ ssi 
+$$
+P(X=k)={λ^k\F k!}\e^{-λ}\qquad(0⩽k)
+$$
+Dans ce cas, on a $E(X)= λ$ et $V(X) = λ$.
+
+
+\chapter{Exemples de suites réelles}
+\startList
+
+\section{Informations}
+
+Les outils de ce chapitre font partis des bases importantes, ils sont utilisés en concours pour :
+\startList\item Reconnaître le type d'une suite et identifier ses éléments caractéristiques
+\item Trouver une formule pour $u_n$
+\item Utiliser la somme des termes d'une suite au cours d'un calcul complexe.
+\stopList
+Utilisation en ds/concours : fréquente.
+
+
+\section{Suites arithmétiques}
+
+\item \fiche{définition}Une suite réelle $u$ est arithmétique de raison $r∈ℝ$ si, et seulement si, \startformula
+u_{n+1} = u_n + r\qquad(n⩾0)
+\stopformula
+\item \fiche{formule}Soit $u$ une suite arithmétique de raison $r$. alors
+\startformula
+u_n = u_0 + nr\qquad(n⩾0).
+\stopformula
+\item \fiche{somme}Soit $u$ une suite arithmétique de raison $r$. Alors
+\startformula
+\sum_{k=m}^nu_k = {\darkgray (m-n+1)  {u_m+u_n\F 2}}=\text{nombre de termes}×\text{moyenne aux extrémités}
+\stopformula
+
+\section{Suites géométriques}
+
+\item \fiche{définition}Une suite réelle $u$ est géométrique de raison $q∈ℝ$ si, et seulement si,  \startformula
+u_{n+1} = qu_n\qquad(n⩾0)
+\stopformula
+\item \fiche{formule}Soit $u$ une suite géométrique de raison $q$. alors
+\startformula
+u_n = u_0 q^n\qquad(n⩾0).
+\stopformula
+\item \fiche{somme}Soit $u$ une suite géométrique de raison $q≠1$. Alors
+\startformula
+\sum_{k=m}^nu_k = {\darkgray u_m{1-q^{n-m+1}\F1-q}}={\text{premier terme}-\text{terme suivant le dernier}\F 1 - \text{raison}}
+\stopformula
+{\it Remarque :} si $q=1$, $u$ est une suite constante (arithmétique de raison nulle)
+\startformula
+\sum_{k=m}^nu_k = {\darkgray(m-n+1)u_m}=\text{nombre de termes}×\text{terme constant}
+\stopformula
+
+\section{Suites arithmético-géométriques}
+
+\item \fiche{définition}Une suite réelle $u$ est arithmético-géométrique si, et seulement s'il existe des nombres réels $a$ et $b$ tels que 
+\placeformula[suiteArithméticoGéométriqueDef]
+\startformula 
+u_{n+1} = au_n+b\qquad(n⩾0)
+\stopformula
+
+\item \fiche{formule} Soit $u$ une suite suite arithmético-géométrique pour $a≠1$ et $b≠0$. Alors, 
+\startformula
+u_n = c + a^n(u_0-c)\qquad\Q(c = {b\F 1-a}, n⩾0\W).
+\stopformula
+{\it Méthode recommandée : }
+\startList
+\item Chercher la suite constante $c$ vérifiant (\in[suiteArithméticoGéométriqueDef]) en résolvant l'équation $x=ax+b$
+\item En faisant une soustraction, remarquer que la suite $v_n=u_n-c$ est géométrique de raison $a$ 
+\item en déduire la formule.
+\stopList
+
+\section{Récurrences linéaires}
+
+\item \fiche{définition}Une suite réelle $u$ satisfait une récurrence linéaire du second ordre si, et seulement s'il existe des nombres réels $a≠0$, $b$ et $c$ tels que 
+\placeformula[récurrenceLinéaireDef]
+\startformula 
+au_{n+2}+bu_{n+1}+cu_n = 0\qquad(n⩾0)
+\stopformula
+
+\item \fiche{éléments caractéristiques}Le polynôme caractéristique associé à (\in[récurrenceLinéaireDef]) est le trinôme
+\placeformula[récurrenceLinéairePolynomeCaractéristiqueDef]
+\startformula
+P=aX^2+bX+c
+\stopformula
+L'équation caractéristique associée à la relation (\in[récurrenceLinéaireDef]) est l'équation $aX^2+bX+c = 0$
+\startformula
+\underbrace{ax^2+bx+c=0}_{P(x)=0}
+\stopformula
+
+\item \fiche{formule} Si le polynôme caractéristique (\in[récurrenceLinéairePolynomeCaractéristiqueDef]) admet une racine double $s$, une suite réelle $u$ est solution de (\in[récurrenceLinéaireDef]) si, et seulement s'il existe des nombres réels $λ$ et $μ$ tels que 
+\startformula
+u_n=λs^n+μ{\darkred n}z^n\qquad(n⩾0)
+\stopformula
+Si  le polynôme caractéristique (\in[récurrenceLinéairePolynomeCaractéristiqueDef])  admet deux racines distinctes $s$ et $z$, une suite réelle $u$ est solution de (\in[récurrenceLinéaireDef]) si, et seulement s'il existe des nombres $λ$ et $μ$ tels que
+\startformula
+u_n=λs^n+μz^n\qquad(n⩾0)
+\stopformula
+{\it Remarque : }  Dans le cas où les racines de $P$ sont réelles, les constante $λ$ et $μ$ sont réelles. 
+Lorsque les racines de $P$ ne sont pas réelles, elles sont conjuguées. En posant $s=r\e^{iϑ}$ et $z=r\e^{-iϑ}$, 
+on peut alors trouver deux constantes réelles $α$ et $β$ telles que  
+\startformula
+u_n=αr^n\cos(nϑ)+βr^n\sin(nϑ)\qquad(n⩾0)
+\stopformula
+
+\stopList
+
+\chapter{Exemples de suites réelles}
+\startList
+\stopList
+
+\stopcolumns\endgroup
+\stoptext
+\stopproduct

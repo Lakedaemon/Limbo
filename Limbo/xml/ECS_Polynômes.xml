@@ -1,0 +1,39 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+<include path="xml/Limbo_Polynômes.xml" as="polynomes"/>
+
+<chapter t="Polynômes">
+<remark>
+Les outils de ce chapitre font parti des bases importantes, ils sont utilisés en concours pour :
+\startList\item Reconnaître le type d'une suite et identifier ses éléments caractéristiques
+\item Trouver une formule pour $u_n$
+\item Utiliser la somme des termes d'une suite au cours d'un calcul complexe.
+\stopList
+Utilisation en ds/concours : fréquente.
+</remark>
+
+<text>Dans tout ce chapitre, le symbole $𝕂$ désigne $ℝ$ ou $ℂ$.</text>
+
+<section t="Polynômes">
+<ref from="polynomes" path="section[@t=='Polynômes']"/>
+</section>
+
+<section t="Dérivation">
+<ref from="polynomes" path="section[@t=='dérivation']"/>
+</section>
+
+<section t="Substitution">
+<ref from="polynomes" path="section[@t=='Substitution']"/>
+</section>
+
+<section t="Degré">
+<ref from="polynomes" path="section[@t=='degré']"/>
+</section>
+
+<section t="Racines">
+<ref from="polynomes" path="section[@t=='racines']"/>
+</section>
+
+</chapter>
+</part>
+

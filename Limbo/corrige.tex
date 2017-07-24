@@ -1,0 +1,86 @@
+\startcomponent component_DL1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\setupitemgroup[List][1][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][1,joineup,nowhite]
+
+
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+
+%ag❛❜g❛g\exo{Ah}❛❜
+\let\ds\displaystyle
+
+\startList\item\startList\item Pour $n\in ℕ^*$, prouvons par récurrence la proposition  $$
+(\sc P_n)\qquad  J^n=3^{n-1}.J
+$$
+La propriété $\sc P_1$ est vraie car $J^1 = 3^{1-1}J=J$. Supposons $\sc P_n$ pour un entier $n⩾1$. \crlf
+Il résulte alors de $\sc P_n$ et de la relation $J^2 = 3 J$ que 
+$$
+J^{n+1}=J×J^n=J×3^{n-1}J=3^{n-1}J^2= 3^{n-1}×3J=3^nJ.
+$$
+A fortiori, $\sc P_{n+1}$ est vraie. En conclusion, la proposition $\sc P_n$ est vraie pour $n⩾1$.
+\item Soit $n⩾0$. Comme $I_3×A = A = A×I_3$, la matrice $I_3$ commute avec la matrice $A$ de sorte que nous pouvons appliquer le binôme de Newton (deux fois) et utiliser le résultat de la question 1 
+pour obtenir que 
+\startformula
+\startAlign
+\NC A^n \NC = {1\F 4^n}(I_3+J)^n= {1\F 4^n}\sum_{k=0}^n{n\choose k}J^kI_3^{n-k}=  {1\F 4^n}\Q({n\choose 0}J^0+\sum_{k=1}^n{n\choose k}J^k\W)\NR
+\NC\NC = {1\F 4^n}\Q(I_3+\sum_{k=1}^n{n\choose k}3^{k-1}J\W)={1\F 4^n}\Q(I_3+{1\F 3}\Q(\sum_{k=1}^n{n\choose k}3^k\W).J\W)\NR
+\NC\NC = {1\F 4^n}\Q(I_3+{1\F 3}\Q(-{n\choose 0} + \sum_{k=0}^n{n\choose k}3^k\W).J\W)\NR
+\NC\NC= {1\F 4^n}\Q(I_3+{1\F 3}\Q(-1 + (1+3)^n\W)J\W)
+\stopAlign
+\stopformula
+En particulier, nous obtenons que 
+\startformula
+A^n = {1\F 4^n}\Q(I_3+{4^n-1\F 3}J\W)\qquad(n⩾0)
+\stopformula\stopList
+\item\startList
+\item En appliquant la formule des probabilités totales à l'événement $R_{n+1}$ et au système complet $\{R_n, C_n, S_n\}$, nous obtenons que 
+\startformula
+r_{n+1} = P(R_{n+1}) = P(R_{n+1}\cap R_n) + P(R_{n+1}\cap C_n) + P(R_{n+1}\cap S_n)
+\stopformula
+Il résulte alors de la formule des probabilités composées (et des données de l'énoncé) que 
+\startformula
+\startAlign
+\NC r_{n+1} \NC =  P(R_n)×P_{R_n}(R_{n+1}) + P(C_n)×P_{C_n}(R_{n+1}) + P(S_n)×P_{S_n}(R_{n+1})\NR
+\NC\NC  =  {1\F 2} r_n + {1\F 4}c_n + {1\F 4}s_n
+\stopAlign
+\stopformula
+De même, nous pouvons établir que 
+\startformula
+\startAlign
+\NC c_{n+1} \NC =  {1\F 4} r_n + {1\F 2}c_n + {1\F 4}s_n\NR
+\NC s_{n+1} \NC =  {1\F 4} r_n + {1\F 4}c_n + {1\F 2}s_n\NR
+\stopAlign
+\stopformula
+\item Il résulte du résultat de la question précédente que nous avons 
+\startformula
+U_{n+1} = A×U_n \qquad (n⩾0)
+\stopformula
+Par ailleurs, les données initiales de l'énoncées induisent que $c_0=P_0(C_0)=1$ de sorte que $U_0=\startMatrix\NC 0\NR\NC 1\NR\NC0\NR\stopMatrix$ et, par suite,
+\startformula
+U_1 = A×U_0 = \startMatrix\NC{1\F 4}\NR\NC{1\F 2}\NR\NC{1\F 4}\NR\stopMatrix
+\stopformula
+\item Il résulte alors des résultats des questions I.2 et  II.2 que 
+\startformula
+\startMatrix\NC r_n\NR\NC c_n\NR\NC s_n\NR\stopMatrix = U_n = A^n×U_0 = {1\F 4^n}\Q(I_3+{4^n-1\F 3}J\W)×U_0= {U_0\F 4^n} + {1\F 3}J×U_0 -{1\F 4^n3}J×U_0
+\stopformula
+Par passage à la limite, nous obtenons alors que 
+\startformula
+\startMatrix\NC \lim r_n\NR\NC \lim c_n\NR\NC \lim s_n\NR\stopMatrix = \lim U_n = {1\F 3}J×U_0 = \startMatrix\NC {1\F 3}\NR\NC {1\F 3}\NR\NC {1\F 3}\NR\stopMatrix
+\stopformula
+
+\stopList
+\stopList
+
+\stoptext
+\stopcomponent
+\endinput

@@ -1,0 +1,43 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+<include path="xml/Limbo_Matrices.xml" as="matrices"/>
+
+<chapter t="Matrices">
+
+<remark>
+Les outils de ce chapitre font parti des bases importantes, ils sont utilisés en concours pour :
+\startList\item Reconnaître le type d'une suite et identifier ses éléments caractéristiques
+\item Trouver une formule pour $u_n$
+\item Utiliser la somme des termes d'une suite au cours d'un calcul complexe.
+\stopList
+Utilisation en ds/concours : fréquente.
+</remark>
+
+<section t="Matrices">
+<ref from="matrices" path="section[@t=='Matrices']"/>
+</section>
+
+<section t="Opérations">
+<ref from="matrices" path="section[@t=='Opérations']"/>
+</section>
+
+<section t="Matrices carrées">
+<ref from="matrices" path="section[@t=='Matrices carrées']"/>
+</section>
+
+<section t="Système d'équations linéaires">
+<ref from="matrices" path="section[@t=='Système d'équations linéaires']"/>
+</section>
+
+<section t="Opérations élémentaires">
+<ref from="matrices" path="section[@t=='Opérations élémentaires']"/>
+</section>
+
+<section t="Rang d'une matrice">
+<ref from="matrices" path="section[@t=='Rang d\'une matrice']"/>
+</section>
+
+
+</chapter>
+</part>
+

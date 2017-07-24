@@ -1,0 +1,110 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+\centerline{\bfb DEVOIR SURVEILLE 1}
+\blank[big]
+
+
+\startList%
+\item\filterpages[2016/DS3/2016-prepas-maths-option-scientifique-sujet-rapport.pdf][1][width=18cm]
+\item\filterpages[2016/DS3/DM5.pdf][1,2][width=18cm]
+
+% EXO
+\item Dans cet exercice, on considère la fonction $f$ définie comme suit : $f(0)=1$, et pour tout $x$ non nul de $]-∞, 1]$, 
+$$
+f(x) = {-x\F (1-x)\ln(1-x)}.
+$$\startList
+\item Montrer que $f$ est continue sur $]-∞, 1[$.
+\item On admet que $\ln(1-x)=-x-{x^2\F 2}α(x)$ pour $-1<x<1$, avec $\lim\limits_{x→0} α(x)=1$.
+Montrer que $f$ est dérivable en $0$, puis vérifier que $f'(0)={1\F2}$.
+\item\startList\item Montrer que $f$ est dérivable sur $]-∞, 0[$ et sur $]0,1[$, puis calculer $f'(x)$ pour tout réel $x$ élément de $]-∞, 0[\cup]0,1[$.
+\item Déterminer le signe de la quantité $\ln(1-x) +x$ lorsque $x$ appartient à $]-∞, 1[$, puis en déduire les variations de $f$.
+\item Déterminer les limites de $f$ aux bornes de son domaine de définition, puis dresser son tableau de variation.
+\stopList
+\item\startList
+\item Etablir que, pour tout $n$ de $ℕ^*$, il existe un seul réel de $[0,1[$, noté $u_n$, tel que $f(u_n)=n$ et donner la valeur de $u_1$.
+\item Montrer que la suite $(u_n)$ converge et que $\lim\limits_{n→∞}u_n=1$. 
+\stopList
+\stopList
+
+% EXO
+\item Pour tout entier naturel $n$, on pose
+$$
+u_n=\prod_{k=0}^n\Q(1+{1\F 2^k}\W) = (1+1)\Q(1+{1\F2}\W)\Q(1+{1\F 4}\W)…\Q(1+{1\F 2^n}\W)
+$$
+\startList
+\item Donner les valeurs de $u_0$, $u_1$ et $u_2$, sous forme d'entiers ou de fractions simplifiées.
+\item\startList\item Montrer que, pour tout entier naturel $n$, on a $u_n⩾2$.
+\item Exprimer $u_{n+1}$ en fonction de $u_n$ puis en déduire les variations de la suite~$(u_n)$.
+\stopList
+\item\startList\item Etablir que, pour tout réel $x$ strictement supérieur à $-1$, on a $\ln(1+x)⩽x$.
+\item En déduire, pour tout entier naturel $n$, un majorant de $\ln(u_n)$.
+\stopList
+\item En utilisant les questions précédentes, montrer que la suite $(u_n)$ converge vers un réel $ℓ$, élément de $[2, \e^2]$.
+\item On se propose dans cette question d'étudier la convergence de la suite définie~par  
+$$∀ n∈ℕ, \qquad S_n=\sum_{k=0}^n(ℓ-u_k).
+$$
+\startList\item Justifier que la suite $(\ln(u_n))_{n\in ℕ}$ converge et que l'on a 
+$$
+\ln(ℓ)=\lim_{K→∞}\sum_{k=0}^K\ln\Q(1+{1\F 2^k}\W)
+$$
+\item Montrer que, pour tout $n$ de $ℕ$, on a 
+$$
+\ln{ℓ\F u_n}=\lim_{K→∞}\sum_{k=n+1}^K\ln\Q(1+{1\F 2^k}\W)
+$$
+\item Vérifier, en utilisant le résultat de la question 3a), que 
+$$
+\forall n∈ℕ, \qquad 0⩽\ln{ℓ\F u_n}⩽{1\F 2^n}
+$$
+\item Déduire de la question précédente que 
+$$
+\forall n ∈ℕ, \qquad 0⩽ℓ-u_n⩽ℓ\Q(1-\e^{-{1\F 2^n}}\W)
+$$
+\item Justifier que, pour tout réel $x$, on a $1-\e^{-x}⩽x$. En déduire que 
+$$
+∀ n∈ℕ, \qquad 0⩽ℓ-u_n⩽{ℓ\F 2^n}
+$$
+Sommer la relation précédente et conclure quand à la convergence de la suite~$(S_n)$
+\stopList
+\stopList
+
+\item\filterpages[2016/DS3/DS3(2006-2007).pdf][3][width=18cm]
+
+\stopList
+
+On pourra au besoin utiliser que $\e^u = 1+uα(u)$ avec $\lim\limits_{u→0}α(u)=1$, \crlf
+que $(1+u)^β=1+βuα(u)$ avec $\lim\limits_{u→0}α(u)=1$\crlf
+que ${1\F 1-u} = 1+uα(u)$  avec $\lim\limits_{u→0}α(u)=1$\crlf
+ou que $\ln(1+u)=uα(u)$  avec $\lim\limits_{u→0}α(u)=1$
+
+\iftrue
+\page
+\centerline{\bfb CORRECTION DU DEVOIR SURVEILLE 1}
+\blank[big]
+\startList\item%\item\filterpages[2015/DS1/ds2-correction.pdf][1,2][width=18cm]
+\item\filterpages[2016/DS3/2016-prepas-maths-option-scientifique-sujet-rapport.pdf][5,28,29,30][width=18cm]
+\item\filterpages[2016/DS3/CorrigeDM5.pdf][1,2,3][width=18cm]
+\item\filterpages[2016/DS3/2009-prepas-maths-option-eco-sujet-rapport.pdf][6,7,8,9,19,20][width=18cm]
+\item\filterpages[2016/DS3/2010-prepas-maths-option-eco-sujet-rapport.pdf][7,8,9,10,20,21,22][width=18cm]
+\item\filterpages[2016/DS3/DS3(2006-2007).pdf][9][width=18cm]
+\stopList
+\fi
+\stoptext
+\stopcomponent
+\endinput

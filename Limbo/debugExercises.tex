@@ -1,0 +1,21 @@
+\startcomponent debugExercises
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\starttext
+\completecontent
+\setuppagenumbering[location={footer,middle}]
+\let\ds\displaystyle
+\def\percent{\%}
+\def\floor#1{\left\lfloor#1\right\rfloor}
+\ctxlua{L.debugExo("Ahh", "Ahi")}%Ah-Ai
+\ctxlua{L.infernoDump()}
+
+\stoptext
+\stopcomponent
+\endinput
+
+

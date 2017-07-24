@@ -1,0 +1,811 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+
+<chapter t="Matrices" p="β">
+
+<text>Dans tout ce chapitre, le symbole $𝕂$ désigne le corps $𝕂= ℝ$ ou le corps $𝕂=ℂ$ et 
+les lettres $n$ et $p$ désignent deux entiers strictement positifs. </text>
+
+<section t="Matrices">
+
+<concept t="matrice">
+<definition h="$n,p∈ℕ^*$">
+\startformula 
+A=(a_{i,j})_{1 ⩽ i ⩽ n\atop 1 ⩽ j ⩽ p}∈𝕂^{np}
+\stopformula
+</definition>
+<text>Une matrice à $n$ lignes et à $p$ colonnes d'éléments de $𝕂$ est une famille de $np$ éléments de $ℂ$.</text>
+<remark>La matrice $A$ sera représenté sous la forme 
+\startformula 
+A=\underbrace{\Q.\Matrix{
+\NC a_{1,1}\NC a_{1,2}\NC \ldots\NC a_{1,p}\NR
+\NC 
+a_{2,1}\NC a_{2,2}\NC \ldots\NC a_{2,p}\NR
+\NC 
+ ⋮\NC \NC \NC  ⋮\NR
+\NC 
+a_{n,1}\NC a_{n,2}\NC \ldots\NC a_{n,p}
+}\W\}}_{p \mbox{ colonnes}} n\mbox{ lignes}
+\stopformula</remark>
+<remark>Les matrices à $n$ lignes et $une$ colonne sont appelées vecteurs colonnes à $n$ lignes/composants.</remark>
+<remark>Les matrices à $n$ lignes et $n$ colonnes sont appelées matrices carrées de taille $n$.</remark>
+<remark>Les matrices à $1$ ligne et $n$ colonnes sont appelées matrices lignes</remark>
+<remark>Les matrices à $n$ lignes et $1$ colonnes sont appelées matrices colonnes</remark>
+<remark>Une matrice est dite carrée si elle a autant de colonnes que de lignes</remark>
+<remark>La taille d'une matrice carrée est son nombre de colonnes /de lignes</remark>
+</concept>
+
+<concept t="espace"><text>L'ensemble des matrices, à $n$ lignes et $p$ colonnes, d'éléments de $𝕂$ est noté $\mc M_{n,p}(𝕂)$.</text>
+<definition>\startformula
+\mc M_{n,p}(𝕂):=𝕂^{np}
+\stopformula</definition>
+<remark>Par convention, on note $\mc M_n(𝕂):=\mc M_{n,n}(𝕂)$.</remark>
+</concept>
+
+<concept t="matrice nulle"><text>La matrice nulle de $\mc M_{n,p}(𝕂)$ est la matrice, notée $0$, dont tous les coefficients sont nuls.</text>
+<definition>\startformula
+0=\Matrix{
+\NC\NC\NC\NR
+\NC\NC\NC\NR
+}
+\stopformula</definition>
+<remark>Une manière alternative (et plus officielle) de représenter la matrice nulle est 
+\startformula
+0:=\Matrix{
+\NC 0     \NC ⋯\NC ⋯\NC 0     \NR
+\NC ⋮\NC  \NC  \NC  ⋮\NR
+\NC 0\NC ⋯\NC ⋯\NC 0\NR
+}
+\stopformula</remark>
+</concept>
+
+<concept t="matrice unité\\identité"><text>La matrice unité (ou identité) de taille $n$ est la matrice carré de $\mc M_n(𝕂)$ dont tous les coefficients valent $1$ sur la diagonale principale et $0$ ailleurs.</text>
+<definition h="$n⩾1$">\startformula
+I_n:=\Matrix{
+\NC 1 \NC\NC\NR
+\NC\NC ⋱\NC\NR
+\NC \NC\NC 1\NR
+}
+\stopformula</definition>
+<remark>Une manière alternative (et plus officielle) de représenter la matrice identité est 
+\startformula
+I_n=\Matrix{
+\NC 1 \NC 0 \NC ⋯\NC 0\NR
+\NC 0\NC 1 \NC  ⋱\NC  ⋮\NR
+\NC ⋮\NC  ⋱\NC ⋱\NC 0\NR
+\NC 0\NC ⋯\NC 0\NC 1\NR
+}
+\stopformula</remark>
+</concept>
+
+
+<concept t="matrice diagonale"><text>Une matrice carrée est dite diagonale si ses coefficients en dehors de sa diagonale principale sont tous nuls</text>
+<definition h="$A$ matrice carrée">\startformula
+A \text{ diagonale } ⟺ A=\Matrix{
+\NC  ⋱ \NC\NR
+\NC\NC ⋱\NR
+}
+\stopformula</definition>
+
+<remark>Une manière plus sérieuse de caractériser une matrice diagonale est 
+\startformula
+(a_{i,j})_{1⩽i,j⩽n}\text{ diagonale } ⟺ (i≠j⟹ a_{i,j}=0)
+\stopformula
+</remark>
+</concept>
+
+<concept t="matrice\\triangulaire"><text>Une matrice carrée est dite triangulaire supérieure si ses coefficients en dessous de sa diagonale principale sont tous nuls</text>
+<definition h="$A$ matrice carrée">\startformula
+A \text{ triang. sup. } ⟺ A=\Matrix{
+\NC  ⋱ \NC ⋮⋮⋮⋮\NR
+\NC\NC ⋱\NR
+}
+\stopformula</definition>
+<remark>Une manière plus sérieuse de caractériser une matrice triangulaire supérieure est \startformula
+(a_{i,j})_{1⩽i,j⩽n}\text{ triangulaire supérieure } ⟺ (i>j⟹ a_{i,j}=0)
+\stopformula</remark>
+<remark>Une matrice carrée est dite triangulaire inférieure si ses coefficients en dessous de sa diagonale principale sont tous nuls\startformula
+(a_{i,j})_{1⩽i,j⩽n}\text{ triangulaire inférieure } ⟺ (i\Le j⟹ a_{i,j}=0)
+\stopformula</remark>
+</concept>
+
+
+
+
+</section>
+
+<section t="Opérations">
+
+<subsection t="Sommes">
+
+
+<concept t="somme"><text>La somme de deux matrices est la matrice de la somme de leurs coefficients.</text>
+<definition h="$A,B∈\mc M_{n,p}(𝕂)$">
+\startformula
+A+B:=\Q(a_{i,j}+b_{i,j}\W)_{1 ⩽i⩽ n\atop 1⩽j⩽p}
+\stopformula
+</definition>
+<remark> La matrice $A+B$ est la matrice  
+\startformula 
+\Matrix{
+\NC a_{1,1}+b_{1,1}\NC \ldots\NC a_{1,p}+b_{1,p}\NR
+\NC 
+ ⋮\NC \NC  ⋮\NR
+\NC 
+ ⋮\NC a_{i,j}+b_{i,j}\NC  ⋮\NR
+\NC 
+ ⋮\NC \NC  ⋮\NR
+\NC 
+a_{n,1}+b_{n,1}\NC \ldots\NC a_{n,p}+b_{n,p}
+}
+\stopformula</remark>
+</concept>
+
+</subsection><subsection t="Multiples">
+
+<concept t="multiple"><text>Le produit d'un nombre et d'une matrice est la matrice obtenue en multipliant chacun de ses coefficients par le nombre.</text>
+<definition h="$A∈\mc M_{n,p}(𝕂)$, $λ∈𝕂$">
+\startformula
+λ⋅A:=\Q(λa_{i,j}\W)_{1 ⩽i⩽ n\atop 1⩽j⩽p}
+\stopformula
+</definition>
+<remark>La matrice $λ⋅A$ est la matrice 
+\startformula 
+ λ.A:=\Matrix{
+\NC λ a_{1,1}\NC \ldots\NC  λ a_{1,p}\NR
+\NC 
+ ⋮\NC \NC  ⋮\NR
+\NC 
+ ⋮\NC  λ a_{i,j}\NC  ⋮\NR
+\NC 
+ ⋮\NC \NC  ⋮\NR
+\NC 
+ λ a_{n,1}\NC \ldots\NC  λ a_{n,p}
+}
+\stopformula</remark>
+</concept>
+
+
+</subsection><subsection t="Produits">
+
+<concept t="produit">
+<definition h="$A∈\mc M_{n,p}(𝕂)$, $B∈\mc M_{p,q}(𝕂)$">
+\startformula 
+A × B:=\Q( ∑_{1⩽k⩽p}a_{i,k}b_{k,j}\W)_{1⩽i⩽n\atop 1⩽j⩽q}
+\stopformula
+</definition>
+<remark>Pour que le produit de $A$ par $B$ soit possible, il faut que le nombre de colonnes de $A$ soit égal au nombre de lignes de $B$.</remark>
+<remark>Le produit $A×B$ a autant de lignes que $A$ et de colonnes que $B$.</remark>
+<remark>pour effectuer rapidement un produit de matrices, la construction mentale suivante est recommandée : 
+\startformula 
+\Align{
+	\NC c_{{\red i},{\blue j}}={\red a_{ i,1}}{\blue b_{1,j}}+⋯+{\red a_{i,p}}{\blue b_{p,j}}\NC
+\Matrix{\NC b_{1,1}\NC  ⋮\NC\NC ⋮\NC b_{1,q}\NR
+	\NC b_{2,1}\NC   ⋮\NC \NC  ⋮ \NC b_{2,q}\NR
+\NC  ⋮ \NC  ⋮\NC \NC  ⋮\NC  ⋮\NR
+\NC  b_{n,1}\NC  ⋮\NC\smash{\startMPcode
+	draw btex Colonne $j$ $\longrightarrow$ etex rotated -90 withcolor 1blue;
+\stopMPcode} \NC  ⋮\NC b_{n,q}}\NR
+\NC 
+\Matrix{
+\NC a_{1,1}\NC a_{1,2}\NC \ldots\NC a_{1,p}\NR
+\NC  \ldots\NC  \ldots\NC \ldots\NC \ldots \strut\NR
+\NC  {\red \rlap{${\longrightarrow \mbox{ Ligne $i$ }\longrightarrow}$}}\NR
+\NC  \ldots \NC \ldots\NC \ldots\NC \ldots\NR
+\NC  a_{n,1}\NC a_{n,2}\NC \ldots\NC a_{n,p}}\NC 
+\Matrix{
+\NC c_{1,1}\NC  ⋮\NC \NC  ⋮\NC c_{1,k}\NR
+\NC \ldots\NC \NC \NC \NC \ldots\NR
+\NC \NC \NC \!\!\!\!\!\!\rlap{\mbox{${c_{{\red i} ,{\blue j }}}$}}\NC \NC \NR
+\NC \ldots\NC \NC \NC \NC \ldots\NR
+\NC c_{m,1}\NC  ⋮\NC \NC  ⋮\NC c_{m,k}}
+}
+\stopformula
+</remark>
+<remark>Attention : le produit matriciel n'est pas commutatif 
+\startformula
+\Matrix{\NC 1\NR \NC 0} × \Matrix{\NC 0\NC 1} = \Matrix{\NC 0\NC 1\NR\NC 0\NC 0} \quad ≠ \quad \Matrix{\NC 0} = \Matrix{\NC 0\NC 1} ×\Matrix{\NC 1\NR \NC 0}
+\stopformula
+</remark>
+</concept>
+
+<concept t="associativité">
+<theorem h="$A, B, C$ matrices"> 
+\startformula 
+(A × B) × C=A ×(B × C) 
+\stopformula</theorem>
+</concept>
+
+<concept t="bilinéarité">
+<property h="$A,B,C$ matrices, $λ,μ∈𝕂$">
+\startformula 
+\Align{
+\NC (λ A+ μ B)C \NC= λ AC+ μ BC\NR
+\NC C( λ A+ μ B)\NC = λ CA+ μ CB}
+\stopformula</property>
+</concept>
+
+<concept t="scalaire\\mobile">
+<property h="$A,B$ matrices, $λ∈𝕂$">
+\startformula 
+(λ⋅A)×B=A×(λ⋅B)= λ⋅(A×B)
+\stopformula</property>
+</concept>
+
+<concept t="élément neutre\\ à gauche\\ à droite\\aux deux">
+<property h="$A∈\mc M_{n,k}(𝕂)$ ">
+\startformula 
+I_n×A=A \Et A×I_k=A
+\stopformula
+</property>
+<remark>La matrice $I_n$ est un élément neutre (à droite et à gauche) pour $×$ dans l'ensemble des matrices carrées de taille $n$
+\startformula 
+I_n×A=A×I_n=A\qquad(A∈\mc M_n(𝕂))
+\stopformula</remark>
+</concept>
+
+
+</subsection><subsection t="Transposition">
+
+<concept t="transposition">
+<definition>
+\startformula
+\trans (a_{i,j})_{1⩽i⩽p\atop 1⩽j⩽n} = (a_{j,i})_{1⩽i⩽n\atop 1⩽j⩽p}
+\stopformula
+</definition>
+<remark>La transposée de la matrice 
+\startformula 
+A=(a_{i,j})_{1 ⩽ i ⩽ n\atop1 ⩽ j ⩽ p}=\underbrace{\Q.\Matrix{
+\NC a_{1,1}\NC a_{1,2}\NC \ldots\NC a_{1,p}\NR
+\NC 
+a_{2,1}\NC a_{2,2}\NC \ldots\NC a_{2,p}\NR
+\NC 
+ ⋮\NC \NC \NC  ⋮\NR
+\NC 
+a_{n,1}\NC a_{n,2}\NC \ldots\NC a_{n,p}
+}\W\}}_{\mbox{$p$ colonnes}} n\mbox{ lignes}
+\stopformula
+est la matrice obtenue par symétrie de la matrice $A$ par rapport à sa diagonale principale
+\startformula 
+\trans A:=(a_{j,i})_{1 ⩽ i ⩽ p\atop1 ⩽ j ⩽ q}=\underbrace{\Q.\Matrix{
+\NC a_{1,1}\NC a_{2,1}\NC \ldots\NC a_{n,1}\NR
+\NC 
+a_{1,2}\NC a_{2,2}\NC \ldots\NC a_{n,2}\NR
+\NC 
+ ⋮\NC \NC \NC  ⋮\NR
+\NC 
+a_{1,p}\NC a_{2,p}\NC \ldots\NC a_{n,p}
+}\W\}}_{\mbox{$n$ colonnes}} p\mbox{ lignes}
+\stopformula
+</remark>
+<remark>Les lignes $L_1,⋯,L_p$ de $A$ deviennent les colonnes $C_1',⋯,C_p'$ de $\trans A$.</remark>
+<remark>Les colonnes $C_1,⋯,C_q$ de $A$ deviennent les lignes $L_1',⋯,L_q'$ de $\trans A$.</remark>
+<remark>La transposée d'une matrice $n×p$ est une matrice $p×n$.  
+En particulier, la transposée d'une matrice carrée de taille $n$ est une matrice carrée de taille $n$.</remark>
+
+<example>$\displaystyle\trans{\Matrix{
+\NC 1\NC 2\NC 3\NR
+\NC 4\NC 5\NC 6}=\Matrix{
+\NC 1\NC 4\NR
+\NC 2\NC 5\NR
+\NC 3\NC 6}}$. </example>
+</concept>
+
+<concept t="lien"><text>Une matrice est triangulaire supérieure \ssi sa transposée est triangulaire inférieure.</text>
+<property h="$A$ matrice carrée">\startformula  A \text{ triang. sup. } ⟺ \trans{A} \text{ triang. inf. }
+\stopformula
+</property>
+</concept>
+
+<concept t="involution\\linéarité\\produit">
+<combination>
+<property h="$A$ matrice">
+\startformula 
+\trans{\Q(\trans A\W)}=A
+\stopformula</property>
+<property h="$A,B$ matrices, $λ,μ∈𝕂$">
+\startformula 
+\trans{( λ A+ μ B)}= λ\trans A+ μ\trans B
+\stopformula</property>
+<property h="$A,B$ matrices">
+\startformula 
+\trans{(AB)}=\trans B\trans A
+\stopformula</property>
+</combination>
+</concept>
+
+</subsection><subsection t="Rang">
+
+<concept t="rang">
+<text>A chaque matrice $A$, on peut associer un nombre entier unique $\rg(A)$, appelé rang de $A$</text>
+<property h="$A$ matrice">\startformula
+\rg(A)=r ⟺ ∃ P,Q \text{ inversibles telles que } A=P×I_r×Q 
+\stopformula</property>
+<remark>Le rang $r$ d'une matrice $n×p$ vérifie
+\startformula 
+\System{\NC 0⩽r⩽n\NR 
+\NC 0⩽r⩽p}\stopformula
+En particulier, on a $0⩽r⩽\min(n,p)$.</remark>
+
+</concept>
+
+<concept t="transposée">
+<text>Le rang d'une matrice est égal au rang de sa transposée.</text>
+<property h="$A$ matrice">
+\startformula 
+\rg(A)=\rg\Q(\trans A\W)
+\stopformula</property>
+</concept>
+
+<concept t="multiplication">
+<text>On ne change pas le rang en multipliant une matrice  par une matrice inversible.</text>
+<property h="$A$ matrice">
+\startformula 
+\ChoicesR{
+\NC\rg(A×B)\NR
+\NC\rg(B×A)\NR
+}=\rg(A)\qquad(B\text{ inversible})
+\stopformula</property>
+<remark>Les opérations élémentaires ne changent pas le rang d'une matrice. En effet, les opérations élémentaires sur les lignes (resp. les colonnes) reviennent à multiplier la matrice à gauche (resp. à droite) par une matrice inversible.</remark>
+</concept>
+
+
+<concept t="matrice nulle\\inverse">
+<combination>
+<property h="$A$ matrice">
+\startformula 
+A =0 ⟺ \rg(A)=0
+\stopformula
+</property>
+<property h="$A$ matrice carrée">
+\startformula 
+A \text{ inversible } ⟺ \rg(A)=\text{taille}(A)
+\stopformula
+</property>
+</combination>
+</concept>
+
+</subsection>
+
+</section><section t="Matrices carrées">
+
+<concept t="commutativité"><definition h="$A,B$ matrices carrées">
+\startformula
+A \Et B \text{ commuttent }⟺ AB=BA
+\stopformula</definition>
+<remark>Pour $λ∈𝕂$, la matrice $λI_n$ commute avec toutes les matrices carrées de taille $n$.</remark>
+</concept>
+
+<concept t="Identité\\algébrique">
+<text>L'identité algèbrique suivante est satisfait par des matrices qui commuttent</text>
+<property h="$A,B$ matrices carrées avec $AB=BA$, $n∈ℕ$"> 
+\startformula
+A^n-B^n=(A-B)\sum_{k+ℓ=n-1}A^kB^ℓ
+\stopformula
+</property>
+<remark>Cette égalité est vraie pour $n=0$ avec la convention selon laquelle $A^0=B^0=I_n$ 
+et selon laquelle une somme vide est nulle. </remark>
+</concept>
+
+<concept t="Binôme\\de Newton">
+<text>Le binôme de Newton est satisfait par des matrices qui commuttent</text>
+<property t="Binôme de Newton" m="+" i="identité+binôme de Newton" h="$A,B$ matrices carrées avec $AB=BA$, $n∈ℕ$"> 
+\startformula
+(A+B)^n=\sum_{k+\ell=n}{n\choose k}A^kB^\ell
+\stopformula
+</property>
+<remark>Cette égalité est vraie pour $n=0$ avec la convention selon laquelle $A^0=B^0=I_n$ 
+et selon laquelle une somme vide est nulle. </remark>
+</concept>
+
+<concept t="inverse">
+<definition h="$A$ matrice">
+\startformula
+B \text{ inverse de } A  ⟺  A × B = B × A=I_n
+\stopformula
+</definition>
+<remark>Une telle matrice $B$ est unique et notée $A^{-1}$ </remark>
+<remark>Une matrice $A$ est inversible \ssi elle admet un inverse</remark>
+<remark>Si $A$ est inversible, alors $A$ est carrée</remark>
+<remark>Une matrice carrée $A$ est inversible \ssi  $AX≠0$ pour chaque vecteur colonne $X≠0$.</remark>
+</concept>
+
+<concept t="produit\\transposée">
+<combination><property h="$A,B$ matrices inversibles">
+\startformula 
+(A×B)^{-1}=B^{-1}×A^{-1}
+\stopformula</property>
+<property h="$A$ matrice inversible">
+\startformula 
+\trans{\Q(A^{-1}\W)}=\Q(\trans{A}\W)^{-1}
+\stopformula</property></combination>
+<remark>Atttention à ne pas se tromper dans l'ordre du produit</remark>
+</concept>
+
+<concept t="matrice\\diagonale"><text>Les multiples, les sommes et  les produits de matrices diagonales sont des matrices diagonales. </text>
+<property h="$λ,μ∈𝕂$, $A,B$ diagonales">
+\startformula 
+ \SystemR{
+ \NC λA+μB\NR
+ \NC AB\NC} \text{ sont diagonales}
+\stopformula</property>
+</concept>
+
+<concept t="inverse\\diagonal"><text>Une matrice diagonale est inversible si, et seulement si, ses termes diagonaux sont tous non nuls. </text>
+<property>
+\startformula
+\Matrix{\NC α\NC \NC\NR
+\NC \NC⋱\NC\NR
+\NC\NC \NC γ\NR} \text{ inversible }⟺ \System{
+\NC α≠0\NR
+\NC ⋮\NR
+\NC γ≠0\NR}
+\stopformula</property>
+<remark>L'inverse d'une matrice diagonale est une matrice diagonale. En particulier, on a 
+\startformula 
+\Matrix{\NC α\NC \NC\NR
+\NC \NC⋱\NC\NR
+\NC\NC\NC γ} ^{-1}=\Matrix{\NC α^{-1}\NC \NC\NR
+\NC \NC⋱\NC\NR
+\NC\NC\NC  γ^{-1}\NR} 
+\stopformula</remark>
+</concept>
+
+<concept t="matrice\\triangulaire" p="-β+β"><text>Les multiples, sommes et  produits de matrices traingulaires supérieures sont des matrices traingulaires supérieures. 
+</text>
+<property h="$λ,μ∈𝕂$, $A,B$ triang. sup.">\startformula 
+ \SystemR{
+ \NC λA+μB\NR
+ \NC AB\NC} \text{ sont triang. sup.}
+\stopformula</property>
+<remark>Si $A$ est triangulaire supérieure et inversible alors $A^{-1}$ est triangulaire supérieure.</remark>
+</concept>
+
+<concept t="inverse triangulaire"><text>Une matrice triangulaire est inversible si, et seulement si, ses termes diagonaux sont tous non nuls. </text>
+<property>
+\startformula
+\Matrix{\NC α\NC ⋮⋮⋮\NC ⋮⋮⋮\NR
+\NC \NC ⋱\NC ⋮⋮⋮\NR
+\NC\NC \NC γ\NR} \text{ inversible }⟺ \System{
+\NC α≠0\NR
+\NC ⋮\NR
+\NC γ≠0\NR}
+\stopformula</property>
+<remark>L'inverse d'une matrice triangulaire supérieure est une matrice triangulaire supérieure</remark>
+<remark>L'inverse d'une matrice triangulaire inférieure est une matrice triangulaire inférieure</remark>
+</concept>
+
+
+<concept t="matrice\\symétrique"><text>Une matrice carrée est symétrique  \ssi elle est égale à sa transposée. </text>
+<definition h="$A$ matrice carrée">
+\startformula
+A \text{ symétrique } ⟺ \trans{A} = A. 
+\stopformula</definition>
+<remark>Une matrice est symétrique \ssi elle est symétrique par rapport à sa diagonale principale. Autrement dit, \ssi ses coefficients de part et d'autre de la diagonale principale sont égaux</remark>
+<example>Les matrices symétriques de taille $1$,  $2$,  $3$ et $4$ sont respectivement de la forme
+\startformula
+\Matrix{
+\NC  ⋱\NR}\qquad 
+\Matrix{
+\NC  ⋱ \NC a\NR
+\NC a\NC ⋱\NR
+}\qquad 
+\Matrix{
+\NC  ⋱ \NC a\NC b\NR
+\NC a\NC ⋱\NC c\NR
+\NC b\NC c\NC ⋱\NR
+}\qquad 
+\Matrix{
+\NC  ⋱ \NC a\NC b\NC c\NR
+\NC a\NC ⋱\NC d\NC e\NR
+\NC b\NC d\NC ⋱\NC f\NR
+\NC c\NC e\NC  f\NC ⋱\NR
+}
+\stopformula
+</example>
+</concept>
+
+<concept t="matrice anti-symétrique" p="-β+β"><text>Une matrice carrée est symétrique  \ssi elle est égale à l'opposée de sa transposée. </text>
+<definition h="$A$ matrice carrée">
+\startformula
+A \text{ anti-symétrique } ⟺ \trans{A} = - A. 
+\stopformula</definition>
+<remark>Une matrice est anti-symétrique \ssi ses coefficients sur la diagonale principale sont nuls et ses coefficients de part et d'autre de la diagonale principale sont opposés.</remark>
+<example>Les matrices symétriques de taille $1$,  $2$,  $3$ et $4$ sont respectivement de la forme
+\startformula
+\Matrix{
+\NC  0\NR}\qquad 
+\Matrix{
+\NC   0\NC a\NR
+\NC -a\NC 0\NR
+}\qquad 
+\Matrix{
+\NC  0\NC a\NC b\NR
+\NC -a\NC 0\NC c\NR
+\NC -b\NC -c\NC 0\NR
+}\qquad 
+\Matrix{
+\NC   0\NC a\NC b\NC c\NR
+\NC -a\NC 0\NC d\NC e\NR
+\NC -b\NC -d\NC 0\NC f\NR
+\NC -c\NC -e\NC  -f\NC 0\NR
+}
+\stopformula
+</example>
+</concept>
+
+
+<concept t="trace" p="-β+β"><text>La trace d'une matrice carrée est la somme de ses coefficients sur la diagonale principale. </text>
+<definition>
+\startformula 
+\Tr (a_{i,j})_{1 ⩽ i ⩽ n\atop1 ⩽ j ⩽ n} := ∑_{1⩽i⩽n}a_{i,i}
+\stopformula </definition><remark>La trace d'une matrice à coefficients dans $𝕂$ est un nombre de $𝕂$.</remark></concept>
+
+<concept t="linéarité\\produit">
+<combination>
+<property h="$A,B$ matrices, $λ,μ∈𝕂$">
+\startformula 
+\Tr (λA+ μB)= λ\Tr A+ μ\Tr B
+\stopformula</property>
+<property h="$A,B$ matrices">
+\startformula 
+\Tr(AB)=\Tr(BA)
+\stopformula</property></combination>
+</concept>
+
+
+</section><section t="Système d'équations linéaires">
+
+<concept t="matrices">
+<definition h="$A∈\mc M_{n,k}(𝕂)$ et $X,B∈\mc M_{n,1}(𝕂)$">
+\startformula
+AX=B⟺\System{
+\NC a_{1,1}x_1\NC ⋯\NC +a_{1,p}x_p\NC =\NC b_1\NR
+\NC ⋮\NC ⋮\NC⋮\NC =\NC ⋮\NR
+\NC a_{n,1}x_1\NC ⋯\NC +a_{n,p}x_p\NC =\NC b_p}
+\stopformula
+</definition>
+<remark>Les matrices $A=(a_{i,j})_{1⩽i⩽n\atop 1⩽j⩽p}$$X:=(x_i)_{1⩽i⩽n}$ et $B:=(b_i)_{1⩽i⩽n}$ sont dites associées au système linéaire.</remark>
+<remark>Le système linéaire est homogène \ssi $B$ est la matrice nulle.
+\startformula
+AX=0⟺\System{
+\NC a_{1,1}x_1\NC ⋯\NC +a_{1,p}x_p\NC =\NC 0\NR
+\NC ⋮\NC ⋮\NC⋮\NC =\NC ⋮\NR
+\NC a_{n,1}x_1\NC ⋯\NC +a_{n,p}x_p\NC =\NC 0}
+\stopformula
+</remark>
+</concept>
+
+
+<concept t="système de Cramer"> 
+<property h="$A$ matrice inversible">
+\startformula 
+AX=B⟺ X= A^{-1}B
+\stopformula
+</property>
+<remark>Un système linéaire est de Cramer \ssi il admet une unique solution.</remark>
+<remark>Un sytème $n×p$ est de cramer \ssi $n=p=r$ où $r$ est le rang du système.</remark>
+<remark>On peut utiliser cette relation pour inverser une matrice inversible</remark>
+</concept>
+
+
+<!--
+
+<remark>le nombre $\mbox{rg}(A)$ est également appelé rang des systèmes $(H)$ et $(E)$. On a bien sur 
+\startformula 
+0 ⩽ \mbox{rg}(A) ⩽ \min(p,n).
+\stopformula
+Ce rang reprèsente le nombre de lignes et de colonnes linéairement indépendantes de la matrice $A$. En particulier, le rang $\mbox{rg}(A)$ indique le nombre des équations linéaires du système qui sont linéairement indépendantes. On peut alors interpreter 
+$(*)$ comme suit : 
+\startformula 
+\Align{
+\NC \NC \qquad\mbox{nb de libertés}\NR
+\NC \NC \mbox{des solutions du système}}=\mbox{nb d'inconnues}-\Align{
+\NC \NC \qquad\mbox{nb d'équations}\NR
+\NC \NC \mbox{linéairement indépendantes}}.
+\stopformula</remark>
+
+
+<theorem>  L'ensemble des solutions $\mc S_E$ du système avec second membre $(E)$ est : \pn
+$\mc S_E=\{X_0+X: X ∈\mc S_H\}$ s'il existe $X_0 ∈\mc M_{p,1}( 𝕂)$ tel que $AX_0=B$ (si $B ∈\IM(\phi)$).\pn
+$\mc S_E=∅$ sinon, c'est-à-dire si $B\notin \IM(\phi)$. </theorem>
+
+
+
+<remark>Lorsque le système n'est pas de Cramer et que son ensemble solution est non vide, il admet une infinité de solutions, qu'il est bon de paramétrer en exprimant les inconnues en fonctions des libertés du système. </remark>
+
+
+
+
+ 
+<remark>Pour résoudre les systèmes, on pourra utiliser la méthode du pivot de Gauss. Par ailleurs, 
+certains systèmes sont plus faciles et plus rapides à résoudre que d'autres : les systèmes diagonaux et les systèmes triangulaires. </remark>
+                   
+
+-->
+
+
+
+
+
+</section><section t="Opérations élémentaires" p="-β">
+
+<subsection t="Opérations sur les lignes">
+
+<concept t="Addition d'un multiple d'une ligne à une autre ligne">
+<property>Soient $n ⩾1$ et $p ⩾1$ des nombres entiers et soit $M ∈\mc M_{n,p}( 𝕂)$ une matrice. 
+Pour faire l'opération $ L_i \leftarrow  L_i +  α L_j $, 
+c'est à dire pour ajouter à la ligne $L_i$ le produit d'un scalaire $ α ∈ 𝕂$ par la ligne $L_j$ de la matrice $M$, il suffit de multiplier la~matrice $M$ {\bf à gauche} par la matrice 
+\startformula 
+I_n+ α E_{i,j}
+\stopformula
+</property>
+
+<remark>Pour effecturer l'opération $L_i\leftarrow L_i+ ∑_{j≠ i} α_jL_j$, c'est à dire pour ajouter 
+à la ligne $L_i$ une combinaison linéaire des autres lignes, il suffit de multiplier la matrice~$M$ {\bf à gauche} par la matrice 
+\startformula 
+I_n+ ∑_{\scriptstyle1 ⩽ j ⩽ n\atop\scriptstyle j≠ i} α_jE_{i,j}
+\stopformula</remark>
+
+<remark>Cette matrice est aussi égale au produit (commutatif) $\displaystyle ∏_{\scriptstyle1 ⩽ j ⩽ n\atop j≠ i}(I_n+ α_jE_{i,j})$. </remark>
+</concept>
+
+<concept t="Multiplication d'une ligne par un scalaire">
+<property>Soient $n ⩾1$ et $p ⩾1$ des nombres entiers et soit $M ∈\mc M_{n,p}( 𝕂)$ une matrice. 
+Pour faire l'opération $ L_i \leftarrow   α L_i $, 
+c'est à dire pour multiplier la ligne $L_i$ par le scalaire $ α ∈ 𝕂$, il suffit de multiplier la~matrice $M$ {\bf à gauche} par la matrice 
+\startformula 
+I_n+( α-1) E_{i,i}
+\stopformula</property>
+</concept>
+
+
+<concept t="Multiplication de chaque ligne par un scalaire">
+
+<remark>Pour effectuer simultanément les opérations $L_i\leftarrow  α L_i (1 ⩽ i ⩽ n)$, qui commuttent, 
+c'est à dire pour multiplier la ligne $L_i$ par $ α_i$ pour $1 ⩽ i ⩽ n$, il suffit de multiplier la matrice~$M$ {\bf à gauche} par la matrice 
+\startformula 
+I_n+ ∑_{1 ⩽ i ⩽ n}( α_i-1) E_{i,i}= ∑_{1 ⩽ i ⩽ n} α_iE_{i,i}=\Matrix{
+\NC α_1\NC 0\NC \ldots\NC 0\NR
+\NC 
+0\NC  α_2\NC  ⋱\NC  ⋮\NR
+\NC 
+ ⋮\NC  ⋱\NC  ⋱\NC 0\NR
+\NC 
+0\NC \ldots\NC 0\NC  α_n}
+\stopformula</remark>
+</concept>
+
+<concept t="Echange de lignes">
+<property>Soient $n ⩾1$ et $p ⩾1$ des nombres entiers et soit $M ∈\mc M_{n,p}( 𝕂)$ une matrice. 
+Pour faire l'opération $ L_i \leftrightarrow  L_j $, 
+c'est à dire échanger la ligne $L_i$ et la ligne $L_j$, il suffit de multiplier la~matrice $M$ {\bf à gauche} par la matrice 
+\startformula 
+I_n-E_{i,i}-E_{j,j}+E_{i,i}+E_{j,i}
+\stopformula    </property>
+</concept>
+
+
+
+</subsection><subsection t="Opérations sur les colonne">
+
+
+<concept t="Addition d'un multiple d'une colonne à une autre colonne">
+<property>Soient $n ⩾1$ et $p ⩾1$ des nombres entiers et soit $M ∈\mc M_{n,p}( 𝕂)$ une matrice. 
+Pour faire l'opération $ C_i \leftarrow  C_i +  α C_j $, 
+c'est à dire pour ajouter à la colonne $C_i$ le produit d'un scalaire $ α ∈ 𝕂$ par la colonne $c_j$ de la matrice $M$, il suffit de multiplier la~matrice $M$ {\bf à droite} par la matrice 
+\startformula                   
+I_p+ α E_{j,i}
+\stopformula</property>
+
+<remark>Pour effecturer l'opération $C_i\leftarrow C_i+ ∑_{j≠ i} α_jC_j$, c'est à dire pour ajouter 
+à la colonne $C_i$ une combinaison linéaire des autres colonnes, il suffit de multiplier la~matrice~$M$ {\bf à droite} par la matrice 
+\startformula 
+I_p+ ∑_{\scriptstyle1 ⩽ j ⩽ p\atop\scriptstyle j≠ i} α_jE_{j,i}
+\stopformula    </remark>
+
+
+<remark>Cette matrice est aussi égale au produit (commutatif) $\displaystyle ∏_{\scriptstyle1 ⩽ j ⩽ p\atop j≠ i}(I_n+ α_jE_{j,i})$. </remark>
+</concept>
+
+<concept t="Multiplication de chaque colonne par un scalaire">
+
+<remark>Pour effectuer simultanément les opérations $C_i\leftarrow  α C_i (1 ⩽ i ⩽ n)$, qui commuttent, 
+c'est à dire de multiplier la colonne $C_i$ par $ α_i$ pour $1 ⩽ i ⩽ n$, 
+il suffit de multiplier la matrice~$M$ {\bf à droite} par la matrice 
+\startformula 
+I_n+ ∑_{1 ⩽ i ⩽ n}( α_i-1) E_{i,i}= ∑_{1 ⩽ i ⩽ n} α_iE_{i,i}=\Matrix{
+\NC α_1\NC 0\NC \ldots\NC 0\NR
+\NC 
+0\NC  α_2\NC  ⋱\NC  ⋮\NR
+\NC 
+ ⋮\NC  ⋱\NC  ⋱\NC 0\NR
+\NC 
+0\NC \ldots\NC 0\NC  α_n}
+\stopformula</remark>
+</concept>
+
+<concept t="Echange de Colonnes">
+<property>Soient $n ⩾1$ et $p ⩾1$ des nombres entiers et soit $M ∈\mc M_{n,p}( 𝕂)$ une matrice. 
+Pour faire l'opération $ C_i \leftrightarrow  C_j $, 
+c'est à dire échanger la colonne $C_i$ et la colonne $C_j$, il suffit de multiplier la~matrice $M$ {\bf à droite} par la matrice 
+\startformula 
+I_n-E_{i,i}-E_{j,j}+E_{i,i}+E_{j,i}
+\stopformula    </property>
+</concept>
+
+
+
+</subsection><subsection t="Algorithme d'inversion">
+
+<remark>Si la matrice $M$ est inversible, on la transforme en lui appliquant les opérations élémentaires pour obtenir la matrice identié et la matrice obtenue en faisant subir les mêmes opérations élémentaires (dans le même ordre) à la matrice unité est la matrice~$M^{-1}$ inverse de $M$. 
+\startformula 
+I_n=E_p × E_{p-1} ×\cdots E_2 × E_1 × M\quad ⟹\quad M^{-1}=E_p × E_{p-1} ×\cdots E_2 × E_1 × I_n.
+\stopformula</remark>
+
+
+
+
+</subsection></section><section t="Rang d'une matrice" p="-β">
+
+
+
+
+<subsection t="Définition">
+
+<definition>Soient $n$ et $p$ deux nombres entiers strictement positifs. Alors, le rang d'une matrice $M ∈\mc M_{n,p}( 𝕂)$ est le rang de la famille constituée par ses colonnes $C_1, \cdots, C_p$ dans l'espace vectoriel des colonnes à $n$ lignes $\mc M_{n,1}( 𝕂)$, c'est à dire la dimension de l'espace vectoriel engendré par cette famille.
+\startformula 
+\mbox{Rg}(M)=\mbox{Rg}(C_1,\cdots, C_p)=\mbox{Dim}\Vect(C_1,\cdots, C_p) 
+\stopformula</definition>
+
+
+<property>Soit $n ∈ ℕ^*$. alors, une matrice $M ∈\mc M_n( 𝕂)$ est inversible si, et seulement si, elle est de rang $n$. 
+\startformula 
+M ∈\mc M_n( 𝕂)\mbox{ est inversible}\quad ⟺\quad \mbox{rg}(M)=n. 
+\stopformula</property>
+
+<property>Le rang d'une matrice $M ∈\mc M_{n,p}( 𝕂)$ ne change pas si on la multiplie par une matrice carrée inversible (de taille $n$ à gauche et de taille $p$ à droite). </property>
+
+<theorem>  [commut$n$ et $p$ entiers strictements positifs]
+\startformula 
+ ∀ M ∈\mc M_{n,p}( 𝕂), \qquad \mbox{rg}(M)=\mbox{rg}(\trans M).
+\stopformula
+Le rang d'une matrice est égal au rang de sa transposée.</theorem>
+
+<property> [$n$ et $p$ entiers strictements positifs]
+\startformula 
+ ∀ M ∈\mc M_{n,p}( 𝕂),\qquad \mbox{rg}(M) ⩽ \min(n,p).
+\stopformula</property>
+
+<property>Si une matrice $M$ contient une sous-matrice de rang $r$, alors $\mbox{rg}(M) ⩾ r$. </property>
+
+<property>Une matrice $M ∈\mc M_{n,p}$ est de rang $r$ si et seulement si il existe $P ∈\mc Gl_n( 𝕂)$ et $Q ∈\mc Gl_p( 𝕂)$ tel que 
+\startformula 
+P × M × Q=J_r:=\Matrix{
+\NC 1\rput{0}(0.6,0.5){\overbrace{\qquad\qquad\quad}^{r}}\NC 0\NC \ldots\NC \ldots\NC \ldots\NC 0\NR
+\NC 
+0\NC  ⋱\NC  ⋱\NC \NC \NC  ⋮\NR
+\NC 
+ ⋮\NC  ⋱\NC 1\NC  ⋱\NC \NC  ⋮\NR
+\NC 
+ ⋮\NC \NC  ⋱\NC 0\NC  ⋱\NC  ⋮\NR
+\NC 
+ ⋮\NC \NC \NC  ⋱\NC  ⋱\NC 0\NR
+\NC 
+0\NC \ldots\NC \ldots\NC \ldots\NC 0\NC 0\NR
+\NC 
+}
+\stopformula    
+la matrice $J_r=( α_{i,j})$ étant définie par les relations
+\startformula 
+ α_{i,j}:=\System{
+\NC \NC 1\mbox{ si $i=j ⩽ r$}\NR
+\NC 
+\NC 0\mbox{ sinon}}
+\stopformula</property>
+
+<remark>pour calculer le rang d'une matrice $M$, on peut la transformer à l'aide des opérations élémentaires sur les lignes ET les colonnes afin d'obtenir une matrice du type $J_r$. Le rang de la matrice est alors le nombre entier $r$ obtenu pour la matrice de type $J_r$. </remark>
+
+</subsection>
+</section></chapter>
+</part>

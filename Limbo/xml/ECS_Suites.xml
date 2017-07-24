@@ -1,0 +1,31 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+<include path="xml/Maths_suites.xml" as="suites"/>
+
+<chapter t="Suites">
+
+<remark>
+Les outils de ce chapitre font parti des bases importantes, ils sont utilisés en concours pour :
+\startList\item Reconnaître le type d'une suite et identifier ses éléments caractéristiques
+\item Trouver une formule pour $u_n$
+\item Utiliser la somme des termes d'une suite au cours d'un calcul complexe.
+\stopList
+Utilisation en ds/concours : fréquente.
+</remark>
+
+<section t="Suites numériques">
+
+<ref from="suites" path="section[@t=='Suites']"/>
+
+</section>
+
+<section t="Suites réelles">
+<ref from="suites" path="section[@t=='Suites réelles']"/>
+</section>
+
+<section t="Comparaison">
+<ref from="suites" path="subsection[@t=='Comparaison']"/>
+</section>
+</chapter>
+</part>
+

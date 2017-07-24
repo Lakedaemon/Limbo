@@ -1,0 +1,101 @@
+\startproduct Python
+\project project_Python
+
+\starttext
+\completecontent%[criterium=all]
+\stoptext
+
+
+
+\setupinteraction[state=start]
+\useURL[pythonSite][http://www.python.org/]
+\useURL[pythonDocumentation][http://docs.python.org/3/][][Documentation]
+\useURL[pythonLibrary][http://docs.python.org/3/library/index.html][][Library Reference]
+\useURL[pythonReference][http://docs.python.org/3/reference/index.html][][Language Reference]
+\useURL[pythonTutorial][http://docs.python.org/3/tutorial/index.html][][Tutorial]
+\useURL[numericTypes][http://docs.python.org/3/library/stdtypes.html\#numeric-types-int-float-complex][][Types numériques]
+\useURL[booleanTypes][http://docs.python.org/3/library/stdtypes.html\#truth-value-testing][][Logique binaire]
+\useURL[stringTypes][http://docs.python.org/3/library/stdtypes.html\#string-methods][][Chaînes]
+\useURL[listTypes][http://docs.python.org/3/library/stdtypes.html\#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange][][Listes]
+
+\useURL[numericTypesFR][http://fr.wikibooks.org/wiki/Mathématiques_avec_Python_et_Ruby/Nombres_complexes_en_Python][][Calculs en python]
+
+% input
+\useURL[input][http://docs.python.org/3/library/functions.html\#input][][input()]
+% int
+\useURL[int][http://docs.python.org/3/library/functions.html\#int][][int()]
+% float
+\useURL[int][http://docs.python.org/3/library/functions.html\#float][][float()]
+% bool
+\useURL[bool][http://docs.python.org/3/library/functions.html\#bool][][bool()]
+% str
+\useURL[str][http://docs.python.org/3/library/functions.html\#bool][][str()]
+% if
+\useURL[if][http://docs.python.org/3/reference/compound_stmts.html\#the-if-statement][][Tests]
+% round 
+\useURL[round][http://docs.python.org/3/library/functions.html\#round][][round()]
+
+
+% truth
+\useURL[truth][http://docs.python.org/3/library/stdtypes.html\#truth][][Valeurs logiques]
+
+% for
+\useURL[for][http://docs.python.org/3/reference/compound_stmts.html\#the-for-statement][][boucle for]
+% while
+\useURL[while][http://docs.python.org/3/reference/compound_stmts.html\#the-while-statement][][boucle while]
+
+% tkinter
+\useURL[tkinter][http://fr.openclassrooms.com/informatique/cours/apprenez-a-programmer-en-python/des-interfaces-graphiques-avec-tkinter][][tkinter]
+
+% tkinter
+\useURL[turtle][http://openbookproject.net/thinkcs/python/english3e/hello_little_turtles.html][][turtle]
+
+
+
+% jeu de la vie
+\useURL[Le jeu de la vie][http://fr.wikipedia.org/wiki/Jeu_de_la_vie][][Le jeu de la vie]
+
+
+% 7 colors
+\useURL[7 colors][http://www.abandonia.com/en/games/888/7+Colors.html][][7 colors]
+
+\setupitemgroup[List][1][a,joineup][after=,before=,symstyle=bold,inbetween={\blank[small]}]
+\setupitemgroup[List][2][1,joineup][after=,before=,inbetween={\blank[small]}]
+
+
+
+
+                    
+\setuptyping[code][escape=\\]
+
+{                         
+	\obeyspaces
+	\global\def\ldSpace{ }
+}
+\def\replace[#1][#2]{\colored[#1]{#2}}
+\def\IF{\colored[orange]{if}}%
+%\definecolor [orange] [r=0.87, g=0.46, b=0.0] 
+
+
+
+
+\starttext
+
+
+
+
+\xmlprocessfile{python}{xml/Limbo_Python.xml}{}
+
+%\chapter{Fiches}
+%\completeRecords
+%\stopcolumns
+\page[yes]
+
+\ctxlua{L.play()}
+\stoptext
+
+%\starttext
+%\completeindex
+%\stoptext
+
+\stopproduct

@@ -1,0 +1,28 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+<include path="xml/Limbo_Ensembles_et_applications.xml" as="ensembles"/>
+
+<chapter t="Ensembles et applications">
+
+<remark>
+Les outils de ce chapitre font parti des bases importantes, ils sont utilisés en concours pour :
+\startList\item Reconnaître le type d'une suite et identifier ses éléments caractéristiques
+\item Trouver une formule pour $u_n$
+\item Utiliser la somme des termes d'une suite au cours d'un calcul complexe.
+\stopList
+Utilisation en ds/concours : fréquente.
+</remark>
+
+<section t="Ensembles">
+
+<ref from="ensembles" path="section[@t=='Ensembles']"/>
+
+</section>
+
+<section t="Applications">
+<ref from="ensembles" path="section[@t=='Applications']"/>
+</section>
+
+</chapter>
+</part>
+

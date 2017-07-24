@@ -1,0 +1,24 @@
+\startcomponent component_Inferno
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\starttext
+\centerline{\bfc Olus Livius Bindus}
+\placefigure[here,nonumber][]{\bfd Inferno\bfa\crlf
+Abandon hope, all ye who enter here...}{\externalfigure[AbimMaster.jpg][width=\textwidth]}
+\blank[force]
+\completecontent
+\setuppagenumbering[location={footer,middle}]
+\let\ds\displaystyle
+%\ctxlua{L.debugExo("Ahh", "Ahi")}%Ah-Ai
+\xmlprocessfile{lucifer}{xml/Limbo_Inferno.xml}{}
+%\ctxlua{L.infernoDump()}
+
+\stoptext
+\stopcomponent
+\endinput
+
+

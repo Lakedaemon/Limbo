@@ -1,0 +1,52 @@
+\startenvironment environment_Factures
+\unprotect
+
+% language
+\language[fr]
+\mainlanguage[fr]
+\fr
+%\setuplanguage[fr][spacing=packed]
+%\setcharacterspacing [frenchpunctuation]
+
+
+\defineparagraphs[rightpar][n=2] 
+\setupparagraphs [rightpar][1][width=.6\textwidth] 
+\setupparagraphs [rightpar][2][width=.4\textwidth,align=flushright]
+
+\defineparagraphs[leftpar][n=2] 
+\setupparagraphs [leftpar][1][width=.6\textwidth] 
+\setupparagraphs [leftpar][2][width=.4\textwidth]
+\setuppagenumbering[location=]
+
+
+
+
+
+\def\facture#1{
+\startleftpar % Two columns, please
+Isabelle Godfrin\crlf
+Vétérinaire\crlf
+49 rue de Briey\crlf
+57255 Sainte Marie aux Chênes
+\blank[big]
+N° SIRET : 49376272800027\crlf
+N° TVA intracommunautaire : FR32493762728
+\leftpar
+\hfil {\tfb\bf FACTURE n°#1}\hfil \blank[big]
+Clinique vétérinaire des Chênes\crlf
+49 rue de Briey\crlf
+57255 Sainte Marie aux Chênes
+\stopleftpar
+
+\vfil\vfil
+
+\startrightpar
+\hfil Désignation\hfil\hfil
+\rightpar
+\hfil Montant\hfil\hfil
+\stoprightpar
+
+\vfil}
+
+\protect
+\stopenvironment

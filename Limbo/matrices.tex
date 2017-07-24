@@ -1,0 +1,181 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={},symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+\centerline{\bfb Pivot de Gauss}
+\blank[big]
+
+\startList\item Ok avec tout cela (dans de rares cas, je pratique aussi le on ajoute à une ligne une combinaison linéaire des autres lignes)
+
+\item Pour le rang, j'écris une chaine d'égalités et apres chaque pivot sur les lignes (resp. les colonnes), je rentabilise immédiatement le temps de calcul en isolant le pivot sur sa ligne (resp. sa colonne) sans calcul supplémentaire ce qui donne par exemple, après le premier pivot,  
+$$
+rg\startMatrix
+\NC 2\NC -3 \NC 5\NC 3\NR
+\NC 0\NC 12 \NC -18\NC -6\NR
+\NC 0\NC2\NC-3\NC-1\NR
+\NC 0\NC 8\NC -12\NC -4
+\stopMatrix = 
+rg\startMatrix
+\NC 2\NC 0\NC 0\NC 0\NR
+\NC 0\NC 12 \NC -18\NC -6\NR
+\NC 0\NC2\NC-3\NC-1\NR
+\NC 0\NC 8\NC -12\NC -4
+\stopMatrix
+$$
+Et apres le deuxieme pivot (j'aurais cependant plutôt tendance à prendre le 2 comme pivot plutôt que le 12)
+$$
+rg\startMatrix
+\NC 2\NC 0\NC 0\NC 0\NR
+\NC 0 \NC 12 \NC -18\NC -6\NR
+\NC 0\NC2\NC-3\NC-1\NR
+\NC 0\NC 8\NC -12\NC -4
+\stopMatrix
+=
+rg\startMatrix
+\NC 2\NC 0\NC 0\NC 0\NR
+\NC 0\NC 12 \NC 0\NC 0\NR
+\NC 0\NC0\NC0\NC0\NR
+\NC 0\NC 0\NC 0\NC 0
+\stopMatrix=2
+$$
+
+Sinon, je fais les échangements de lignes/colonnes à la fin, comme les divisions
+
+\item Pour les systemes linéaires, j'utilise la notation simplifiée sans les lettres pour la partie linéaire au cours de la résolution... un peu comme la méthode de Gauss Jordan, mais avec une matrice colonne à droite
+
+\item Inversion. Je procede pareil sauf que je ne fais les echanges de lignes qu'à la fin.
+Si cela n'est pas imposé par un sujet de concours, je n'utilise pas la méthode du système :  les lettres compliquent par rapport à la methode de Gauss Jordan (et c'est plus long à ecrire)
+
+\item Diagonalisation. En régle générale, j'évite comme la peste de résoudre $rg(A-\lambda I_n)$ car cela donne des démonstrations trop longues (temps = points en concours) avec des erreurs mortelles fréquentes, ce genre de démonstrations ne motive pas les étudiants à aimer les maths et il existe une manière plus agréable de trouver, plus courte et plus sûre de rédiger (je vais illustrer plus loin)
+
+Ceci dit, on est obligé de procéder comme cela lorsque la matrice à au moins 2 valeurs propres non triviales. Mais il y a une technique permettant de rendre les calculs plus agréables/efficaces (illustrée plus loin)
+
+Sinon, je vais m'adapter et faire comme proposé pour être sûr que les étudiants maîtrisent la méthode générale du cours. 
+
+\startList\item
+Rédaction plus courte pour $A=\startMatrix
+\NC 1\NC 1\NC -2\NR
+\NC -2\NC 4\NC -2\NR
+\NC -2\NC1\NC1\NR
+\stopMatrix$ sans la méthode générale
+\blank[medium]
+{\bf Au brouillon} : $A-\lambda I_3=\startMatrix
+\NC 1-\lambda\NC 1\NC -2\NR
+\NC -2\NC 4-\lambda\NC -2\NR
+\NC -2\NC1\NC1-\lambda\NR
+\stopMatrix$
+
+En testant $\lambda = 3$ on a  $A-3 I_3=\startMatrix
+\NC -2\NC 1\NC -2\NR
+\NC -2\NC 1\NC -2\NR
+\NC -2\NC1\NC-2\NR
+\stopMatrix$ et on remarque que $C_1+2C_2 = 0$ et $C_1-C_3$ = 0.\crlf
+Conclusion : $3$ est valeur propre d'ordre 2 (au moins) pour les vecteurs propres $(1, 2, 0)$ et $(1, 0, -1)$\crlf
+Avec la trace, on trouve que la derniere valeur propre est $6 - 2*3= 0$. Pour trouver le dernier vecteur propre, on peut reporter $\lambda = 0$ dans $A-\lambda I_3$ et on remarque que $C_1+C_2+C_3=0$, donc $(1,1,1)$ est vecteur propre pour la valeur propre $0$
+
+\blank[big]
+{\bf Sur sa copie :}
+$$
+A\times\startMatrix\NC 1\NR\NC 2\NR\NC 0\NR\stopMatrix = calculdu produit  = 3 \startMatrix\NC 1\NR\NC 2\NR\NC 0\NR\stopMatrix
+$$
+donc $(1, 2, 0)$ est un vecteur propre de $A$ pour la valeur propre $3$\crlf
+Idem pour les deux autres...\crlf
+En conclusion $A$ est diagonalisable et $A=PDP^{-1}$ pour $D=$ et $P=$...
+\blank[medium]
+Avantage : calculs visuels (et plus funs), démon plus courte sur la copie (4 lignes, sans systeme) et les vecteurs propres et valeurs propres sont vérifiés 
+
+\item Diagonalisation de $A=\startMatrix
+\NC 3\NC 2\NC 2\NR
+\NC -3\NC -1\NC -2\NR
+\NC -2\NC-2\NC-1\NR
+\stopMatrix$ par le calcul de rang avec optimisation de calcul (sans avoir à factoriser un polynôme du troisième degré)
+\blank[medium]
+{\bf Au brouillon} : $A-\lambda I_3=\startMatrix
+\NC 3-\lambda\NC 2\NC 2\NR
+\NC -3\NC -1-\lambda\NC -2\NR
+\NC -2\NC-2\NC-1-\lambda\NR
+\stopMatrix$
+
+Ce n'est pas très difficile de voir sur les lignes (ou sur les colonnes) que $\lambda = 1$ va être valeur propre (premier bénéfice) car  $A-I_3=\startMatrix
+\NC 2\NC 2\NC 2\NR
+\NC -3\NC -2\NC -2\NR
+\NC -2\NC-2\NC-2\NR
+\stopMatrix$ et on remarque que $C_2-C_3 = 0$ : on a besoin d'une relation sur les colonnes pour en déduire un vecteur propre, qui est $(0,1,-1)$ (second bénéfice, on évite de résoudre un systeme).\crlf
+Mais il y a un troisième bénéfice pour le calcul de rang : l'opération $C_2-C_3\rightarrow C_2$ va nous permettre de simplifier magiquement le rang sans calculs gores
+(Remarque l'opération sur les lignes $L_1-L_3\mapsto L_1$ marche aussi)
+\blank[big]
+{\bf Sur sa copie :}
+$$
+\startAlign\NC rg(A-\lambda I_3)\NC =rg\startMatrix
+\NC 3-\lambda\NC 2\NC 2\NR
+\NC -3\NC -1-\lambda\NC -2\NR
+\NC -2\NC-2\NC-1-\lambda\NR
+\stopMatrix\NC\qquad(C_2-C_3\rightarrow C_2)\NR
+\NC \NC=rg\startMatrix
+\NC 3-\lambda\NC 0\NC 2\NR
+\NC -3\NC 1-\lambda\NC -2\NR
+\NC -2\NC1-\lambda\NC-1-\lambda\NR
+\stopMatrix\NC\NR
+\stopAlign
+$$
+
+Comme la colonne $C_2$ est factorisable par $1-\lambda$ on peut faire deux cas :\crlf
+Cas $\lambda = 1$, le rang est clairement différent de 3 (colonne de $0$)\crlf
+Cas $\lambda \neq 1$, on peut diviser la colonne par $\lambda -1$ (il n'y a plus que 2 lambdas dans la matrice, gain) et on peut tout nettoyer de la façon suivante : 
+$$
+\startAlign\NC rg(A-\lambda I_3)\NC =rg\startMatrix
+\NC 3-\lambda\NC 0\NC 2\NR
+\NC -3\NC 1\NC -2\NR
+\NC -2\NC1\NC-1-\lambda\NR
+\stopMatrix\qquad(L_3-L_2\mapsto L_3)\NR
+\NC\NC=rg\startMatrix
+\NC 3-\lambda\NC 0\NC 2\NR
+\NC -3\NC 1\NC -2\NR
+\NC 1\NC0\NC 1-\lambda\NR
+\stopMatrix\qquad(\hbox{nettoyage sur la 2eme ligne})\NR
+\NC\NC=rg\startMatrix
+\NC 3-\lambda\NC 0\NC 2\NR
+\NC 0\NC 1\NC 0\NR
+\NC 1\NC0\NC 1-\lambda\NR
+\stopMatrix\qquad(\hbox{diminution de la dimension})\NR
+\NC\NC=1 + rg\startMatrix
+\NC 3-\lambda\NC 2\NR
+\NC 1\NC 1-\lambda\NR
+\stopMatrix (\hbox{polynôme du second degré})
+\stopAlign
+$$
+A noter que l'on peut alors éventuellemet utiliser le determinant sur la matrice 2x2 pour trouver quand elle est de rang strictement inférieur à 2, c'est à dire lorsque $(3-\lambda)(1-\lambda)-2 = \lambda^2-2\lambda+1=0$.
+\stopList
+\item Vecteurs propres avec polynôme annulateur
+\blank[medium]
+
+Effectivement, les valeurs propres ne peut être que 2 et $-2$. 
+\blank[medium]
+Pour $\lambda = 2$, on a clairement $C_1-C_3=0$, $C_1+C2=0$ et $C1+C_4= 0$ de sorte que sans resoudre de systeme, on a deja 3 vecteurs propres : $(1, 0, -1, 0)$, $(1, 1, 0, 0)$ et $(1,0,0,1)$.
+\blank[medium]
+Vu que la trace fait $4$, $-2$ est nécessairement valeur propre. Cela prouve que $M$ est diagonalisable. 
+\blank[medium]
+Sinon, pour $\lambda = -2$ on voit que $C_1+C_2+C_4=0$ et on trouve le dernier vecteur propre $(1, 1,0,1)$. Le tout sans résoudre, ni écrire  de système 4x4 sur sa copie.
+(on fait juste le produit matriciel pour verifier que cela marche)
+
+\stopList
+
+
+\stoptext
+\stopcomponent
+\endinput

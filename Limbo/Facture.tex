@@ -1,0 +1,69 @@
+\startcomponent facture
+
+\starttext
+\defineparagraphs[rightpar][n=2] 
+\setupparagraphs [rightpar][1][width=.6\textwidth] 
+\setupparagraphs [rightpar][2][width=.4\textwidth,align=flushright]
+
+\defineparagraphs[leftpar][n=2] 
+\setupparagraphs [leftpar][1][width=.6\textwidth] 
+\setupparagraphs [leftpar][2][width=.4\textwidth]
+\setuppagenumbering[location=]
+
+
+\startleftpar % Two columns, please
+Isabelle Godfrin\crlf
+Vétérinaire\crlf
+49 rue de Briey\crlf
+57255 Sainte Marie aux Chênes
+\blank[big]
+N° SIRET : 49376272800027\crlf
+N° TVA intracommunautaire : FR32493762728
+\leftpar
+\hfil {\tfb\bf FACTURE n°29}\hfil \blank[big]
+Clinique vétérinaire des Chênes\crlf
+49 rue de Briey\crlf
+57255 Sainte Marie aux Chênes
+\stopleftpar
+
+\vfil\vfil
+
+\startrightpar
+\hfil Désignation\hfil\hfil
+\rightpar
+\hfil Montant\hfil\hfil
+\stoprightpar
+
+\vfil
+
+Rétrocession d'honoraires\crlf
+Période du 1\high{er} au 29 février 2012
+
+\vfil
+
+\startrightpar
+Rétrocession HT sur jours travaillés\crlf
+(dont 188,26€ concernant janvier)\crlf
+Rétrocession HT sur soirées d'astreinte\crlf
+Rétrocession HT sur week-end d'astreinte\crlf
+\rightpar
+4420,47 €\crlf\crlf
+270,08 €\crlf
+171,57 €
+\stoprightpar
+\vfil
+
+\startrightpar
+Total HT\crlf
+TVA 19,6 \%\crlf
+Total TTC
+\rightpar
+4862.12 €\crlf   
+952.98 €\crlf
+5815,10 €
+\stoprightpar
+\vfil
+Payable au comptant. Echéance 05/03/2012\crlf
+Pas d'escompte pour réglement anticipé
+\stoptext
+\stopcomponent

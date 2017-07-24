@@ -1,0 +1,634 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Analyse">
+
+<chapter t="Intégration">
+
+<text>Dans tout ce chapitre, le symbole $ 𝕂$ désigne le corps $ 𝕂= ℝ$ ou le corps $ 𝕂= ℂ$. </text>
+
+</section><section t=" Fonctions de classe $\mc C^k$ par morceaux. ">
+
+
+
+</subsection><subsection t=" subdivisions et fonctions en escalier. ">
+
+<definition>Une subdivision d'un segment $[a,b]$ est une suite strictement croissante finie $\sigma=\{x_0,x_1,\cdots, x_n\}$ telle que $x_0=a$ et $x_n=b$. Autrement dit, on a
+\startformula 
+a=\underbrace{x_0<x_1<\cdots <x_{n-1} < x_n}_{\mbox{subdivision $\sigma$}}=b. 
+\stopformula </definition>
+
+<remark>on peut munir l'ensemble $E$ des subdivisions du segment $[a,b]$ d'une relation d'ordre : on dit qu'une subdivision $\sigma ∈ E$ est plus fine qu'une subdivision $\sigma' ∈ E$, et on note $\sigma\prec\sigma'$ si la subdivision $\sigma$ contient tous les points de $\sigma'$ (et éventuellement d'autres en plus). </remark>
+
+<definition>Une fonction $f:[a,b] → 𝕂$ est dite en escalier sue le segment $[a,b]$ si, et~seulement~s'il existe une subdivision $\sigma=\{x_0,\cdots,x_n\}$ de $[a,b]$ et des nombres $c_1,\cdots,c_n$ de $ 𝕂$ tels que 
+\startformula 
+ ∀ i ∈\{1,\cdots, n\}, \quad  ∀ x ∈\Q]x_{i-1},x_i\W[,\qquad f(x)=c_i
+\stopformula 
+Autrement dit, la fonction $f$ est constante sur chaque intervalle ouvert $\Q]x_{i-1},x_i\W[$ pour $1 ⩽ i ⩽ n$. </definition>
+
+<remark>une telle subdivision $\sigma$ est alors dite adaptée (ou subordonnée) à $f$. </remark>
+
+\Remarque  : toute subdivision plus fine que $\sigma$ est alors adaptée à la fonction $f$. 
+\bigskip
+
+
+<example> La partie entière est une fonction continue par morceaux sur tout segment réel. </example>
+
+<property>L'ensemble des fonctions en escalier sur le segment $[a,b]$ est strable par addition, par multiplication externe et par produit. En particulier, c'est un sous-espace vectoriel de $\mc F\big([a,b], 𝕂\big)$. </property>
+
+
+
+</subsection><subsection t=" Fonctions de classe $\mc C^k$ par morceaux. ">
+
+<definition>Etant donné un segment $[a,b]$ et $k ∈ ℕ$, on dit qu'une fonction $f:[a,b] → 𝕂$ est 
+de classe $\mc C^k$ par morceaux sur $[a,b]$ s'il existe une subdivision $\sigma=\{x_0,\cdots,x_n\}$ du segment $[a,b]$ telle que, pour $1 ⩽ i ⩽ n$, la restriction à l'intervalle $\Q]x_{i-1},x_i\W[$ de $f$ soit prolongeable en une fonction de classe $\mc C^k$ sur le segment $[x_{i-1},x_i]$. </definition>
+
+<remark>autrement dit, pour $1 ⩽ i ⩽ n$, la fonction $f$ doit être de classe $\mc C^k$ sur l'intervalle ouvert $\Q]x_{i-1},x_i\W[$ et les dérivées $f, f',\cdots, f^{(k)}$ doivent admetre une limite à droite en $x_{i-1}$ et une limite à gauche en $x_i$. </remark>
+
+<remark>une telle subdivision $\sigma$ est alors dite adaptée (ou subordonnée) à~$f$. </remark>
+
+<remark>on se moque totalement des valeurs de $f$ aux points $x_0, x_1, \cdots, x_n$. </remark>
+
+
+<property>L'ensemble des fonctions de classe $\mc C^k$ sur le segment $[a,b]$ est stable par addition, par multiplication externe et par produit. En particulier, c'est un sous-espace vectoriel de $\mc F\big([a,b], 𝕂\big)$. </property>
+
+<remark>la composée $g ∘ f$ d'une fonction $g$ de classe $\mc C^k$ avec une fonction $f$ de classe $\mc C^k$ par morceaux est de classe $\mc C^k$ par morceaux. </remark>
+
+<theorem> [$f:{[a,b]} → ℝ$ fonction continue par morceaux sur ${[a,b]}$] 
+Pour chaque $ ε>0$, il existe deux fonction réelles $ φ$ et $\psi$ en escalier sur $[a,b]$ telles que 
+\startformula 
+ φ ⩽ f ⩽ \psi\qquad \mbox{et}\qquad \psi- φ ⩽  ε.
+\stopformula</theorem>
+
+
+
+</subsection></section><section t=" Intégrale d'une fonction continue par morceaux. ">
+
+
+
+</subsection><subsection t=" Intégrale d'une fonction en escalier. ">
+
+<definition>Soit $f:[a,b] → ℂ$ une fonction en escalier sur $[a,b]$, avec $a<b$. Alors, pour chaque subdivision $\sigma=\{x_0,\cdots,x_n\}$ de $[a,b]$ adaptée à la fonction $f$, la somme 
+\startformula 
+ ∑_{1 ⩽ i ⩽ n}(x_i-x_{i-1})f(y_i)
+\stopformula
+est indépendant du choix de la subdivision $\sigma$ et des nombres $y_i ∈\Q]x_{i-1},x_i\W[\ \,(1 ⩽ i ⩽ n)$ utilisés pour la calculer et appartient au corps $ 𝕂$. On l'appelle intégrale de la fonction en escalier $f$ sur le segment $[a,b]$ et on la note 
+\startformula 
+\int_{[a,b]}f= \int_a^bf:= ∑_{1 ⩽ i ⩽ n}(x_i-x_{i-1})f\underbrace{\Q({x_{i-1}+x_i\F 2}\W)}_{\mbox{un choix de $y_i$}}\qquad\mbox{(par exemple)}
+\stopformula
+Par convention, on pose 
+\startformula 
+\int_b^af:=-\int_a^bf\qquad \mbox{et}\qquad \int_a^af=0.
+\stopformula</definition>
+
+<remark>l'intégrale d'une fonction en escalier est l'aire (algèbrique) de la zone délimitée par l'axe des abscisses et le graphe de la fonction $f$ pour $a ⩽ x ⩽ b$. </remark>
+
+<remark>la notation $\int_{[a,b]}f$ n'a de sens que si $a ⩽ b$ contrairement à la notation $\int_a^bf$. En pratique, on utilise une variable muette (qui appartient à l'intégrale et pas à vous) 
+pour préciser par rapport à quelle variable on intégre. On notera ainsi
+\startformula 
+\int_{[a,b]}f(x)\d x\qquad \mbox{ou}\qquad \int_a^bf(x)\d x
+\stopformula
+Le ``$\d x$'' ne sert qu'à préciser le choix de la lettre utilisé pour la variable muette. Veuillez ne pas l'oublier tout de même. </remark>
+
+\Remarque  : le fait de modifier les valeurs de la fonction en un nombre fini d'endroits ne modifie pas son intégrale. 
+\bigskip
+
+<property> [Title=Relation de Chasles]
+Soient $(a,b,c) ∈ ℝ^3$ et $f:[a,c] → 𝕂$ une fonction en escalier sur le segment d'extrémités $\min\{a,b,c\}$ et $\max\{a,b,c\}$. Alors, la fonction $f$ est en escalier sur les segments $[a,b]$, $[b,c]$, $[a,c]$ et on a 
+\startformula 
+\int_a^cf=\int_a^bf+\int_b^cf. 
+\stopformula</property>
+
+<property> [Title=Linéarité de l'intégrale]
+Soit $(a,b) ∈ ℝ^2$ et soient $f:[a,b] → 𝕂$ et $g:[a,b] → 𝕂$ deux fonctions en escalier sur $[a,b]$. Alors, pour $( λ, μ) ∈ 𝕂^2$, la fonction $ λ f+ μ g$ est en escalier sur $[a,b]$ et on a 
+\startformula 
+\int_a^b( λ f+ μ g)= λ \int_a^bf+ μ \int_a^bg. 
+\stopformula</property>
+
+<property>[Title=positivité de l'intégrale] Soient $a ⩽ b$ deux nombres réels et soit $f:[a,b] → ℝ$ une fonction en escalier sur $[a,b]$. Alors, 
+\startformula 
+\underbrace{
+ ∀ x ∈[a,b],\quad f(x) ⩾0}_{f ⩾0}\qquad ⟹\qquad \int_a^bf ⩾0.
+\stopformula </property>
+
+
+<property> [Title=Croissance de l'intégrale]
+Soient $a ⩽ b$ deux nombres réels et soient $f:[a,b] → ℝ$ et $g:[a,b] → ℝ$ deux fonctions en escalier sur $[a,b]$. Alors, on a 
+\startformula 
+\underbrace{
+ ∀ x ∈[a,b],\quad f(x) ⩽ g(x)}_{f ⩽ g}\qquad ⟹\qquad \int_a^bf ⩽ \int_a^bg.
+\stopformula </property>
+
+<property>[Title=module]
+Soient $a ⩽ b$ deux nombres réels et soit $f:[a,b] → ℝ$ une fonction 
+en escalier sur $[a,b]$. Alors, l'application $|f|$ est en escalier sur $[a,b]$ et on a 
+\startformula 
+\Q|\int_a^bf\W| ⩽ \int_a^b|f|.
+\stopformula </property>
+
+
+
+</subsection><subsection t=" Intégrale d'une fonction continue par morceaux. ">
+
+<definition>Soient $(a,b) ∈ ℝ^2$ avec $a< b$ et $f:[a,b] → ℝ$ une application continue par morceaux sur $[a,b]$. 
+Alors, il existe une suite croissante $( φ_n)_{n ∈ ℕ}$ et une suite décroissante $(\psi_n)_{n ∈ ℕ}$ de fonctions en escaliers sur $[a,b]$ telles que 
+\startformula 
+ ∀ n ∈ ℕ, \qquad  φ_n ⩽ f ⩽ \psi_n\qquad\mbox{et}\qquad \psi_n- φ_n ⩽ {1\F n+1}.\eqdef{gah}
+\stopformula
+Alors, les suite $(\int_a^b φ_n)_{n ∈ ℕ}$ et $(\int_a^b\psi_n)_{n ∈ ℕ}$ convergent vers une même limite $ ℓ$, qui ne dépend pas du choix des suites $( φ_n)_{n ∈ ℕ}$ et $(\psi_n)_{n ∈ ℕ}$ vérifiant \eqref{gah}. 
+Cette limite $ ℓ$ est appelée intégrale de la fonction $f$ sur le segment $[a,b]$ et on la note
+\startformula 
+\int_{[a,b]}f= \int_a^bf:=\lim_{n →+ ∞}\int_a^b φ_n=\lim_{n →+ ∞}\int_a^b\psi_n.
+\stopformula
+Par convention, on pose 
+\startformula 
+\int_b^af:=-\int_a^bf\qquad \mbox{et}\qquad \int_a^af=0.
+\stopformula</definition>
+
+\Remarque: la première chose que l'on fait AVANT d'intégrer une fonction sur $[a,b]$, c'est de vérifier qu'elle est bien intégrable $[a,b]$, c'est-à-dire qu'elle est continue par morceaux sur $[a,b]$. 
+\bigskip
+
+<remark>le fait de modifier les valeurs de la fonction en un nombre fini d'endroits ne modifie pas son intégrale. </remark>
+
+<definition>Soient $(a,b) ∈ ℝ^2$, soit $f:[a,b] → ℂ$ une application continue par morceaux sur $[a,b]$ et soient $g:[a,b] → ℝ$ et $h:[a,b] → ℝ$ les parties réelles et imaginaires de la fonction $f$. Autrement dit 
+\startformula 
+ ∀ x ∈[a,b], \qquad f(x)=\underbrace{g(x)}_{ ℜe f(x)}+i\underbrace{h(x)}_{ ℑm f(x)}
+\stopformula
+Alors, l'intégrale de la fonction $f$ de $a$ à $b$ est par définition le nombre 
+\startformula 
+\int_a^bf:=\int_a^bg+i\int_a^bh.
+\stopformula</definition>
+
+<remark>l'intégrale d'une fonction sur $[a,b]$ d'une fonction continue par morceaux est (par définition) l'aire (algèbrique) de la zone délimitée par l'axe des abscisses et le graphe de la fonction $f$ pour $a ⩽ x ⩽ b$. 
+\bigskip
+\Remarque  : le fait de modifier les valeurs de la fonction en un nombre fini de points ne modifie pas son intégrale. </remark>
+
+
+
+</subsection><subsection t=" Propriétés fondamentales de l'intégrale. 
+\bigskip">
+
+<property> [Title=Relation de Chasles]
+Soient $(a,b,c) ∈ ℝ^3$ et $f:[a,c] → 𝕂$ une fonction continue par morceaux sur le segment d'extrémités $\min\{a,b,c\}$ et $\max\{a,b,c\}$. Alors, la fonction $f$ est continu epar morceaux sur les segments $[a,b]$, $[b,c]$, $[a,c]$ et on a 
+\startformula 
+\int_a^cf=\int_a^bf+\int_b^cf. 
+\stopformula</property>
+
+<property> [Title=Linéarité de l'intégrale]
+Soit $(a,b) ∈ ℝ^2$ et soient $f:[a,b] → 𝕂$ et $g:[a,b] → 𝕂$ deux fonctions continues par morceaux sur $[a,b]$. Alors, pour $( λ, μ) ∈ 𝕂^2$, la fonction $ λ f+ μ g$ est continue par morceaux sur $[a,b]$ et on a 
+\startformula 
+\int_a^b( λ f+ μ g)= λ \int_a^bf+ μ \int_a^bg. 
+\stopformula</property>
+
+<property> [Title=positivité de l'intégrale]
+Soient $a ⩽ b$ deux nombres réels et soit $f:[a,b] → ℝ$ une fonction continue par morceaux sur $[a,b]$. Alors, 
+\startformula 
+\underbrace{
+ ∀ x ∈[a,b],\quad f(x) ⩾0}_{f ⩾0}\qquad ⟹\qquad \int_a^bf ⩾0.
+\stopformula </property>
+
+
+<property> [Title=Croissance de l'intégrale]
+Soient $a ⩽ b$ deux nombres réels et soient $f:[a,b] → ℝ$ et $g:[a,b] → ℝ$ deux fonctions continues par morceaux sur $[a,b]$. Alors, on a 
+\startformula 
+\underbrace{
+ ∀ x ∈[a,b],\quad f(x) ⩾ g(x)}_{f ⩾ g}\qquad ⟹\qquad \int_a^bf ⩾ \int_a^bg.
+\stopformula </property>
+
+<property> [Title=module]
+Soient $a ⩽ b$ deux nombres réels et soit $f:[a,b] → ℝ$ une fonction 
+continue par morceaux sur $[a,b]$. Alors, l'application $|f|$ est continue par morceaux sur $[a,b]$ et on a 
+\startformula 
+\Q|\int_a^bf\W| ⩽ \int_a^b|f|.
+\stopformula </property>
+
+<theorem> [$f:{[a,b]} → ℝ^+$ fonction continue] 
+\startformula 
+\underbrace{ ∀ x ∈[a,b],\quad f(x)=0}_{f=0}\qquad ⟺ \int_a^bf(t)\d t=0.
+\stopformula</theorem>
+
+
+
+</subsection><subsection t=" Moyennes. 
+\bigskip">
+
+<definition> [$f:{[a,b]} → 𝕂$ fonction continue par morceaux] 
+La valeur moyenne de la fonction $f$ sur le segment $[a,b]$ est le nombre
+\startformula 
+m(f):={1\F b-a}\int_a^bf(x)\d x.
+\stopformula</definition>
+
+<remark>si $f:[a,b] → ℝ$ est continue par morceaux, on a 
+\startformula 
+\inf_{a ⩽ x ⩽ b}f(x) ⩽ m(f) ⩽ \sup_{a ⩽ x ⩽ b}f(x).
+\stopformula</remark>
+
+<property>{ \bf (inégalité de la moyenne)}. Soient $a ⩽ b$ deux nombres réels et soient $f:[a,b] → 𝕂$ et $g:[a,b] → 𝕂$ deux fonctions continues par morceaux sur $[a,b]$. Alors, 
+\startformula 
+\Q|\int_a^bfg\W| ⩽ \sup_{a ⩽ x ⩽ b}\big|f(x)\big| ×\int_a^b|g|.
+\stopformula
+En particulier, on a 
+\startformula 
+\Q|\int_a^bf\W| ⩽ (b-a)\sup_{a ⩽ x ⩽ b}\big|f(x)\big|.
+\stopformula</property>
+
+
+
+
+</subsection><subsection t=" Produit scalaire intégrale et inégalité de Cauchy-Schwartz.
+\bigskip">
+
+<property>Soient $a< b$ des nombres réels. alors, l'application 
+\startformula 
+\Align{
+\NC \mc C\big([a,b], ℝ\big)^2\NC  → ℝ\NR
+\NC (f,g)\NC  ↦\langle f,g\rangle:=\int_a^bf(t)g(t)\d t}
+\stopformula
+est un produit scalaire sur $\mc C\big([a,b], ℝ\big)$, c'est à dire une forme, bilinéaire, symétrique, définie, positive. </property>
+
+<remark>la norme $\| ⋅\|$ associée au produit scalaire $\langle ⋅, ⋅\rangle$ est alors définie par 
+\startformula 
+ ∀ f ∈\mc C\big([a,b], ℝ\big), \qquad \|f\|:=\sqrt{\langle f,f\rangle}=\sqrt{\int_a^bf(x)^2\d x}.
+\stopformula</remark>
+
+<theorem> [Title=Inégalité de Cauchy-Schwarz; $a<b$] 
+\startformula 
+ ∀ (f,g) ∈\mc C\big([a,b], ℝ\big)^2, \qquad \Q|\int_a^bf(x)g(x)\d x\W| ⩽ \sqrt{\int_a^bf(x)^2\d x}
+ ×\sqrt{\int_a^bg(x)^2\d x}.
+\stopformula</theorem>
+
+<remark>Cette inégalité peut s'écrire plus simplement sous la forme 
+\startformula 
+\big|\langle f,g\rangle\big| ⩽ \|f\| ×\|g\|.
+\stopformula</remark>
+
+
+
+</subsection><subsection t=" Sommes de Riemann.">
+
+<definition>Soient $a<b$ deux nombres réels. Alors, le pas d'une subdivision $\sigma=\{x_0,x_1,\cdots,x_n\}$ du segment $[a,b]$ est le nombre réel défini par
+\startformula 
+|\sigma|:=\max_{1 ⩽ k ⩽ n}(x_k-x_{k-1}).
+\stopformula</definition>
+
+<definition>Soient $a<b$ deux nombres réels et $f:[a,b] → 𝕂$ une fonction continue. Pour chuaqe subdivision $\sigma:=\{x_0,\cdots,x_n\}$ du segment $[a,b]$ et chaque famille $Y=\{y_1,\cdots, y_n\}$ vérifiant 
+\startformula 
+ ∀ k ∈\{1,\cdots, n\}, \qquad x_{k-1} ⩽ y_k ⩽ x_k, 
+\stopformula
+on appelle Somme de Riemann la quantité définie par 
+\startformula 
+R_{\sigma,Y}(f):= ∑_{1 ⩽ k ⩽ n}(x_k-x_{k-1})f(y_k).
+\stopformula</definition>
+
+<theorem> [Title=Somme de Riemann;{$f:[a,b] → 𝕂$ fonction continue}] 
+\startformula 
+\int_a^bf(x)\d x=\lim_{\mbox{$\scriptstyle\sigma$ \sevenrm subdivision de $\scriptstyle[a,b]$
+}\atop\scriptstyle |\sigma| →0}R_{\sigma,Y}(f)
+\stopformula
+Autrement dit, l'intégrale de $f$ sur le segment $[a,b]$ est la limite des sommes de Riemann associées à des subdivisions de $[a,b]$ dont le pas converge vers $0$. En particulier, on a 
+\startformula 
+\Align{
+\NC \int_a^bf(x)\d x\NC =\lim_{n →+ ∞}{b-a\F n} ∑_{k=0}^{n-1}f\Q(a+k{(b-a)\F n}\W)\NR
+\NC 
+\NC =\lim_{n →+ ∞}{b-a\F n} ∑_{k=1}^nf\Q(a+k{(b-a)\F n}\W)
+}
+\stopformula</theorem>
+
+Exercice :  Calculer $\displaystyle\lim_{n →+ ∞} ∑_{1 ⩽ k ⩽ n}{n\F k^2+n^2}$. 
+
+<property>Soient $a<b$ deux nombres réels et $f:[a,b] → 𝕂$ une fonction $K$-lipschitzienne. Alors, pour chaque subdivision $\sigma$ de $[a,b]$, on a 
+\startformula 
+\int_a^bf(x)\d x=R_{\sigma,Y}(f)+O(|\sigma|).
+\stopformula</property>
+
+<remark>Methode des trapezes pour calculer des intégrales. Plutôt que de calculer l'aire en utilisant des rectangles à l'aide de la formule $(x_{i+1}-x_i)f(y_i)$, on calcule l'aire en utilisant des trapèzes à l'aide de la formule 
+\startformula 
+(x_{i+1}-x_i){f(x_i)+f(x_{i+1})\F 2}, 
+\stopformula
+donnant l'aire du trapeze passant par $A(x_i,0)$, $B(x_i,f(x_i))$, $C(x_{i+1},0)$ et $D(x_{i+1},f(x_{i+1}))$. 
+Ainsi, on a 
+\startformula 
+\int_a^bf(t)\d t=\lim_{n →+ ∞} ∑_{i=1}^n(x_{i+1}-x_i){f(x_i)+f(x_{i+1})\F 2}
+\stopformula</remark>
+
+
+
+
+
+
+\hautspages{Olus Livius Bindus}{Intégration et dérivation}
+
+\pagetitretrue
+
+
+
+
+</subsection></section></chapter><chapter t=" Intégration et dérivation. 
+\bigskip">
+
+\noindent
+Dans tout ce chapitre, le symbole $ 𝕂$ désigne le corps $ 𝕂= ℝ$ ou le corps $ 𝕂= ℂ$. 
+\bigskip
+
+
+
+</subsection></section><section t=" Primitives. ">
+
+
+
+</subsection><subsection t=" Lien entre intégrale et primitive. ">
+
+
+<definition>Une primitive sur un intervalle $I$ d'une application $f:I → 𝕂$ est une fonction $F:I → 𝕂$ dérivable (sur $I$) telle que $f$ soit la dérivée de $F$ sur $I$. Autrement dit 
+\startformula 
+ ∀ x ∈ I, \qquad F'(x)=f(x). 
+\stopformula</definition>
+
+<property>Soit $I$ un intervalle et $F:I → 𝕂$ une primitive d'une fonction $f:I → 𝕂$. 
+Alors, on a 
+\startformula 
+G:I → 𝕂\mbox{ est une primitive de f sur }I\quad\  ⟺\quad\   ∃ c ∈ 𝕂 : \quad  ∀ x ∈ I, \quad G(x)=F(x)+c
+\stopformula</property>
+
+<remark>on pourra retenir que deux primitives d'une même fonction différent d'une constante. </remark>
+
+<theorem> [Title=Théorème fondamental de l'analyse;$f:I → 𝕂$ continue sur un intervalle $I$, $a ∈ I$] 
+L'unique primitive de $f$ qui s'annule en $a$ est l'application $F$ définie par 
+\startformula 
+\Align{
+\NC F: I\NC  → 𝕂\NR
+\NC  x\NC  ↦  \int_a^xf(t)\d t}
+\stopformula
+Par ailleurs, la fonction $F$ est de classe $\mc C^1$ sur $I$</theorem>
+
+
+<property>Soit $I$ un intervalle et $a ∈ I$. Pour toute primitive $F$ sur $I$ d'une fonction $f:I → 𝕂$, on a 
+\startformula 
+ ∀ x ∈ I, \qquad \int_a^x f(t)\d t=[F]_a^x=F(x)-F(a). 
+\stopformula
+En particulier, pour toute fonction $f$ ce classe $\mc C^1$ sur $I$, on a 
+\startformula 
+\int_a^xf'(t)\d t=[f]_a^x=f(x)-f(a). 
+\stopformula</property>
+
+
+
+</subsection><subsection t=" Théorèmes fondamentaux. ">
+
+<theorem> [Index=Theoreme@Théorème!Integration par partie@Intégration par partie;Title=Intégration par partie]
+Soit $(a,b) ∈ ℝ^2$ avec $a< b$ et soient $f$ et $g$ deux fonctions de classe $\mc C^1$ sur le segment $[a,b]$. Alors, on a 
+\startformula 
+\int_a^bf(t)g'(t)\d t=[fg]_a^b-\int_a^bf'(t)g(t)\d t. 
+\stopformula</theorem>
+
+<theorem> [Index=Theoreme@Théorème!de changement de variable;Title=Changement de variable]
+Soit $(a,b) ∈ ℝ^2$ avec $a< b$, soit $ φ:[a,b] → I$ une fonction de classe $\mc C^1$ et $f:I → 𝕂$ une fonction continue. Alors, on a 
+\startformula 
+\int_a^bf\big( φ(x)\big) φ'(x)\d x=\int_{ φ(a)}^{ φ(b)}f(t)\d t.
+\stopformula</theorem>
+
+<theorem> [Index=Theoreme@Théorème!de changement de variable;Title=Changement de variable] 
+Soit $(a,b) ∈ ℝ^2$ avec $a<b$ et soit $f:[a,b] → 𝕂$ une fonction continue. Soit $I$ un intervalle et soit $ φ:I →[a,b]$ un difféormorphisme de classe $\mc C^1$ (i.e. une bijection $ φ:I →[a,b]$ de classe $\mc C^1$ sur $[a,b]$ dont la bijection réciproque $ φ^{-1}$ est de classe $\mc C^1$ sur $I$). alors, 
+on a 
+\startformula 
+\int_a^bf(t)\d t=\int_{ φ^{-1}(a)}^{ φ^{-1}(b)}f\big( φ(x)\big) φ'(x)\d x. 
+\stopformula</theorem>
+
+
+
+</subsection></section><section t=" Calcul de primitives. ">
+
+<remark>Une primitive $F$ quelconque d'une fonction $f:I → 𝕂$ sur un intervalle $I$ est notée
+\startformula 
+F(x)=\int f(x)\d x\qquad (x ∈ I).
+\stopformula
+C'est une notation extrémement pratique qui sera utilisée en conjonction avec intégration par partie et changment de variable pour trouver rapidements des primitives. </remark>
+
+<remark>les primitives d'une fonction $f$ sur un intervalle $I$ étant unique à une constante près, il est important de se rappeler qu'il y a une constante additive sous-jacente à la notation $\int f(x)\d x$. 
+{\bf NE JAMAIS OUBLIER LA CONSTANTE ! }</remark>
+
+
+
+</subsection><subsection t=" Polynômes.">
+
+
+<concept t=" [Index=Primitives!des fonctions du type@des fonctions du type $x^n$] Monômes">
+<property>Pour chaque nombre réel $n ∈ ℕ$, on a 
+\startformula 
+\int x^n\d x={x^{n+1}\F n+1}+c\qquad (x ∈ ℝ).
+\stopformula</property>
+
+
+<concept t=" [[Index=Primitives!des polynomes@des polynômes] Polynômes ">
+<property> : Pour chaque polynôme $P(x)=\displaystyle ∑_{k=0}^da_kx^k$, on a 
+\startformula 
+\int P(x)\d x= ∑_{k=0}^da_k{x^{k+1}\F k+1}+c=c+ ∑_{k=1}^{d+1}a_{k-1}{x^k\F k}\qquad (x ∈ ℝ).
+\stopformula</property>
+
+<remark>on sait intégrer facilement les polynômes et la primitive d'un polynôme de degré $d$ 
+est un polynôme de degré $d+1$. </remark>
+
+
+
+</subsection><subsection t=" Fractions rationnelles.
+\bigskip">
+
+
+<concept t=" [Index=Primitives!des fonctions du type@des fonctions du type ${1\F (x-b)^n}$] Fonctions du type ${1\F (x-b)^n}$. ">
+<property>Soit $a ∈ ℝ$, soit $n ⩾2$ et soit $I$ un intervalle réel ne contenant pas $a$. Alors, on a 
+\startformula 
+\Align{
+\NC \NC \int{1\F x-a}\d x=\ln|x-a|+c\qquad(x ∈ I),\NR
+\NC 
+\NC \int{1\F(x-a)^n}\d x={1\F 1-n} ×{1\F (x-a)^{n-1}}+c\qquad (x ∈ I).
+}
+\stopformula </property>
+
+
+<concept t=" [Index=Primitives!des fonctions du type@des fonctions du type ${x\F (x^2+1)^n}$]
+Fonctions du type ${x\F (x^2+1)^n}$">
+<property>Soit $n ⩾2$. Alors, on a 
+\startformula 
+\Align{
+\NC \NC \int{x\F x^2+1}\d x={1\F 2}\ln(x^2+1)+c\qquad(x ∈ ℝ),\NR
+\NC 
+\NC \int{x\F(x^2+1)^n}\d x={1\F 2(1-n)} ×{1\F (x^2+1)^{n-1}}+c\qquad (x ∈ ℝ).
+}
+\stopformula </property>
+
+
+<concept t=" [Index=Primitives!des fonctions du type@des fonctions du type ${1\F (x^2+1)^n}$] Fonctions du type ${1\F (x^2+1)^n}$">
+<property>Soit $e ∈ ℝ$. 
+Pour calculer $\displaystyle \int{1\F(x^2+1)^n}\d x$, on procède par récurence en utilisant que 
+\startformula 
+\Align{
+\NC \int{1\F x^2+1}\d x\NC =\arctan(x)+c\qquad(x ∈ ℝ),\NR
+\NC 
+\int{1\F(x^2+1)^{n+1}}\d x\NC ={2n-1\F 2n}\int{1\F(x^2+1)^n}\d x+{1\F 2n}{x\F (x^2+1)^n}\qquad (x ∈ I). 
+}
+\stopformula</property>
+
+<remark>on trouve la seconde relation en intégrant $\int{\d x\F (x^2+1)^n}$ par parties en écrivant~que 
+\startformula 
+{1\F (x^2+1)^n}={x^2+1\F (x^2+1)^n+1}={1\F (x^2+1)^n+1}
++\underbrace{x}_{\mbox{à dériver}} × \underbrace{{x\F(x^2+1)^{n+1}}}_{\mbox{à intégrer}}
+\stopformula
+d'où 
+\startformula 
+\int{1\F (x^2+1)^n}\d x =\int{1\F (x^2+1)^{n+1}}\d x -{1\F 2n}{x\F(x^2+1)^{n+1}}+{1\F 2n}\int{1\F (x^2+1)^n}\d x
+\stopformula</remark>
+
+
+<concept t=" [Index=Primitives!des fonctions du type@des fonctions du type ${ax+b\F (x^2+cx+d)^n}$] Fonctions du type ${ax+b\F (x^2+cx+d)^n}$">
+<remark>Pour trouver les primitives de la fonction $\displaystyle{ax+b\F(x^2+cx+d)^n}$ avec $\delta=4d-c^2< 0$, on met d'abord sous la forme canonique 
+\startformula 
+{ax+b\F(x^2+cx+d)^n}={ax+b\F \big((x+c/2)^2+\delta\big)^n}
+\stopformula
+puis on procède au changement de variable $u=x+c/2$ pour ecrire que 
+\startformula 
+\int{ax+b\F(x^2+cx+d)^n}\d x=\int {ax+b\F \big((x+c/2)^2+\delta\big)^n}\d x=\int {au+b-ac/2\F \big(u^2+\delta\big)^n}\d u
+\stopformula
+puis au changement de variable $u=t\sqrt\delta$ pour en déduire que 
+\startformula 
+\int{ax+b\F(x^2+cx+d)^n}\d x=\int {au+b-ac/2\F \big(u^2+\delta\big)^n}\d u
+={\sqrt\delta\F\delta^{n/2}}\int {ta\sqrt\delta +b-ac/2\F \big(t^2+1\big)^n}\d t
+\stopformula
+Et ensuite, on sait calculer....</remark>
+
+
+
+<concept t=" [Index=Fractionsrationnelles@Fractions rationnelles!definition@définition] Fractions rationnelles">
+<definition>Une fraction rationnelle à coefficients dans $ 𝕂$ est le quotient $F={P\F Q}$ de deux polynômes à coefficients dans $ 𝕂$, avec $Q≠0$.
+Le degré d'une fraction rationnelle $F$ non nulle (i.e. pour laquelle $P≠0$) est le nombre 
+\startformula 
+\deg(F)=\deg(P)-\deg(Q).
+\stopformula
+Les pôles de la fraction ratrionnelle $F$ sont les racines du polynôme $Q$. La valuation d'un pole $b$ est le plus grand entier $n$ tel que 
+\startformula 
+0=Q(b)=Q'(b)=\cdots=Q^{(n)}(b)
+\stopformula</definition>
+
+
+<property>Pour chaque fraction rationnelle $F$, il existe une unique décomposition en éléments simples 
+sur le corps $ ℂ$ de la forme
+\startformula 
+F(x)={P(x)\F Q(x)}=E(x)+{R(x)\F Q(x)}=E(x)+{R(x)\F  α ∏_{1 ⩽ i ⩽ p}(x-b_i)^n_i}
+=E(x)+ ∑_{1 ⩽ i ⩽ p} ∑_{1 ⩽ j ⩽ n_i}{a_{i,j}\F (x-b_i)^j}
+\stopformula
+où $E$ est un polynôme, où $a_{i,j}$ est un nombre complexe, où $b_i$ est un pôle de la fraction
+rationnelle $F$ et ou $n_i$ est la multiplicité du pole $b_i$. </property>
+
+<remark>pour trouver cette décomposition. Effectuer d'abord la division euclidienne du polynôme $P$ par le polynôme $Q$ pour trouver la partie entière $E$ du quotient et le reste~$R$ de la division euclidienne. </remark>
+
+<remark>puis on ecrit le développement sous la forme 
+\startformula 
+\tilde F(x):={R(x)\F Q(x)}= ∑_{1 ⩽ i ⩽ p}\  ∑_{1 ⩽ j ⩽ n_i}{a_{i,j}\F (x-b_i)^j}
+\stopformula
+Et on détermine les coefficients $a_{i,j}$ en considérant la parité de $R$ et $Q$, en calculant des valeurs en certains points $x$ de la fraction rationnelle $\tilde F$, des limites du type $\tilde F(x)x^k$ en $\pm ∞$ ou encore en utilisant la formule (bourrine mais qui marche toujours) 
+\startformula 
+a_{i,j}={1\F (n_i-j)!}\Q(\tilde F(x)(x-b)^{n_i}\W)^{(n_i-j)}(b).
+\stopformula</remark>
+
+<property>Pour chaque fraction rationnelle $F$ réelle, il existe une unique décomposition en éléments simples 
+sur le corps $ ℝ$ de la forme
+\startformula 
+F(x)=E(x)+ ∑_{1 ⩽ i ⩽ p} ∑_{1 ⩽ j ⩽ n_i}\ {a_{i,j}\F (x-b_i)^j}
++ ∑_{ ⩽ i ⩽ p'}\  ∑_{1 ⩽ j ⩽ m_i}{ α_{i,j}x+ β_{i,j}\F (x-z_i)(x-\overline z_i)}
+\stopformula
+où $E$ est un polynôme réel, où $a_{i,j}$ est un nombre réel, où $b_i$ est un pôle réel de la fraction
+rationnelle $F$ et ou $n_i$ est la multiplicité du pole $b_i$, où $ α_{i,j}$ et $ β_{i,j}$ sont deux nombres réels, où $z_i$ est un pôle complexe non réel de la fraction
+rationnelle $F$ et ou $m_i$ est la multiplicité des poles conjugués $z_i$ et $\overline{z_i}$.</property>
+
+<remark>pour trouver cette décomposition. On effectue la décomposition en éléments simples sur $ ℂ$ puis on rassemble les termes complexes conjugués pour obtenir la décomposition 
+en éléments simples sur $ ℝ$. </remark>
+
+
+<concept t=" [Index=Primitives!des fractions rationnelles] Intégration des fractions rationnelles">
+Pour intégrer une fraction rationnelle, on la décompose en éléments simples puis on intégre chaque élément simple.
+\medskip
+
+<remark>C'est la décomposition en éléments simples sur $ ℝ$ qui permet d'intégrer les fractions rationnelles réelles, donc il faut savoir la faire. </remark>
+
+
+
+</subsection><subsection t=" Fractions rationnelles de fonctions élémentaires. ">
+
+
+<concept t=" [Index=Primitives!des fonctions du type@des fonctions du type $F(\cos x,\sin x)$] Fraction rationnelle $F(\cos x,\sin x)$. ">
+<property>Soit $F$ une fraction rationnelle. Pour calculer une primitive, de la fonction $G:x ↦ F(\cos x,\sin x)$, on peut utiliser plusieurs méthodes : \pn
+1) (méthode générale) On procède au changement de variable $x=2\arctan t$, \pn c'est à dire $t=\tan{x\F2}$, pour obtenir que 
+\startformula 
+\int F(\cos x,\sin x)\d x=\int F\Q({1-t^2\F1+t^2},{2t\F 1+t^2}\W) ×{2\F1+t^2}\d t
+\stopformula
+et se ramener au calcul d'une primitive d'une fraction rationnelle. 
+\medskip
+\noindent
+2) (méthode partielle) on pose $x=\arcsin t$ , c'est à dire $t=\sin x$ sur un intervalle ou $\sin'(x)=\cos(x)>0$ par exemple) pour obtenir que 
+\startformula 
+\int F(\cos x,\sin x)\d x=\int F\Q(t,\sqrt{1-t^2}\W){1\F\sqrt{1-t^2}}\d t
+\stopformula
+Si la fonction $G$ est impaire, cela marche bien en général. 
+\medskip
+\noindent
+3) (méthode partielle) on pose $x=\arccos t$ , c'est à dire $t=\cos x$ sur un intervalle ou $\cos'(x)=-\sin(x)> 0$ par exemple) pour obtenir que 
+\startformula 
+\int F(\cos x,\sin x)\d x=-\int F\Q(t,-\sqrt{1-t^2}\W){1\F\sqrt{1-t^2}}\d t
+\stopformula</property>
+
+
+
+<concept t=" [Index=Primitives!des fonctions du type@des fonctions du type $F(\ch x,\sh x)$] Fraction rationnelle $F(\ch x,\sh x)$. ">
+<property>Soit $F$ une fraction rationnelle. Pour calculer une primitive, de la fonction $G:x ↦ F(\ch x,\sh x)$, on peut utiliser plusieurs méthodes : \pn
+1) (méthode générale) On procède au changement de variable $x=2\argth t$, c'est à dire $t=\th{x\F2}$, pour obtenir que 
+\startformula 
+\int F(\ch x,\sh x)\d x=\int F\Q({1+t^2\F1-t^2},{2t\F 1-t^2}\W) ×{2\F1-t^2}\d t
+\stopformula
+et se ramener au calcul d'une primitive d'une fraction rationnelle. 
+\medskip
+\noindent
+2) (méthode partielle) on pose $x=\argsh t$ , c'est à dire $t=\sh x$, pour obtenir que 
+\startformula 
+\int F(\ch x,\sh x)\d x=\int F\Q(\sqrt{1+t^2},t\W){1\F\sqrt{1+t^2}}\d t
+\stopformula</property>
+
+\medskip
+\noindent
+3) (méthode partielle) on pose $x=\argch t$ , c'est à dire $t=\ch x$ sur un intervalle ou $\ch'(x)=-\sh(x)> 0$ par exemple) pour obtenir que 
+\startformula 
+\int F(\ch x,\sh x)\d x=-\int F\Q(t,-\sqrt{t^2-1}\W){1\F\sqrt{t^2-1}}\d t
+\stopformula
+Si la fonction $G$ est impaire, cela marche bien en général. 
+
+
+
+
+<concept t=" [Index=Primitives!des fonctions du type@des fonctions du type $F\Q(x,\root n\of{ax+b \F cx+d}\W)$] Fraction rationnelle $F\Q(x,\root n\of{ax+b \F cx+d}\W)$ avec $ad-bc≠0$. ">
+<property>Soit $F$ une fraction rationnelle et soient $(a,b,c,d) ∈ ℝ^4$ tels que $ad-bc≠0$. 
+Pour calculer une primitive, de la fonction $x ↦ F(x, \root n\of{ax+b \F cx+d})$, on procède au changement de variable 
+$t=\root n\of{ax+b \F cx+d}$ pour obtenir que 
+\startformula 
+\int F\Q(x, \root n\of{ax+b \F cx+d}\W)\d x=\int F\Q(-{dt^n-b\F ct^n-a}, t\W) × n{ad-bc\F(ct^n-a)^2}t^{n-1}\d x
+\stopformula</property>
+
+peut utiliser plusieurs méthodes : \pn
+1) (méthode générale) On procède au changement de variable $x=2\argth t$, c'est à dire $t=\th{x\F2}$, pour obtenir que 
+\startformula 
+\int F(\ch x,\sh x)\d x=\int F\Q({1+t^2\F1-t^2},{2t\F 1-t^2}\W) ×{2\F1-t^2}\d t
+\stopformula
+et se ramener au calcul d'une primitive d'une fraction rationnelle. 
+
+
+
+
+<concept t=" [Index=Primitives!des fonctions du type@des fonctions du type $F(x, \sqrt{ax^2+bx+c})$]  Fraction rationnelle $F(x, \sqrt{ax^2+bx+c})$ avec $a≠0$. ">
+\Propriete []  Soit $F$ une fraction rationnelle et soient $(a,b,c) ∈ ℝ^3$ tels que $a≠0$. 
+Pour calculer une primitive, de la fonction $x ↦ F(x, \sqrt{ax^2+bx+c})$, on commence par metttre $ax^2+bx+c$ sous la forme canonique pour obtenir que 
+\startformula 
+\int F\Q(x,\sqrt{ax^2+bx+c}\W)\d x=\int F\Q(x, \sqrt{a\Q[\Q(x-{b\F2a}\W)^2-\Delta\W]}\W)\d x
+\stopformula
+Selon le signe du discriminant, on procède alors aux changements de variables qu'il faut pour faire apparaitre : \pn
+la fonction $\sqrt{x^2-1}$ auquel cas, on pose ensuite $x=\ch(u)$. \pn
+la fonction $\sqrt{x^2+1}$ auquel cas, on pose ensuite $x=\sh(u)$. \pn
+la fonction $\sqrt{1-x^2}$ auquel cas, on pose ensuite $x=\cos(u)$ ou $x=\sin(u)$. 
+
+
+</chapter>
+</part>

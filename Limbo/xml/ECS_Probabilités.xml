@@ -1,0 +1,33 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+<include path="xml/Limbo_Probabilités.xml" as="probabilités"/>
+
+<chapter t="Sommes, produits, récurrences">
+
+<remark>
+Les outils de ce chapitre font parti des bases importantes. 
+Utilisation en ds/concours : 
+\startList\item Récurrence : très fréquente (certaines questions se traitent exclusivement par récurrence)
+\item Somme : très fréquente (utilisées pour exprimer et manipuler les quantités étudiées dans les problèmes) 
+\item Produit : rare (on leur préfère les sommes : un produit pouvant généralement  etre transformé en somme via un logarithme)
+\stopList
+En concours, il ne devrait pas y avoir de problème portant uniquement sur ces notions. 
+</remark>
+
+<section t="Espaces probabilisables">
+
+<ref from="probabilités" path="section[@t=='Espaces probabilisables']"/>
+
+</section>
+
+<section t="Espace probabilisé">
+<ref from="probabilités" path="section[@t=='Espace probabilisé']"/>
+</section>
+
+<section t="Probabilités conditionnelles">
+<ref from="probabilités" path="section[@t=='Probabilités conditionnelles']"/>
+</section>
+
+</chapter>
+</part>
+

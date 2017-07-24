@@ -1,0 +1,31 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+<include path="xml/Limbo_Logique.xml" as="logique"/>
+
+<chapter t="Logique">
+
+<remark>
+Les outils de ce chapitre font parti des bases importantes, ils sont utilisés en concours pour :
+\startList\item Reconnaître le type d'une suite et identifier ses éléments caractéristiques
+\item Trouver une formule pour $u_n$
+\item Utiliser la somme des termes d'une suite au cours d'un calcul complexe.
+\stopList
+Utilisation en ds/concours : fréquente.
+</remark>
+
+<section t="Assertions et propositions logiques">
+
+<ref from="logique" path="section[@t=='Propositions']"/>
+
+</section>
+
+<section t="Opérateurs">
+<ref from="logique" path="section[@t=='Opérateurs']"/>
+</section>
+
+<section t="Raisonnements classiques">
+<ref from="logique" path="section[@t=='Raisonnements classiques']"/>
+</section>
+</chapter>
+</part>
+

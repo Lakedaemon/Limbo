@@ -1,0 +1,29 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+<include path="xml/Limbo_Espaces_vectoriels.xml" as="ev"/>
+
+<chapter t="Espaces vectoriels">
+
+<remark>
+Les outils de ce chapitre font parti des bases importantes, ils sont utilisés en concours pour :
+\startList\item Reconnaître le type d'une suite et identifier ses éléments caractéristiques
+\item Trouver une formule pour $u_n$
+\item Utiliser la somme des termes d'une suite au cours d'un calcul complexe.
+\stopList
+Utilisation en ds/concours : fréquente.
+</remark>
+
+<section t="Espaces vectoriels">
+<ref from="ev" path="section[@t=='Espaces vectoriels']"/>
+</section>
+
+<section t="Espaces de dimension finie">
+<ref from="matrices" path="section[@t=='Espaces de dimension finie']"/>
+</section>
+
+<section t="Applications linéaires">
+<ref from="matrices" path="section[@t=='Applications linéaires']"/>
+</section>
+</chapter>
+</part>
+

@@ -1,0 +1,115 @@
+\startproduct Limbo_cours
+\project project_Res_Mathematica_cours
+
+\def\rare#1{{\darkgray #1}}
+
+\starttext
+\centerline{\bfd Mathématiques}
+\centerline{\tf (document de cours)}
+\blank[big]
+\centerline{\bfb ECS 1ère année}
+\blank[big]
+\centerline{Olivier Binda}
+\blank[medium]
+\centerline{\currentdate}
+\stoptext
+%\ctxlua{lxml.load("calcul", 'xml/Limbo_Méthodes_de_calcul.xml')}%
+%\ctxlua{L.insertSubsection("calcul", 'section[attribute("t")=="Sommes"]')}%
+%\meaning\xmlprocessfile
+%\meaning\doxmlprocess
+%\ctxlua{L.test()}%
+
+
+\startxmlsetups xml:lim
+\xmlsetsetup{suites}{*}{-}
+% sectioning
+\xmlsetsetup{suites}{part|chapter|section|subsection|subsubsection|concept}{xml:groupl}
+% grouping 
+\xmlsetsetup{suites}{group}{xml:groupl}
+%\xmlsetsetup{suites}{combination}{xml:combination}
+%\xmlsetsetup{maths}{combination/property}{xml:combination/statement}
+% statements (primary objects)
+\xmlsetsetup{suites}{corollary|definition|lemma|notation|property|theorem|}{xml:statementl} 
+% best practice (secondary info)
+\xmlsetsetup{suites}{craft|uses|item}{xml:*}
+% illustration
+\xmlsetsetup{suites}{figure|example}{xml:*} 
+% text (tertiary info)
+\xmlsetsetup{suites}{remark|remarks|text}{xml:*} 
+%\xmlsetsetup{suites}{remarks/remark}{xml:remarks:remark} 
+% exercises
+\xmlsetsetup{suites}{exercise}{xml:*}
+% proofs
+\xmlsetsetup{suites}{proof}{xml:*}
+\stopxmlsetups 
+
+\xmlregistersetup{xml:lim} 
+
+\startxmlsetups xml:groupl
+\ctxlua{L.processGroup("#1")}%
+\stopxmlsetups
+\startxmlsetups xml:statementl
+\ctxlua{L.processStatement("#1")}%
+%\placeleftfigure{}{\useMPgraphic{Frame}}%
+\stopxmlsetups
+
+\startxmlsetups xml:combination
+\ctxlua{L.processCombination("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:example
+\ctxlua{L.processExample("#1")}%
+\stopxmlsetups
+
+
+\xmlprocessfile{maths}{xml/ECS_Suites_fondamentales.xml}{}
+\iffalse
+\xmlprocessfile{maths}{xml/Limbo_Dérivées_et_primitives.xml}{}
+\xmlprocessfile{maths}{xml/Limbo_Suites.xml}{}
+\xmlprocessfile{maths}{xml/Limbo_Systèmes.xml}{}
+\xmlprocessfile{maths}{xml/Limbo_Matrices.xml}{}
+\xmlprocessfile{maths}{xml/Limbo_Logique.xml}{}
+\xmlprocessfile{maths}{xml/Limbo_Nombres_complexes.xml}{}
+\xmlprocessfile{maths}{xml/Limbo_Ensembles_et_applications.xml}{}
+\xmlprocessfile{maths}{xml/Limbo_Limites.xml}{}
+\xmlprocessfile{maths}{xml/Limbo_Polynômes.xml}{}
+\xmlprocessfile{maths}{xml/Limbo_Probabilités.xml}{}
+\xmlprocessfile{maths}{xml/Limbo_Variables_aléatoires.xml}{}
+\fi
+\iffalse
+
+
+
+
+
+
+
+
+
+
+\xmlprocessfile{maths}{xml/Limbo_Développements_limités.xml}{}
+
+\xmlprocessfile{maths}{xml/Limbo_Espaces_vectoriels.xml}{}
+\xmlprocessfile{maths}{xml/Limbo_Continuité.xml}{}
+
+\xmlprocessfile{maths}{xml/Limbo_Dérivation.xml}{}
+\xmlprocessfile{maths}{xml/Limbo_Courbes_paramétrées.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Structures_algèbriques.xml}{}
+\fi
+
+\starttext
+\chapter{Fiches}
+\completeRecords
+\stopcolumns
+\stoptext
+
+\starttext
+\completecontent[criterium=all]
+\stoptext
+
+\iffalse
+\starttext
+\completeindex
+\stoptext
+\fi
+\stopproduct

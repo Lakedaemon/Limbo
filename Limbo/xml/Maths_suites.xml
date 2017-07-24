@@ -1,0 +1,1211 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Analyse">
+
+<chapter t="Suites numériques">         
+
+<section t="Suites">
+
+<text>Dans cette section, le symbole $𝕂$ désigne $ℝ$ ou $ℂ$ et le symbole $I$ désigne une partie non vide de $ℕ$.</text>
+
+<subsection t="Suites">
+
+<concept t="suite">
+<text>Une suite de nombres est essentiellement une liste ordonnée de nombres finie ou non, 
+chaque élément de la liste étant uniquement détérminé par son indice.</text>
+<definition h="$\varnothing≠I⊂ℕ$">Une suite d'éléments de $𝕂$ indicée par $I$ est une application $u:I→𝕂$</definition>
+<remarks>
+<remark>La suite $u:I→𝕂$ sera noté plus simplement $u=(u_n)_{n ∈ I}$. </remark> 
+<remark>La plupart du temps, nous auront $I= ℕ$ ou $I=ℕ^*$.</remark>
+<remark>Bien qu'elles soient définies à l'aide d'applications, nous n'allons pas nous servir des suites comme nous nous servons des fonctions.</remark>
+</remarks>
+<example>$(n^2)_{n∈ℕ}$, \quad $(\e^n)_{n∈ℕ}$ \Et $({1\F n})_{n∈ℕ^*}$</example>
+</concept>
+
+<concept t="ensemble">
+<text>L'ensemble des suites d'éléments de $𝕂$ indicées par $I$ 
+est noté $𝕂^I$.</text>
+<definition>\startformula
+𝕂^I=ℱ(I,𝕂)
+\stopformula</definition>
+<remark>
+Cette nouvelle notation de $ℱ(I,𝕂)$, l'ensemble des applications de $I$ dans~$𝕂$, 
+permet de bien marquer la différence d'usage du même objet, vu comme une suite ou comme une application.</remark>
+</concept>
+
+<concept t="addition\\multiple\\produit">
+<text>La somme (resp. Le produit) des suites est la suite des sommes (resp. produits).</text>
+<combination>
+<definition h="$u,v∈𝕂^I$">
+\startformula
+u+v:=(u_n+v_n)_{n∈ I}
+\stopformula
+</definition>
+<definition h="$λ∈𝕂$, $u∈𝕂^I$">
+\startformula
+λ\cdot u:=(λu_n)_{n∈ I}
+\stopformula
+</definition>
+<definition h="$u,v∈𝕂^I$">
+\startformula
+u×v:=(u_n×v_n)_{n∈I}
+\stopformula
+</definition>
+</combination>
+<remark>Les relations précédentes affirment essentiellement que 
+\startformula
+\startSystem
+\NC (λu+μv)_n\NC =λu_n+μv_n\NR
+\NC (u×v)_n\NC = u_n×v_n
+\stopSystem
+\qquad (n∈I).
+\stopformula
+</remark>
+<example>$\displaystyle 2.(n^2)_{n ∈ ℕ}+(\e^n)_{n ∈ ℕ}×\Q({1\F n+1}\W)_{n∈ℕ}=\Q(2n^2+{\e^n\F n+1}\W)_{n∈ℕ}$.</example>
+</concept>
+
+<concept t="algèbre" p="-β+β">
+<text>Les lois $+$, $⋅$ et $×$ des suites héritent leurs propriétés (associativité, commutativité, distributivité, existence d'éléments neutres et d'inverses) 
+des lois $+$, $⋅$, $×$ de $𝕂$.</text>
+<property h="$\varnothing ≠I⊂ℕ$">$(𝕂^I,+,⋅,×)$ est une $𝕂$-algèbre commutative.</property>
+<remark>La suite nulle $0=(0)_{n∈I}$ est un élément neutre pour la loi $+$ des suites
+\startformula 
+0+u=u+0=u\qquad (u∈𝕂^I).
+\stopformula</remark>
+<remark>La suite constante $1=(1)_{n∈I}$ est un élément neutre pour la loi $×$ des suites
+\startformula 
+1×u=u×1=u\qquad(u∈𝕂^I).
+\stopformula</remark>
+</concept>
+
+<concept t="suite\\extraite" p="-β+β">
+<text>Une suite extraite d'une suite $u∈ℂ^I$ est une suite de terme général $u_{φ(n)}$ où $φ: J→I$ est une application strictement croissante.</text>
+<property h="$u∈𝕂^I$, $φ:J↗I$">
+\startformula
+u_φ:=\Q(u_{φ(n)}\W)_{n∈J}
+\stopformula
+</property>
+<example>
+\startformula
+\startmatrix
+\NC n       \NC 0            \NC 1       \NC 2       \NC  3      \NC 4        \NC 5       \NC ⋯\NR
+\NC u_{φ(n)}\NC u_{φ(0)}     \NC u_{φ(1)}\NC u_{φ(2)}\NC u_{φ(3)}\NC  u_{φ(4)}\NC u_{φ(5)}\NC ⋯\NR
+\NC u_{n+1} \NC u_1          \NC u_2     \NC u_3     \NC  u_4    \NC u_5      \NC u_6     \NC ⋯\NR
+\NC u_{2n}  \NC u_0          \NC u_2     \NC u_4     \NC  u_6    \NC u_8      \NC u_{10}  \NC ⋯\NR
+\NC u_{n^2} \NC u_0          \NC u_1     \NC u_4     \NC  u_9    \NC u_{16}   \NC u_{25}  \NC ⋯\NR
+\stopmatrix
+\stopformula
+</example>
+<remark>Une suite extraite de $u=(u_0,u_1,u_2,u_3,u_4,u_5,u_6,...)$ est une suite fabriquée 
+en rayant certains éléments de $u$ et en gardant les autres (dans le même ordre). Par exemple
+\startformula 
+v=(u_1, u_4, u_5, u_{15}, u_{16}, u_{18}, u_{19}, u_{20}, u_{45}, \cdots)
+\stopformula</remark>
+</concept>
+
+<concept t="décalage\\d'indice"><text>A partir d'une suite, on peut en fabriquer d'autres en décalant ses éléments</text>
+<property h="$u∈𝕂^I$, $Δ∈ℤ$">
+\startformula
+\mc T_Δ(u):=(u_{n+Δ})_{n∈I-Δ}
+\stopformula
+</property>
+<remark>Pour $d⩾0$, les suites $v:=\mc T_d(u)$ et $w:=\mc T_{-d}(u)$ possèdent les mêmes éléments que $u$, décalés de $d$ vers la droite (resp. vers la gauche).
+\startformula
+\startmatrix
+\NC n  \NC 0  \NC 1       \NC ⋯  \NC  Δ    \NC  Δ+1     \NC ⋯\NC n      \NC n+1      \NC ⋯\NR
+\NC u_n\NC u_0\NC u_1     \NC ⋯  \NC u_Δ   \NC  u_{Δ+1} \NC ⋯\NC u_n    \NC u_{n+1}  \NC ⋯\NR
+\NC v_n\NC u_Δ\NC u_{Δ+1} \NC ⋯  \NC u_{2Δ}\NC  u_{2Δ+1}\NC ⋯\NC u_{n+Δ}\NC u_{n+Δ+1}\NC ⋯\NR
+\NC w_n\NC    \NC         \NC ⋯  \NC u_0   \NC  u_1     \NC ⋯\NC u_{n-Δ}\NC u_{n-Δ+1}\NC ⋯\NR
+\stopmatrix
+\stopformula
+</remark>
+</concept>
+
+</subsection>
+<subsection t="Suites bornées">
+
+<concept t="suites bornées">
+<text>Une suite est bornée \ssi ses éléments appartiennent tous à un même disque.</text>
+<definition h="$u∈𝕂^I$">
+\startformula
+\NC u \text{ est bornée par } M⩾0 \NC  \ ⟺\   (∀n∈I,|u_n| ⩽ M)\NR
+\stopformula
+</definition>
+<remark>Une suite $u∈𝕂^I$ est dite bornée \ssi il existe un nombre $M⩾0$ par lequel elle est bornée.</remark>
+<example>Pour $z∈ℂ$, la suite $(z^n)_{n ∈ ℕ}$ est bornée si, et seulement si $|z|⩽1$.</example> 
+</concept>
+
+<concept t="algèbre des suites bornées"><text>La somme, la multiplication par une constante et le produit de suites bornées est une suite bornée</text>
+<property>L'ensemble des suites bornées de $𝕂^ℕ$ est une sous-algèbre de $(𝕂^ℕ,+,⋅,×)$.</property>
+</concept>
+
+<concept t="décalage d'indice"><text>Le fait qu'une suite soit bornée ne dépend pas de ses premiers éléments, mais dépend de ses éléments $u_n$ pour les grandes valeurs de $n$.</text>
+<property h="$u ∈ 𝕂^ℕ$, $d∈ℕ$">
+\startformula
+u \text{ est bornée} \ ⟺\  \mc T_d(u) \text{ est bornée}
+\stopformula
+</property>
+</concept>
+
+<concept t="partie réelle\\partie imaginaire"><text>Une suite complexe est bornée \ssi la suite de ses parties réelles 
+et la suite de ses parties imaginaires le sont.</text>
+<property h="$x,y∈ℝ^I$">
+\startformula
+x+iy \text{ est bornée } \ ⟺\  x \Et y \text{ sont bornées }
+\stopformula
+</property>
+<uses><item>Transformer un problème complexe en deux problèmes réels</item>
+</uses>
+<example>$(\e^{in})_{n∈ℕ}$ est bornéee \ssi $(\cos(n))_{n∈ℕ}$ et $(\sin(n))_{n∈ℕ}$ sont bornéees</example>
+</concept>
+
+</subsection><subsection t="Suites convergentes">
+
+<concept t="notation" p="-β+β"><definition h="$u∈ℂ^ℕ$">\startformula
+u→ℓ ⟺ \Choices{
+	\NC u \text{ tends vers } ℓ\NR
+	\NC \lim(u)=ℓ
+}\stopformula
+</definition>
+</concept>
+
+<concept t="limite (finie)">
+<definition h="$u∈𝕂^ℕ$, $ℓ∈𝕂$">
+\startformula
+u → ℓ\  ⟺\  \Q(∀ε>0, ∃ N∈ℕ:∀ n⩾N, |u_n-ℓ|⩽ε\W).
+\stopformula</definition>
+<remark>Lorsqu'elle existe, la limite $ℓ$ de la suite $u$ est unique et on la note $ℓ=\lim u$ ou $ℓ=\lim\limits_{n\to +∞}u_n$.</remark> 
+<remark>Lorsque $u$ converge vers $ℓ∈𝕂$, on dit que la suite converge, qu'elle est convergente. 
+\startformula
+u \text{ converge }\ ⟺\ ∃ℓ∈𝕂: u \text{ converge vers } ℓ.
+\stopformula</remark>
+<remark>Lorsque la suite $u$ ne converge pas, on dit qu'elle diverge, qu'elle est divergente.
+\startformula
+u \text{ diverge }\ ⟺\ ∀ℓ∈𝕂: u \text{ ne converge pas vers } ℓ.
+\stopformula</remark>
+
+<skill>
+\startitemize[n]Pour prouver qu'une suite $u$ converge vers $ℓ$ 
+\item Intuiter la limite $\ell$ vers laquelle la suite tends. 
+\item Fixer un nombre $ ε> 0$ quelconque
+\item Majorer la quantité $|u_n-\ell|$, en cherchant à la rendre plus petite que $ε$ pour des entiers $n$ plus grand 
+qu'un entier $N$, à déterminer, sur lequel on pourra jouer pour obtenir une bonne estimation de $u_n$.
+\stopitemize
+</skill>
+</concept>
+
+<concept t="condition nécessaire">
+<property h="$u∈𝕂^ℕ$">
+\startformula
+u\text{ converge}\ ⟹\ u \text{ bornée} 
+\stopformula
+</property>
+</concept>
+
+<concept t="partie réelle\\imaginaire">
+<theorem h="$x,y∈ℝ^ℕ$, $a,b∈ℝ$">
+\startformula
+\startSystem
+\NC x→a\NR
+\NC y→b
+\stopSystem\ ⟺\ x+iy→a+ib
+\stopformula
+</theorem>
+</concept>
+
+<concept t="module\\valeur absolue">
+<property h="$u∈𝕂^ℕ$, $ℓ∈𝕂$">
+\startformula
+u→ℓ\ ⟹\ |u|→|ℓ|
+\stopformula</property>
+</concept>
+
+<concept t="limite nulle">
+<text>Une suite $u$ converge vers $ℓ$ \ssi la suite $u-ℓ$ converge vers $0$.</text>
+<property h="$u∈𝕂^ℕ$, $ℓ∈𝕂$">
+\startformula
+u → ℓ\ ⟺\ (u-\ell) →0 
+\stopformula
+</property>
+<remark>Il est plus facile de montrer que la suite $u-\ell$ converge vers $0$ que de montrer que la suite $u$ converge vers $\ell$. </remark>
+</concept>
+
+<concept t="principe des gendarmes\\complexes"><text>Une suite complexe inférieure en module à une suite de limite nulle converge vers $0$.</text>
+<property h="$u∈ℂ^ℕ$, $α∈ℝ^ℕ$"> 
+\startformula 
+\SystemR{
+\NC |u|⩽α\NR
+\NC α→0}\ 
+⟹\ u→0
+\stopformula
+</property>
+</concept>
+
+<concept t="Addition\\Produit">
+<!--
+<combination>
+<theorem h="$u∈𝕂^ℕ$ convergente, $λ∈ 𝕂$">
+\startformula
+\lim(u×v) = \lim(u)×\lim(v)
+\stopformula
+</theorem>
+<theorem h="$u∈𝕂^ℕ$ convergente, $λ∈ 𝕂$">  
+\startformula
+\lim(λ.u) = λ.\lim(u)
+\stopformula
+</theorem>
+<theorem h="$u∈𝕂^ℕ$ convergente, $λ∈ 𝕂$">
+\startformula
+\lim(u+v) = \lim(u)+\lim(v)
+\stopformula
+</theorem>
+</combination>-->
+<theorem h="$u,v∈𝕂^ℕ$ convergentes, $λ∈ 𝕂$"> 
+Les suites $λu$, $u+v$ et $u×v$ sont convergentes et 
+\startformula
+\startAlign
+\NC\lim(λ.u) \NC = \NC λ.\lim(u),\NR
+\NC\lim(u+v) \NC = \NC \lim(u)+\lim(v),\NR
+\NC\lim(u×v) \NC = \NC \lim(u)×\lim(v).
+\stopAlign
+\stopformula
+</theorem>
+</concept>
+
+<concept t="limite non nulle">
+<text>Une suite de limite non nulle ne s'annule plus à partir d'un certain rang.</text>
+<property h="$u∈𝕂^ℕ$">
+\startformula 
+\lim u≠ 0\ ⟹\ (∃N⩾0: ∀n⩾N, u_n≠0).
+\stopformula
+</property>
+</concept>
+
+<concept t="quotient"><text>Si $\lim v≠ 0$, alors la suite $u/v:=(u_n/v_n)_{n ⩾ N}$ est définie à partir d'un certain rang.</text>
+<theorem h="$\lim(v)≠0$"> 
+\startformula 
+\lim\Q({u\F v}\W)={\lim u\F\lim v}
+\stopformula
+</theorem>
+</concept>
+
+<concept t="Cv+Cv=Cv\\Cv+Dv=Dv\\Dv+Dv=?">
+<property h="$u,v ∈𝕂^ℕ$">
+\startformula
+\startSystem
+\NC u\text{ converge}\NR
+\NC v\text{ diverge}
+\stopSystem
+\ ⟹ \  u+v\text{ diverge}
+\stopformula</property>
+<remark>Si $u$ et $v$ sont deux suites divergentes, la suite $u+v$ peut converger ou diverger : 
+\startitemize[1]
+\item La somme de $(n)_{n⩾0}$ et $(-n)_{n⩾0}$ est la suite nulle, qui converge. 
+\item La somme de $(n)_{n⩾0}$ et $(n)_{n⩾0}$ diverge. 
+\stopitemize
+</remark>
+</concept>
+
+<concept t="algèbre des suites convergentes">
+<text>La somme, la multiplication par une constante et le produit de suites convergentes est une suite convergente</text>
+<property>L'ensemble des suites convergentes de $𝕂^ℕ$ est une sous-algèbre de $(𝕂^ℕ,+,.,×)$.</property>
+</concept>
+
+<concept t="algèbre des suites de limite nulle">
+<text>La somme, la multiplication par une constante et le produit de suites de limite nulle est une suite de limite nulle</text>
+<property>L'ensemble des suites de $𝕂^ℕ$ convergeant vers $0$ est une sous-algèbre de $(𝕂^ℕ,+,.,×)$.</property>
+</concept>
+
+
+</subsection><subsection t="Suites extraites" p="-β+β">
+
+
+<property h="$u→ℓ$">
+Toute suite extraite de la suite $u$ converge vers $ℓ$. 
+</property>
+
+<concept>
+<text>Toute suite extraite d'une divergente diverge également (vers la même limite infinie si la première suite diverge vers $±∞$).</text>
+<property h="$v$ suite extraite de $u$">
+\startformula
+u\ \startChoices
+\NC \text{diverge}\NR
+\NC \text{diverge vers $+∞$}\NR
+\NC \text{diverge vers $-∞$}\NR
+\stopChoices
+\ ⟹ \  v\ \startChoices
+\NC \text{diverge}\NR
+\NC \text{diverge vers $+∞$}\NR
+\NC \text{diverge vers $-∞$}\NR
+\stopChoices
+\stopformula
+</property>
+
+<skill>Pour montrer que $u$ diverge, on peut exhiber deux suites $v$ et $w$ extraites de $u$ convergeant respectivement vers $\ell$ et $\ell'$ avec $\ell≠\ell'$.</skill> 
+<example>La suite de terme général $u_n=(-1)^n$ diverge. </example>
+</concept>
+
+</subsection>
+
+</section><section t="Suites réelles">
+
+<subsection t="Ordre réel">
+
+<concept t="notation ensembliste"><text>Pour simplifier les énoncés mathématiques, nous allons employer les notations suivantes</text>
+<definition h="$A⊂ℝ$, $x∈ℝ$">
+\startformula
+\startAlign
+\NC A ⩽ x\NC \ ⟺\  \NC ∀a∈A, a⩽x\NR
+\NC x ⩽ A\NC \ ⟺\  \NC ∀a∈A, x⩽a\NR
+\stopAlign
+\stopformula
+</definition>
+</concept>
+
+
+<concept t="minorant\\majorant">
+<text>Un minorant (resp. majorant) d'un ensemble est un nombre inférieur (resp. supérieur) ou égal à tous les éléments de l'ensemble.
+</text>
+<definition h="$A⊂ℝ$"> 
+\startformula
+\startAlign
+\NC x\text{ minorant de } A \NC \ ⟺\  \NC x⩽A\NR
+\NC x\text{ majorant de } A \NC \ ⟺\  \NC A⩽x\NR
+\stopAlign
+\stopformula
+</definition>
+<remarks>
+<remark>Une partie $A ⊂ ℝ$ est dite minorée (resp. majorée) si elle admet un minorant (resp. un majorant).</remark>
+<remark>Les minorants et majorants de $A$, lorsqu'ils existent, ne sont pas uniques et n'appartiennent pas forcément à $A$.</remark>
+</remarks>
+</concept>
+
+<concept t="plus petit\\plus grand\\élément">
+<text>Le plus petit (resp. grand) élément d'une partie de $ℝ$ est l'unique minorant (resp. majorant) de cette partie qui lui appartient.</text>
+<definition h="$x∈A⊂ℝ$">
+\startformula
+\startAlign
+\NC x\text{ plus petit élément de } A \NC \ ⟺\  x⩽A\NR
+\NC x\text{ plus grand élément de } A \NC \ ⟺\  A⩽x
+\stopAlign
+\stopformula</definition>
+<remarks>
+<remark>S'il existe, le plus petit (resp. grand) élément de $A$ est unique et il est noté $\min A$ (resp. $\max A$).</remark>
+<remark>Un ensemble fini et non vide de nombres réels admet toujours un plus petit et un plus grand élément.</remark>
+<remark>Le plus petit (resp. grand) élément de $A$ est le plus grand des minorants (resp le plus petit des majorants) de $A$. </remark>
+</remarks>
+</concept>
+
+<concept t="borne inférieure\\borne supérieure">              
+<definition h="$A⊂ℝ$">
+\startformula
+\startAlign
+\NC S=\sup A \NC \ ⟺\ \NC \System{
+  \NC A ⩽ S\NR
+  \NC ∃a∈A^ℕ, \ \lim a=S}\NR
+\NC s= \inf A \NC \ ⟺\  \NC \System{
+  \NC s ⩽ A \NR
+  \NC ∃a∈A^ℕ, \ \lim a=S}
+\stopAlign
+\stopformula</definition>
+<remark>Lorsqu'elle existe,la borne supérieure (resp. inférieure) de $A$ est unique et on la note $\sup A$ (resp. $\inf A$).</remark>
+<remark>Par convention, on note $\sup ∅=- ∞$ et $\inf ∅=+ ∞$.
+De même, on note $\sup A=+ ∞$ (resp. $\inf A=- ∞$) pour chaque partie $A$ de $ ℝ$ non majorée (resp. non minorée). 
+</remark>
+</concept>
+
+<concept t="existence">
+<property>Toute partie majorée (resp. minorée) non vide de $ℝ$ admet une borne supérieure
+(resp. inférieure).
+</property>
+<remark>Une borne supérieure (resp. inférieure) n'est pas forcément un plus petit (resp. un plus grand) élément. 
+Ainsi,
+\startformula 
+\sup \{x ∈ ℚ:x ⩽ \sqrt2\}=\sqrt2\EtQ \sqrt2\notin ℚ.
+\stopformula</remark>
+</concept>
+
+</subsection><subsection t="Suites minorées, majorées">
+
+<concept t="suite minorée\\suite majorée">
+<definition h="$u∈ℝ^ℕ$">\startformula
+\startmatrix
+\NC u\text{ est majorée par }M\NC \ ⟺\  \NC\NC (∀n∈I, u_n ⩽ M)\NR
+\NC u\text{ est minorée par }m\NC \ ⟺\  \NC\NC (∀n∈I, m ⩽ u_n)
+\stopmatrix
+\stopformula
+</definition>
+<example>La suite $(a n^2+n+1)_{n ∈ ℕ}$ est minorée \ssi $a⩾0$ et majorée \ssi $a\Le 0$.</example>
+<remarks>
+<remark>Parler de suites minorées ou majorées n'a de sens que pour les suites réelles car il n'y a pas d'ordre dans $ℂ$ (écrire $i⩽1$ n'a pas de sens).</remark>
+<remark>$u$ est minorée \ssi l'ensemble $\{|u_n|:n ∈ ℕ\}$ admet un minorant</remark> 
+<remark>$u$ est majorée \ssi l'ensemble $\{|u_n|:n ∈ ℕ\}$ admet un majorant</remark>
+</remarks>
+</concept>
+
+<concept t="suites réelles bornées">
+<property h="$u∈ℝ^ℕ$">
+\startformula
+u \text{ est bornée} \ ⟺\  u \text{ est minorée et majorée}
+\stopformula
+</property>
+</concept>
+
+<concept t="décalage d'indice">
+<property h="$u ∈ 𝕂^ℕ$, $d∈ℕ$">
+\startformula
+u \text{ est }  \startChoices
+\NC \text{minorée}\NR
+\NC \text{majorée}
+\stopAlign \ ⟺\  \mc T_d(u)
+\text{ est }  \startChoices
+\NC \text{minorée}\NR
+\NC \text{majorée}
+\stopAlign
+\stopformula
+</property>
+<remark>Le fait qu'une suite soit minorée ou majorée ne dépend pas de ses premiers éléments, mais dépend de ses éléments $u_n$ pour les grandes valeurs de $n$.</remark>
+</concept>
+
+
+<concept t="ordre des suites">
+<definition h="$u,v∈ℝ^I$"> 
+\startformula
+u ⩽ v  \ ⟺\   (∀ n∈I,u_n ⩽ v_n)  
+\stopformula
+</definition>
+<example>On a $u⩽v$ pour  $u=(1)_{n ∈ ℕ}$ et $v=(\e^n)_{n ∈ ℕ}$.</example>
+<remarks>
+<remark>Cette relation entre suites définit un ordre sur l'ensemble $ℝ^I$. Elle est reflexive, transitive et anti-symétrique :
+\startformula
+\startmatrix
+\NC u⩽u \qquad (u∈ℝ^I) \NC\text{reflexive}\NR
+\NC (u⩽v\Et v⩽w) \ ⟹ \  (u⩽w)\qquad (u,v,w∈ℝ^I)\NC \text{transitive}\NR
+\NC (u⩽v\Et v⩽u) \ ⟹ \  (u⩽v)\qquad (u,v∈ℝ^I)\NC \text{anti-symétrique}
+\stopmatrix
+\stopformula
+</remark>
+<remark>Cet ordre des suites réelles va permettre d'écrire simplement certaines propriétés fondamentales du calcul de limite (théorème des gendarmes,…). </remark>
+</remarks>
+</concept>
+
+
+
+
+
+</subsection><subsection t="Suites convergentes">
+
+<concept t="limite par valeur inférieures\\supérieures">
+<definition h="$u→ℓ$">
+\startformula
+\Align{
+\NC u→ℓ^- \ ⟺\  (u_n⩽ℓ\Quand n→∞)\NR
+\NC u→ℓ^+ \ ⟺\  (u_n⩾ℓ\Quand n→∞)
+}
+\stopformula
+</definition>
+<example>\startformula
+\lim_{n\to+∞}{1\F n}=0^+\EtQ \lim_{n\to+∞}ℯ^{-n}=0^+
+\stopformula</example>
+</concept>
+
+<concept  t="inégalités larges">
+<text>Les inégalités larges sont conservées par passage à la limite.</text>
+<property h="$u,v∈ ℝ^ℕ$ convergentes"> 
+\startformula 
+u⩽v \ ⟹ \  \lim u ⩽ \lim v 
+\stopformula 
+</property>
+<remark>Les inégalités strictes ne sont en général pas conservées. 
+\startformula
+∀n⩾1, {1\F n}>0 \text{ mais }\lim_{n→∞}{1\F n}=0
+\stopformula</remark>
+<remark>Utilisez les inégalités larges de préférence aux inégalités strictes.</remark>
+</concept>
+
+<concept t="principe des gendarmes\\réels">
+<text>une suite encadrée par deux suites, de même limite $ℓ$, converge également vers $ℓ$.</text>
+<property t="principe des gendarmes" h="$u,v,w∈ℝ^ℕ$, $ℓ∈ℝ$">
+\startformula 
+\startSystemR
+\NC u⩽v⩽w\NR
+\NC u→ℓ\NR
+\NC w→ℓ\NR
+\stopSystemR
+\ ⟹ \ v→ℓ
+\stopformula
+</property>
+</concept>
+
+<concept t="limite strictement positive">
+<text>Une suite réelle de limite strictement positive est minorée par un nombre strictement positif à partir d'un certain rang.</text>
+<property h="$u→ℓ$">
+\startformula 
+ℓ> 0 \ ⟹ \  (u_n⩾{ℓ\F2}\Quand n→∞)
+\stopformula</property>
+</concept>
+
+<concept><text>Chaque nombre réel peut être obtenu comme la limite d'une suite de nombres rationnels.</text>
+<theorem h="$x∈R$">
+\startformula
+∃ q∈ℚ^ℕ:\quad x=\lim(q) 
+\stopformula
+</theorem>
+</concept>
+
+
+</subsection><subsection t="Suites divergent vers l'infini">
+
+
+<concept t="divergence vers $+∞$\\vers $-∞$">
+<definition h="$u∈ℝ^ℕ$">
+\startformula 
+\Align{
+\NC u → +∞  \NC ⟺ \NC(∀ M ∈ ℝ, ∃ N ∈ ℕ:∀n⩾N,u_n ⩾ M)\NR
+\NC u → -∞  \NC ⟺ \NC(∀ m ∈ ℝ, ∃ N ∈ ℕ:∀n⩾N,u_n ⩽ m)
+}
+\stopformula</definition>
+<remark>Lorsque $u$ tends ver $+∞$ (on dit également que $u$ diverge vers $+∞$), on note $\lim u=+∞$.</remark>
+<remark>Lorsque $u$ tends ver $-∞$ (on dit également que $u$ diverge vers $-∞$), on note $\lim u=-∞$.</remark>
+</concept>
+
+<concept t="addition">
+<property h="$u,v ∈ ℝ^ℕ$">
+\startformula 
+\startSystem
+\NC u→+∞\NR 
+\NC v⩾m 
+\stopSystem \ ⟹ \  u+v→+ ∞.
+\stopformula
+</property>
+<remark>Une suite convergente ou qui diverge vers $+∞$ est minorée</remark>
+</concept>
+
+<concept t="multiple">
+<property h="$u∈ℝ^ℕ$">
+\startformula
+u→+∞\ ⟹ \ ∀λ> 0, \ \startSystem
+\NC -λu→ -∞\NR
+\NC λu→ + ∞
+\stopSystem
+\stopformula
+</property>
+</concept>
+
+<concept t="produit">
+<text>Le produit  d'une suite divergent vers $+∞$ et d'une suite minorée par une constante strictement positive diverge vers $+∞$.</text>
+<property h="$u,v∈ℝ^ℕ$, $m>0$">
+\startformula
+\startSystem
+\NC u→ +∞\NR 
+\NC v ⩾ m 
+\stopSystem \ ⟹ \  uv→+ ∞.
+\stopformula
+</property>
+</concept>
+
+<concept t="inverse">
+<combination>
+<property h="$u∈ℂ_*^ℕ$">
+\startformula 
+u→ +∞ \NC \ ⟺\  {1\F u}→ 0^+
+\stopformula
+</property>
+<property h="$u∈ℂ_*^ℕ$">
+\startformula 
+u→ -∞ \ ⟺\  {1\F u}→ 0^-
+\stopformula
+</property>
+</combination>
+</concept>
+
+<concept t="principe des gendarmes">
+<property h="$u,v∈ℝ^ℕ$"> 
+\startformula 
+\System{
+\NC u⩽v\NR
+\NC u → + ∞} 
+\ ⟹ \ 
+v → + ∞
+\stopformula</property>
+</concept>
+
+
+</subsection><subsection t="Suites monotones">
+
+
+<concept t="croissantes\\décroissantes">
+<definition h="$u∈ℝ^N$"> 
+\startformula
+u \text{ est }\Choices{
+	\NC\text{croissante }\NR
+	\NC\text{strictement croissante }\NR
+	\NC\text{décroissante }\NR
+	\NC\text{strictement décroissante }
+}\ ⟺\ \Choices{
+	\NC u_{n+1} ⩾ u_n\NR
+	\NC u_{n+1} > u_n\NR
+	\NC u_{n+1} ⩽ u_n\NR
+	\NC u_{n+1} \Le u_n
+}\qquad(n⩾0)
+\stopformula
+</definition>
+</concept>
+
+
+<concept t="monotonie">
+<definition h="$u∈ℝ^N$">
+$u$ est strictement monotone (resp. monotone) \ssi
+$u$ est strictement décroissante ou strictement croissante (resp. décroissante ou croissante). 
+</definition>
+<example>La suite $\displaystyle u=\Q({2+n\F 3n+1}\W)_{n ∈ ℕ}$ est décroissante.</example>
+<remark>Pour étudier la monotonie d'une suite $u$, on étudie le signe de $u_{n+1}-u_n$</remark> 
+</concept>
+
+
+<concept t="limite\\monotonie">
+<text>Une suite croissante (resp. décroissante) converge \ssi elle est majorée (resp. minorée).</text>
+<combination>
+<theorem h="$u∈ℝ^ℕ$ croissante">
+\startformula
+\Align{[align={right,middle,left}]
+	\NC u\text{ converge} \NC \ ⟺\ \NC  u\text{ est majorée}\NR
+	\NC \lim u \NC = \NC \sup\limits_{n∈ℕ}u_n
+}
+\stopformula
+</theorem>
+<theorem h="$u∈ℝ^ℕ$ décroissante">
+\startformula
+\Align{[align={right,middle,left}]
+	\NC u\text{ converge} \NC \ ⟺\ \NC  u\text{ est minorée}\NR
+	\NC \lim u \NC = \NC \inf\limits_{n∈ℕ}u_n
+}
+\stopformula
+</theorem>
+</combination>
+</concept>
+
+
+<concept t="suites adjacentes"><text>Deux suites sont dites adjacentes si l'une est croissante, l'autre décroissante et si leur différence tends vers $0$</text>
+<definition h="$u,v∈ℝ^ℕ$">
+\startformula
+u\Et v \text{ sont adjacentes}\ ⟺\ \System{
+	\NC u \text{ croissante}\NR
+\NC v \text{ décroissante}\NR
+\NC v-u→0}
+\stopformula
+</definition>
+</concept>
+
+<concept t="théorème"><text>Prouver que deux suites sont adjacentes permet de prouver qu'elles convergent, vers la même limite qui plus est.</text>
+<theorem>
+Deux suites adjacentes convergent vers la même limite $ℓ∈ℝ$.
+</theorem>
+</concept>
+
+
+<concept t="segments emboités" p="-β">
+<theorem >
+Soit $\{[u_n,v_n]\}_{n ∈ ℕ}$ une famille de segments de $ ℝ$ vérifiant 
+\startformula 
+ ∀ n ∈ ℕ,\qquad [u_{n+1},v_{n+1}] ⊂[u_n,v_n]\qquad \mbox{et}\qquad \underbrace{\mbox{longueur de}[u_n,v_n]\to0}_{\lim(v_n-u_n)=0}
+\stopformula
+Alors, il existe un nombre réel $\ell$ tel que 
+\startformula 
+\bigcap_{n ∈ ℝ}[u_n,v_n]=\{\ell\}.
+\stopformula</theorem>
+</concept>
+
+</subsection>
+
+
+</section><section t="Comparaison">
+<subsection t="Suites dominées" p="-β+β"> 
+<concept t="suite dominée"><text>Une suite est dominée par une autre suite lorsqu'elle est toujours plus petite en module qu'un multiple de l'autre suite.</text>
+<definition h="$u,v ∈ ℂ^ℕ$">
+\startformula 
+\startChoicesR
+\NC u=O(v)\NR
+\NC u \text{ est dominée par } v\NR
+\NC u ≪ v
+\stopChoicesR
+\ ⟺\  u=αv\Avec α\text{ suite bornée} 
+\stopformula</definition>
+<remark>Lorsque $v$ ne s'annule pas, cela revient essentiellement à dire que $u/v$ est bornée.</remark>
+<remark>Avec des quantificateurs, la définition précédente devient
+\startformula
+u ≪ v\ ⟺\ \Q(∃c⩾0:∀n∈ℕ, |u_n| ⩽ c|v_n|\W).
+\stopformula
+</remark>
+<remark>En pratique, on compare presque toujours $u$ à une suite $v$ dont les termes sont (strictement) positifs.</remark>
+</concept>
+
+<concept t="transitivité"><text>Si $u$ est dominée par $v$ qui est dominée par $w$, alors $u$ est dominée par $w$.</text>
+<property h="$u,v,w∈ℂ^ℕ$">
+\startformula
+u ≪ v ≪ w \ ⟹ \  u  ≪ w
+\stopformula
+</property>
+</concept>
+
+<concept t="somme\\produit\\puissance\\multiple\\quotient">
+<text>Les relations suivantes permettent de simplifier des relations de domination faisant intervenir sommes, produit, puissances et quotients.</text>
+<combination>
+<property h="$u,v,w∈ℂ^ℕ$">
+\startformula
+\SystemR{
+	\NC u ≪ w\NR
+	\NC v ≪ w
+} \ ⟹ \  u+v ≪ w
+\stopformula
+</property>
+<property h="$u,v,U,V∈ℂ^ℕ$">
+\startformula	
+\SystemR{
+	\NC u ≪ U\NR
+	\NC v ≪ V
+} \ ⟹ \  uv ≪ UV
+\stopformula
+</property>
+</combination>
+<combination>
+<property h="$u,v∈ℂ^ℕ$, $k⩾1$">
+\startformula	
+u ≪ v \ ⟹ \  u^k ≪ v^k
+\stopformula
+</property>
+<property h="$u,v∈ℂ^ℕ$, $λ,μ∈ℂ^*$">
+\startformula	
+u ≪ v \ ⟺\  λu ≪ μv
+\stopformula
+</property>
+<property h="$u,v∈ℂ_*^ℕ$">
+\startformula	
+u ≪ v \ ⟹ \  {1\F v} ≪ {1\F u}
+\stopformula
+</property>
+</combination>
+</concept>
+
+</subsection><subsection t="Suites négligeables"> 
+
+<concept t="suite négligeable"><text>Une suite est négligeable devant une autre suite lorsqu'elle est égale au produit de cette suite par une suite de limite nulle.</text>
+<definition h="$u,v ∈ ℂ^ℕ$">
+\startformula 
+\startChoicesR
+\NC u=o(v)\NR
+\NC u \text{ est négligeable devant } v\NR
+\NC u ≺ v  \NR
+\stopChoicesR
+\ ⟺\  u= αv \Avec α → 0. 
+\stopformula</definition>
+<remark>Lorsque $v$ ne s'annule pas, cela revient à dire que $u/v$ tends vers $0$.</remark>
+</concept>
+
+<concept t="transitivité"><text>Si $u$ est négligeable devant $v$ qui est négligeable $w$, alors $u$ est négligeable devant $w$.</text>
+<property h="$u,v,w∈ℂ^ℕ$">
+\startformula
+u ≺ v ≺ w \ ⟹ \  u ≺ w
+\stopformula
+</property>
+</concept>
+
+<concept t="somme\\produit\\puissance\\multiple\\quotient">
+<text>Les relations suivantes permettent de simplifier des relations  faisant intervenir sommes, produit, puissances et quotients.</text>
+<combination>
+<property h="$u,v,w∈ℂ^ℕ$">
+\startformula
+\SystemR{
+	\NC u ≺ w\NR
+	\NC v ≺ w
+} \ ⟹ \  u+v ≺ w
+\stopformula
+</property>
+<property h="$u,v,U,V∈ℂ^ℕ$">
+\startformula	
+\SystemR{
+	\NC u ≺ U\NR
+	\NC v ≺ V
+} \ ⟹ \  uv ≺ UV
+\stopformula
+</property>
+</combination>
+<combination>
+<property h="$u,v∈ℂ^ℕ$, $k⩾1$">
+\startformula	
+u ≺ v \ ⟹ \  u^k ≺ v^k
+\stopformula
+</property>
+<property h="$u,v∈ℂ^ℕ$, $λ,μ∈ℂ^*$">
+\startformula	
+u ≺ v \ ⟺\  λu ≺ μv
+\stopformula
+</property>
+<property h="$u,v∈ℂ_*^ℕ$">
+\startformula	
+u≺ v \ ⟹ \  {1\F v} ≺ {1\F u}
+\stopformula
+</property>
+</combination>
+</concept>
+
+</subsection><subsection t="Suites équivalentes"> 
+
+<concept t="suites équivalentes"><text>Une suite est équivalente à une autre suite lorsqu'elle est égale au produit de cette suite par une suite de limite $1$.</text>
+<definition h="$u,v ∈ ℂ^ℕ$">
+\startformula 
+\startChoices
+\NC u∼v\NR
+\NC u \text{ est équivalente à } v\NC
+\stopChoices
+\ ⟺\  u= αv \Avec α → 1. 
+\stopformula</definition>
+<remark>Lorsque $v$ ne s'annule pas, cela revient à dire que $u/v$ tends vers $1$.</remark>
+<remark>La relation précédente peut également s'écrire 
+\startformula 
+u∼v \ ⟺\  u = v + o(v)
+\stopformula
+</remark>
+<remark>Cette relation est reflexive et symétrique : pour $u,v∈𝕂^N$, on a 
+\startformula
+\Align{
+	\NC u∼v \ ⟺\ v∼u\qquad\NC\text{(symétrie)}\NR
+	\NC u∼u\NC\text{(reflexivité)}
+}
+\stopformula</remark>
+</concept>
+
+<concept t="transitivité"><text>Si $u$ est équivalente à $v$ qui est équivalente à $w$, alors $u$ est équivalente à $w$.</text>
+<property h="$u,v,w∈ℂ^ℕ$">
+\startformula
+u ∼ v ∼ w \ ⟹ \  u ∼ w
+\stopformula
+</property>
+</concept>
+
+<concept t="signe"><text>Deux suites réelles équivalentes ont même signe à partir d'un certain rang</text>
+<property h="$u,v∈ℝ^ℕ$">
+\startformula
+u_n∼v_n\ ⟹ \  (\text{signe}\,(u_n)=\text{signe}\,(v_n)\quad (n \Grand))
+\stopformula
+</property>
+<remark>La fonction signe dont il est question dans cette propriété est définie par 
+\startformula
+\text{signe}\,(x)=\startcases
+\NC\text{positif}\NC (x>0)\NR
+\NC \text{nul}\NC \Si (x=0)\NR
+\NC\text{négatif}\NC (x\Le 0)
+\stopcases
+\stopformula
+</remark>
+</concept>
+
+
+<concept t="produit\\puissance\\quotient">
+<text>Les relations suivantes permettent de simplifier des relations d'équivalence faisant intervenir produits, puissances et quotients.</text>
+<combination>
+<property h="$u,v,U,V∈ℂ^ℕ$">
+\startformula	
+\SystemR{
+	\NC u ∼ U\NR
+	\NC v ∼ V
+} \ ⟹ \  uv ∼ UV
+\stopformula
+</property>
+</combination>
+<combination>
+<property h="$u,v∈ℂ^ℕ$, $k⩾1$">
+\startformula	
+u ∼ v \ ⟹ \  u^k ∼ v^k
+\stopformula
+</property>
+<property h="$u,v∈ℂ_*^ℕ$">
+\startformula	
+u ∼ v \ ⟹ \  {1\F v} ∼ {1\F u}
+\stopformula
+</property>
+</combination>
+</concept>
+
+<text>Attention : on n'a pas le droit d'ajouter des équivalents en général, c'est illégal. Pour 
+\startformula 
+u_n:=1, \quad U_n:=1,\quad v_n:=-1\EtQ V_n:=-1+{1\F n}, 
+\stopformula
+par exemple, on a $u_n\sim U_n$, on a $v_n\sim V_n$ et pourtant on a $u_n+v_n=0\not∼\displaystyle{1\F n}=U_n+V_n$.
+</text>
+
+<concept t="limite">
+<property h="$u ∈ ℂ^ℕ$, $ℓ≠0$">
+\startformula 
+\Align{
+\NC u→ℓ\NC \ ⟺\ \NC u∼ℓ,\NR
+\NC u→0 \NC \ ⟺\ \NC u≺1
+}
+\stopformula</property>
+</concept>
+
+<concept t="comparaison\\suites de références"><text>A l'infini, le logarithme croit moins vite qu'un monôme, un monôme croît moins vite qu'une exponentielle et une exponentielle croît moins vite que la factorielle</text>
+<theorem  h="$α,β,γ>0$"> 
+\startformula 
+\ln(n)^α ≺ n^β ≺ \e^{γn} ≺ n!
+\stopformula</theorem>
+</concept>
+
+<concept p="-β+β" t="Formule de Stirling"><text>La formule de Stirling explicite le comportement de la factorielle à l'infini.</text>
+<theorem> 
+\startformula 
+n!∼\Q({n\F \e}\W)^n\sqrt{2πn}
+\stopformula</theorem>
+</concept>
+
+</subsection></section><section t="Suites de référence">
+
+<subsection t="Suites arithmétiques">
+
+<concept t="suite arithmétique\\raison">
+<definition h="$u∈𝕂^ℕ$ et $r∈𝕂$">
+\startformula
+u \text{ arithmétique de raison } r \ ⟺ \ u_{n+1}-u_n=r\qquad(n⩾0)
+\stopformula
+</definition>
+<remark>Une suite est dite arithmétique lorsqu'on passe d'un terme au terme suivant en lui ajoutant la même constante
+\startformula
+u \text{ suite arithmétique } \ ⟺\ (∃r∈𝕂:u \text{ suite arithmétique de raison }r).
+\stopformula
+</remark>
+</concept>
+
+<concept t="expression">
+<property h="$u$ arithmetique de raison $r$">
+\startformula
+u_n = u_0 + nr\qquad(n∈ℕ).
+\stopformula
+</property>
+<remark>$u$ diverge si $|r|≠0$.</remark>
+<remark>$u$ est constante si $r=0$.</remark>
+</concept>
+
+<concept t="somme"><text>La somme des termes d'une suite arithmétique est égale au nombre de termes multiplié par 
+la moyenne des termes aux extrémités</text>
+<property h="$u$ arithmetique de raison $r$">
+\startformula
+\sum_{m⩽k⩽n}u_k={u_m+u_n\F 2}(n-m+1)\qquad (0⩽m⩽n).
+\stopformula
+</property>
+</concept>
+
+
+</subsection><subsection t="Suites géométriques">
+
+<concept t="suite géométrique">
+<definition h="$u∈𝕂^ℕ$">
+\startformula
+u \text{ géométrique de raison } q \ ⟺ \ (∀n∈ℕ, u_{n+1}=qu_n)
+\stopformula
+</definition>
+<remark>Une suite est dite géométrique lorsqu'on passe d'un terme au terme suivant en le multipliant par la même constante
+\startformula
+u \text{ suite géométrique } \ ⟺\ (∃q∈𝕂:u \text{ suite géométrique de raison }q.
+\stopformula</remark>
+</concept>
+
+<concept t="expression">
+<property h="$u$ géométrique de raison $q$">
+\startformula
+u_n=u_0q^n\qquad(n∈ℕ).
+\stopformula
+</property>
+<remark>$u$ converge vers $0$ si $|q|\Le1$.</remark>
+<remark>$u$ est constante si $q=1$.</remark>
+<remark>$u$ diverge lorsque $|q|⩾1$ et $q≠1$.</remark>
+</concept>
+
+<concept t="somme"><text>La somme des termes d'une suite géométrique est égale au quotient du terme qui suivrait le dernier moins le premier terme par la raison moins $1$. 
+la moyenne des termes auxextrémités</text>
+<property h="$u$ géométrique de raison $q$">
+\startformula
+\sum_{m⩽k⩽n}u_k={u_{n+1}-u_m\F q-1}\qquad (0⩽m⩽n).
+\stopformula
+</property>
+</concept>
+
+
+</subsection><subsection t="Suites arithmético-géométriques">
+
+
+<concept t="suite arithmético-géométrique">
+<definition h="$u∈𝕂^ℕ$">
+\startformula
+u \text{ arithmético-géométrique} \ ⟺ \ (∃(a,b)∈𝕂^2:∀n∈ℕ, u_{n+1}=au_n+b)
+\stopformula
+</definition>
+<remark>Une suite est dite arithmétique-géométrique lorsqu'il existe des nombres $a$ et $b$ tels que 
+\placeformula[suiteArithméticoGéométriqueDef]
+\startformula 
+u_{n+1} = au_n+b\qquad(n⩾0)
+\stopformula
+</remark>
+</concept>
+
+<concept t="formule">
+<property h="$u$ arithmético-géométrique pour $a≠1$"> 
+\startformula
+u_n = c + a^n(u_0-c)\qquad\Q(c = {b\F 1-a}, n⩾0\W).
+\stopformula
+</property><craft>
+{\it Méthode recommandée : }
+\startList
+\item Chercher la suite constante $c$ vérifiant (\in[suiteArithméticoGéométriqueDef]) en résolvant l'équation $x=ax+b$
+\item En faisant une soustraction, remarquer que la suite $v_n=u_n-c$ est géométrique de raison $a$ 
+\item en déduire la formule.
+\stopList
+</craft>
+</concept>
+
+</subsection>
+
+<subsection t="Récurrences linéaires">
+<concept t="récurrence linéaire homogène du second ordre">
+<definition h="$u$ suite réelle">La suite $u$ satisfait ne récurrence linéaire homogène du second ordre si, et seulement s'il existe des nombres réels $a≠0$, $b$ et $c$ tels que 
+\placeformula[récurrenceLinéaireDef]
+\startformula 
+au_{n+2}+bu_{n+1}+cu_n = 0\qquad(n⩾0)
+\stopformula</definition>
+<remark>Une telle suite est complétement déterminée par la donnée de ses $2$ premiers termes $u_0$ et $u_1$</remark>
+</concept>
+
+<concept t="polynôme caractéristique">
+<definition h="$a≠0$, $b$ et $c$ réels">
+Le polynôme caractéristique associé à (\in[récurrenceLinéaireDef]) est le trinôme
+\placeformula[récurrenceLinéairePolynomeCaractéristiqueDef]
+\startformula
+P=aX^2+bX+c
+\stopformula
+</definition>
+</concept>
+
+<concept t="équation caractéristique">
+<definition h="$a≠0$, $b$ et $c$ réels">
+L'équation caractéristique associée à la relation (\in[récurrenceLinéaireDef]) est l'équation $aX^2+bX+c = 0$
+\startformula
+\underbrace{ax^2+bx+c=0}_{P(x)=0}
+\stopformula
+</definition>
+</concept>
+
+<concept t="solutions"><property h="$a≠0$, $b$ et $c$ réels">
+Si le polynôme caractéristique (\in[récurrenceLinéairePolynomeCaractéristiqueDef]) admet une racine double $s$, une suite réelle $u$ est solution de (\in[récurrenceLinéaireDef]) si, et seulement s'il existe des nombres réels $λ$ et $μ$ tels que 
+\startformula
+u_n=λs^n+μ{\darkred n}z^n\qquad(n⩾0)
+\stopformula
+Si  le polynôme caractéristique (\in[récurrenceLinéairePolynomeCaractéristiqueDef])  admet deux racines distinctes $s$ et $z$, une suite réelle $u$ est solution de (\in[récurrenceLinéaireDef]) si, et seulement s'il existe des nombres $λ$ et $μ$ tels que
+\startformula
+u_n=λs^n+μz^n\qquad(n⩾0)
+\stopformula
+</property>
+<remark>Dans le cas où les racines de $P$ sont réelles, les constante $λ$ et $μ$ sont réelles. 
+Lorsque les racines de $P$ ne sont pas réelles, elles sont conjuguées. En posant $s=r\e^{iϑ}$ et $z=r\e^{-iϑ}$, 
+on peut alors trouver deux constantes réelles $α$ et $β$ telles que  
+\startformula
+u_n=αr^n\cos(nϑ)+βr^n\sin(nϑ)\qquad(n⩾0)
+\stopformula</remark>
+</concept>
+
+
+</subsection>
+
+
+
+
+<subsection t="Récurrences linéaires (old)">
+
+<concept t="récurrence linéaire\\second membre"><text>Une récurrence linéaire est une équation d'inconnue $u∈𝕂^ℕ$ du type suivant</text>
+<definition t="$(E)$" h="$a,b,c∈𝕂$, $v∈𝕂^ℕ$">
+\startformula
+au_{n+2}+bu_{n+1}+cu_n=v_n\qquad(n⩾0).
+\stopformula
+</definition>
+<remark>Cette récurrence linéaire est dite du second ordre lorsque $a≠0$ et du premier ordre lorsque $a=0$ et $b≠0$.</remark>
+<remark>La récurrence linéaire est dite \quote{homogène} ou \quote{sans second membre} lorsque $v=0$ et \quote{avec second membre} lorsque $v≠0$</remark>
+<example>Les suites géométriques de raison $q$ sont les solutions de la récurrence linéaire du premier ordre (homogène) 
+\startformula
+u_{n+1}-qu_n=0\qquad(n∈ℕ).
+\stopformula</example>
+<example>Les suites arithmétiques de raison $r$ sont les solutions de la récurrence linéaire du premier ordre (avec second membre)
+\startformula
+u_{n+1}-u_n=r\qquad(n∈ℕ).
+\stopformula</example>
+</concept>
+
+<concept t="récurrence linéaire homogène associée"><text>A la récurrence linéaire $(E)$, 
+on associe la récurrence linéaire homogène $(H)$</text>
+<definition t="$(H)$">
+\startformula
+au_{n+2}+bu_{n+1}+cu_n=0\qquad(n⩾0).
+\stopformula
+</definition>
+</concept>
+
+<concept t="structure des solutions">
+<combination>
+<property h="$λ,μ∈𝕂$, $u,v$ vérifiant $(H)$">
+\startformula
+λu+μv \text{ vérifie } (H) 
+\stopformula
+</property>
+<property h="$v$ vérifiant $(H)$">
+\startformula
+u \text{ vérifie } (E) \ ⟺\ u-v \text{ vérifie } (H)
+\stopformula
+</property></combination>
+<remark>Pour résoudre $(E)$, il suffit de résoudre $(H)$ et de trouver une solution particulière de $(E)$. 
+\startformula
+\text{Solution générale de }(E) = \text{Sol. particulière de }(E) + \text{Sol. générale de }(H)
+\stopformula
+</remark>
+</concept>
+
+
+<concept t="polynôme caractéristique"><text>Aux récurrences linéaires $(E)$ et $(H)$, 
+on associe le polynôme caractéristique $P$</text>
+<definition>
+\startformula 
+P:=az^2+bz+c
+\stopformula</definition>
+</concept>
+
+<concept t="lien"><text>Le polynôme caractéristique $P$ de $(H)$ permet de trouver rapidement des solutions de $(H)$.</text>
+<combination>
+<property>
+\startformula
+z^n \text{ vérifie }(H)\ ⟺\ P(z)=0
+\stopformula
+</property>
+<property h="$z≠0$">
+\startformula
+nz^n \text{ vérifie }(H)\ ⟺\ \System{\NC P(z)=0\NR \NC P'(z)=0}
+\stopformula
+</property>
+</combination>
+</concept>
+
+<concept t="solutions"><text>Le polynôme caractéristique $P$ de $(H)$ permet de trouver l'ensemvle solution de $(H)$.</text>
+<theorem>
+\startitemize[1]
+\item Si $P$ admet deux racines distinctes $z$ et $s$, alors 
+\startformula
+u \text{ vérifie }(H) ⟺ ∃(λ,μ) : u_n=λz^n+μs^n\qquad(n∈ℕ)
+\stopformula
+\item Si $P$ admet une racine double $z$, alors 
+\startformula
+u \text{ vérifie }(H) ⟺ ∃(λ,μ) : u_n=λz^n+μnz^n\qquad(n∈ℕ)
+\stopformula
+\stopitemize
+</theorem>
+</concept>
+
+
+</subsection>
+
+</section>
+</chapter>
+</part>

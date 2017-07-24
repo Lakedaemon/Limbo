@@ -1,0 +1,53 @@
+\startcomponent Lettre
+\environment environment_Lettre
+
+\starttext
+\defineparagraphs[rightpar][n=2] 
+\setupparagraphs [rightpar][1][width=.5\textwidth] 
+\setupparagraphs [rightpar][2][width=.5\textwidth,align=flushright]
+
+\defineparagraphs[leftpar][n=2] 
+\setupparagraphs [leftpar][1][width=.5\textwidth] 
+\setupparagraphs [leftpar][2][width=.5\textwidth,align=flushright]
+\setuppagenumbering[location=]
+
+\startleftpar\leftpar
+Nancy, le 4/01/2017
+\stopleftpar
+
+\startleftpar % Two columns, please
+Isabelle et Olivier Binda\crlf
+67 rue Mac Mahon,\crlf 
+54000 Nancy\crlf
+tel : 07 70 00 27 39\crlf
+mail : olivier.binda@wanadoo.fr
+
+%\blank[big]
+%N° SIRET : 49376272800027\crlf
+%N° TVA intracommunautaire : FR32493762728
+\leftpar
+%\hfil {\tfb\bf FACTURE n°29}\hfil \blank[big]
+Mme Collignon Dinoia Thérese\crlf
+3 rue St Gorgon\crlf
+57160 Lessy\crlf
+\stopleftpar
+\vfil\vfil
+
+\hfil Madame, \hfil
+\blank[big]
+\blank[big]
+Le 6 août 2016, nous avons quitté le logement sis au 16 rue des mésanges à Longeville-lès-Metz, après vous avoir remis, ce même jour, les clés et dressé l'état des lieux contradictoire. 
+\blank[medium]
+A l'occasion de la signature du bail, le 30 juin 2014, nous vous avons versé un dépôt de garantie d'un montant de 800 euros. A ce jour, cette somme ne nous a pas été restituée. 
+\blank[medium]
+Nous vous rappellons qu'en application de l'article 22 de la loi n° 89-462 du 6 juillet 1989, le dépôt de garantie doit être restitué au locataire 
+dans le délai de deux mois ou bien dans le délai d'un mois dès lors que l'état des lieux de sortie est conforme à l'état des lieux d'entrée. 
+\blank[medium]
+Nous vous demandons donc de nous transmettre dans les plus brefs délais l'intégralité du dépôt de garantie, soit 800 euros. 
+\blank[medium]
+Recevez nos salutations, \crlf
+Isabelle et Olivier Binda
+
+
+\stoptext
+\stopcomponent

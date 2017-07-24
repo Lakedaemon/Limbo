@@ -1,0 +1,201 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+<!-- fiche identitque : http://laurentb.garcin.free.fr/Cours/SommesProduits/SommesProduits.pdf-->
+<chapter t="Dérivées et primitives" p="β">
+
+
+<text>Le but de ce chapitre est de consolider et de compléter la maitrise des règles de dérivation
+et de quelques techniques de primitivation, en vue des applications physiques et aux équations différentielles.</text>
+
+<section t="Dérivées">
+
+<subsection t="Opérations">
+
+<concept t="somme\\multiple\\produit">
+<property>
+\startformula 
+(f+g)'(a)=f'(a)+g'(a)
+\stopformula
+</property>
+<property h="$λ∈ℂ$">
+\startformula 
+(λ⋅f)'(a)=λ⋅f'(a)
+\stopformula
+</property>
+
+<property>
+\startformula 
+(f×g)'(a)=f'(a)×g(a)+f(a)×g'(a)
+\stopformula
+</property>
+<remark>Les fonctions polynômes $x ↦ ∑_{k=0}^n a_kx^k$ sont dérivables sur $ℝ$.</remark>
+<remark>Les fonctions $\exp{}$, $\ln{}$, $\cos{}$, $\sin{}$, $\tan{}$ et $\arctan{}$ sont dérivables sur leur ensemble de définition</remark>
+<remark>Les fonctions $\arccos{}$, $\arcsin{}$ et $\sqrt{}$  sont dérivables sur leur ensemble de définition, privé de leurs extrémités</remark>
+</concept>
+
+<concept t="quotient">
+<property h="$f$ et $g$ dérivables en $a$, $g(a)≠0$">
+\startformula 
+\Q({f\F g}\W)'(a)={f'(a)×g(a)-f(a)×g'(a)\F g(a)^2}
+\stopformula
+</property>
+<remark>Cette formule nécéssite que $g(a)≠0$</remark>
+<remark>Il peut être intéressant de dériver le quotient $f/g=f ×{1\F g}$ en écrivant 
+\startformula 
+\Q({f\F g}\W)'(a)=f'(a) × {1\F g(a)}+f(a) ×{-g'(a)\F g(a)^2}.
+\stopformula</remark>
+<remark>Les quotients de deux polynômes sont dérivables sur $ℝ$ privé des points annulant leur dénominateur.</remark>
+</concept>
+
+<concept t="composée">
+<theorem h="$f:I→ℝ$ et  $g:J → 𝕂$">
+\startformula 
+\SystemR{
+\NC f\text{ dérivable en } a\NR
+ f(I)⊂ J\NR
+\NC  g\text{ dérivable en } f(a)\NR
+}⟹\System{
+\NC g ∘ f \text{ dérivable en } a\NR
+\NC  (g∘f)'(a)=f'(a)×g'∘f(a)
+}
+\stopformula
+</theorem>
+<remark>En jargon étudiant : la dérivée de l'intérieur est multipliée par la dérivée de l'extérieur dans lequel on a recopié l'intérieur.</remark>
+</concept>
+
+</subsection><subsection t="Dérivées à connaître">
+
+<concept t="exponentielle">
+<property>
+\startformula 
+(\e^x)'=\e^x\qquad(x∈ℝ)
+\stopformula
+</property>
+<remark>
+Plus généralement, pour $z∈ℂ$, on a 
+\startformula 
+{\d\F\d x}\e^{zx}=z\e^{zx}\qquad(x∈ℝ).
+\stopformula
+</remark>
+<uses>
+<item>Equations différentielles du type
+\startsdformula
+ay''+by'+cy=0
+\stopsdformula
+$x↦\e^{zx}$ solution \ssi $az^2+bz+c=0$</item>
+</uses>
+</concept>
+
+
+<concept t="logarithme">
+<property>
+\startformula 
+\ln'(x)={1\F x} \qquad(x>0)
+\stopformula
+</property>
+<remark>Avec une valeur absolue, on a 
+\startformula 
+\ln'(|x|)={1\F x} \qquad(x≠0)
+\stopformula</remark>
+</concept>
+
+<concept t="cosinus">
+<property h="$x∈ℝ$" m="+">
+\startformula
+\cos'(x)==-\sin(x)
+\stopformula
+</property>
+<remark>Dériver le cosinus revient à ajouter ${π\F2}$ à son angle.
+\startformula
+\cos'(x)=\cos\Q(x+{π\F2}\W)
+\stopformula
+</remark>
+</concept>
+
+
+<concept t="sinus">
+
+<property h="$x∈ℝ$" m="+">
+\startformula
+\sin'(x)=\cos(x)
+\stopformula
+</property>
+<remark>Dériver le sinus revient à ajouter ${π\F2}$ à son angle.
+\startformula
+\sin'(x)=\sin\Q(x+{π\F2}\W)
+\stopformula
+</remark>
+</concept>
+
+<concept t="tangente">
+<property m="-" h="$x\≢{π\F2}\ [π]$">
+\startformula
+\tan'(x)=1+\tan(x)^2={1\F\cos(x)^2}
+\stopformula
+</property>
+</concept>
+
+</subsection></section>
+<section t="Intégration">
+
+<subsection t="Primitives">
+
+<concept t="primitive\\notation">
+<text>Une primitive sur un intervalle $I$ d'une application $f:I → 𝕂$ est une fonction $F:I → 𝕂$ dérivable (sur $I$) telle que $f$ soit la dérivée de $F$ sur $I$. Autrement dit</text>
+<definition>
+\startformula
+F \text{primitive de $f$  sur} I ⟺∀ x ∈ I, \qquad F'(x)=f(x)
+\stopformula
+</definition>
+<remark>Une primitive $F$ quelconque d'une fonction $f:I → 𝕂$ sur un intervalle $I$ est notée
+\startformula 
+F(x)=\int f(x)\d x\qquad (x ∈ I).
+\stopformula
+C'est une notation extrémement pratique qui sera utilisée en conjonction avec intégration par partie et changment de variable pour trouver rapidements des primitives. </remark>
+</concept>
+
+<concept t="primitivation par partie">
+<theorem h="$f$, $g$ de dérivées continues sur $[a,b]$">
+\startformula 
+\int f(t)g'(t)\d t=f(t)g(t)-\int f'(t)g(t)\d t 
+\stopformula
+</theorem>
+</concept>
+
+<concept t="changement de variable">
+<theorem h="$t=φ(x)$, $α=φ(a)$ et $β=φ(b)$">
+\startformula 
+\int f\big(φ(x)\big) φ'(x)\d x=\int f(t)\d t
+\stopformula</theorem></concept>
+
+</subsection><subsection t="Intégrales">
+
+<concept t="lien primitive-intégrale">
+<property h="$F$ primitive de $f$ sur $[a,b]$"> 
+\startformula 
+\int_a^b f(t)\d t=[F]_a^b=F(b)-F(a) 
+\stopformula
+</property>
+</concept>
+
+<concept t="intégration par partie">
+<theorem h="$f$, $g$ de dérivées continues sur $[a,b]$">
+\startformula 
+\int_a^bf(t)g'(t)\d t=[fg]_a^b-\int_a^bf'(t)g(t)\d t 
+\stopformula
+</theorem>
+</concept>
+
+<concept t="changement de variable">
+<theorem h="$t=φ(x)$, $α=φ(a)$ et $β=φ(b)$">
+\startformula 
+\int_a^b f\big(φ(x)\big) φ'(x)\d x=\int_α^βf(t)\d t.
+\stopformula</theorem>
+<remark>Plus tard dans l'année, on verra les conditions précises sous lequel ce théorème doit être appliqué</remark>
+</concept>
+
+</subsection>
+</section>
+</chapter>
+</part>
+

@@ -1,0 +1,32 @@
+\startcomponent component_DL1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\setupitemgroup[List][1][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][1,joineup,nowhite]
+
+
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+
+%ag❛❜g❛g\exo{Ah}❛❜
+\let\ds\displaystyle
+
+\centerline{\bf Exo 6}
+\exo{C227}
+
+\centerline{\bf Exo 7}
+\exo{C228}
+
+\centerline{\bf Correction de l'exo 6}
+\solution{C227}
+\stoptext
+\stopcomponent
+\endinput

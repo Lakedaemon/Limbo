@@ -1,0 +1,37 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+<include path="xml/Maths_sommes.xml" as="sommes"/>
+<include path="xml/Maths_suites.xml" as="suites"/>
+
+<chapter t="Suites fondamentales">
+
+<remark>
+Les outils de ce chapitre font parti des bases importantes, ils sont utilisés en concours pour :
+\startList\item Reconnaître le type d'une suite et identifier ses éléments caractéristiques
+\item Trouver une formule pour $u_n$
+\item Utiliser la somme des termes d'une suite au cours d'un calcul complexe.
+\stopList
+Utilisation en ds/concours : fréquente.
+</remark>
+
+<section t="Suites arithmétiques">
+
+<ref from="suites" path="subsection[@t=='Suites arithmétiques']"/>
+
+</section>
+
+<section t="Suites géométriques">
+<ref from="suites" path="subsection[@t=='Suites géométriques']"/>
+</section>
+
+<section t="Suites arithmético-géométriques">
+<ref from="suites" path="subsection[@t=='Suites arithmético-géométriques']"/>
+</section>
+
+<section t="Suites vérifiant une récurrence linéaire du second ordre">
+<ref from="suites" path="subsection[@t=='Récurrences linéaires']"/>
+</section>
+
+</chapter>
+</part>
+

@@ -1,4 +1,4 @@
-\startenvironment environment_Limbo
+\startenvironment environment_Limbo_cours
 \directlua{dofile("Limbo.lua")}
 \unprotect
 
@@ -58,6 +58,9 @@
 
 \startxmlsetups xml:limbo
 \xmlsetsetup{maths}{*}{-}
+% includes
+\xmlsetsetup{maths}{include}{xml:include}
+\xmlsetsetup{maths}{ref}{xml:inject}
 % sectioning
 \xmlsetsetup{maths}{part|chapter|section|subsection|subsubsection|concept}{xml:group}
 % grouping 
@@ -86,8 +89,20 @@
 \ctxlua{L.processStatement("#1")}%
 \stopxmlsetups
 
+% example
+\iffalse
 \startxmlsetups xml:example
 \ctxlua{L.processExample("#1")}%
+\stopxmlsetups
+\fi
+
+
+\startxmlsetups xml:include
+\ctxlua{L.processInclude("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:inject
+\ctxlua{L.processInject("#1")}%
 \stopxmlsetups
 
 \startxmlsetups xml:group
@@ -95,6 +110,7 @@
 \stopxmlsetups
 
 \startxmlsetups xml:statement
+statement
 \ctxlua{L.processStatement("#1")}%
 %\placeleftfigure{}{\useMPgraphic{Frame}}%
 \stopxmlsetups
@@ -103,18 +119,26 @@
 \ctxlua{L.processCombination("#1")}%
 \stopxmlsetups
 
+%exercices
+\iffalse
 \startxmlsetups xml:exercise
 \ctxlua{L.processExercise("#1")}%
 \stopxmlsetups
+\fi
 
 \startxmlsetups xml:figure
 \ctxlua{L.processFigure("#1")}%
 \stopxmlsetups
 
+% proofs
+\iffalse
 \startxmlsetups xml:proof
 \ctxlua{L.processProof("#1")}%
 \stopxmlsetups
+\fi
 
+% remarks
+\iffalse
 \startxmlsetups xml:remark
 \ctxlua{L.processRemark("#1")}%
 \stopxmlsetups
@@ -128,12 +152,17 @@
 \startxmlsetups xml:remarks:remark
 \item\ctxlua{L.processRawContent("#1")}%
 \stopxmlsetups
+\fi
 
+% texts
+\iffalse
 \startxmlsetups xml:text
 
 \ctxlua{L.processRawContent("#1")}%
 \stopxmlsetups
+\fi
 
+\iffalse
 \startxmlsetups xml:uses
 {\tenpoint
 \startitemize[packed,intext,joinedup,4,nowhite,after]
@@ -141,9 +170,11 @@
 \stopitemize}
 \stopxmlsetups
 
+
 \startxmlsetups xml:item
 \ctxlua{L.processContent("#1","\\item")}%
 \stopxmlsetups
+\fi
 
 \startxmlsetups xml:flushsidefloats
 \flushsidefloats

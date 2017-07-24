@@ -1,0 +1,541 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+
+
+<chapter t="Systèmes d'équations linéaires">
+
+<section t="Systèmes linéaires">
+
+<concept t="équation linéaire\\second membre">
+<text>Une équation linéaire de $n$ variables $x_1,⋯,x_n$ avec second membre  
+est du type
+\startformula
+a_1x_1+a_2x_2+⋯+a_nx_n=b,
+\stopformula
+où $a_1,⋯,a_n$ et $b$ sont des nombres complexes fixés.</text>
+<remark>L'équation est dite \quote{homogène} ou \quote{sans second membre} lorsque $b=0$.
+Dans le cas contraire, elle est dite \quote{avec second membre}.
+</remark>
+</concept>
+
+<concept t="système">
+<text>Un système linéaire est un système constitué d'équations linéaires. 
+\startformula
+(S)\qquad 
+\startSystem[align={left,left,left,left,left}]
+\NC a_{1,1}x_1 \NC +a_{1,2}x_2\NC ⋯ \NC +a_{1,n} x_n\NC =b_1\NR
+\NC a_{2,1}x_1\NC +a_{2,2}x_2\NC ⋯\NC +a_{2,n} x_n\NC =b_2\NR
+\NC ⋯\NC ⋯ \NC ⋯\NC ⋯ \NC = ⋯\NR
+\NC a_{m,1}x_1\NC +a_{m,2}x_2\NC ⋯\NC +a_{m,n} x_n\NC =b_m
+\stopSystem
+\stopformula
+</text>
+<remark>Le système est \quote{homogène} ou \quote{sans second membre} lorsque toutes ses équations sont sans second membre.
+Il est dit \quote{avec second membre} dans le cas contraire.</remark>
+<remark>Le système homogène associé à $(S)$ est le système
+\startformula
+(H)\qquad\startSystem[align={left,left,left,left,left}]
+\NC a_{1,1}x_1 \NC +a_{1,2}x_2\NC ⋯ \NC +a_{1,n} x_n\NC =0\NR
+\NC a_{2,1}x_1\NC +a_{2,2}x_2\NC ⋯\NC +a_{2,n} x_n\NC =0\NR
+\NC ⋯\NC ⋯ \NC ⋯\NC ⋯ \NC = ⋯\NR
+\NC a_{m,1}x_1\NC +a_{m,2}x_2\NC ⋯\NC +a_{m,n} x_n\NC =0
+\stopSystem
+\stopformula
+</remark>
+</concept>
+
+
+<concept t="système carré\\rectangulaire">
+<text>Un système linéaire est dit \quote{carré} lorsqu'il possède autant d'équations que d'inconnues ($m=n$) et \quote{rectangulaire} dans le cas contraire ($m≠n$).</text>
+<example>Deux systèmes carrés : 
+\startformula
+\startSystem[align={left,left,left}]
+\NC x \NC +y\NC=1\NR
+\NC -2x\NC +3y\NC=0
+\stopSystem\qquad\qquad
+\startSystem[align={left,left,left, left}]
+\NC x \NC +y\NC + z\NC=1\NR
+\NC x\NC -y\NC + z\NC=0\NR
+\NC x\NC +y\NC - z\NC=2
+\stopSystem
+\stopformula
+Deux systèmes rectangulaires : 
+\startformula
+\startSystem[align={left,left,left}]
+\NC x \NC +y\NC=1\NR
+\NC x \NC -y\NC=0\NR
+\NC x\NC + 3y\NC=2
+\stopSystem\qquad\qquad
+\startSystem[align={left,left,left,left}]
+\NC x \NC +y\NC + z\NC=1\NR
+\NC x\NC -y\NC + z\NC=0
+\stopSystem
+\stopformula
+</example>
+</concept>
+
+<concept t="système triangulaire">
+<text>Un système linéaire carré est dit \quote{triangulaire supérieur} lorsque ses coefficients en dessous de la diagonale principale (les $a_{i,j}$ pour $i>j$) sont nuls.</text>
+<example>
+Deux systèmes carrés \quote{triangulaires supérieurs} : 
+\startformula
+\startSystem[align={left,left,left}]
+\NC x \NC+y\NC{}=1\NR
+\NC \NC 3y\NC{}=2
+\stopSystem
+\qquad\qquad
+\startSystem[align={right, right,right}]
+\NC -x \NC -y\NC +z\NC =1\NR
+\NC \NC 2y\NC +z\NC =2\NR
+\NC \NC \NC 3z\NC = 5\NR
+\stopSystem
+\stopformula
+</example>
+<remark>On dit aussi qu'un système rectangulaire est triangulaire supérieur lorsque les coefficients du carré supérieur gauche en dessous de la diagonale principale sont tous nuls.</remark>
+<example>Deux systèmes rectangulaires \quote{triangulaires supérieurs}
+\startformula
+\startSystem[align={left,left,left,left}]
+\NC x \NC  +y\NC + z\NC =1\NR
+\NC \NC 3y \NC +2z\NC =2\NR
+\stopSystem
+\qquad 
+\startSystem[align={right, right}]
+\NC x \NC  +y=1\NR
+\NC \NC 3y =2\NR
+\NC x \NC +2y = 5
+\stopSystem
+\stopformula
+</example>
+<remark>La notion de système triangulaire inférieur existe aussi, mais traditionnellement, 
+on travaille plutôt avec des systèmes triangulaires supérieurs</remark>
+<remark>Un système triangulaire supérieur se résoud relativement facilement, par réinjection dans les lignes supérieures.</remark>
+</concept>
+
+<concept t="système diagonal">
+<text>Un système linéaire carré est dit \quote{diagonal} lorsque ses coefficients en dehors de la diagonale principale (les $a_{i,j}$ pour $i≠j$) sont nuls.</text>
+<example>
+Deux systèmes carrés \quote{diagonaux} : 
+\startformula
+\startSystem[align={left,left,left}]
+\NC x \NC\NC{}=1\NR
+\NC \NC 3y\NC{}=2
+\stopSystem
+\qquad\qquad
+\startSystem[align={right, right,right}]
+\NC -x \NC \NC \NC =1\NR
+\NC \NC 2y\NC \NC =2\NR
+\NC \NC \NC 3z\NC = 5\NR
+\stopSystem
+\stopformula
+</example>
+<remark>Un système diagonal est trivial à résoudre.</remark>
+<remark>On dit aussi qu'un système rectangulaire est diagonal lorsque les coefficients du carré supérieur gauche en dehors de la diagonale principale sont tous nuls.</remark>
+<example>Deux systèmes rectangulaires \quote{diagonaux}
+\startformula
+\startSystem[align={left,left,left,left}]
+\NC x \NC  \NC + z\NC =1\NR
+\NC \NC 3y \NC +2z\NC =2\NR
+\stopSystem
+\qquad 
+\startSystem[align={right, right}]
+\NC x \NC  =1\NR
+\NC \NC 3y =2\NR
+\NC x \NC +2y = 5
+\stopSystem
+\stopformula
+</example>
+</concept>
+
+<concept t="systèmes équivalents">
+<text>Deux systèmes sont dits équivalents \ssi leur ensemble solution est le même. 
+</text>
+<property>
+\startformula
+(S) ⟺ (S') \quad\text{ signifie }\quad \{ x\text{ solution de } S\} = \{y \text{ solution de } S'\}
+\stopformula
+</property>
+<uses><item>Simplification de systèmes
+\startformula
+\startSystem
+\NC x+y = 1\NR
+\NC x-y = 1
+\stopSystem
+⟺
+\quad \startSystem
+\NC x=1\NR
+\NC y=0
+\stopSystem
+\stopformula
+</item>
+</uses>
+</concept>
+
+</section>
+
+<section t="Opérations élémentaires">
+
+<concept t="Echange de lignes">
+<text>En intervertissant deux lignes (opération élémentaire $Li⟷L_j$), on transforme un système d'équations linéaires en système équivalent.</text>
+<property>
+\startformula
+\startSystem
+\NC⋯\NR
+\NC L_i\NR
+\NC ⋯\NR
+\NC L_j\NR
+\NC ⋯
+\stopSystem
+⟺
+\quad \startSystem
+\NC⋯\NR
+\NC L_j\NR
+\NC ⋯\NR
+\NC L_i\NR
+\NC ⋯
+\stopSystem
+\stopformula
+</property>
+<remark>Souvent, il n'est pas nécessaire d'intervertir les lignes</remark>
+<uses><item>Système \quote{diagonale} ou \quote{triangulaire} : 
+\startformula
+\startSystem
+\NC \NC 2y\NC=6\NR
+\NC 3x\NC\NC=9
+\stopSystem
+⟺
+\startSystem
+\NC 3x\NC\NC=9\NR
+\NC \NC 2y\NC=6
+\stopSystem
+\stopformula
+</item></uses>
+</concept>
+
+<concept t="Multiplication de ligne">
+<text>En multipliant une ligne par un nombre non nul (opération élémentaire $Li⟵λL_i$), on transforme un système d'équations linéaires en système équivalent.</text>
+<property h="$λ≠0$">
+\startformula
+\startSystem
+\NC ⋯\NR
+\NC L_i\NR
+\NC ⋯
+\stopSystem
+⟺
+\startSystem
+\NC ⋯\NR
+\NC  λL_i\NR
+\NC ⋯
+\stopSystem
+\stopformula
+</property>
+<uses><item>Simplification de ligne : 
+\startformula
+\startSystem
+\NC 2x+4y=6\NR
+\NC 3x-6y=9
+\stopSystem
+⟺
+\startSystem
+\NC x+2y=3\NR
+\NC x-2y=3
+\stopSystem⟺
+\startSystem
+\NC x=3\NR
+\NC y=0
+\stopSystem
+\stopformula
+</item></uses>
+</concept>
+
+<concept t="Combinaison linéaire de lignes">
+<text>En ajoutant à une ligne une combinaison linéaire des autres lignes (opération élémentaire $Li⟵Li+\sum_{j≠i}λ_jL_j$), on transforme un système d'équations linéaires en système équivalent.</text>
+<property>
+\startformula
+\startSystem
+\NC ⋯\NR
+\NC L_i\NR
+\NC ⋯
+\stopSystem
+⟺
+\startSystem
+\NC ⋯\NR
+\NC  Li+\sum\limits_{j≠i}λ_jL_j\NR
+\NC ⋯
+\stopSystem
+\stopformula
+</property>
+<uses><item>Pivot : $L_2⟵L_2-2L_1$
+\startformula
+\startSystem[align=right]
+\NC \inframed{x}-2y=2\NR
+\NC 2x+3y=9
+\stopSystem
+⟺
+\startSystem[align=right]
+\NC x + 2y=3\NR
+\NC 7y=7
+\stopSystem⟺
+\startSystem
+\NC x=4\NR
+\NC y=1
+\stopSystem
+\stopformula
+</item></uses>
+</concept>
+
+<concept t="suite d'opérations"><text>
+En effectuant plusieurs opérations élémentaires, on transforme un système linéaire en système équivalent à condition de les éffectuer successivement (en série). 
+</text>
+<remarks>
+<remark>☠☡On évitera d'effectuer plusieurs opérations élémentaires simultanément (en parallèle) car cela ne transforme pas forcément un système linéaire en système équivalent. 
+\startformula
+\startSystem
+\NC 2x+4y=6\NR
+\NC 3x-6y=9
+\stopSystem
+\rlap{\ \ \not} ⟺\quad 
+\startSystem
+\NC 5x-2y=15\qquad L_1⟵L_1+L2\NR
+\NC 5x-2y=15\qquad L_2⟵L_2+L1
+\stopSystem
+\stopformula
+</remark>
+<remark>Lorsque le résultat de plusieurs opérations élémentaires ne dépend pas de l'ordre dans lequel elles sont effectuées (prendre le temps de le vérifier), on pourra les effectuer en parallèle.
+\startformula
+\startSystem
+\NC 2x+4y=6\NR
+\NC 3x-6y=9
+\stopSystem
+⟺\quad \startSystem
+\NC x+2y=3\qquad L_1⟵L_1/2\NR
+\NC x-2y=3\qquad L_2⟵L_2/3
+\stopSystem
+\stopformula</remark>
+</remarks></concept>
+
+<concept t="substitution"><text>En isolant dans une ligne une variable que l'on substitue dans les autres lignes, 
+on transforme un système d'équations linéaires en système équivalent.</text>
+<example>\startformula
+\startSystem
+\NC x+y=1\NR
+\NC x-2y=4
+\stopSystem
+\ ⟺\  \startSystem
+\NC \inframed{x}=1-y\NR
+\NC x-2y=4
+\stopSystem
+\ ⟺\ \startSystem
+\NC x=1-y\NR
+\NC \inframed{1-y}-2y=4
+\stopSystem
+\stopformula
+</example>
+<remarks>
+<remark>Cette opération n'est pas élémentaire mais revient à effectuer plusieurs opérations élémentaires</remark>
+<remark>La substitution est déconseillée parce qu'elle conduit plus facilement à des erreurs qui, par effet boule de neige, 
+sont le plus souvent catastrophiques et difficilement corrigeables</remark>
+</remarks>
+</concept>
+
+</section>
+
+<section t="Résolution">
+
+<concept t="résolution"><text>Pour résoudre un système linéaire, 
+on lui applique successivement des transformations pour le simplifier et obtenir un système équivalent triangulaire ou diagonal.
+\blank[medium]</text>
+</concept>
+
+<concept t="réduction par substitution"><text>Pour résoudre le système, 
+on procède par substitutions en diminuant progressivement le nombre de variables.</text>
+<remark>Ceux qui utilisent cette technique de résolution sont con-damnés à commettre des erreurs.</remark>
+<example>Résolution d'un système $3×3$ par substitution : 
+\startformula
+\startmatrix[align=left]
+\startSystem
+\NC x-y-z=1\NR
+\NC x+y+3z=7\NR
+\NC x+3y+z=7\NR
+\stopSystem
+\NC{}\NC{}
+⟺\quad\startSystem
+\NC{} \inframed{$x$}=1+y+z\NR
+\NC{} x+y+3z=7\NR
+\NC{} x+3y+z=7\NR
+\stopSystem
+\NC{}\NC{}
+⟺\quad\startSystem
+\NC{}  x=1+y+z\NR
+\NC{} \inframed{$1+y+z$}+y+3z=7\NR
+\NC{} \inframed{$1+y+z$}+3y+z=7\NR
+\stopSystem
+\NR
+\NC{}\NC{}
+⟺\quad\startSystem
+\NC{}  x=1+y+z\NR
+\NC{} 1+2y+4z=7\NR
+\NC{} 1+4y+2z=7\NR
+\stopSystem
+\NC{}\NC{}
+⟺\quad \startSystem
+\NC{} x=1+y+z\NR
+\NC{} \inframed{$y$}=3-2z\NR
+\NC{} 2y+z=3\NR
+\stopSystem
+\NR\NC\NC{}
+⟺\quad \startSystem
+\NC{} x=1+\inframed{$3-2z$}+z\NR
+\NC{} y=3-2z\NR
+\NC{} 2×\inframed{$(3-2z)$}+z=3\NR
+\stopSystem
+\NC\NC{}
+⟺\quad \startSystem
+\NC{} x=4-z\NR
+\NC{} y=3-2z\NR
+\NC{} 6-3z=3\NR
+\stopSystem
+\NR\NC\NC{} 
+⟺\quad \startSystem
+\NC x=4-z\NR
+\NC y=3-2z\NR
+\NC \inframed{$z$}=1\NR
+\stopSystem
+\NC\NC{}
+⟺\quad \startSystem
+\NC x=4-\inframed{$1$}\NR
+\NC y=3-2×\inframed{$1$}\NR
+\NC z=1\NR
+\stopSystem
+\NR\NC{}\NC{}
+⟺\quad \startSystem
+\NC x=3\NR
+\NC y=1\NR
+\NC z=1\NR
+\stopSystem
+\NC
+\stopmatrix
+\stopformula
+</example>
+
+</concept>
+
+
+<concept t="méthode de Gauss"><text>La méthode de Gauss consiste à résoudre le système, 
+en procèdant par pivots pour éliminer des variables et rendre le système soit triangulaire, soit diagonal.</text>
+<remark>Il est recommandé d'utiliser cette technique de résolution : les calculs sont simples, 
+rapides, compréhensibles et moins sujets aux erreur, qui sont elles mêmes, faciles à trouver et à corriger.</remark>
+<example>Résolution d'un système $3×3$ par la méthode des pivots de Gauss 
+\startformula
+\startmatrix[align=left]
+\startSystem[distance=0.3em]
+\NC \inframed{x}\NC-\NC  y\NC-\NC  z\NC=\NC 1\NR
+\NC x           \NC+\NC  y\NC+\NC 3z\NC=\NC 7\NR
+\NC x           \NC+\NC 3y\NC+\NC  z\NC=\NC 7\NR
+\stopSystem
+\NC{}\NC{}
+\ ⟺\ \startmatrix 
+\NC L_2⟵L_2-L_1\NR
+\NC L_3⟵L_3-L_1\NR
+\stopmatrix\quad 
+\startSystem[distance=0.3em]
+\NC x\NC-\NC y    \NC-\NC  z\NC =\NC 1\NR
+\NC  \NC \NC 2y   \NC+\NC 4z\NC =\NC 6\NR 
+\NC  \NC \NC  4y  \NC+\NC 2z\NC =\NC 6\NR 
+\stopSystem
+\NC{}
+\ ⟺\ \startSystem[distance=0.3em]
+\NC x\NC-\NC             y\NC-\NC  z\NC=\NC 1\NR
+\NC  \NC \NC  \inframed{y}\NC+\NC 2z\NC=\NC 3\NR
+\NC  \NC \NC            2y\NC+\NC  z\NC=\NC 3\NR
+\stopSystem
+\NR\NC\NC{}
+\ ⟺\ \startmatrix 
+\NC L_1⟵L_1+L_2\NR
+\NC L_3⟵L_3-2L_2\NR
+\stopmatrix\quad \startSystem[distance=0.3em]
+\NC x\NC\NC  \NC+\NC  z\NC=\NC 4\NR
+\NC  \NC\NC y\NC+\NC 2z\NC=\NC 3\NR
+\NC  \NC\NC  \NC-\NC 3z\NC=\NC-3\NR
+\stopSystem
+\NC{} 
+\ ⟺\ \startSystem[distance=0.3em]
+\NC x\NC\NC  \NC+\NC             z\NC=\NC 4\NR
+\NC  \NC\NC y\NC+\NC            2z\NC=\NC 3\NR
+\NC  \NC\NC  \NC \NC  \inframed{z}\NC=\NC 1\NR
+\stopSystem
+\NR\NC
+\NC{}
+\ ⟺\ \startmatrix 
+\NC L_1⟵L_1-L_3\NR
+\NC L_2⟵L_2-2L_3\NR
+\stopmatrix\quad \startSystem
+\NC x\NC  \NC  \NC =\NC 3\NR
+\NC  \NC y\NC  \NC =\NC 1\NR
+\NC  \NC  \NC z\NC =\NC 1\NR
+\stopSystem
+\NC{}\NC{}
+\NC
+\stopmatrix
+\stopformula
+</example>
+</concept>
+
+
+
+
+
+
+
+<concept t="structure des solutions"><text>La solution générale d'un système linéaire $S$ 
+est la somme d'une de ses solutions particulières et de la solution générale du système linéaire homogène $(H)$ associé.</text>
+<theorem>\startformula 
+\text{sol. de } S = \text{sol. part. de } S + \text{sol. de } H
+\stopformula
+</theorem>
+<example>
+\startformula
+(S)\quad 
+x+y=1
+⟺ ∃ u∈ℝ:\startSystem 
+\NC x\NC = \NC 1\NC +\NC u\NR 
+\NC y\NC = \NC 0\NC -\NC u\NR
+\stopSystem 
+\stopformula
+\startformula
+(H)\quad 
+x+y=0
+⟺ ∃ u∈ℝ:\startSystem 
+\NC x\NC = u\NR 
+\NC y\NC = -u\NR
+\stopSystem
+\stopformula
+</example>
+<remark>Lorsqu'un système linéaire admet une infinité de solutions, il est possible d'exprimer une partie des variables en fonctions des autres, qui peuvent prendre toutes les valeurs possibles.
+\startformula
+x+y=1 ⟺ x=1-y\qquad (y∈ℝ) ⟺ y=1-x\qquad (x∈ℝ).
+\stopformula
+</remark>
+</concept>
+
+<concept t="système homogène">
+<text>Pour un système homogène, il y a deux cas possibles :
+\startitemize[packed,1]
+\item soit il admet exactement une solution : la solution nulle, pour laquelle toutes les variables sont nulles.
+\item soit il possède une infinité de solutions.
+\stopitemize
+</text>
+</concept>
+
+<concept t="système avec second membre"><text>Pour un système linéaire avec second membre, il y a trois cas possibles : 
+\startitemize[packed,1]
+\item soit il n'admet aucune solution.
+\item soit il admet exactement une solution.
+\item soit il admet une infinité de solutions.
+\stopitemize</text>
+</concept>
+
+</section>
+
+
+</chapter>
+</part>

@@ -1,0 +1,30 @@
+<?xml version='1.0' standalone='yes'?>
+<factures>
+<!--<facture number="29" mois="2" annee="2012" retrocession="4420.47" dont="(dont 188,26 € concernant janvier)" soirees="270.08" weekend="171.57"/>
+<facture number="30" mois="3" annee="2012" retrocession="2808.20"  soirees="135.00" weekend="120.00" tva="600.38"/>
+<facture number="31" mois="4" annee="2012" retrocession="3888.17"  soirees="253.67" weekend="422.69"/>
+<facture number="32" mois="5" annee="2012" retrocession="3621.37"  soirees="448.72" weekend="640.60" tva="923.31"/>
+<facture number="33" mois="6" annee="2012" retrocession="4039.00"  soirees="180.00" weekend="0" tva="827"/>
+<facture number="34" mois="7" annee="2012" retrocession="3691.75"  soirees="478.57" weekend="0"/>
+<facture number="35" mois="8" annee="2012" retrocession="6267.16"  soirees="852.79" weekend="541.48"/>
+<facture number="36" mois="9" annee="2012" retrocession="4809.70"  soirees="368.6" weekend="846" tva="1180.7"/>
+<facture number="37" mois="10" annee="2012" retrocession="4334.40"  soirees="484.65" weekend="0"  tva="944.58" ttc="5763.58"/>
+<facture number="38" mois="12" annee="2012"  right="Rétrocession allouée à la formation professionnelle" ht="946.48"    tva="185.51" ttc="1131.99" />
+<facture number="38" mois="12" annee="2012"  right="Rétrocession allouée à la formation professionnelle" ht="836.12 "    tva="163.88" ttc="1000.00" />
+<facture number="39" mois="11" annee="2012" retrocession="4545.88"  soirees="340" weekend="149.82" tva="986.99" ttc="6022.69"/>
+<facture number="40" mois="12" annee="2012" retrocession="3395.80"  soirees="240" weekend="210"  tva="753.80"  />
+<facture number="41" mois="1" annee="2013" retrocession="2686.21"  soirees="370.62" weekend="305.66" />
+<facture number="42" mois="2" annee="2013" retrocession="3488"  soirees="280" weekend="210" />
+<facture number="43" mois="3" annee="2013" retrocession="4853.30"  soirees="500" weekend="222.60" />
+<facture number="44" mois="4" annee="2013" retrocession="4997"  soirees="810.54" weekend="677.87"  tva="1271.14" />
+<facture number="45" mois="5" annee="2013" retrocession="4405"  soirees="280" weekend="684" tva="1052.32"/>
+
+<facture number="46" mois="6" annee="2013" retrocession="4299.20"  soirees="440" weekend="506.23" tva="1028.10"/>
+<facture number="47" mois="7" annee="2013" retrocession="4658.53"  soirees="571" weekend="225.90"/>
+<facture number="48" mois="8" annee="2013" retrocession="2929.04"  soirees="120" weekend="268.79" tva="650.29"/>
+-->
+<facture number="49" mois="12" annee="2013"  right="Indemnité (cession de clientèle)" ht="2498.00"    tva="499.60" ttc="2997.60" />
+
+
+
+</factures>

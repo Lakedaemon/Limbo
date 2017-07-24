@@ -1,0 +1,57 @@
+\startcomponent Lettre
+\environment environment_Lettre
+
+\starttext
+\defineparagraphs[rightpar][n=2] 
+\setupparagraphs [rightpar][1][width=.5\textwidth] 
+\setupparagraphs [rightpar][2][width=.5\textwidth,align=flushright]
+
+\defineparagraphs[leftpar][n=2] 
+\setupparagraphs [leftpar][1][width=.5\textwidth] 
+\setupparagraphs [leftpar][2][width=.5\textwidth,align=flushright]
+\setuppagenumbering[location=]
+
+\startleftpar\leftpar
+Longeville-lès-Metz, le 27/02/2015
+\stopleftpar
+
+\startleftpar % Two columns, please
+Olivier Binda\crlf
+16 rue des mésanges,\crlf 
+57050 Longeville-lès-Metz\crlf
+tel : 07 70 00 27 39\crlf
+mail : olivier.binda@wanadoo.fr
+Professeur de mathématiques,\crlf
+Lycée Georges de la Tour, Metz
+%\blank[big]
+%N° SIRET : 49376272800027\crlf
+%N° TVA intracommunautaire : FR32493762728
+\leftpar
+%\hfil {\tfb\bf FACTURE n°29}\hfil \blank[big]
+Jeudi 26 mars 2015
+\stopleftpar
+
+
+
+
+\vfil\vfil
+
+Madame, Monsieur,
+\blank[big]
+J’ai le plaisir de vous informer que mon enfant est né (ou doit naître) le 25 avril 2015. 
+\blank[medium]
+Pour cette occasion, je souhaite bénéficier du congé de paternité et d’accueil de l’enfant 
+à partir du mardi 28 avril 2015  jusqu’au vendredi 8 mai 2015.
+\blank[medium]
+Vous trouverez ci-joint la copie intégrale du certificat médical attestant la date prévue de la naissance.
+\blank[medium]
+Je vous prie d’agréer, Madame, Monsieur, l’expression de ma considération distinguée,
+\blank[small]
+Olivier Binda
+
+
+
+
+
+\stoptext
+\stopcomponent

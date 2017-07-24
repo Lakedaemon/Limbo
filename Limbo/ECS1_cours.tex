@@ -1,0 +1,276 @@
+\startproduct Limbo
+\project project_Cours
+
+
+
+
+%\definereferenceformat[eqref][left=(,right=)]
+%\definehighlight[avoid][color=darkgray]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29] 
+\definecolor[lighterYellow][r=0.98, g=0.75, b=0.18] 
+\definecolor[myYellow][r=0.98, g=0.66, b=0.15] 
+\definecolor[darkerYellow][r=0.96, g=0.50, b=0.09] 
+\definecolor[myBlue][r=0, g=0.51, b=0.56] 
+\def\rare#1{{\darkgray #1}}
+\defineenumeration[definition][command=\myGreen,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Définition,location=serried,counter=property,alternative=left,title=yes,style=normal,list=all,listtext={Définition }]
+\defineenumeration[theorem][command=\darkerYellow,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Théorème,counter=property,title=yes,style=normal,list=all,listtext={Théorème }]
+\defineenumeration[property][command=\myYellow,before={\startaxiomframe},after={\stopaxiomframe},left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,title=yes,style=normal,list=all,text=Propriété,listtext={Propriété }]
+\defineenumeration[corollary][command=\lighterYellow,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Corollaire,title=yes,style=normal,list=all,listtext={Corollaire }]
+\defineenumeration[notation][command=\myBlue,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Notation,counter=definition,title=yes,style=normal,list=all,listtext={Notation }]
+`\catcode`𝕂=\active
+\def𝕂{ℝ}
+
+\definetextbackground
+[axiomframe]
+[
+mp=background:random,
+location=paragraph,
+rulethickness=1pt,
+width=broad,
+leftoffset=1em,
+rightoffset=1em,
+before={\testpage[3]\blank[3*big]},
+after={\blank[3*big]}
+]
+
+\startuseMPgraphic{background:random}
+path p;
+for i = 1 upto nofmultipars :
+p = (multipars[i]
+topenlarged 10pt
+bottomenlarged 10pt) randomized 4pt ;
+fill p withcolor lightgray ;
+draw p withcolor \MPvar{linecolor}
+withpen pencircle scaled \MPvar{linewidth};
+endfor;
+\stopuseMPgraphic
+
+
+\starttext
+\centerline{\bfd Mathématiques}
+\centerline{\tf (document de cours)}
+\blank[big]
+\centerline{\bfb ECS 1ère année}
+\blank[big]
+\centerline{Olivier Binda}
+\blank[medium]
+\centerline{\currentdate}
+\stoptext
+%\ctxlua{lxml.load("calcul", 'xml/Limbo_Méthodes_de_calcul.xml')}%
+%\ctxlua{L.insertSubsection("calcul", 'section[attribute("t")=="Sommes"]')}%
+%\meaning\xmlprocessfile
+%\meaning\doxmlprocess
+%\ctxlua{L.test()}%
+\def\applySettups#1{
+\startxmlsetups xml:#1
+\xmlsetsetup{#1}{*}{-}
+% sectioning
+\xmlsetsetup{#1}{part|chapter|section|subsection|subsubsection|concept}{xml:#1:group}
+% grouping 
+\xmlsetsetup{#1}{group}{xml:groupl}
+%\xmlsetsetup{suites}{combination}{xml:combination}
+%\xmlsetsetup{maths}{combination/property}{xml:combination/statement}
+% statements (primary objects)
+\xmlsetsetup{#1}{corollary|definition|lemma|notation|property|theorem|}{xml:#1:statement} 
+% best practice (secondary info)
+\xmlsetsetup{#1}{craft|uses|item}{xml:#1:*}
+% illustration
+\xmlsetsetup{#1}{figure|example}{xml:#1:*} 
+% text (tertiary info)
+\xmlsetsetup{#1}{remark|remarks|text}{xml:#1:*} 
+%\xmlsetsetup{suites}{remarks/remark}{xml:remarks:remark} 
+% exercises
+\xmlsetsetup{#1}{exercise}{xml:#1:*}
+% proofs
+\xmlsetsetup{#1}{proof}{xml:#1:*}
+\stopxmlsetups 
+
+\xmlregistersetup{xml:#1} 
+
+\startxmlsetups xml:#1:group
+\ctxlua{L.processGroup("##1")}%
+\stopxmlsetups
+\startxmlsetups xml:#1:statement
+\ctxlua{L.processNewStatement("##1")}%
+%\placeleftfigure{}{\useMPgraphic{Frame}}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:combination
+\ctxlua{L.processCombination("##1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:example
+\ctxlua{L.processExample("##1")}%
+\stopxmlsetups
+
+
+% remarks
+\startxmlsetups xml:#1:remark
+\ctxlua{L.processRemark("##1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:remarks 
+{\tenpoint\startitemize[packed,intext,joinedup,2,nowhite,after]%
+\xmlflush{##1}%
+\stopitemize}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:remarks:remark
+\item\ctxlua{L.processRawContent("##1")}%
+\stopxmlsetups
+
+% texts
+\startxmlsetups xml:#1:text
+\ctxlua{L.processRawContent("##1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:uses
+{\tenpoint
+\startitemize[packed,intext,joinedup,4,nowhite,after]
+\xmlflush{##1}%
+\stopitemize}
+\stopxmlsetups
+
+
+\startxmlsetups xml:#1:item
+\ctxlua{L.processContent("##1","\\item")}%
+\stopxmlsetups
+
+}
+
+\def\pn{\medskip}
+
+% defines unnumbered domain
+% see http://wiki.contextgarden.net/Titles#Unnumbered_titles_in_table_of_contents
+% see http://wiki.contextgarden.net/Table_of_Contents#Including_unnumbered_heads_in_the_ToC
+\definehead     [domain] [chapter]
+\setuphead      [domain] [incrementnumber=list]
+\setuplist[domain][width=0em,style=bold]  
+\setuplist[chapter][width=1.5em]  
+\setuplist[section][width=2.5em]                                              
+\setuplist[subsection][width=3.5em, margin=2.5em]   
+\setuplist[subject][margin=1.5em]
+\setupcombinedlist[content][list={domain, chapter,section,subsection}]
+\applySettups{suites}
+\applySettups{sommes}
+\applySettups{logique}
+\applySettups{ensembles}
+\applySettups{systèmes}
+\applySettups{matrices}
+\applySettups{ev}
+\applySettups{polynomes}
+\applySettups{probabilités}
+\applySettups{VAR}
+
+% Fondements théoriques
+% alphabet grec
+\startdomain[title=Bases théoriques]
+% A1.1 (propositions)
+\xmlprocessfile{maths}{xml/ECS_Logique.xml}{}
+% A1.2 (suites)
+\xmlprocessfile{maths}{xml/ECS_sommes_produits_récurrences.xml}{}
+% A1.3 (fonctions)
+\xmlprocessfile{maths}{xml/ECS_Ensembles_et_applications.xml}{}
+% A6.4 combinatoire
+
+% A4.1 ℝ 
+\stopdomain
+
+\startdomain [title=Analyse]
+% Analyse (suites) 
+%A4.2 exemples suites réelles
+\xmlprocessfile{maths}{xml/ECS_Suites_fondamentales.xml}{}
+%A4.3 suites réelles 
+\xmlprocessfile{maths}{xml/ECS_Suites.xml}{}
+%B2.1 etude asymptotique
+%B2.3 Séries
+
+% Analyse (fonctions)
+% A5.1 limites et continuité fonctions réelles
+% A5.2 etude globale sur un intervalle
+\xmlprocessfile{maths}{xml/ECS_Continuité_limites.xml}{}
+\xmlprocessfile{maths}{xml/Limbo_Continuité.xml}{}
+% A5.3 dérivation
+% B2.8 extrema
+% B2.9 fonctions convexes
+\xmlprocessfile{maths}{xml/Limbo_Dérivation.xml}{}
+% B2.5 dérivées successives
+% A5.4 intégration sur un segment + sommes de Riemann
+\xmlprocessfile{maths}{xml/ECS_Dérivées_et_primitives.xml}{}
+\xmlprocessfile{maths}{xml/Limbo_Intégration.xml}{}
+%B2.6 Formule de Taylor
+%B2.2 comparaison des fonctions
+%B2.7 développements limités
+%B2.4 integrales generalisées
+
+\xmlprocessfile{maths}{xml/Limbo_Développements_limités.xml}{}
+
+
+\stopdomain 
+\startdomain[title=Algèbre] 
+
+% Algèbre (non-linéaire)
+%A2.1
+\xmlprocessfile{maths}{xml/Limbo_Nombres_complexes.xml}{}
+%A2.2
+\xmlprocessfile{maths}{xml/ECS_Polynômes.xml}{}
+
+% Algèbre (linéaire)
+%A3.2
+\xmlprocessfile{maths}{xml/ECS_Systèmes.xml}{}
+%A3.1
+\xmlprocessfile{maths}{xml/ECS_Matrices.xml}{}
+%A3.3
+\xmlprocessfile{maths}{xml/ECS_Espaces_vectoriels.xml}{}
+%B1.1 Espaces de dim finie
+%B1.2 sommes directes supplémentaires
+%B1.3 Applications linéaires 
+
+
+
+\stopdomain
+\startdomain[title=Probabilités]
+
+% Probabilités
+% A6.1 Univers fini : Expériences aléatoires, événements, probabilité, probabilité conditionnelles, indépendance
+\xmlprocessfile{maths}{xml/ECS_Probabilités.xml}{}
+% A6.2 VAR réelle (finie)
+\xmlprocessfile{maths}{xml/ECS_Variables_aléatoires.xml}{}
+% A6.3 loi usuelles
+
+
+%B3.1 espace probabilisé quelconque
+%B3.2 VAR réelles
+%B3.3 VAR discretes
+%B3.4 loi discretes usuelles
+%B3.5 VAR à densité
+%B3.6 loi à densité usuelles
+%B3.7 convergence et approximation
+
+
+\stopdomain
+
+
+
+
+
+
+
+%\xmlprocessfile{maths}{xml/Limbo_Structures_algèbriques.xml}{}
+
+\starttext
+\chapter{Fiches}
+\completeRecords
+\stopcolumns
+\stoptext
+
+\starttext
+\completecontent[criterium=all]
+\stoptext
+
+\iffalse
+\starttext
+\completeindex
+\stoptext
+\fi
+\stopproduct

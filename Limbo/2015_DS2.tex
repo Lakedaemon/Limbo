@@ -1,0 +1,46 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+\centerline{\bfb DEVOIR SURVEILLE 2}
+\blank[big]
+
+
+\startList%\item\filterpages[2015/DS1/ds2.pdf][2][width=18cm]
+\item\filterpages[2015/DS2/DS3(2005-2006).pdf][1][width=18cm]%systeme + suites (+ logique) = 10
+\item\filterpages[xml/anneecourante.pdf][64][width=18cm]%systeme parametre 1gros
+\item\filterpages[xml/anneecourante.pdf][45, 46, 47, 48][width=18cm]%denombrement (somme) = 6
+\item\filterpages[xml/anneecourante.pdf][49, 50][width=18cm]%denombrement (8)
+\item\filterpages[2015/DS2/ds3.pdf][2][width=18cm]%analyse et equa diff
+\stopList
+
+\iftrue
+%\page
+\centerline{\bfb CORRECTION DU DEVOIR SURVEILLE 2}
+\blank[big]
+\startList\item%\item\filterpages[2015/DS1/ds2-correction.pdf][1,2][width=18cm]
+\item\filterpages[2015/DS2/DS3(2005-2006).pdf][3, 4, 5][width=18cm]%systeme
+%\item\filterpages[xml/anneecourante.pdf][64][width=18cm]%systeme parametre 1gros
+%\item\filterpages[xml/anneecourante.pdf][45, 46, 47, 48][width=18cm]%denombrement somme
+%\item\filterpages[xml/anneecourante.pdf][49, 50, 51][width=18cm]%denombrement somme
+\item\filterpages[2015/DS2/ds3-correction.pdf][4, 5][width=18cm]%analyse et equa diff
+\stopList
+\fi
+\stoptext
+\stopcomponent
+\endinput

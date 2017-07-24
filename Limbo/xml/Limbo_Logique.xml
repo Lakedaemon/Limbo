@@ -1,0 +1,543 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+
+<chapter t="Logique binaire" p="β">
+
+<section t="Propositions">
+
+<concept t="assertion"><text>La logique binaire s'intéresse à des assertions, i.e. à des phrase phrases affirmatives simples, 
+dont elle tente d'établir la véracité ou la fausseté. Une assertion est une affirmation élémentaire.</text>
+<definition i="logique+assertion">\startformula 
+A \text{ assertion } ⟺ A \text{ affirmation élémentaire}
+\stopformula
+</definition>
+<example>\quote{La logique, ç'est compliqué !} est une assertion.</example>
+</concept>
+
+
+<concept t="indécidable"><text>Il n'est malheureusement pas toujours possible d'attribuer la valeur \quote{vraie} 
+ou la valeur \quote{fausse} à une assertion. Une assertion indécidable est une affirmation élémentaire à laquelle il est impossible d'attribuer une valeur logique (la valeur vraie ou la valeur faux). </text>
+<definition i="logique+indécidabilité" h="$A$ assertion">\startformula 
+A\text{ indécidable}⟺ A \text{ sans valeur logique}
+\stopformula
+</definition>
+<examples>
+<example>\quote{Cette proposition est vraie} est une assertion indécidable, à la fois vraie et fausse.</example>
+<example>\quote{Cette proposition est fausse}  est une assertion indécidable, ni vraie, ni fausse.</example>
+</examples>
+<remark>Pour la suite, nous allons laisser de coté les assertions indécidables, qui sont certainement surprenantes et amusantes mais qui n'ont quasiment aucune utilité pratique, à part pour quelques rares mathématiciens professionnels</remark>
+</concept>
+
+<concept t="proposition"><text>Nous allons principalement nous intéresser aux propositions logiques, i.e. aux assertions qui ne sont pas indécidables. Une proposition logique est une affirmation élémentaire à laquelle peut être attribuée soit la valeur vraie, soit la valeur fausse.</text> 
+<definition i="logique+proposition" h="$A$ assertion">\startformula 
+A\text{ proposition}⟺ A \text{ avec valeur logique}
+\stopformula</definition>
+<examples>
+<example>\quote{un et un font deux} est une assertion vraie.</example>
+<example>\quote{Le carré d'un nombre réel est strictement positif} est une assertion fausse.</example>
+</examples>
+</concept>
+
+<concept t="symboles" i="logique+symboles"><text>Pour écrire les propositions logiques, nous allons utiliser un certain nombre de symboles mathématiques, 
+que l'on peut voir comme des abbréviations de morceaux de phrases françaises
+\placetable[middle,none]{}{\setupTABLE[r][1][style=bold]
+\bTABLE[align=middle]
+\startCSV
+Symbole, Signification\\
+$∈$, {\quote{élément de}, \quote{dans} ou \quote{appartient à}}\\
+$∀$, {\quote{pour chaque}, \quote{pour tout} ou \quote{quel que soit}}\\
+$∃$, \quote{il existe} ou \quote{on peut trouver}\\
+$⇒$, \quote{implique}\\
+$⇔$, \quote{équivaut à} ou \quote{si et seulement si}\\
+$:$, \quote{tel que} ou \quote{pour lequel}\\
+$\{⋯\}$, \quote{ensemble}
+\stopCSV
+\eTABLE}
+</text>
+</concept>
+
+
+</section>
+
+<section t="Opérateurs">
+
+<subsection t="Affirmation">
+
+<concept t="affirmation"><text>Affirmer une proposition logique $\mc P$, c'est dire qu'elle est vraie.</text>
+<definition h="$\mc P$ proposition" i="logique+affirmation">
+\startformula 
+(\mc P) := \quote{\mc P \text{ est vrai}}
+\stopformula</definition>
+<remark>
+Certaines propositions logiques, bien qu'exprimées différemment, possèdent un sens identique et, par conséquent, la même valeur logique.
+En pratique, on manipulera de préférence la proposition de même sens la plus simple.
+</remark>
+<example>
+Les propositions \quote{un et un font deux} et \quote{il est vrai que un et un font deux} ont exactement le même sens et sont vraies toutes les deux. 
+Par contre, la première est plus simple.
+</example>
+</concept>
+
+<concept t="table de vérité"><text>La table de vérité de l'opérateur identité est </text> 
+<property><![CDATA[
+
+\tikzpicture[Nested Picture]
+	\matrix (tableau) [Tableau Operateur]{
+		$\mc P$ \&  Vrai \&  Faux\\
+		$\mc P$ est vrai \&  Vrai \&  Faux \\
+	};
+	\endtikzpicture
+]]></property>
+</concept>
+
+
+</subsection>
+
+<subsection t="Négation">
+
+<concept t="négation" i="logique+non"><text>Nier une proposition logique $\mc P$, c'est affirmer son contraire.</text>
+<definition h="$\mc P$ proposition">\startformula 
+\overline{\mc P} := \quote{\mc P \text{ est faux}}.
+\stopformula</definition>
+<remark>La négation d'une proposition logique $\mc P$ se prononce \quote{non $\mc P$} et se note $\overline{\mc P}$ ou \quote{non $\mc P$}.</remark>
+<examples>
+<example>La négation de \quote{un et un font deux} est la proposition \quote{un et un ne font pas deux}.</example>
+<example>La négation de \quote{Le carré d'un nombre réel est strictement positif} est la proposition \quote{Le carré d'un nombre réel n'est pas strictement positif}.</example>
+</examples>
+</concept>
+
+<concept t="table de vérité"><text>La table de vérité de l'opérateur logique de négation est </text> 
+<property><![CDATA[\tikzpicture[Nested Picture]
+	\matrix (tableau) [Tableau Operateur]{
+		$\mc P$ \&  Vrai \&  Faux\\
+		$\mc P$ est faux \&  Faux \&  Vrai \\
+	};
+	\endtikzpicture]]></property>
+</concept>
+
+<concept t="double négation">
+<text>On ne change pas le sens et la valeur d'une proposition en lui appliquant deux fois l'opérateur~de négation.</text>
+<property> 
+\startformula 
+\text{non }(\text{non }\mc P)=\mc P
+\stopformula
+</property>
+<remark>La logique, c'est simple, il ne faut pas paniquer !</remark>
+</concept>
+
+<concept t="quantificateurs"><text>Nier une proposition comportant les quantificateurs $∀$ et $∃$ se fait de manière totalement mécanique, via les relations suivantes</text>
+<combination>
+<property>
+\startformula
+\text{non }\quote{∀x∈X, \mc P_x} = \quote{∃x∈X, \text{ non }\mc P_x}
+\stopformula
+</property>
+<property>
+\startformula
+\text{non }\quote{∃x∈X, \mc P_x} = \quote{∀x∈X, \text{ non }\mc P_x}
+\stopformula
+</property>
+</combination>
+<example>La négation de la phrase \quote{Pour chaque étudiant, il y a une page du cours dont tous les mots sont incompréhensibles} est 
+\quote{il y a un étudiant, pour lequel toutes les pages du cours comportent au moins un mot qu'il comprend}.</example>
+</concept>
+
+</subsection>
+<subsection t="conjonction">
+
+<concept t="conjonction" i="logique+et"><text>La conjonction de deux propositions logiques est vraie \ssi les deux propositions logiques sont vraies
+$\mc P$ et $\mc Q$ est la proposition \quote{$\mc P$ et $\mc Q$ sont vraies}</text>
+<definition h="$\mc P, \mc Q$ proposition">
+\startformula 
+(\mc P \Et \mc Q) := \quote{\mc P \Et \mc Q\text{ sont vraies}}
+\stopformula
+</definition>
+<remark>La conjonction de $\mc P$ et $\mc Q$ se prononce et se note \quote{$\mc P$ et $\mc Q$}.</remark>
+<examples>
+<example>La proposition \quote{$1+1=2$ et $2+2=4$} est vraie.</example>
+<example>La proposition \quote{$1> 2$ et $2>0$} est fausse.</example>
+</examples>
+</concept>
+
+
+<concept t="table de vérité"><text>La proposition \quote{$\mc P$ et $\mc Q$} est vraie si les deux propositions sont vraies et fausse si l'une au moins des propositions est fausse</text>
+
+<property i="table de vérité+et"><![CDATA[\tikzpicture[Nested Picture]
+	\matrix (tableau) [Tableau Operateur] {
+	%|[draw=none]|		
+	\&  $\mc Q$ Vrai \&  $\mc Q$ Faux \\
+		$\mc P$ Vrai \&  Vrai \&  Faux\\
+		$\mc P$ Faux \&  Faux \&  Faux\\
+	};
+	\draw (tableau-2-1.150) --  (tableau-1-2.west) node [sloped,pos=0.5,above,inner sep=1pt] (t) {$\mc P$ et $\mc Q$};
+	\endtikzpicture]]></property>
+</concept>
+
+
+</subsection>
+<subsection t="Disjonction inclusive">
+
+<concept t="disjonction\\inclusive" i="logique+ou">
+<text>Le \quote{ou} mathématique est inclusif contrairement à l'usage traditionnel du \quote{ou} en français. La disjonction (inclusive) de deux propositions est vraie \ssi l'une au moins des propositions est vraie.</text>
+<definition h="$\mc P, \mc Q$ proposition">
+\startformula 
+(\mc P \Ou \mc Q) := \quote{\text{l'une au moins des propositions $\mc P$ ou $\mc Q$ est vraie}}
+\stopformula
+</definition>
+<remark>La disjonction inclusive de $\mc P$ et $\mc Q$ se prononce et se note \quote{$\mc P$ ou $\mc Q$}.</remark>
+<remark>Les symboles $⩽$ et $⩾$ sont des disjonctions inclusives.
+\startformula
+a⩽b \text{ signifie } \quote{a \Le b \Ou a=b}
+\stopformula
+</remark>
+<examples>
+<example>La proposition \quote{$1 + 1 = 2$ ou $2 + 2 = 5$} est vraie.</example>
+<example>La proposition \quote{$1 > 1$ ou $0 > 2$} est fausse.</example>
+</examples>
+</concept>
+
+<concept t="table de vérité">
+<text>La proposition \quote{$\mc P$ ou $\mc Q$} est vraie si l'une au moins des propositions est vraie 
+et fausse si les deux propositions sont fausses</text>
+<property i="table de vérité+ou"><![CDATA[\tikzpicture[Nested Picture]
+	\matrix (tableau) [Tableau Operateur]{
+		\&  $\mc Q$ Vrai \&  $\mc Q$ Faux \\
+		$\mc P$ Vrai  \&  Vrai \&  Vrai \\
+		$\mc P$ Faux \&  Vrai \&  Faux\\
+	};
+	\draw (tableau-2-1.150) --  (tableau-1-2.west) node [sloped,pos=0.5,above,inner sep=1pt] (t) {$\mc P$ ou $\mc Q$};
+	\endtikzpicture]]></property></concept>
+
+	
+<concept t="négation">
+<combination><property h="$\mc P, \mc Q$ propositions"> 
+\startformula 
+\overline{\mc P\Et\mc Q}=\overline{\mc P}\Ou\overline{\mc Q}
+\stopformula
+</property>
+<property h="$\mc P, \mc Q$ propositions"> 
+\startformula 
+\overline{\mc P\Ou\mc Q}=\overline{\mc P}\Et\overline{\mc Q}
+\stopformula
+</property>
+</combination>
+<example>Les nombres $x$ qui ne vérifient pas \quote{$x>5$ ou $x\Le-2$} vérifient \quote{$x⩽ 5$ et $x⩾ 2$}. Autrement dit, il sont dans $[-2,5]$. </example>
+</concept>
+	
+	
+</subsection>
+
+
+<subsection t="Disjonction exclusive">
+
+
+<concept t="disjonction\\exclusive" i="logique+ou exclusif">
+<text>La disjonction exclusive de deux propositions est vraie \ssi l'une est vraie et l'autre est fausse.</text>
+<definition h="$\mc P, \mc Q$ proposition">
+(\mc P\text{ xor }\mc Q) := \quote{\text{l'une exactement des propositions $\mc P$ ou $\mc Q$ est vraie}}.
+</definition>
+<remarks>
+<remark>La disjonction exclusive de $\mc P$ et $\mc Q$ se note \quote{$\mc P$ xor $\mc Q$}.</remark>
+<remark>En mathématiques, l'opérateur xor est rarement utilisé, contrairement à l'opérateur ou. </remark>
+</remarks>
+<examples>
+<example>La proposition \quote{$1 + 1 = 2$ xor $2 + 2 = 5$} est vraie.</example>
+<example>La proposition \quote{$1 + 1 = 2$ xor $2 + 2 = 4$} est fausse.</example>
+<example>La proposition \quote{$1 > 1$ xor $0 > 2$} est fausse.</example>
+</examples>
+</concept>
+
+<concept t="table de vérité">
+<property i="table de vérité+xor"><![CDATA[\tikzpicture[Nested Picture]
+	\matrix (tableau) [Tableau Operateur]{
+		\&  $\mc Q$ Vrai \&  $\mc Q$ Faux \\
+		$\mc P$ Vrai  \&  Faux  \&  Vrai \\
+		$\mc P$ Faux \&  Vrai \&  Faux  \\
+	};
+	\draw (tableau-2-1.150) --  (tableau-1-2.west) node [sloped,pos=0.5,above,inner sep=1pt] (t) {$\mc P$ xor $\mc Q$};
+	\endtikzpicture]]></property>
+</concept>
+</subsection>
+
+<subsection t="Equivalence">
+
+<concept t="équivalence" i="logique+équivalence">L'équivalence deux propositions est la proposition affirmant qu'elles ont la même valeur logique.
+<definition>\startformula 
+(\mc P⟺\mc Q) := \quote{\mc P \Et \mc Q \text{  ont même valeur logique}}
+\stopformula</definition>
+<remarks>
+<remark>L'équivalence de $\mc P$ et $\mc Q$ se note \quote{$\mc P⟺\mc Q$}.</remark>
+<remark>Lorsque l'équivalence $\mc P⟺ \mc Q$ est vraie, on dit que les propositions $\mc P$ et $\mc Q$ sont équivalentes.</remark>
+<remark>\startformula
+\startmatrix
+\NC \quote{\mc P⟺\mc Q} = \quote{\Non\mc P⟺\Non\mc Q}\NR
+\NC\Non \quote{\mc P⟺\mc Q} = \quote{\mc P\text{ xor }\mc Q}\NR
+\stopmatrix
+\stopformula
+</remark>
+</remarks>
+<examples>
+<example>La proposition \quote{$1+1=2 ⟺ 2×2=4$} est vraie.</example>
+<example>La proposition \quote{$1> 1⟺ 0=0$} est fausse.</example>
+</examples>
+</concept>
+
+<concept t="table de vérité">
+<text>La proposition \quote{$\mc P⟺\mc Q$} est vraie si les deux propositions sont vraies ou si les deux propositions sont fausses.</text>
+<property i="table de vérité+équivalence"><![CDATA[\tikzpicture[Nested Picture]
+	\matrix (tableau) [Tableau Operateur]{
+		\&  $\mc Q$ Vrai \&  $\mc Q$ Faux \\
+		$\mc P$ Vrai \&  Vrai \&  Faux\\
+		$\mc P$ Faux \&  Faux \&  Vrai \\
+	};
+	\draw (tableau-2-1.150) --  (tableau-1-2.west) node [sloped,pos=0.5,above,inner sep=1pt] (t) {$\mc P⟺\mc Q$};
+	\endtikzpicture]]></property>
+</concept>
+
+</subsection>
+<subsection t="Implicatiion">
+
+<concept t="implication" i="logique+implication">
+
+<definition h="$\mc P, \mc Q$ proposition">\startformula 
+(\mc P⟹\mc Q):=\quote{\mc P \text{ faux ou } \mc Q \text{ vrai}}
+\stopformula
+</definition>
+<remarks>
+<remark>L'implication $\mc P⟹\mc Q$ se prononce \quote{$\mc P$ implique $\mc Q$}.</remark>
+<remark>Lorsque l'équivalence $\mc P⟹ \mc Q$ est vraie, on dit que la proposition $\mc P$ implique la proposition $\mc Q$.</remark>
+<remark>Le vrai implique le vrai et que le faux implique tout.</remark>
+</remarks>
+<examples>
+<example>La proposition \quote{$(1=2) ⟹ (2=4)$} est vraie.</example>
+<example>La proposition \quote{$(1=2) ⟹ (2≠4)$} est vraie.</example>
+<example>La proposition \quote{$(1=1) ⟹ (2≠4)$} est vraie.</example>
+<example>La proposition \quote{$(1=1) ⟹ (0=1)$} est fausse.</example>
+</examples>
+</concept>
+
+<concept t="table de vérité">
+<text>La proposition $\mc P⟹\mc Q$ est vraie si $\mc P$ est fausse ou si $\mc P$ et $\mc Q$ sont vraies.
+La proposition $\mc P⟹\mc Q$ est fausse si $\mc P$ est vraie et si $\mc Q$ est fausse.</text>
+<property i="table de vérité+équivalence"><![CDATA[\tikzpicture[Nested Picture]
+	\matrix (tableau) [Tableau Operateur]{
+		\&  $\mc Q$ Vrai \&  $\mc Q$ Faux \\
+		$\mc P$ Vrai \&  Vrai \&  Faux\\
+		$\mc P$ Faux \&  Vrai \&  Vrai \\
+	};
+	\draw (tableau-2-1.150) --  (tableau-1-2.west) node [sloped,pos=0.5,above,inner sep=1pt] (t) {$\mc P⟹\mc Q$};
+	\endtikzpicture]]></property>
+</concept>
+
+<method>Pour établir une équivalence $\mc P⟹\mc Q$, on suppose que la proposition $\mc P$ est vraie puis on essaye de montrer que la proposition $\mc Q$ est vraie.</method>
+
+</subsection>
+</section>
+
+<section t="Raisonnements classiques"> 
+
+<subsection t="Raisonnement par double implication">
+
+<concept t="Double implication" i="raisonnement+double implication">
+<text>Pour établir l'équivalence $\mc P⟺\mc Q$, il suffit de démontrer $\mc P⟹\mc Q$ et $\mc Q⟹\mc P$.</text>
+<property t="$\mc P, \mc Q$ propositions" m="+"> 
+\startformula 
+(\mc P⟺\mc Q) = \big((\mc P⟹\mc Q)\Et(\mc Q⟹\mc P)\big) 
+\stopformula</property>
+</concept>
+</subsection>
+
+<subsection t="Raisonnement par contraposition">
+
+<concept t="contraposition" i="raisonnement+contraposition">
+<text>Pour établir l'implication $\mc P⟹\mc Q$, il suffit d'établir sa contraposée $\Non \mc Q⟹\Non \mc P$, ce qui est plus facile dans quelques rares cas. </text>
+<property h="$\mc P, \mc Q$ propositions" m="-"> 
+\startformula 
+\quote{\mc P⟹\mc Q} = \quote{\Non \mc Q⟹\Non \mc P}. 
+\stopformula
+</property>
+<remark>L'implication de droite est la contraposée de celle de gauche (et inversement).</remark>
+</concept>
+</subsection>
+
+<subsection t="Raisonnement direct">
+
+<concept t="Raisonnement direct">
+<text>On procède par implication en partant d'une proposition vraie</text> 
+<property h="$\mc P,…,\mc Z$ propositions">\startformula 
+\underbrace{\mc P}_{\text{Vrai}}\mathop{⟹}\limits^{\text{Vrai}}\mc Q\mathop{⟹}\limits^{\text{Vrai}}\cdots\mathop{⟹}\limits^{\text{Vrai}}\underbrace{\mc Z}_{\text{Vrai}}
+\stopformula 
+</property>
+<remark>C'est le raisonnement de base utilisé par tout le monde.</remark>
+</concept>
+
+</subsection>
+
+<subsection t=" Raisonnement par l'absurde">
+
+<concept t="Raisonnement par l'absurde">
+<text>Pour établir une proposition $\mc P$, en raisonnant par l'absurde, 
+on suppose son contraire (i.e. que \quote{non $\mc P$} est vraie) puis on procède par implications pour aboutir à une proposition fausse (une absurdité, une contradiction).</text> 
+<property h="$\mc P,…,\mc Z$ propositions">\startformula 
+\underbrace{\Non \mc P}_{\text{Supposé}}\mathop{⟹}\limits^{\text{Vrai}}\mc Q\mathop{⟹}\limits^{\text{Vrai}}\cdots\mathop{⟹}\limits^{\text{Vrai}}\underbrace{\mc Z}_{\text{Faux}}
+\stopformula 
+</property>
+<remark>Il est toujours possible de trouver une démonstration directe d'une propriété établie par l'absurde (cela constitue souvent un bon exercice, très formateur, en général plus difficile). </remark>
+
+<proof>Si les implications pré-citées sont justes et si la proposition $\mc Z$ est fausse, il résulte de la table de vérité de l'implication que les propositions $\mc Z,\cdots,\mc Q$, $\Non \mc P$ sont fausses et donc que la proposition $\mc P$ est vraie. 
+Par ailleurs, d'après le principe de contraposition, la chaine d'implication précédente est équivalente à la chaine d'implication 
+
+\startformula 
+\underbrace{\mc P}_{\text{Vrai}}\mathop{⟸}\limits^{\text{Vrai}}
+\Non \mc Q\mathop{⟸}\limits^{\text{Vrai}}
+\cdots
+\mathop{⟸}\limits^{\text{Vrai}}
+\underbrace{\Non \mc Z}_{\text{Vrai}},
+\stopformula
+qui prouve la proposition $\mc P$ de manière directe.</proof>
+</concept>
+
+</subsection>
+
+<subsection t="Raisonnement par récurence">
+
+
+<concept t="principe de récurrence">
+<text>Le raisonnement par récurrence consiste à établir de manière automatique des propositions logiques 
+$\{\mc P_0, \mc P_1, \mc P_2, \mc P_3, \cdots\}$ en procédant en deux étapes : 
+\startitemize[n,packed,joinedup,paragraph]
+\item {\bf Initialisation. }
+On établit la propriété au(x) premier(s) rang(s), de sorte à pouvoir enclencher le méchanisme de transmission. 
+\item {\bf Transmission. }
+On prouve que la propriété se transmet du (ou des) rang(s) précédent(s) au rang suivant. 
+\stopitemize
+</text>
+<remarks>
+<remark>Il est primordial d'écrire et de quantifier correctement la propriété à établir.</remark>
+<remark>Lorsque la propriété à établir n'est pas donnée, il faut d'abord l'intuiter puis la démontrer.</remark>
+</remarks>
+</concept>
+
+<concept t="somme\\produit\\factorielle">
+<text>Pour énoncer la propriété de récurrence, il est recommandé d'utiliser les signes sommes, produits et factorielles, qui se prêtent partivulièrement bien aux récurrences, plutôt que de faire appel aux notation avec points de suspension.</text>
+<definition>
+\startformula 
+ ∑_{n=a}^bf(n)= ∑_{a⩽n⩽b}f(n)=\startcases
+\NC f(a)+f(a+1)+⋯+f(b) \NC si $a⩽b$\NR
+\NC0\NC si $a>b$
+\stopcases
+\stopformula
+</definition>
+<definition>
+\startformula 
+ ∏_{n=a}^bf(n)= ∏_{a⩽n⩽b}f(n)=\startcases
+\NC f(a)×f(a+1)×⋯×f(b) \NC si $a⩽b$\NR
+\NC 1\NC si $a>b$
+\stopcases
+\stopformula
+</definition>
+<definition>
+\startformula 
+n!=\startcases
+\NC 1×2×⋯×n \NC si $n⩾1$\NR
+\NC 1\NC si $n=0$
+\stopcases
+\stopformula
+</definition>
+<remark>Les factorielles peuvent s'exprimer à l'aide d'un produit
+\startformula
+n!= ∏_{k=1}^nk= ∏_{1⩽k⩽n}k\qquad(n∈ℕ).
+\stopformula
+</remark>
+</concept>
+
+
+<concept t="récurrence forte\\faible\\finie\\à deux pas">
+<text>Il existe une infinité de variations du shema de démonstration par récurrence. 
+C'est pourquoi il est essentiel de bien comprendre le principe de récurrence pour pouvoir l'adapter aux divers cas rencontrés. </text>
+<combination>
+<property>
+\startformula
+\startcases
+\NC\mc P_0\NR
+\NC\mc P_n⟹\mc P_{n+1}
+\stopcases
+\stopformula
+</property>
+
+<property>
+\startformula
+\startcases
+\NC\mc P_0\NR
+\NC\mc P_0,…,\mc P_n⟹\mc P_{n+1}
+\stopcases
+\stopformula
+</property>
+</combination>
+<combination>
+<property>
+\startformula
+\startcases
+\NC\mc P_0, \mc P_1\NR
+\mc P_{n-1}, \mc P_n⟹\mc P_{n+1}
+\stopcases
+\stopformula
+</property>
+<property>
+\startformula
+\startcases
+\NC\mc P_0\NR
+\NC\mc P_n⟹\mc P_{n+1}\quad (0⩽n⩽k)
+\stopcases
+\stopformula
+</property>
+
+</combination>
+<remarks>
+<remark>L'implication permettant la transmission ne se démontre jamais par récurrence.</remark>
+<remark>L'implication permettant la transmission détermine comment l'initialisation doit se faire</remark>
+</remarks>
+<example>Etablissons la propriété $\mc P_n:n!⩾2^{n-1}$ pour chaque entier $n⩾1$. 
+\startitemize[1,joinedup,packed]
+\item $\mc P_1$ est vraie car $1!=1⩾1=2^0$.
+\item Supposons $\mc P_n$ pour un entier $n⩾1$ et établissons $\mc P_{n+1}$.\crlf 
+Comme $n+1⩾2$, nous remarquons que  
+\startformula
+(n+1)! = (n+1)×n! \quad\underbrace{⩾}_{\mc P_n} \quad(n+1)×2^{n-1}⩾ 2 × 2^{n-1}=2^n.
+\stopformula
+et donc que $\mc P_{n+1}$ est vraie. 
+\stopitemize
+Il résulte alors du principe de récurrence que $\mc P_n$ est vraie pour $n⩾1$.
+
+</example>
+</concept>
+
+
+<!--
+
+\centerline{\fourteenbf Démonstration type recommandée \rm (cas simple)}
+\medskip
+\noindent
+Pour $n ∈ ℕ$,\footnote1{quantification de l'entier $n$ : les entiers $n$ pour lesquels vous voulez prouver $\mc P_n$.} prouvons par récurrence la propriété $\mc P_n$\footnote2{vous annoncez ce que vous voulez dérmontrer}:
+{\bf énoncé au rang n.}\footnote3{il faut absolument énoncer clairement la propriété au rang $n$}\medskip\noindent
+$\LuciferStar$ La propriété $\mc P_0$ est vraie\footnote4{initialisation} car {\bf justifications...}\medskip\noindent
+$\LuciferStar$ Soit $n ⩾0$ un entier tel que $\mc P_n$  soit vraie,\footnote5{vous supposez que $\mc P_n$ est vraie} 
+établissons la propriété $\mc P_{n+1}$.$^{(4)}$ \smallskip\noindent
+{\bf Raisonnement...d'après $\mc P_n$...raisonnement} donc la propriété $\mc P_{n+1}$ est vérifiée\footnote6{vous achevez ici la démonstration de l'implication $\mc P_n ⟹\mc P_{n+1}$}
+\medskip\noindent
+Comme $\mc P_0$ est vraie et comme $\mc P_n ⟹\mc P_{n+1}$ pour chaque $n ⩾0$\footnote7{facultatif, mais apprécié par le correcteur}, 
+par récurrence, nous concluons que  
+la propriété $\mc P_n$ est vérifiée\footnote8{La récurrence est enfin démontrée} pour $n ∈ ℕ^{(1)}$. 
+\bigskip
+
+-->
+
+
+
+
+
+</subsection>
+</section>
+</chapter>
+</part>
+

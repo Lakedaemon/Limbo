@@ -1,0 +1,320 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Analyse">
+
+<chapter t="Courbes paramétrées">
+
+<text>Dans ce chapitre, le symbole $\mc P$ désigne un plan affine muni d'un produit scalaire 
+et $(O,\vec i,\vec j)$ désigne un repère orthonormé direct de $\mc P$. 
+On rappelle que, pour chaque couple de points $(M,N) ∈\mc P^2$, le~vecteur $\vec{MN}$ est uniquement défini par 
+\startformula 
+N=M+\vec{MN}.
+\stopformula
+et que la donnée d'un repère orthonormé $(O,\vec i,\vec j)$ permet d'identifier le plan affine $\mc P$ soit à $ ℝ^2$ ou à $ ℂ$ via les isométries affines (bijections conservant le produit scalaire)
+\startformula 
+\Align{
+\NC ℂ\NC  →\mc P\NR
+\NC  x+iy ↦  M\text{ tel que}\vec{OM}=x\vec i+y\vec j}
+\stopformula
+</text>
+
+<section t="Courbes paramétrées cartésiennes">
+
+<concept t="Courbe paramétrée"><text>Une courbe paramétrée (arc paramétré plan) est une application définie sur un sous ensemble $D⊂ℝ$ à valeur dans le plan $ℝ²$.</text>
+<definition h="$D⊂ℝ$">
+\startformula 
+\Align{
+\NC D\NC  →ℝ²\NR
+\NC  t\NC  ↦  M(t)
+} \text{ courbe paramétrée}
+\stopformula
+</definition>
+<remark>Notant $x$ et $y$ les fonctions coordonnées définies par 
+\startformula 
+\vec {OM(t)}=x(t)\vec i+y(t)\vec j \qquad (t∈D), 
+\stopformula
+la courbe paramétrée peut être notée plus simplement sous la forme
+\startformula 
+(\mc C)\qquad
+\System{
+\NC x(t)=⋯\NR
+\NC y(t)=⋯} \qquad (t∈D).
+\stopformula</remark>
+<remark>La courbe paramétrée $\mc C$ est de classe $\mc C^k$ \ssi  ses fonctions coordonnées $x$ et $y$ sont de classe $\mc C^k$  sur $D$.</remark>
+</concept>
+
+
+<concept t="support"><text>Le support d'une courbe paramétrée est l'ensemble despoints par lesquels elle passe.</text>
+<definition>
+\startformula 
+ \{M(t):t ∈ D\}\text{ support}
+\stopformula
+</definition>
+<figure>
+\tikzpicture[domain=0:360,smooth,variable=\x] 
+	\draw[very thin,color=black!20,step=0.5] (-1.1,-1.1) grid (1.1,1.1);
+	\draw[->] (-1.1,0) -- (1.1,0) node[above] {\small$x$};
+	\draw[->] (0,-1.1) -- (0,1.1) node[right] {\small$y$};
+	\draw[color=blue] plot ({cos(\x)^3},{sin(\x)^3}) ;
+\endtikzpicture
+</figure>
+<!--
+\Figure [Index=Courbes!Support de l'astroide@Support de l'astroïde,Label=Astroide] Support de l' astroïde  $t ↦(\cos^3t,\sin^3t)$ pour $I= ℝ$. 
+-->
+
+<remark>La régularité du support d'une courbe paramétrée n'est pas bien caractérisée par la régularité de son paramétrage.</remark>
+</concept>
+
+
+
+<concept t="point régulier\\singulier">
+<definition>
+\startformula 
+\text{Courbe régulière en } t ⟺ \System{
+\NC M \text{ dérivable en }t\NR
+\NC M'(t)≠\vec 0}
+\stopformula
+</definition>
+<remark>On dit également que $t$ est un point régulier de la courbe</remark>
+<remark>Lorsque la courbe n'est pas régulière en $t$, on dit qu'elle est singulière en $t$ ou que $t$ est un point singulier de la courbe.</remark>
+</concept>
+
+<concept t="tangente"><text>La tangente d'une courbe paramétrée en un point régulier $t$ est l'unique droite 
+passant par le point $M(t)$ et de vecteur directeur $M'(t)$.</text>
+<definition h="Courbe régulière en $t$">
+\startformula 
+\big(M(t), M'(t)\big) \text{tangente à la courbe en } t
+\stopformula
+</definition>
+<remark>Plus généralement, s'il existe un plus petit entier $n⩾1$ tel que 
+\startformula 
+M^{(n)}(t)≠\vec 0,
+\stopformula 
+alors la tangente à la courbe paramétrée au point $t$ est l'unique droite passant par le point $M(t)$ et de vecteur directeur $M^{(n)}(t)$. </remark>
+</concept>
+
+<concept t="branche infinie"><text>Une courbe paramétrée admet une branche infinie en un point $t$ dans $D$ ou à une de ses extrémités \ssi l'abscisse ou l'ordonnée tendent vers l'infini en ce point.</text>
+<definition>
+\startformula 
+\text{Branche infinie en } t ⟺ \Choices{
+\NC x(t)→_t±∞\NR
+\NC y(t)→_t±∞}
+\stopformula
+</definition>
+<remark>Une branche infinie peut être de plusieurs types</remark>
+<remark>Cas $x→_t\pm ∞$ et $y→_ta ∈ ℝ$ :  asymptote horizontale~$Y=a$. </remark>
+	<figure><![CDATA[\tikzpicture
+		\draw[very thin,color=gray] (-3.1,-1.1) grid (4.1,2.1);
+		\draw[->,thick] (-3.1,0) -- (4.3,0) node[below] {$x$};
+		\draw[->,thick] (0,-1.2) -- (0,2.2) node[left] {$y$};
+		\draw [color=blue,thick] (1.1,2) --  (4.1,2) node [below,pos=0.5] {$y=a$} node[above,pos=0.5] {$x →+ ∞$} ;
+		\draw [color=blue,thick] (-3.1,-1) -- (-0.5,-1) node[below,pos=0.5]  {$y=a'$} node [above,pos=0.5] {$- ∞\gets x$} ;
+		\draw[domain=-0:4.1,samples=66,color=red,smooth,variable=\x] plot (\x,{2*tanh(\x)}) ;
+		\draw[domain=-3.1:0,samples=66,color=red,smooth,variable=\x] plot (\x,{tanh(2*\x)}) ;
+	\endtikzpicture]]></figure>
+<remark>Cas $x→_ta ∈ ℝ$ et $y→_t\pm ∞$ :  asymptote verticale~$X=a$. </remark>
+<figure><![CDATA[
+	\tikzpicture[scale=0.6]
+	\draw[very thin,color=gray] (-0.5,-2.8) grid (4.1,4.1);
+		\draw[->,thick] (0,0) -- (4.3,0) node[below] {$x$};
+		\draw[->,thick] (0,0) -- (0,4.2) node[left] {$y$};
+		\draw [color=red,thick] (1.570796327,-2.8) --  (1.570796327,4.3) node [right,pos=0.45] {$x=a$} node [below,rotate=90,pos=0.9] {$y →+ ∞$} node [above,rotate=90,pos=0.1] {$- ∞\gets y$};
+		\draw[domain=-0.5:1.35,samples=66,color=blue,smooth] plot (\x,{tan(\x r)});
+		\draw[domain=1.9:3.1,samples=66,color=blue,smooth] plot (\x,{tan(\x r)});
+	\endtikzpicture]]>
+</figure>
+<remark>Cas $x→_t\pm ∞ ∈ ℝ$ et $y→_t\pm ∞$ :  asymptote verticale~$X=a$. Il y a plusieurs sous-cas.</remark>
+<remark>Si ${y\F x}→_t=0$ branche parabolique de direction $Y=0$.</remark>
+<figure><![CDATA[\tikzpicture[scale=0.8]
+	\draw[very thin,color=gray] (-5.2,-1.1) grid (7.1,3.4);
+		\draw[->,thick] (-5.2,0) -- (7.3,0) node[below] {$x$};
+		\draw[->,thick] (0,-1.1) -- (0,3.5) node[left] {$y$};
+		\draw[domain=0:6.2,samples=66,color=blue,smooth] plot (\x+1,{sqrt(1+2*\x)});
+		\draw[domain=0:6.2,samples=66,color=blue,smooth] plot (1-\x,{3/2-sqrt(1+4*\x)/2});
+	\endtikzpicture]]></figure>
+<remark>Si ${y\F x}→_t=a≠0$ et $y-ax→_tb ∈ ℝ$ : asymptote d'équation $Y=aX+b$.</remark>
+<figure><![CDATA[\tikzpicture
+	\draw[very thin,color=gray] (-2.1,-1.4) grid (3.1,2.8);
+		\draw[->,thick] (-2.2,0) -- (3.3,0) node[below] {$x$};
+		\draw[->,thick] (0,-1.5) -- (0,3) node[left] {$y$};
+		\draw[-,color=red] (-2,1) -- (2.5,-1.25) node[pos=0.8,below,rotate=-25]{$y=ax+b$};
+		\draw[domain=0.3:4.5,samples=66,color=blue,smooth] plot (\x-2,{1-\x/2+3/(4*\x+1)});
+	\endtikzpicture]]></figure>
+<remark>Si ${y\F x}→_t=a≠0$ et $y-ax→_t±∞$ : branche  parabolique de direction $Y=aX$.</remark>
+<figure><![CDATA[\tikzpicture
+\draw[very thin,color=gray] (-.5,-1.2) grid (6,4.5);
+\draw[domain=0:6,samples=66,color=blue,smooth] plot (\x,{\x/3+sqrt(\x)});
+\draw[-,color=red] (0,0) -- (6,2) node[pos=0.8,below,rotate=22]{$y=ax$};
+\draw[->,thick] (-.5,0) -- (6,0) node[below] {$x$};
+\draw[->,thick] (0,-1.2) -- (0,4.5) node[left] {$y$};
+\endtikzpicture]]></figure>
+<remark>Si ${y\F x}→_t=±∞$  : branche  parabolique de direction $X=0$.</remark>
+<figure><![CDATA[\tikzpicture
+\draw[very thin,color=gray] (-1,-1.5) grid (3.5,3.5);
+\draw[domain=0:0.8,samples=66,color=red,smooth] plot (\x,{5*\x*\x});
+\draw[domain=0:3,samples=66,color=blue,smooth] plot (\x,{0.1*\x*\x*\x});
+\draw[->,thick] (-1,0) -- (3.5,0) node[below] {$x$};
+\draw[->,thick] (0,-1.5) -- (0,3.5) node[left] {$y$};
+\endtikzpicture]]></figure>
+<remark>Lorsque l'on trouve une direction asymptotique, on essaye en général de déterminer la position de la courbe par rapport à l'asymptote (en étudiant le signe de  $y-Y$ ou de $x-X$ selon les cas). Cela peut ête utile. </remark>
+<remark>Attention à ne pas  se faire piéger par le vocabulaire, les branches paraboliques sont rarement des paraboles même si elles leur ressemblent.</remark> 
+</concept>
+
+
+
+<concept t="algorithme d'étude"><text>
+\startList\item Recherche de l'ensemble de définition, de dérivabilité. 
+\item Etude de la périodicité et de la parité (symétries de la courbe et réduction d'intervalle d'étude). 
+\item Etude du signe des dérivées
+\item Tableau de variation. 
+\item Compléter le tableau de variation en faisant apparaitre tangentes, asymptotes, branches paraboliques, points doubles...
+\item Tracer la courbe.
+\stopList
+</text></concept>
+
+<concept t="Interprétation cinématique"><text>
+Géomètriquement, on peut assimiler le support d'une courbe paramétrée
+\startformula 
+\vec{OM(t)}=x(t)\vec i+y\vec j\qquad(t ∈ D)
+\stopformula
+à la trajectoire d'un point mobile, dont la position instantanée est donnée au temps $t$ par la donnée du point $M(t)$. 
+\bigskip
+\noindent
+On remarque que le \quote{vecteur vitesse moyen'} du point mobile entre les temps $t$ et $u$ est donnée par le taux d'accroissement 
+\startformula 
+{\vec{M(u)M(t)}\F u-t}={x(u)-x(t)\F u-t}\vec i+{y(u)-y(t)\F u-t}\vec j, 
+\stopformula
+qui converge vers le vecteur vitesse instantané en $t$ 
+\startformula 
+\vec v(t):=\lim_{u → t}{\vec{M(u)M(t)}\F u-t}=x'(t)\vec i+y'(t)\vec j 
+\stopformula
+lorsque l'on fait tendre $u$ vers $t$. \medskip
+\noindent
+On remarque que le vecteur instantané $\vec v(t)$ est tangent à la trajectoire du point mobile au point $M(t)$. 
+De plus, la vitesse instantannée en $t$ est la quantité 
+\startformula 
+v(t)=\|\vec v(t)\|=\sqrt{x'(t)^2+y'(t)^2}.
+\stopformula
+De même, le \quote{vecteur acceleration moyen} du point mobile entre les temps $u$ et $t$ est donnée par le taux d'accroissement 
+\startformula 
+{\vec{v(u)}-\vec {v(t)}\F u-t}={x'(u)-x'(t)\F u-t}\vec i+{y'(u)-y'(t)\F u-t}\vec j, 
+\stopformula
+qui converge vers le vecteur acceleration instantané en $t$ 
+\startformula 
+\vec a(t):=\lim_{u → t}{\vec{v(u)}-\vec {v(t)}\F u-t}=x''(t)\vec i+y''(t)\vec j 
+\stopformula
+lorsque l'on fait tendre $u$ vers $t$. En particulier, l'acceleration instantanée en $t$ est 
+\startformula 
+a(t)=\|\vec a(t)\|=\sqrt{x''(t)^2+y''(t)^2}.
+\stopformula
+</text></concept>
+
+</section><section t="Courbes paramétrées polaires.">
+
+<concept t="repère polaire">
+<definition>
+\startformula 
+∀ϑ∈ℝ, \System{
+\NC \vec u(ϑ):=\cos( ϑ)\vec i+\sin( ϑ)\vec j\NR
+\NC \vec v(ϑ):=-\sin( ϑ)\vec i+\cos( ϑ)\vec j. 
+}\text{ repère polaire mobile}
+\stopformula
+</definition>
+<remark>Les vecteurs $\vec u( ϑ)$ et $\vec v( ϑ)$ du repère polaire sont souvent noté plus simplement $\vec u$ et $\vec v$, bien que ce ne sont pas 
+des vecteurs fixes du plan $\mc P$ (ils dépendent de l'angle $ ϑ$).</remark>
+<remark>Les vecteurs $\vec u$ et $\vec v$ sont indéfiniment dérivables sur $ ℝ$ et 
+\startformula 
+ ∀  ϑ ∈ ℝ, \qquad \vec u'( ϑ)=\vec v( ϑ)\EtQ\vec v'( ϑ)=-\vec u( ϑ).
+\stopformula</remark>
+<remark>Le repère $(O,\vec u,\vec v)$ est orthonormé direct.</remark>
+ </concept>
+
+<concept t="courbe définie par une équation polaire"><text>
+La courbe polaire associée à une application $ϑ ↦  ρ(ϑ)$ est la courbe paramétrée définie par 
+\startformula 
+\vec {OM(ϑ)}=ρ(ϑ)\vec u(ϑ)\qquad (ϑ∈D)
+\stopformula
+Autrement dit, c'est la courbe paramétrée cartésienne donnée par 
+\startformula 
+\System{
+\NC x(ϑ)\NC = ρ(ϑ)\cos( ϑ)\NR
+\NC 
+y(ϑ)\NC = ρ(ϑ)\sin(ϑ)}
+\qquad(ϑ∈D)
+\stopformula
+La tangente en un point régulier (pour lequel $ ρ(ϑ)≠ 0$ ou $ ρ'(ϑ)≠0$) d'une telle courbe est dirigée par 
+\startformula 
+ \vec{OM}'= ρ'(ϑ)\vec u(ϑ)+ ρ(ϑ)\vec v(ϑ).
+\stopformula
+La tangente en un point singulier (pour lequel $ ρ(ϑ)=0$ et $ ρ'(ϑ)=0$) d'une telle courbe est (sauf cas extrémement rares) dirigée par $\vec u(ϑ)$. 
+</text></concept>
+
+
+
+<concept t="algorithme d'étude">
+<text>\startList\item Recherche de l'ensemble de définition, de dérivabilité de $ ρ$. 
+\item Etude de la périodicité et de la parité de $ ρ$ (symétries de la courbe et réduction de l'intervalle d'étude). 
+\item Résoudre l'équation $ρ( ϑ)=0$ (passage au pôle).
+\item Etudier le signe de la  dérivée $ρ'(ϑ)$. 
+\item Tableau de variation. 
+\item Compléter le tableau de variation en faisant apparaitre tangentes, asymptotes, branches paraboliques, points doubles...
+\item Tracer la courbe.
+\stopList
+</text></concept>
+
+
+
+<concept t="branches infinies"><text>Une courbe définie par une équation polaire admet une branche infinie en un point $ϑ$ dans $D$ ou à l'une de ses extrémités \ssi $ϑ$ ou $ρ(ϑ)$ tendent vers l'infini en ce point.</text>
+<definition>
+\startformula 
+\text{Branche infinie en } ϑ ⟺ \Choices{
+\NC ϑ=±∞\NR
+\NC ρ→_ϑ±∞}
+\stopformula
+</definition>
+<remark>Une branche infinie peut être de plusieurs types</remark>
+<remark>Une branche infinie peut être de plusieurs types</remark>
+<remark>Cas $ϑ=±∞$ et $ρ→_ϑ±∞$ :  branche spirale.</remark>
+<figure><![CDATA[\tikzpicture
+\draw[very thin,color=gray] (-2.3,-2.6) grid (3.1,1.9);
+\draw[domain=0:20,samples=66,color=red,smooth] plot ({\x*\x*cos(\x r)/162},{\x*\x*sin(\x r)/162});
+\draw[-,dotted] (0,0) -- (3.1,0) node[below] {$x$};
+\draw[-,dotted] (0,-2.6) -- (0,1.9) node[left] {$y$};
+\endtikzpicture]]></figure>
+
+<remark>Cas $ϑ=±∞$ et $ρ→_ϑa ∈ ℝ$ :  cercle asymptote de centre $O$ et de rayon $|a|$.</remark>
+<figure><![CDATA[\tikzpicture
+\draw[very thin,color=gray] (-2.5,-2.2) grid (3,3);
+\draw[domain=1.1:7,samples=266,color=blue,smooth] plot ({(2+1/\x /\x) *cos (\x r)}, {(2+1/\x /\x)*sin(\x r)});
+\draw[domain=-3.15:3.15,samples=66,color=red,smooth] plot ({2*cos (\x r)}, {2*sin(\x r)});
+\draw[->,thick] (-2.5,0) -- (3,0) node[below] {$x$};
+\draw[->,thick] (0,-2.2) -- (0,3) node[left] {$y$};
+\endtikzpicture]]></figure>
+<remark>Cas $ϑ∈ ℝ$ et $ρ→_ϑ\pm ∞$ :  deux sous-cas se présentent :</remark>
+<remark>Si $ρ(u)\sin(u-ϑ)→_ϑa ∈ ℝ$ : droite asymptote passant par $M(ϑ)$ dirigée par $\vec u(ϑ)$. </remark>
+<figure><![CDATA[\tikzpicture
+\draw[very thin,color=gray] (-1.5,-1) grid (10,5);
+\draw[domain=0.05:6,samples=266,color=blue,smooth] plot ({cos((\x+3.14/6) r)/2/\x}, {sin((\x+3.14/6) r)/2/\x});
+\draw[->,thick] (-1.5,0) -- (10,0) node[below] {$x$};
+\draw[->,thick] (0,-1) -- (0,5) node[left] {$y$};
+\draw[->,thick] (0,0) -- (0.866,0.5) node[below] {$\vec u$};
+\draw[-,dashed, thick, red] (-1.11,-0.067) -- +(8.66,5) node[below,pos=0.5,rotate=30] {$(M,\vec u)$};
+\draw[->,thick] (0,0) -- (-0.5,0.866) node[below] {$\vec v$};
+\endtikzpicture]]></figure>
+
+
+<remark>Si $ρ(u)\sin(u-ϑ)→_ϑ±∞$ : branche parabolique de direction $\vec u( ϑ)$.</remark>
+<figure><![CDATA[\tikzpicture
+\draw[very thin,color=gray] (-1.5,-1) grid (10,5);
+\draw[domain=0:9.5,samples=266,color=blue,smooth, rotate=15] plot (\x, {sqrt(\x)});
+\draw[->,thick] (-1.5,0) -- (10,0) node[below] {$x$};
+\draw[->,thick] (0,-1) -- (0,5) node[left] {$y$};
+\draw[->,thick, rotate=15] (0,0) -- (1,0) node[below] {$\vec u$};
+\draw[-,dashed, thick, red, rotate=15] (-1,0) -- +(12,0) node[below,pos=0.5,rotate=15] {$(O,\vec u)$};
+\draw[->,thick, rotate=15] (0,0) -- (0,1) node[below] {$\vec v$};
+\draw[->,thick, black, rotate=15] (9,0) -- (9,3) node[left] {$M(u)$} node[below,pos=0.5, rotate=-75] {\small $ ρ(u)\sin(u-ϑ)$};
+\endtikzpicture]]></figure>
+</concept>
+</section>
+
+</chapter>
+</part>

@@ -1,0 +1,147 @@
+\startenvironment environment_Python
+\directlua{dofile("Limbo.lua")}
+\unprotect
+
+%% process the Limbo xml files
+%
+% Sectioning : part/chapter/section/subsection
+%
+% Grouping : concept/group
+%
+% Statement : definition/notation - property/theorem/corrolary/lemma
+%
+% Illustrations : figure/example(application)
+%
+% Explanations : uses/text/remark/method
+%
+% Prooving: proof/
+%
+% Exercice: exercise/ 
+
+
+\startxmlsetups xml:asmodan
+\xmlsetsetup{python}{*}{-}
+% sectioning
+\xmlsetsetup{python}{part|chapter|section|subsection|subsubsection|concept}{xml:group}
+% grouping 
+\xmlsetsetup{python}{group}{xml:group}
+\xmlsetsetup{python}{combination}{xml:combination}
+%\xmlsetsetup{maths}{combination/property}{xml:combination/statement}
+% statements (primary objects)
+%\xmlsetsetup{python}{corollary|definition|lemma|notation|property|theorem|}{xml:statement} 
+% best practice (secondary info)
+\xmlsetsetup{python}{craft|uses|item}{xml:*}
+% illustration
+%\xmlsetsetup{python}{figure|example}{xml:*} 
+% text (tertiary info)
+\xmlsetsetup{python}{code}{xml:code}
+
+\xmlsetsetup{python}{remark|remarks|text}{xml:*} 
+\xmlsetsetup{python}{remarks/remark}{xml:remarks:remark} 
+% exercises
+\xmlsetsetup{python}{exercise}{xml:*}
+%\xmlsetsetup{python}{exercise/text}{xml:*}
+%\xmlsetsetup{python}{exercise/solution}{xml:*}
+% proofs
+\xmlsetsetup{python}{proof}{xml:*}
+
+\stopxmlsetups 
+
+\xmlregistersetup{xml:asmodan} 
+
+\startxmlsetups xml:craft
+\ctxlua{L.processStatement("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:example
+\ctxlua{L.processExample("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:group
+\ctxlua{L.processGroup("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:statement
+\ctxlua{L.processStatement("#1")}%
+%\placeleftfigure{}{\useMPgraphic{Frame}}%
+\stopxmlsetups
+
+\startxmlsetups xml:combination
+\ctxlua{L.processCombination("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:exercise
+\ctxlua{L.processPythonExercise("#1")}%
+\stopxmlsetups
+
+%\startxmlsetups xml:exercise:text
+%\ctxlua{L.processRawContent("#1")}%
+%\stopxmlsetups
+
+%\startxmlsetups xml:exercicse:solution
+%\ctxlua{L.processRawContent("#1")}%
+%\stopxmlsetups
+
+\startxmlsetups xml:remark
+\ctxlua{L.processRemark("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:remarks 
+{\tenpoint\startitemize[packed,intext,joinedup,2,nowhite,after]%
+\xmlflush{#1}%
+\stopitemize}%
+\stopxmlsetups
+
+\startxmlsetups xml:remarks:remark
+\item\ctxlua{L.processRawContent("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:code
+\ctxlua{L.processXmlContent("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:text
+\ctxlua{L.processRawContent("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:uses
+{\tenpoint
+\startitemize[packed,intext,joinedup,4,nowhite,after]
+\xmlflush{#1}%
+\stopitemize}
+\stopxmlsetups
+
+\startxmlsetups xml:item
+\ctxlua{L.processContent("#1","\\item")}%
+\stopxmlsetups
+
+\startxmlsetups xml:flushsidefloats
+\flushsidefloats
+\stopxmlsetups
+
+\def\setupCourse#1{\ctxlua{L.setCourse("#1")}}
+\def\completeRecords{\ctxlua{L.showRecords()}}%
+
+\defineframedtext[framedcode][strut=yes, offset=2mm, width=.8\textwidth,
+   align=right,
+                    location=middle]
+
+\definetyping[code][numbering=line,
+                    bodyfont=small,
+                    before={\startframedcode},
+                    after={\stopframedcode}]
+
+                    
+\definetyping[Verb][numbering=,
+                    bodyfont=small,
+                    before={\startframedcode},
+                    after={\stopframedcode}]                    
+                    
+\setuptyping[Python][escape={[[,]]}]
+
+%\definehead[Solution][subsubject]
+%\setuphead[Solution][alternative=text,before={\goodbreak\blank[small]},distance=0pt,command=\Solutio,style=\ss\it]%aligntitle=float,
+%\def\Solutio#1{\inmargin{#1}}
+
+\protect
+\stopenvironment

@@ -1,0 +1,1048 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+
+<chapter t="Espaces vectoriels" p="β">
+
+<text>Dans tout ce chapitre, le symbole $𝕂$ désigne le corps $𝕂= ℝ$ ou le corps $𝕂=ℂ$. </text>
+
+<section t="Espaces vectoriels">
+
+<subsection t="Loi interne" p="-β+β">
+
+<concept t="loi interne" >
+<definition h="$E$ ensemble">
+\startformula 
+∗ \text{ loi interne de }E ⟺ ∀x,y∈E, x∗y∈E
+\stopformula</definition>
+<remark>Autrement dit, le nombre $x∗y$ existe et appartient à $E$ quels que soient $x,y∈E$.</remark>
+<example>l'addition $+$ et la multiplication $×$ sont deux lois internes sur $ℕ$, sur $ℤ$, sur $ℚ$, sur $ℝ$ et sur $ℂ$.</example>
+</concept>
+
+
+<concept t="commutativité"><definition h="$∗$ loi interne de $E$">
+\startformula 
+∗ \text{ loi commutative} ⟺ ∀ x,y∈E, x∗y=y∗x
+\stopformula</definition>
+<remark>Le résultat du calcul ne dépend pas de l'ordre (spatial) dans lequel il est effectué : 
+le résultat est le même si l'on échange de place $x$ et $y$. </remark>
+</concept>
+
+<concept t="associativité"><definition h="$∗$ loi interne de $E$">
+\startformula 
+∗ \text{ loi associative} ⟺ ∀ x,y,z∈E, (x∗y)∗z=x∗(y∗z)
+\stopformula</definition>
+<remark>Le résultat du calcul ne dépend pas de l'ordre (temporel) dans lequel il est effectué</remark>
+</concept>
+
+<concept t="élément neutre"><definition h="$∗$ loi interne de $E$, $e∈E$">
+\startformula 
+e \text{ neutre pour }∗ ⟺ ∀ x∈E, x∗e=e∗x=x
+\stopformula</definition>
+<remark>Multiplier à gauche ou à droite par un élément neutre ne change rien.</remark>
+<remark>Une loi interne admet au plus un élément neutre.</remark>
+<remark>La multiplication admet $1$ comme élément neutre dans $ℕ$ mais n'en admet aucun dans $2ℕ$.</remark>
+<remark>$0$ est l'élément neutre pour l'addition dans $ℂ$.</remark>
+<remark>$1$ est l'élément neutre pour la multiplication dans $ℂ$.</remark>
+</concept>
+
+<concept t="inversabilité"><definition h="$x,y∈E$, $e$ élément neutre de $∗$ loi interne de $E$">
+\startformula 
+x  \text{ inverse de } y \text{pour } ∗ ⟺ x∗y=y∗x=e
+\stopformula</definition>
+<remark>Il existe au plus un inverse d'un élément</remark>
+<remark>Multiplier à gauche ou à droite par l'inverse donne l'élément neutre.</remark>
+<remark>Un élément $x$ de $E$ est inversible pour $∗$ \ssi $x$ admet un inverse dans $E$ pour $∗$</remark>
+<remark>On utilise le mot  \quote{opposé} de préférence à  \quote{inverse} pour l'addition</remark>
+<example>$-5$ est l'inverse de $5$ pour l'addition dans $ℤ$.</example>
+<example>${1\F 5}$ est l'inverse de $5$ pour la multiplication dans $ℚ$.</example>
+</concept>
+
+</subsection><subsection t="Loi externe" p="-β+β">
+
+<concept t="loi externe"><definition h="$E$ ensemble">
+\startformula 
+⋅ \text{ loi externe de }E ⟺ ∀λ∈𝕂,∀x∈E, x∗y∈E
+\stopformula</definition>
+<remark>Autrement dit, le nombre $λ⋅x$ existe et appartient à $E$ quels que soient $λ∈𝕂$ et $x∈E$.</remark>
+</concept>
+
+<concept t="associativité"><definition h="$⋅$ loi externe de $E$">
+\startformula 
+∗ \text{ loi associative} ⟺ ∀ λ,μ∈𝕂,∀x∈E, (λ×μ)⋅x=λ⋅(μ⋅x)
+\stopformula</definition>
+<remark>Le résultat du calcul ne dépend pas de l'ordre (temporel) dans lequel il est effectué</remark>
+</concept>
+
+<concept t="distributivité">
+<definition h="$+$ loi interne,$⋅$ loi externe de $E$">
+\startformula 
+⋅ \text{ distributive sur } + ⟺ \System{
+\NC ∀ λ,μ∈𝕂,∀x∈E, (λ+μ)⋅x=λ⋅x+μ⋅x\NR
+\NC ∀ λ∈𝕂,∀x,y∈E, λ⋅(x+y)=λ⋅x+λ⋅y\NR}
+\stopformula</definition>
+</concept>
+
+</subsection><subsection t="Espace vectoriel">
+
+<concept t="espace vectoriel" p ="B-β+β">
+<definition h="$+$, $⋅$ lois de $E$">
+\startformula 
+(E,+,⋅)\text{ $𝕂$- espace vectoriel} ⟺  \System{
+\NC + \text{ loi interne, associative, commutative,}\NR
+\NC \text{ admettant un élément neutre $0∈E$, }\NR
+\NC \text{  tous les $x∈E$ sont  inversibles pour }+\NR
+\NC ⋅ \text{ loi externe, associative, distributive sur $+$}\NR
+\NC ∀x∈E, 1⋅x=x
+}
+\stopformula
+</definition>
+<remark>Un tel ensemble sera également appelé un \quote{espace vectoriel sur $𝕂$}. </remark>
+<remark>Pour simplifier, un espace vectoriel est un ensemble $E$ plutôt sympathique dont on peut ajouter les éléments ou en prendre des multiples.</remark>
+<remark> Un espace vectoriel sur $ ℂ$ est également un espace vectoriel sur $ℝ$. </remark>
+<remark>Un espace vectoriel contient au moins un élément : l'élément neutre $0_E$. </remark>
+<remark>Pour simplifier les notations, on écrira $ λx$ à la place de $ λ⋅x$. </remark>
+<example>L'espace vectoriel des fonctions $(\mc F(A,𝕂),+,⋅)$à valeurs dans $𝕂$</example>
+<example>L'espace vectoriel des suites  $(𝕂^ℕ,+,⋅)$ d'éléments de $𝕂$. </example>
+<example>L'espace vectoriel des matrices $(\mc M_{n,p}(𝕂),+,⋅)$ à coefficients dans $𝕂$. </example>
+<example>L'espace vectoriel des polynômes $(𝕂[X],+,⋅)$ à coefficients dans $𝕂$. </example>
+<example>Le produit cartésien $(𝕂^n, +, ⋅)$</example>
+</concept>
+
+<concept t="vecteur\\scalaire">
+<definition h="$E$ $𝕂$-EV">
+\startformula 
+\Align{
+\NC x \text{ vecteur}⟺x∈E\NR
+\NC λ\text{ scalaire}⟺λ∈𝕂}
+\stopformula</definition></concept>
+
+
+<concept t="espace $𝕂^n$" p ="β"><text>L'ensemble $𝕂^n$ muni des lois usuelles $+$ et $⋅$ définies par 
+\startformula 
+\System{
+\NC (x_1,⋯,x_n)+ (y_1,⋯,y_n) \NC :=\NC  (x_1+y_1,⋯,x_n+y_n)  \NR
+\NC λ⋅(x_1,⋯,x_n) \NC := \NC (λx_1,⋯,λx_n)} 
+\stopformula
+forme un $𝕂$-espace vectoriel</text>
+<property h="$n∈ℕ^*$">\startformula 
+𝕂^n \text{ est un espace vectoriel sur }𝕂
+\stopformula</property>
+</concept>
+
+<concept t="multiple nul"><text>Le produit d'un scalaire par un vecteur est nul si, et seulement si le scalaire est nul ou le vecteur est nul. </text>
+<property h="$(E,+,⋅)$ $𝕂$-espace vectoriel">
+\startformula 
+ λ.x=0 ⟺  λ=0 \Ou x=0
+\stopformula</property>
+</concept>
+
+
+<concept t="Combinaisons linéaires">
+<definition h="$E$ espace vectoriel sur $𝕂$">
+\startformula 
+\Align{\NC x \text{ combi. linéaire de } x_1,⋯,x_n∈E\NR
+\NC \text{pour les coeffs } λ_1,⋯,λ_n∈𝕂}⟺ x= ∑_{k=1}^n λ_k.x_k\stopformula
+</definition>
+<remark>Les coefficients $λ_1,⋯,λ_n$ réalisant cette décomposition de $x$ sur les $x_1,⋯,x_n$ ne sont pas nécessairement uniques. </remark>
+<remark>Un $𝕂$-espace vectoriel est stable par combinaison linéaire à coefficients dans $ 𝕂$
+\startformula 
+x_1,⋯,x_n∈E\Et λ_1,⋯,λ_n∈𝕂⟹λ_1.x_1+ λ_2x_2+\cdots+ λ_n.x_n∈E
+\stopformula</remark>
+</concept>
+
+</subsection></section><section t="Sous-espaces vectoriels">
+
+<subsection t="Sous-espaces vectoriels">
+
+<concept t="sous-espace vectoriel"><text>Un sous-espace vectoriel d'un $ 𝕂$-espace vectoriel $(E,+, ⋅)$ est un espace vectoriel $F$ inclus dans $E$ tels que les lois de $F$ soient la restriction à $F$ des lois de~$E$. </text>
+<definition h="$(E,+,⋅)$ espace vectoriel sur $𝕂$" m="-">
+F(+, .) \text{SEV de } E⟺\System{
+\NC F⊂E\NR
+\NC  F(+, ⋅) \text{ EV sur}𝕂
+}</definition>
+<remark>pour simplifier, un sous-espace vectoriel $F$ de $E$ est un espace vectoriel plus petit que $E$ (au sens de l'inclusion), muni des mêmes lois. </remark>
+<remark>Soit $E$ un $ 𝕂$-espace vectoriel. Alors $\{0\}$ et $E$ sont deux sous-espaces vectoriels de $E$. </remark>
+<remark>Si $F$ est un sous-espace vectoriel de $E$, alors $F$ contient $0$. </remark>
+</concept>
+
+<concept t="caractérisation">
+<property h="$F⊂E$ espace vectoriel sur $𝕂$">\startformula 
+F\text{ SEV de } E ⟺ \System{
+\NC 0∈F\NR
+\NC F \text{ stable par combi. linéaires}
+}
+\stopformula
+</property>
+<remark>Autrement dit, $F$ forme un sous-espace vectoriel d'un $𝕂$-espace vectoriel $E$ ⟺ $F≠ ∅$, $F ⊂ E$ et 
+\startformula 
+ ∀ ( λ, μ) ∈ 𝕂^2 , \qquad   ∀ (x,y) ∈ F^2 ,\qquad  λ. x+ μ. y ∈ F, 
+\stopformula
+c'est-à-dire stable par addition et par la multiplication exterieure
+\startformula 
+\System{
+\NC  ∀ (x,y) ∈ F^2, \qquad x+y ∈ F \NR
+\NC ∀  λ∈𝕂,  ∀x∈E, \qquad  λ.x ∈ F}
+\stopformula
+</remark>
+</concept>
+
+<concept t="intersection"><text>Une intersection de sous-espaces vectoriels de $E$ est un sous-espace vectoriel de $E$</text>
+<property h="$F_i$ SEV de  $E$ pour $i∈I$">
+\startformula 
+∩_{i ∈ I}F_i\text{ SEV de }E
+\stopformula
+</property>
+</concept>
+
+</subsection><subsection t="Espaces vectoriels engendrés">
+
+
+<concept t="espace engendré"><text>Le (sous-) espace vectoriel (de $E$) engendré par une partie $A ⊂ E$ 
+est le plus petit sous-espace vectoriel de $E$ (pour l'inclusion) contenant $A$. </text>
+<definition h="$A⊂E$ $𝕂$-EV">
+\startformula 
+\Vect(A) := ∩\limits_{A⊂F \text{ sev de }E}F
+\stopformula
+</definition>
+</concept>
+
+
+<concept t="caractérisation">
+<property h="$A⊂E$ $𝕂$-EV">
+\startformula 
+\Vect(A)=\Q\{ ∑_{k=1}^n λ_kx_k: n⩾1,x_1,⋯,x_n∈A,λ_1,⋯, λ_n ∈ 𝕂\W\}.
+\stopformula
+</property>
+<remark>Le sous espace vectoriel engendré par une partie~$A$ est l'ensemble des combinaisons linéaires à coefficients dans $ 𝕂$ qu'il est possible de former avec les éléments de $A$. </remark>
+</concept>
+
+
+<concept t="famille finie">
+<corollary h="$n⩾1$, $x_1,\cdots x_n∈E$ $𝕂$-EV">
+\startformula 
+\Vect(x_1,\cdots x_n)=\Q\{ ∑_{k=1}^n λ_kx_k: λ_1,⋯, λ_n ∈ 𝕂\W\}.
+\stopformula
+</corollary>
+</concept>
+
+</subsection><subsection t="Familles de vecteurs">
+
+<concept t="famille génératrice">
+<text>Une famille de vecteurs de $E$ est génératrice \ssi son espace vectoriel engendré est $E$</text> 
+<definition h="$E$ $𝕂$-EV">
+\startformula 
+\mc F \text{ engendre } E ⟺ E=\Vect(\mc F)
+\stopformula
+</definition>
+<remark>Une famille $\mc F$ est génératrice si l'on peut fabriquer touls les vecteurs de l'espace avec des combinaisons linéaires de ses éléments
+\startformula 
+\mc F \text{ engendre} E⟺ ∀x∈E, ∃n⩾1,∃(e_1,⋯,e_n)∈\mc F,∃λ1,⋯,λ_n∈𝕂: x= λ_1e_1+⋯+λ_ne_n.
+\stopformula
+Pour une famille finie, on peut écrire plus simplement
+\startformula 
+(e_1,\cdots,e_n) \text{ engendre} E⟺ ∀x∈E, ∃λ1,⋯,λ_n∈𝕂: x= λ_1e_1+⋯+λ_ne_n.
+\stopformula
+<example>La famille constitué des vecteurs $(1,0,0)$, $(0,1,0)$ et $(0,0,1)$ engendrent $ℝ^3$. </example>
+</remark>
+<remark>Si $(x_1,⋯,x_n)$ engendre $E$, on peut écrire tout vecteur $x$ de $E$ comme une combinaison linéaire des éléments de cette famille
+\startformula 
+∀x∈E, ∃λ_1,⋯,λ_n : x = λ_1e_1+⋯+λ_ne_n
+\stopformula</remark>
+</concept>
+
+
+
+<concept t="famille libre"><text>Une famille de vecteurs est libre \ssi il existe une seule combinaison linéaire nulle de ces vecteurs (celle
+dont tous les coefficients sont nuls). </text>
+<definition h="$E$ $𝕂$-EV">
+\startformula 
+(x_1,x_2,\cdots,x_n) \text{ libre}⟺   \Q(∑_{k=1}^nλ_kx_k=0 ⟺ λ_1=⋯ =λ_n=0\W)
+\stopformula
+</definition>
+<remark>On dit également que la famille  $(x_1,x_2,\cdots,x_n)$  est linéarement indépendante dans $E$. </remark>
+<remark>Une famille infinie de vecteur est libre \ssi chacune de ses sous-familles finie de vecteurs est libre.</remark>
+<remark>Si $(x_1,⋯,x_n)$ est libre, on peut identifier les coefficients :   
+\startformula 
+λ_1e_1+⋯+λ_ne_n = μ_1e_1+⋯+μ_ne_n⟹ ∀i∈⟦1,n⟧ λ_i=μ_i
+\stopformula</remark>
+
+</concept>
+
+<concept t="famille liée">
+<definition>
+\startformula 
+\Align{
+\NC (x_1,x_2,\cdots,x_n) \text{ liée} \NC ⟺ (x_1,x_2,\cdots,x_n) \text{ non libre}\NR
+\NC \NC ∃(λ_1,⋯,λ_n)≠(0,⋯,0): ∑_{k=1}^nλ_kx_k=0
+}
+\stopformula
+</definition>
+<remark>On dit également que la famille  $(x_1,x_2,\cdots,x_n)$  est linéarement dépendante 
+ou qu'elle admet une relation de dépendance linéaire. </remark>
+</concept>
+
+<concept t="base">
+<definition h="$E$ ev sur $𝕂$">
+\startformula 
+\mc F \text{ base de } E ⟺ \mc F \text{ est } \System{
+\NC \text{ génératrice dans } E \NR
+\NC \text{ libre dans }E 
+}
+\stopformula
+</definition>
+<remark>Les bases d'un espace vectoriel $E$ sont les familles libres et génératrices de $E$</remark>
+<remark>Autrement dit, on a 
+\startformula 
+(e_1,⋯,e_n)\text{ base de }E ⟺  ∀ x ∈ E,   ∃!( λ_1,⋯, λ_n): x= ∑_{k=1}^n λ_ke_k
+\stopformula
+Les nombres $( λ_1,⋯, λ_n)$ sont appelés coordonnées (ou composantes) du vecteur $x$ 
+dans la base $(e_1,\cdots,e_n)$. 
+</remark>
+<remark>L'espace vectoriel $𝕂^n$ est muni d'une base "canonique" (qui s'introduit naturellement) : la famille $(e_1,⋯, e_n)$ 
+constituée des vecteurs
+\startformula  
+ ∀ i ∈\{1,\cdots,n\},\qquad e_i:=(0,\cdots, 0,{\mathop{1}}\limits_{i},0,\cdots, 0). 
+\stopformula
+</remark>
+</concept>
+
+</subsection>
+
+</section><section t="Espaces de dimension finie">
+
+<subsection t="Dimension">
+
+<concept t="dimension finie"><definition h="$E$ $𝕂$-EV">\startformula 
+E \text{de dimension finie} ⟺ E \text{contient une famille 
+génératrice finie}\stopformula
+</definition>
+</concept>
+
+<concept t="inégalité">
+<property h="$E$ $𝕂$-EV" m="-">
+\startformula 
+\System{
+\NC (e_1,⋯,e_m) \text{ libre}\NR
+\NC (f_1, ⋯,f_n)\text{ génératrice}} ⟹ m⩽n
+\stopformula</property>
+<remark>Une conséquence de cette propriété est que   
+$$
+E 𝕂\text{-EV de dimension infinie } ⟺ E \text{ contient une famille libre infinie.} 
+$$</remark>
+</concept>
+
+
+<concept t="théorème de la base incomplète"><text>Toute famille libre d'un espace vectoriel $E$, engendré par une famille finie $\mc F$, peut être complétée avec des vecteurs de $\mc F$ pour en constituer une base.</text>
+<theorem h="$E$ $𝕂$-EV">
+\System{\NC (e_1,⋯, e_m) \text{ libre}\NR
+\NC (f_1,⋯,f_n) \text{ génératrice}}
+⟹ \Align{
+\NC ∃p∈⟦0,n⟧ \Et 1⩽i_1\Le ⋯\Le i_p⩽n:\NR
+\NC( e_1,⋯,e_m,f_{i_1},⋯,g_{i_p})\text{ base}}
+</theorem>
+<remark>En particulier, tout espace de dimension fini admet au moins une base (et on sait comment la construire).</remark>
+</concept>
+
+
+<concept t="dimension"><text>Etant donné un espace vectoriel engendré par une famille finie, il existe un unique nombre entier positif ou nul, 
+appelé dimension de $E$ sur $𝕂$, égal à la fois au nombre d'éléments de toutes les bases (d'une base) de $E$, 
+au nombre d'éléments de la plus grande (en nombre)  famille libre de $E$ et au nombre d'éléments de la plus petite (en nombre) famille génératrice de $E$</text>
+<theorem h="$E$ de dim finie">
+\Align{
+\NC \dim_𝕂(E)\NC := \max\{\card(\mc F):\mc F⊂E \Et \text{ libre}\}\NR
+\NC\NC = \min\{\card(\mc F):\mc F\text{ engendre }E\}\NR
+= \card(\mc B)\qquad (\mc B\text{base de }E
+}
+</theorem>
+<remark>le théorème précédent ne s'appliquant pas à l'espace vectoriel $\{0\}$, par convention, il sera dit de dimension $0$. </remark>
+</concept>
+
+<concept t="$n$-uplets">
+<combination>
+<theorem h="$n⩾1$"> 
+\startformula 
+\dim_ℝ(ℝ^n)=n
+\stopformula
+</theorem>
+<theorem h="$n⩾1$"> 
+\startformula 
+\dim_ℂ(ℂ)=n
+\stopformula
+</theorem>
+<theorem h="$n⩾1$"> 
+\startformula 
+\dim_ℝ(ℂ)=2n.
+\stopformula
+</theorem>
+</combination>
+</concept>
+
+<concept t="caractérisation"><text>Dans un espace de dimension finie $n$, une famille de $n$ vecteurs est une base \ssi ellle est libre \ssi elle est génératrice</text>
+<property h="$E$ de dim $n$"> 
+\startformula 
+\Align{
+\NC (e_1,⋯,e_n) \text{ libre } \NC ⟺ (e_1,⋯,e_n) \text{ génératrice}\NR
+ \NC\NC⟺(e_1,⋯,e_n) \text{ base}}
+\stopformula </property>
+</concept>
+
+<concept t="sous-espace"><text>Un sous-espace vectoriel d'un espace de dimension finie est lui même de dimension finie, plus petite. De plus, ils sont égaux \ssi leurs dimensions sont égales</text>
+<combination>
+<property h="$F$ SEV de $E$ de dim finie">
+\startformula 
+\dim_𝕂(F) ⩽\dim_𝕂(E)
+\stopformula
+</property>
+<property h="$F$ SEV de $E$ de dim finie">
+\startformula 
+F=E ⟺ \dim_ 𝕂(F)=\dim_𝕂(E)
+\stopformula
+</property>
+</combination>
+<remark>Pour prouver que deux ensembles $E$ et $F$ sont égaux, on procède en général par double inclusion mais pour les espaces vectoriels, on utilise de préférence la méthode plus facile suivante : 
+\startitemize[1]\item Prouver que $F⊂ E$. Cela implique que $\dim_𝕂(F)⩽\dim_𝕂(E)$.
+\item Prouver l'égalité des dimensions ou établir que $\dim_𝕂(F)⩾\dim_𝕂(E)$. 
+\stopitemize
+</remark>
+</concept>
+
+</subsection><subsection t="Rang">
+
+<concept t="rang d'une famille de vecteurs"><text>Le rang d'une famille de vecteurs est la dimension de l'espace qu'ils engendrent.</text>
+<definition h="$\mc F⊂E$, de dim finie">
+\startformula 
+\rg(\mc F)=\dim\Vect(\mc F)
+\stopformula
+</definition>
+<remark>Le rang d'une famille $\mc F$ est le nombre d'éléments de sa plus grande sous famille libre $\mc G⊂\mc F$.</remark>
+</concept>
+
+<concept t="Matrice des coordonnées">
+<definition h="$E$ de base $\mc B=(e_1,⋯,e_n)$">
+\startformula 
+\mc Mat_{\mc B}(x)=\Matrix{
+\NC x_1\NR
+\NC⋮\NR
+\NC x_n
+} ⟺ x=x_1e_1+⋯+x_ne_n
+\stopformula
+</definition>
+<remark>$(x_1,⋯,x_n)$ sont les coordonnées du vecteur $x$ dans la base $\mc B$</remark>
+<remark>Bien faire attention à ne pas confondre les coordonnées d'un vecteur, avec le vecteur lui même (cette confusion est d'autant plus probable lorsque $E$ est $𝕂^n$ ou un espace de matrices)</remark>
+</concept>
+
+
+<concept t="caractérisation"><text>Le rang d'une famille de vecteurs est le rang de leurs matrices coordonnées (dans n'importe quelle base)</text><property h="$X_1,⋯,X_n$ matrices de $x1,⋯,x_n$  dans $\mc B$">
+\startformula 
+\rg(x_1,⋯,x_n)=\rg(X_1,⋯, X_n)
+\stopformula
+</property>
+<remark>C'est aussi le rang de la matrice rectangulaire dont les colonnes sont $X_1,⋯,X_n$.</remark>
+</concept>
+
+
+<concept t="famille génératrice//libre"><text>Une famille finie est génératrice \ssi son rang est égal à la dimension de l'espace la contenant. Une famille finie est libre si son rang est égal à son nombre d'éléments</text>
+<combination>
+<property h="$\mc F⊂E$ de dim finie">
+\startformula 
+\mc F \text{ génératrice} E⟺ \rg(\mc F)=\dim(E)
+\stopformula
+</property>
+<property h="$\mc F⊂E$ de dim finie">
+\startformula 
+\mc F \text{ libre} E⟺ \rg(\mc F)=\card(\mc F)
+\stopformula
+</property>
+</combination>
+</concept>
+
+</subsection>
+</section><section t="Applications linéaires">
+
+<text>Dans cette section $E$, $F$ et $G$ désignent des $𝕂$-espaces vectoriels. </text>
+
+<subsection t="Application linéaire">
+
+<concept t="linéarité">
+<definition h="$f:E → F$ application"> 
+\startformula 
+f \text{linéaire}⟺ 
+ ∀ λ, μ ∈𝕂, ∀ x,y ∈ E , f(λx+ μy)= λf(x)+ μf(y)
+\stopformula
+</definition>
+<example>les homothéties, symétries, projections, rotations, les applications 
+\startformula 
+\function{\mc F(ℝ, ℂ)→ ℂ|f↦  f(0)}
+\qquad 
+\function{\mc C([0,1],  ℝ)→  ℝ|f↦  \int_0^1f(x)\d x}
+\qquad 
+\function{\mc C^1(ℝ)→\mc C^0(ℝ)|f↦  f'}
+\qquad 
+\function{ℝ^2→ ℝ^3|(x,y)↦  (x,y,x+y)}
+\stopformula</example>
+<remark>Pour prouver que $f:E → F$ est linéaire : 
+\startitemize[1]
+\item S'assurer que $E$ et $F$ sont bien des espaces vectoriels
+\item Vérifier que $f:E → F$ est une application. 
+\item prendre deux scalaires $λ, μ∈𝕂$ ainsi que deux vecteurs $x,y∈E$ et montrer que  
+\startformula 
+f(λx+ μy)= λf(x)+ μf(y)
+\stopformula
+\stopitemize
+</remark>
+</concept>
+
+<concept t="morphismes">
+<combination>
+<definition h="$f:E→F$ application">
+\startformula 
+f\text{ morphisme}⟺ f \text{ linéaire}
+\stopformula
+</definition>
+<definition h="$f:E→F$ application">
+\startformula 
+f\text{ endomorphisme}⟺ \System{\NC f \text{ linéaire}\NR\NC E=F}
+\stopformula
+</definition>
+</combination><combination>
+<definition h="$f:E→F$ application">
+\startformula 
+f\text{ isomorphisme}⟺ \System{\NC f \text{ linéaire}\NR\NC  f\text{ bijective}}
+\stopformula
+</definition>
+<definition h="$f:E→F$ application">
+\startformula 
+f\text{ automorphisme}⟺ \System{\NC f \text{ linéaire}\NR\NC  f\text{ bijective}\NR\NC E=F}
+\stopformula
+</definition>
+</combination>
+<remark>Une application linéaire est également appelé un \quote{morphisme d'espaces vectoriels}
+</remark>
+<remark>Deux espaces vectoriels sont isomorphes \ssi il existe un isomorphisme entre eux 
+</remark>
+<remark>Une application linéaire $f:E→F$ est une forme linéaire \ssi $F= 𝕂$. </remark>
+<example>
+\startformula 
+\Function{0: E→ F|x↦ 0_F} \text{ morphisme }, \Function{0: E→ E|x↦ 0_E} \text{ endomorphisme }
+\\Function{Id_E:E→ E|x↦ x} \text{ automorphisme}
+\stopformula</example>
+</concept>
+
+<concept t="espaces">
+<combination>
+<definition h="$E,F$ $𝕂$-EV">
+\startformula 
+\mc L(E,F):=\{f:E→F\text{ linéaire}\}
+\stopformula
+</definition>
+<definition h="$E$ $𝕂$-EV">
+\startformula 
+\mc L(E):=\mc L(E,F)
+\stopformula
+</definition>
+</combination>
+</concept>
+
+<concept><text>Muni de l'addition et de la multiplication externe des applications, l'ensemble $\mc L(E,F)$ des applications linéaires $f:E → F$ 
+forme un $𝕂$-espace vectoriel.</text>
+<property h="$E,F$ $𝕂$-EV">
+\startformula 
+\big(\mc L(E,F),+,⋅\big) \text{ $𝕂$-EV}
+\stopformula
+</property>
+</concept>
+
+
+
+<concept t="composition"><text>La composée de deux applications linéaires est une application linéaire.</text>
+<property h="$f∈\mc L(E,F)$, $g∈\mc L(F,G)$">
+\startformula 
+g∘f∈\mc L(E,G)
+\stopformula
+</property>
+</concept>
+
+<concept t="bijection réciproque">
+<property h="$f∈\mc L(E,F)$ bijective">
+\startformula 
+f^{-1}:F → E \text{ linéaire}
+\stopformula
+</property>
+</concept>
+
+<concept t="groupe linéaire" m="-β"><text>L'ensemble des automorphismes de $E$ est un groupe (non-commutatif) pour la composition des applications, appelé groupe linéaire de $E$. </text>
+<combination>
+<definition h="$E$ $𝕂$-EV">
+\startformula 
+\mc{Gl}(E):=\{f∈\mc L(E)\text{ bijective}\}
+\stopformula
+</definition>
+<property h="$E$ $𝕂$-EV" >
+\startformula 
+(\mc Gl(E),∘)\text{ groupe}
+\stopformula
+</property>
+</combination>
+<remark>L'élément neutre de $(\mc Gl(E), ∘)$ est l'identité $\Id_E$. </remark>
+</concept>
+
+
+<concept t="algèbre">
+<property h="$E$ $𝕂$-EV">
+\startformula 
+\big(\mc L(E), +, ⋅, ∘\big) \text{ algèbre non-commutative}
+\stopformula
+</property>
+<remark>Plus simplement, la loi de composition $∘$peut intéragir avec les lois $+$ et $⋅$ 
+pour les applications linéaires. 
+Ainsi, la loi $∘$ est distributive sur la loi $+$
+\startformula 
+\System{
+\NC ∀ f,g ∈\mc L(F,G),  ∀ h ∈\mc L(G,H),  h∘(f+g)=h∘f+h∘g. \NR
+\NC ∀ h ∈\mc L(H,F),∀ f,g ∈\mc L(F,G), (f+g)∘h=f∘h+g∘h}
+\stopformula 
+La loi $∘$ respecte la loi du scalaire mobile (elle commute avec $⋅$)
+\startformula 
+ ∀  λ ∈ 𝕂,\qquad  ∀ f ∈\mc L(E,F), \qquad  ∀ g ∈\mc L(F,G), \qquad  λ.g∘f=(λg)∘f=g∘(λf). 
+\stopformula
+</remark>
+</concept>
+
+
+<concept t="puissances">
+<definition h="$u∈\mc L(E)$">
+\startformula 
+u^n:=\System{
+\NC \underbrace{u∘ ⋯ ∘u}_{n \text{ fois}}\NC \quad n⩾1\NR
+\Id_E\NC n=0\NR}
+\stopformula
+</definition>
+<remark>Lorsque $u$ est bijective et $n⩾1$, on pose également
+\startformula 
+u^{-n}:=\underbrace{u^{-1}∘ ⋯ ∘u^{-1}}_{n \text{ fois}}.
+\stopformula
+</remark>
+</concept>
+
+
+<concept t="identité algébrique">
+<theorem h="$n∈ℕ$, $u,v∈\mc L(E)$ avec $u∘v=v∘u$"> 
+\startformula 
+ u^n-v^n= (u-v)∑_{k=0}^{n-1}u^k ∘ v^{n-1-k}
+\stopformula</theorem>
+</concept>
+
+<concept t="binôme de Newton">
+<theorem h="$n∈ℕ$, $u,v∈\mc L(E)$ avec $u∘v=v∘u$"> 
+\startformula 
+ (u+v)^n= ∑_{k=0}^n{n\choose k}u^k ∘ v^{n-k}
+\stopformula</theorem>
+</concept>
+
+
+</subsection><subsection t="Noyau et image" >
+
+<concept t="Image réciproque"><text>L'image réciproque d'un espace vectoriel par une application linéaire est un espace vectoriel</text>
+<property h="$f∈\mc L(E,F)$">
+\startformula 
+H\text{ SEV de } F ⟹ f^{-1}(H)\text{ SEV de } E
+\stopformula
+</property>
+</concept>
+
+<concept t="Noyau"><text>Le noyau d'une application linéaire est l'ensemble des vecteurs (au départ) dont l'image par $f$ est nulle</text>
+<definition h="$f∈\mc L(E,F)$">
+\startformula 
+\Ker(f):=\{x∈E:f(x)=0\}
+\stopformula
+</definition>
+<remark>Déterminer le noyau d'une application linéaire $u$, c'est résoudre l'équation 
+\startformula 
+u(x)=0.
+\stopformula</remark>
+<exercise>Déterminer le noyau de l'application $\Function{f:ℝ^3→ ℝ^3|(x,y,z)↦(x+y,y+z,x+y+z)}$.</exercise>
+</concept>
+
+<concept t="Injectivité">
+<property h="$f∈\mc L(E,F)$">
+\startformula 
+f\text{ injective} ⟺ \Ker(f)=\{0\}
+\stopformula 
+</property>
+<remark>Pour étudier si une application linéaire est injective, on calcule son noyau.</remark>
+<exercise>Prouver que l'application $\function{ℝ^2→ ℝ^2|(x,y)↦ (x+y,x-y)}$ est injective.</exercise>
+</concept>
+
+<concept t="Image directe">
+<property h="$f∈\mc L(E,F)$">
+\startformula 
+H\text{ SEV de } E ⟹ f(H)\text{ SEV de } F
+\stopformula
+</property>
+</concept>
+
+<concept t="Image"><text>L'image d'une application linéaire est l'ensemble des images (à l'arrivée) par $f$ des vecteurs au départ</text>
+<definition h="$f∈\mc L(E,F)$">
+\startformula 
+\Im(f):=f(E)=\{f(x):x∈E\}
+\stopformula
+</definition>
+<remark>Déterminer le noyau d'une application linéaire $u$, c'est résoudre l'équation 
+\startformula 
+u(x)=0.
+\stopformula</remark>
+<exercise>Déterminer le noyau de $\Function{f:ℝ^3→ ℝ^3|(x,y,z)↦(x+y,y+z,x+y+z)}$.</exercise>
+</concept>
+
+<concept t="surjectivité">
+<property h="$f∈\mc L(E,F)$">
+\startformula 
+f\text{ surjective} ⟺ \Im(f)=F 
+\stopformula</property>
+<remark>déterminer le noyau (l'injectivité) d'une application linéaire est en général beaucoup plus facile que déterminer son image (sa surjectivité). La dimension des espaces vectoriels, que nous introduirons plus tard, va nous permettre de déterminer l'image (la surjectivité) BEAUCOUP plus facilement. </remark>
+<exercise>Déterminer l'image de $\function{ℝ^3→ℝ^3|(x,y,z)↦(x-y,y-z,z-x)}$.</exercise>
+</concept>
+
+<concept t="équation linéaire\\affine">
+<property h="$u ∈\mc L(E,F)$, $S=\{x ∈ E:u(x)=b\}$">
+\startformula 
+\Align{
+\NC b\∉\Im(u) \NC ⟺ S = \varnothing\NR
+\NC b=u(x_0) \NC ⟺  S= x_0 + \Ker(u)}
+\stopformula
+</property>
+<remark>L'ensemble solution $S$ de l'équation $u(x)=0$ n'est jamais vide, c'est l'espace vectoriel $\Ker(u)$.</remark>
+<remark>Lorsque $b≠0$, l'ensemble solution de l'équation $u(x)=b$ est vide si $b$ n'est pas une image de $u$ et est égal à 
+\startformula 
+x_0 + \Ker(u)=\{x_0+h:h∈\Ker(u)\}
+\stopformula
+lorsque $b$ est une image $b=u(x_0)$.
+</remark>
+</concept>
+
+</subsection><subsection t="Homothétie, projections, symétries." >
+
+<concept t="homothétie">
+<definition h="$h∈\mc L(E)$, $λ∈𝕂$">
+\startformula 
+\Align{\NC 
+h\text{ homothétie}\NR
+\NC\text{de rapport }λ}⟺ h=λ\Id_E 
+\stopformula
+</definition>
+<remark>la bijection réciproque de l'homothétie $λ\Id_E$ est l'homothétie $ λ^{-1}\Id_E$. </remark>
+<remark>Une propriété remarquable des homothéties vectorielles est qu'elles commutent avec tous les endomorphismes de $E$. 
+Autrement dit, 
+\startformula 
+ ∀ f ∈\mc L(E), \qquad ( λ^\Id_E)∘f=f ∘( λ\Id_E)= λ f.
+\stopformula
+En particulier, on peut utiliser le binôme de Newton pour les homothéties. 
+</remark>
+</concept>
+
+<concept t="projection">
+<definition h="$p∈\mc L(E)$">
+\startformula 
+\Align{\NC p\text{ projecteur sur }F\NR
+\NC \text{parallèlement à }G}⟺ \System{
+\NC ∀ x ∈ F ,\quad  p(x)=x \NR
+\NC ∀ x ∈ G ,\quad  p(x)=0\NR
+\NC E=F⊕G}
+\stopformula
+</definition>
+<remark>Une telle projection est un projecteur</remark>
+<remark>On a $F=\Im(p)$ et $G=\Ker(p)$.</remark>
+</concept>
+
+<concept t="caractérisation">
+<property h="$p∈\mc L(E)$">
+\startformula 
+p\text{ projection}⟺ p^2=p
+\stopformula
+</property>
+<remark>En dehors des rares cas pour lesquels $E=\{0\}$ ou $p=\Id_E$, aucun projecteur n'est bijectif</remark>
+<remark>On utilise également le mot \quote{projecteur} à la place de \quote{projection}</remark>
+<exercice>Prouver que l'application $function{ℝ^2→  ℝ^2|(x,y)↦ \Q({4x-2y\F5},{y-2x\F5}\W)}$ est un projecteur. Quel est son noyau et son image ?</exercice>
+</concept>
+
+
+<concept t="symétrie">
+<definition h="$s∈\mc L(E)$">
+\startformula 
+\Align{\NC s\text{ symétrie de }F\NR
+\NC \text{parallèlement à }G}⟺ \System{
+\NC ∀ x ∈ F ,\qquad  s(x)=x\NR 
+\NC ∀ x ∈ G ,\qquad  s(x)=-x\NR
+\NC E=F⊕G}
+\stopformula
+</definition>
+<remark>Une telle  symétrie vérifie $s∘s=s$</remark>
+<remark>On a $F=\Ker(s-\Id_E)$ et $G=\Ker(s+\Id_E)$.</remark>
+</concept>
+
+<concept t="symétries ">
+<property h="$s∈\mc L(E)$">
+\startformula 
+s\text{ symétrie}⟺ s^2=s
+\stopformula
+</property>
+</concept>
+
+<concept t="caractérisation">
+<property h="$E$ $𝕂$-EV">
+\startformula 
+s \text{ symétrie de } E⟺
+\Align{
+\NC s \text{ symétrie sur }\Ker(s-\Id_E)\NR
+\NC \text{ parallelement à } \Ker(s+\Id_E),\NR
+\NC    E=\Ker(s-\Id_E)⊕\Ker(s+\Id_E)}
+\stopformula
+</property>
+<exercice>Prouver que $function{ℝ^2→  ℝ^2|(x,y)↦  \Q({3x-4y\F5},{-3y-4x\F5}\W)}$ est une symétrie. Selon quelle direction ? Par rapport à quel espace ?</exercice>
+</concept>
+
+
+</subsection><subsection t="rang">
+
+<concept t="lien avec $K^n$">
+<theorem h=" $E$ $𝕂$-EV de dim $n ⩾1$">
+\startformula 
+E\text{est  est isomorphe avec } 𝕂^n
+\stopformula
+</theorem>
+<remark>
+Plus précisément , pour chaque base $\mc B=\{e_1,\cdots,e_n\}$ de $E$, l'application
+\startformula 
+\function{𝕂^n→ E|( λ_1,⋯, λ_n)↦ \displaystyle ∑_{1 ⩽ k ⩽ n} λ_ke_k}
+\stopformula
+est un isomorphisme d'espaces vectoriels. </remark>
+<remark>le théorème précédent affirme que : 
+\startitemize[1]
+\item Tous les $ 𝕂$-espaces vectoriels de même dimension $n⩾1$ ont la même structure. 
+\item Plutôt que de travailler dans un espace théorique $E$, 
+on peut fixer une base et travailler dans l'espace $𝕂^n$ avec les coordonnées. 
+\item Le choix de la base détermine l'isomorphisme. 
+\stopitemize</remark>
+</concept>
+
+<concept t="isomorphisme et dimension"><text>Deux espaces vectoriels de dimension finie sont isomorphes \ssi ils ont même dimension</text>
+<theorem h="$E,F$ de dim finie">
+\startformula 
+E\Et F\text{ isomorphes}⟺\dim(E)=\dim(F)
+\stopformula </theorem>
+</concept>
+
+
+<concept t="base">
+<theorem h="$E, F$ de dim finie">
+\startformula 
+\dim \mc L(E,F)= \dim(E)×\dim(F)
+\stopformula
+</theorem>
+<remark>Si $\mc E=\{e_1,\cdots,e_n\}$ et $\mc F=\{f_1,\cdots,f_p\}$ 
+sont des bases respectives de $E$ et $F$, alors la famille $\{g_{i,j}\}_{\scriptstyle1 ⩽ i ⩽ n\atop\scriptstyle1 ⩽ j ⩽ p}$ définie par 
+\startformula 
+∀λ_1,⋯,λ_n,\qquad g_{i,j}( λ_1\e_1+\cdots+ λ_n\e_n):= λ_if_j
+\stopformula 
+forme une base  de $\mc L(E,F)$. </remark>
+</concept>
+
+
+<concept t="rang"><text>Le rang d'une application linéaire est la dimension de son image (lorsqu'elle est de dimension finie).</text>
+<definition h="$u∈\mc L(E,F)$, $\IM(u)$ de dim finie">
+\startformula 
+\rg(u):=\dim\IM(u)
+\stopformula
+</definition>
+</concept>
+
+
+<concept t="caractérisation">
+<property h="$u∈\mc L(E,F)$, $E$ et $F$ de même dim $n⩾1$">
+\startformula 
+\Align{\NC u\text{ bijective} \NC⟺ u\text{ injective}\NR
+\NC \NC ⟺ u\text{ surjective}\NR
+\NC\NC ⟺ \rg(u)=n
+}
+\stopformula
+</property>
+</concept>
+
+<concept t="composition"><text>On ne change pas le rang d'une application linéaire de rang fini en la composant à gauche ou/et à droite par un isomorphisme. </text>
+<property h="$u∈\mc L(E,F)$ de rang fini">
+\startformula 
+\Align{
+\NC\rg(u)\NC=\rg(u∘v)\qquad (v:D→E\text{ isomorphisme})\NR
+\NC \NC =\rg(w∘u)\qquad (w:E→F\text{ isomorphisme})
+}
+\stopformula
+</property>
+</concept>
+
+</subsection><subsection t="matrices">
+
+<concept t="vecteur">
+<definition h="$E$ de base $\mc E:=\{e_1,⋯, e_p\}$">
+\startformula 
+x= ∑_{1⩽i⩽p}x_ie_i ⟺ \mc Mat_{\mc E}(x)=(x_i)_{1⩽i⩽p\atop j=1}
+\stopformula
+</definition>
+<remark>A chaque vecteur $x$ de $E$ est associée la matrice (unique) de ses  coordonnées dans la base $\mc E$. 
+L'application réalisant cette association est l'isomorphisme  
+\startformula 
+\function{ E→\mc M_{p,1}( 𝕂)|x↦\mc Mat_{\mc E}(x)}
+\stopformula</remark>
+<exercise>Déterminer la matrice du vecteur $(1,3,2)$ de $ ℝ^3$ dans la base $\mc E:=\{(1,1,1),(1,-1,0),(0,1,-1)\}$.</exercise> 
+<remark>Parfois, les matrices colonnes de $\mc M_{n,1}( 𝕂)$ avec les vecteurs de l'espace vectoriel $𝕂^n$. 
+C'est pratique mais il faut savoir que c'est dangereux d'identifier des vecteurs colonnes à des $n$-uplets 
+que l'on écrit en ligne...</remark>
+</concept>
+
+<concept t="famille de vecteurs"><text>La matrice d'une famille de vecteurs est la matrice dont les colonnes sont les matrices des vecteurs.</text>
+<definition h="$v_1,⋯, v_1$ de matrice $V_1,⋯,V_n$ dans $\mc E$">
+\startformula
+\mc Mat_{\mc E}(v_1,⋯,v_q)=\Matrix{\NC V_1\NC V_2\NC \ldots\NC V_n}
+\stopformula
+</definition>
+<remark>Autrement dit, on a  
+\startformula
+∀j∈⟦1,q⟧ v_j= ∑_{1⩽i⩽p}a_{i,j}e_i  ⟺  \mc Mat_{\mc E}(v_1,⋯,v_q)=(a_{i,j})_{1⩽i⩽p\atop 1⩽j⩽q}
+\stopformula
+</remark>
+<exercise>Déterminer la matrice de la famille $\Big((1,3,2), (3,2,1), (1,-1,1), (4,2,1)\Big)$ dans la base $\mc E:=\{(1,1,1),(1,-1,0),(0,1,-1)\}$. 
+</exercise>
+</concept>
+
+<concept t="application linéaire">
+<definition h="$u∈\mc L(E,F)$, $\mc E=\{e_1,⋯,e_n\}$ et $\mc F$ bases  de $E$ et $F$">
+\startformula 
+\mc Mat_{\mc E,\mc F}(u)=\mc Mat_{\mc E,\mc F}\big(u(e_1), ⋯, u(e_n)\big)
+\stopformula
+</definition>
+<remark>Autrement dit, notant $\sc F:=\{f_1,⋯,f_q\}$ la base finie de $F$, on a  
+\startformula
+∀j∈⟦1,q⟧ u(e_j)= ∑_{1⩽i⩽p}a_{i,j}f_i  ⟺  \mc Mat_{\mc E}(u)=(a_{i,j})_{1⩽i⩽p\atop 1⩽j⩽q}
+\stopformula</remark>
+<remark>La matrice de l'application linéaire $u$ associée aux bases $\mc E$ et $\mc F$ est unique. De plus, l'application réalisant cette association est l'isomorphisme
+\startformula 
+\function{\mc L(E,F)→\mc M_{n,p}( 𝕂)|u↦\mc Mat_{\mc E,\mc F}(u)}
+\stopformula</remark>
+<remark>Cette propriété est fondamentale car, elle permet de transformer un problème théorique portant sur des applications linéaires en problème calculatoire et concret portant sur des matrices de coordonnées.</remark>
+<remark>En bref, le fait de fixer une base $\mc E$ de $E$ et une base $\mc F$ de $F$ permet d'associer de manière 
+{\bf unique} à chaque application linéaire $u:E → F$ une matrice $U$ de $\mc M_{n,p}( 𝕂)$ et réciproquement. </remark>
+<remark>L'application précédente étant un isomorphisme, on a  
+\startformula 
+ ∀ u,v ∈\mc L(E,F), \qquad  ∀ λ, μ ∈ 𝕂, \qquad \mc Mat_{\mc E,\mc F}(λu+μv)= λ\mc Mat_{\mc E,\mc F}(u)+ μ\mc Mat_{\mc E,\mc F}(v). 
+\stopformula</remark>
+</concept>
+
+
+<concept t="caractérisation"><text>Une application linéaire est complétement caractérisée par la donnée de ses images sur une base (ou plus généralement sur une famille génératrice)</text>
+<definition h="$\{e_1,⋯,e_n\}$ base  de $E$, $F$ $𝕂$-EV">
+\startformula 
+\forall f_1,⋯f_n∈F, ∃!u∈\mc L(E,F):  u(e_i)=f_i\qquad (i∈⟦1,n⟧)
+\stopformula
+</definition>
+</concept>
+
+<concept t="égalité"><text>Deux applications linéaires sont égales \ssi elles coincident sur une base (ou plus généralement sur une famille génératrice)</text>
+<property h="$u,v∈\mc L(E,F)$, $e_1,⋯,e_n$ base de $E$" m="+">
+\startformula 
+u=v⟺ u(e_i)=v(e_i)\qquad (i∈⟦1,n⟧)
+\stopformula
+</property>
+</concept>
+
+<concept t="rang">
+<definition h="$u∈\mc L(E,F)$, $\mc E$ et $\mc F$ bases  de $E$ et $F$">
+\startformula 
+\rg u = \mc Mat_{\mc E,\mc F}(u)
+\stopformula
+</definition>
+<remark>Le rang d'une application linéaire, comme le rang d'un système linéaire est le rang de la matrice qui leur est associée</remark>
+</concept>
+
+<concept t="caractérisation">
+<definition h="$u∈\mc L(E,F)$, $\mc E$ et $\mc F$ bases  de $E$ et $F$">
+\startformula 
+u \text{ bijective}⟺ \mc Mat_{\mc E,\mc F}(u) \text{ inversible}
+\stopformula
+</definition>
+</concept>
+
+<exercise>Déterminer la matrice dans les bases canoniques de l'application 
+\startformula
+\Function{u: ℝ^3→ℝ^2|(x,y,z)↦(x+3y-2z,4x-z)}
+\stopformula
+Recommencer dans les bases $\mc E=\{(1,1,1),(1,-1,0),(0,1,-1)\}$ et $\mc F=\{(1,1),(1,-1)\}$. 
+</exercise>
+
+<concept t="image">
+<property h="$u ∈\mc L(E,F)$ $E$ et $F$ de bases $\mc E$ et $\mc F$">
+\startformula 
+ ∀ x ∈ E, \qquad \mc Mat_{\mc F}\Big(u(x)\Big)=\mc Mat_{\mc E,\mc F}(u) × \mc Mat_{\mc E}(x).
+\stopformula </property>
+<remark>Autrement dit, si $X$ est la matrice des coordonnéees de $x ∈ E$ dans la base~$\mc E$, 
+si $U$ est la matrice de l'endomorphisme $u$ dans les bases $\mc E$ et $\mc F$ et si $Y$ est la matrice 
+des coordonnées de $y ∈ F$ dans la base $\mc F$, on a 
+\startformula 
+y=u(x)  ⟺ Y=UX.
+\stopformula</remark>
+</concept>
+
+<concept t="composée"><text>La matrice d'une composée est le produit des matrices (dans le même ordre)</text>
+<theorem h="$u∈\mc L(E,F)$,  $v∈\mc L(F,G)$ $\mc E$, $\mc F$ et $\mc G$ bases de $E$, $F$ et $G$">
+\startformula 
+\mc Mat_{\mc E,\mc G}(v∘u)=\mc Mat_{\mc F,\mc G}(v) × \mc Mat_{\mc E,\mc F}(u).
+\stopformula </theorem>
+</concept>
+
+<concept t="inverse"><text>La matrice d'une bijection réciproque est l'inverse de la matrice de la bijection</text>
+<theorem h="$u∈\mc Gl(E,F)$,  $\mc E$, $\mc F$ bases de $E$ et $F$">
+\startformula 
+\mc Mat_{\mc F,\mc E}(u^{-1})=\mc Mat_{\mc E,\mc F}(u)^{-1}.
+\stopformula </theorem>
+</concept>
+
+
+<concept t="Matrice de passage"><text>La matrice de passage de la base $\sc B$ à la base $\mc C$ est la matrice de l'identité de $\sc C$ dans $\sc B$, c'est aussi la matrice des coordonnées des vecteurs de la base $\sc C$ décomposés sur la base $\sc B$</text>
+<definition h="$E$ de bases $\sc B$ et $\sc C$">
+\startformula 
+\mc Mat(\mc B→\mc C)=\mc Mat_{\mc C,\mc B}(\Id_E)
+\stopformula
+</definition>
+</concept>
+
+<concept t="inverse"><text>La matrice de passage de la base $\sc B$ à la base $\mc C$ est l'inverse de la matrice de passage de la  base $\sc C$ à la base $\mc B$ </text>
+<property h="$E$ de bases $\sc B$ et $\sc C$">
+\startformula 
+\mc Mat(\mc B→\mc C)=\mc Mat(\mc C→\mc B)^{-1}
+\stopformula
+</property>
+<remark>Les matrices de passage sont toutes inversibles</remark>
+</concept>
+
+<concept t="changement de base\\vecteur">
+<property h="$x∈E$ de bases $\sc B$ et $\sc C$">
+\startformula 
+\mc Mat_{\mc C}(x)=\mc Mat_{\mc B, \mc C}(\Id_E) ×\mc Mat_{\mc B}(x).
+\stopformula</property>
+</concept>
+
+<concept t="changement de bases\\application linéaire">
+<property h="$u∈\mc L(E,F)$, $E$ de bases $\sc E$ et $\sc E'$, $F$ de bases $\sc F$ et $\sc F'$">
+\startformula 
+\mc Mat_{\mc E', \mc F'}(u)=\mc Mat_{\mc F, \mc F'}(\Id_F)×\mc Mat_{\mc E, \mc F}(u) ×\mc Mat_{\mc E, \mc E'}(\Id_E)
+\stopformula</property>
+</concept>
+
+</subsection>
+
+
+
+</section>
+
+
+</chapter>
+</part>
+

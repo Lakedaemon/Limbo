@@ -1,0 +1,983 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Python">
+
+<chapter t="TD1">         
+
+<text>Pré-requis : Python (windows, linux, mac)  version 3.+ et IDE : Idle</text>
+
+<section t="Prise en main">
+
+<subsection t="Documentation">
+
+<text>
+Sur internet, la documentation sur Python en Anglais, se trouve principalement sur les sites
+\startList
+\item \from[pythonSite]\crlf 
+Aller notament dans la rubrique \from[pythonDocumentation]  en suivant \quote{Quick links  (3.+)/documentation}  sur la gauche, puis choisir 
+\startList
+\item \from[pythonLibrary] (library, la plupart des informations utiles sont la)
+\item \from[pythonReference] (syntaxe du language, commandes de base...)
+\item \from[pythonTutorial] (rappelle comment utiliser python pour les débutants)
+\stopList
+\item  \quote{http://www.google.com/} Les recherches googles sont vos amies si le précédent site ne convient pas 
+\stopList
+</text>
+
+</subsection>
+
+<subsection t="\from[numericTypes]">
+
+<text>Commençons par utiliser python (en ligne de commande) comme une simple calculatrice...
+On pourra s'inspirrer de ce qui est fait sur la page internet \from[numericTypesFR] .
+</text>
+
+<concept t="opérateurs de base">
+<exercise>
+<text>Calculer $1+1$,  $-2+5-3$, $2×7$, ${2\F 7}$, $2(5+7)$ et $3²$.</text>
+<solution>
+1+1\crlf
+-2+5-3\crlf
+2*7\crlf
+2.0/7\crlf
+2*(5+7)\crlf
+3**2
+</solution>
+</exercise>
+</concept>
+
+<concept t="chainâge de commandes">
+<text>Lorsqu'on utilise python en ligne de commande, on peut executer en une seule fois plusieurs directives en les séparant par un point-virgule.</text>
+
+<exercise>
+<text>En appuyant au plus une fois sur \quote{Entrée}, calculer : $1+2+3$, $4+5$, $6+7+8$.</text>
+<solution>1+2+3; 4+5; 6+7+8</solution>
+</exercise></concept>
+
+
+
+<concept t="importer une librairie">
+<text>Python ne reconnait au démarage que très peu de mots clefs. Pour accéder à des commandes plus sophistiquées, il faut importer des librairies de la façon suivante : 
+\startList
+\item \quote{from math import *} : importe la librairie math au complet
+\item \quote{from math import cos, sin} : importe seulement les fonctions cos et sin
+\stopList
+</text>
+
+<exercise>
+<text>A l'aide de la librairie {\bf math}, calculer $\sqrt 2$, $\cos(π)$, $\ln(\e²)$, $\sin{π\F2}$, $\tan{π\F 4}$.</text>
+<solution>from math import *; sqrt(2); cos(pi); log(exp(2)); sin(pi/2); tan(pi/4)</solution>
+</exercise>
+</concept>
+
+<concept t="nombres complexes">
+<text>Pour utiliser les nombres complexes, ilest nécéssaire d'importer la librairie cmath</text>
+<exercise>
+<text>A l'aide de la librairie {\bf cmath}, calculer $1+i$, $(1+i)^2$, ${1+i\F 1-i}$, $\e^{1+i{π\F4}}$, $ℜe(1+i)$, $ℑm(1+i)$, $|1+i|$.</text>
+<solution>from cmath import *;  1+1j; (1+1j)**2; (1+1j)/(1-1j); exp(1+pi/4*1j)</solution>
+</exercise>
+</concept>
+
+<concept t="variables">
+<text>Pour stocker des résultatsintermédiaires, on utilise des variables. Choisir de préférence des noms de variables simples et avec du sens</text>
+<exercise>
+<text>calculer $a=\sin({π\F 4})$, $b=\cos({π\F 4})$, $c=2ab$, $d=b²+a²$ et $e=b²-a²$</text>
+<solution>from math import *; a=sin(pi/4); b=cos(pi/4); c=2*a*b;  d=b**2+a**2; e=b**2-a**2; a ; b; c; d; e</solution>
+</exercise>
+</concept>
+
+<concept t="\from[booleanTypes]">
+<text>En dehors des nombres, il est aussi possible de manipuler le vrai et le faux</text>
+<exercise>
+<text>Etudier la véraciter des propositions  $2=0$, $3>0$,  $a²+b²=1$, $2ab>a$,  $2=0$ ou $3>0$, $2=0$ et $3>0$, $2$ est différent de $0$
+</text>
+<solution>2==0; 3>0; a**2+b**2==1; 2*a*b>a; 2==0 or 3>0; 2==0 and 3>0; 2!=0</solution>
+</exercise>
+</concept>
+
+<concept t="\from[stringTypes]">
+<text>On peut également manipuler des chaines de caractères (des bouts de phrase). La concatenation se fait avec l'opérateur $+$ et la conversion de nombre en phrase via la commande \quote{str}</text>
+<exercise>
+<text>En posant a="Laissez " b = '\\\\n'  c=666 d ="Lucy" , e=Faire !', calculer a + b + str(c)  + b + d + e. 
+Que donne le même calcul sans \quote{str} ?
+</text>
+<solution>Laissez
+666
+Lucifer !</solution>
+</exercise>
+</concept>
+
+<concept t="\from[listTypes]">
+<text>On peut également manipuler des listes d'objects (ça devient fun). La concatenation se fait avec l'opérateur $+$</text>
+<exercise>
+<text>Calculer a='gah', b=5, c = 0>1, d=(a,b,c), e=(a,b)+ d, f= (e,d) + d + e. 
+</text>
+<solution>a='gah'
+b = 5
+c = 0 > 1
+d = (a, b, c) 
+e = (a, b)+ d 
+f = (e, d) + d + e
+print(a) 
+print(b)
+print(c)
+print(d)
+print(e)
+print(f)
+</solution>
+</exercise>
+</concept>
+
+</subsection>
+
+</section>
+</chapter><chapter t="TD2">         
+
+<section t="Bases de la programmation">
+
+
+<concept t="Conversions">
+<text>Il est parfois utile de convertir le contenu d'une variable en entier (via la fonction \from[int]), en nombre à virgule (via \from[float]), en booléen (via \from[bool]), en chaine (via \from[str]).</text>
+<exercise>
+<text>Donnez le résultat des opérations suivantes </text>
+<code>
+print("Wasn't Jesus a " + str(0>1) + " prophet ?")
+print("1+1=" + str(1+1))
+print(int("2"+"3")-int("2")-int("3"))
+print (float("1.357") + float("2"))
+print (float("1.357" +"2"))
+print((0>1) and bool("True"))
+print (bool("0>1 or 2>3"))
+print (bool(""))
+print(bool(nil))
+</code>
+</exercise>
+</concept>
+
+
+<concept t="Entrées textuelles">
+<text>Il est possible de demander à l'utilisateur d'entrer des données textuelles au clavier, via la fonction \from[input].</text>
+
+<exercise>
+<text>Demander son poids à l'utilisateur en kgs l'afficher arrondi en kgs, arrondi (via \from[round]) à la centaine de gramme. 
+</text>
+<solution>
+a = input("Entrez votre poids (en kgs) : ")
+b = float(a)
+print("vous pesez " + str(round(b)) + " kgs")
+print("vous pesez " + str(round(b,1)) + " kgs")
+</solution>
+</exercise>
+</concept>
+
+<subsection t="Fonctions">
+
+<concept t="\from[functions]">
+<text>
+En python, on peut créer de nouvelles fonctions qui prennent en entrée un nombre positif ou nul d'objets et qui retournent un objet 
+à l'aide du mot clé \quote{def} suivi du nom de la fonction, de la liste des entrées entre parenthèses, de deux points \quote{:} et d'un block de text correctement indenté, se terminant par un optionnel \quote{return} suivi de l'objet retourné.
+Examples de fonctions </text>
+<code>
+def carré(a):
+   return a**2
+
+def somme(a,b):
+  return a+b
+  
+def shout():
+   print("Gloire à Lucifer !")
+   
+print(carré(4))
+print(carré(3)*carré(2))
+print(somme(1,2))
+shout()
+</code>
+</concept>
+
+
+<exercise><text>L'indice de masse corporelle d'une personne, qui est le rapport de son poids (en kilo) par le carré de
+sa taille (en mètres) 
+\startformula 
+\text{imc} = \text{poids} / \text{taille}², 
+\stopformula
+Créer une fonction qui calcule l'imc à partir du poids et de la taille
+</text>
+<solution>
+def imc(poids, taille):
+   return poids / taille**2
+</solution>
+</exercise>
+
+<exercise><text>
+Le pH d'une solution aqueuse d'acide faible est donné par la 
+formule 
+ \startformula 
+pH = {pKa\F 2} – {\log(Ca)\F 2}
+ \stopformula
+avec $pKa$ le pKa de l'acide et $Ca$ la concentration de cet acide 
+en mol/l.
+\startList
+\item Écrire une fonction qui calcule le pH d'une solution aqueuse 
+d'acide faible.
+\item Pour caculer le logarithme de x : math.log(x)
+\item Calculer le pH d'une solution d'acide acétique (pKa = 4,76) 
+concentré à 0,1mol/l.
+\stopList
+</text>
+<solution>
+from math import log
+def pH(pKa, Ca):
+    return pKa / 2.0 - log(Ca) / 2.0
+print(pH(4.76, 0.1))
+</solution>
+</exercise>
+
+<subsection t="Tests">
+</subsection>
+
+<concept t="\from[if]">
+<text>
+En python, on peut réaliser des tests et executer conditionellement certaines instructions 
+à l'aide des mots clé \quote{if}, \quote{elif} et \quote{else} suivi de deux points \quote{:} et d'un block de text correctement indenté.
+Par exemple : </text>
+<code>
+a = 5
+if a>0:
+     print("positif")
+elif a \\Le 0:
+     print("negatif")
+else:
+     print("nul")</code>
+</concept>
+
+<exercise>
+<text>Demandez l'âge X d'utilisateur et affichez «vous avez X an(s)» sans faute d'orthographe</text>
+<solution>
+X = input("Entrez votre âge : ")
+# solution standard
+if X==1:
+  print("vous avez " + str(X) + " an.")
+else:
+  print("vous avez " + str(X) + " ans.")
+# solution plus concise
+print("vous avez " + str(X) + " an" + ("."  if X==1 else "s."))
+</solution>
+</exercise>
+
+
+<concept t="imc">
+<exercise>
+<text>
+L'indice de masse corporelle d'une personne, qui est le rapport de son poids (en kilo) par le carré de
+sa taille (en mètres) 
+\startformula 
+\text{imc} = \text{poids} / \text{taille}², 
+\stopformula
+permet de déterminer la corpulence d’une personne. 
+En dessous de 18, vous souffrez de maigreur ; entre 18 et 25, votre corpulence est idéale ; 
+entre 25 et 30, vous avez du surpoids et au delà de 30, vous souffrez d’obésité.
+Écrire une fonction qui calcule votre IMC et précise votre corpulence.</text>
+<solution>
+poids = input("Entrez votre poids (en kilo) : ")
+taille = input("Entrez votre taille (en mètre) : ")
+imc = float(poids) / float(taille)**2
+print("Votre imc est de " + str(round(imc, 1)))
+if imc \\Le 18:
+   print("Vous souffrez de maigreur.")
+elif imc \\Le= 25:
+   print("Votre corpulence est idéale.")
+elif imc \\Le= 30:
+   print("Vous avez du surpoids.")
+else:
+   print("Vous souffrez d’obésité.")
+</solution>
+</exercise>
+</concept>
+
+<concept t="trinômes">
+<exercise>
+<text>
+A partir de la donnée des coefficients réels $a$, $b$, $c$ d'un polynôme $P=aX^2+bX+c$, déterminer ses racines réelles s'il en a
+</text>
+<solution>
+from math import sqrt
+a= float(input("Entrez a : "))
+b= float(input("Entrez b : "))
+c= float(input("Entrez c : "))
+
+if a != 0:
+  delta = b**2-4*a*c
+  if delta >0:
+    print("racines z=" + str(-b-sqrt(delta)/(2*a)) + " et s=" + str(-b+sqrt(delta)/(2*a)))
+  elif delta ==0:
+    print("racine double z=" + str(-b/(2*a)))
+  else:
+    print("pas de racine")
+else:
+  if b==0:
+    if c==0:
+      print("tous les réels sont racines")
+    else:
+      print("pas de racine")    
+  else:
+    print("racine z=" + str(-c/b))
+</solution>
+</exercise>
+</concept>
+
+</subsection>
+<subsection t="Boucles">
+
+<concept t="\from[for]">
+<text>
+En python, on peut réaliser de manière répétitive un block indenté d'instructions de plusieurs façons : via une \from[for] qui itére sur une liste ou une plage de valeurs, 
+ou via une \from[while] qui se répète tant qu'une condition logique reste vraie.  On peut quitter prématurément une boucle via \quote{break} et court-circuiter un block indenté d'instruction via \quote{continue};
+Par exemple, les boucles suivantes affichent toutes les carrés compris entre 1 et 50 : </text>
+<code>
+from math import sqrt
+for a in (1, 2, 3, 4, 5, 6, 7):
+  print(a**2)
+
+for a in range(1,8):
+  print(a**2)
+
+for a in range(1,50):
+  if (sqrt(a)).is_integer():
+     print(a)
+  
+b=1
+while (b \\Le 8):
+  print(b**2)
+  b = b +1
+</code>
+  
+</concept>
+
+<exercise>
+<text>
+\startList\item Ecrire une fonction qui calcule la factorielle d'un entier $n$.
+\item Ecrire une fonction qui calcule la somme des éléments d'une liste $ℓ$. 
+\item Ecrire une fonction qui calcule trouve le plus grand élément d'une liste $ℓ$ et qui le renvoit ainsi que son rang dans la liste
+\stopList
+</text>
+<solution>def fact(n):
+    p = 1
+    for i in range(1, n + 1):
+        p = p * i
+    return p
+
+def somme(L):
+    s = 0
+    for i in L:
+        s = s + i
+    return s
+
+
+def findMax(L):
+    m = L[0]
+    r = 0;
+    for i in range(len(L)):
+        if L[i] >= m:
+            m = L[i]
+            r = i
+    return (m, r)
+print(fact(5))
+print(somme((1,2,3,4,5)))   
+print(findMax((-1,2,-3,4,-5))) 
+</solution></exercise>
+
+
+<exercise>
+<text>Dans la séquence protéique suivante (utilisant le code 
+international des acides aminés), compter le nombre de 
+Cystéines (code C)
+\startformula 
+\text{proteine} = \text{CVAPGPMCAWCDSTAC}
+\stopformula
+</text>
+<solution>proteine = "CVAPGPMCAWCDSTAC"
+n = 0
+for a in proteine:
+    if a == "C":
+        n = n + 1
+    
+print("il y a", n, "Cystéine")
+</solution></exercise>
+
+</subsection>
+ </section>
+ 
+ </chapter><chapter t="TD3">     
+ 
+ <section t="Manipulation de listes">
+
+ <exercise>
+<text>Les chaînes de caractères permettent aussi de 
+représenter des chaînes d'ADN
+\startformula 
+\text{adn} = \text{\quote{agccgtaggctatttcgacgcaa}}
+\stopformula
+\startList
+\item Comment afficher la chaîne d'ADN ?
+\item Comment afficher la longueur de cette chaîne d'ADN ?
+\item Comment afficher la première base de la chaîne d'ADN ?
+\item Comment ajouter le fragment "tga" au début de l'ADN ?
+\item Comment ajouter le fragment "ccc" à la fin de l'ADN ?
+\item Comment afficher la longueur de la nouvelle chaîne obtenue ?
+\stopList
+</text>
+<solution>adn = "agccgtaggctatttcgacgcaa"
+print(adn)
+print(len(adn))
+print(adn[0])
+adn2 =  "tga" + adn
+print(adn2)
+adn3 = adn + "ccc"
+print(adn3)
+print(len(adn3))
+</solution></exercise>
+
+
+ <exercise>
+<text>Réaliser un programme estimant la clairance rénale à la créatinine à partir de la créatinine plasmatique (ou crétininémie). 
+Cette estimation peut etre réaliser avec la formule de Cockroft :
+\startList
+\item Pour l’homme : Clairance (en ml/min) = 1,24 x (140 - age) x poids (en kg) / cr´eatinine (en µmol/l)
+\item Pour la femme : Clairance (en ml/min) = 1,04 x (140 - age) x poids (en kg) / cr´eatinine (en µmol/l)
+\stopList
+Limites de validité :
+\startList
+\item Age : 18 à 110 ans
+\item Poids : 35 à 120 kg
+\item Créatinine : 50 à 800 µmol/L 
+(si le patient a une créatinine basse, cela peut conduire à une surestimation de la cla
+irance)
+\stopList
+Utiliser votre programme pour calculer la clairance d’un homme de $54$ ans, 
+pesant $60$ kgs et ayant une créatininémie de $90$ uM/l
+</text><solution>
+creatinine = float(input("Quel est votre créatinine ? (µmol/L ) "))
+age = float(input("Quel est votre age ? "))
+poids = float(input("Quel est votre poids ? (en kg) "))
+sexe = bool(input("Etes vous un homme ? (vrai ou faux) "))
+
+def clairance(sexe, poids, age, creatinine): 
+    return (sexe and 1.24 or 1.04)* (140 - age) /creatinine
+
+def estValide(age, poids, creatinine):
+    r= 18\\Le= age and age \\Le=110 and 35\\Le= poids and poids \\Le=120 and 50\\Le= creatinine and creatinine\\Le=800
+    return r and "valide" or "non valide"
+
+print("votre clairance rénale est ", clairance(sexe, poids, age, creatinine))
+print("résultat", estValide(sexe, poids, creatinine))
+print("La clairance rénale demandée est ", clairance(True, 60, 54, 90))
+</solution>
+</exercise>
+
+
+<exercise><text>Écrire un programme qui demande  à l'utilisateur d'entrer une 
+séquence d'ADN, et qui affiche \quote{C'est un gène} si celle­ci 
+correspond à un gène, et \quote{Ce n'est pas un gène} dans le cas contraire.
+(On considérera qu'une séquence est un gène si celle­ci 
+commence par un codon méthionine ATG et se termine par 
+un codon STOP : TAA, TAG, TGA)
+</text><solution>
+def estAdn(chaine):
+    return len(chaine)> 11 and "ATG" == chaine[0:3] and ((chaine[­3:] == "TAA") or (chaine[­3:] == "TAG") or (chaine[­3:] == "TGA"))
+
+adn = input("ADN ? ")
+print(adn, estAdn(adn) and "est de l adn" or "n est pas de l adn")
+</solution></exercise>
+
+
+
+<exercise><text>Demander à l'utilisateur d'entrer une chaîne d'ADN et vérifier que 
+cette chaîne est bien une chaîne d'ADN, c'est­à­dire qu'elle 
+contient seulement des \quote{A}, des \quote{T}, des \quote{C} et des \quote{G}
+</text><solution>
+adn = input("Entrez la chaîne : ")
+for base in adn:
+  if (base != "A") and (base != "T") and (base != "C") and (base != "G"): 
+    print("Ce n'est pas un ADN !")
+    break
+</solution>
+</exercise>
+
+
+<exercise><text>Écrire une fonction qui calcule 
+le poids moléculaire d'une chaîne d'ADN
+Sachant que le poids d'un couple AT est d'environ $260$ ug/umol, 
+et le poids d'un couple GC d'environ $245$ ug/umol</text><solution>
+def poids_moleculaire_ADN(adn):
+  poids = 0.0
+  for base in adn:
+      if (base == "A") or (base == "T"):
+          poids = poids + 260.0
+      elif(base == "C") or (base == "G"):
+          poids = poids + 245.0
+  return poids
+print(poids_moleculaire_ADN("ATGATAGTAACATA"))
+</solution></exercise>
+
+<exercise><text>Écrire une fonction qui recherche une 
+boîte TATA dans une chaîne d'ADN et retourne l'indice de la 
+base où commence la boîte TATA, ou ­1 s'il n'y a pas de boîte 
+TATA</text><solution>
+def cherche_TATA(adn):
+  for i in range(len(adn)-3):
+     if (adn[i] == "T") and (adn[i + 1] == "A") and (adn[i + 2] == "T") and (adn[i + 3] == "A"):
+         return i
+  return -1
+print(cherche_TATA("ATGATAGTATACATAACATA"))
+</solution></exercise>
+
+ </section></chapter><chapter t="TD4 : Que la couleur diabolique soit !">     
+ 
+ <section t="Graphisme avec \from[tkinter]">
+ 
+<text>Que donne le programme suivant ?</text>
+<code>
+from tkinter import *
+
+master = Tk()
+w = Canvas(master, width=800, height=600)
+w.pack()
+w.create_line(0, 0, 800, 600)
+w.create_line(0, 400, 600, 0, fill="red", dash=(4, 4))
+w.create_rectangle(50, 25, 450, 75, fill="blue")
+
+mainloop()
+</code> 
+
+
+<exercise><text>Dessiner un damier 8x8 noir et blanc</text><solution>
+from tkinter import *
+
+master = Tk()
+w = Canvas(master, width=800, height=600)
+w.pack()
+
+for a in range(0,7):
+    for b in range(0,7):
+        w.create_rectangle(a*50, b*50, (a+1)*50, (b+1)*50, fill = ((a+b) \% 2 == 0) and "white" or "black")
+</solution></exercise>
+
+
+</section> <section t="Graphisme avec \from[turtle]">
+ 
+<text>Que donne le programme suivant ?</text>
+<code>
+from turtle import *
+
+setup (width=200, height=200, startx=0, starty=0)
+
+speed ("fastest")
+tracer (False)
+
+for i in range(200):
+    forward(i)
+    right(90.5)
+
+done()
+</code>
+</section>
+
+</chapter><chapter t="TD5/6 : Un programme complexe pas à pas">     
+ 
+ <section t="\from[Le jeu de la vie]">
+
+<exercise><text>Programmer le jeu de la vie :  Dans chaque cellule d'une grille de N*N avec N=20, se trouve une cellule vivante (1) ou morte (0).
+L'état au temps t + 1 de la cellule située à la ligne x et la colonne y dépend du nombre n de cellules vivantes qui l'entourent au temps t :  
+\startList
+\item si $n⩽1$ ou $n⩾4$ la cellule meurt
+\item si $n=2$ la cellule ne change pas d'état
+\item si $n=3$ la cellule vit
+\stopList
+Le but est d'afficher une animation pour voir l'évolution des bactéries dans la grille. On commencera par : 
+\startList
+\item Créer une liste $L_0$ de $N×N$ nombres choisis au hasard valant 0 ou 1 (randint, compréhension de liste)
+$$
+\text{L_0 = (nombre au hasard valant 0 ou 1 : pour x entre $0$ et $N-1$ et pour y entre $0$ et $N-1$)}
+$$
+\item Afficher la grille $NxN$, la case située à la ligne $a$ et la colonne $b$ correspondant à l'élément $aN+b$ de la liste $L_0$ (double boucle)
+\item Etant donnée une cellule située  au temps t à la ligne $a$ et la colonne $b$, compter le nombre de cellules vivantes tout autour 
+(il suffit d'ajouter la valeur contenus dans le carré de cellules et de retrancher la valeur au centre (double boucle))
+\item Modifier l'intérieur de la double boucle  pour ne pas sortir de la grille (test)  
+\item Déterminer l'état de la cellule située au temps t+1 à la ligne a et à la colonne b (test)
+\item A partir de la grille $L_0$ fabriquer la nouvelle grille $L_1$ de l'évolution suivante des cellules (double boucle)
+\item Afficher la nouvelle grille $L_1$
+\item Recommencer les étapes précédentes pour produire une animation
+\item Une fois que le programme comple fonctionne, le convertir en classe
+\item Paramétrer la classe avec la taille N et afficher plusieurs animations en même temps
+\stopList
+</text><solution>
+from tkinter import *
+from random import *
+import time
+
+class Game:
+    """une classe pour le jeu de la vie"""
+    couleurs = ("White", "Black")
+
+    def __init__(self, taille):
+       """initialise la grille de jeu"""
+       self.size = round(1000.0 / taille)
+       self.w = Canvas(master, width=800, height=600)
+       self.w.pack()
+       self.taille = taille
+       self.board = [randint(0, 1) for x in range(self.taille) for y in range(self.taille)]
+
+    def cellule(self, x,y):
+        return x * self.taille + y
+    
+    def etat(self, x, y):
+       return self.board[self.cellule(x,y)]
+
+    def couleur(self, x, y):
+       return Game.couleurs[self.etat(x,y)]
+
+    def nbCellulesVivantesAutour(self, x, y):
+        s = 0
+        for a in range(x - 1, x + 2):
+            for b in range( y - 1, y + 2):
+                if (a >= 0 and self.taille>a and b>=0 and self.taille>b) : s += self.etat(a,b)   
+        s -= self.etat(x,y)
+        return s
+
+    def newState(self, x, y):
+        n = self.nbCellulesVivantesAutour(x,y)
+        if 2>n or n > 3:return 0
+        if n== 2:return self.etat(x,y)
+        if n == 3: return 1
+
+    def makeTurn(self):
+        self.board = [self.newState(x,y) for x in range(self.taille) for y in range(self.taille)] 
+        self.display()
+
+        
+    def display(self):
+        """affiche la grille de jeu"""
+        self.w.pack()
+        for a in range(self.taille):
+            for b in range(self.taille):
+                self.w.create_rectangle(a*self.size, b*self.size, a*self.size+self.size, self.size+b*self.size, fill = self.couleur(a, b))
+        self.w.update()
+
+
+
+master = Tk()
+
+g = Game(100)
+g.display()
+for step in range(100):
+ time.sleep(0.1)
+ g.makeTurn()
+mainloop()
+</solution></exercise>
+
+
+</section>
+
+
+</chapter><chapter t="TD7/8/9 : Un jeu rétro en python : 7 colors">     
+ 
+ <section t="\from[7 colors]">
+
+ <exercise><text>Programmer 7colors (partie A) :
+Le jeu se joue sur une grille avec des carrés (ou des losanges) de 7 couleurs.
+Chaque joueur commence avec l'une des deux cases aux coins nord-ouest et sud-est de la grille et accroit son territoire à son tour en choisissant une couleur disponible (qui n'est pas déjà prise par l'un des deux joueurs) parmi 7 couleurs pour  
+absorber toutes les cases adjacentes à son territoire de cette couleur. Le vainqueur est celui qui dispose à la fin du jeu du plus vaste territoire. 
+ </text><solution>
+from tkinter import *
+from random import *
+from math import *
+import time
+
+class Game:
+    """une classe pour 7colors"""
+    couleurs = ("White", "Black", "Red", "Green", "Magenta", "Yellow", "Orange", "Blue")
+
+    def __init__(self, tx, ty):
+       """initialise la grille de jeu"""
+       self.tx = tx
+       self.ty = ty
+       self.board = [randint(0, 7) for x in range(self.tx) for y in range(self.ty)]
+       self.tour = True
+       
+       self.size = round(1000.0 / max(tx,ty))
+       self.w = Canvas(master, width= tx*self.size, height= ty*self.size)
+       self.w.bind("&lt;Button-1&gt;", self.callback)
+       self.w.pack()
+       self.display()
+
+
+    def callback(self, event):
+        x = floor(event.x / self.size)
+        y = floor(event.y / self.size)
+        if self.etat(x,y) != self.etatJoueur(True) and self.etat(x,y) != self.etatJoueur(False):
+           self.makeTurn(self.etat(x,y))
+           print("joueur 1 : ", self.score(True), " joueur 2:" , self.score(False))
+
+    def etatJoueur(self, premier):
+        return premier and self.etat(0,0) or self.etat(self.tx - 1, self.ty - 1)
+
+    def joueur(self, premier):
+        return premier and (0,0) or (self.tx - 1, self.ty - 1)
+
+    def etatActuel(self):
+        return self.etatJoueur(self.tour)
+
+</solution></exercise><exercise><text>Partie B</text><solution>
+        
+    def cellule(self, x,y):
+        return x * self.ty + y
+    
+    def etat(self, x, y):
+       return self.board[self.cellule(x,y)]
+
+    def changerEtat(self, x, y, etat):
+       self.board[self.cellule(x,y)] = etat
+
+    def couleur(self, x, y):
+       return Game.couleurs[self.etat(x,y)]
+       
+    def estDansLaGrille(self, x, y):
+        return (x &gt;= 0 and y &gt;= 0 and x &lt; self.tx and y &lt; self.ty)
+
+    def score(self, player):
+       savedBoard = [self.board[a] for a in range(len(self.board))]
+       (x,y) = self.joueur(player)
+       etat = self.etat(x,y)
+       result = self.computeScore(x, y, etat)
+       self.board = savedBoard
+       return result
+    
+   
+       
+    def computeScore(self, x, y, etat):
+       if self.estDansLaGrille(x, y) == False or self.etat(x,y) != etat:return 0
+       self.changerEtat(x, y, -1)
+       return 1 + self.computeScore(x - 1, y, etat) + self.computeScore(x + 1, y, etat) + self.computeScore(x, y - 1, etat) + self.computeScore(x, y + 1, etat)
+
+</solution></exercise><exercise><text>Partie C</text><solution>
+
+    def contagion(self, x, y, ancienEtat, nouvelEtat):
+       if self.estDansLaGrille(x, y) == False or self.etat(x,y) != ancienEtat:return
+       self.changerEtat(x, y, nouvelEtat)
+       self.contagion(x - 1, y, ancienEtat, nouvelEtat)
+       self.contagion(x + 1, y, ancienEtat, nouvelEtat)
+       self.contagion(x, y - 1, ancienEtat, nouvelEtat)
+       self.contagion(x, y + 1, ancienEtat, nouvelEtat)
+           
+    def makeTurn(self, nouvelEtat):
+        newBoard = [self.board[a] for a in range(len(self.board))]
+        if self.tour:
+            x = 0
+            y = 0
+        else:
+            x = self.tx - 1
+            y = self.ty - 1
+        self.contagion(x,y, self.etat(x,y), nouvelEtat)
+        self.tour = not(self.tour)
+        self.etatActuel = nouvelEtat
+        self.display()
+
+        
+    def display(self):
+        """affiche la grille de jeu"""
+        self.w.pack()
+        for x in range(self.tx):
+            for y in range(self.ty):
+                self.w.create_rectangle(x*self.size, y*self.size, x*self.size+self.size, self.size+y*self.size, fill = self.couleur(x, y))
+        self.w.update()
+
+
+
+master = Tk()
+
+g = Game(20,10)
+mainloop()
+</solution></exercise>
+</section>
+
+</chapter><chapter t="TD10/11 : Algorithmes, tri, fichiers, images ">     
+
+<exercise>
+
+<text>Le but de cet exercice est de programmer et de comparer l'efficacité de plusieurs méthodes de  tri d'une liste 
+\startList
+\sym{1.} Pour $N=1000$, créer une liste de $N$ entiers choisis au hasard entre $0$ et $1000$
+\sym{2.} Ecrire une fonction \quote{triABulle} qui trie une liste de la façon suivante : 
+\stopList
+</text>
+<code>procédure tri_bulle(tableau T, entier n)
+       faire
+                échange_effectué = faux
+                pour j de 1 à n - 1
+                        si T[j] > T[j + 1], alors
+                                échanger T[j] et T[j + 1]
+                                échange_effectué = vrai
+                        fin si
+                fin pour
+        tant que échange_effectué = vrai
+fin procédure</code>
+<text>\startList
+\sym{3.} Ecrire une fonction \quote{triParSelection} qui trie une liste de la façon suivante : 
+\stopList
+</text>
+<code> procédure tri_selection(tableau t, entier n)
+      pour i de 1 à n - 1
+          min ← i
+          pour j de i + 1 à n
+              si t[j] \\Le t[min], alors min ← j
+          fin pour
+          si min ≠ i, alors échanger t[i] et t[min]
+      fin pour
+  fin procédure</code>
+<text>
+\startList\sym{4.} Modifier les fonctions de telle sorte qu'elles affichent également le nombre total de comparaisons qu'elles ont effectuées et comparer les deux méthodes
+\stopList
+</text>
+<solution>
+# création de la liste (et d'une copine)
+from random import *
+N=1000
+liste = [randint(0,1000) for a in range(N)]
+copyliste = liste[:]
+print(liste)
+
+def triBulle(T):
+    comp = 0
+    n = len(T)
+    if (n\\Le=1): return
+    while True:
+        echange = False
+        for j in range(0, n - 1):
+            comp += 1
+            if T[j]>T[j+1]:
+                (T[j], T[j+1]) = (T[j+1], T[j])
+                echange = True
+        if echange==False: return comp
+
+def triParSelection (T):
+    comp = 0
+    n = len(T)
+    for i in range(0, n - 2):
+        min = i
+        for j in range(i+1, n):
+            comp += 1
+            if T[j] \\Le T[min] : min = j
+        if (min != i): (T[i], T[min]) = (T[min], T[i])
+    return comp
+
+bulOp = triBulle(liste)
+selOp = triParSelection(copyliste)
+print(liste)
+print(copyliste)
+print(bulOp, selOp)
+</solution>
+</exercise>
+
+
+<exercise>
+<text>ecrire une fonction calculant la médiane d'une liste ordonnée
+\startList
+\item fabriquer une liste d'entier au hasard
+\item trier la liste et en déduire sa médiane
+\stopList</text>
+<solution>
+def mediane(T):
+    triParSelection(T)
+    n = len(T)
+    # les éléments de T vont de 0 à n - 1
+
+    if n%2 == 0:
+       # cas pair. Le premier individu médian est à l'indice n/2 -1
+       # le second est à l'indice n/2
+       a = int(n / 2) -1
+       b = a + 1
+       print (a,b)
+       return (T[a]+T[b])/2
+    else:
+        # cas impair, le seul individu médian est à l'indice (n - 1)/2
+        a = int((n - 1)/2)
+        print (a)
+        return T[a]
+print(mediane(liste))
+</solution>
+</exercise>
+
+<exercise><text>Pour commencer, jouons avec des répertoires : 
+\startList
+\item Afficher le répertoire de travail dans lequel vous êtes actuellement situé (utiliser \quote{os.getcwd})
+\item S'il n'existe pas déjà, créer un répertoire "Pythonic" à l'interieur de votre répertoire personnel  (utiliser \quote{os.path.exists}, \quote{os.mkdir} ou \quote{os.makedirs})
+\item Changer votre répertoire de travail pour le repertoire précedemment créé (utiliser \quote{os.chdir})
+\item Dans ce répertoire, créer 667 répertoires appelés "Lucifer0" à "Lucifer666"
+\item Dans ce répertoire, effacer les répertoires de "Lucifer7" à "Lucifer65" et de "Lucifer67" à "Lucifer665" (utiliser \quote{os.rmdir})
+\item Afficher la liste des répertoires (utiliser \quote{os.listdir})
+\stopList
+</text>
+<solution>import os
+
+# afficher le repertoire de travail
+print(os.getcwd())
+
+# creation d'un repertoire
+chemun = "/home/ubuntu/Pythonic"
+if not os.path.exists(chemun) : makedirs(chemun)
+else : print("le répertoire", chemun, "existe deja")
+
+# changement de répertoire
+os.chdir(chemun)
+print(os.getcwd())
+
+# creation de 667 répertoires
+for a in range(667):
+    repertoire = chemun + "/Lucifer" + str(a)
+    if not os.path.exists(chemun): os.makedirs(repertoire)
+
+# effaçons les répertoires L7 à L65 et de L67 à L665
+list = (chemun + "/Lucifer" + str(a) for a in range(7, 666) if a != 66)
+for c in list:
+    if os.path.exists(c): os.rmdir(c)
+    
+# affichage de la liste des répertoires
+liste = os.listdir(chemun)
+liste.sort()
+print(liste)
+</solution></exercise>
+
+
+<exercise><text>Jouons maintenant avec des fichiers : 
+\startList
+\item Ouvrir le fichier "N666.txt" du répertoire echange/bcps1/python... (utiliser \quote{open})
+\item Le lire et afficher son contenu (utiliser \quote{read})
+\item décoder le texte en décalant toutes les lettres vers la droite : a devient b, b devient c... (utiliser \quote{ord} et \quote{chr})
+\item afficher le texte décodé, puis le sauvegarder dans le fichier "message.txt" (utiliser \quote{write} et (utiliser \quote{close}))
+\item En vous inspirant de ce qui a été fait, elaborer une fonction qui encrypte un message et une fonction qui les décrypte
+\item Comment faire pour encrypter et decrypter une image, telle "Jules.jpg" ? 
+\stopList
+</text><solution># open the file
+chemun = "/home/ubuntu/N666.txt"
+fichier = open(chemun, "r")
+
+# read the file
+texte = fichier.read()
+print(texte)
+
+# decode the file
+texteDecodé = ""
+for c in texte:
+    texteDecodé = texteDecodé + chr(ord(c) + 1)
+
+print(texteDecodé)
+
+# save the file
+chemunDécodé = "/home/ubuntu/message.txt"
+fichierDécodé = open(chemunDécodé, "w")
+fichierDécodé.write(texteDecodé)
+fichierDécodé.close()
+</solution></exercise>
+
+
+</chapter>
+</part>

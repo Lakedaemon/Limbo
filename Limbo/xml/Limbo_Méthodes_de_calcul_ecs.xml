@@ -1,0 +1,462 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+<!-- fiche identitque : http://laurentb.garcin.free.fr/Cours/SommesProduits/SommesProduits.pdf-->
+<chapter t="Méthodes de calcul" p="β">
+
+<notation t="Alphabet grec">
+\startformula
+\Align{
+\NC π\NC Π\NC \text{pi}\NC \text{Produits}\NC \qquad\qquad \NC ϑ\NC \rare Θ\NC \text{theta}\NR
+\NC \rare σ\NC Σ\NC \text{sigma}\NC \text{Sommes}\NC \qquad\qquad \NC φ\NC \rare Φ\NC \text{phi}\NR
+\NC λ\NC \rare Λ\NC \text{lambda}\NC \text{Espaces vectoriels}\NC \qquad\qquad \NC\rare ζ\NC \rare Z\NC \text{\rare {zeta}}\NR
+\NC μ\NC \rare M\NC \text{mu}\NC \text{Espaces vectoriels}\NC \qquad\qquad \NC\rare η\NC \rare H\NC \text{\rare {eta}}\NR
+\NC \rare ω\NC  Ω\NC \text{omega}\NC \text{Probabilités}\NC \qquad\qquad \NC\rare ξ\NC \rare Ξ\NC \text{\rare {xi}}\NR
+\NC ε\NC \rare E\NC \text{epsilon}\NC \text{Limites}\NC \qquad\qquad \NC\rare \omicron\NC \rare O\NC \text{\rare {omicron}}\NR
+\NC \rare γ\NC Γ\NC \text{gamma}\NC \text{Probabilités}\NC \qquad\qquad \NC\rare ρ\NC \rare P\NC \text{\rare {rho}}\NR
+\NC \rare δ\NC Δ\NC \text{delta}\NC \NC \qquad\qquad \NC\rare ψ\NC \rare Ψ\NC \text{\rare {psi}}\NR
+\NC α \NC \rare A \NC \text{alpha}\NC \NC \qquad\qquad \NC\rare τ\NC \rare T\NC \text{\rare {tau}}\NR
+\NC β\NC \rare B\NC \text{beta}\NR
+}
+\stopformula
+</notation>
+
+<text>L’objectif de ce chapitre est de mettre en place quelques principes et exemples de maniement des symboles $∑$ et $∏$, 
+dont les usages sont constants. On travaille dans $ℝ$ ou dans $ℂ$.</text>
+
+<section t="Sommes">
+<concept t="notation $∑$" i="notation+somme">
+<definition h="$a_k∈ℂ$">
+\startformula 
+∑_{k=m}^na_k=\Choices{
+\NC a_m+⋯+a_n\NC (m⩽n) \NR
+\NC 0\NC (m>n)\NR
+}
+\stopformula
+</definition>
+
+<remark>Il existe de multiples variantes de cette notation, comme 
+\startformula 
+∑_{m⩽k⩽n}a_k \OuQ ∑_{k∈⟦m,n⟧}a_k
+\stopformula</remark>
+<remark>Par convention, la somme est nulle lorsque l'ensemble de ses indices est vide</remark>
+</concept>
+
+
+<subsection t="Propriétés">
+
+<concept t="relation de Chasles">
+<property h="$p⩽q⩽r$">
+\startformula 
+∑_{k=p}^ra_k=∑_{k=p}^qa_k+∑_{k=q+1}^ra_k
+\stopformula
+</property>
+</concept>
+
+<concept t="linéarité">
+<property h="$λ,μ∈ℂ$">
+\startformula 
+∑_{k=m}^n(λa_k+μb_k)=λ∑_{k=m}^na_k+μ∑_{k=m}^nb_k
+\stopformula
+</property>
+<remark>En particulier, on peut factoriser (ou développer dans l'autre sens) une constante dans une somme 
+\startformula 
+∑_{k=m}^nλa_k=λ∑_{k=m}^na_k
+\stopformula
+ou \quote{séparer} en deux sommes, en procédant aux additions dans un ordre différent
+\startformula 
+∑_{k=m}^n(a_k+b_k)=∑_{k=m}^na_k+∑_{k=m}^nb_k
+\stopformula
+</remark>
+</concept>
+
+<concept t="changement d'indice">
+<property h="$Δ∈ℤ$">
+\startformula 
+∑_{k=m}^na_k=∑_{k'=m-Δ}^{n-Δ}a_{k'+Δ}
+\stopformula
+</property>
+<remark>En pratique, pour procéder au changement d'indice $k=k'+Δ$, on écrit une somme portant sur l'indice $k'$, dont on trouve les bornes en isolant $k'=k-Δ$, 
+puis on remplace les $k$ par des $k'+Δ$ dans la formule de la première somme.</remark>
+<remark>Choisir une autre lettre pour décrire les indices de la somme ne change pas sa valeur (c'est une variable \quote{muette}. La valeur de la somme ne dépend que de ses bornes et de son terme général</remark>
+</concept>
+
+<concept t="symétrie">
+<property>
+\startformula 
+∑_{k=m}^na_k=∑_{k=m}^na_{n+m-k}
+\stopformula
+</property>
+<remark>Le valeur des deux sommes est la même, les mêmes additions étant effectués dans un ordre différent, respectivement dnas l'ordre croissant et décroissant des indices
+\startformula 
+a_m+⋯+a_n=a_n+⋯+a_m
+\stopformula
+</remark>
+</concept>
+
+<concept t="sommes téléscopiques">
+<property>
+\startformula 
+∑_{k=0}^n(a_{k+1}-a_k)=a_{n+1}-a_0
+\stopformula
+</property>
+<remark>Le principe des sommes téléscopiques se décline en de multiples variantes. En pratique, on sépare les sommes
+\startformula 
+∑_{k=0}^n(a_{k+1}-a_k)=∑_{k=0}^na_{k+1}-∑_{k=0}^na_k
+\stopformula
+On procède à un changement d'indice (ici $ℓ=k+1$)
+\startformula 
+∑_{k=0}^n(a_{k+1}-a_k)=∑_{ℓ=1}^{n+1}a_ℓ-∑_{k=0}^na_k
+\stopformula
+On garde dans les sommes ce qui est commun et l'on sort ce qui ne l'est pas
+\startformula 
+∑_{k=0}^n(a_{k+1}-a_k)=∑_{ℓ=1}^na_ℓ +a_{n+1} -\Q(a_0+∑_{k=1}^na_k\W)
+\stopformula
+Puis on simplifie pour aboutir au résultat attendu.
+</remark>
+</concept>
+
+</subsection><subsection t="Identité fondamentale">
+
+<concept t="Identité fondamentale" i="identité+fondamentale">
+  <text>L'identité suivante interviendra également dans d'autres chapitres. Elle joue un rôle majeur pour les mathématiques</text>
+  <property m="+" h="$x, y ∈ ℂ$, $n ∈ ℕ$">
+    \startformula
+      x^n-y^n=(x-y) ∑_{k+ ℓ=n-1}x^ky^ℓ
+    \stopformula
+  </property>
+  <uses>
+    <item>Factorisation : $x^3-1=(x-1)(x^2+x+1)$</item>
+    <item>Sommation : $1+2+⋯+2^n=2^{n+1}-1$</item>
+    <item>Mise sous forme canonique (c)</item>
+    <item p ="-β">Inversion d'opérateurs</item>
+  </uses>
+</concept>
+
+<concept t="Identité remarquable">
+  <text>Sa variante la plus couramment utilisée est celle pour $n=2$.</text>
+  <corollary t="Identité remarquable" m="+" i="identité+remarquable" h="$x, y ∈ ℂ$">
+    \startformula
+      x^2-y^2=(x-y)(x+y)
+    \stopformula
+  </corollary>
+  <uses>
+    <item>Calcul mental : $23×17=400-9$</item>
+    <item>Factorisation : $(x+2)^2-9=(x-1)×(x+5)$</item>
+  </uses> 
+</concept>
+
+</subsection><subsection t="Binôme de Newton">
+
+<concept t="coefficients du binôme">
+<text>Le coefficient du binôme ${n\choose k}$, que l'on prononce \quote{$n$ et $k$} ou encore \quote{$k$ parmi $n$}, est défini de la façon suivante : </text>
+<definition p="β" i="coefficients+du binôme">
+\startformula
+{n\choose k}:=\Choices{
+\NC {n!\F k!(n-k)!}\NC 0⩽k⩽n\NR
+\NC 0\NC \Sinon\NR}
+\stopformula
+</definition>
+<uses>
+<item>Binôme de Newton</item>
+<item>Ensembles : ${n\choose k}$ est le nombre de parties à $k$ éléments d'un ensemble de cardinal $n$.
+</item>
+<item> Dénombrement : ${n\choose k}$ est le nombre de combinaisons de $k$ éléments choisis parmi $n$.</item>
+</uses>
+<remark>La notation $C_n^k$, qui désignait le nombre ${n\choose k}$ au lycée, ne sera plus employée desormais.</remark>
+<remark>Plus simplement, on a un quotient de nombres consécutifs 
+$$
+{n\choose k}={(n-k+1)×⋯×n\F 1×2×⋯×k}
+$$</remark>
+
+</concept>
+
+<concept t="entier">
+<property h="$0⩽k⩽n$">
+\startformula 
+{n\choose k}∈ℕ
+\stopformula
+</property>
+<example>${7!\F 3!4!}={5040\F6*24}=35$ est bien un entier.</example>
+<exercise>Prouver cette propriété par récurence sur $n$.</exercise>
+</concept>
+
+<concept t="symétrie">
+<property h="$0⩽k⩽n$">
+\startformula 
+{n\choose k}={n\choose n-k}
+\stopformula
+</property>
+</concept>
+
+
+<concept t="triangle de Pascal">
+<text>Le triangle de Pascal permet de calculer rapidement les coefficients du binôme.</text>
+<combination><definition>
+{\eightpoint \startsdformula 
+\startmatrix
+\NC 1\NR
+\NC 1\NC 1\NR
+\NC 1\NC 2\NC 1\NR
+\NC 1\NC 3\NC 3\NC 1\NR
+\NC 1\NC 4\NC 6\NC 4\NC 1\NR
+\NC ⋯\NC ⋯\NC ⋯\NC ⋯\NC ⋯\NC ⋯\NR
+\stopmatrix
+\stopsdformula}
+</definition>
+<property h="$0⩽k\Le n$">
+\startformula
+{n\choose k}+{n\choose k+1}={n+1\choose k+1}.
+\stopformula
+</property>
+</combination>
+</concept>
+
+<concept t="Binôme\\de Newton">
+<text>Le binôme de Newton permet de développer les puissances.</text>
+<property t="Binôme de Newton" m="+" i="identité+binôme de Newton" h="$a, b ∈ ℂ$, $n ∈ ℕ$"> 
+\startformula
+(a+b)^n=\sum_{k+\ell=n}{n\choose k}a^kb^\ell
+\stopformula
+</property>
+<uses>
+<item>Linéarisation d'expressions trigonométriques : \startsdformula\cos^4(ϑ)={\cos(4ϑ)+3\cos(2ϑ)+1\F8}.
+\stopsdformula</item>
+<item>Probabilités : loi binomiale</item>
+<item>Matrices : calcul de puissances</item>
+</uses>
+<exercise>A prouver par récurence sur $n$.</exercise>
+</concept>
+
+<concept t="Identités remarquables">
+<text>Les variantes du binôme les plus couramment utilisées sont celles pour $n=2$ et $\pm b$.</text>
+ 
+<corollary t="Identités remarquables" m="+" i="identité+remarquable"  h="$a,b ∈ ℂ$">
+\startformula
+\startmatrix
+\NC (a+b)^2=a^2+2ab+b^2\NR
+\NC (a-b)^2=a^2-2ab+b^2\NR
+\stopmatrix
+\stopformula
+</corollary>
+<uses>
+<item>Calcul mental : $23^2 = 400 + 2*60 + 9$.</item>
+<item>Mise sous forme canonique (a)</item>
+</uses>
+</concept>
+
+
+</subsection><subsection t="Sommes arithmétiques">
+
+<concept t="suite arithmétique">
+<definition>
+\startformula 
+u_n \text{ arithmétique de raison }r⟺ u_{n+1}= u_n + r
+\stopformula</definition>
+<remark>Une suite est arithmétique lorsque l'on ajoute toujours le même nombre (la raison $r$) pour passer d'un terme au suivant
+\startformula \System{
+\NC 2, 4, 6, 8, 10 \NC r=2\NR
+\NC 7, 4, 1, -2, -5\NC r=-3\NR}
+\stopformula
+</remark>
+</concept>
+
+<concept t="somme arithmétique">
+<property h="$u$ suite arithmétique">
+\startformula 
+∑u_k=\text{nombre de termes }×\text{ moyenne des termes aux extrêmités}
+\stopformula</property>
+<remark>Autrement dit, on a 
+\startformula 
+∑_{k=m}^nu_k=(n-m+1)×{u_m+u_n\F 2}
+\stopformula</remark>
+</concept>
+
+</subsection><subsection t="Sommes géomètriques">
+
+<concept t="suite géomètrique">
+<definition>
+\startformula 
+u_n \text{ géomètrique de raison }q⟺ u_{n+1} = u_n×q
+\stopformula</definition>
+<remark>Une suite est géomètrique lorsque l'on multiplie toujours par le même nombre (la raison $r$) pour passer d'un terme au suivant
+\startformula \System{
+\NC 2, 4, 8, 16 \NC q=2\NR
+\NC 1, -3, 9, -27\NC q=-3\NR}
+\stopformula
+</remark>
+</concept>
+
+<concept t="somme géomètrique">
+<property h="$u$ géomètrique de raison $q$">
+\startformula 
+∑u_k=\Choices{
+\NC{\text{premier terme }-\text{ terme suivant le dernier}\F 1 - \text{ raison}}\NC (q≠1)\NR
+\NC \text{nombre de termes }×\text{ terme constant}\NC (q=1)\NR}
+\stopformula</property>
+<remark>Autrement dit, on a 
+\startformula 
+∑_{k=m}^nu_k=\Choices{
+\NC{u_m-u_{n+1}\F 1-q}\NC (q≠1)\NR
+\NC (n-m+1)×u_m\NC (q=1)\NR}
+\stopformula</remark>
+</concept>
+
+</subsection><subsection t="Sommes de Bernouilli">
+
+<concept t="somme des carrés">
+<property>
+\startformula 
+∑_{k=0}^nk^2={n(n+1)(2n+1)\F 6}
+\stopformula
+</property>
+<remark>On établit cette formule en calculant de deux manières (via les sommes téléscopiques et en développant) l'expression suivante : 
+\startformula 
+n^3 = ∑_{k=0}^{n-1}\Q((k+1)^3-k^3\W)=∑_{k=0}^{n-1}\Q(3k^2+3k+1\W).
+\stopformula</remark>
+<remark>Pour $ℓ⩾3$, on peut procèder de manière identique pour calculer la somme $ ∑_{k=0}^nk^ℓ$.</remark>
+</concept>
+
+</subsection><subsection t="Sommes multiples">
+
+<concept t="théorème de Fubini">
+<theorem>
+\startformula 
+ ∑_{b⩽k⩽c} ∑_{d⩽ℓ⩽e}a_{k,ℓ}= ∑_{d⩽ℓ⩽e} ∑_{b⩽k⩽c}a_{k,ℓ}
+\stopformula
+</theorem>
+<remark>La somme précédente peut également être notée
+\startformula 
+ ∑_{b⩽k⩽c\atop d⩽ℓ⩽e}a_{k,ℓ}
+\stopformula
+</remark>
+<remark>Ce théorème d'interversion de sommes se décline en de multiples variantes dans des cas plus compliqués tels
+\startformula 
+ ∑_{0⩽k⩽n} ∑_{0⩽ℓ⩽k}a_{k,ℓ}= ∑_{0⩽ℓ⩽n} ∑_{ℓ⩽k⩽n}a_{k,ℓ}
+\stopformula
+</remark>
+<remark>La somme précédente peut également être notée 
+\startformula 
+∑_{0⩽k⩽ℓ⩽k}a_{k,ℓ}
+\stopformula</remark>
+</concept>
+
+</subsection></section><section t="Produits et factorielles">
+
+
+<concept t="notation $∏$" i="notation+produit">
+<definition h="$a_k∈ℂ$">
+\startformula 
+∏_{k=m}^na_k=\Choices{
+\NC a_m×⋯×a_n\NC (m⩽n) \NR
+\NC 1\NC (m>n)\NR
+}
+\stopformula
+</definition>
+
+<remark>Comme pour les sommes, il existe de multiples variantes de cette notation, telles
+\startformula 
+∏{m⩽k⩽n}a_k \OuQ ∏_{k∈⟦m,n⟧}a_k
+\stopformula</remark>
+<remark>Par convention, le produit vaut $1$ lorsque l'ensemble de ses indices est vide</remark>
+<remark>Dans les exercices, il est souvent utile de transformer un produit en somme (via le logarithme) 
+ou une somme en produit (via l'exponentielle). Lorsque $a_k>0$, nous avons
+\startformula 
+∑_{k=0}^n\ln(a_k)=\ln\Q(∏_{k=0}^na_k\W)\EtQ \exp\Q(∑_{k=0}^nb_k\W)=∏_{k=0}^n\e^{b_k}
+\stopformula</remark>
+</concept>
+
+
+<concept t="factorielle" i="notation+factorielle">
+<definition h="$n∈ℕ$">
+\startformula 
+n!=∏_{k=1}^nk
+\stopformula
+</definition>
+<remark>Plus simplement, on a 
+\startformula 
+0! = 1\EtQ n! = 1×2×3×⋯×n
+\stopformula</remark>
+</concept>
+
+<subsection t="Propriétés">
+
+<concept t="relation de Chasles">
+<property h="$p⩽q⩽r$">
+\startformula 
+∏_{k=p}^ra_k=∏_{k=p}^qa_k×∏_{k=q+1}^ra_k
+\stopformula
+</property>
+</concept>
+
+<concept t="produit">
+<property>
+\startformula 
+∏_{k=m}^n(a_k×b_k)=∏_{k=m}^na_k×∏_{k=m}^nb_k
+\stopformula
+</property>
+<remark>Le produit est le même, mais effectué dans un ordre différent, certains termes étant rassemblés d'abord par deux.</remark>
+<remark>En prticulier, on a 
+\startformula 
+∏_{k=1}^n(λa_k)=λ^n∏_{k=1}^na_k
+\stopformula
+</remark>
+</concept>
+
+<concept t="puissances">
+<property h="ℓ∈ℤ, a_k≠0">
+\startformula 
+∏_{k=m}^n(a_k)^ℓ=\Q(∏_{k=m}^na_k\W)^ℓ
+\stopformula
+</property>
+</concept>
+
+<concept t="changement d'indice">
+<property h="$Δ∈ℤ$">
+\startformula 
+∏_{k=m}^na_k=∏_{k'=m-Δ}^{n-Δ}a_{k'+Δ}
+\stopformula
+</property>
+</concept>
+
+<concept t="symétrie">
+<property>
+\startformula 
+∏_{k=m}^na_k=∏_{k=m}^na_{n+m-k}
+\stopformula
+</property>
+<remark>Le valeur des deux produits est la même, les mêmes multiplications étant effectués dans un ordre différent, respectivement dnas l'ordre croissant et décroissant des indices
+\startformula 
+a_m×⋯×a_n=a_n×⋯×a_m
+\stopformula
+</remark>
+</concept>
+
+<concept t="produits téléscopiques">
+<property h="$a_k≠0$">
+\startformula 
+∏_{k=0}^n{a_{k+1}\F a_k}={a_{n+1}\F a_0}
+\stopformula
+</property>
+<remark>Le principe des produits téléscopiques se décline en de multiples variantes. En pratique, on sépare les produits
+\startformula 
+∏_{k=0}^n{a_{k+1}\F a_k}={∏_{k=0}^na_{k+1}\F ∏_{k=0}^na_k}
+\stopformula
+On procède à un changement d'indice (ici $ℓ=k+1$)
+\startformula 
+∏_{k=0}^n{a_{k+1}\F a_k}={∏_{ℓ=1}^{n+1}a_ℓ\F ∏_{k=0}^na_k}
+\stopformula
+On garde dans les produits ce qui est commun et l'on sort ce qui ne l'est pas
+\startformula 
+∏_{k=0}^n{a_{k+1}\F a_k}={∏_{ℓ=1}^na_ℓ ×a_{n+1}\F a_0×∏_{k=1}^na_k}
+\stopformula
+Puis on simplifie pour aboutir au résultat attendu.
+</remark>
+</concept>
+
+</subsection>
+</section>
+
+
+</chapter>
+</part>
+

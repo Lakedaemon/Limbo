@@ -1,0 +1,30 @@
+\startcomponent component_Inferno
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+
+\starttext
+\setupheads[alternative=middle]
+%\subsubject{Title alternative equals middle}
+%\showlayout
+\def\td{
+\subsubject{TD 3 : trigonométrie.}
+\startitemize[n][inbetween={\blank[big]},before={\blank[big]}]
+\item\exo{Aas}
+\item\exo{Aag}
+\item\exo{Ayi}
+\item\exo{Ayh}
+%\item\margintext{\inframed{A retenir}}\exo{Ayf}
+\item\exo{Ayj}
+\item\exo{Ayg}
+\item\exo{Ayk}
+\stopitemize}
+\td\vfill\td
+\stoptext
+\stopcomponent
+\endinput

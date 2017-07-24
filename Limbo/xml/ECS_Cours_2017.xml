@@ -1,0 +1,86 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Cours">
+
+<chapter t="Révisions de terminale">
+<exercices t="parenthèses"/>
+<exercices t="priorités"/>
+<exercices t="produit et identités remarquables"/>
+<exercices t="signe"/>
+<exercices t="fractions"/>
+<exercices t="distributivité"/>
+<exercices t="dérivation"/>
+<exercices t="inégalités"/>
+<exercices t="fonctions de référence (exp, log, sqrt)"/>
+<exercices t="tableau de variation"/>
+<subsection t="suites arithmétiques"/>
+<subsection t="suites géométriques"/>
+<subsection t="suites arithmético-géométriques"/>
+<subsection t="récurrences linéaires"/>
+</chapter>
+
+<chapter t="Logique:Opérateurs"/><!-- theo -->
+
+<section t="Récurrences"/><!-- calc -->
+<section t="Sommes, produits, factorielles"/><!-- calc -->
+
+<chapter t="Suites" requires="ℝ"/> <!-- calc-theo -->
+
+<chapter t="Logique:Ensembles et applications"/><!-- theo -->
+
+<chapter t="Limite et continuité"/> <!-- calc-theo rev -->
+
+<chapter t="Probabilités sur un univers fini" requires="Ensembles"/>
+<chapter t="Systemes linéaires"/><!-- calc -->
+<chapter t="Espaces vectoriels" requires="Logique:Operateurs, Ensembles, ℝ, ℂ"/><!-- theo -->
+
+<chapter t="Etude globale"/>
+<chapter t="Dérivation"/>
+<chapter t="Matrices"/>
+<chapter t="VAR"/>
+
+<chapter t="Intégration"/>
+<chapter t="ℂ"/>
+<chapter t="Polynomes"/>
+<include path="xml/Limbo_Limites.xml" as="limites"/>
+
+<chapter t="dim finie + complement">
+<chapter t="Etude asymptotique">
+<chapter t="Série">
+<chapter t="Espace probabilisé">
+<chapter t="Var discretes">
+<chapter t="Var à densité">
+<chapter t="Limites">
+<chapter t="Int généralisée">
+
+<chapter t="Appli lin">
+<chapter t="Extrema">
+<chapter t="Fonctions convexes">
+<chapter t="Dérivées successives">
+<chapter t="Taylor">
+<chapter t="DL">
+<chapter t="Comparaisons des suites">
+<chapter t="Comparaison des fonctions">
+
+
+<remark>
+Les outils de ce chapitre font parti des bases importantes, ils sont utilisés en concours pour :
+\startList\item Reconnaître le type d'une suite et identifier ses éléments caractéristiques
+\item Trouver une formule pour $u_n$
+\item Utiliser la somme des termes d'une suite au cours d'un calcul complexe.
+\stopList
+Utilisation en ds/concours : fréquente.
+</remark>
+
+<section t="Ensembles">
+
+<ref from="ensembles" path="section[@t=='Ensembles']"/>
+
+</section>
+
+<section t="Applications">
+<ref from="ensembles" path="section[@t=='Applications']"/>
+</section>
+
+</chapter>
+</part>
+

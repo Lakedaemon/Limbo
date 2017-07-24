@@ -1,0 +1,40 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+\centerline{\bfb DEVOIR LIBRE 9}
+\blank[big]
+
+
+\startList
+\item\filterpages[2015/DM6/DS3(2008-2009).pdf][3][width=18cm]% polynomes de Tchebychev
+\item\filterpages[2015/DM6/DS4(2005-2006)][2][width=18cm]% géométrie (droite d'Euler)
+\stopList
+
+\iftrue
+%\page
+\centerline{\bfb CORRECTION DU DEVOIR LIBRE 9}
+\blank[big]
+\startList\item
+\item\filterpages[2015/DM6/DS3(2008-2009).pdf][10, 11, 12, 13, 14][width=18cm]% polynomes de Tchebychev
+\item\filterpages[2015/DM6/DS4(2005-2006)][5,6,7][width=18cm]% géométrie (droite d'Euler)
+\stopList
+\fi
+\stoptext
+\stopcomponent
+\endinput

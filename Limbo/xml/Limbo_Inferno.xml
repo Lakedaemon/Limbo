@@ -1,0 +1,138 @@
+<?xml version='1.0' standalone='yes'?>
+<inferno>
+<domain t="Logique">
+  <field t="logique"/>
+  <field t="récurrences"/>
+  <field t="applications"/>
+</domain>	
+
+<domain t="Algèbre">
+  <subdomain t="Algèbre non-linéaire">
+    <field t="nombres entiers"/>
+    <field t="nombres complexes"/>
+    <field t="trigonométrie"/>
+    <field t="trigonométrie hyperbolique" p="-β"/> 
+    <field t="polynômes"/>
+    <field t="fractions rationnelles"/>
+    <field t="groupes" p="-β"/>
+    <field t="anneaux" p="-β"/>
+  </subdomain>
+
+  <subdomain t="Algèbre linéaire">
+    <field t="espaces vectoriels"/>
+    <field t="dimension finie"/>
+    <field t="systèmes linéaires"/>
+    <field t="matrices"/>
+    <field t="rang"/>
+    <field t="formes multilinéaires" p="-β"/>
+    <field t="déterminant" p="-β"/>
+    <field t="polynôme caractéristique" p="-β"/>
+    <field t="valeurs propres" p="-β"/>
+    <field t="vecteurs propres" p="-β"/>
+    <field t="diagonalisation" p="-β"/>
+    <field t="trigonalisation" p="-β"/>
+    <field t="réduction" p="-β"/>
+  </subdomain>
+
+  <subdomain t="Algèbre euclidienne">
+    <field t="espaces préHilbertiens" p="-β"/>
+    <field t="inégalité de Cauchy-Schwarz"  p="-β"/>
+    <field t="orthonormalisation" p="-β"/>
+    <field t="endomorphismes orthogonaux" p="-β"/>
+    <field t="matrices orthogonales" p="-β"/>
+    <field t="endomorphismes symétriques" p="-β"/>
+    <field t="matrices symétriques" p="-β"/>
+    <field t="formes quadratiques" p="-β"/>
+  </subdomain>
+</domain>
+
+<domain t="Analyse">
+  <subdomain t="fonctions">  
+    <field t="fonctions"/>
+    <field t="limites"/>
+    <field t="continuité"/>
+    <field t="dérivation"/>
+    <field t="théorème de rolle"/>
+    <field t="convexité" p="-β"/>
+    <field t="développements limités"/>
+  </subdomain>
+  
+  <subdomain t="suites">
+    <field t="suites"/>
+    <field t="récurrences linéaires"/>
+    <field t="sommes de Riemann" p="-β"/>
+    <field t="équivalents"/>
+  </subdomain>
+  
+  <subdomain t="séries">
+    <field t="séries" p="-β"/>
+    <field t="séries numériques" p="-β"/>
+    <field t="séries de fonctions" p="-β"/>
+    <field t="séries entières" p="-β"/>
+    <field t="séries de Fourier" p="-β"/>
+    <field t="intégrales généralisées" p="-β"/>
+  </subdomain>
+  
+  <subdomain t="équations différentielles">
+    <field t="équations différentielles"/>
+    <field t="équations différentielles à variables séparables"/>
+    <field t="équations différentielles linéaires du premier ordre"/>
+    <field t="équations différentielles linéaires du second ordre"/>
+    <field t="systèmes différentiels"  p="-β"/>
+  </subdomain>
+  
+  <subdomain t="intégration">
+    <field t="intégration"/>
+    <field t="intégrales"/>
+    <field t="primitives"/>
+    <field t="fonctions définies par une intégrale" p="-β"/>
+    <field t="intégrales multiples" p="-β"/>
+    <field t="intégrales curvilignes" p="-β"/>
+    <field t="aires"  p="-β"/>
+    <field t="volumes" p="-β"/>
+  </subdomain>
+  
+  <subdomain t="fonctions de plusieurs variables">  
+    <field t="fonctions de plusieurs variables"/>
+    <field t="extrema" p="β"/>
+    <field t="équations aux dérivées partielles" p="-β"/>
+    <field t="champs de vecteurs" p="-β"/>        
+    <field t="potentiels scalaires" p="-β"/>       
+    <field t="potentiels vecteurs" p="-β"/>
+  </subdomain>
+</domain>
+
+<domain t="Géométrie">
+  <field t="géométrie plane"/>
+  <field t="géométrie spatiale"/>
+  <field t="courbes"/>
+  <field t="courbes paramétrées cartésiennes" p="-β"/>
+  <field t="courbes paramétrées polaires" p="-β"/>
+  <field t="coniques" p="-β"/>
+  <field t="abscisse curviligne" p="-β"/>
+  <field t="repère de Frenet" p="-β"/>
+  <field t="courbure" p="-β"/>
+  <field t="roulement"  p="-β"/>
+  <field t="enveloppes" p="-β"/>
+  <field t="développées" p="-β"/>
+  <field t="développantes" p="-β"/>
+  <field t="surfaces" p="-β"/>
+  <field t="hélices" p="-β"/>
+  <field t="quadriques" p="-β"/>
+</domain>
+
+<domain t="Probabilités">
+
+</domain>
+
+<domain t="Topologie">
+  <field t="normes"  p="-β"/>
+  <field t="topologie" p="-β"/>
+  <field t="compacité" p="-β"/>
+  <field t="connexité" p="-β"/>
+</domain>
+
+<domain t="Programmation">
+  <field t="programmation"/>
+</domain>
+</inferno>

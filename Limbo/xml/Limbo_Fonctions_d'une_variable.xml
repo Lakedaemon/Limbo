@@ -1,0 +1,588 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Analyse">
+
+<chapter t="Fonctions  numériques d'une variable réelle">
+
+<section t="Fonctions numériques d'une variable réelle">
+
+<concept t="fonction">
+<text>Une fonction numérique d'une variable réelle est une application $f:D→ℂ$ ou $D$ désigne une partie de $ℝ$.</text>
+<remark>Une fonction numérique d'une variable complexe est une application $f:D→ℂ$ ou $D$ désigne une partie de $ℂ$. Certains des résultats de ce chapitre seront également valables pour ce type de fonctions
+(exclure ce qui concerne les inégalités)</remark>
+</concept>
+
+<concept t="addition\\multiple\\produit">
+<text>La somme, les multiples et le produit de fonctions numériques d'une variable  réelle est une fonction numérique d'une variable réelle.</text>
+
+<definition h="$f,g:D→ℂ$">
+\startformula
+\Function{f+g:D→ℂ|x↦f(x)+g(x)}
+\stopformula
+</definition>
+<definition h="$λ∈ℂ$, $f:D→ℂ$">
+\startformula
+\Function{λf:D→ℂ|x↦λf(x)}
+\stopformula
+</definition>
+
+<definition h="$f,g:D→ℂ$">
+\startformula
+\Function{f×g:D→ℂ|x↦ f(x)×g(x)}
+\stopformula
+</definition>
+<remark>Les relations précédentes affirment essentiellement que 
+\startformula
+\startSystem
+\NC (λf+μg)(x)\NC =λf(x)+μg(x)\NR
+\NC (f×g)(x)\NC = f(x)×g(x)
+\stopSystem
+\qquad (x∈D).
+\stopformula
+</remark>
+</concept>
+
+<concept t="quotient">
+<text>Le quotient de deux fonctions numériques d'une variable  réelle, dont le dénominateur ne s'annule pas, est une fonction numérique d'une variable réelle.</text>
+<definition h="$f:D→ℂ$, $g:D→ℂ^*$">
+\startformula
+\Function{{f\F g}:D→ℂ|x↦{f(x)\F g(x)}}
+\stopformula
+</definition>
+</concept>
+
+<concept t="composée">
+<text>Lorsqu'elle est définie, la composée de deux fonctions numériques d'une variable  réelle est une fonction numérique d'une variable réelle.</text>
+<definition h="$f:D→E$, $g:E→ℂ^*$">
+\startformula
+\Function{g∘f:D→ℂ|x↦g\big(f(x)\big)}
+\stopformula
+</definition>
+</concept>
+
+</section>
+
+<section t="Limites">
+                                   
+<concept t="voisinage" p="-β+β">
+<definition>
+\startformula
+V∈\Choices{[align=left]
+\NC \mc V_{-∞}\NR 
+\NC \mc V_{a^-}\NR 
+\NC \mc V_a\NR 
+\NC \mc V_{a^+}\NR 
+\NC \mc V_{+∞}}
+⟺∃r>0 \Choices{[align=left]
+\NC  ]-∞,-r]\NC ⊂V\NR
+\NC ]a-r,a]\NC ⊂V⊂]-∞,a]\NR
+\NC D(a,r)\NC ⊂V\NR
+\NC  [a,a+r[\NC ⊂ V⊂[a,+∞[\NR
+\NC  [r,+∞[\NC ⊂V
+}
+\stopformula
+</definition>
+</concept>
+
+<concept t="notation" p="-β+β"><definition>\startformula
+f→\L_aℓ ⟺  \lim\L_{x→a}f(x)=ℓ
+\stopformula
+</definition>
+
+<remark>Autrement dit : $f$ tends vers  $ℓ$ lorsque  $x$ tends vers $a$.</remark>
+<remark>On emploiera également cette notation simplifiée pour les limites à droites et à gauche</remark>
+</concept>
+
+<concept t="limite unifiée\\finie\\infinie\\en l'infini\\à droite\\à gauche\\par valeurs\\supérieures\\inférieures">
+<definition h="$f:D→ℂ$">
+\startformula
+f →\L_a ℓ\  ⟺\  \Q(∀ V∈\mc V_ℓ, f^{-1}(V)∈\mc V_a\W).
+\stopformula</definition>
+<remark>Le symbôle $a$ peut être : \startitemize[1]
+\item un nombre complexe (limite en un point)
+\item du type $a^-$  avec $a$ réel (limite à gauche)
+\item du type $a^+$  avec $a$ réel (limite à droite)
+\item les symboles $±∞$ (limite à l'infini)
+\stopitemize
+</remark>
+<remark>Le symbôle $ℓ$ peut être : \startitemize[1]
+\item un nombre complexe (limite finie)
+\item du type $ℓ^-$ avec $ℓ$ réel (limite par valeurs inférieures)
+\item du type $ℓ^+$ avec $ℓ$ réel (limite par valeurs supérieures)
+\item les symboles $±∞$ (limites infinies)
+\stopitemize
+</remark>
+<remark>Lorsqu'elle existe, la limite $ℓ∈ℂ$ de la fonction $f$ en $a$ est unique et on la note $ℓ=\lim\L_{x→a} f(x)$.</remark> 
+<remark>Lorsque $f$ converge vers une limite finie $ℓ$ en $a$, on dit que la fonction $f$ converge en $a$. 
+\startformula
+f \text{ converge en } a\ ⟺\ ∃ℓ∈ℂ: f→\L_a ℓ.
+\stopformula
+Dans le cas contraire, on dit que $f$ diverge en $a$.</remark>
+<remark>La définition peut s'écrire également
+\startformula 
+f →\L_a ℓ\  ⟺\  \Q(∀ V∈\mc V_ℓ, ∃ U∈\mc V_a : f(U)⊂V\W)
+\stopformula
+</remark>
+<remark>Pour $a∈ℝ$ et $ℓ∈ℂ$, les diverses notions de limite se caractérisent traditionnellement  
+via les quantificateurs de la façon suivante
+\startformula
+\Align{
+\NC f →\L_a ℓ\NC \quad ⟺\quad  \NC (∀ ε>0,\NC ∃α>0: \NC x∈D \Et |x-a|\Le α \NC ⟹ \NC |f(x)-ℓ|\Le ε)\NR
+\NC f →\L_a +∞\NC \quad ⟺\quad  \NC (∀ M∈ℝ,\NC ∃M∈ℝ: \NC x∈D \Et |x-a|\Le α\NC ⟹ \NC f(x)⩾M)\NR
+\NC f →\L_{+∞} ℓ\NC \quad ⟺\quad  \NC (∀ ε>0,\NC ∃M∈ℝ: \NC x∈D \Et x⩾M\NC ⟹ \NC |f(x)-ℓ|\Le  ε)\NR
+\NC f →\L_{+∞} +∞\NC \quad ⟺ \quad \NC (∀ M∈ℝ,\NC ∃N∈ℝ: \NC x∈D \Et x⩾N\NC ⟹ \NC f(x)⩾M)\NR
+\NC f →\L_{a-} ℓ^+\NC\quad ⟺\quad  \NC (∀ ε>0,\NC ∃α>0: \NC x∈D \Et a-α\Le x⩽a \NC⟹\NC ℓ⩽f(x)\Le ℓ+ε)
+}
+\stopformula
+</remark>
+</concept>
+
+
+<concept t="partie réelle\\imaginaire">
+<theorem h="$x,y:D→ℝ$, $a,ℓ,ℓ'∈ℝ$">
+\startformula
+\startSystem
+\NC x→\L_aℓ\NR
+\NC y→\L_aℓ'
+\stopSystem\ ⟺\ x+iy→\L_aℓ+iℓ'
+\stopformula
+</theorem>
+</concept>
+
+<concept t="module\\valeur absolue">
+<property h="$f:D→ℂ$">
+\startformula
+f→\L_aℓ\ ⟹\ |f|→\L_a|ℓ|
+\stopformula</property>
+</concept>
+
+
+<concept t="principe des gendarmes\\complexes"><text>Une fonction complexe inférieure en module à une fonction de limite nulle en $a$ converge vers $0$ en $a$.</text>
+<property h="$f,g:D→ℂ$"> 
+\startformula 
+\SystemR{
+\NC |f|⩽g\NR
+\NC g→\L_a0}\ 
+⟹\ f→\L_a0
+\stopformula
+</property>
+</concept>
+
+<concept t="Addition\\Produit">
+<theorem h="$a∈ℝ$, $ℓ,ℓ'∈ℂ$">
+\startformula
+\SystemR{
+\NC f→\L_aℓ\NR
+\NC g→\L_aℓ'}⟹\System{
+\NC f+g→\L_a ℓ+ℓ'\NR
+\NC f×g→\L_a ℓ×ℓ'
+}
+\stopformula
+</theorem>
+<remark>Autrement dit, on a
+\startformula
+\startAlign
+\NC\lim_a(λ.f) \NC = \NC λ.\lim_a(f),\NR
+\NC\lim_a(f+g) \NC = \NC \lim_a(f)+\lim_a(g),\NR
+\NC\lim_a(f×g) \NC = \NC \lim_a(f)×\lim_a(g).
+\stopAlign
+\stopformula
+</remark>
+<remark>Cette propriété est également valable pour des limites infinies, qui ne donnent pas d'indetermination (essentiellement $-∞+∞$ et $0×∞$)</remark>
+</concept>                     
+
+
+<concept t="limite non nulle">
+<text>Une fonction de limite non nulle  en $a$ ne s'annule pas autour de $a$.</text>
+<property h="$f:D→ℂ$, $a∈ℝ$">
+\startformula 
+\lim_a(f)≠ 0\ ⟹\ (∃α>0: ∀x∈]a-α,a+α[, f(x)≠0).
+\stopformula
+</property>
+</concept>
+
+<concept t="quotient"><text>Si $\lim_a g(x)≠ 0$, alors la fonction $f/g$ est définie autour de $a$.</text>
+<theorem h="$ℓ'≠0$"> 
+\startformula 
+\SystemR{
+\NC f→\L_aℓ\NR
+\NC g→\L_aℓ'}⟹{f\F g}→\L_a {ℓ\F ℓ'}
+\stopformula
+</theorem>
+<remark>Autrement dit, on a 
+\startformula
+\lim_a{f\F g} = {\lim_a(f)\F \lim_a(g)}
+\stopformula
+</remark>
+<remark>Cette propriété est également valable pour des limites infinies, qui ne donnent pas d'indetermination (essentiellement ${∞\F ∞}$ et ${0\F 0}$)</remark>
+</concept>
+
+
+<concept t="composition"><theorem h="$f:D→ℂ$ et $g:E→ℂ$">
+\startformula
+\SystemR{
+\NC f(D)⊂ E\NR
+\NC f→\L_ab\NR
+\NC g→\L_bℓ}⟹g∘f→\L_aℓ
+\stopformula
+</theorem></concept>
+
+<concept t="suite"><theorem h="$f:D→ℂ$ et $u∈D^ℕ$">
+\startformula
+\SystemR{
+\NC u→a\NR
+\NC f→\L_aℓ}⟹f(u_n)→ℓ
+\stopformula
+</theorem></concept>
+
+
+<concept  t="inégalités larges">
+<text>Les inégalités larges sont conservées par passage à la limite.</text>
+<property h="$f,g:D→ℝ$ convergent en $a$"> 
+\startformula 
+f⩽g \ ⟹ \  \lim\L_a f ⩽ \lim\L_a g 
+\stopformula 
+</property>
+<remark>Les inégalités strictes ne sont en général pas conservées. </remark>
+<remark>Utilisez les inégalités larges de préférence aux inégalités strictes.</remark>
+</concept>
+
+
+<concept t="principe des gendarmes\\réels">
+<property h="$f,g,h:D→ℝ$, $a,ℓ∈ℝ$">
+\startformula 
+\startSystemR
+\NC f⩽g⩽h\NR
+\NC f→\L_aℓ\NR
+\NC h→\L_aℓ\NR
+\stopSystemR
+\ ⟹ \ g→\L_aℓ
+\stopformula
+</property>
+</concept>
+
+<concept t="limite strictement positive">
+<text>Fonction de limite strictement positive en $a$ est minorée autour de $a$ par un nombre strictement positif.</text>
+<property h="$f→\L_aℓ$">
+\startformula 
+ℓ> 0 \ ⟹ \  (∃V∈\mc V_a: f(x)>{ℓ\F2}\text{ pour } x∈V)
+\stopformula</property>
+</concept>
+
+<concept t="principe des gendarmes">
+<property h="$f,g:D→ℝ$"> 
+\startformula 
+\System{
+\NC f⩽g\NR
+\NC f →\L_a + ∞} 
+\ ⟹ \ 
+g →\L_a + ∞
+\stopformula</property>
+</concept>
+</section>
+
+
+<section t="Monotonie">
+
+
+<concept t="croissance\\décroissance">
+<definition h="$f:I→ℝ$, $I$ intervalle"> 
+\startformula
+f \text{ est }\Choices{
+	\NC\text{croissante }\NR
+	\NC\text{strictement croissante }\NR
+	\NC\text{décroissante }\NR
+	\NC\text{strictement décroissante }
+} \text{ sur }I \ ⟺\ \Choices{
+	\NC f(y) ⩾ f(x)\NR
+	\NC f(y) > f(x)\NR
+	\NC f(y) ⩽ f(x)\NR
+	\NC f(y) \Le f(x)
+}\qquad(x\Le y\text{ dans }I)
+\stopformula
+</definition>
+</concept>
+
+
+<concept t="monotonie">
+<definition h="$f:I→ℝ$">
+$f$ est strictement monotone (resp. monotone) \ssi
+$f$ est strictement décroissante ou strictement croissante (resp. décroissante ou croissante). 
+</definition>
+<remark>Pour étudier la monotonie d'une fonction $f$, on étudie le signe de $f(y)-f(x)$ pour $x\Le y$</remark> 
+</concept>
+
+
+<concept t="limite\\monotonie">
+<text>Une fonction croissante (resp. décroissante) converge en $a^-$ \ssi elle est majorée (resp. minorée) sur un voisinage de $a^-$.</text>
+<combination>
+<theorem h="$f:D→ℝ$ croissante">
+\startformula
+\Align{[align={right,middle,left}]
+	\NC f\text{ converge en } a^-\NC \ ⟺\ \NC  ∃r>0: f\text{ est majorée sur } ]a-r,a]\NR
+	\NC \lim_{a^-} f \NC = \NC \sup\{f(x):x\Le a\}
+}
+\stopformula
+</theorem>
+<theorem h="$f:D→ℝ$ décroissante">
+\startformula
+\Align{[align={right,middle,left}]
+	\NC f\text{ converge en } a^-\NC \ ⟺\ \NC ∃r>0:: f\text{ est minorée sur }[a,a+r[\NR
+	\NC \lim_{a^-} f \NC = \NC \inf\{f(x):x⩽a\}
+}
+\stopformula
+</theorem>
+</combination>
+<remark>Pour les limites en $a^+$, c'est un peu la même chose sauf que l'on inverse minorée/majorée et $\inf/\sup$.</remark>
+<remark>Une fonction monotone sur un intervalle admet une limite finie ou infinie aux bornes de l'intervalle.</remark>
+</concept>
+
+
+
+
+</section><section t="Comparaison">
+
+<subsection t="Fonctions dominées" p="-β+β"> 
+<concept t="fonction dominée"><text>Une fonction est dominée par une autre fonction lorsqu'elle est toujours plus petite en module qu'un multiple de l'autre fonction.</text>
+<definition h="$f,g:D→ℂ$">
+\startformula 
+\startChoicesR
+\NC f=O_D(g)\NR
+\NC f \text{ est dominée par sur $D$} g\NR
+\NC f ≪\L_D g
+\stopChoicesR
+\ ⟺\  f=αg\Avec α\text{ fonction bornée sur }D 
+\stopformula</definition>
+<remark>Lorsque $g$ ne s'annule pas, cela revient essentiellement à dire que $f/g$ est bornée sur $D$.</remark>
+<remark>Avec des quantificateurs, la définition précédente devient
+\startformula
+f ≪\L_D g\ ⟺\ \Q(∃c⩾0:∀x∈D, |f(x)| ⩽ c|g(x)|\W).
+\stopformula
+</remark>
+<remark>En pratique, on compare presque toujours $f$ à une fonction $g$ dont les termes sont (strictement) positifs.</remark>
+</concept>
+
+<concept t="transitivité"><text>Si $f$ est dominée par $g$ qui est dominée par $h$, alors $f$ est dominée par $h$.</text>
+<property h="$f,g,h:D→ℂ$">
+\startformula
+f ≪\L_D g ≪\L_D h \ ⟹ \  f  ≪\L_D h
+\stopformula
+</property>
+</concept>
+
+<concept t="somme\\produit\\puissance\\multiple\\quotient">
+<text>Les relations suivantes permettent de simplifier des relations de domination faisant intervenir sommes, produit, puissances et quotients.</text>
+<combination>
+<property h="$f,g,h:D→ℂ$">
+\startformula
+\SystemR{
+	\NC f ≪\L_D h\NR
+	\NC g ≪\L_D h 
+} \ ⟹ \  f + g ≪\L_D h
+\stopformula
+</property>
+<property h="$f,g,F,G:D→ℂ$">
+\startformula	
+\SystemR{
+	\NC f ≪\L_D G\NR
+	\NC g ≪\L_D G
+} \ ⟹ \  fg ≪\L_D FG
+\stopformula
+</property>
+</combination>
+<combination>
+<property h="$f,g:D→ℂ$, $k⩾1$">
+\startformula	
+f ≪\L_D g \ ⟹ \  f^k ≪\L_D g^k
+\stopformula
+</property>
+<property h="$f,g:D→ℂ$, $λ,μ∈ℂ^*$">
+\startformula	
+f ≪\L_D g \ ⟺\  λf ≪\L_D μg
+\stopformula
+</property>
+<property h="$f,g:D→ℂ_*$">
+\startformula	
+f ≪\L_D g \ ⟹ \  {1\F g} ≪\L_D {1\F f}
+\stopformula
+</property>
+</combination>
+</concept>
+
+</subsection><subsection t="fonctions négligeables"> 
+
+<concept t="fonction négligeable"><text>Une fonction est négligeable en $a$ devant une autre fonction lorsqu'elle est égale au produit de cette fonction par une fonctionde limite nulle en $a$.</text>
+<definition h="$f,g:D→ℂ$">
+\startformula 
+\startChoicesR
+\NC f=o_a(g)\NR
+\NC f \text{ est négligeable devant } g \text{ en } a\NR
+\NC f ≺\L_a g  \NR
+\stopChoicesR
+\ ⟺\  f= αg \Avec α →\L_a 0. 
+\stopformula</definition>
+<remark>Lorsque $g$ ne s'annule pas autour de $a$, cela revient à dire que $f/g$ tends vers $0$ en $a$.</remark>
+</concept>
+
+<concept t="transitivité"><text>En $a$, si $f$ est négligeable devant $g$ qui est négligeable $h$, alors $f$ est négligeable devant $h$.</text>
+<property h="$f,g,h:D→ℂ$">
+\startformula
+f ≺\L_a g ≺\L_a h \ ⟹ \  f ≺\L_a h
+\stopformula
+</property>
+</concept>
+
+<concept t="somme\\produit\\puissance\\multiple\\quotient">
+<text>Les relations suivantes permettent de simplifier des relations  faisant intervenir sommes, produit, puissances et quotients.</text>
+<combination>
+<property h="$f,g:D→ℂ$">
+\startformula
+\SystemR{
+	\NC f ≺\L_a h\NR
+	\NC g ≺\L_a h
+} \ ⟹ \  f+g ≺\L_a h
+\stopformula
+</property>
+<property h="$f,g,F,G:D→ℂ$">
+\startformula	
+\SystemR{
+	\NC f ≺\L_a F\NR
+	\NC g ≺\L_a G
+} \ ⟹ \  fg ≺\L_a FG
+\stopformula
+</property>
+</combination>
+<combination>
+<property h="$f,g:D→ℂ$, $k⩾1$">
+\startformula	
+f ≺ g \ ⟹ \  f^k ≺ g^k
+\stopformula
+</property>
+<property h="$f,g:D→ℂ$, $λ,μ∈ℂ^*$">
+\startformula	
+f ≺ g \ ⟺\  λf ≺ μg
+\stopformula
+</property>
+<property h="$f,g:D→ℂ^*$">
+\startformula	
+f≺\L_a g \ ⟹ \  {1\F g} ≺\L_a {1\F f}
+\stopformula
+</property>
+</combination>
+</concept>
+
+</subsection><subsection t="Fonctions équivalentes"> 
+
+<concept t="fonctions équivalentes"><text>Une fonction est équivalente en $a$ à une autre fonction lorsqu'elle est égale au produit de cette fonction par une fonction de limite $1$ en $a$.</text>
+<definition h="$f,g:D→ℂ$">
+\startformula 
+\startChoices
+\NC f∼\L_ag\NR
+\NC f \text{ est équivalente à } g \text{ en } a\NC
+\stopChoices
+\ ⟺\  f= αg \Avec α →\L_a 1. 
+\stopformula</definition>
+<remark>Lorsque $g$ ne s'annule pas, cela revient à dire que $f/g$ tends vers $1$ en $a$.</remark>
+<remark>La relation précédente peut également s'écrire 
+\startformula 
+f∼\L_ag \ ⟺\  f = g + o(g)
+\stopformula
+</remark>
+<remark>Cette relation est reflexive et symétrique : pour $f,g:D→ℂ$, on a 
+\startformula
+\Align{
+	\NC f∼\L_ag \ ⟺\ g∼\L_af\qquad\NC\text{(symétrie)}\NR
+	\NC f∼\L_af\NC\text{(reflexivité)}
+}
+\stopformula</remark>
+</concept>
+
+<concept t="transitivité"><text>En $a$, si $f$ est équivalente à $g$ qui est équivalente à $h$, alors $f$ est équivalente à $h$.</text>
+<property h="$f,g,h:D→ℂ$">
+\startformula
+f ∼\L_a g ∼\L_a h \ ⟹ \  f ∼\L_a h
+\stopformula
+</property>
+</concept>
+
+<concept t="signe"><text>Deux fonctions réelles équivalentes en $a$ ont même signe autour de $a$.</text>
+<property h="$f,g:D→ℝ$">
+\startformula
+f∼\L_ag\ ⟹ \  (\text{signe}\,(f(x))=\text{signe}\,(g(x))\quad (x\text{ autour de }a))
+\stopformula
+</property>
+<remark>La fonction signe dont il est question dans cette propriété est définie par 
+\startformula
+\text{signe}\,(x)=\startcases
+\NC\text{positif}\NC (x>0)\NR
+\NC \text{nul}\NC \Si (x=0)\NR
+\NC\text{négatif}\NC (x\Le 0)
+\stopcases
+\stopformula
+</remark>
+</concept>
+
+
+<concept t="produit\\puissance\\quotient">
+<text>Les relations suivantes permettent de simplifier des relations d'équivalence faisant intervenir produits, puissances et quotients.</text>
+<combination>
+<property h="$f,g,F,G:D→ℂ$">
+\startformula	
+\SystemR{
+	\NC f ∼\L_a F\NR
+	\NC  g∼\L_a G
+} \ ⟹ \  fg ∼\L_a FG
+\stopformula
+</property>
+</combination>
+<combination>
+<property h="$f,g:D→ℂ$, $k⩾1$">
+\startformula	
+f ∼\L_a g \ ⟹ \  f^k ∼\L_a g^k
+\stopformula
+</property>
+<property h="$f,g:D→ℂ^*$">
+\startformula	
+f ∼\L_a g \ ⟺ \  {1\F f} ∼\L_a {1\F g}
+\stopformula
+</property>
+</combination>
+</concept>
+
+<text>Attention : on n'a pas le droit d'ajouter des équivalents en général, c'est illégal. Pour 
+\startformula 
+f(x):=1, \quad F(x):=1,\quad g(x):=-1\EtQ G(x):=-1+x, 
+\stopformula
+par exemple, on a $f(x)∼\L_0 F(x)$, on a $g(x)∼\L_0 G(x)$ et pourtant on a 
+\startformula 
+f(x)+g(x)=0\not\!∼\L_0 x=F(x)+G(x).
+\stopformula
+</text>
+
+<concept t="limite">
+<property h="$f:D→ℂ$, $ℓ≠0$">
+\startformula 
+\Align{
+\NC f→\L_aℓ\NC \ ⟺\ \NC f∼\L_aℓ,\NR
+\NC f→\L_a0 \NC \ ⟺\ \NC f≺\L_a1
+}
+\stopformula</property>
+</concept>
+
+<concept t="comparaison\\fonctions de références"><text>A l'infini et  en zéro, un logarithme croit moins vite qu'un monôme. A l'infini, un monôme croît moins vite qu'une exponentielle (qu'une puissance).</text>
+<combination>
+<theorem  h="$α,β,γ>0$"> 
+\startformula 
+\ln(x)^α ≺\limits_{+∞} x^β ≺\L_{+∞} \e^{γx}
+\stopformula</theorem>
+<theorem  h="$α,β>0$"> 
+\startformula 
+\ln(x)^α ≺\L_0 x^{-β}
+\stopformula</theorem>
+</combination>
+</concept>
+
+
+</subsection>
+</section>
+</chapter>
+</part>

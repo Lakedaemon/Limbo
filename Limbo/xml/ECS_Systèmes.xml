@@ -1,0 +1,31 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+<include path="xml/Limbo_Systèmes.xml" as="systèmes"/>
+
+<chapter t="Systèmes linéaires">
+
+<remark>
+Les outils de ce chapitre font parti des bases importantes, ils sont utilisés en concours pour :
+\startList\item Reconnaître le type d'une suite et identifier ses éléments caractéristiques
+\item Trouver une formule pour $u_n$
+\item Utiliser la somme des termes d'une suite au cours d'un calcul complexe.
+\stopList
+Utilisation en ds/concours : fréquente.
+</remark>
+
+<section t="Systèmes linéaires">
+<ref from="systèmes" path="section[@t=='Systèmes linéaires']"/>
+</section>
+
+<section t="Opérations élémentaires">
+<ref from="systèmes" path="section[@t=='Opérations élémentaires']"/>
+</section>
+
+
+<section t="Résolution">
+<ref from="systèmes" path="section[@t=='Résolution']"/>
+</section>
+
+</chapter>
+</part>
+

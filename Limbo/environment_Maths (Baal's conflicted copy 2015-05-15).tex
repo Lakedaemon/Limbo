@@ -186,9 +186,7 @@
 \def\EtQ{\quad\Et\quad}
 \def\EtQQ{\qquad\Et\qquad}
 \let\F\over
-\def\I{{\rm I}}
 
-\def\startFunction #1\stopFunction{\Function{#1}}%
 \def\Function#1{\Function@doFive #1\End}%
 \def\Function@doFive #1:#2→#3|#4↦#5\End{%
   \startmatrix[align={right,middle,middle,middle}]%
@@ -217,12 +215,10 @@
 \def\Si{\text{ si }}
 \def\SiQ{\quad\Si\quad}
 \def\SiQQ{\qquad\Si\qquad}
-\def\Sinon{\text{sinon}}%
 \def\System#1{\startSystem #1 \stopSystem}
 \def\SystemR#1{\startSystemR #1 \stopSystemR}
 \def\Tr{\mathop{\rm Tr}\nolimits}
-\def\trans#1{\strut^{\text{t}}#1}
-%\def\Transpose#1{\strut^{\text{t}}#1}
+\def\Transpose#1{\strut^{\text{t}}#1}
 \def\Vect{\mathop{\rm Vect}\nolimits}
 \def\Vector#1{\startVector #1 \stopVector}
 \let\W\right
@@ -399,7 +395,6 @@ fill fullcircle scaled 200pt withcolor .625yellow;
 
 \def\VTab#1{\vcenter{\Tab{#1}}}%
 
-\def\❮{}
-\def\❯{}
+
 \protect
 \stopenvironment

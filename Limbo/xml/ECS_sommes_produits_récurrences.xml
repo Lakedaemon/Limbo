@@ -1,0 +1,33 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+<include path="xml/Maths_sommes_produits.xml" as="sommes"/>
+
+<chapter t="Sommes, produits, récurrences">
+
+<remark>
+Les outils de ce chapitre font parti des bases importantes. 
+Utilisation en ds/concours : 
+\startList\item Récurrence : très fréquente (certaines questions se traitent exclusivement par récurrence)
+\item Somme : très fréquente (utilisées pour exprimer et manipuler les quantités étudiées dans les problèmes) 
+\item Produit : rare (on leur préfère les sommes : un produit pouvant généralement  etre transformé en somme via un logarithme)
+\stopList
+En concours, il ne devrait pas y avoir de problème portant uniquement sur ces notions. 
+</remark>
+
+<section t="Sommes">
+
+<ref from="sommes" path="section[@t=='Sommes']"/>
+
+</section>
+
+<section t="Produits">
+<ref from="sommes" path="section[@t=='Produits']"/>
+</section>
+
+<section t="Récurrence">
+<ref from="sommes" path="section[@t=='Récurrence']"/>
+</section>
+
+</chapter>
+</part>
+

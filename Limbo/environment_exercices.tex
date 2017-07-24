@@ -1,0 +1,77 @@
+\startenvironment environment_Exercices
+\directlua{dofile("Exercices.lua")}
+\unprotect
+
+
+\startxmlsetups xml:exos
+\xmlsetsetup{exos}{*}{-}
+\xmlsetsetup{exos}{exercices|exercise}{xml:exos:*}
+\stopxmlsetups
+\xmlregistersetup{xml:exos}
+
+\startxmlsetups xml:exos:exercises
+\stopxmlsetups
+
+\startxmlsetups xml:exos:exercise
+\stopxmlsetups
+
+
+\startxmlsetups xml:exercices
+\xmlsetsetup{exercices}{*}{-}
+\xmlsetsetup{exercices}{root|chapter|subject|exo|dm|colle|filter}{xml:exercices:*}
+\stopxmlsetups 
+
+\xmlregistersetup{xml:exercices} 
+
+\startxmlsetups xml:exercices:root
+\xmlflush{#1}%
+\stopxmlsetups
+
+\startxmlsetups xml:exercices:chapter
+\ctxlua{L.exercicesDisplayChapter("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:exercices:subject
+\ctxlua{L.exercicesDisplaySubject("#1")}%
+\stopxmlsetups
+
+
+\startxmlsetups xml:exercices:dm
+\startsection[title=DM]
+\ctxlua{L.exercicesDisplay("#1")}%
+\stopsection
+\stopxmlsetups
+
+
+\startxmlsetups xml:exercices:exo
+\ctxlua{L.exercicesDisplay("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:exercices:filter
+\ctxlua{L.exercicesDisplayList("#1")}
+\stopxmlsetups
+
+
+\iffalse
+\startxmlsetups xml:exos
+\xmlsetsetup{exo}{*}{-}
+\xmlsetsetup{exo}{exercises|exercise}{xml:*}
+\stopxmlsetups 
+
+\xmlregistersetup{xml:exos} 
+
+
+
+\startxmlsetups xml:exercises
+\xmlflush{#1}%
+\stopxmlsetups
+
+\startxmlsetups xml:exercise
+\ctxlua{L.infernoRemember("#1")}
+\stopxmlsetups
+\fi
+
+%\def\loadExercices#1{\ctxlua{L.exercicesLoad("#1")}}
+%\def\Exercice#1{\ctxlua{L.exercicesDisplay("#1")}}
+\protect
+\stopenvironment

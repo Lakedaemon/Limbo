@@ -1,0 +1,87 @@
+\startcomponent Lettre
+
+\starttext
+\defineparagraphs[rightpar][n=2] 
+\setupparagraphs [rightpar][1][width=.6\textwidth] 
+\setupparagraphs [rightpar][2][width=.4\textwidth,align=flushright]
+
+\defineparagraphs[leftpar][n=2] 
+\setupparagraphs [leftpar][1][width=.7\textwidth] 
+\setupparagraphs [leftpar][2][width=.3\textwidth,align=flushright]
+\setuppagenumbering[location=]
+
+
+
+\iffalse
+Nom Prénom expéditeur 
+N° Rue 
+CP Ville 
+
+Nom Prénom destinataire 
+N° Rue 
+CP Ville
+
+
+Objet : préavis de départ du logement 
+
+
+Par la présente, je vous informe de ma décision de quitter le logement que j'occupe depuis (précisez la date), situé (précisez l'adresse). 
+
+Ce départ est lié à la perte de mon emploi (ou l'un des autres motifs permettant ce préavis d'un mois). Conformément à l'article 15 de la loi du 6 juillet 1989, je respecterai donc un délai de préavis d'un mois à compter de la date de réception de ce courrier. 
+
+Je prendrai contact avec vous afin de convenir d'un rendez-vous pour établir ensemble l'état des lieux de sortie. 
+
+Formule de politesse 
+
+A (lieu), le (date) 
+
+Nom Prénom 
+Signature
+
+
+\fi
+
+
+\startleftpar % Two columns, please
+Olivier Binda\crlf
+16 rue des mésanges,\crlf 
+57050 Longeville-lès-Metz\crlf
+tel : 07 70 00 27 39\crlf
+mail : olivier.binda@wanadoo.fr
+
+%\blank[big]
+%N° SIRET : 49376272800027\crlf
+%N° TVA intracommunautaire : FR32493762728
+\leftpar
+%\hfil {\tfb\bf FACTURE n°29}\hfil \blank[big]
+\hbox{Thérèse Dinoia Collignon}
+3 rue Saint Gorgon\crlf
+57160 Lessy
+\stopleftpar
+
+
+
+
+\vfil\vfil
+
+\centerline{Objet : Congé avec préavis réduit à un mois.}
+
+Madame,
+\blank[big]
+Conformément à l'article 15 de la loi n°89-642 du 6 juillet 1989, j'ai l'honneur de vous donner congé pour l'appartement situé au 16 rue des mésanges, 
+à Longeville-lès-Metz (57050), que j'occupe en vertu d'un bail que nous avons signé le 30 juin 2014.
+
+\blank[big]
+En application de l'article 15-I de la loi précitée, ce congé étant motivé par une mutation professionnelle (voir document ci joint), 
+le délai de préavis qui m'est applicable est d'un mois. 
+\blank[big]
+Par ce courrier, je pose congé pour le 20 aôut 2016. 
+\blank[big]
+Une fois que la date de notre déménagement sera fixée, nous vous recontacterons pour convenir d'une date pour dresser un pré-état des lieux puis un état des lieux de sortie.
+\blank[medium]
+Veuillez agréer Madame, l'expression de mes salutations les meilleures. 
+\blank[medium]
+Monsieur Binda
+
+\stoptext
+\stopcomponent

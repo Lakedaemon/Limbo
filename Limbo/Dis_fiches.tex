@@ -1,0 +1,224 @@
+\startproduct Dis_fiches
+\project project_Dis
+\definepapersize[emc][width=29.7cm,height=21cm]
+\setuppapersize[emc][emc]
+\setuplayout[backspace=2cm,topspace=1cm,width=25.7cm,header=2cm,footer=2cm, headerdistance=0.5cm,footerdistance=0.5cm]
+
+\defineitemgroup[List][levels=4]
+\setupitemgroup[List][1][n,joinedup,nowhite]
+\setupitemgroup[List][2][n,joineup,nowhite]
+\setupitemgroup[List][3][3,joineup,nowhite]
+\setupitemgroup[List][4][4,joineup,nowhite]
+%\starttext
+%\completecontent%[criterium=all]
+%\stoptext
+
+%\xmlprocessfile{maths}{xml/Limbo_Méthodes_de_calcul.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Dérivées_et_primitives.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Suites.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Systèmes.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Matrices.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Logique.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Nombres_complexes.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Intégration.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Ensembles_et_applications.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Limites.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Polynômes.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Probabilités.xml}{}
+%\xmlprocessfile{maths}{xml/Limbo_Variables_aléatoires.xml}{}
+
+\def\fiche#1{{\bf #1.} }
+
+%\starttext
+%\chapter{Fiches}
+%\completeFiches
+%\stopcolumns
+%\stoptext
+
+%\starttext
+%\completeindex
+%\stoptext
+\starttext
+\begingroup\eightpoint\startcolumns[n=2,rule=on]
+\iffalse\chapter{Nombres complexes}
+\section{Forme algébrique (additive)}
+
+
+
+\startList
+\item \fiche{Nombre complexe} Un nombre complexe est un nombre du type $z=x+iy$ avec $x,y$ réels et $i^2=-1$.
+\item \fiche{Opérations} \startformula\startmatrix
+      \NC (x + iy) + (x' + iy')\NC=\NC(x + x') + i(y + y')\NC\Inframed{$+$}\NR
+      \NC (x + iy) × (x' + iy')\NC=\NC(xx' - yy') + i(xy' + yx')\NC\Inframed{$×$}\NR
+    \stopmatrix\stopformula
+\stopList
+
+\subsection{Parties réelles et imaginaires}
+
+\item \fiche{Définition} Pour $x,y$ nombres réels, les parties réeeles et imaginaires du nombre complexe $z=x+iy$ sont les nombres réels $ ℜe(z):=x$ et $ℑm(z):=y$
+\item\fiche{Linéarité} Pour $s, z$ nombres complexes et $λ, μ$ nombres réels,  
+\startformula
+\startmatrix
+\NC ℜe(λs+μz)=λℜe(s)+μℜe(z)\NR
+\NC ℑm(λs+μz)=λℑm(s)+μℑm(z)\NR
+\stopmatrix
+\stopformula
+\item \fiche{Caractérisation} Pour $s, z$ nombres complexes, \startformula
+s = z ⟺  \startcases
+\NC ℜe(s)=ℜe(z)\NR
+\NC ℑm(s)=ℑm(z)\NR
+ \stopcases
+\stopformula
+
+\item \fiche{réel} Un nombre réel est un nombre complexe de partie imaginaire nulle
+$$
+z∈ℝ⟺ℜe(z)=z⟺ℑm(z)=0⟺ \overline z = z
+$$
+
+\item \fiche{imaginaire pur} Un nombre imaginaire pur est un nombre complexe de partie réelle nulle
+$$
+z∈iℝ⟺ℜe(z)=0⟺iℑm(z)=z⟺ \overline z = -z
+$$
+
+\subsection{Conjugué}
+
+\item \fiche{Définition} Pour $x,y$ nombres réels, le conjugué de $z=x+iy$ est le nombre complexe $\overline z = x-iy$
+
+
+\item\fiche{lien avec les parties réeles et imaginaires}
+\startformula  \startcases[style=\displaystyle]
+\NC z = ℜe(z) + i ℑm(z)\NR 
+\NC\overline z = ℜe(z) - i ℑm(z)\NR
+\stopcases
+\qquad
+\startcases
+  \NC ℜe(z)={z+\overline z\F 2}\NR
+  \NC ℑm(z)={z-\overline z\F2i}\NR
+\stopcases\stopformula
+
+\item\fiche{Linéarité} Pour $s, z$ nombres complexes et $λ, μ$ nombres réels,  
+\startformula
+\overline{λs+μz}=λ\overline{s}+μ\overline{z}
+\stopformula
+
+\item\fiche{Produit, quotient, puissances}  
+\Align{
+\NC \overline{sz}\NC =\overline{s}\overline{z}\NR
+\NC \overline{s\F z}\NC={\overline{s}\F\overline{z}}\qquad(z≠0)\NR
+\NC {\overline s^n}\NC= {\overline s}^n\qquad(n∈ℤ, s≠0 \text{ si }n<0)
+}
+\item\fiche{involution} Pour $z$ complexe $\overline{\overline z} = z$. 
+
+
+\section{Forme trigonométrique (multiplicative)}
+
+\section{module}
+
+\startList
+\item \fiche{Module} Le module d'un nombre complexe $z=x+iy$ est le nombre réel positif ou nul $|z|=\sqrt{x^2+y^2}$.
+\item \fiche{}
+\stopList
+\fi
+\chapter{Integration sur un segment}
+
+\section{Definition}
+
+
+\startList
+
+\item \fiche{Primitive} $F$ est une primitive sur l'intervalle $I$ d'une application $f$ défini e sur $I$ si, et seulement si, $F$ est dérivable sur $I$ et vérifie $\underbrace{\forall x∈I, F'(x)=f(x)}_{F'=f}$
+\item\fiche{Caractérisation des primitives} Si $F$ est une primitive d'une application $f$ sur un intervalle I, alors 
+\startformula 
+G:I → 𝕂\mbox{ est une primitive de f sur }I\  ⟺\   ∃ c ∈ 𝕂 :  ∀ x ∈ I,  G(x)=F(x)+c
+\stopformula
+
+\item \fiche{Primitives des fonctions continues} Toute fonction continue $f$ sur un intervalle $I$ admet une primitive sur $I$.
+\item \fiche{Intégrale des fonctions continues} Si $f:[a,b]→𝕂$ est continue, l'intégrale de $f$ de $a$ à $b$ est le nombre 
+$$
+\int_a^bf(x)\d x=\Q[F(x)\W]_a^b=F(b)-F(a),
+$$
+où $F$ désigne n'importe quelle primitive $F$ de $f$ sur $I$.
+\iffalse \crlf En particulier, pour toute fonction $f$ dérivable, de dérivée continue (de classe $\mc C^1$) sur $I$, on a 
+\startformula 
+\int_a^xf'(t)\d t=[f]_a^x=f(x)-f(a). 
+\stopformula
+\fi
+
+\item \fiche{Théorème fondamental de l'analyse} Si $f$ est continue sur un intervalle $I$ contenant $a$, alors l'unique primitive de $f$ s'annulant en $a$ est l'application $F$ définie par 
+\startformula 
+\Align{
+\NC F: I\NC  → 𝕂\NR
+\NC  x\NC  ↦  \int_a^xf(t)\d t}
+\stopformula
+Par ailleurs, $F$ est dérivable, de dérivée continue sur $I$ (de classe $\mc C^1$)
+
+\item\fiche{Subdivision} Une subdivision de $[a,b]$ est une famille $(x_0,…x_n)$ de nombres réels vérifiant $a=x_0\Le x_1\Le …\Le x_n=b$.
+
+\item \fiche{Intégrale des fonctions continues par morceaux} Si $a=x_0\Le x_1\Le…\Le x_n=b$ est une subdivision adaptée à la fonction continue par morceaux $f:[a,b]→𝕂$, alors l'intégrale de $f$ de $a$ à $b$ est le nombre
+$$
+\int_a^bf(x)\d x = \sum_{k=1}^n\int_{x_{k-1}}^{x_k} f_k(x)\d x,
+$$
+Pour $k∈⟦1,n⟧$, on rappelle que la restriction de $f$ à l'intervalle $]x_{k-1},x_k[$ est prolongeable par continuité en une fonction continue $f_k:[x_{k-1},x_k]→𝕂$
+
+\item\fiche{Convention} On pose  $\int_a^af=0$ et $ \int_b^af:=-\int_a^bf$ lorsque l'intégrale de droite est définie.
+
+
+%\stopList
+\section{Propriétés}
+%\startList
+
+
+\item \fiche{Parties réelles et imaginaires} $f:[a,b]→ℂ$ est continue (par morceaux) sur $[a,b]$ si, et seulement si, sa partie réelle et sa partie imaginaires le sont aussi et dans ce cas, $\int_a^bf=\int_a^bℜe(f) +i\int_a^bℑm(g)$.
+\item \fiche{Relation de Chasles} Si $f$ est continue (par morceaux) sur un segment $S$ contenant $a$, $b$ et $c$ alors $\int_a^cf=\int_a^bf+\int_b^cf$ (les trois intégrales sont définies)
+\item \fiche{Linéarité} Si $f$ et $g$ sont continues (par morceaux) sur $[a,b]$, à valeurs dans $𝕂$, et si $ λ, μ ∈ 𝕂$, alors $\int_a^b(λ f+ μ g)= λ\int_a^bf+ μ\int_a^bg$
+\item \fiche{Positivité} Si $f$ est continue (par morceaux) sur $[a,b]$, à valeurs positives ou nulles, alors $\int_a^bf ⩾0$
+\item \fiche{Croissance} Si $f$ et $g$ sont continues (par morceaux) sur $[a,b]$, à valeurs dans $ℝ$, et si $\underbrace{∀ x ∈[a,b], f(x) ⩽ g(x)}_{f ⩽ g}$, alors $\int_a^bf ⩽ \int_a^bg$.
+\item \fiche{Cas des fonctions continues, positives, d'intégrale nulle} Si $f$ est continue sur $[a,b]$, à valeurs positives ou nulles, alors 
+$$
+\int_a^bf(x)\d x =0 \quad ⟺ \quad\underbrace{\forall x∈[a,b], f(x)=0}_{f=0}
+$$
+\item \fiche{Module} Si $f:[a,b]→ℂ$ est continue (par morceaux), alors $|f|$ l'est aussi et $\Q|\int_a^bf\W| ⩽ \int_a^b|f|$
+
+
+\section{Outils fondamentaux}
+
+\item \fiche{Intégration par partie} Si $f$ et $g$ deux fonctions dérivables, de dérivées continues (de classe $\mc C^1$) sur $[a,b]$, alors 
+\startformula 
+\int_a^bf(x)g'(x)\d x=\big[f(x)g(x)\big]_a^b-\int_a^bf'(x)g(x)\d x. 
+\stopformula
+
+
+\item \fiche{Faux changement de variable} Si $f$ est continu sur un intervalle $I$ et si $φ:[a,b]→I$ est dérivable, de dérivée continue (de classe $\mc C^1$), alors 
+\startformula 
+\int_a^bf\big( φ(u)\big) φ'(u)\d u=\int_{ φ(a)}^{ φ(b)}f(x)\d x.
+\stopformula
+
+\item \fiche{Changement de variable}Si $φ:[c,d] →[a,b]$ est un difféormorphisme de classe $\mc C^1$, autrement dit : 
+\startList \item $φ:[c,d] →[a,b]$ est une bijection
+\item $φ$ est dérivable et de dérivée continue (de classe $\mc C^1$) sur $[c,d]$
+\item $φ^{-1}$ est dérivable, de dérivée continue (de classe $\mc C^1$) sur $[a,b]$
+\stopList
+et si $f$ est continue (par morceaux) sur $[a,b]$, alors 
+\startformula 
+\int_a^bf(x)\d x=\int_{ φ^{-1}(a)}^{ φ^{-1}(b)}f\big( φ(u)\big) φ'(u)\d u 
+\stopformula
+
+\section{Dérivées et primitives}
+
+\item 
+\Align{
+\NC (x^α)'\NC= α x^{α-1}\qquad(α∈ℝ)\NC Monômes  \NC \int x^α\d x \NC= \System{
+  \NC {x^{α+1}\F α+1} +c \qquad(α≠-1, x≠0)\NR
+  \NC \ln|x| + c \qquad (α=1, x≠0)
+}\NR
+ \NC \big(\ln|x|\big)'\NC={1\F x}\qquad (x≠0)\NC Logarithme\NC \int{\d x \F x} \NC= \ln|x] +c\NR
+ \NC (\e^x)'\NC=\e^x\NC Exponentielle\NC \int\e^x\d x \NC= \e^x + c\NR
+ \NC \cos'(x) \NC= -\sin(x)\NC Cosinus\NC \int\sin(x)\d x \NC= -\cos(x) + c\NR
+\NC \sin'(x) \NC= \cos(x)\NC Sinus  \NC \int\cos(x)\d x\NC=\sin(x)+c\NR
+ \NC \tan'(x)\NC={1\F \cos^2(x)}= 1+\tan^2(x)\NC Tangente\NC \int{\d x\F \cos^2(x)} \NC=\int\big(1+\tan^2(x)\big)\d x = \tan(x) + c\NR 
+ \NC \arctan'(x)\NC={1\F1+x^2}\NC Arctangente\NC \int{\d x\F1+x^2}\NC=\arctan(x)+c
+}
+\stopList
+\stopcolumns\endgroup
+\stoptext
+\stopproduct

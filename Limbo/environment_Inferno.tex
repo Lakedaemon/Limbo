@@ -1,0 +1,146 @@
+\startenvironment environment_Inferno
+\directlua{dofile("Inferno.lua")}
+\unprotect
+
+
+\startxmlsetups xml:malebolge
+%\xmlsetsetup{malebolge}{*}{-}
+\xmlsetsetup{malebolge}{tds|td|exo|tex|maths|info}{xml:malebolge:*}
+\stopxmlsetups 
+
+\xmlregistersetup{xml:malebolge}
+
+\startxmlsetups xml:malebolge:tds
+\xmlflush{#1}%
+\stopxmlsetups
+
+\startxmlsetups xml:malebolge:maths
+\part{Mathématiques}
+\xmlflush{#1}%
+\stopxmlsetups
+
+\startxmlsetups xml:malebolge:info
+\part{Informatique}
+\xmlflush{#1}%
+\stopxmlsetups
+
+\startxmlsetups xml:malebolge:td
+\ctxlua{L.processTD("#1")}
+\stopxmlsetups
+
+\startxmlsetups xml:malebolge:tex
+\starttext
+\ctxlua{context(L.stripCdata(L.getText("#1")))}
+\stoptext
+\stopxmlsetups
+
+\startxmlsetups xml:malebolge:exo
+\item\ctxlua{L.processTDExo("#1")}
+\stopxmlsetups
+
+\startxmlsetups xml:tartarus
+%\xmlsetsetup{gehenna}{*}{-}
+\xmlsetsetup{gehenna}{colles|colle|exo}{xml:hades:*}
+\stopxmlsetups 
+
+\xmlregistersetup{xml:tartarus}
+
+\startxmlsetups xml:hades:colles
+\xmlflush{#1}%
+\stopxmlsetups
+
+\startxmlsetups xml:hades:colle
+\ctxlua{L.processColle("#1")}
+\xmlflush{#1}%
+\stopxmlsetups
+
+\startxmlsetups xml:hades:exo
+\ctxlua{L.processExo("#1")}
+\stopxmlsetups
+
+\startxmlsetups xml:hell
+\xmlsetsetup{lucifer}{*}{-}
+\xmlsetsetup{lucifer}{inferno|domain|subdomain|field}{xml:inferno:*}
+\stopxmlsetups 
+
+\xmlregistersetup{xml:hell}
+
+\startxmlsetups xml:inferno:inferno
+\xmlflush{#1}%
+\stopxmlsetups
+
+\startxmlsetups xml:inferno:domain
+\ctxlua{context.chapter(L.capitalizeFirst(L.getTitle("#1")))}%
+\xmlflush{#1}%
+\stopxmlsetups
+
+\startxmlsetups xml:inferno:subdomain
+\ctxlua{
+context.section(L.capitalizeFirst(L.getTitle("#1")))}
+\xmlflush{#1}%
+\stopxmlsetups
+
+\startxmlsetups xml:inferno:field
+\ctxlua{
+  local field = L.getTitle("#1")
+  context.subsubsection(L.capitalizeFirst(field))
+  L.infernoDumpByField(field) 
+}
+\stopxmlsetups
+
+\startxmlsetups xml:inferno:subfield
+\ctxlua{
+  local field = L.getTitle("#1")
+  context.subsection(L.capitalizeFirst(field))
+  L.infernoDumpByField(field)
+}
+\stopxmlsetups
+
+
+\startxmlsetups xml:exos
+\xmlsetsetup{exo}{*}{-}
+\xmlsetsetup{exo}{exercises|exercise}{xml:*}
+\stopxmlsetups 
+
+\xmlregistersetup{xml:exos} 
+
+\startxmlsetups xml:exercises
+\xmlflush{#1}%
+\stopxmlsetups
+
+\startxmlsetups xml:exercise
+\ctxlua{L.infernoRemember("#1")}
+\stopxmlsetups
+
+\startxmlsetups xml:text
+\ctxlua{context(L.getString("#1"))}%
+\stopxmlsetups
+
+\startxmlsetups xml:remark
+\ctxlua{context("Remarque : " .. L.getString("#1"))}%
+\stopxmlsetups
+
+\startxmlsetups xml:field
+\ctxlua{context("Field : " .. L.getField("#1"))}%
+\stopxmlsetups
+
+\startxmlsetups xml:notion
+\ctxlua{context("Notion : " .. L.getString("#1"))}%
+\stopxmlsetups
+
+
+\startxmlsetups xml:hint
+\ctxlua{context("Indication :" .. L.getString("#1"))}%
+\stopxmlsetups
+
+\startxmlsetups xml:solution
+\ctxlua{context("Solution :" .. L.getString("#1"))}%
+\stopxmlsetups
+
+
+\startxmlsetups xml:display
+\xmlflush{#1}%
+\stopxmlsetups
+
+\protect
+\stopenvironment

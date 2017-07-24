@@ -1,0 +1,39 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Algèbre">
+<include path="xml/Limbo_Variables_aléatoires.xml" as="VAR"/>
+
+<chapter t="Variables aléatoires">
+
+<remark>
+Les outils de ce chapitre font parti des bases importantes. 
+Utilisation en ds/concours : 
+\startList\item Récurrence : très fréquente (certaines questions se traitent exclusivement par récurrence)
+\item Somme : très fréquente (utilisées pour exprimer et manipuler les quantités étudiées dans les problèmes) 
+\item Produit : rare (on leur préfère les sommes : un produit pouvant généralement  etre transformé en somme via un logarithme)
+\stopList
+En concours, il ne devrait pas y avoir de problème portant uniquement sur ces notions. 
+</remark>
+
+<section t="Variables aléatoires finies">
+
+<ref from="VAR" path="section[@t=='Variables aléatoires finies']"/>
+
+</section>
+
+<section t="Probabilités">
+<ref from="VAR" path="section[@t=='Probabilités']"/>
+</section>
+
+<section t="Espérance et variance">
+<ref from="VAR" path="section[@t=='Espérance et variance']"/>
+</section>
+
+<section t="Lois usuelles">
+<ref from="VAR" path="section[@t=='Lois usuelles']"/>
+</section>
+
+
+
+</chapter>
+</part>
+

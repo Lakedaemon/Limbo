@@ -1,0 +1,59 @@
+\startcomponent Lettre
+\environment environment_Lettre
+
+\starttext
+\defineparagraphs[rightpar][n=2] 
+\setupparagraphs [rightpar][1][width=.5\textwidth] 
+\setupparagraphs [rightpar][2][width=.5\textwidth,align=flushright]
+
+\defineparagraphs[leftpar][n=2] 
+\setupparagraphs [leftpar][1][width=.5\textwidth] 
+\setupparagraphs [leftpar][2][width=.5\textwidth,align=flushright]
+\setuppagenumbering[location=]
+
+\startleftpar\leftpar
+Longeville-lès-Metz, le 29/06/2015
+\stopleftpar
+
+\startleftpar % Two columns, please
+Olivier Binda\crlf
+16 rue des mésanges,\crlf 
+57050 Longeville-lès-Metz\crlf
+tel : 07 70 00 27 39\crlf
+mail : olivier.binda@wanadoo.fr
+
+%\blank[big]
+%N° SIRET : 49376272800027\crlf
+%N° TVA intracommunautaire : FR32493762728
+\leftpar
+%\hfil {\tfb\bf FACTURE n°29}\hfil \blank[big]
+M le gérant\crlf
+ Société Ada\crlf
+ Pic location\crlf
+ 1-3 avenue Miribel\crlf
+ 55100 Verdun
+\stopleftpar
+
+
+
+
+\vfil\vfil
+
+
+
+
+
+Monsieur
+\blank[big]
+Pourriez-vous, je vous prie, nous transmettre les détails du contrat d'assurance responsabilité civile,  
+\quote{qui doit être souscrite obligatoirement par le loueur et dont le coût est incorporé au prix de base} (voir DGCCRF) ?
+\blank[big]
+Pourriez-vous également nous transmettre une copie du contrat de location souscrit pour le véhicule immatriculé BB-870-BS du 22/08/2014 au 25/08/2014.
+
+\blank[big]
+Dans l'attente de votre réponse, je vous prie d'agréer, Monsieur, l'expression de ma considération distinguée.
+
+
+
+\stoptext
+\stopcomponent

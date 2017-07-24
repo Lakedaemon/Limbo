@@ -1,0 +1,323 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Probabilités">
+
+<chapter t="Probabilités discrètes">
+
+<section t="Espaces probabilisables">
+
+<concept t="expérience aléatoire"><text>Une expérience aléatoire est un processus dont le résultat est incertain</text>
+<example>Jet de dé, pile ou face,…</example></concept>
+
+<concept t="univers"><text>L’ensemble des résultats d’une expérience aléatoire est appelé univers des possibles.</text>
+<definition>\startformula 
+Ω=\{\text{résultats possibles}\}
+\stopformula</definition>
+<remark>L'univers des possibles est finis \ssi l'ensemble $Ω$ est de cardinal fini.</remark>
+<remark>L'univers des possibles est traditionnellement noté  $Ω$.</remark>
+<example>Un jet de dé à $6$ faces peut être modélisé par l'univers $⟦1,6⟧$.</example>
+</concept>
+
+
+<concept t="tribu"><text>
+</text><definition h="$\{∅,Ω\}⊂T⊂\mc P(Ω)$" m="-">
+\startformula 
+T\text{ tribu}⟺ T\text{ stable par }
+\System{
+\NC\text{passage au complémentaire}\NR
+\NC \text{union (dénombrable)}
+}
+\stopformula
+</definition>
+<remark>Lorsque l'ensemble $Ω$ est dénombrable (en particulier lorsque $Ω$ est fini), 
+l'ensemble de ses parties $\mc P(Ω)$ est une tribu. 
+</remark>
+<example>$\{∅,Ω\}$ est une tribu de $Ω$ (c'est la plus petite au sens de l'inclusion)</example>
+<example>Pour $A⊂Ω$, l'ensemble $\{∅,A, Ω∖A,Ω\}$ est une tribu de $Ω$ </example>
+<example>$\mc P(Ω)$ est une tribu de $Ω$ (c'est la plus grande au sens de l'inclusion)</example>
+</concept>
+
+<concept t="espace probabilisable">
+<text>Un espace probabilisable est un ensemble muni d'une tribu.
+</text><definition h="$T$ tribu de $Ω$">\startformula 
+(Ω,T) \text{ espace probabilisable}
+\stopformula</definition>
+</concept>
+
+<concept t="événement"><text>Les résultats potentiels d’une expérience aléatoire sont appelés des événements. 
+Un événement d'un espace probabilisable est un élément de sa tribu.</text>
+<definition t="$(Ω,T)$ espace probabilisable">
+\startformula 
+A\text{ événement}⟺A∈T
+\stopformula</definition>
+<remark>$∅$ est un événement impossible, i.e. un événement qui n’est jamais réalisé. </remark>
+<remark>$Ω$ est un événement certain, i.e. un événement qui est toujours réalisé.</remark>
+<remark>Un événement est élémentaire, lorsqu'il contient exactement un élément de $Ω$. </remark>
+<remark>$\bar A$ est l’événement contraire de $A$.</remark>
+<remark>$A∪B$ est l’événement \quote{$A$ ou $B$}.</remark>
+<remark>$A∩B$ est l’événement \quote{$A$ et $B$}.</remark>
+<remark>$A∖B$ est l’événement \quote{$A$ mais pas $B$}.</remark>
+<remark>On dit que \quote{$A$ implique $B$} lorsque $A⊂B$.</remark>
+<example>Lors d'un jet de dé à $6$ faces, l'événement $\{1,3,5\}$ signifie que le résultat du dé est impair, l'événement $\{1,6\}$ signifie que l'on obtient un \quote{as} ou un \quote{six}.</example>
+</concept>
+
+<concept t="événements incompatibles"><text>Deux événements sont incompatibles si'ils sont disjoints.</text>
+<definition h="$A,B$ événements">
+\startformula 
+A \Et B \text{ incompatibles}⟺ A∩B= ∅
+\stopformula
+</definition></concept>
+
+<concept t="système complet"><definition h="$E_1,⋯,E_n$ événements de $Ω$">
+\startformula 
+(E_1 ,⋯ , E_n ) \text{ système complet} ⟺
+\System {\NC ∀ i≠j, Ei∩Ej=∅\NR
+\NC E_1∪⋯∪E_n = Ω}
+\stopformula
+</definition>
+</concept>
+
+
+</section>
+
+<section t="Espace probabilisé">
+
+<concept t="probabilité">
+<definition h="$(Ω,T)$ probabilisable, $(A_i)_{i∈I}$ événements incompatibles, $I$ dénombrable">
+\startformula 
+P:T→[0,1] \text{ probabilité} ⟺ \System{\NC 
+ℙ(Ω)=1\NR
+\NC  P\Q(⋃_{i∈I}A_i\W)=∑_{i∈I}ℙ(A_i)\qquad (A_i∩A_j= ∅)
+}
+\stopformula</definition>
+<remark>On a nécéssairement $ℙ(\varnothing)=0$, ainsi que 
+\startformula 
+\Align{
+\NC ℙ(A) \NC = 1 − ℙ(A)\NR
+\NC ℙ(B∖A)\NC =ℙ(B)− ℙ(A∩B)
+}
+\stopformula
+En particulier, si $A⊂B$, alors $ℙ(B∖A)=ℙ(B)−ℙ(A)$.</remark>
+</concept>
+
+
+<concept t="espace probabilisé">
+<definition h="$P:T→Ω$ probabilité">
+\startformula 
+(Ω,T,P)\text{ espace probabilisé}
+\stopformula
+</definition></concept>
+
+<concept t="événement quasi-certain">
+<definition h="$A∈T$">
+\startformula 
+A \text{ quasi-certain}⟺ ℙ(A)=1
+\stopformula</definition>
+</concept>
+
+<concept t="événement quasi-impossible">
+<definition h="$A∈T$">
+\startformula 
+A \text{ quasi-impossible}⟺ ℙ(A)=0
+\stopformula
+</definition>
+</concept>
+
+<concept t="événements équi-probables"><text>Des événements sont équiprobables \ssi ils ont tous la même probabilité de se réaliser.</text>
+<definition h="$A_i$ événements">
+\startformula 
+A_i \text{ équiprobables}⟺ ∀i, ℙ(A_1)=ℙ(A_i)
+\stopformula
+</definition>
+</concept>
+
+<concept><theorem h="$Ω=\{ω_1,⋯,ω_n\}$">
+\startformula 
+ ∃P\text{ probabilité sur }Ω:∀i∈⟦1,n⟧, ℙ(ω_i ) = p_i⟺\System{
+ \NC ∀i∈⟦1,n⟧, pi⩾0\NR
+\NC p_1+⋯+p_n=1}
+\stopformula
+</theorem>
+</concept>
+
+<concept t="probabilié uniforme"><definition h="$∅≠Ω$ fini">\startformula 
+ℙ(A)={\card A\F\card Ω}\quad(A⊂Ω)
+\stopformula
+</definition>
+<remark>On retiendra que la probabilité (uniforme) $p$ d'un événement est donné par 
+\startformula 
+p={\text{nombre de cas favorables}\F 
+\text{nombre de cas possibles}}
+\stopformula
+</remark>
+</concept>
+
+<concept t="formule de Poincarré">
+<property t="$A$, $B$ événements">
+\startformula 
+ℙ(A∪B) = ℙ(A) + ℙ(B) − ℙ(A∩B)
+\stopformula
+</property>
+</concept>
+
+<concept t="formule du crible">
+<property t="$A_1,⋯,A_n$ événements">
+\startformula 
+ℙ(A_1∪⋯∪A_n)=∑_{k=1}^n(-1)^{k-1}∑_{1⩽i_1\Le ⋯\Le i_k⩽n}ℙ(A_{i1}∩⋯∩A_{i_k}) .
+\stopformula
+</property>
+<remark>Pour des événements $A$, $B$, $C$ et $D$, cela donne 
+\startformula 
+\Align{
+\NC ℙ(A∪B)\NC =ℙ(A)+ℙ(B) - ℙ(A∩B)\NR
+\NR
+\NC ℙ(A∪B∪C)\NC =ℙ(A)+ℙ(B)+ℙ(C) - \big(ℙ(A∩B)+ℙ(A∩C)+ℙ(B∩C)\big) + ℙ(A∩B∩C)\NR
+\NR
+\NC ℙ(A∪B∪C)\NC=ℙ(A)+ℙ(B)+ℙ(C)+ℙ(D)\NR
+\NC\NC -\big (ℙ(A∩B)+ℙ(A∩C)+ℙ(A∩D)+ ℙ(B∩C) +ℙ(B∩D) + ℙ(C∩D)\big)\NR
+\NC\NC \big(ℙ(A∩B∩C)+ℙ(A∩B∩D)+ℙ(A∩C∩D)+ℙ(B∩C∩D) + ℙ(A∩B∩C)\big)\NR\NC\NC - ℙ(A∩B∩C∩D)
+}
+\stopformula
+</remark>
+</concept>
+
+</section>
+
+<section t="Probabilités conditionnelles">
+
+
+<concept t="probabilité conditionnelle"><text>Etant donné un événement $E$ de probabilité non nulle, la probabilité conditionnelle de $A$ sachant $E$ est le nombre défini par </text><definition h="$ℙ(E)>0$, $A$ événement">
+\startformula 
+ℙ(A|E)={ℙ(A∩E)\F ℙ(E)}
+\stopformula
+</definition>
+<remark>La probabilité conditionnelle de $A$ sachant $E$ peut également être notée $ℙ_E(A)$.</remark>
+<remark>Ne pas confondre la notation $A|E$ ($A$ sachant que $E$ est réalisé) avec l'événement $A∖E$ ($A$ mais pas $E$)</remark>
+<remark>Si $E$ est de probabilité nulle, on a $ℙ(A∩E)=0$ et $ℙ(A)=ℙ(A∖E)$. En d'autres termes, le fait de savoir que l'événement $E$ 
+est réalisé n'apporte quasiment aucune information pertinente supplémentaire (pour les probabilités).</remark>
+<example>Si $ℙ$ désigne la probabilité uniforme, on a 
+\startformula 
+ℙ(A|E)={\card(A∩E)\F\card(E)}
+\stopformula</example>
+</concept>
+
+
+<concept t="espace probabilisé"><text>La probabilité conditionnelle sachant $E$ est une nouvelle probabilité sur $Ω$</text>
+<property h="$(Ω,T,ℙ)$ espace probabilisé, $ℙ(E)>0$">
+\startformula 
+\Function{ℙ_E:T→[0,1]|A↦ℙ(A|E)} \text{ probabilité}
+\stopformula
+</property>
+<remark>En particulier, $(Ω,T,ℙ_E)$ est un nouvel espace probabilisé (les événements sont les mêmes mais leurs probabilités sont différentes)</remark>
+<remark>La probabilité conditionnelle étant une probabilité, elle satisfait les propriétés suivantes
+\startformula 
+\Align{
+\NC ℙ(A|E) \NC = 1 − ℙ(A|E)\NR
+\NC ℙ(B∖A|E)\NC =ℙ(B|E)− Pℙ(A∩B|E)
+\NC ℙ(A∪B|E) = ℙ(A|E) + ℙ(B|E) − ℙ(A∩B|E)
+}
+\stopformula
+</remark>
+</concept>
+
+<concept t="conditionnement"><text>En pratique, la formule de conditionnement permet de calculer facilement la probabilité d'une conjonction (intersection) d'événements.</text><property h="$ℙ(E)>0$, $A$ événement">
+\startformula 
+ℙ(A∩E)=ℙ(A|E)×ℙ(E)
+\stopformula
+</property></concept>
+
+<concept t="conditionnement successif"><text>La formule des probabilités composées permet de calculer la probabilité d'une intersection multiple.</text>
+<property h="$ℙ(A_1∩⋯∩A_n)>0$">
+$$
+ℙ(A_1∩⋯∩A_n)=ℙ(A_1)×ℙ(A_2|A_1)×⋯× ℙ(A_n|A_1∩⋯∩A_{n-1} ).
+$$</property></concept>
+<remark>La condition $ℙ(A_1∩⋯∩A_n)>0$ assure l'existence de toutes les probabilités conditionnelles.</remark>
+
+<concept t="filtration">
+<property h="$E_1,⋯,E_n$ système complet" m="-">
+\startformula 
+ℙ(A)=∑_{k=1}^nℙ(A∩E_k)
+\stopformula
+</property>
+</concept>
+
+<concept t="probabilités totales">
+<property h="système complet $E_1,⋯,E_n$ tous non-négligeables">
+\startformula 
+ℙ(A)=∑_{k=1}^nℙ(A|E_k)×ℙ(E_k)
+\stopformula
+</property>
+<remark>La formule des probabilités totales est fondamentale pour le calcul des probabilités</remark>
+<remark>Lorsque le système total $E_1,⋯,E_n$ comporte des événements négligeables, on a tout de même
+\startformula 
+ℙ(A)=∑_{ℙ(E_k)>0}ℙ(A|E_k)×ℙ(E_k)
+\stopformula
+</remark>
+<remark>La formule sert très souvent dans le cas d'un système total à deux éléments $E$, $\bar E$ :
+\startformula 
+ℙ(A)=ℙ(A|E)×ℙ(E)+ℙ(A|\bar E)×ℙ(E)
+\stopformula
+</remark>
+</concept>
+
+
+<concept t="formule de Bayes"><property h="système complet $E_1,⋯,E_n$ et $A$ tous non-négligeables" m="-">
+\startformula 
+∀i∈⟦1,n⟧\qquad ℙ(E_i|A)={ℙ(E_i)×ℙ(A|E_i)\F ∑_{k=1}^nℙ(E_k)ℙ(A|E_k)}
+\stopformula
+</property>
+<remark>La formule sert très souvent dans le cas d'un système total à deux éléments $E$, $\bar E$ :
+\startformula 
+ℙ(E|A)={ℙ(E)×ℙ(A|E)\F ℙ(E)ℙ(A|E)+ℙ(\bar E)ℙ(A|\bar E)}
+\stopformula
+</remark></concept>
+</section>
+<section t="Indépendance">
+
+<concept t="indépendance"><text>Deux événements sont indépendants si la probabilité de leur intersection est le produit de leurs probabilités</text>
+<definition h="$A$, $B$ événements">
+\startformula 
+\Align{
+\NC A⊥\!\!⊥  B\NC ⟺ ℙ(A∩B)=ℙ(A)×ℙ(B)\NR
+\NC\NC⟺ℙ(B|A)=ℙ(B)\NR
+\NC\NC⟺ℙ(A|B)=ℙ(A)}
+\stopformula
+</definition>
+</concept>
+
+<concept t="complémentaire">
+<property h="$A⊥\!\!⊥  B$">
+\startformula 
+\Align{
+\NC \bar A⊥\!\!⊥  B\NR
+\NC A⊥\!\!⊥  \bar B\NR
+\NC \bar A⊥\!\!⊥  \bar B
+}\stopformula
+</property>
+</concept>
+
+<concept t="indépendance conditionnelle"><text>Deux événements sont indépendants sachant $E$ si la probabilité de leur intersection sachant $E$ est le produit de leurs probabilités sachant $E$</text>
+<definition h="$A$, $B$ événements">
+\startformula 
+\Align{
+\NC A⊥\!\!⊥  B\NC ⟺ ℙ(A∩B)=ℙ(A)×ℙ(B)\NR
+\NC\NC⟺ℙ(B|A)=ℙ(B)\NR
+\NC\NC⟺ℙ(A|B)=ℙ(A)}
+\stopformula
+</definition>
+<remark>On ne peut à priori pas déduire l'indépendance conditionnelle de l'indépendance et {\it vice-versa}</remark>
+</concept>
+
+<concept t="indépendance"><text>Deux événements sont indépendants si la probabilité de leur intersection est le produit de leurs probabilités</text>
+<definition h="$A_1,⋯,A_n$ événements">
+\startformula 
+\Align{
+\NC A_1, ⋯,A_n\text{mutuellement indépendants} ⟺ \NC ℙ(A_{i_1}∩⋯∩A_{i_k}) = ℙ(A_{i_1})×⋯×ℙ(A_{i_k})\NR
+\NC\NC 1⩽k⩽n \Et 1⩽i_1\Le ⋯\Le i_k⩽n}
+\stopformula
+</definition>
+</concept>
+
+
+</section>
+</chapter>
+</part>
