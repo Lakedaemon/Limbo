@@ -1,0 +1,131 @@
+\startproduct Limbo
+\project project_Poly2
+
+
+% parse poly, record groups hierarchy, context, statements and numbers and then produce cours
+
+
+
+\iffalse Environment for Poly \fi
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\definecolor[lighterYellow][r=0.98, g=0.75, b=0.18]% 
+\definecolor[myYellow][r=0.98, g=0.66, b=0.15]%
+\definecolor[darkerYellow][r=0.96, g=0.50, b=0.09]% 
+\definecolor[myBlue][r=0, g=0.51, b=0.56]%
+\definecolor[myMagenta][r=0.61, g=0.15, b=0.69]% 
+%before={\startaxiomframe},after={\stopaxiomframe}
+\defineenumeration[definition][command=\myGreen,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Définition,location=serried,counter=property,alternative=left,title=yes,style=normal,list=all,listtext={Définition }]
+\defineenumeration[theorem][command=\darkerYellow,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Théorème,counter=property,title=yes,style=normal,list=all,listtext={Théorème }]
+\defineenumeration[property][command=\myYellow,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Propriété,title=yes,way=bychapter,style=normal,list=all,listtext={Propriété }]
+\defineenumeration[corollary][counter=property,command=\lighterYellow,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Corollaire,title=yes,style=normal,list=all,listtext={Corollaire }]
+\defineenumeration[notation][command=\myBlue,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Notation,counter=property,title=yes,style=normal,list=all,listtext={Notation }]
+\defineenumeration[craft][command=\myMagenta,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Méthode,counter=property,title=yes,style=normal,list=all,listtext={Méthode }]
+
+\catcode`𝕂=\active
+\catcode`∅=\active
+\let∅\varnothing
+\def𝕂{ℝ}%
+\definehead[domain][chapter]
+\setuphead[domain][incrementnumber=list]
+\setuplist[domain][width=0em,style=bold]  
+\setuplist[chapter][width=1.5em]  
+\setuplist[section][width=2.5em]                                              
+\setuplist[subsection][width=3.5em, margin=2.5em]   
+\setuplist[subject][margin=1.5em]
+\setupcombinedlist[content][list={domain, chapter,section,subsection}]
+
+
+\def\experimentwithxmltraversal{
+
+\startxmlsetups xml:annotate
+%\xmlsetsetup{#1}{*}{-}
+% sectioning
+\xmlsetsetup{annotate}{*}{xml}
+\stopxmlsetups
+\xmlregistersetup{xml:annotate} 
+
+\startxmlsetups xml
+arf 
+%\ctxlua{L.annotate("#1")}%
+\stopxmlsetups
+\starttext
+\ctxlua{L.annotated()}
+%\xmlprocessfile{annotate}{saved.xml}{}
+\stoptext
+
+}
+
+\starttext
+\centerline{\bfd Mathématiques}
+\centerline{\tf (document de cours)}
+\blank[big]
+\centerline{\bfb ECS 1ère année}
+\blank[big]
+\centerline{Olivier Binda}
+\blank[medium]
+\centerline{\currentdate}
+\stoptext
+\enabletrackers[lxml.loading,lxml.setups]
+
+\ctxlua{L.computeTree("pol", "xml/ECS_poly.xml")}%
+%\applySettups{maths}
+
+\starttext
+\xmlprocessfile{poly}{saved.xml}{}
+\stoptext
+
+\starttext
+\chapter{Fiches}
+\completeRecords
+\stopcolumns
+\stoptext
+
+\starttext
+\completecontent[criterium=all]
+\stoptext
+
+\stopproduct
+\iffalse
+<!-- 
+
+% Fondements théoriques
+% alphabet grec
+% A1.1 (propositions)
+\xmlprocessfile{maths}{xml/ECS_Logique.xml}{}
+% A1.2 (suites)
+\xmlprocessfile{maths}{xml/ECS_sommes_produits_récurrences.xml}{}
+% A1.3 (fonctions)
+\xmlprocessfile{maths}{xml/ECS_Ensembles_et_applications.xml}{}
+% A6.4 combinatoire
+
+% A4.1 ℝ 
+\stopdomain
+
+\startdomain [title=Analyse]
+% Analyse (suites) 
+%A4.2 exemples suites réelles
+\xmlprocessfile{maths}{xml/ECS_Suites_fondamentales.xml}{}
+%A4.3 suites réelles 
+\xmlprocessfile{maths}{xml/ECS_Suites.xml}{}
+%B2.1 etude asymptotique
+%B2.3 Séries
+
+% Analyse (fonctions)
+% A5.1 limites et continuité fonctions réelles
+% A5.2 etude globale sur un intervalle
+\xmlprocessfile{maths}{xml/ECS_Continuité_limites.xml}{}
+\xmlprocessfile{maths}{xml/Limbo_Continuité.xml}{}
+% A5.3 dérivation
+% B2.8 extrema
+% B2.9 fonctions convexes
+\xmlprocessfile{maths}{xml/Limbo_Dérivation.xml}{}
+% B2.5 dérivées successives
+% A5.4 intégration sur un segment + sommes de Riemann
+\xmlprocessfile{maths}{xml/ECS_Dérivées_et_primitives.xml}{}
+\xmlprocessfile{maths}{xml/Limbo_Intégration.xml}{}
+%B2.6 Formule de Taylor
+%B2.2 comparaison des fonctions
+%B2.7 développements limités
+%B2.4 integrales generalisées
+-->
+\fi

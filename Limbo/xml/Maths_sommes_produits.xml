@@ -8,14 +8,14 @@
 dont les usages sont constants. On travaille dans $ℝ$ ou dans $ℂ$.</text>
 
 <section t="Sommes">
+
+<subsection t="Généralités"><context>Dans cette section $a_k$ et $b_k$ désignent des nombres complexes pour des indices $k$ entiers. Les lettres $p$, $q$, $r$, $m$ et $n$ désignent des entiers.</context>
+
 <concept t="notation $∑$" i="notation+somme">
-<definition h="$a_k∈ℂ$">
-\startformula 
-∑_{k=m}^na_k=\Choices{
+<definition c="" h="$a_k∈ℂ$">$\displaystyle ∑_{k=m}^na_k=\Choices{
 \NC a_m+⋯+a_n\NC (m⩽n) \NR
 \NC 0\NC (m>n)\NR
-}
-\stopformula
+}$
 </definition>
 
 <remark>Il existe de multiples variantes de cette notation, comme 
@@ -23,30 +23,26 @@ dont les usages sont constants. On travaille dans $ℝ$ ou dans $ℂ$.</text>
 ∑_{m⩽k⩽n}a_k \OuQ ∑_{k∈⟦m,n⟧}a_k
 \stopformula</remark>
 <remark>Par convention, la somme est nulle lorsque l'ensemble de ses indices est vide</remark>
+<remark>La lettre $k$ utilisée pour décrire ce que l'on somme est dite \quote{muette}. Le choix d'une autre lettre donnerait le même résultat.</remark>
+<example>$∑_{k=3}^7k=3+4+5+6+7$</example>
 </concept>
 
 
-<subsection t="Propriétés">
-
 <concept t="relation de Chasles">
-<property h="$p⩽q⩽r$">
-\startformula 
-∑_{k=p}^ra_k=∑_{k=p}^qa_k+∑_{k=q+1}^ra_k
-\stopformula
+<property t="relation de Chasles">
+$\displaystyle ∑_{k=p}^ra_k=∑_{k=p}^qa_k+∑_{\important{k=q+1}}^ra_k\qquad(p⩽q⩽r)$
 </property>
 </concept>
 
 <concept t="linéarité">
-<property h="$λ,μ∈ℂ$">
-\startformula 
-∑_{k=m}^n(λa_k+μb_k)=λ∑_{k=m}^na_k+μ∑_{k=m}^nb_k
-\stopformula
+<property t="linéarité" c="" h="$λ,μ∈ℂ$">
+$\displaystyle ∑_{k=m}^n(λa_k+μb_k)=λ∑_{k=m}^na_k+μ∑_{k=m}^nb_k\qquad(λ∈ℂ,μ∈ℂ)$
 </property>
-<remark>En particulier, on peut factoriser (ou développer dans l'autre sens) une constante dans une somme 
+<remark>Cette propriété permet de factoriser une constante dans une somme (ou inversement de la développer)
 \startformula 
 ∑_{k=m}^nλa_k=λ∑_{k=m}^na_k
 \stopformula
-ou \quote{séparer} en deux sommes, en procédant aux additions dans un ordre différent
+mais aussi de \quote{séparer} en deux sommes, en procédant aux additions dans un ordre différent
 \startformula 
 ∑_{k=m}^n(a_k+b_k)=∑_{k=m}^na_k+∑_{k=m}^nb_k
 \stopformula
@@ -54,23 +50,40 @@ ou \quote{séparer} en deux sommes, en procédant aux additions dans un ordre di
 </concept>
 
 <concept t="changement d'indice">
-<property h="$Δ∈ℤ$">
-\startformula 
-∑_{k=m}^na_k=∑_{k'=m-Δ}^{n-Δ}a_{k'+Δ}
+<property t="changement d'indice">$\displaystyle∑_{k=m}^na_k=\rare{∑_{ℓ=m-d}^{n-d}a_{ℓ+d}}\qquad(d∈ℤ)$</property>
+<remarks><item>Choisir une autre lettre pour décrire les indices de la somme ne change pas sa valeur (c'est une variable \quote{muette}. La valeur de la somme ne dépend que de ses bornes et de son terme général</item>
+<item>Il est souvent utile de commencer par établir la formule du changement d'indice inverse $ℓ=k-d$.</item>
+</remarks>
+<craft>{changement d'indice}\crlf{\it Illustration via le changement d'indice $k=ℓ+d ⟺ ℓ = k-d$}
+\startList\item écrire une somme portant sur le nouvel indice \startformula
+∑_{k=m}^na_k=\important{∑_{ℓ=}}
 \stopformula
-</property>
-<remark>En pratique, pour procéder au changement d'indice $k=k'+Δ$, on écrit une somme portant sur l'indice $k'$, dont on trouve les bornes en isolant $k'=k-Δ$, 
-puis on remplace les $k$ par des $k'+Δ$ dans la formule de la première somme.</remark>
-<remark>Choisir une autre lettre pour décrire les indices de la somme ne change pas sa valeur (c'est une variable \quote{muette}. La valeur de la somme ne dépend que de ses bornes et de son terme général</remark>
+\item recopier ce que l'on somme en remplaçant l'ancien indice par son expression utilisant le nouvel indice \startformula
+∑_{k=m}^na_k=∑_{ℓ=}\important{a_{ℓ+d}}
+\stopformula
+\item déterminer les bornes de la nouvelle somme en trouvant les valeurs du nouvel indice correspondant à l'ancien indice
+\startformula
+\SystemR{
+\NC k=n\NR
+\NC k=m\NR
+} \qquad\mathop{⟺}\limits_{k=ℓ+d}^{k-d=ℓ}\qquad\System{
+\NC ℓ=n-d\NR
+\NC ℓ=m-d\NR
+}
+\stopformula
+\item reporter les bornes correctement dans la somme {(\it échanger les bornes de place si la monotonie de la suite des indices a changé)} 
+\startformula
+∑_{k=m}^na_k=∑_{ℓ=\important{m-d}}^{\important{n-d}}a_{ℓ+d}
+\stopformula
+\stopList
+</craft>
+
 </concept>
 
 <concept t="symétrie">
-<property>
-\startformula 
-∑_{k=m}^na_k=∑_{k=m}^na_{n+m-k}
-\stopformula
+<property>$\displaystyle ∑_{k=m}^na_k=∑_{ℓ=m}^na_{n+m-ℓ}$
 </property>
-<remark>Le valeur des deux sommes est la même, les mêmes additions étant effectués dans un ordre différent, respectivement dnas l'ordre croissant et décroissant des indices
+<remark>Le valeur des deux sommes est la même, les mêmes additions étant effectués dans un ordre différent, respectivement dans l'ordre croissant et décroissant des indices
 \startformula 
 a_m+⋯+a_n=a_n+⋯+a_m
 \stopformula
@@ -78,51 +91,48 @@ a_m+⋯+a_n=a_n+⋯+a_m
 </concept>
 
 <concept t="sommes téléscopiques">
-<property>
+<property>\rare{$\displaystyle ∑_{k=0}^n(a_{k+1}-a_k)=a_{n+1}-a_0$}</property>
+<remark>Le principe des sommes téléscopiques se décline en de multiples variantes (comme les récurrences). Il faut surtout comprendre en comprendre le principe pour s'adapter.</remark>
+<craft>{somme téléscopique}
+{\it Illustration avec $∑_{k=0}^n(a_{k+1}-a_k)$}
+\startList\item séparer les sommes
 \startformula 
-∑_{k=0}^n(a_{k+1}-a_k)=a_{n+1}-a_0
+∑_{k=0}^n(a_{k+1}\important{-} a_k)=∑_{k=0}^na_{k+1}\important{-}∑_{k=0}^na_k
 \stopformula
-</property>
-<remark>Le principe des sommes téléscopiques se décline en de multiples variantes. En pratique, on sépare les sommes
+\item Faire un changement d'indice pour rendre identique ce que l'on somme
 \startformula 
-∑_{k=0}^n(a_{k+1}-a_k)=∑_{k=0}^na_{k+1}-∑_{k=0}^na_k
+∑_{k=0}^n\underbrace{a_{k+1}}_{\important{ℓ=k+1}}-∑_{k=0}^na_k=\important{∑_{ℓ=1}^{n+1}a_ℓ}-∑_{k=0}^na_k
 \stopformula
-On procède à un changement d'indice (ici $ℓ=k+1$)
+\item Garder dans les sommes les termes en commun, sortir ceux qui ne le sont pas
 \startformula 
-∑_{k=0}^n(a_{k+1}-a_k)=∑_{ℓ=1}^{n+1}a_ℓ-∑_{k=0}^na_k
+∑_{k=0}^n(a_{k+1}-a_k)=∑_{ℓ=1}^{\important{n}}a_ℓ +\important{a_{n+1}} -\Q(\important{a_0}+∑_{\important{k=1}}^na_k\W)
 \stopformula
-On garde dans les sommes ce qui est commun et l'on sort ce qui ne l'est pas
-\startformula 
-∑_{k=0}^n(a_{k+1}-a_k)=∑_{ℓ=1}^na_ℓ +a_{n+1} -\Q(a_0+∑_{k=1}^na_k\W)
-\stopformula
-Puis on simplifie pour aboutir au résultat attendu.
-</remark>
+\item Simplifier les sommes, qui doivent disparaître.
+\stopList
+</craft>
 </concept>
 
 </subsection><subsection t="Identité fondamentale">
+<context>Dans cette section, $x$ et $y$ désignent des nombres complexes</context>
 
 <concept t="Identité fondamentale" i="identité+fondamentale">
   <text>L'identité suivante interviendra également dans d'autres chapitres. Elle joue un rôle majeur pour les mathématiques</text>
-  <property m="+" h="$x, y∈ℂ$, $n∈ℕ$">
-    \startformula
-      x^n-y^n=(x-y) ∑_{k+ ℓ=n-1}x^ky^ℓ
-    \stopformula
-  </property>
+  <property m="+" c="" h="$x, y∈ℂ$, $n∈ℕ$" t="identité fondamentale">$\displaystyle x^n-y^n=(x-y) ∑_{k=0}^{n-1}x^ky^{n-1-k}\qquad (n⩾0)$</property>
   <uses>
     <item>Factorisation : $x^3-1=(x-1)(x^2+x+1)$</item>
     <item>Sommation : $1+2+⋯+2^n=2^{n+1}-1$</item>
     <item>Mise sous forme canonique (c)</item>
     <item p ="-β">Inversion d'opérateurs</item>
   </uses>
+  <remark>En notant la somme différemment, on fait apparaître le rôle symétrique de $x$ et $y$\startformula
+      x^n-y^n=(x-y) ∑_{k+ ℓ=n-1}x^ky^ℓ
+    \stopformula
+  </remark>
 </concept>
 
 <concept t="Identité remarquable">
   <text>Sa variante la plus couramment utilisée est celle pour $n=2$.</text>
-  <corollary t="Identité remarquable" m="+" i="identité+remarquable" h="$x, y∈ℂ$">
-    \startformula
-      x^2-y^2=(x-y)(x+y)
-    \stopformula
-  </corollary>
+  <corollary t="identité remarquable" m="+" c="" i="identité+remarquable" h="$x, y∈ℂ$">$x^2-y^2=(x-y)(x+y)$</corollary>
   <uses>
     <item>Calcul mental : $23×17=400-9$</item>
     <item>Factorisation : $(x+2)^2-9=(x-1)×(x+5)$</item>
@@ -176,7 +186,7 @@ $$</remark>
 <concept t="triangle de Pascal">
 <text>Le triangle de Pascal permet de calculer rapidement les coefficients du binôme.</text>
 <combination><definition>
-{\eightpoint \startsdformula 
+\startsdformula 
 \startmatrix
 \NC 1\NR
 \NC 1\NC 1\NR
@@ -185,7 +195,7 @@ $$</remark>
 \NC 1\NC 4\NC 6\NC 4\NC 1\NR
 \NC ⋯\NC ⋯\NC ⋯\NC ⋯\NC ⋯\NC ⋯\NR
 \stopmatrix
-\stopsdformula}
+\stopsdformula
 </definition>
 <property h="$0⩽k\Le n$">
 \startformula
@@ -285,101 +295,89 @@ u_n \text{ géomètrique de raison }q⟺ u_{n+1} = u_n×q
 \stopformula</remark>
 </concept>
 
-</subsection><subsection t="Sommes de Bernouilli">
+</subsection>
+
+<subsection t="Sommes de Bernouilli">
 
 <concept t="somme des carrés">
-<property>
+<property t="somme des carrés">$\displaystyle ∑_{k=0}^nk^2={n(n+1)(2n+1)\F 6}\qquad(n⩾0)$</property>
+<remark>On établit cette formule en calculant de deux manières, via les sommes téléscopiques et en développant l'expression suivante : 
 \startformula 
-∑_{k=0}^nk^2={n(n+1)(2n+1)\F 6}
-\stopformula
-</property>
-<remark>On établit cette formule en calculant de deux manières (via les sommes téléscopiques et en développant) l'expression suivante : 
-\startformula 
-n^3 = ∑_{k=0}^{n-1}\Q((k+1)^3-k^3\W)=∑_{k=0}^{n-1}\Q(3k^2+3k+1\W).
+(n+1)^3 = ∑_{k=0}^n\Q((k+1)^3-k^3\W)=∑_{k=0}^n\Q(3k^2+3k+1\W).
 \stopformula</remark>
 <remark>Pour $ℓ⩾3$, on peut procèder de manière identique pour calculer la somme $ ∑_{k=0}^nk^ℓ$.</remark>
 </concept>
 
-</subsection><subsection t="Sommes multiples">
+<concept t="somme des cubes">
+<property t="somme des cubes">$\displaystyle ∑_{k=0}^nk^3={n²(n+1)²\F 4}=\Q(∑_{k=0}^nk\W)^2\qquad(n⩾0)$</property>
+</concept>
+
+</subsection>
+
+<subsection t="Sommes multiples">
+<!--<context>Dans cette section, $x$ et $y$ désignent des nombres complexes</context>-->
 
 <concept t="théorème de Fubini">
-<theorem>
-\startformula 
- ∑_{b⩽k⩽c} ∑_{d⩽ℓ⩽e}a_{k,ℓ}= ∑_{d⩽ℓ⩽e} ∑_{b⩽k⩽c}a_{k,ℓ}
-\stopformula
-</theorem>
-<remark>La somme précédente peut également être notée
+<theorem t="théorème de Fubini">$\displaystyle ∑_{k=b}^c ∑_{ℓ=d}^ea_{k,ℓ}= ∑_{ℓ=d}^e ∑_{k=b}^ca_{k,ℓ}$</theorem>
+<remarks><item>La somme précédente peut également être notée
 \startformula 
  ∑_{b⩽k⩽c\atop d⩽ℓ⩽e}a_{k,ℓ}
 \stopformula
-</remark>
-<remark>Ce théorème d'interversion de sommes se décline en de multiples variantes dans des cas plus compliqués tels
+</item>
+<item>Ce théorème d'interversion de sommes se décline fréquemment dans sa version triangulaire : 
 \startformula 
- ∑_{0⩽k⩽n} ∑_{0⩽ℓ⩽k}a_{k,ℓ}= ∑_{0⩽ℓ⩽n} ∑_{ℓ⩽k⩽n}a_{k,ℓ}
+ ∑_{k=0}^n ∑_{ℓ=0}^ka_{k,ℓ}= ∑_{ℓ=0}^n ∑_{k=ℓ}^na_{k,ℓ}
 \stopformula
-</remark>
-<remark>La somme précédente peut également être notée 
+</item>
+<item>La somme double précédente peut également être notée avec un seul symbôle somme 
 \startformula 
 ∑_{0⩽k⩽ℓ⩽k}a_{k,ℓ}
-\stopformula</remark>
+\stopformula</item></remarks>
 </concept>
 
-</subsection></section><section t="Produits et factorielles">
+</subsection></section>
 
+<section t="Produits et factorielles">
+
+<subsection t="Généralités">
+<context>Dans cette section $a_k$ et $b_k$ désignent des nombres complexes pour des indices $k$ entiers. Les lettres $p$, $q$, $r$, $m$ et $n$ désignent des entiers.</context>
 
 <concept t="notation $∏$" i="notation+produit">
-<definition h="$a_k∈ℂ$">
-\startformula 
-∏_{k=m}^na_k=\Choices{
+<definition c="" h="$a_k∈ℂ$">$\displaystyle ∏_{k=m}^na_k=\Choices{
 \NC a_m×⋯×a_n\NC (m⩽n) \NR
 \NC 1\NC (m>n)\NR
-}
-\stopformula
+}$
 </definition>
 
-<remark>Comme pour les sommes, il existe de multiples variantes de cette notation, telles
+<remarks><item>Comme pour les sommes, il existe de multiples variantes de cette notation, telles
 \startformula 
-∏{m⩽k⩽n}a_k \OuQ ∏_{k∈⟦m,n⟧}a_k
-\stopformula</remark>
-<remark>Par convention, le produit vaut $1$ lorsque l'ensemble de ses indices est vide</remark>
-<remark>Dans les exercices, il est souvent utile de transformer un produit en somme (via le logarithme) 
+∏_{m⩽k⩽n}a_k \OuQ ∏_{k∈⟦m,n⟧}a_k
+\stopformula</item>
+<item>Par convention, le produit vaut $1$ lorsque l'ensemble de ses indices est vide</item>
+<item>Dans les exercices, il est souvent utile de transformer un produit en somme (via le logarithme) 
 ou une somme en produit (via l'exponentielle). Lorsque $a_k>0$, nous avons
 \startformula 
 ∑_{k=0}^n\ln(a_k)=\ln\Q(∏_{k=0}^na_k\W)\EtQ \exp\Q(∑_{k=0}^nb_k\W)=∏_{k=0}^n\e^{b_k}
-\stopformula</remark>
+\stopformula</item></remarks>
 </concept>
 
 
 <concept t="factorielle" i="notation+factorielle">
-<definition h="$n∈ℕ$">
-\startformula 
-n!=∏_{k=1}^nk
-\stopformula
-</definition>
+<definition c="" h="$n∈ℕ$">$\displaystyle n!=∏_{k=1}^nk\qquad(n⩾0)$</definition>
 <remark>Plus simplement, on a 
 \startformula 
 0! = 1\EtQ n! = 1×2×3×⋯×n
 \stopformula</remark>
 </concept>
 
-<subsection t="Propriétés">
-
 <concept t="relation de Chasles">
-<property h="$p⩽q⩽r$">
-\startformula 
-∏_{k=p}^ra_k=∏_{k=p}^qa_k×∏_{k=q+1}^ra_k
-\stopformula
-</property>
+<property>$\displaystyle ∏_{k=p}^ra_k=∏_{k=p}^qa_k×∏_{\important{k=q+1}}^ra_k\qquad(p⩽q⩽r)$</property>
 </concept>
 
 <concept t="produit">
-<property>
-\startformula 
-∏_{k=m}^n(a_k×b_k)=∏_{k=m}^na_k×∏_{k=m}^nb_k
-\stopformula
-</property>
-<remark>Le produit est le même, mais effectué dans un ordre différent, certains termes étant rassemblés d'abord par deux.</remark>
-<remark>En prticulier, on a 
+<property>$\displaystyle ∏_{k=m}^n(a_k×b_k)=∏_{k=m}^na_k×∏_{k=m}^nb_k$</property>
+<remark>Le produit est le même mais effectué dans un ordre différent</remark>
+<remark>En particulier, on a 
 \startformula 
 ∏_{k=1}^n(λa_k)=λ^n∏_{k=1}^na_k
 \stopformula
@@ -387,27 +385,15 @@ n!=∏_{k=1}^nk
 </concept>
 
 <concept t="puissances">
-<property h="ℓ∈ℤ, a_k≠0">
-\startformula 
-∏_{k=m}^n(a_k)^ℓ=\Q(∏_{k=m}^na_k\W)^ℓ
-\stopformula
-</property>
+<property h="$ℓ∈ℤ$ et \important{$a_k≠0$}">$\displaystyle ∏_{k=m}^n(a_k)^ℓ=\Q(∏_{k=m}^na_k\W)^ℓ$</property>
 </concept>
 
 <concept t="changement d'indice">
-<property h="$Δ∈ℤ$">
-\startformula 
-∏_{k=m}^na_k=∏_{k'=m-Δ}^{n-Δ}a_{k'+Δ}
-\stopformula
-</property>
+<property>$\displaystyle ∏_{k=m}^na_k=\rare{∏_{ℓ=m-d}^{n-d}a_{ℓ+d}}\qquad(d∈ℤ)$</property>
 </concept>
 
 <concept t="symétrie">
-<property>
-\startformula 
-∏_{k=m}^na_k=∏_{k=m}^na_{n+m-k}
-\stopformula
-</property>
+<property>$\displaystyle ∏_{k=m}^na_k=∏_{ℓ=m}^na_{n+m-ℓ}$</property>
 <remark>Le valeur des deux produits est la même, les mêmes multiplications étant effectués dans un ordre différent, respectivement dnas l'ordre croissant et décroissant des indices
 \startformula 
 a_m×⋯×a_n=a_n×⋯×a_m
@@ -416,11 +402,7 @@ a_m×⋯×a_n=a_n×⋯×a_m
 </concept>
 
 <concept t="produits téléscopiques">
-<property h="$a_k≠0$">
-\startformula 
-∏_{k=0}^n{a_{k+1}\F a_k}={a_{n+1}\F a_0}
-\stopformula
-</property>
+<property h="$a_k≠0$">$\displaystyle ∏_{k=0}^n{a_{k+1}\F a_k}={a_{n+1}\F a_0}$</property>
 <remark>Le principe des produits téléscopiques se décline en de multiples variantes. En pratique, on sépare les produits
 \startformula 
 ∏_{k=0}^n{a_{k+1}\F a_k}={∏_{k=0}^na_{k+1}\F ∏_{k=0}^na_k}

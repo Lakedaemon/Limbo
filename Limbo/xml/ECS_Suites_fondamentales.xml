@@ -1,9 +1,10 @@
 <?xml version='1.0' standalone='yes'?>
 <part id="Algèbre">
-<include path="xml/Maths_sommes.xml" as="sommes"/>
 <include path="xml/Maths_suites.xml" as="suites"/>
 
 <chapter t="Suites fondamentales">
+
+<context>Dans ce chapitre, $u$ désigne une suite réelle $(u_n)_{n∈ℕ}$.</context>
 
 <remark>
 Les outils de ce chapitre font parti des bases importantes, ils sont utilisés en concours pour :

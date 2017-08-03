@@ -56,36 +56,44 @@
 % Exercice: exercise/ 
 
 
-\startxmlsetups xml:limbo
-\xmlsetsetup{maths}{*}{-}
+\startxmlsetups xml:cours
+\xmlsetsetup{cours}{*}{-}
+% root
+\xmlsetsetup{cours}{root}{xml:cours:flush}
 % includes
-\xmlsetsetup{maths}{include}{xml:include}
-\xmlsetsetup{maths}{ref}{xml:inject}
+\xmlsetsetup{cours}{include}{xml:cours:include}
+\xmlsetsetup{cours}{ref}{xml:cours:inject}
 % sectioning
-\xmlsetsetup{maths}{part|chapter|section|subsection|subsubsection|concept}{xml:group}
+\xmlsetsetup{cours}{domain|chapter|section|subsection|subsubsection|concept}{xml:cours:group}
 % grouping 
-\xmlsetsetup{maths}{group}{xml:group}
-\xmlsetsetup{maths}{combination}{xml:combination}
-%\xmlsetsetup{maths}{combination/property}{xml:combination/statement}
+\xmlsetsetup{cours}{group}{xml:cours:group}
+\xmlsetsetup{cours}{combination}{xml:cours:combination}
+
+\xmlsetsetup{cours}{context}{xml:cours:context}
+%\xmlsetsetup{cours}{combination/property}{xml:combination/statement}
 % statements (primary objects)
-\xmlsetsetup{maths}{corollary|definition|lemma|notation|property|theorem|}{xml:statement} 
+\xmlsetsetup{cours}{corollary|definition|lemma|notation|property|theorem|}{xml:cours:statement} 
 % best practice (secondary info)
-\xmlsetsetup{maths}{craft|uses|item}{xml:*}
+\xmlsetsetup{cours}{craft|uses|item}{xml:cours:*}
 % illustration
-\xmlsetsetup{maths}{figure|example}{xml:*} 
+\xmlsetsetup{cours}{figure|example}{xml:cours:*} 
 % text (tertiary info)
-\xmlsetsetup{maths}{remark|remarks|text}{xml:*} 
-\xmlsetsetup{maths}{remarks/remark}{xml:remarks:remark} 
+\xmlsetsetup{cours}{remark|remarks|text}{xml:cours:*} 
+%\xmlsetsetup{cours}{remarks/remark}{xml:remarks:remark} 
 % exercises
-\xmlsetsetup{maths}{exercise}{xml:*}
+\xmlsetsetup{cours}{exercise}{xml:cours:*}
 % proofs
-\xmlsetsetup{maths}{proof}{xml:*}
+\xmlsetsetup{cours}{proof}{xml:cours:*}
 
 \stopxmlsetups 
 
-\xmlregistersetup{xml:limbo} 
+\xmlregistersetup{xml:cours} 
 
-\startxmlsetups xml:craft
+\startxmlsetups xml:cours:flush
+\xmlflush{#1}%
+\stopxmlsetups
+
+\startxmlsetups xml:cours:craft
 \ctxlua{L.processStatement("#1")}%
 \stopxmlsetups
 
@@ -97,26 +105,30 @@
 \fi
 
 
-\startxmlsetups xml:include
+\startxmlsetups xml:cours:include
 \ctxlua{L.processInclude("#1")}%
 \stopxmlsetups
 
-\startxmlsetups xml:inject
+\startxmlsetups xml:cours:inject
 \ctxlua{L.processInject("#1")}%
 \stopxmlsetups
 
-\startxmlsetups xml:group
+\startxmlsetups xml:cours:context
+\xmlflush{#1}%
+\stopxmlsetups
+
+\startxmlsetups xml:cours:group
 \ctxlua{L.processGroup("#1")}%
 \stopxmlsetups
 
-\startxmlsetups xml:statement
-statement
-\ctxlua{L.processStatement("#1")}%
+\startxmlsetups xml:cours:statement
+\ctxlua{L.processNewStatement("#1")}%
 %\placeleftfigure{}{\useMPgraphic{Frame}}%
 \stopxmlsetups
 
-\startxmlsetups xml:combination
-\ctxlua{L.processCombination("#1")}%
+\startxmlsetups xml:cours:combination
+\xmlflush{#1}%
+%\ctxlua{L.processCombination("#1")}%
 \stopxmlsetups
 
 %exercices
@@ -126,7 +138,7 @@ statement
 \stopxmlsetups
 \fi
 
-\startxmlsetups xml:figure
+\startxmlsetups xml:cours:figure
 \ctxlua{L.processFigure("#1")}%
 \stopxmlsetups
 
@@ -176,7 +188,7 @@ statement
 \stopxmlsetups
 \fi
 
-\startxmlsetups xml:flushsidefloats
+\startxmlsetups xml:cours:flushsidefloats
 \flushsidefloats
 \stopxmlsetups
 

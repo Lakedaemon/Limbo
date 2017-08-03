@@ -7,23 +7,44 @@
 
 <subject t="fraction">
 <exo p="exercise[@id='ECSB1.1a']"/>
+</subject>
+<subject t="puissance">
 <exo p="exercise[@id='ECSB1.1b']"/>
+</subject>
 <exo p="exercise[@id='ECSB1.1c']"/>
 <exo p="exercise[@id='ECSB1.1d']"/>
-</subject>
+
 
 <exo p="exercise[@id='ECSB1.2a']"/>
 <exo p="exercise[@id='ECSB1.2b']"/>
-<subject t="puissance">
+
+
+
+
+<subject t="inégalités">
+<exo p="exercise[@id='ECSB1.4']"/>
+<exo p="exercise[@id='ECSD1.2']"/>
 </subject>
 
+
+<subject t="fonctions">
+<!-- dérivation, ensemble de définition, tableau de variation-->
 <exo p="exercise[@id='Base2']"/>
+<exo p="exercise[@id='ECSD1.6']"/>
+<exo p="exercise[@id='ECSD1.8a']"/>
+<exo p="exercise[@id='ECSD1.8b']"/>
+
+
+</subject>
+
+<dm p="exercise[@id='Axz']" sol=""/>
+
+
 
 <subject t="Suites de référence">
 <exo p="exercise[@id='Anu']"/>
 
 <subject t="Suite géométrique">
-<exo p="exercise[@id='C34']"/>
 </subject>
 
 
@@ -37,14 +58,43 @@
 
 <!-- -->
 <chapter t="Logique">
+<subject t="valeur logique">
+<exo p="exercise[@id='BCPST2.12']"/>
+<exo p="exercise[@id='BCPST2.14']"/>
+<exo p="exercise[@id='BCPST2.15']"/>
+<exo p="exercise[@id='Axl']"/>
+<subject t="négation">
+<exo p="exercise[@id='BCPST2.16']"/>
+<exo p="exercise[@id='ECSC2.1']"/>
+</subject>
+</subject>
+<exo p="exercise[@id='C14']"/>
 
-<exo p="exercise[@id='Base2']"/>
-<filter p="field[@type='logique']/.."/>
+<exo p="exercise[@id='Axm']"/>
+
+
+<subject t="absurde">
+<exo p="exercise[@id='BCPST2.17']"/>
+<exo p="exercise[@id='BCPST2.18']"/>
+<exo p="exercise[@id='BCPST2.18b']"/>
+</subject>
+
+
+<subject t="contraposée">
+<exo p="exercise[@id='BCPST2.20']"/>
+</subject>
+
+
+<subject t="récurrence">
+<exo p="exercise[@id='BCPST2.26']"/>
+</subject>
+
+<!--<filter p="field[@type='logique']/.."/>-->
 </chapter>
 
 
 <!-- -->
-<chapter t="Récurrences, sommes, produits">
+<chapter t="{Récurrences, sommes, produits}">
 
 <subject t="Récurrence">
 <exo p="exercise[@id='F2.1']"/>
@@ -66,20 +116,30 @@
 <exo p="exercise[@id='Acv']"/>
 </subject>
 
+<subject t="Sommes">
+<exo p="exercise[@id='Axo']"/>
+<exo p="exercise[@id='F2.7']"/>
+
 <subject t="Somme telescopique">
 <exo p="exercise[@id='F2.8']"/>
 <exo p="exercise[@id='F2.9']"/>
-</subject>
-
-
+<exo p="exercise[@id='ECSA2.12']"/>
+<exo p="exercise[@id='C34']"/>
 
 <subject t="Somme de Bernouilli">
+<exo p="exercise[@id='ECSA1.13']"/>
 </subject>
+
+<exo p="exercise[@id='Axn']"/>
+</subject>
+
+
 
 <!--<filter p="field[@type='récurrences']/.."/>-->
 
-<subject t="Sommes">
-<exo p="exercise[@id='F2.7']"/>
+
+
+
 <filter p="field[@type='somme']/.."/>
 </subject>
 
@@ -154,6 +214,9 @@
 
 <!-- -->
 <chapter t="Ensembles et applications">
+
+
+
 </chapter>
 
 <!-- -->
@@ -172,7 +235,6 @@
 </chapter>
 
 
-
 <!-- -->
 <chapter t="Systèmes linéaires">
 </chapter>
@@ -186,6 +248,14 @@
 
 <!-- -->
 <chapter t="Etude globale des fonctions">
+<exo p="exercise[@id='ECSA1.11a']"/>
+<exo p="exercise[@id='ECSA1.7']"/>
+<exo p="exercise[@id='ECSA1.9']"/>
+<exo p="exercise[@id='ECSA1.10']"/>
+<exo p="exercise[@id='ECSA1.11b']"/>
+<exo p="exercise[@id='ECSA1.11c']"/>
+<exo p="exercise[@id='ECSA1.11d']"/>
+<exo p="exercise[@id='ECSA1.12']"/>
 </chapter>
 
 

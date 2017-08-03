@@ -1,0 +1,23 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Bases théoriques">
+<!-- fiche identitque : http://laurentb.garcin.free.fr/Cours/SommesProduits/SommesProduits.pdf-->
+<chapter t="Notations utiles">
+<notation t="Alphabet grec">
+\startformula
+\Align{
+\NC π\NC Π\NC \text{pi}\NC \text{Produits}\NC \qquad\qquad \NC ϑ\NC \rare Θ\NC \text{theta}\NR
+\NC \rare σ\NC Σ\NC \text{sigma}\NC \text{Sommes}\NC \qquad\qquad \NC φ\NC \rare Φ\NC \text{phi}\NR
+\NC λ\NC \rare Λ\NC \text{lambda}\NC \text{Espaces vectoriels}\NC \qquad\qquad \NC\rare ζ\NC \rare Z\NC \text{\rare {zeta}}\NR
+\NC μ\NC \rare M\NC \text{mu}\NC \text{Espaces vectoriels}\NC \qquad\qquad \NC\rare η\NC \rare H\NC \text{\rare {eta}}\NR
+\NC \rare ω\NC  Ω\NC \text{omega}\NC \text{Probabilités}\NC \qquad\qquad \NC\rare ξ\NC \rare Ξ\NC \text{\rare {xi}}\NR
+\NC ε\NC \rare E\NC \text{epsilon}\NC \text{Limites}\NC \qquad\qquad \NC\rare \omicron\NC \rare O\NC \text{\rare {omicron}}\NR
+\NC \rare γ\NC Γ\NC \text{gamma}\NC \text{Probabilités}\NC \qquad\qquad \NC\rare ρ\NC \rare P\NC \text{\rare {rho}}\NR
+\NC \rare δ\NC Δ\NC \text{delta}\NC \NC \qquad\qquad \NC\rare ψ\NC \rare Ψ\NC \text{\rare {psi}}\NR
+\NC α \NC \rare A \NC \text{alpha}\NC \NC \qquad\qquad \NC\rare τ\NC \rare T\NC \text{\rare {tau}}\NR
+\NC β\NC \rare B\NC \text{beta}\NR
+}
+\stopformula
+</notation>
+</chapter>
+</part>
+

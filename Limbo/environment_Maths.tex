@@ -48,6 +48,12 @@
 \setupitemgroup[List][4][1,joineup,nowhite]
 
 
+\defineitemgroup[Set][levels=4]
+\setupitemgroup[Set][1][1,joinedup,nowhite]
+\setupitemgroup[Set][2][2,joineup,nowhite]
+\setupitemgroup[Set][3][3,joineup,nowhite]
+\setupitemgroup[Set][4][4,joineup,nowhite]
+
 \setupfloat[marginfigure][criterium=.5\textwidth,maxwidth=\rightmarginwidth,default={outermargin,none}]
 \setupfloat[middlemarginfigure][minwidth=\rightmarginwidth,criterium=\snijwit,location=middle,default={outermargin,none}]
 
@@ -122,71 +128,77 @@
 
 
 
-\def\arccos{\mathop{\rm Arccos}\nolimits}
-\def\arcsin{\mathop{\rm Arcsin}\nolimits}
-\def\arctan{\mathop{\rm Arctan}\nolimits}
-\def\argch{\mathop{\rm Argch}\nolimits}
-\def\argsh{\mathop{\rm Argsh}\nolimits}
-\def\argth{\mathop{\rm Argth}\nolimits}
-\def\card{\mathop{\rm card}\nolimits}
-\def\ch{\mathop{\rm ch}\nolimits}
+\def\arccos{\mathop{\rm Arccos}\nolimits}%
+\def\arcsin{\mathop{\rm Arcsin}\nolimits}%
+\def\arctan{\mathop{\rm Arctan}\nolimits}%
+\def\argch{\mathop{\rm Argch}\nolimits}%
+\def\argsh{\mathop{\rm Argsh}\nolimits}%
+\def\argth{\mathop{\rm Argth}\nolimits}%
+\def\card{\mathop{\rm card}\nolimits}%
+\def\ch{\mathop{\rm ch}\nolimits}%
+\def\completeRecords{\ctxlua{L.showRecords()}}%
 \def\cotan{\mathop{\rm cotan}\nolimits}
 \def\d{{\rm d}}%
 \def\e{{\rm e}}%
 \def\exo#1{\ctxlua{L.infernoDisplay("#1")}}%
+\def\floor#1{\lfloor #1\rfloor}%
 \def\function#1{\Function@doFour #1\End}%
 \def\hint#1{\ctxlua{L.infernoDisplayHint("#1")}}%
-\def\log{\mathop{\rm log}\nolimits}
-\def\max{\mathop{\rm max}\nolimits}
+\def\hypothesys#1{{\bf Dans toute cette section, nous nous donnons #1}\blank[small]}
+\def\important#1{{\red #1}}%
+\def\log{\mathop{\rm log}\nolimits}%
+\def\max{\mathop{\rm max}\nolimits}%
 \def\mc#1{{\mathcal #1}}%% \sc is small caps
-\def\min{\mathop{\rm min}\nolimits}
-\def\rg{\mathop{\rm rg}\nolimits}
-\def\sh{\mathop{\rm sh}\nolimits}
+\def\min{\mathop{\rm min}\nolimits}%
+\def\rare#1{{\darkgray #1}}%
+\def\rg{\mathop{\rm rg}\nolimits}%
+\def\sh{\mathop{\rm sh}\nolimits}%
 \def\solution#1{\ctxlua{L.infernoDisplaySolution("#1")}}%
-\def\ssi{{\it ssi} }
-\def\ssm{\setminus}
+\def\ssi{{\it ssi} }%
+\def\ssil{{\it ss'}}%
+\def\ssm{\setminus}%
 
-\definemathmatrix[Align][align={right,left}]
-\definemathmatrix[Choices][left={\left\vert\ \,},right={\right.}]
-\definemathmatrix[ChoicesR][left={\left.},right={\ \,\right\vert}]
+\definemathmatrix[Align][align={right,left}]%
+\definemathmatrix[Choices][left={\left\vert\ \,},right={\right.}]%
+\definemathmatrix[ChoicesR][left={\left.},right={\ \,\right\vert}]%
 
 %\definemathmatrix[Bracket][left={\left[\,},right={\,\right]}]
 %\definemathmatrix[Curly][left={\left\{\,},right={\,\right\}}]
-\definemathmatrix[Det][left={\left\vert\,},right={\,\right\vert}]
+\definemathmatrix[Det][left={\left\vert\,},right={\,\right\vert}]%
 %\definemathmatrix[Function][align={right,center,center,center}]
-\definemathmatrix[Matrix][left={\left(\,},right={\,\right)}]
+\definemathmatrix[Matrix][left={\left(\,},right={\,\right)}]%
 %\definemathmatrix[Norm][left={\left\Vert\,},right={\,\right\Vert}]
-\definemathmatrix[System][left={\left\{\,},right={\right.}]
-\definemathmatrix[SystemR][left={\left.},right={\,\right\}}]
+\definemathmatrix[System][left={\left\{\,},right={\right.}]%
+\definemathmatrix[SystemR][left={\left.},right={\,\right\}}]%
 
-	\definemathmatrix[Vector][align=center,left={\left(\,},right={\,\right)}]
-
-
+	\definemathmatrix[Vector][align=center,left={\left(\,},right={\,\right)}]%
 
 
 
 
 
-\def\th{\mathop{\rm th}\nolimits}
-\def\tg{\mathop{\rm tg}\nolimits}
+
+
+\def\th{\mathop{\rm th}\nolimits}%
+\def\tg{\mathop{\rm tg}\nolimits}%
 
 
 
-\def\Align#1{\startAlign #1 \stopAlign}
-\def\Avec{\text{ avec }}
-\def\AvecQ{\quad\Avec\quad}
-\def\AvecQQ{\qquad\Avec\qquad}
-\def\Card{\mathop{\rm Card}\nolimits}
-\def\Choices#1{\startChoices #1 \stopChoices}
-\def\ChoicesR#1{\startChoicesR #1 \stopChoicesR}
-\def\Det#1{\startDet #1 \stopDet}
-\def\Dim{\mathop{\rm dim}\nolimits}
-\def\DL{\mathop{\rm DL}\nolimits}
+\def\Align#1{\startAlign #1 \stopAlign}%
+\def\Avec{\text{ avec }}%
+\def\AvecQ{\quad\Avec\quad}%
+\def\AvecQQ{\qquad\Avec\qquad}%
+\def\Card{\mathop{\rm Card}\nolimits}%
+\def\Choices#1{\startChoices #1 \stopChoices}%
+\def\ChoicesR#1{\startChoicesR #1 \stopChoicesR}%
+\def\Det#1{\startDet #1 \stopDet}%
+\def\Dim{\mathop{\rm dim}\nolimits}%
+\def\DL{\mathop{\rm DL}\nolimits}%
 \def\Et{\text{ et }}%
-\def\EtQ{\quad\Et\quad}
-\def\EtQQ{\qquad\Et\qquad}
+\def\EtQ{\quad\Et\quad}%
+\def\EtQQ{\qquad\Et\qquad}%
 \let\F\over
-\def\I{{\rm I}}
+\def\I{{\rm I}}%
 
 \def\startFunction #1\stopFunction{\Function{#1}}%
 \def\Function#1{\Function@doFive #1\End}%
@@ -201,30 +213,30 @@
   \NC #3\NC\mapsto\NC #4\stopmatrix
 }%
 \def\Grand{\text{ grand}}%
-\def\Id{{\rm Id}}
-\def\IM{\mathop{\rm Im}\nolimits}
-\def\Ker{\mathop{\rm Ker}\nolimits}
+\def\Id{{\rm Id}}%
+\def\IM{\mathop{\rm Im}\nolimits}%
+\def\Ker{\mathop{\rm Ker}\nolimits}%
 \let\L\limits
-\def\Le{<}
-\def\Matrix#1{\startMatrix #1 \stopMatrix}
+\def\Le{<}%
+\def\Matrix#1{\startMatrix #1 \stopMatrix}%
 \def\Non{\text{non }}%
 \def\Ou{\text{ ou }}%
-\def\OuQ{\quad\Ou\quad}
-\def\OuQQ{\qquad\Ou\qquad}
+\def\OuQ{\quad\Ou\quad}%
+\def\OuQQ{\qquad\Ou\qquad}%
 \let\Q\left
 \def\Quand{\text{ quand }}%
-\def\Restr#1{\left.\kern-\nulldelimiterspace #1\vphantom{\big|}\right|}
-\def\Si{\text{ si }}
-\def\SiQ{\quad\Si\quad}
-\def\SiQQ{\qquad\Si\qquad}
+\def\Restr#1{\left.\kern-\nulldelimiterspace #1\vphantom{\big|}\right|}%
+\def\Si{\text{ si }}%
+\def\SiQ{\quad\Si\quad}%
+\def\SiQQ{\qquad\Si\qquad}%
 \def\Sinon{\text{sinon}}%
-\def\System#1{\startSystem #1 \stopSystem}
-\def\SystemR#1{\startSystemR #1 \stopSystemR}
-\def\Tr{\mathop{\rm Tr}\nolimits}
-\def\trans#1{\strut^{\text{t}}#1}
+\def\System#1{\startSystem #1 \stopSystem}%
+\def\SystemR#1{\startSystemR #1 \stopSystemR}%
+\def\Tr{\mathop{\rm Tr}\nolimits}%
+\def\trans#1{\strut^{\text{t}}#1}%
 %\def\Transpose#1{\strut^{\text{t}}#1}
-\def\Vect{\mathop{\rm Vect}\nolimits}
-\def\Vector#1{\startVector #1 \stopVector}
+\def\Vect{\mathop{\rm Vect}\nolimits}%
+\def\Vector#1{\startVector #1 \stopVector}%
 \let\W\right
 
 
@@ -255,20 +267,20 @@
 }}%
 \def\CTab#1{\Center{\Tab{#1}}}%
 
-\long\def\Démonstration. #1\CQFD{\noindent{\eightpoint Démonstration. #1}\bigskip}
+\long\def\Démonstration. #1\CQFD{\noindent{\eightpoint Démonstration. #1}\bigskip}%
 
 \def\Eq{\dosingleargument\Eq@do}%
 \def\Eq@process#1{%
 	\def\c{}%
-	\processaction[#1][
+	\processaction[#1][%
 		r=>\def\c{rh\FramedCell|},%
-		c=>\def\c{c|},
-		C=>\def\c{cm|},
+		c=>\def\c{c|},%
+		C=>\def\c{cm|},%
 		*=>\let\Eq@Remember\relax]%
    %  default=>\relax,
     % unknown=>\unknown{... \commalistelement ...}
     %
-\@EA\@EA\@EA\def\@EA\@EA\@EA\Eq@columns\@EA\@EA\@EA{\@EA\Eq@columns\c}
+\@EA\@EA\@EA\def\@EA\@EA\@EA\Eq@columns\@EA\@EA\@EA{\@EA\Eq@columns\c}%
 }%
 \def\Eq@do[#1]#2{{\def\Eq@columns{|}\processcommalist[#1]\Eq@process
 \ifx\Eq@Remember\undefined
@@ -282,10 +294,10 @@
 
 
 
-\def\Exemple#1{{\tenpoint Exemple : #1\crlf\crlf}}
+\def\Exemple#1{{\tenpoint Exemple : #1\crlf\crlf}}%
 %\def\Exemple#1{\startitemize[packed,intext,joinedup,nowhite,after]{\tenpoint Exemple : #1}\stopitemize}
 %\startfiguretext[][]{}\stopfiguretext
-\def\Exercise#1{{\tenpoint Exercice : #1\crlf\crlf}}
+\def\Exercise#1{{\tenpoint Exercice : #1\crlf\crlf}}%
 %\def\Exemple{\def\Exemple@text{Exemple}\dosingleargument\Exemple@do}%
 %\def\Exemple@do[#1]#2\par{{\getparameters[??LD][#1]}{\eightpoint\Exemple@text. \ignorespaces #2}\medskip}%
 %\def\Exemples{\def\Exemple@text{Exemples}\dosingleargument\Exemple@do}%
@@ -299,9 +311,9 @@
 
 
 
-\def\Proof#1{{\tenpoint Preuve : #1\crlf\crlf}}
+\def\Proof#1{{\tenpoint Preuve : #1\crlf\crlf}}%
 
-\startusableMPgraphic{Frame}{Hypotheses,Title,Value,Shape,IsOverlay}
+\startusableMPgraphic{Frame}{Hypotheses,Title,Value,Shape,IsOverlay}%
   numeric o, l, m ; path a, b ; pair c ;
   picture d;
   o := BodyFontSize ;

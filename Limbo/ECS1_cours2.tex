@@ -1,0 +1,163 @@
+\startproduct Limbo
+\project project_Cours
+
+\definepapersize[emc][width=29.7cm,height=21cm]
+\setuppapersize[emc][emc]
+\setuplayout[backspace=1.5cm,topspace=0.5cm,width=26.7cm,height=19cm,header=0.5cm,footer=0.5cm, headerdistance=0.5cm,footerdistance=0.5cm]
+
+% parse poly, record groups hierarchy, context, statements and numbers and then produce cours
+
+
+
+
+\def\poly{%
+\xmlprocessfile{cours}{xml/ECS_Suites_fondamentales.xml}{}
+\xmlprocessfile{cours}{xml/ECS_Logique.xml}{}
+\xmlprocessfile{cours}{xml/ECS_sommes_produits_récurrences.xml}{}
+}%
+
+%\poly
+
+
+\iffalse Environment for Cours \fi
+\defineenumeration[definition][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Définition,location=serried,counter=property,alternative=left,title=yes,style=normal,list=all,listtext={Définition }]
+\defineenumeration[theorem][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Théorème,counter=property,title=yes,style=normal,list=all,listtext={Théorème }]
+\defineenumeration[property][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,title=yes,way=bychapter,style=normal,list=all,text=Propriété,listtext={Propriété }]
+\defineenumeration[corollary][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Corollaire,counter=property,title=yes,style=normal,list=all,listtext={Corollaire }]
+\defineenumeration[notation][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Notation,counter=property,title=yes,style=normal,list=all,listtext={Notation }]
+\defineenumeration[craft][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Méthode,counter=property,title=yes,style=normal,list=all,listtext={Méthode }]
+
+\definehead[domain][chapter]
+\setuphead[domain][incrementnumber=list]
+\setuplist[domain][width=0em,style=bold]  
+\setuplist[chapter][width=1.5em]  
+\setuplist[section][width=2.5em]                                              
+\setuplist[subsection][width=3.5em, margin=2.5em]   
+\setuplist[subject][margin=1.5em]
+\setupcombinedlist[content][list={domain, chapter,section,subsection}]
+
+\definehead[chapter][page=no,before=,after=]
+\definehead[section][page=no,before=,after=]
+
+\def\applySettups#1{
+\startxmlsetups xml:#1
+\xmlsetsetup{#1}{*}{-}
+% sectioning
+\xmlsetsetup{#1}{part|chapter|section|subsection|subsubsection|concept}{xml:poly:group}
+% grouping 
+\xmlsetsetup{#1}{group}{xml:poly:group}
+\xmlsetsetup{#1}{combination}{xml:poly:combination}
+%\xmlsetsetup{maths}{combination/property}{xml:combination/statement}
+% statements (primary objects)
+\xmlsetsetup{#1}{corollary|definition|lemma|notation|property|theorem|}{xml:poly:statement} 
+% best practice (secondary info)
+\xmlsetsetup{#1}{craft|uses|item}{xml:poly:*}
+% illustration
+\xmlsetsetup{#1}{figure|example}{xml:poly:*} 
+% text (tertiary info)
+\xmlsetsetup{#1}{remark|remarks|text}{xml:poly:*} 
+\xmlsetsetup{#1}{remarks/remark}{xml:poly:remarks:remark} 
+% exercises
+\xmlsetsetup{#1}{exercise}{xml:poly:*}
+% proofs
+\xmlsetsetup{#1}{proof}{xml:poly:*}
+
+\stopxmlsetups 
+
+\xmlregistersetup{xml:#1} 
+}
+\startxmlsetups xml:poly:craft
+\ctxlua{L.processStatement("#1")}%
+\stopxmlsetups
+
+% example
+\iffalse
+\startxmlsetups xml:example
+\ctxlua{L.processExample("#1")}%
+\stopxmlsetups
+\fi
+
+
+
+
+\startxmlsetups xml:poly:group
+\ctxlua{L.processGroup("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:poly:statement
+\ctxlua{L.processStatement("#1")}%
+%\placeleftfigure{}{\useMPgraphic{Frame}}%
+\stopxmlsetups
+
+\startxmlsetups xml:poly:combination
+\ctxlua{L.processCombination("#1")}%
+\stopxmlsetups
+
+%exercices
+\iffalse
+\startxmlsetups xml:exercise
+\ctxlua{L.processExercise("#1")}%
+\stopxmlsetups
+\fi
+
+\startxmlsetups xml:poly:figure
+\ctxlua{L.processFigure("#1")}%
+\stopxmlsetups
+
+% proofs
+\startxmlsetups xml:poly:proof
+\ctxlua{L.processProof("#1")}%
+\stopxmlsetups
+
+% remarks
+\startxmlsetups xml:poly:remark
+\ctxlua{L.processRemark("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:poly:remarks 
+{\tenpoint\startitemize[packed,intext,joinedup,2,nowhite,after]%
+\xmlflush{#1}%
+\stopitemize}%
+\stopxmlsetups
+
+\startxmlsetups xml:poly:remarks:remark
+\item\ctxlua{L.processRawContent("#1")}%
+\stopxmlsetups
+
+% texts
+
+\startxmlsetups xml:poly:text
+\ctxlua{L.processRawContent("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:poly:uses
+{\tenpoint
+\startitemize[packed,intext,joinedup,4,nowhite,after]
+\xmlflush{#1}%
+\stopitemize}
+\stopxmlsetups
+
+
+\startxmlsetups xml:poly:item
+\ctxlua{L.processContent("#1","\\item")}%
+\stopxmlsetups
+
+\startxmlsetups xml:poly:flushsidefloats
+\flushsidefloats
+\stopxmlsetups
+
+
+%\applySettups{includesommes}
+\starttext
+\ctxlua{L.computeTree("polyb", "xml/test.xml")}%
+\applySettups{poly}
+%\applySettups{includesommes}
+%\xmlregistereddocumentsetups{includesommes}{}
+
+%\xmlregistereddocumentsetups{poly}{}
+
+\xmlprocessfile{maths}{saved.xml}{}
+%\xmlflush{poly}
+\stoptext
+
+\stopproduct

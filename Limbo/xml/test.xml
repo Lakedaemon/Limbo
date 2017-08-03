@@ -2,7 +2,7 @@
 <part id="Algèbre">
 <include path="xml/Maths_sommes_produits.xml" as="sommes"/>
 
-<chapter t="Sommes, produits, récurrences">
+<chapter t="Sommes, produits, récurrences" sequence="3">
 
 <programme>
 \startSet\item Emploi du raisonnement par récurrence
@@ -25,25 +25,22 @@ En concours, il ne devrait pas y avoir de problème portant uniquement sur ces n
 
 <section t="Sommes">
 
-<subsection t="Généralités">
-<ref from="sommes" path="section[@t=='Sommes']/subsection[@t=='Généralités']"/>
-</subsection>
+<subsection t="Généralités"><ref from="sommes" path="section[@t=='Sommes']/subsection[@t=='Généralités']"/></subsection>
 
 <subsection t="Identité fondamentale">
 <ref from="sommes" path="subsection[@t=='Identité fondamentale']"/>
 </subsection>
 
-<!--<subsection t="Binôme de Newton">
+<subsection t="Binôme de Newton" sequence="7">
 <ref from="sommes" path="subsection[@t=='Binôme de Newton']"/>
-</subsection>-->
+</subsection>
 
-<!--<subsection t="Sommes arithmétiques">
+<subsection t="Sommes arithmétiques" sequence="1">
 <ref from="sommes" path="subsection[@t=='Sommes arithmétiques']"/>
-</subsection>-->
-
-<!--<subsection t="Sommes géomètriques">
+</subsection>
+<subsection t="Sommes géomètriques"  sequence="1">
 <ref from="sommes" path="subsection[@t=='Sommes géomètriques']"/>
-</subsection>-->
+</subsection>
 
 <subsection t="Sommes de Bernouilli">
 <ref from="sommes" path="subsection[@t=='Sommes de Bernouilli']"/>

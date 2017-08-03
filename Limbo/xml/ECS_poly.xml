@@ -1,0 +1,188 @@
+<?xml version='1.0' standalone='yes'?>
+<root>
+<domain title="Métadonnées">
+<chapter t="Avant propos" sequence="0">
+<include path="xml/ECS_Avant_propos.xml" as="introduction"/>
+<ref from="introduction" path="chapter"/>
+</chapter>
+</domain>
+
+<domain title="Bases théoriques">
+<chapter t="Logique" sequence="2">
+<include path="xml/Limbo_Logique.xml" as="logique"/>
+
+<text>
+Les notions de ce chapitre font domaini des bases fondamentales. 
+Bien qu'il soit extrémement improbable qu'elles soient l'object d'un exercice au concours, 
+elles ont un impact très sensible sur le resultat au concours car : 
+\startSet\item Beaucoup de questions peuvent se traiter par récurrence
+\item La valeur d'une démonstration dépend de l'articulation logique sous-jacente.
+\item La compréhension fine de certaines questions nécessite une bonne maitrise de la logique.
+\stopSet
+
+</text>
+
+<programme t="A1.1 (propositions)">
+L'objectif du programme en ECS est d'acquérir le vocabulaire élémentaire des raisonnements mathématiques : 
+\startSet
+\item Connecteurs : et, ou, non, implication, réciproque, contraposée
+\item Quantificateurs : $∀$, $∃$.
+\item Propositions utilisant les connecteurs et les quantificateurs
+\item Nier une propoisition
+\item Raisonnement par récurrence
+\stopSet
+</programme>
+
+<section t="Assertions et propositions logiques">
+<ref from="logique" path="section[@t=='Propositions']"/>
+</section>
+
+<section t="Opérateurs">
+<ref from="logique" path="section[@t=='Opérateurs']"/>
+</section>
+
+<section t="Raisonnements classiques">
+<ref from="logique" path="section[@t=='Raisonnements classiques']"/>
+</section>
+</chapter>
+
+<chapter t="Sommes, produits, récurrences" sequence="3">
+<include path="xml/Maths_sommes_produits.xml" as="sommes"/>
+
+<programme>
+\startSet\item Emploi du raisonnement par récurrence
+\item Notations $\sum$, $\prod$ {\it Les étudiants doivent savoir employer les notations $\ds\sum_{i=1}^nu_i$ et $\ds\sum_{i\in A}u_i$ où A désigne un sous-ensemble de $\ob N$ ou $\ob N^2$}
+\item Formules $\ds\sum_{k=0}^nq^k$ et $\ds\sum_{k=1}^nk$.
+\item Exemples : formules donnant $\ds\sum_{k=1}^nk^2$ et $\ds\sum_{k=1}^nk^3$
+\item Définition de $n!$
+\stopset
+</programme>
+
+<remark>
+Les outils de ce chapitre font domaini des bases importantes. 
+Utilisation en ds/concours : 
+\startSet\item Récurrence : très fréquente (certaines questions se traitent exclusivement par récurrence)
+\item Somme : très fréquente (utilisées pour exprimer et manipuler les quantités étudiées dans les problèmes) 
+\item Produit : rare (on leur préfère les sommes : un produit pouvant généralement  etre transformé en somme via un logarithme)
+\stopSet
+En concours, il ne devrait pas y avoir de problème portant uniquement sur ces notions. 
+</remark>
+
+<section t="Sommes">
+
+<subsection t="Généralités">
+<ref from="sommes" path="section[@t=='Sommes']/subsection[@t=='Généralités']"/>
+</subsection>
+
+<subsection t="Identité fondamentale">
+<ref from="sommes" path="subsection[@t=='Identité fondamentale']"/>
+</subsection>
+
+<!--<subsection t="Binôme de Newton">
+<ref from="sommes" path="subsection[@t=='Binôme de Newton']"/>
+</subsection>-->
+
+<!--<subsection t="Sommes arithmétiques" sequence="1">
+<ref from="sommes" path="subsection[@t=='Sommes arithmétiques']"/>
+</subsection>-->
+
+<!--<subsection t="Sommes géomètriques" sequence="1">
+<ref from="sommes" path="subsection[@t=='Sommes géomètriques']"/>
+</subsection>-->
+
+<subsection t="Sommes de Bernouilli">
+<ref from="sommes" path="subsection[@t=='Sommes de Bernouilli']"/>
+</subsection>
+
+<subsection t="Sommes multiples">
+<ref from="sommes" path="subsection[@t=='Sommes multiples']"/>
+</subsection>
+
+
+<!--<ref from="sommes" path="section[@t=='Sommes']"/>-->
+
+</section>
+
+<section t="Produits et factorielle">
+<ref from="sommes" path="section[@t=='Produits et factorielles']"/>
+</section>
+<!--
+<section t="Récurrence">
+<ref from="sommes" path="section[@t=='Récurrence']"/>
+</section>-->
+
+</chapter>
+
+
+
+<chapter t="Ensembles et applications"  sequence="5">
+<include path="xml/Limbo_Ensembles_et_applications.xml" as="ensembles"/>
+
+<programme t="A1.3 (fonctions)"></programme>
+<remark>
+Les outils de ce chapitre font domaini des bases importantes, ils sont utilisés en concours pour :
+\startList\item Reconnaître le type d'une suite et identifier ses éléments caractéristiques
+\item Trouver une formule pour $u_n$
+\item Utiliser la somme des termes d'une suite au cours d'un calcul complexe.
+\stopList
+Utilisation en ds/concours : fréquente.
+</remark>
+
+<section t="Ensembles">
+
+<ref from="ensembles" path="section[@t=='Ensembles']"/>
+
+</section>
+
+<section t="Applications">
+<ref from="ensembles" path="section[@t=='Applications']"/>
+</section>
+
+</chapter>
+
+<chapter t="Combinatoire">
+<programme t="A6.4 combinatoire"></programme>
+</chapter>
+
+
+<chapter t="Ensembles de nombres">
+<programme t="A4.1 ℝ"></programme>
+</chapter>
+
+
+</domain>
+
+<domain title="Analyse">
+
+<chapter t="Suites" sequence="4">
+<include path="xml/Maths_suites.xml" as="suites"/>
+
+<programme t="A1.2 (suites)">
+</programme>
+
+<remark>
+Les outils de ce chapitre font domaini des bases importantes, ils sont utilisés en concours pour :
+\startList\item Reconnaître le type d'une suite et identifier ses éléments caractéristiques
+\item Trouver une formule pour $u_n$
+\item Utiliser la somme des termes d'une suite au cours d'un calcul complexe.
+\stopList
+Utilisation en ds/concours : fréquente.
+</remark>
+
+<section t="Suites numériques">
+
+<ref from="suites" path="section[@t=='Suites']"/>
+
+</section>
+
+<section t="Suites réelles">
+<ref from="suites" path="section[@t=='Suites réelles']"/>
+</section>
+
+<section t="Comparaison">
+<ref from="suites" path="subsection[@t=='Comparaison']"/>
+</section>
+</chapter>
+
+</domain>
+</root>

@@ -6408,7 +6408,7 @@ Déterminer la valeur logique des propositions suivantes :
 \stopformula</text>
 </exercise>
 
-<exercise id="Axm" level="1" fight="-1" learn="0" origin="Isabelle Chauvin" type="exercices">
+<exercise id="Axm" m="e2" level="1" fight="-1" learn="0" origin="Isabelle Chauvin" type="exercices">
 <solution>
 	\item{a. } $⟹$ directement, et $\Longleftarrow$ par la contraposée.
 	\item{b. } Montrer que $n^2$ est pair $⟺ n$ est pair, et que $n$ est pair $⟺ n^3$ est pair, 
@@ -6427,7 +6427,7 @@ Déterminer la valeur logique des propositions suivantes :
 \item{e. } Soit $x∈ℝ$. Montrer que $x⩾ 0⟺ \sqrt{\ln (3x+1)+4} ⩾ 2$.\stopList</text>
 </exercise>
 
-<exercise id="Axn" level="1" fight="1" learn="0" origin="Isabelle Chauvin" type="exercices">
+<exercise id="Axn" m="e3" level="1" fight="1" learn="0" origin="Isabelle Chauvin" type="exercices">
 <solution>
 \startformula 
 \startmatrix[align={right,left}]
@@ -6445,16 +6445,16 @@ Déterminer la valeur logique des propositions suivantes :
 <text>
 Simplifier les sommes suivantes, puis les calculer lorsque c'est possible.
 \startformula 
-\startmatrix[align={right,left}]
-	\NC S_1 \NC:= \sum_{k=1}^n (3k+5),\qquad S_2 := \sum_{i=1}^{2n} 3^{i+n},\qquad 
-	S_3:= \sum_{n=0}^{50}\Q( {5\F n+3}-{5\F n+4}\W),\NR
-	\NC S_4\NC:= \sum_{0 ⩽ j ⩽ n}\Q( 3(-1)^n+{4\F n+1}\W),\qquad 
-	S_5: = \sum_{3⩽ k⩽ n+3}\Q((k-3)^2+{5\F k-2}-(k-3) \W).
-\stopmatrix
+\Align{
+	\NC \displaystyle S_1= \sum_{k=1}^n (3k+5),\qquad S_2 = \sum_{i=1}^{2n} 3^{i+n},\qquad 
+	S_3= \sum_{n=0}^{50}\Q( {5\F n+3}-{5\F n+4}\W),\NR
+	\NC \displaystyle S_4= \sum_{0 ⩽ j ⩽ n}\Q( 3(-1)^n+{4\F n+1}\W),\qquad 
+	S_5 = \sum_{3⩽ k⩽ n+3}\Q((k-3)^2+{5\F k-2}-(k-3) \W).
+}
 \stopformula</text>
 </exercise>
 
-<exercise id="Axo" level="1" fight="-1" learn="0" origin="Isabelle Chauvin" type="exercices">
+<exercise id="Axo" m="e2" level="1" fight="-1" learn="0" origin="Isabelle Chauvin" type="exercices">
 <solution>
 $S_1 = \sum\limits_{k=0}^{49} (2k+1)$, $S_2= \sum_{i=0}^n x^i$, $S_3 = \sum\limits_{k=1}^{n+2}{k\F 3^k}$, 
 $S_4 = \sum_{i=0}^{n+2} 3^{2i}$, $S_5 = \sum_{j=1}^p{1\F 2j \sqrt{2j}}$. 
@@ -18786,7 +18786,7 @@ $\startSystem
 \stopSystem$.</text>
 </exercise>
 
-<exercise id="C14" level="1" fight="1" learn="1" origin="technicum" type="colle">
+<exercise id="C14" m="e2" level="1" fight="1" learn="1" origin="technicum" type="colle">
 <field type="logique"/>
 <text>Trouver l'ensemble des trilets $(x,y,z)$ vérifiant $\startSystem
 \NC (x-1)(y-2)(z-3)=0\NR
@@ -18795,7 +18795,7 @@ $\startSystem
 \stopSystem$</text>
 </exercise>
 
-<exercise id="C15" level="1" fight="1" learn="1" origin="technicum" type="colle">
+<exercise id="C15"  level="1" fight="1" learn="1" origin="technicum" type="colle">
 <field type="logique"/>
 <text>Représenter dans le plan les points de coordonnées $(x,y)$ pour lesquels on a 
 \startformula 
@@ -24618,20 +24618,21 @@ On note $X = X_2$ et $Y = X_1 + X_2$.
 </exercise>
 
 
-<exercise id="Base2" level="1" fight="0" learn="1" origin="" type="Exo">
+<exercise id="Base2" m="e1" level="1" fight="0" learn="1" origin="" type="Exo">
 <field type="Calcul"/>
 <skill>Dérivation</skill>
 <text>Dérivez les fonctions suivantes, là où elles sont dérivables. : 
 \startformula
-\Align{
- \NC {1\F x^3}  \NC \sqrt{x+2} \NC {1\F \sqrt{1-x}} \NR 
-\NC x\sin(x) \NC x\cos(x)\e^x \NR 
-\NC {x\F x^2+1} \NC \tan(x) \NR 
-\NC \ln(\ln (x)) \NC \sin(x^2) \NR 
+\Align{[align=center]
+ \NC 2x^3-3x^2+1\NC {1\F x}\NC{1\F x^3}  \NC \sqrt{x+2} \NC {1\F \sqrt{1-x}} \NR 
+\NC x\ln(x)-x\NC \sin(x)\cos(x) \NC \cos(x)^2-\sin(x)^2\NC {x+1\F x+2}\NC x\cos(x)\e^x\NR 
+\NC {x\F x^2+1} \NC \tan(x) \NC {\e^{2x}+1\F \e^x}\NC {\e^x\F \e^{2x}+1}\NC\ln{x+1\F x-1}\NR
+\NC\ln(\cos(x))\NC \e^{3x}\sin(x^2)\NC{\e^{x^2}\F2x}\NC \ln(\ln (x)) \NC\ln\Q(x+\sqrt{x^2+1}\W)\NR
 }
 \stopformula
 </text>
 </exercise>
+
 
 
 <exercise id="F2.1" m="e3" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
@@ -24782,5 +24783,242 @@ Résoudre dans $ℝ$ les équations suivantes\startformula
 \stopformula
 </text>
 </exercise>
+
+
+<exercise id="ECSB1.4" m="e2" t="inégalités" level="1" fight="0" learn="1"  type="Exo">
+<field type="bases techniques"/>
+<text>Résoudre dans $ℝ$ les inéquations suivantes\startformula
+\Align{
+\NC E_1:\NC x^3+5x⩽6x\NC\qquad\NC E_2:\NC {x\F x+1}+{1\F x(x+1}⩽1\NC\qquad\NC E_3:\NC 3×2^{3x-4}⩾7^8\NR
+\NC E_4:\NC |x^2-2|⩾2\NC\qquad\NC E_5:\NC |x+4|⩽5-3x\NC\qquad\NC E_6:\NC |x-4|⩽|2x+1|\NR
+\NC E_7:\NC |x-3|+|x^2-3x+2|⩽2\NC\qquad\NC E_8:\NC x-4\sqrt{x-2}⩾0\NR
+}
+\stopformula
+</text>
+</exercise>
+
+<exercise id="ECSD1.2" m="e2" t="inégalités" level="1" fight="0" learn="1"  type="Exo">
+<field type="bases techniques"/>
+<text>Résoudre dans $ℝ$ les inéquations suivantes\startformula
+\Align{
+\NC E_1:\NC 1-x^2⩾0\NC\qquad\NC E_2:\NC x^2+2⩽5x-4\NC\qquad\NC E_3:\NC\sqrt{x+1}+\sqrt{x+3}\Le 3\NR
+\NC E_4:\NC x-1⩽\sqrt{x+2}\NC\qquad\NC E_5:\NC {x^2+2\F x^2-2}⩾2\NC\qquad\NC E_6:\NC {x-1\F x+1}\Le {2\F x-1}\NR
+\NC E_7:\NC |2x+1|⩽|x-3|⩽2\NC\qquad\NC E_8:\NC |x+1|-|2x-1|⩽1\NR
+}
+\stopformula
+</text>
+</exercise>
+
+
+
+<exercise id="ECSD1.8a" m="e1" t="fonctions" level="1" fight="0" learn="1"  type="Exo">
+<text>Pour $x⩾1$, prouver que $\ln(x)⩽\sqrt{x}$.</text>
+</exercise>
+
+<exercise id="ECSD1.8b" m="e1" t="fonctions" level="1" fight="0" learn="1"  type="Exo">
+<text>Pour $x⩽0$, prouver que $1-x+{x^2\F 2}⩽\e^{-x}$.</text>
+</exercise>
+
+<exercise id="ECSA2.12" m="e1" t="suite géométrique" level="1" fight="0" learn="1"  type="Exo">
+<text>Soit $q≠1$
+\startList\item Calculer $(1-q)∑_{k=0}^nq^k$ et en déduire $∑_{k=0}^nq^k$.
+\item Application : calculer les sommes $\sum_{k=1}^{2n}q^k$ et $\sum{k=0}^nq^{2k+1}$.
+\stopList
+</text>
+</exercise>
+
+<exercise id="ECSA1.9" m="e1" t="parité" level="1">
+<text>
+\startList\item Montrer que la fonction $f(x)={\e^x\F(\e^x+1)^2}$ est paire.
+\item Montrer que la fonction $g(x)=\ln\Q|{x+1\F x-1}\W|$ est impaire.
+\item Montrer que la fonction $h(x)=\ln(x+\sqrt{x^2+1})$ est impaire sur $ℝ$.
+\stopList
+</text>
+</exercise>
+
+<exercise id="ECSA1.13" m="e1" t="Sommes de Bernouilli" level="1" fight="0" learn="1"  type="Exo">
+<text>L'objectif de cet exercice est de calculer pour $0⩽p⩽3$, les sommes de Bernouilli  
+\startformula
+S_p(n)=∑_{k=0}^nk^p\qquad (n⩾0)
+\stopformula
+\startList\item Pour $n⩾0$, que valent $S_0(n)$ et $S_1(n)$ ?
+\item En remarquant que $(k+1)^2-k^2=2k+1$, calculer $\displaystyle ∑_{k=0}^n(2k+1)$ et retrouver  $S_1(n)$
+\item En remarquant que $(k+1)^3-k^3=3k^2+3k+1$, calculer $\displaystyle ∑_{k=0}^n(3k²+3k+1)$ et en déduire $S_2(n)$
+\item Pour $n⩾0$, Montrer que 
+\startformula
+S_2(n)={n(n+1)(2n+1)\F 6}\qquad\Et\qquad S_3(n)= {n^2(n+1)^2\F 4} = S_1(n)^2
+\stopformula
+\stopList
+</text>
+</exercise>
+
+<exercise id="ECSA1.9" m="e2" t="parité" level="1">
+<text>
+\startList\item Montrer que la fonction $f(x)={\e^x\F(\e^x+1)^2}$ est paire.
+\item Montrer que la fonction $g(x)=\ln\Q|{x+1\F x-1}\W|$ est impaire.
+\item Montrer que la fonction $h(x)=\ln(x+\sqrt{x^2+1})$ est impaire sur $ℝ$.
+\stopList
+</text>
+</exercise>
+
+<exercise id="ECSA1.10" m="e3" t="partie entière" level="1">
+<text>
+\startList\item Montrer que la fonction $\{x\}=x-\floor{x}$ est $1$-périodique puis la représenter graphiquement.
+\item Soit $f:x↦\floor{2x}-2\floor{x}$
+\startList\item Montrer que $f$ est positive et bornée (trouver le meilleur majorant)
+\item Montrer que $f$ est périodique puis préciser $f(ℝ)$.
+\stopList\item Que dire de la fonction $g:x↦\floor{x}+\floor{-x}$ ?
+\item Montrer que la fonction $h:x↦{\floor{x}\F x}$ est majorée sur $]0,+∞[$. Est ce encore vrai sur $ℝ^*$ ? 
+\stopList
+</text>
+</exercise>
+
+
+<exercise id="ECSA1.11b" m="e2" t="fonction" level="1">
+<text>Etudier les fonctions suivantes : 
+\startformula
+\Align{
+\NC f:x↦\sqrt{2-\ln x}\NC\qquad\qquad\NC g:x↦x^{1+{1\F x}}\NC\qquad\qquad\NC h:x↦\ln(\e^x-\e^{-x})\NR
+\NC i:x↦\sqrt{x-\sqrt x}\NC\qquad\qquad\NC  j:x↦{x\F x-\ln x}\NR}
+\stopformula
+</text>
+</exercise>
+
+
+<exercise id="ECSA1.11c" m="e1" t="fonction" level="1">
+<text>Etudier la fonction $f:x↦1-(x+1)\e^{-2x}$. \crlf En déduire les variations de $f:x↦{x^2\F 1-\e^{-2x}}$.</text>
+</exercise>
+
+<exercise id="ECSA1.11d" m="e2" t="fonction" level="1">
+<text>Etude complète de $f(x)=x+2-2\ln(\e^x+1)$. Parité, tableau de variation, limites, asymptotes et position relative, allure de la courbe.</text>
+</exercise>
+
+<exercise id="ECSA1.12" m="e2" t="périodicité" level="1">
+<text>Montrer q'une fonction $f:ℝ→ℝ$, croissante et périodique, est nécéssairement constante sur $ℝ$.
+</text></exercise>
+
+<exercise id="ECSA1.11a" m="e1" t="dérivation" level="1">
+<text>Dériver les fonctions suivantes après avoir déterminé leur ensemble de définition et de dérivation
+\startformula
+\Align{
+\NC f:x↦(1+\ln x)^2\e^{{1\F x}+2x}\NC\qquad\qquad
+\NC g:x↦\cos\Q(\sqrt{1-x^2}\W)\NR
+\NC h:x↦\e^x\ln(\sin x)\NC\qquad\qquad
+\NC i:x↦\sqrt{x\F x^2+5}\NR
+}
+\stopformula</text></exercise>
+
+
+<exercise id="ECSD1.6" m="e2" t="fonctions" level="1" fight="0" learn="1"  type="Exo">
+<field type="bases techniques"/>
+<text>Ensemble de définition, de dérivabilité et dérivée des fonctions 
+\startformula
+\Align{
+\NC f:x↦\ln(2-x)\NC\qquad\qquad
+\NC g:x↦\sqrt{1+x\F 1-x}\NR
+\NC h:x↦x\ln\Q({x+2\F 3x-1}\W)\NC\qquad\qquad
+\NC i:x↦\sqrt{x^2+1}-{1\F 2x+3}\NR
+}
+\stopformula
+</text>
+</exercise>
+
+<exercise id="ECSD1.6" m="e2" t="fonctions" level="1" fight="0" learn="1"  type="Exo">
+<field type="bases techniques"/>
+<text>Ensemble de définition, de dérivabilité et dérivée des fonctions 
+\startformula
+\Align{
+\NC f:x↦\ln(2-x)\NC\qquad\qquad
+\NC g:x↦\sqrt{1+x\F 1-x}\NR
+\NC h:x↦x\ln\Q({x+2\F 3x-1}\W)\NC\qquad\qquad
+\NC i:x↦\sqrt{x^2+1}-{1\F 2x+3}\NR
+}
+\stopformula
+</text>
+</exercise>
+
+
+<exercise id="ECSA1.7" m="e2" t="monotonie" level="1">
+<text>Déterminer la monotonie des fonctions suivantes (on proposera plusieurs méthodes) :
+\startformula f(x)=\e^{1\F 1-x}\qquad\qquad g(x)=\sqrt{x^2+x+1}\qquad\qquad h(x)=\ln\Q(x^2+1\W)\sqrt{x}\stopformula</text>
+</exercise>
+
+
+<exercise id="ECSC2.1" m="e1" t="négation" level="1">
+<text>Donner la négation des propositions suivantes
+\startformula \Align{
+\NC a.\NC x=1\Ou x=-1\NC\qquad\qquad
+\NC b.\NC 0⩽x\Le 1\NR
+\NC c.\NC (x=0) \Ou x(x^2=1\Et x⩽0)\NC\qquad\qquad
+\NC d.\NC x⩾3 ⟹ x^2>5\NR
+\NC e.\NC ∀x∈ℝ, ∃y∈ℝ,y^2=x\NC\qquad\qquad
+\NC f.\NC ∃!x∈ℝ, f(x)=3\NR}
+\stopformula</text></exercise>
+
+<exercise id="BCPST2.12" m="e2" t="valeur logique" level="1">
+<text>Quelle est la valeur logique des propositions suivantes ? 
+\startList\item $2$ est pair $⟹$ $4$ est pair
+\item $2$ est pair $⟹$ $3$ est pair
+\item $2$ est impair $⟹$ $3$ est pair
+\item $4>1$ $⟺$ $4^2>1$
+\item Le ciel est bleu $⟺$ $2+2=4$. Peut on en déduire que $3$ est pair ? que $16>1$ ? 
+\stopList</text></exercise>
+
+<exercise id="BCPST2.14" m="e1" t="valeur logique" level="1">
+<text>Dire si les propositions suivantes sont vraies, fausses... ou autre chose :
+\startList\item $∀x∈ℝ_+^*∩ℝ_-^*, x=0$
+\item $∃x∈ℝ_-^*∩ℕ, x^2>0$
+\item $∀x∈ℝ, x^2\Le 0⟹x\Le 0$
+\item $x∈ℂ, x^2\Le 0⟹x\Le 0$. 
+\stopList</text></exercise>
+
+<exercise id="BCPST2.15" m="e2" t="valeur logique" level="1">
+<text>Les énoncés suivants sont-ils vrais ou faux ?
+\startList\item $∀x∈ℝ_+, ∃y∈ℝ_+, y^2=x$
+\item $∀y∈ℝ_+, ∀x∈ℝ_+, y^2=x$
+\item $∃y∈ℝ_+, ∀x∈ℝ, xy=x$
+\stopList</text></exercise>
+
+
+<exercise id="BCPST2.16" m="e2" t="négation" level="1">
+<text>Pour chacune des propriétés suivantes, dire si
+elle est vraie ou non (justifier votre réponse), et écrire
+sa négation. Écrire la contraposée de (3) et (4).
+\startList\item $\exists a∈ℝ,∀x∈ℝ,∃b∈ℝ,x=ab$
+\item $\forall x∈ℝ,∀y∈ℝ,∃ a∈ℝ,∀x∈ℝ,x=ab$
+\item $∀x∈ℝ,∀y∈ℝ, xy⩾4⟹(x⩾2\Et y⩾2)$
+\item $∀x∈ℝ, x^3-2x^2+x=0 ⟹(x=0 \Ou x=1 \Ou x=2)$
+\stopList</text></exercise>
+
+
+<exercise id="BCPST2.17" m="e1" t="absurde" level="1">
+<text>Soit $x∈ℝ$ tel que $0⩽x⩽ε$ pour $ε>0$. Montrer que $x=0$.</text>
+</exercise>
+
+<exercise id="BCPST2.18" m="e1" t="absurde" level="1">
+<text>Soit $n⩾1$. On suppose que $4n + 1$ crayons sont rangés dans $n$ tiroirs. 
+Montrer que l’un des tiroirs contient au moins $5$ crayons.</text>
+</exercise>
+
+<exercise id="BCPST2.18b" m="e1" t="absurde" level="1">
+<text>Soient $x$ et $y$ des nombres réels. Prouver que 
+\startsdformula
+(x≠1\Et y≠1)⟹ xy+1-x-y≠ 0
+\stopsdformula
+</text>
+</exercise>
+
+<exercise id="BCPST2.20" m="e1" t="contraposée" level="1">
+<text>Soit $n∈ℤ$. Démontrer l'implication suivante, en utilisant sa contraposée : \quote{si $n^2$ est impair, alors $n$ est impair}.</text>
+</exercise>
+
+<exercise id="BCPST2.26" m="e1" t="récurrence" level="1">
+<text>Pour $n∈ℕ$, on considère la propriété $\mc P_n:2^n>n^2$.
+\startList\item Pour quelles valeurs de $n$ l'implication $\mc P_n⟹\mc P_{n+1}$ est-elle vraie ?
+\item Pourquelles valeurs de $n$ la propôsition $\mc P_n$ est-elle vraie ?
+\stopList
+</text>
+</exercise>
+
 
 </exercises>

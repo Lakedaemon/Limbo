@@ -60,6 +60,8 @@
 \xmlsetsetup{maths}{*}{-}
 % sectioning
 \xmlsetsetup{maths}{part|chapter|section|subsection|subsubsection|concept}{xml:group}
+% context
+\xmlsetsetup{maths}{context}{xml:context}
 % grouping 
 \xmlsetsetup{maths}{group}{xml:group}
 \xmlsetsetup{maths}{combination}{xml:combination}
@@ -92,6 +94,10 @@
 
 \startxmlsetups xml:group
 \ctxlua{L.processGroup("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:context
+\xmlflush{#1}%
 \stopxmlsetups
 
 \startxmlsetups xml:statement
@@ -130,7 +136,6 @@
 \stopxmlsetups
 
 \startxmlsetups xml:text
-
 \ctxlua{L.processRawContent("#1")}%
 \stopxmlsetups
 

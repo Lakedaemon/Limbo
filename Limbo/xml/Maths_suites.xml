@@ -5,14 +5,14 @@
 
 <section t="Suites">
 
-<text>Dans cette section, le symbole $𝕂$ désigne $ℝ$ ou $ℂ$ et le symbole $I$ désigne une partie non vide de $ℕ$.</text>
+<context>Dans cette section, le symbole $𝕂$ désigne $ℝ$ ou $ℂ$ et le symbole $I$ désigne une partie non vide de $ℕ$.</context>
 
 <subsection t="Suites">
 
 <concept t="suite">
 <text>Une suite de nombres est essentiellement une liste ordonnée de nombres finie ou non, 
 chaque élément de la liste étant uniquement détérminé par son indice.</text>
-<definition h="$\varnothing≠I⊂ℕ$">Une suite d'éléments de $𝕂$ indicée par $I$ est une application $u:I→𝕂$</definition>
+<definition h="$∅≠I⊂ℕ$">Une suite d'éléments de $𝕂$ indicée par $I$ est une application $u:I→𝕂$</definition>
 <remarks>
 <remark>La suite $u:I→𝕂$ sera noté plus simplement $u=(u_n)_{n ∈ I}$. </remark> 
 <remark>La plupart du temps, nous auront $I= ℕ$ ou $I=ℕ^*$.</remark>
@@ -66,7 +66,7 @@ u×v:=(u_n×v_n)_{n∈I}
 <concept t="algèbre" p="-β+β">
 <text>Les lois $+$, $⋅$ et $×$ des suites héritent leurs propriétés (associativité, commutativité, distributivité, existence d'éléments neutres et d'inverses) 
 des lois $+$, $⋅$, $×$ de $𝕂$.</text>
-<property h="$\varnothing ≠I⊂ℕ$">$(𝕂^I,+,⋅,×)$ est une $𝕂$-algèbre commutative.</property>
+<property h="$∅≠I⊂ℕ$">$(𝕂^I,+,⋅,×)$ est une $𝕂$-algèbre commutative.</property>
 <remark>La suite nulle $0=(0)_{n∈I}$ est un élément neutre pour la loi $+$ des suites
 \startformula 
 0+u=u+0=u\qquad (u∈𝕂^I).
@@ -957,16 +957,13 @@ n!∼\Q({n\F \e}\W)^n\sqrt{2πn}
 \stopformula</theorem>
 </concept>
 
-</subsection></section><section t="Suites de référence">
+</subsection></section><section t="Suites de référence" h="$u∈𝕂^ℕ$">
 
 <subsection t="Suites arithmétiques">
+<context>Dans cette section, $r$ désigne un nombre de $𝕂$.</context>
 
 <concept t="suite arithmétique\\raison">
-<definition h="$u∈𝕂^ℕ$ et $r∈𝕂$">
-\startformula
-u \text{ arithmétique de raison } r \ ⟺ \ u_{n+1}-u_n=r\qquad(n⩾0)
-\stopformula
-</definition>
+<definition c="ch" h="$u∈𝕂^ℕ$ et $r∈𝕂$">$u \text{ arithmétique de raison } r \ ⟺ \ u_{n+1}-u_n=r\qquad(n⩾0)$</definition>
 <remark>Une suite est dite arithmétique lorsqu'on passe d'un terme au terme suivant en lui ajoutant la même constante
 \startformula
 u \text{ suite arithmétique } \ ⟺\ (∃r∈𝕂:u \text{ suite arithmétique de raison }r).
@@ -975,11 +972,7 @@ u \text{ suite arithmétique } \ ⟺\ (∃r∈𝕂:u \text{ suite arithmétique 
 </concept>
 
 <concept t="expression">
-<property h="$u$ arithmetique de raison $r$">
-\startformula
-u_n = u_0 + nr\qquad(n∈ℕ).
-\stopformula
-</property>
+<property c="ch" h="$u∈𝕂^ℕ$ et $r∈𝕂$">$u \text{ arithmétique de raison } r \ ⟺ \ u_n = u_0 + nr\qquad(n⩾0)$</property>
 <remark>$u$ diverge si $|r|≠0$.</remark>
 <remark>$u$ est constante si $r=0$.</remark>
 </concept>
@@ -995,25 +988,21 @@ la moyenne des termes aux extrémités</text>
 
 
 </subsection><subsection t="Suites géométriques">
+<context>Dans cette section, $q$ désigne un nombre de $𝕂$.</context>
 
 <concept t="suite géométrique">
-<definition h="$u∈𝕂^ℕ$">
-\startformula
-u \text{ géométrique de raison } q \ ⟺ \ (∀n∈ℕ, u_{n+1}=qu_n)
-\stopformula
-</definition>
-<remark>Une suite est dite géométrique lorsqu'on passe d'un terme au terme suivant en le multipliant par la même constante
+<definition c="ch" h="$u∈𝕂^ℕ$ et $q∈𝕂$">$u \text{ géométrique de raison } q \ ⟺ \ u_{n+1}=qu_n\qquad(n⩾0)$</definition>
+<remarks><item>Une suite est dite géométrique lorsqu'on passe d'un terme au terme suivant en le multipliant par la même constante
 \startformula
 u \text{ suite géométrique } \ ⟺\ (∃q∈𝕂:u \text{ suite géométrique de raison }q.
-\stopformula</remark>
+\stopformula</item>
+<item>Si $q=0$, les solutions de (\in[relationArithméticoGéométrique]) sont nulles à partir du rang 1</item>
+<item>Si $q=1$, les solutions de (\in[relationArithméticoGéométrique]) sont constantes</item>
+</remarks>
 </concept>
 
 <concept t="expression">
-<property h="$u$ géométrique de raison $q$">
-\startformula
-u_n=u_0q^n\qquad(n∈ℕ).
-\stopformula
-</property>
+<property  c="ch" h="$u∈𝕂^ℕ$ et $q∈𝕂$">$u \text{ géométrique de raison } q \ ⟺ \ u_n=u_0q^n\qquad(n⩾0)$</property>
 <remark>$u$ converge vers $0$ si $|q|\Le1$.</remark>
 <remark>$u$ est constante si $q=1$.</remark>
 <remark>$u$ diverge lorsque $|q|⩾1$ et $q≠1$.</remark>
@@ -1021,35 +1010,42 @@ u_n=u_0q^n\qquad(n∈ℕ).
 
 <concept t="somme"><text>La somme des termes d'une suite géométrique est égale au quotient du terme qui suivrait le dernier moins le premier terme par la raison moins $1$. 
 la moyenne des termes auxextrémités</text>
-<property h="$u$ géométrique de raison $q$">
+<property h="$u$ géométrique de raison \important{$q≠1$}">
 \startformula
-\sum_{m⩽k⩽n}u_k={u_{n+1}-u_m\F q-1}\qquad (0⩽m⩽n).
+\sum_{m⩽k⩽n}u_k=\rare{{u_m-q×u_n\F 1-q}}={\text{premier terme }-\text{ terme après le dernier}\F 1 - \text{ raison}}\qquad (0⩽m⩽n).
 \stopformula
 </property>
 </concept>
 
 
 </subsection><subsection t="Suites arithmético-géométriques">
-
+<context>
+Dans cette section, $a$ et $b$ désignent deux nombres de $𝕂$ et nous considérons les équations du type 
+\placeformula[relationArithméticoGéométrique]
+\startformula
+u_{n+1}=au_n+b\qquad(n⩾0)
+\stopformula
+</context>
 
 <concept t="suite arithmético-géométrique">
-<definition h="$u∈𝕂^ℕ$">
-\startformula
-u \text{ arithmético-géométrique} \ ⟺ \ (∃(a,b)∈𝕂^2:∀n∈ℕ, u_{n+1}=au_n+b)
-\stopformula
-</definition>
-<remark>Une suite est dite arithmétique-géométrique lorsqu'il existe des nombres $a$ et $b$ tels que 
+<definition c="" h="$u∈𝕂^ℕ$">
+$u \text{ arithmético-géométrique} \ ⟺ \ ∃(a,b)∈𝕂^2\text{ vérifiant (\in[relationArithméticoGéométrique])}$</definition>
+<remarks><item>Une suite est dite arithmétique-géométrique lorsqu'il existe des nombres $a$ et $b$ tels que 
 \placeformula[suiteArithméticoGéométriqueDef]
 \startformula 
 u_{n+1} = au_n+b\qquad(n⩾0)
-\stopformula
-</remark>
+\stopformula</item>
+<item>Si $a=0$, les solutions de (\in[relationArithméticoGéométrique]) sont constantes à partir du rang 1</item>
+<item>Si $a=1$, les solutions de (\in[relationArithméticoGéométrique]) sont arithmétiques, de raison $b$</item>
+<item>Si $b=0$, les solutions de (\in[relationArithméticoGéométrique]) sont géométriques, de raison $a$</item>
+</remarks>
 </concept>
 
+
 <concept t="formule">
-<property h="$u$ arithmético-géométrique pour $a≠1$"> 
+<property h="\important{$a≠1$} et $c = {b\F 1-a}$"> 
 \startformula
-u_n = c + a^n(u_0-c)\qquad\Q(c = {b\F 1-a}, n⩾0\W).
+u \text{ vérifie (\in[relationArithméticoGéométrique])}\ ⟺ \ \rare{u_n = c + a^n(u_0-c)\qquad(n⩾0)}.
 \stopformula
 </property><craft>
 {\it Méthode recommandée : }
@@ -1064,17 +1060,26 @@ u_n = c + a^n(u_0-c)\qquad\Q(c = {b\F 1-a}, n⩾0\W).
 </subsection>
 
 <subsection t="Récurrences linéaires">
-<concept t="récurrence linéaire homogène du second ordre">
-<definition h="$u$ suite réelle">La suite $u$ satisfait ne récurrence linéaire homogène du second ordre si, et seulement s'il existe des nombres réels $a≠0$, $b$ et $c$ tels que 
+
+<context>Dans cette section, nous considérons pour \important{$a∈𝕂^*$}, $b∈𝕂$ et \important{$c∈𝕂^*$} les équations du type 
 \placeformula[récurrenceLinéaireDef]
 \startformula 
-au_{n+2}+bu_{n+1}+cu_n = 0\qquad(n⩾0)
-\stopformula</definition>
-<remark>Une telle suite est complétement déterminée par la donnée de ses $2$ premiers termes $u_0$ et $u_1$</remark>
+au_{n+2}+bu_{n+1}+cu_n = 0\qquad(n⩾0).
+\stopformula
+</context>
+
+
+<concept t="récurrence linéaire homogène du second ordre">
+<definition c="" h="$u$ suite réelle">Une suite $u$ satisfait une récurrence linéaire homogène du second ordre \ssi il existe des nombres réels $a≠0$, $b$ et $c≠0$ vérifiant (\in[récurrenceLinéaireDef]).</definition>
+<remarks><item>Une telle suite est complétement déterminée par la donnée de ses $2$ premiers termes $u_0$ et $u_1$</item>
+<item>Si $a=b=c=0$, toutes les suites sont solutions de  l'équation (\in[récurrenceLinéaireDef]), qui n'a aucun intérêt</item>
+<item>Si $(a,b,c)≠(0,0,0)$ avec $a=0$ ou $c=0$, les solutions de (\in[récurrenceLinéaireDef]) sont aithmético-géométriques</item>
+</remarks>
+
 </concept>
 
 <concept t="polynôme caractéristique">
-<definition h="$a≠0$, $b$ et $c$ réels">
+<definition c="" h="$a≠0$, $b$ et $c$ réels">
 Le polynôme caractéristique associé à (\in[récurrenceLinéaireDef]) est le trinôme
 \placeformula[récurrenceLinéairePolynomeCaractéristiqueDef]
 \startformula
@@ -1084,30 +1089,27 @@ P=aX^2+bX+c
 </concept>
 
 <concept t="équation caractéristique">
-<definition h="$a≠0$, $b$ et $c$ réels">
-L'équation caractéristique associée à la relation (\in[récurrenceLinéaireDef]) est l'équation $aX^2+bX+c = 0$
-\startformula
-\underbrace{ax^2+bx+c=0}_{P(x)=0}
-\stopformula
+<definition c="" h="$a≠0$, $b$ et $c$ réels">
+L'équation caractéristique associée à (\in[récurrenceLinéaireDef]) est l'équation $aX^2+bX+c = 0$
 </definition>
 </concept>
 
-<concept t="solutions"><property h="$a≠0$, $b$ et $c$ réels">
-Si le polynôme caractéristique (\in[récurrenceLinéairePolynomeCaractéristiqueDef]) admet une racine double $s$, une suite réelle $u$ est solution de (\in[récurrenceLinéaireDef]) si, et seulement s'il existe des nombres réels $λ$ et $μ$ tels que 
+<concept t="solutions"><property c="" h="$a≠0$, $b$ et $c$ réels">
+Si le polynôme caractéristique (\in[récurrenceLinéairePolynomeCaractéristiqueDef]) admet une racine double $s$, une suite réelle $u$ est solution de (\in[récurrenceLinéaireDef]) \ssi il existe des nombres réels $λ$ et $μ$ tels que 
 \startformula
 u_n=λs^n+μ{\darkred n}z^n\qquad(n⩾0)
-\stopformula
-Si  le polynôme caractéristique (\in[récurrenceLinéairePolynomeCaractéristiqueDef])  admet deux racines distinctes $s$ et $z$, une suite réelle $u$ est solution de (\in[récurrenceLinéaireDef]) si, et seulement s'il existe des nombres $λ$ et $μ$ tels que
+\stopformula</property>
+<property c="" h="$a≠0$, $b$ et $c$ réels">Si le polynôme caractéristique (\in[récurrenceLinéairePolynomeCaractéristiqueDef])  admet deux racines distinctes $s$ et $z$, une suite réelle $u$ est solution de (\in[récurrenceLinéaireDef]) \ssi il existe des nombres $λ$ et $μ$ tels que
 \startformula
 u_n=λs^n+μz^n\qquad(n⩾0)
 \stopformula
 </property>
-<remark>Dans le cas où les racines de $P$ sont réelles, les constante $λ$ et $μ$ sont réelles. 
-Lorsque les racines de $P$ ne sont pas réelles, elles sont conjuguées. En posant $s=r\e^{iϑ}$ et $z=r\e^{-iϑ}$, 
+<remarks><item>Dans le cas où les racines de $P$ sont réelles, les constante $λ$ et $μ$ sont réelles.</item>
+<item>Lorsque les racines de $P$ ne sont pas réelles, elles sont conjuguées. En posant $s=r\e^{iϑ}$ et $z=r\e^{-iϑ}$, 
 on peut alors trouver deux constantes réelles $α$ et $β$ telles que  
 \startformula
 u_n=αr^n\cos(nϑ)+βr^n\sin(nϑ)\qquad(n⩾0)
-\stopformula</remark>
+\stopformula</item></remarks>
 </concept>
 
 

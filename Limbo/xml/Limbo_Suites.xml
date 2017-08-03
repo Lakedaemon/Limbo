@@ -12,7 +12,7 @@
 <concept t="suite">
 <text>Une suite de nombres est essentiellement une liste ordonnée de nombres finie ou non, 
 chaque élément de la liste étant uniquement détérminé par son indice.</text>
-<definition h="$\varnothing≠I⊂ℕ$">Une suite d'éléments de $𝕂$ indicée par $I$ est une application $u:I→𝕂$</definition>
+<definition h="$\\varnothing≠I⊂ℕ$">Une suite d'éléments de $𝕂$ indicée par $I$ est une application $u:I→𝕂$</definition>
 <remarks>
 <remark>La suite $u:I→𝕂$ sera noté plus simplement $u=(u_n)_{n ∈ I}$. </remark> 
 <remark>La plupart du temps, nous auront $I= ℕ$ ou $I=ℕ^*$.</remark>

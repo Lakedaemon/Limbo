@@ -1,0 +1,180 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Bases théoriques">
+<!-- fiche identitque : http://laurentb.garcin.free.fr/Cours/SommesProduits/SommesProduits.pdf-->
+<chapter t="Avant-propos">
+
+<concept t="Alphabet grec"><text>Il faut maitriser les lettres grecques utilisées en ECS (en noir), classée ici par ordre décroissant d'usage : 
+\startformula
+\Align{
+\NC π\NC Π\NC \text{pi}\NC \text{Produits}\NC \qquad\qquad \NC ϑ\NC \rare Θ\NC \text{theta}\NR
+\NC \rare σ\NC Σ\NC \text{sigma}\NC \text{Sommes}\NC \qquad\qquad \NC φ\NC \rare Φ\NC \text{phi}\NR
+\NC λ\NC \rare Λ\NC \text{lambda}\NC \text{Espaces vectoriels}\NC \qquad\qquad \NC\rare ζ\NC \rare Z\NC \text{\rare {zeta}}\NR
+\NC μ\NC \rare M\NC \text{mu}\NC \text{Espaces vectoriels}\NC \qquad\qquad \NC\rare η\NC \rare H\NC \text{\rare {eta}}\NR
+\NC ω\NC  Ω\NC \text{omega}\NC \text{Probabilités}\NC \qquad\qquad \NC\rare ξ\NC \rare Ξ\NC \text{\rare {xi}}\NR
+\NC ε\NC \rare E\NC \text{epsilon}\NC \text{Limites}\NC \qquad\qquad \NC\rare \omicron\NC \rare O\NC \text{\rare {omicron}}\NR
+\NC \rare γ\NC Γ\NC \text{gamma}\NC \text{Probabilités}\NC \qquad\qquad \NC\rare ρ\NC \rare P\NC \text{\rare {rho}}\NR
+\NC \rare δ\NC Δ\NC \text{delta}\NC \NC \qquad\qquad \NC\rare ψ\NC \rare Ψ\NC \text{\rare {psi}}\NR
+\NC α \NC \rare A \NC \text{alpha}\NC \NC \qquad\qquad \NC\rare τ\NC \rare T\NC \text{\rare {tau}}\NR
+\NC β\NC \rare B\NC \text{beta}\NR
+}
+\stopformula</text>
+<remark>Les lettres grecques grisées ne sont (quasiment) pas utilisées en ECS.</remark>
+</concept>
+
+<concept t="symboles" i="logique+symboles"><text>Pour écrire les propositions logiques, un certain nombre de symboles mathématiques sont utilisés, 
+qui sont comme des abbréviations de morceaux de phrases
+\placetable[middle,none]{}{\setupTABLE[r][1][style=bold]
+\bTABLE[align=middle]
+\startCSV
+Symbole, Signification\\
+$∈$, {\quote{élément de}, \quote{dans} ou \quote{appartient à}}\\
+$∀$, {\quote{pour chaque}, \quote{pour tout} ou \quote{quel que soit}}\\
+$∃$, \quote{il existe} ou \quote{on peut trouver}\\
+$!$, {\quote{unique} ou \quote{un et un seul}}\\
+$⇒$, \quote{implique}\\
+$⇔$, \quote{équivaut à} ou \quote{si et seulement si}\\
+$:$, \quote{tel que} ou \quote{pour lequel}\\
+$\{⋯\}$, \quote{ensemble}
+\stopCSV
+\eTABLE}
+</text>
+</concept>
+
+<!--
+démonstration
+definition vs propriété
+:= définition
+-->
+
+<concept t="cours"><text>Un cours de mathématiques est générallement constitué de 
+\startSet\item définitions, notations, conventions
+\startSet\item les admettre ({\it elles ne comportent rien à prouver})
+\item les mémoriser.\stopSet\item théorèmes, propriétés, corollaires, \rare{lemme} :
+\startSet\item les mémoriser ({\it on les apprends en les utilisant}).
+\item apprendre à les utiliser ({\it via exercices, tds, dls, colles et {\red (\it trop tard !)} ds}). 
+\stopSet\item preuves, démonstrations : 
+\startSet\item les comprendre ({\it augmente la capacité à comprendre des choses complexes, 
+améliore la compréhension du cours de maths}).
+\item les vérifier ({\it augmente la rigueur, la capacité de trouver les erreurs et de déterminer si une preuve est juste sans l'intervention d'un professeur}).
+\item retenir les idées importantes susceptibles de resservir.\stopSet
+\item méthodes, algorithmes : 
+\startSet\item Les mémoriser ({\it comprendre leurs forces et leurs faiblesses}).
+\item permet d'utiliser la méthode la plus efficace pour résoudre un problème ({\it souvent différente de la méthode que préferent utiliser les étudiants})
+\stopSet
+\item applications : usage intéréssant d'une propriété
+\startSet\item Les retenir\stopSet
+\item exemples, illustrations, graphiques: aident à comprendre les concepts du cours. Inutiles ensuite.
+\item exercices : pour accroitre sa culture mathématique et sa maitrise technique du cours
+\item remarques : 
+\stopSet</text>
+</concept>
+
+<concept t="définition"><text>Une définition introduit un nouveau concept dans le language mathématique</text>
+<example>\startsdformula
+\text{{\bf un nombre premier} est un nombre entier $n⩾2$ dont les diviseurs positifs sont $1$ et $n$}
+\stopsdformula</example>
+</concept>
+
+<concept t="notation"><text>Une notation introduit un nouveau symbôle ou une nouvelle écriture</text>
+<example>
+\startsdformula
+{a\F b} = a * \underbrace{b^{-1}}_{\text{inverse de } b}\qquad a^n = \underbrace{a×⋯×a}_{n\text{ fois}}\qquad 
+\stopsdformula</example>
+</concept>
+
+
+<concept t="convention"><text>Une convention attribue un sens 
+(choisi par la communauté mathématique) dans un contexte particulier 
+à un concept qui n'en avait pas encore (pour écrire, entre autre, des formules plus simples et plus générales)</text>
+<example>\startsdformula 
+0^0 = 1\qquad ∑_{k=1}^0\e^k = 0\qquad {7\choose 8} = 0
+\stopsdformula</example>
+</concept>
+
+<concept t="théorème"><text>Un théorème énonce une vérité mathématique concernant des concepts existants
+</text>
+<remark>Certains théorèmes préstigieux portent un nom, souvent le nom des mathématiciens qui l'ont découvert ou démontré.</remark>
+<example>\startsdformula
+\text{Le carré d'un nombre réel est positif ou nul}
+\stopsdformula</example>
+</concept>
+
+<concept t="propriété"><text>Une propriété est un théorème moins important</text></concept>
+
+<concept t="corollaire"><text>Un corollaire est une propriété qui découle \quote{immédiatement} d'une autre</text></concept>
+
+<concept t="\rare{lemme}"><text>Un lemme est une propriété qui sert, quasi exclusivement dans le cours, à établir un autre résultat du cours</text></concept>
+
+<concept t="\rare{axiome}"><text>Un axiome est un énoncé fondamental sur lequel est basé une théorie mathématique et qui ne peut être démontré à l'aide des autres axiomes de la théorie</text>
+<remarks><item>Tout l'édifice mathématique utilisé en ECS repose sur les axiomes de Zermelo</item>
+<item>En général, les axiomes sont des propriétés très intuitives et de très bas niveau, trop lourdes à manipuler pour écrire des démonstrations contrairement aux propriétés avancées par le cours</item></remarks>
+<example> Si tout élément de l'ensemble $A$ appartient à l'ensemble $B$, et si tout élément de $B$ appartient $A$, alors $A=B$ {\bf (axiome d’extensionnalité de Zermelo)}.</example>
+</concept>
+
+<!--
+
+<concept t="définition">Une \quote{définition} introduit dans le language mathématique une nouvelle façon de désigner un objet, basée sur des notions déjà existantes. Elle peut être de plusieurs types : 
+définition, notation, convention
+
+<text>Un cours de mathématiques est essentiellement constitué de deux types de propositions :
+\startSet
+\item Les propositions qui introduisent dans le language mathématique une nouvelle façon de désigner un objet, basée sur des notions déjà existantes : 
+\startSet
+\item Une nouvelle notation introduit un nouveau symbôle ou une nouvelle écriture
+\startformula
+{a\F b} = a * \underbrace{b^{-1}}_{\text{inverse de } b}\qquad a^n = \underbrace{a×⋯×a}_{n\text{ fois}}\qquad 
+\stopformula
+\item Une convention attribue un sens (choisi et accépté par la communauté mathématique) dans un contexte particulier à un concept qui n'en avait pas encore (souvent par cohésion, dans un but de généralisation, pour avoir des formules plus générales et plus simples)
+\startformula 
+0^0 = 1\qquad ∑_{k=1}^0\e^k = 0\qquad {7\choose 8} = 0
+\stopformula
+\item Une définition introduit un nouveau concept dans le language mathématique
+\startformula
+\Align{[align=center]
+\NC \text{un nombre premier est un nombre entier $n⩾2$}\NR
+\NC \text{dont les diviseurs positifs sont $1$ et $n$}\NR
+}
+\stopformula
+La définition précédente introduit l'adjectif \quote{premier} dans le language mathématique, qui ne s'applique qu'à certains nombres entiers et repose sur les notions de nombre entier, d'ordre et de diviseur.
+\stopSet
+
+<concept t="définition//propriété"><text>Un cours de mathématiques est essentiellement constitué de deux types de propositions :
+\startSet
+\item Les propositions qui introduisent dans le language mathématique une nouvelle façon de désigner un objet, basée sur des notions déjà existantes : 
+\startSet
+\item Une nouvelle notation introduit un nouveau symbôle ou une nouvelle écriture
+\startformula
+{a\F b} = a * \underbrace{b^{-1}}_{\text{inverse de } b}\qquad a^n = \underbrace{a×⋯×a}_{n\text{ fois}}\qquad 
+\stopformula
+\item Une convention attribue un sens (choisi et accépté par la communauté mathématique) dans un contexte particulier à un concept qui n'en avait pas encore (souvent par cohésion, dans un but de généralisation, pour avoir des formules plus générales et plus simples)
+\startformula 
+0^0 = 1\qquad ∑_{k=1}^0\e^k = 0\qquad {7\choose 8} = 0
+\stopformula
+\item Une définition introduit un nouveau concept dans le language mathématique
+\startformula
+\Align{[align=center]
+\NC \text{un nombre premier est un nombre entier $n⩾2$}\NR
+\NC \text{dont les diviseurs positifs sont $1$ et $n$}\NR
+}
+\stopformula
+La définition précédente introduit l'adjectif \quote{premier} dans le language mathématique, qui ne s'applique qu'à certains nombres entiers et repose sur les notions de nombre entier, d'ordre et de diviseur.
+\stopSet
+\item Les propositions qui énoncent une vérité mathématique concernant des concepts existants. Selon leur importance ou leur usage, on peut leur attribuer divers noms.
+\startSet
+\item Un théorème est une propriété plus importante. Certains théorèmes particulièrement fondamentaux portent un nom, souvent le nom des premiers mathématiciens qui l'ont découvert ou démontré.
+\item Une propriété est un théorème moins important 
+\item Un corollaire est une propriété qui découle \quote{immédiatement} d'une autre.
+\item Un lemme est une propriété qui sert, quasi exclusivement, à établir un autre résultat du cours
+\stopSet
+\stopSet
+Ce qu'il est important de retenir est qu'il y a deux types de connaissances à maitriser dans le cours : 
+\startSet
+\item Les définitions que l'on admet (car elles ne font normalement pas l'objet de démonstration) et que l'on mémorise pour comprendre le language mathématique (comme le vocabulaire d'une langue étrangère)
+\item Les théorèmes (ou propriétés) qui sont prouvées, que l'on mémorise et que l'on apprend à manipuler pour résoudre des problèmes mathématiques (comme la grammaire d'une langue étrangère)
+\stopSet
+</text></concept>
+
+-->
+</chapter>
+</part>
+

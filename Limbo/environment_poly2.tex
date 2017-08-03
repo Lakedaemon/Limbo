@@ -1,68 +1,16 @@
 \startenvironment environment_poly
 \directlua{dofile("Limbo.lua")}
 \unprotect
-
-% mark up
-
-% h for hypotheses
-% i for index
-% m for metadata
-% p for program
-% r for reference
-% t for title
-
-%%% metadata
-% * = advanced
-% + very useful
-% - not usefull
-% § for recording 
-
-% ! = attention/danger
-% ø = °
-% |-(@
-
-
-%%% program
-%μMφΦψΨτTθΘβBεE
-% μ m Maths   (MP)
-% φ Φ Physics (PC)
-% ψ Ψ        (PSI)
-% τ t Techno  (PT)
-% θ Θ      (TSI)
-% β b Bio     (Bcpst)
-% ε E Economie (ECS)
-% βμφτ
-
-
-
-
-
-
-
-%% process the Limbo xml files
-%
-% Sectioning : part/chapter/section/subsection
-%
-% Grouping : concept/group
-%
-% Statement : definition/notation - property/theorem/corrolary/lemma
-%
-% Illustrations : figure/example(application)
-%
-% Explanations : uses/text/remark/method
-%
-% Prooving: proof/
-%
-% Exercice: exercise/ 
-
+% setups for poly
 
 \startxmlsetups xml:poly
 \xmlsetsetup{poly}{*}{-}
-% includes
-\xmlsetsetup{poly}{include}{xml:include}
-\xmlsetsetup{poly}{ref}{xml:inject}
+% root
+\xmlsetsetup{poly}{root}{xml:poly:flush}
 % sectioning
-\xmlsetsetup{poly}{part|chapter|section|subsection|subsubsection|concept}{xml:poly:group}
+\xmlsetsetup{poly}{domain|chapter|section|subsection|subsubsection|concept}{xml:poly:group}
+% context
+\xmlsetsetup{poly}{context}{xml:poly:context}
 % grouping 
 \xmlsetsetup{poly}{group}{xml:poly:group}
 \xmlsetsetup{poly}{combination}{xml:poly:combination}
@@ -75,7 +23,7 @@
 \xmlsetsetup{poly}{figure|example}{xml:poly:*} 
 % text (tertiary info)
 \xmlsetsetup{poly}{remark|remarks|text}{xml:poly:*} 
-%\xmlsetsetup{poly}{remarks/remark}{xml:remarks:remark} 
+%\xmlsetsetup{#1}{remarks/remark}{xml:poly:remarks:remark} 
 % exercises
 \xmlsetsetup{poly}{exercise}{xml:poly:*}
 % proofs
@@ -85,46 +33,44 @@
 
 \xmlregistersetup{xml:poly} 
 
+\startxmlsetups xml:poly:flush
+\xmlflush{#1}%
+\stopxmlsetups
+
 \startxmlsetups xml:poly:craft
-\ctxlua{L.processStatement("#1")}%
+\ctxlua{L.processNewStatement("#1")}%
 \stopxmlsetups
 
 % example
-\iffalse
-\startxmlsetups xml:example
+
+\startxmlsetups xml:poly:example
 \ctxlua{L.processExample("#1")}%
 \stopxmlsetups
-\fi
 
-
-\startxmlsetups xml:poly:include
-\ctxlua{L.processInclude("#1")}%
-\stopxmlsetups
-
-\startxmlsetups xml:poly:inject
-\ctxlua{L.processInject("#1")}%
-\stopxmlsetups
 
 \startxmlsetups xml:poly:group
 \ctxlua{L.processGroup("#1")}%
 \stopxmlsetups
 
+\startxmlsetups xml:poly:context
+\ctxlua{L.processRawContent("#1")}%
+\stopxmlsetups
+
 \startxmlsetups xml:poly:statement
-statement
-\ctxlua{L.processStatement("#1")}%
+\ctxlua{L.processNewStatement("#1")}%
 %\placeleftfigure{}{\useMPgraphic{Frame}}%
 \stopxmlsetups
 
 \startxmlsetups xml:poly:combination
-\ctxlua{L.processCombination("#1")}%
+%\ctxlua{L.processCombination("#1")}%
+\xmlflush{##1}%
 \stopxmlsetups
 
 %exercices
-\iffalse
-\startxmlsetups xml:exercise
+
+\startxmlsetups xml:poly:exercise
 \ctxlua{L.processExercise("#1")}%
 \stopxmlsetups
-\fi
 
 \startxmlsetups xml:poly:figure
 \ctxlua{L.processFigure("#1")}%
@@ -146,9 +92,9 @@ statement
 \stopitemize}%
 \stopxmlsetups
 
-%\startxmlsetups xml:remarks:remark
-%\item\ctxlua{L.processRawContent("#1")}%
-%\stopxmlsetups
+\startxmlsetups xml:poly:remarks:remark
+\item\ctxlua{L.processRawContent("#1")}%
+\stopxmlsetups
 
 % texts
 
@@ -172,8 +118,6 @@ statement
 \flushsidefloats
 \stopxmlsetups
 
-%\def\setupCourse#1{\ctxlua{L.setCourse("#1")}}
-%\def\completeRecords{\ctxlua{L.showRecords()}}%
 
 \protect
 \stopenvironment

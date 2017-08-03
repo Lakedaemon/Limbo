@@ -4,14 +4,27 @@
 
 <chapter t="Logique">
 
-<remark>
-Les outils de ce chapitre font parti des bases importantes, ils sont utilisés en concours pour :
-\startList\item Reconnaître le type d'une suite et identifier ses éléments caractéristiques
-\item Trouver une formule pour $u_n$
-\item Utiliser la somme des termes d'une suite au cours d'un calcul complexe.
-\stopList
-Utilisation en ds/concours : fréquente.
-</remark>
+<text>
+Les notions de ce chapitre font parti des bases fondamentales. 
+Bien qu'il soit extrémement improbable qu'elles soient l'object d'un exercice au concours, 
+elles ont un impact très sensible sur le resultat au concours car : 
+\startSet\item Beaucoup de questions peuvent se traiter par récurrence
+\item La valeur d'une démonstration dépend de l'articulation logique sous-jacente.
+\item La compréhension fine de certaines questions nécessite une bonne maitrise de la logique.
+\stopSet
+
+</text>
+
+<text>
+L'objectif du programme en ECS est d'acquérir le vocabulaire élémentaire des raisonnements mathématiques : 
+\startSet
+\item Connecteurs : et, ou, non, implication, réciproque, contraposée
+\item Quantificateurs : $∀$, $∃$.
+\item Propositions utilisant les connecteurs et les quantificateurs
+\item Nier une propoisition
+\item Raisonnement par récurrence
+\stopSet
+</text>
 
 <section t="Assertions et propositions logiques">
 
