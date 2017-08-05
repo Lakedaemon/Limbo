@@ -1,5 +1,6 @@
 \startproduct Limbo
 \project project_Cours
+\setupCourse{e}
 
 \definepapersize[emc][width=29.7cm,height=21cm]
 \setuppapersize[emc][emc]
@@ -36,99 +37,6 @@
 %\meaning\doxmlprocess
 %\ctxlua{L.test()}%
 
-\def\applySettups#1{
-\startxmlsetups xml:#1
-\xmlsetsetup{#1}{*}{-}
-\xmlsetsetup{#1}{root}{xml:#1:flush}%
-% sectioning
-\xmlsetsetup{#1}{part|chapter|section|subsection|subsubsection|concept}{xml:#1:group}
-%\xmlsetsetup{#1}{part|chapter|section|subsection|subsubsection|concept}{xml:#1:group}%
-% grouping 
-\xmlsetsetup{#1}{group}{xml:#1:group}
-\xmlsetsetup{#1}{context}{xml:#1:context}
-%\xmlsetsetup{suites}{combination}{xml:combination}
-%\xmlsetsetup{maths}{combination/property}{xml:combination/statement}
-% statements (primary objects)
-\xmlsetsetup{#1}{corollary|definition|lemma|notation|property|theorem|}{xml:#1:statement} 
-% best practice (secondary info)
-\xmlsetsetup{#1}{craft|uses|item}{xml:#1:*}
-% illustration
-%\xmlsetsetup{#1}{figure|example}{xml:#1:*} 
-% text (tertiary info)
-%\xmlsetsetup{#1}{remark|remarks|text}{xml:#1:*} 
-
-% exercises
-%\xmlsetsetup{#1}{exercise}{xml:#1:*}
-% proofs
-%\xmlsetsetup{#1}{proof}{xml:#1:*}
-\stopxmlsetups 
-\xmlregistersetup{xml:#1} 
-
-
-\startxmlsetups xml:#1:flush
-\xmlflush{##1}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:group
-\ctxlua{L.processGroupCours("##1")}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:context
-\ctxlua{L.processRawContent("##1")}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:statement
-\ctxlua{L.processStatementCours("##1")}%
-%\placeleftfigure{}{\useMPgraphic{Frame}}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:craft
-\ctxlua{L.processStatementCours("##1")}%
-\stopxmlsetups
-
-
-\startxmlsetups xml:#1:combination
-\ctxlua{L.processCombination("##1")}%
-\stopxmlsetups
-\startxmlsetups xml:#1:example
-\ctxlua{L.processExample("##1")}%
-\stopxmlsetups
-
-
-
-
-% remarks
-\startxmlsetups xml:#1:remark
-\ctxlua{L.processRemark("##1")}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:remarks 
-{\tenpoint\startitemize[packed,intext,joinedup,2,nowhite,after]%
-\xmlflush{##1}%
-\stopitemize}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:remarks:remark
-\item\ctxlua{L.processRawContent("##1")}%
-\stopxmlsetups
-
-% texts
-\startxmlsetups xml:#1:text
-\ctxlua{L.processRawContent("##1")}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:uses
-{\tenpoint
-\startitemize[packed,intext,joinedup,4,nowhite,after]
-\xmlflush{##1}%
-\stopitemize}
-\stopxmlsetups
-
-
-\startxmlsetups xml:#1:item
-\ctxlua{L.processContent("##1","\\item")}%
-\stopxmlsetups
-}
 
 \def\pn{\medskip}
 
@@ -143,6 +51,7 @@
 \setuplist[subsection][width=3.5em, margin=2.5em]   
 \setuplist[subject][margin=1.5em]
 \setupcombinedlist[content][list={domain, chapter,section,subsection}]
+\applyIgnoreSettups{introduction}
 \applySettups{suites}
 \applySettups{sommes}
 \applySettups{logique}
@@ -153,7 +62,7 @@
 \applySettups{polynomes}
 \applySettups{probabilités}
 \applySettups{VAR}
-\applySettups{maths}
+\applySettups{cours}
 
 
 \iffalse
@@ -308,7 +217,8 @@
 
 \starttext
 \chapter{Fiches}
-\completeRecords
+\ctxlua{L.showFiches()}
+%\completeRecords
 \stopcolumns
 \stoptext
 

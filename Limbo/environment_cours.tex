@@ -54,146 +54,126 @@
 % Prooving: proof/
 %
 % Exercice: exercise/ 
+\def\applyIgnoreSettups#1{
+\startxmlsetups xml:#1
+\xmlsetsetup{#1}{*}{-}
+\stopxmlsetups 
+\xmlregistersetup{xml:#1} 
+}
 
-
-\startxmlsetups xml:cours
-\xmlsetsetup{cours}{*}{-}
-% root
-\xmlsetsetup{cours}{root}{xml:cours:flush}
+\def\applySettups#1{
+\startxmlsetups xml:#1
+\xmlsetsetup{#1}{*}{-}
+\xmlsetsetup{#1}{root}{xml:#1:flush}%
 % includes
 \xmlsetsetup{cours}{include}{xml:cours:include}
 \xmlsetsetup{cours}{ref}{xml:cours:inject}
 % sectioning
-\xmlsetsetup{cours}{domain|chapter|section|subsection|subsubsection|concept}{xml:cours:group}
+\xmlsetsetup{#1}{domain|part|chapter|section|subsection|subsubsection|concept}{xml:#1:group}
+%\xmlsetsetup{#1}{part|chapter|section|subsection|subsubsection|concept}{xml:#1:group}%
 % grouping 
-\xmlsetsetup{cours}{group}{xml:cours:group}
-\xmlsetsetup{cours}{combination}{xml:cours:combination}
-
-\xmlsetsetup{cours}{context}{xml:cours:context}
-%\xmlsetsetup{cours}{combination/property}{xml:combination/statement}
+\xmlsetsetup{#1}{group}{xml:#1:group}
+\xmlsetsetup{#1}{context}{xml:#1:context}
+\xmlsetsetup{#1}{combination}{xml:#1:flush}
+%\xmlsetsetup{maths}{combination/property}{xml:combination/statement}
 % statements (primary objects)
-\xmlsetsetup{cours}{corollary|definition|lemma|notation|property|theorem|}{xml:cours:statement} 
+\xmlsetsetup{#1}{corollary|definition|lemma|notation|property|theorem|}{xml:#1:statement} 
 % best practice (secondary info)
-\xmlsetsetup{cours}{craft|uses|item}{xml:cours:*}
+\xmlsetsetup{#1}{craft}{xml:#1:*}
+%\xmlsetsetup{#1}{uses|item}{xml:#1:*}
 % illustration
-\xmlsetsetup{cours}{figure|example}{xml:cours:*} 
+%\xmlsetsetup{#1}{figure|example}{xml:#1:*} 
 % text (tertiary info)
-\xmlsetsetup{cours}{remark|remarks|text}{xml:cours:*} 
-%\xmlsetsetup{cours}{remarks/remark}{xml:remarks:remark} 
+%\xmlsetsetup{#1}{remark|remarks|text}{xml:#1:*} 
+
 % exercises
-\xmlsetsetup{cours}{exercise}{xml:cours:*}
+%\xmlsetsetup{#1}{exercise}{xml:#1:*}
 % proofs
-\xmlsetsetup{cours}{proof}{xml:cours:*}
-
+%\xmlsetsetup{#1}{proof}{xml:#1:*}
 \stopxmlsetups 
-
-\xmlregistersetup{xml:cours} 
-
-\startxmlsetups xml:cours:flush
-\xmlflush{#1}%
-\stopxmlsetups
-
-\startxmlsetups xml:cours:craft
-\ctxlua{L.processStatement("#1")}%
-\stopxmlsetups
-
-% example
-\iffalse
-\startxmlsetups xml:example
-\ctxlua{L.processExample("#1")}%
-\stopxmlsetups
-\fi
-
+\xmlregistersetup{xml:#1} 
 
 \startxmlsetups xml:cours:include
-\ctxlua{L.processInclude("#1")}%
+\ctxlua{L.processInclude("##1")}%
 \stopxmlsetups
 
 \startxmlsetups xml:cours:inject
-\ctxlua{L.processInject("#1")}%
+\ctxlua{L.processInject("##1")}%
 \stopxmlsetups
 
-\startxmlsetups xml:cours:context
-\xmlflush{#1}%
+\startxmlsetups xml:#1:flush
+\xmlflush{##1}%
 \stopxmlsetups
 
-\startxmlsetups xml:cours:group
-\ctxlua{L.processGroup("#1")}%
+\startxmlsetups xml:#1:group
+\ctxlua{L.processGroupCours("##1")}%
 \stopxmlsetups
 
-\startxmlsetups xml:cours:statement
-\ctxlua{L.processNewStatement("#1")}%
+\startxmlsetups xml:#1:context
+\ctxlua{L.processRawContent("##1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:statement
+\ctxlua{L.processStatementCours("##1")}%
 %\placeleftfigure{}{\useMPgraphic{Frame}}%
 \stopxmlsetups
 
-\startxmlsetups xml:cours:combination
-\xmlflush{#1}%
-%\ctxlua{L.processCombination("#1")}%
+\startxmlsetups xml:#1:craft
+\ctxlua{L.processStatementCours("##1")}%
 \stopxmlsetups
 
-%exercices
 \iffalse
-\startxmlsetups xml:exercise
-\ctxlua{L.processExercise("#1")}%
+\startxmlsetups xml:#1:combination
+\ctxlua{L.processCombination("##1")}%
 \stopxmlsetups
 \fi
 
-\startxmlsetups xml:cours:figure
-\ctxlua{L.processFigure("#1")}%
+\startxmlsetups xml:#1:example
+\ctxlua{L.processExample("##1")}%
 \stopxmlsetups
 
-% proofs
-\iffalse
-\startxmlsetups xml:proof
-\ctxlua{L.processProof("#1")}%
-\stopxmlsetups
-\fi
+
+
 
 % remarks
-\iffalse
-\startxmlsetups xml:remark
-\ctxlua{L.processRemark("#1")}%
+\startxmlsetups xml:#1:remark
+\ctxlua{L.processRemark("##1")}%
 \stopxmlsetups
 
-\startxmlsetups xml:remarks 
+\startxmlsetups xml:#1:remarks 
 {\tenpoint\startitemize[packed,intext,joinedup,2,nowhite,after]%
-\xmlflush{#1}%
+\xmlflush{##1}%
 \stopitemize}%
 \stopxmlsetups
 
-\startxmlsetups xml:remarks:remark
-\item\ctxlua{L.processRawContent("#1")}%
+\startxmlsetups xml:#1:remarks:remark
+\item\ctxlua{L.processRawContent("##1")}%
 \stopxmlsetups
-\fi
 
 % texts
-\iffalse
-\startxmlsetups xml:text
-
-\ctxlua{L.processRawContent("#1")}%
+\startxmlsetups xml:#1:text
+\ctxlua{L.processRawContent("##1")}%
 \stopxmlsetups
-\fi
 
-\iffalse
-\startxmlsetups xml:uses
+\startxmlsetups xml:#1:uses
 {\tenpoint
 \startitemize[packed,intext,joinedup,4,nowhite,after]
-\xmlflush{#1}%
+\xmlflush{##1}%
 \stopitemize}
 \stopxmlsetups
 
 
-\startxmlsetups xml:item
-\ctxlua{L.processContent("#1","\\item")}%
+\startxmlsetups xml:#1:item
+\ctxlua{L.processContent("##1","\\item")}%
 \stopxmlsetups
-\fi
+}
 
-\startxmlsetups xml:cours:flushsidefloats
-\flushsidefloats
-\stopxmlsetups
 
-\def\setupCourse#1{\ctxlua{L.setCourse("#1")}}
-\def\completeRecords{\ctxlua{L.showRecords()}}%
+
+
+
+%\def\setupCourse#1{\ctxlua{L.setCourse("#1")}}
+
 
 \protect
 \stopenvironment

@@ -1,7 +1,8 @@
 <?xml version='1.0' standalone='yes'?>
 <root>
+<include path="xml/Maths_suites.xml" as="suites"/>
 <domain title="Métadonnées">
-<chapter t="Avant propos" sequence="0">
+<chapter t="Avant propos">
 <include path="xml/ECS_Avant_propos.xml" as="introduction"/>
 <ref from="introduction" path="chapter"/>
 </chapter>
@@ -51,15 +52,15 @@ L'objectif du programme en ECS est d'acquérir le vocabulaire élémentaire des 
 
 <programme>
 \startSet\item Emploi du raisonnement par récurrence
-\item Notations $\sum$, $\prod$ {\it Les étudiants doivent savoir employer les notations $\ds\sum_{i=1}^nu_i$ et $\ds\sum_{i\in A}u_i$ où A désigne un sous-ensemble de $\ob N$ ou $\ob N^2$}
-\item Formules $\ds\sum_{k=0}^nq^k$ et $\ds\sum_{k=1}^nk$.
-\item Exemples : formules donnant $\ds\sum_{k=1}^nk^2$ et $\ds\sum_{k=1}^nk^3$
+\item Notations $\sum$, $\prod$ {\it Les étudiants doivent savoir employer les notations $\displaystyle\sum_{i=1}^nu_i$ et $\displaystyle\sum_{i∈ A}u_i$ où $A$ désigne un sous-ensemble de $ℕ$ ou $ℕ^2$}
+\item Formules $\displaystyle\sum_{k=0}^nq^k$ et $\displaystyle\sum_{k=1}^nk$.
+\item Exemples : formules donnant $\displaystyle\sum_{k=1}^nk^2$ et $\displaystyle\sum_{k=1}^nk^3$
 \item Définition de $n!$
-\stopset
+\stopSet
 </programme>
 
 <remark>
-Les outils de ce chapitre font domaini des bases importantes. 
+Les outils de ce chapitre font parti des bases importantes. 
 Utilisation en ds/concours : 
 \startSet\item Récurrence : très fréquente (certaines questions se traitent exclusivement par récurrence)
 \item Somme : très fréquente (utilisées pour exprimer et manipuler les quantités étudiées dans les problèmes) 
@@ -103,7 +104,7 @@ En concours, il ne devrait pas y avoir de problème portant uniquement sur ces n
 
 </section>
 
-<section t="Produits et factorielle">
+<section t="Produits et factorielles">
 <ref from="sommes" path="section[@t=='Produits et factorielles']"/>
 </section>
 <!--
@@ -121,24 +122,40 @@ En concours, il ne devrait pas y avoir de problème portant uniquement sur ces n
 <programme t="A1.3 (fonctions)"></programme>
 <remark>
 Les outils de ce chapitre font domaini des bases importantes, ils sont utilisés en concours pour :
-\startList\item Reconnaître le type d'une suite et identifier ses éléments caractéristiques
+\startSet\item Reconnaître le type d'une suite et identifier ses éléments caractéristiques
 \item Trouver une formule pour $u_n$
 \item Utiliser la somme des termes d'une suite au cours d'un calcul complexe.
-\stopList
+\stopSet
 Utilisation en ds/concours : fréquente.
 </remark>
 
 <section t="Ensembles">
+<programme t="I.3.a. Ensembles, parties d'un ensemble">
+\startSet\item Appartenance. Inclusion. Notations $∈$, $⊂$.
+\item Ensemble $P(E)$ des parties de $E$.
+\item Complémentaire. La notation $\overline A$ est à privilégier. En cas d'ambiguïté, on utilisera la notation $\complement^A_E$
+\item Union, intersection. Notations $\cap$, $\cup$. Distributivité. Lois de Morgan.
+\item Définition du produit cartésien d'ensembles. $R^2$ et $R^n$
+\item lien entre les opérations ensemblistes et les connecteurs logiques
+\stopSet
+</programme>
 
 <ref from="ensembles" path="section[@t=='Ensembles']"/>
 
 </section>
 
-<section t="Applications">
-<ref from="ensembles" path="section[@t=='Applications']"/>
-</section>
+<section t="{Fonctions et applications}">
+<programme t="I.3.b. Applications">
+\startSet\item Définition. Composée de deux applications.
+\item Restriction et prolongement d'une application.
+\item Applications injectives, surjectives, bijectives.
+\stopSet
+</programme>
 
+<ref from="ensembles" path="section[@t=='{Fonctions et applications}']"/>
+</section>
 </chapter>
+
 
 <chapter t="Combinatoire">
 <programme t="A6.4 combinatoire"></programme>
@@ -146,7 +163,28 @@ Utilisation en ds/concours : fréquente.
 
 
 <chapter t="Ensembles de nombres">
+
+
 <programme t="A4.1 ℝ"></programme>
+
+<section t="Ensemble $ℝ$ des nombres réels" sequence="4">
+<programme t="IV.1 Vocabulaire sur l'ensemble $\ob R$ des nombres réels">
+\startSet\item Valeur absolue. Inégalité triangulaire
+\item Partie entière d'un réel. \crlf
+{\it Notation $\lfloor x\rfloor$ . La notation $E(\cdot)$ est réservée à l'espérance mathématique.}
+\item Majorant, minorant, maximum, minimum, borne supérieure, borne inférieure d'une partie non vide de $\ob R$.
+\crlf{\it Quand il existe, le maximum de $A$ coincide avec la borne supérieure de $A$.}
+\item Théorème de la borne supérieure. {\it Résultat admis.}
+</programme>
+
+<subsection t="Ordre réel">
+
+<ref from="suites" path="subsection[@t=='Ordre réel']"/>
+</subsection>
+</section>
+
+
+
 </chapter>
 
 
@@ -158,6 +196,20 @@ Utilisation en ds/concours : fréquente.
 <include path="xml/Maths_suites.xml" as="suites"/>
 
 <programme t="A1.2 (suites)">
+\startSet\item Limite d'une suite, suites convergentes. \crlf{\it On dit que $(u_n)$ converge vers $\ell$ si tout intervalle ouvert contenant $\ell$ contient les $u_n$ pour tous les indices $n$, sauf pour un nombre fini d'entre eux. }\crlf
+On donnera une définition quantifiée de la limite $\ell$ (traduction en $ε, n_0$) sans en faire une utilisation systématique.
+\item Généralisation aux suites tendant vers $±∞$.
+\item Unicité de la limite.
+\item Opérations algébriques sur les suites convergentes.
+\item Compatibilité du passage à la limite avec la relation d'ordre.
+\item Existence d'une limite par encadrement.
+\item Suites monotones, croissantes, décroissantes,suites adjacentes.
+\item Théorème de limite monotone. \crlf{\it Toute suite croissante majorée (respectivement décroissante minorée) converge, la limite étant
+la borne supérieure (respectivement inférieure) de l'ensemble des valeurs de la suite.}
+\item Une suite croissante non majorée (respectivement décroissante non minorée) tend vers $+∞$ (respectivement $−∞$).
+\item Deux suites adjacentes convergent et ont même limite.
+\item Rappel des croissances comparées. \crlf{\it Comparaisons des suites $(n!)$, $(n^a)$, $(q^n)$, $(ln(n)^b)$ }
+\stopSet
 </programme>
 
 <remark>
@@ -169,19 +221,78 @@ Les outils de ce chapitre font domaini des bases importantes, ils sont utilisés
 Utilisation en ds/concours : fréquente.
 </remark>
 
-<section t="Suites numériques">
-
-<ref from="suites" path="section[@t=='Suites']"/>
-
+<section t="Généralités">
+<ref from="suites" path="section[@t=='Suites']/subsection[@t=='Suites']"/>
 </section>
 
-<section t="Suites réelles">
-<ref from="suites" path="section[@t=='Suites réelles']"/>
+<section t="Suites fondamentales" sequence="1">
+
+<remark>
+Les outils de cette section font parti des bases importantes, ils sont utilisés en concours pour :
+\startList\item Reconnaître le type d'une suite et identifier ses éléments caractéristiques
+\item Trouver une formule pour $u_n$
+\item Utiliser la somme des termes d'une suite au cours d'un calcul complexe.
+\stopList
+Utilisation en ds/concours : fréquente.
+</remark>
+
+<subsection t="Suites arithmétiques">
+<ref from="suites" path="subsection[@t=='Suites arithmétiques']"/>
+</subsection>
+
+<subsection t="Suites géométriques">
+<ref from="suites" path="subsection[@t=='Suites géométriques']"/>
+</subsection>
+
+<subsection t="Suites arithmético-géométriques">
+<ref from="suites" path="subsection[@t=='Suites arithmético-géométriques']"/>
+</subsection>
+
+<subsection t="Suites vérifiant une récurrence linéaire du second ordre">
+<ref from="suites" path="subsection[@t=='Récurrences linéaires']"/>
+</subsection>
 </section>
 
-<section t="Comparaison">
-<ref from="suites" path="subsection[@t=='Comparaison']"/>
+<section t="Suites bornées, minorées, majorées">
+<ref from="suites" path="section[@t=='Suites']/subsection[@t=='Suites bornées']"/>
+<ref from="suites" path="section[@t=='Suites réelles']/subsection[@t=='Suites minorées, majorées']"/>
 </section>
+
+<section t="Suites convergentes">
+<ref from="suites" path="section[@t=='Suites']/subsection[@t=='Suites convergentes']"/>
+<ref from="suites" path="section[@t=='Suites réelles']/subsection[@t=='Suites convergentes']"/>
+</section>
+
+<section t="Suites divergeant vers l'infini">
+<ref from="suites" path="subsection[@t=='Suites divergeant vers l’infini']"/>
+</section>
+
+<section t="Suites monotones">
+<ref from="suites" path="subsection[@t=='Suites monotones']"/>
+</section>
+
+<section t="Suites négligeables" sequence="22">
+<programme t="II.1a">
+\startSet
+\item Suites négligeables. Notation $u_n = o(v_n)$.
+\item Croissances comparées
+\stopSet</programme>
+
+<ref from="suites" path="subsection[@t=='Suites négligeables']"/>
+</section>
+
+<section t="Suites équivalentes" sequence="22">
+
+<programme t="II.1b">
+\startSet
+\item Suites équivalentes. Notation $u_n∼v_n$.
+\item $u_n∼v_n ⟺ u_n = v_n + o(v_n)$
+\item Compatibilité de l'équivalence avec le produit,le quotient et l'élévation à une puissance.
+\stopSet</programme>
+
+<ref from="suites" path="subsection[@t=='Suites équivalentes']"/>
+</section>
+
 </chapter>
 
 </domain>

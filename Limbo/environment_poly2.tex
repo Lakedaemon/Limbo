@@ -2,13 +2,15 @@
 \directlua{dofile("Limbo.lua")}
 \unprotect
 % setups for poly
-
+\iftrue
 \startxmlsetups xml:poly
 \xmlsetsetup{poly}{*}{-}
 % root
 \xmlsetsetup{poly}{root}{xml:poly:flush}
 % sectioning
 \xmlsetsetup{poly}{domain|chapter|section|subsection|subsubsection|concept}{xml:poly:group}
+% programme
+\xmlsetsetup{poly}{programme}{xml:poly:programme}
 % context
 \xmlsetsetup{poly}{context}{xml:poly:context}
 % grouping 
@@ -50,6 +52,11 @@
 
 \startxmlsetups xml:poly:group
 \ctxlua{L.processGroup("#1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:poly:programme
+Attentes du programme : 
+\ctxlua{L.processRawContent("#1")}%
 \stopxmlsetups
 
 \startxmlsetups xml:poly:context
@@ -117,7 +124,112 @@
 \startxmlsetups xml:poly:flushsidefloats
 \flushsidefloats
 \stopxmlsetups
+\fi
+
+\def\applySettups#1{
+\startxmlsetups xml:#1
+\xmlsetsetup{#1}{*}{-}
+\xmlsetsetup{#1}{root}{xml:#1:flush}%
+% includes
+\xmlsetsetup{#1}{include}{xml:#1:include}
+\xmlsetsetup{#1}{ref}{xml:#1:inject}
+% sectioning
+\xmlsetsetup{#1}{domain|part|chapter|section|subsection|subsubsection|concept}{xml:#1:group}
+%\xmlsetsetup{#1}{part|chapter|section|subsection|subsubsection|concept}{xml:#1:group}%
+% grouping 
+\xmlsetsetup{#1}{group}{xml:#1:group}
+\xmlsetsetup{#1}{context}{xml:#1:context}
+\xmlsetsetup{#1}{combination}{xml:#1:flush}
+%\xmlsetsetup{maths}{combination/property}{xml:combination/statement}
+% statements (primary objects)
+\xmlsetsetup{#1}{corollary|definition|lemma|notation|property|theorem|}{xml:#1:statement} 
+% best practice (secondary info)
+\xmlsetsetup{#1}{craft}{xml:#1:*}
+%\xmlsetsetup{#1}{uses|item}{xml:#1:*}
+% illustration
+%\xmlsetsetup{#1}{figure|example}{xml:#1:*} 
+% text (tertiary info)
+%\xmlsetsetup{#1}{remark|remarks|text}{xml:#1:*} 
+
+% exercises
+%\xmlsetsetup{#1}{exercise}{xml:#1:*}
+% proofs
+%\xmlsetsetup{#1}{proof}{xml:#1:*}
+\stopxmlsetups 
+\xmlregistersetup{xml:#1} 
+
+\startxmlsetups xml:#1:include
+\ctxlua{L.processInclude("##1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:inject
+\ctxlua{L.processInject("##1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:flush
+\xmlflush{##1}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:group
+\ctxlua{L.processGroupCours("##1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:context
+\ctxlua{L.processRawContent("##1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:statement
+\ctxlua{L.processStatementCours("##1")}%
+%\placeleftfigure{}{\useMPgraphic{Frame}}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:craft
+\ctxlua{L.processStatementCours("##1")}%
+\stopxmlsetups
+
+%\startxmlsetups xml:#1:combination
+%\ctxlua{L.processCombination("##1")}%
+%\stopxmlsetups
 
 
+\startxmlsetups xml:#1:example
+\ctxlua{L.processExample("##1")}%
+\stopxmlsetups
+
+
+
+
+% remarks
+\startxmlsetups xml:#1:remark
+\ctxlua{L.processRemark("##1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:remarks 
+{\tenpoint\startitemize[packed,intext,joinedup,2,nowhite,after]%
+\xmlflush{##1}%
+\stopitemize}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:remarks:remark
+\item\ctxlua{L.processRawContent("##1")}%
+\stopxmlsetups
+
+% texts
+\startxmlsetups xml:#1:text
+\ctxlua{L.processRawContent("##1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:uses
+{\tenpoint
+\startitemize[packed,intext,joinedup,4,nowhite,after]
+\xmlflush{##1}%
+\stopitemize}
+\stopxmlsetups
+
+
+\startxmlsetups xml:#1:item
+\ctxlua{L.processContent("##1","\\item")}%
+\stopxmlsetups
+}
 \protect
 \stopenvironment

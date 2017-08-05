@@ -5,93 +5,70 @@
 
 <section t="Ensembles">
 
-<concept t="ensemble"><definition>Un ensemble est une collection d’objets</definition>
+<concept t="ensemble"><definition t="ensemble">Un ensemble est une collection d’objets</definition>
 <remark>La propriété fondamentale d'un ensemble est la capacité à déterminer si un objet quelconque lui appartient ou non.</remark>
 </concept>
 
 <concept t="élément">
-<definition h="$E$ ensemble">Un élément de $E$ est un objet appartenant à $E$</definition>
-<remark>On note $x∈E$ lorsque l'object $x$ appartient à l'ensemble $E$ et $x\notin E$ dans le cas contraire</remark>
+<definition>Un élément d'un ensemble $E$ est un objet appartenant à $E$</definition>
+<remarks><item>On note $x∈E$ lorsque l'object $x$ appartient à l'ensemble $E$ et $x\notin E$ dans le cas contraire</item>
+<item>En particulier, $E$ est un ensemble \ssi l'assertion $x∈E$ est une proposition logique pour tout $x$ (de même que sa négation $x∉E$)</item></remarks>
 </concept>
 
 <concept t="ensemble vide"><text>L'ensemble vide $\varnothing$ est l'ensemble qui ne contient aucun élément.</text>
-<definition>\startformula 
-\varnothing = \{\}
-\stopformula</definition>
+<definition t="ensemble vide">$\varnothing = \{\}$</definition>
 <remark>L'ensemble vide est unique.</remark>
 </concept>
 
+<context>Dans la suite de cette section, $A$, $B$ et $C$ désignent des ensembles.</context>
+
 <concept t="inclusion"><text>Un ensemble $A$ est inclus dans un ensemble $B$ \ssi tous les éléments de $A$ sont dans~$B$.</text>
-<definition h="$A,B$ ensembles">
-\startformula
-A⊂B ⟺ (∀ a∈A, a∈B)
-\stopformula
-</definition>
-<remark>On a également
-\startformula
-A⊂B ⟺ (a∈A ⟹ a∈B)
-\stopformula</remark>
+<definition t="inclusion" c="" h="$A,B$ ensembles">$A⊂B ⟺ (∀ a∈A, a∈B)$</definition>
+<remark>Lien logique : $A⊂B⟺ (x∈A ⟹ x∈B)$</remark>
 </concept>
 
 <concept t="Double inclusion">
 <text>Deux ensembles sont égaux \ssi ils ont les mêmes éléments</text>
-<definition h="$A,B$ ensembles">
-\startformula
-(A⊂B \Et B⊂A) ⟺ (A = B).
-\stopformula
-</definition>
+<property t="double inclusion" c="" h="$A,B$ ensembles">$(A⊂B \Et B⊂A) ⟺ (A = B)$</property>
+<remark>\rare{Cette propriété est en fait l'axiome d'extensionnalité de Zermelo}</remark>
+<remark>Lien logique : $A=B ⟺ (x∈A ⟺ x∈B)$</remark>
 </concept>
 
 <concept t="Sous-ensemble\\partie">
 <text>Tout ensemble $B$ inclus dans un ensemble $A$ est appelé une partie de $A$ ou un sous-ensemble de $A$.</text>
-<definition h="$A,B$ ensembles">
-\startformula
-A \text{ partie de }B ⟺ A⊂B
-\stopformula</definition>
+<definition t="Sous-ensemble" c="" h="$A,B$ ensembles">$B \text{ partie de }A ⟺ B⊂A$</definition>
 </concept>
 
-<concept t="ensemble des parties"><text>L'ensemble $\mc P(A)$ des parties d'un ensemble $A$ est l'ensemble constitué de tous les sous-ensembles de $A$.</text>
-<definition h="$A$ ensemble">
-\startformula 
-\mc P(A):=\{B:B ⊂ A\}
-\stopformula
-</definition>
+<concept t="Ensemble des parties"><text>L'ensemble $\mc P(A)$ des parties d'un ensemble $A$ est l'ensemble constitué de tous les sous-ensembles de $A$.</text>
+<definition t="ensemble des parties" c="" h="$A$ ensemble">$\mc P(A):=\{B:B ⊂ A\}$</definition>
+<remark>Lien logique : $A∈\mc P(B)⟺ A ⊂ B$</remark>
 </concept>
 
 <concept t="intersection">
 <text>L'intersection de deux ensembles est l'ensemble constitué par les éléments communs aux deux ensembles</text>
-<definition h="$A,B$ ensembles">
-\startformula 
-A∩B:=\{x:x ∈ A \Et x∈B\}
-\stopformula
-</definition>
+<definition t="intersection" c="" h="$A,B$ ensembles">$A∩B:=\{x:x ∈ A \Et x∈B\}$</definition>
+<remark>Lien logique : $x∈A∩B⟺ (x∈A \Et x∈B)$</remark>
 </concept>
 
 <concept t="intersection\\multiple">
 <text>L'intersection d'une famille d'ensembles est l'ensemble constitué par les éléments communs à tous les ensembles de la famille</text>
-<definition h="$A_i$ ensemble d'indice $i∈I$">
-\startformula 
-⋂_{i∈I}A_i:=\{x:∀i∈I, x∈A_i\}
-\stopformula
-</definition>
+<definition c="" h="$A_i$ ensemble d'indice $i∈I$">$\displaystyle ⋂_{i∈I}A_i:=\{x:∀i∈I, x∈A_i\}$</definition>
+<remark>Lien logique : $x∈⋂_{i∈I}A_i⟺ (∀i∈I, x∈A_i)$</remark>
 </concept>
 
 <concept t="réunion">
 <text>La réunion de deux ensembles est l'ensemble constitué par les éléments appartenant à au moins l'un des deux ensembles</text>
-<definition h="$A,B$ ensembles">
-\startformula 
-A∪B:=\{x:x ∈ A \Ou x ∈ B\}.
-\stopformula
-</definition>
-<remark>Trois ensembles $A$, $B$ et $C$ vérifient
-\startformula
+<definition  t="réunion" c="" h="$A,B$ ensembles">$A∪B:=\{x:x ∈ A \Ou x ∈ B\}$</definition>
+<remark>Lien logique : $x∈A∪B⟺ (x∈A \Ou x∈B)$</remark>
+</concept>
+
+<concept t="distributivité">
+<property t="distributivité">$\displaystyle
 \Align{
 \NC (A∪B)∩C=(A∩C)∪(B∩C)\NR 
 \NC (A∩B)∪C=(A∪C)∩(B∪C)\NR 
-}
-\stopformula</remark>
+}$</property>
 </concept>
-
 
 <concept t="réunion\\multiple">
 <text>La réunion d'une famille d'ensembles est l'ensemble constitué par les éléments appartenant à au moins l'un des ensembles de la famille</text>
@@ -100,29 +77,28 @@ A∪B:=\{x:x ∈ A \Ou x ∈ B\}.
 ⋃_{i∈I}A_i:=\{x: ∃i∈I,x∈A_i\}
 \stopformula
 </definition>
+<remark>Lien logique : $x∈⋃_{i∈I}A_i⟺ (∃i∈I, x∈A_i)$</remark>
 </concept>
 
 <concept t="complémentaire"><text>Le complémentaire d'un ensemble $A$ dans un ensemble $B$ est formé des éléments de $B$ qui ne sont pas dans $A$ (c'est $B$ privé des éléments de $A$).</text>
-<definition h="$A⊂B$">
-\startformula 
-∁_B(A)=B∖A:=\{x∈B:x\∉ A\}
-\stopformula</definition>
-<remark>Pour simplifier les notations et lorsqu'il est évident que les complémentaires sont calculés dans un ensemble $D$, on note parfois $\bar A=∁_D(A)$.
-Ainsi, dans l'ensemble $D$, deux parties $A$ et $B$ quelconques vérifient 
-\startformula
-\Align{
-\NC \overline{\overline A} = A\NR 
+<definition t="complémentaire" c="" h="$A⊂B$">$\complement_B(A):=\{x∈B:x\∉ A\}=:B∖A$</definition>
+<remarks><item>Pour simplifier les notations et lorsqu'il est évident que les complémentaires sont calculés dans un ensemble $D$, on note parfois $\bar A=∁_D(A)$.</item>
+<item>Lien logique : $x∈\overline A ⟺ \overline{x∈A}⟺ x\∉A$</item>
+<item>Lien logique : $x∈B∖A ⟺ x∈B \Et x\∉A$</item>
+</remarks>
+</concept>                                                     
+
+<concept t="involution">
+<property t="involution">$\overline{\ \overline A\ } = A$</property></concept>
+
+<concept t="lois de Morgan">
+<property t="lois de Morgan">$\displaystyle\Align{
 \NC \overline{A∩B}=\overline A∪\overline B\NR 
 \NC \overline{A∪B}=\overline A∩\overline B
-}
-\stopformula</remark>
-</concept>
+}$</property></concept>
 
 <concept t="disjonction"><text>Deux ensembles sont disjoints s'ils n'ont aucun élément en commun</text>
-<definition h="$A,B$ ensembles">
-\startformula
-A\Et B \text{ disjoints} \ ⟺\  A∩B=\varnothing
-\stopformula</definition>
+<definition t="disjonction" c="" h="$A,B$ ensembles">$A\Et B \text{ disjoints} \ ⟺\  A∩B=\varnothing$</definition>
 <example>Un ensemble $A$ et son complémentaire $\bar A$ (dans un autre ensemble $B$) sont disjoints.</example>
 <remark>Des ensembles $Ω_i$ pour $i∈I$ sont disjoints s'ils sont disjoints deux à deux.</remark>
 </concept>
@@ -130,15 +106,13 @@ A\Et B \text{ disjoints} \ ⟺\  A∩B=\varnothing
 
 <concept t="partition\\système complet">
 <text>Une partition de $A$ est une famille de parties de $A$ disjoints deux à deux dont la réunion vaut $A$.</text>
-<definition h="$A$ ensemble">
-\startformula
-(Ω_i)_{i∈I} \Choices{\NC\text{ partition de }\NR
-\NC \text{ système complet de }} A ⟺\System{
+<definition c="" h="$A$ ensemble">$
+(Ω_i)_{i∈I} \Choices{\NC\text{ partition }\NR
+\NC \text{ système complet }} \text{ de } A ⟺\System{
 \NC ∀i∈I, Ω_i⊂A\NR
-\NC i≠j⟹ Ω_i∩Ω_j=\varnothing\NR
+\NC Ω_i∩Ω_j=\varnothing\quad(i≠j)\NR
 \NC ⋃_{i∈I}Ω_i=A 
-}
-\stopformula
+}$
 </definition>
 <example>$([n,n+1[)_{n∈Z}$ forme une partition de $ℝ$.</example>
 <uses>
@@ -146,109 +120,93 @@ A\Et B \text{ disjoints} \ ⟺\  A∩B=\varnothing
 </uses>
 </concept>
 
-</section><section t="Applications">
-
-<text>Dans cette section, $A$ et $B$ désignent des ensembles.</text>
-
-<subsection t="Fonctions">
 
 <concept t="produit\\cartésien">
 <text>La produit cartésien de deux ensemble est l'ensemble des couples constitués par les éléments de ces ensembles</text>
-<definition>
-\startformula 
-A×B:=\big\{(a,b):a∈A \Et b∈B\big\}.
-\stopformula</definition>
+<definition t="produit\\cartésien">$A×B:=\big\{(a,b):a∈A \Et b∈B\big\}$</definition>
+<remarks>
+<item>Lien logique : $(x,y)∈A×B⟺ (x∈A \Et y∈B)$</item>
+<item>Par \quote{abus} de notation : $A×B×C=(A×B)×C=A×(B×C)=\big\{(a,b,c):a∈A,b∈B,c∈C\big\}$</item>
+</remarks>
+<example>$ℝ^2=ℝ×ℝ=\big\{(x,y):x∈ℝ \Et y∈ℝ\big\}$</example>
 </concept>
 
-<concept t="fonction"><text>Une fonction $F$ de $A$ dans $B$ est une partie $F⊂A×B$ vérifiant la propriété suivante</text>
-<definition h="$F⊂A×B$">
-\startformula
-F\text{ fonction} ⟺ \Q(\SystemR{
-\NC (x,y)∈F\NR
-\NC(x,y')∈F}⟹ (y=y')\W)
-\stopformula
-</definition>
-<remark>$F⊂A×B$ est une fonction \ssi pour chaque élément $x$ de $A$, il existe {\bf au plus} un élément $y$ de $B$ tel que $(x,y) ∈ F$. </remark>
-<remark>Dans cette sous-section (uniquement), on notera $f:A→B$ pour désigner une fonction de $A$ dans $B$.</remark>
-<remark>Une fonction est un triplet $(A,B,F)$ avec $F⊂A×B$ fonction de $A$ dans $B$</remark>
+
+<concept t="produit\\cartésien\\ multiple">
+<definition>$A^n=\underbrace{A×⋯×A}_{n \text{ fois}}\qquad(n⩾1)$</definition>
+<remark>Lien logique : $(x_i)_{1⩽i⩽n}∈A^n⟺ (∀i∈⟦1,n⟧, x_i∈A)$</remark>
+<example>$ℝ^n$</example>
 </concept>
+
+
+
+</section><section t="{Fonctions et applications}">
+
+<context>Dans cette section, $A$ et $B$ désignent des ensembles et $f⊂A×B$.</context>
+
+<subsection t="Fonctions">
+
+<concept t="fonction"><text>Une fonction $f$ de $A$ dans $B$ est une partie $f⊂A×B$ associant au plus une image de $B$ à chaque élément de $A$</text>
+<definition t="fonction">Une fonction $f:A→B$ est une partie $f⊂A×B$ vérifiant
+\startformula
+\text{pour chaque $x∈A$, il existe \important{\bf au plus} un $y∈B$ tel que $(x,y)∈f$}
+\stopformula</definition>
+<remark>$F⊂A×B$ est une fonction \ssi pour chaque élément $x$ de $A$, il existe {\bf au plus} un élément $y$ de $B$ tel que $(x,y) ∈ F$. </remark>
+<remark>Sur un plan plus théorique, une fonction est un triplet $(A,B,F)$ avec $F⊂A×B$ vérifiant la propriété ci-dessus</remark>
+</concept>
+
+<context>Dans la suite de cette section, $f:A→B$ désigne une fonction.</context>
 
 <concept t="image\\antécédent">
-<definition h="$F:A→B$">
-\startformula
-\ChoicesR{
-\NC y=F(x)\NR
-\NC x \text{ antécédent de } y\NR
-\NC y \text{ image de } x
-}\ ⟺\ (x,y)∈F
-\stopformula
+<definition t="image et antécédent">\ChoicesR{
+\NC x \text{ antécédent par $f$ de } y\NR
+\NC y \text{ image par $f$ de } x\NR
+}\ ⟺\ $y=f(x)\ \rare{⟺\ (x,y)∈f}$
 </definition>
-<remark>Plus simplement, une fonction $F:A → B$ associe à chaque élément $x$ de $A$ au plus une~image~$y$ de $B$, que l'on note $y=F(x)$ si elle existe. </remark>
 </concept>
 
 <concept t="ensemble de définition">
 <text>L'ensemble de définition d'une fonction est l'ensemble des éléments de l'ensemble de départ auxquels la fonction associe une image</text>
-<definition h="$f:A→B$">
-\startformula 
-\mc Df:=\{x ∈ A: ∃ y ∈ B, y=f(x)\}
-\stopformula</definition>
+<definition t="ensemble de définition" c="" h="$f:A→B$">$\mc Df:=\{x ∈ A: ∃ y ∈ B, y=f(x)\}$</definition>
 </concept>
 
 
 <concept t="restriction\\au départ\\à l'arrivée"><text>
 A partir d'une fonction $f:A → B$, on appelle restriction de $f$ au départ à $C$ ou/et à l'arrivée à $D$ les fonctions obtenues en posant</text>
 <combination>
-<definition h="$C⊂A$">\startformula
-\Function{\Restr f_C:C→B|x↦f(x)}
-\stopformula</definition>
-<definition h="$D⊂B$">\startformula
-\Function{\Restr f^D:A→D|x↦f(x)}
-\stopformula</definition>
-<definition h="$C⊂A$, $D⊂B$">\startformula
-\Function{\Restr f_C^D:C→D|x↦f(x)}
-\stopformula</definition>
+<definition t="restriction au départ">$\displaystyle\Function{\Restr f_C:C→B|x↦f(x)}\qquad(C⊂A)$</definition>
+<definition t="restriction à l'arrivée">$\displaystyle\Function{\Restr f^D:A→D|x↦f(x)}\qquad(D⊂B)$</definition>
+<definition t="au départ et à l'arrivée">$\displaystyle\Function{\Restr f_C^D:C→D|x↦f(x)}\qquad(C⊂A, D⊂B)$</definition>
 </combination>
 </concept>
 
 </subsection><subsection t="Applications">
 
-<concept t="application"><text>Une application $F$ de $A$ dans $B$ est un ensemble $F⊂A×B$ vérifiant</text>
-<definition h="$F⊂A×B$">
+<concept t="application"><text>Une application $f:A → B$ associe à chaque élément $x$ de $A$ une \important{\bf unique} image $y$ dans $B$.</text>
+<definition>Une application $F$ de $A$ dans $B$ est une fonction $f:A→B$ vérifiant
 \startformula
-F\text{ application} ⟺ (∀x∈A, ∃!y∈B: (x,y)∈F)
+∀x∈A, ∃!y∈B: y=f(x)
 \stopformula
 </definition>
-<remark>Dans tout le cours, on notera $f:A→B$ pour désigner une application de $A$ dans $B$.</remark>
-<remark>Une application $f:A → B$ associe à chaque élément $x$ de $A$ une {\bf unique} image $y$ de $B$, notée $y=f(x)$.</remark>
-<remark>Une application est un triplet $(A,B,F)$ avec $F⊂A×B$ application de $A$ dans $B$</remark>
-<remark>Une application (de $A$ dans $B$) est une fonction (de $A$ dans $B$).</remark>
+<remark>Dans tout le reste du cours, on notera $f:A→B$ pour désigner une application de $A$ dans $B$.</remark>
 </concept>
 
 <concept t="ensemble">
-<definition h="$A,B$ ensembles">
-\startformula 
-B^A=\mc F(A,B)=\{f:A→B\text{ application}\}
-\stopformula</definition>
+<definition t="espace des applications" c="" h="$A,B$ ensembles">$\mc F(A,B)=\{f:A→B\text{ application}\}=B^A$</definition>
 </concept>
 
 <concept t="image\\directe"><text>L'image d'un ensemble $C⊂A$  par une application $f:A→B$ est~l'ensemble </text>
-<definition>
-\startformula 
-f(C):=\{f(x):x ∈ C\}
-\stopformula</definition>
+<definition t="ensemble image">$f(C):=\{f(x):x ∈ C\}\qquad(C⊂A)$</definition>
 </concept>
 
 <concept t="image\\réciproque">
 <text>L'image réciproque  d'un ensemble $D⊂B$  par une application $f:A→B$ est~l'ensemble</text>
-<definition>
-\startformula 
-f^{-1}(D):=\{x ∈ A:f(x) ∈ D\}.
-\stopformula</definition>
+<definition t="image réciproque">$f^{-1}(D):=\{x ∈ A:f(x) ∈ D\}\qquad(D⊂B)$</definition>
 </concept>
 
 
 <concept t="restrictions">
-<property h="$f:A→B$ function, $C⊂A$, $D⊂B$">
+<property h="$f:A→B$ function, $C⊂A$ et $D⊂B$">
 \startformula
 \Restr f_C^D\text{ application} ⟺ f(C)⊂D
 \stopformula
@@ -256,104 +214,83 @@ f^{-1}(D):=\{x ∈ A:f(x) ∈ D\}.
 <remark>La restriction d'une application au départ est une application. Autrement dit, on peut toujours restreindre une application au départ (et obtenir une application).</remark>
 <remark>La restriction d'une application à l'arrivée n'est pas forcément une application.Autrement dit, il faut faire attention lorsque l'on restreind une application à l'arrivée.</remark>
 <example>La restriction du cosinus à l'arrivée à l'ensemble $[2,+∞[$ n'est pas une application.</example>
-<corollary h="$f:A→B$ fonction">
-\startformula
-\Restr f_{\mc Df} \text{ est une application}
-\stopformula
-</corollary>
+<corollary h="$f:A→B$ fonction">$\displaystyle\Restr f_{\mc Df} \text{ est une application}$</corollary>
 <remark>Etant donnée une  fonction $f:A → B$, on détermine d'abord l'ensemble de~définition $\mc Df$, 
 puis on ne travaille plus qu'avec l'application $\Restr f_{\mc Df}$ : c'est plus pratique !</remark>
 </concept>
 
 <concept t="composition">
 <text>La composée de $f:A→B$ et $g:B→C$ est l'application définie par</text>
-<definition h="$f:A→B$, $g:B→C$">
-\startformula 
-\Function{g∘f:A→C|x↦g\big(f(x)\big)}
-\stopformula</definition>
+<definition t="composition" h="$f:A→B$ et $g:B→C$, des applications">\startsdformula
+\Function{g∘f:A→C|x↦g\big(f(x)\big)}\stopsdformula</definition>
 </concept>
 
 <concept t="associativité"><text>La loi de composition $∘$ des applications est associative.</text>
-<property h="$f:A→B$, $g:B→C$, $h:C→D$">
-\startformula 
+<property t="associativité" h="$f:A→B$, $g:B→C$ et $h:C→D$, des applications">\startsdformula 
 h∘(g∘f) = (h∘g)∘f
-\stopformula</property>
+\stopsdformula</property>
 <remark>Cette composée est notée plus simplement $h∘g∘f$.</remark>
 </concept>
 
 </subsection><subsection t="Injections, surjections et bijections">
 
+<context>Dans toute cette section $f:A→B$ est une application</context>
 <concept t="injection"><text>Une application est injective \ssi chaque élément à l'arrivée admet au plus un antécédent au départ.</text>
-<definition h="$f:A→B$">
-\startformula 
-f\text{ injective} ⟺ \big(f(x) = f(x')  ⟹ (x = x')\big).
-\stopformula</definition>
+<definition c="" h="$f:A→B$">$f\text{ injective} \ ⟺\ \big(f(x) = f(x')  ⟹ (x = x')\big)$</definition>
 <remark>Une application est injective \ssi elle associe deux images différentes à deux éléments différents. </remark>
 <remark>Une application injective s'appelle une injection</remark>
 </concept>
 
 <concept t="surjection">
 <text>Une application est surjective \ssi chaque élément à l'arrivée admet au moins un antécédent au départ.</text>
-<definition h="$f:A→B$">
-\startformula 
-f\text{ surjective} \ ⟺ \ f(A)=B
-\stopformula
-</definition>
-<remark>Autrement dit, on a 
-\startformula 
-f\text{ surjective} \ ⟺ \ \big(∀ y ∈ B, ∃ x ∈ A:f(x)=y\big)
-\stopformula
-</remark>
+<definition c="" h="$f:A→B$">$ f\text{ surjective} \ ⟺ \ f(A)=B$</definition>
+<property t="surjection">$f\text{ surjective} \ ⟺ \ \big(∀ y ∈ B, ∃ x ∈ A:y=f(x)\big)$</property>
 <remark>Une application surjective s'appelle une surjection</remark>
 </concept>
 
-<concept t="bijection"><text>Une application est bijective \ssi elle est injective et surjective.</text>
-<definition h="$f:A→B$">
-\startformula 
-f\text{ bijective} \ ⟺ \ \System{
+<concept ><text>Une application est bijective \ssi elle est injective et surjective.</text>
+<definition t="bijection" c="" h="$f:A→B$">$\displaystyle f\text{ bijective} \ ⟺ \ \System{
 \NC f\text{ injective}\NR
-\NC f\text{ surjective} }
-\stopformula
+\NC f\text{ surjective} }$
 </definition>
+<property t="bijection">$f\text{ bijective} \ ⟺ \ \big(∀ y ∈ B, ∃! x ∈ A:y=f(x)\big)$</property>
+
 <remark>Une fonction $f$ de $A$ dans $B$ est bijective \ssi chaque élément au départ admet une image à l'arrivée et chaque élément à l'arrivée 
 admet un antécédent au départ</remark>
 <remark>Une application $f:A→B$ est bijective \ssi pour chaque $y$ à l'arrivée, l'équation $y=f(x)$ admet exactement une solution au départ.</remark>
 </concept>
 
+<craft t="étudier si une application $f:A→B$ est injective, surjective ou bijective">
+\startList\item Fixer un élément \important{$y∈B$} quelconque.
+\item Résoudre l'équation $y=f(x)$.
+\item Si \important{pour chaque élément $y∈B$}, il y a : \startSet\item au plus une solution \important{$x∈A$}, $f$ est surjective
+\item au moins une solution \important{$x∈A$}, $f$ est injective
+\item exactement une solution \important{$x∈A$}, $f$ est bijective.\crlf De plus, on trouve une formule pour la bijection réciproque : $f^{-1}(y)=x$.
+\stopSet\stopList</craft>
+
 <concept t="composition"><text>La composée de deux bijections est une bijection.</text>
-<property h="$f:A→B$ et $g:B→C$ bijections">
-\startformula
-g∘f \text{ est bijective}
-\stopformula
+<property h="$f:A→B$ et $g:B→C$, bijectives">
+$g∘f \text{ est une bijection}$
 </property></concept>
 
 
 <concept t="identité"><text>L'application identité $\Id_A$ d'un ensemble $A$ est définie de la façon suivante</text>
-<definition h="$A$ ensemble">
-\startformula 
-\Function{\Id_A:A→A|x↦x}
-\stopformula</definition>
+<definition t="identité" h="$A$ ensemble">$\displaystyle\Function{\Id_A:A→A|x↦x}$</definition>
 <remark>L'application identité est une bijection.</remark>
 </concept>
 
 
 <concept t="réciproque"><text>La bijection réciproque $f^{-1}:B→A$ d'une bijection $f:A→B$ est l'application définie par</text>
-<definition h="$f:A → B$ bijection">
-\startformula
-f^{-1}(y) = x ⟺ y = f(x)\qquad(x∈A, y∈B).
-\stopformula
-</definition>
+<definition t="bijection réciproque" h="$f:A → B$ bijection">\startformula f^{-1}(y) = x ⟺ y = f(x)\qquad(x∈A, y∈B)\stopformula</definition>
 <remark>Pour chaque élément $y$ de $B$, $f^{-1}(y)$ est l'unique antécédent dans $A$ de $y$ par $f$.</remark>
 </concept>
 
 <concept t="inverse">
 <property h="$f:A → B$ bijection">
-\startformula
+$\displaystyle
 g= f^{-1} ⟺ \System{
 \NC f∘g=\Id_B\NR 
-\NC g∘f=\Id_A} 
-\stopformula
-</property>
+\NC g∘f=\Id_A}$</property>
 <remark>La bijection réciproque de $f$ est l'inverse de $f$ pour la loi $∘$.</remark>
 <corollary h="$f:A→B$ bijection">$f^{-1}$ est bijective</corollary>
 <remark>L'inverse d'une bijection pour la loi $∘$ est une bijection.</remark>

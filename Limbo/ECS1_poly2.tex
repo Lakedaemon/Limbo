@@ -1,6 +1,6 @@
 \startproduct Limbo
 \project project_Poly2
-
+\setupCourse{e}
 
 % parse poly, record groups hierarchy, context, statements and numbers and then produce cours
 
@@ -65,9 +65,10 @@ arf
 \blank[medium]
 \centerline{\currentdate}
 \stoptext
-\enabletrackers[lxml.loading,lxml.setups]
 
-\ctxlua{L.computeTree("pol", "xml/ECS_poly.xml")}%
+%\enabletrackers[lxml.loading,lxml.setups]
+
+\ctxlua{L.computeTree("poly", "xml/ECS_poly.xml")}%
 %\applySettups{maths}
 
 \starttext
@@ -75,14 +76,17 @@ arf
 \stoptext
 
 \starttext
-\chapter{Fiches}
-\completeRecords
-\stopcolumns
+\completecontent[criterium=all]
 \stoptext
 
 \starttext
-\completecontent[criterium=all]
+\chapter{Fiches}
+\ctxlua{L.showFiches()}
+%\completeRecords
+\stopcolumns
 \stoptext
+
+
 
 \stopproduct
 \iffalse
