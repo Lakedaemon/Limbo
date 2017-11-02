@@ -54,125 +54,141 @@
 % Prooving: proof/
 %
 % Exercice: exercise/ 
+\def\applySettups#1{
 
-
-\startxmlsetups xml:poly
-\xmlsetsetup{poly}{*}{-}
+\startxmlsetups xml:#1
+\xmlsetsetup{#1}{*}{-}
+\xmlsetsetup{#1}{root}{xml:flush}%
 % includes
-\xmlsetsetup{poly}{include}{xml:include}
-\xmlsetsetup{poly}{ref}{xml:inject}
+\xmlsetsetup{poly}{include}{xml:poly:include}
+\xmlsetsetup{poly}{ref}{xml:poly:inject}
 % sectioning
-\xmlsetsetup{poly}{part|chapter|section|subsection|subsubsection|concept}{xml:poly:group}
+\xmlsetsetup{#1}{domain|part|chapter|section|subsection|subsubsection|concept}{xml:#1:group}
 % grouping 
-\xmlsetsetup{poly}{group}{xml:poly:group}
-\xmlsetsetup{poly}{combination}{xml:poly:combination}
+\xmlsetsetup{#1}{group}{xml:#1:group}
+\xmlsetsetup{#1}{combination}{xml:flush}
 %\xmlsetsetup{maths}{combination/property}{xml:combination/statement}
 % statements (primary objects)
-\xmlsetsetup{poly}{corollary|definition|lemma|notation|property|theorem|}{xml:poly:statement} 
+\xmlsetsetup{#1}{corollary|definition|lemma|notation|property|theorem|convention|notation}{xml:#1:statement} 
 % best practice (secondary info)
-\xmlsetsetup{poly}{craft|uses|item}{xml:poly:*}
+\xmlsetsetup{#1}{craft|uses|item}{xml:#1:*}
 % illustration
-\xmlsetsetup{poly}{figure|example}{xml:poly:*} 
+\xmlsetsetup{#1}{figure|example}{xml:#1:*} 
 % text (tertiary info)
-\xmlsetsetup{poly}{remark|remarks|text}{xml:poly:*} 
-%\xmlsetsetup{poly}{remarks/remark}{xml:remarks:remark} 
+\xmlsetsetup{#1}{context|remark|remarks|text|programme}{xml:#1:*} 
+%\xmlsetsetup{#1}{remarks/remark}{xml:remarks:remark} 
 % exercises
-\xmlsetsetup{poly}{exercise}{xml:poly:*}
+\xmlsetsetup{#1}{exercise}{xml:#1:*}
 % proofs
-\xmlsetsetup{poly}{proof}{xml:poly:*}
+\xmlsetsetup{#1}{proof}{xml:#1:*}
 
 \stopxmlsetups 
 
-\xmlregistersetup{xml:poly} 
+\xmlregistersetup{xml:#1} 
 
-\startxmlsetups xml:poly:craft
-\ctxlua{L.processStatement("#1")}%
+\startxmlsetups xml:#1:craft
+\ctxlua{L.processNewStatement("##1")}%
 \stopxmlsetups
 
 % example
 \iffalse
 \startxmlsetups xml:example
-\ctxlua{L.processExample("#1")}%
+\ctxlua{L.processExample("##1")}%
 \stopxmlsetups
 \fi
 
 
 \startxmlsetups xml:poly:include
-\ctxlua{L.processInclude("#1")}%
+\ctxlua{L.processInclude("##1")}%
 \stopxmlsetups
 
 \startxmlsetups xml:poly:inject
-\ctxlua{L.processInject("#1")}%
+\ctxlua{L.processInject("##1")}%
 \stopxmlsetups
 
-\startxmlsetups xml:poly:group
-\ctxlua{L.processGroup("#1")}%
+
+\startxmlsetups xml:flush
+\xmlflush{##1}%
 \stopxmlsetups
 
-\startxmlsetups xml:poly:statement
-statement
-\ctxlua{L.processStatement("#1")}%
+
+
+\startxmlsetups xml:#1:group
+\ctxlua{L.processGroup("##1")}%
+\stopxmlsetups
+
+
+\startxmlsetups xml:#1:context
+\ctxlua{L.processRawContent("##1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:statement
+\ctxlua{L.processNewStatement("##1")}%
 %\placeleftfigure{}{\useMPgraphic{Frame}}%
 \stopxmlsetups
 
-\startxmlsetups xml:poly:combination
-\ctxlua{L.processCombination("#1")}%
+\startxmlsetups xml:#1:combination
+\ctxlua{L.processCombination("##1")}%
 \stopxmlsetups
 
 %exercices
 \iffalse
 \startxmlsetups xml:exercise
-\ctxlua{L.processExercise("#1")}%
+\ctxlua{L.processExercise("##1")}%
 \stopxmlsetups
 \fi
 
-\startxmlsetups xml:poly:figure
-\ctxlua{L.processFigure("#1")}%
+\startxmlsetups xml:#1:figure
+\ctxlua{L.processFigure("##1")}%
 \stopxmlsetups
 
 % proofs
-\startxmlsetups xml:poly:proof
-\ctxlua{L.processProof("#1")}%
+\startxmlsetups xml:#1:proof
+\ctxlua{L.processProof("##1")}%
 \stopxmlsetups
 
 % remarks
-\startxmlsetups xml:poly:remark
-\ctxlua{L.processRemark("#1")}%
+\startxmlsetups xml:#1:remark
+\ctxlua{L.processRemark("##1")}%
 \stopxmlsetups
 
-\startxmlsetups xml:poly:remarks 
+\startxmlsetups xml:#1:remarks 
 {\tenpoint\startitemize[packed,intext,joinedup,2,nowhite,after]%
-\xmlflush{#1}%
+\xmlflush{##1}%
 \stopitemize}%
 \stopxmlsetups
 
-%\startxmlsetups xml:remarks:remark
-%\item\ctxlua{L.processRawContent("#1")}%
-%\stopxmlsetups
+\startxmlsetups xml:remarks:remark
+\item\ctxlua{L.processRawContent("##1")}%
+\stopxmlsetups
 
 % texts
 
-\startxmlsetups xml:poly:text
-\ctxlua{L.processRawContent("#1")}%
+\startxmlsetups xml:#1:programme
+\ctxlua{L.processProgram("##1")}%
 \stopxmlsetups
 
-\startxmlsetups xml:poly:uses
+\startxmlsetups xml:#1:text
+\ctxlua{L.processRawContent("##1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:uses
 {\tenpoint
 \startitemize[packed,intext,joinedup,4,nowhite,after]
-\xmlflush{#1}%
+\xmlflush{##1}%
 \stopitemize}
 \stopxmlsetups
 
 
-\startxmlsetups xml:poly:item
-\ctxlua{L.processContent("#1","\\item")}%
+\startxmlsetups xml:#1:item
+\ctxlua{L.processContent("##1","\\item")}%
 \stopxmlsetups
 
-\startxmlsetups xml:poly:flushsidefloats
+\startxmlsetups xml:flushsidefloats
 \flushsidefloats
 \stopxmlsetups
-
-%\def\setupCourse#1{\ctxlua{L.setCourse("#1")}}
+}
+%\def\setupCourse#1{\ctxlua{L.setCourse("##1")}}
 %\def\completeRecords{\ctxlua{L.showRecords()}}%
 
 \protect

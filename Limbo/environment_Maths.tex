@@ -124,8 +124,13 @@
 \def\≢{\not\equiv}%
 \def\∉{\not\in}%
 
+\catcode`𝓒=\active
+\def𝓒{{\cal C}}%
+\def\𝓒{{\cal C}}%
 
-
+\catcode`𝓓=\active
+\def𝓓{{\cal D}}%
+\def\𝓓{{\cal D}}%
 
 
 \def\arccos{\mathop{\rm Arccos}\nolimits}%
@@ -140,6 +145,7 @@
 \def\cotan{\mathop{\rm cotan}\nolimits}
 \def\d{{\rm d}}%
 \def\e{{\rm e}}%
+\def\etc{{\it etc.}}
 \def\exo#1{\ctxlua{L.infernoDisplay("#1")}}%
 \def\floor#1{\lfloor #1\rfloor}%
 \def\function#1{\Function@doFour #1\End}%
@@ -192,6 +198,7 @@
 \def\Card{\mathop{\rm Card}\nolimits}%
 \def\Choices#1{\startChoices #1 \stopChoices}%
 \def\ChoicesR#1{\startChoicesR #1 \stopChoicesR}%
+\let\D\displaystyle
 \def\Det#1{\startDet #1 \stopDet}%
 \def\Dim{\mathop{\rm dim}\nolimits}%
 \def\DL{\mathop{\rm DL}\nolimits}%
@@ -224,6 +231,7 @@
 \def\Ou{\text{ ou }}%
 \def\OuQ{\quad\Ou\quad}%
 \def\OuQQ{\qquad\Ou\qquad}%
+\def\Perp{\perp\!\!\!\!\perp}%
 \let\Q\left
 \def\Quand{\text{ quand }}%
 \def\Restr#1{\left.\kern-\nulldelimiterspace #1\vphantom{\big|}\right|}%

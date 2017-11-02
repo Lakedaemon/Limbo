@@ -1,5 +1,5 @@
 \startproduct Limbo
-\project project_Cours
+\project project_Fiches
 \setupCourse{e}
 
 \definepapersize[emc][width=29.7cm,height=21cm]
@@ -7,7 +7,6 @@
 \setuplayout[backspace=1.5cm,topspace=0.5cm,width=26.7cm,height=19cm,header=0.5cm,footer=0.5cm, headerdistance=0.5cm,footerdistance=0.5cm]
 
 \definehead[domain] [chapter]
-\setuphead[domain][number=no]
 \setuphead[domain] [incrementnumber=list]
 \setuplist[domain][width=0em,style=bold]  
 \setuplist[chapter][width=1.5em]  
@@ -33,25 +32,13 @@
 
 %\definereferenceformat[eqref][left=(,right=)]
 %\definehighlight[avoid][color=darkgray]
-\definecolor[myMagenta][r=0.61, g=0.15, b=0.69]%
-\definecolor[myBlue][r=0, g=0.51, b=0.56]%
-%before={\startaxiomframe},after={\stopaxiomframe}
-\def\colorA#1{{\myBlue #1}}
-\def\colorB#1{{\myMagenta #1}}
-\def\later#1{{\myMagenta\it #1}}
-\def\interesting#1{{\myBlue\it #1}}
-\def\normal#1{{\black #1}}
-\def\identityOne#1{#1}
-\def\shouldTest#1{$\underline{\text{#1}}$}
-\def\displayCommand#1{#1}
-\defineenumeration[definition][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text={\displayCommand{Définition}},location=serried,counter=property,alternative=left,title=yes,style=normal,list=all,listtext={Définition }]
-\defineenumeration[theorem][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text={\displayCommand{Théorème}},counter=property,title=yes,style=normal,list=all,listtext={Théorème }]
-\defineenumeration[property][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,title=yes,way=bychapter,style=normal,list=all,text=\displayCommand{Propriété},listtext={Propriété }]
-\defineenumeration[corollary][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=\displayCommand{Corollaire},counter=property,title=yes,style=normal,list=all,listtext={Corollaire }]
-\defineenumeration[notation][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=\displayCommand{Notation},counter=property,title=yes,style=normal,list=all,listtext={Notation }]
-\defineenumeration[convention][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=\displayCommand{Convention},counter=property,title=yes,style=normal,list=all,listtext={Convention }]
-\defineenumeration[craft][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=\displayCommand{Méthode},counter=property,title=yes,style=normal,list=all,listtext={Méthode }]
 
+\defineenumeration[definition][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Définition,location=serried,counter=property,alternative=left,title=yes,style=normal,list=all,listtext={Définition }]
+\defineenumeration[theorem][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Théorème,counter=property,title=yes,style=normal,list=all,listtext={Théorème }]
+\defineenumeration[property][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,title=yes,way=bychapter,style=normal,list=all,text=Propriété,listtext={Propriété }]
+\defineenumeration[corollary][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Corollaire,counter=property,title=yes,style=normal,list=all,listtext={Corollaire }]
+\defineenumeration[notation][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Notation,counter=property,title=yes,style=normal,list=all,listtext={Notation }]
+\defineenumeration[craft][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Méthode,counter=property,title=yes,style=normal,list=all,listtext={Méthode }]
 
 \catcode`𝕂=\active
 \def𝕂{ℝ}
@@ -80,18 +67,9 @@
 \setupcombinedlist[content][list={domain, chapter,section,subsection}]
 \applyIgnoreSettups{introduction}
 \applySettups{suites}
-\applySettups{séries}
 \applySettups{sommes}
 \applySettups{logique}
 \applySettups{ensembles}
-\applySettups{C}
-\applySettups{fonction}
-\applySettups{limf}
-\applySettups{continuité}
-\applySettups{dérivation}
-\applySettups{fn}
-\applySettups{dl}
-\applySettups{intégration}
 \applySettups{systemes}
 \applySettups{matrices}
 \applySettups{ev}
@@ -226,22 +204,25 @@
 %\setuphead[chapter][aftersection=, after=, commandafter=]
 \def\Concept#1{}%
 
-\starttext
-\begingroup\eightpoint\startcolumns[n=2,rule=on]
-%\enabletrackers[lxml.loading,lxml.setups]
-\xmlprocessfile{cours}{xml/ECS_poly.xml}{}
+%\starttext
+%\begingroup\eightpoint\startcolumns[n=2,rule=on]
+\enabletrackers[lxml.loading,lxml.setups]
 
-\completecontent[criterium=all]
-\stopcolumns\endgroup
-\stoptext
+\xmlprocessfile{cours}{xml/ECS_poly.xml}{}}
+
+%\stopcolumns\endgroup
+%\stoptext
 
 
 %\xmlprocessfile{maths}{xml/Limbo_Structures_algèbriques.xml}{}
-\iffalse
+
 \starttext
-\completecontent[criterium=all]
+\ctxlua{L.showFiches()}
+%\completeRecords
+\stopcolumns
 \stoptext
-\fi
+
+
 \iffalse
 \starttext
 \completeindex

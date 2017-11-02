@@ -63,12 +63,21 @@
 \definecolor[myBlue][r=0, g=0.51, b=0.56]%
 \definecolor[myMagenta][r=0.61, g=0.15, b=0.69]% 
 %before={\startaxiomframe},after={\stopaxiomframe}
-\defineenumeration[definition][command=\myGreen,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Définition,location=serried,counter=property,alternative=left,title=yes,style=normal,list=all,listtext={Définition }]
-\defineenumeration[theorem][command=\darkerYellow,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Théorème,counter=property,title=yes,style=normal,list=all,listtext={Théorème }]
-\defineenumeration[property][command=\myYellow,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Propriété,title=yes,way=bychapter,style=normal,list=all,listtext={Propriété }]
-\defineenumeration[corollary][counter=property,command=\lighterYellow,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Corollaire,title=yes,style=normal,list=all,listtext={Corollaire }]
-\defineenumeration[notation][command=\myBlue,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Notation,counter=property,title=yes,style=normal,list=all,listtext={Notation }]
-\defineenumeration[craft][command=\myMagenta,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=Méthode,counter=property,title=yes,style=normal,list=all,listtext={Méthode }]
+\def\colorA#1{{\myBlue #1}}
+\def\colorB#1{{\myMagenta #1}}
+\def\later#1{{\myMagenta\it #1}}
+\def\interesting#1{{\myBlue\it #1}}
+\def\identityOne#1{#1}
+\def\shouldTest#1{$\underline{\text{#1}}$}
+\def\displayCommand#1{#1}
+\defineenumeration[definition][command=\myGreen,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text={\displayCommand{Définition}},location=serried,counter=property,alternative=left,title=yes,style=normal,list=all,listtext={Définition }]
+\defineenumeration[theorem][command=\darkerYellow,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text={\displayCommand{Théorème}},counter=property,title=yes,style=normal,list=all,listtext={Théorème }]
+\defineenumeration[property][command=\myYellow,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text={\displayCommand{Propriété}},title=yes,way=bychapter,style=normal,list=all,listtext={Propriété }]
+\defineenumeration[corollary][counter=property,command=\lighterYellow,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text={\displayCommand{Corollaire}},title=yes,style=normal,list=all,listtext={Corollaire }]
+\defineenumeration[notation][command=\myBlue,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text={\displayCommand{Notation}},counter=property,title=yes,style=normal,list=all,listtext={Notation }]
+\defineenumeration[convention][command=\myBlue,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text={\displayCommand{Convention}},counter=property,title=yes,style=normal,list=all,listtext={convention }]
+
+\defineenumeration[craft][command=\myMagenta,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text={\displayCommand{Méthode}},counter=property,title=yes,style=normal,list=all,listtext={Méthode }]
 
 `\catcode`𝕂=\active
 \def𝕂{ℝ}%
@@ -102,7 +111,7 @@ endfor;
 
 \starttext
 \centerline{\bfd Mathématiques}
-\centerline{\tf (document de cours)}
+\centerline{\tf (poly illustré de cours)}
 \blank[big]
 \centerline{\bfb ECS 1ère année}
 \blank[big]
@@ -110,122 +119,9 @@ endfor;
 \blank[medium]
 \centerline{\currentdate}
 \stoptext
-%\ctxlua{lxml.load("calcul", 'xml/Limbo_Méthodes_de_calcul.xml')}%
-%\ctxlua{L.insertSubsection("calcul", 'section[attribute("t")=="Sommes"]')}%
-%\meaning\xmlprocessfile
-%\meaning\doxmlprocess
+
 %\ctxlua{L.test()}%
 
-
-\def\applySettups#1{
-\startxmlsetups xml:#1
-\xmlsetsetup{#1}{*}{-}
-% root
-\xmlsetsetup{#1}{root}{xml:#1:flush}%
-% sectioning
-\xmlsetsetup{#1}{part|chapter|section|subsection|subsubsection|concept}{xml:#1:group}
-% context
-\xmlsetsetup{#1}{context}{xml:#1:context}
-% grouping 
-\xmlsetsetup{#1}{group}{xml:#1:group}
-\xmlsetsetup{#1}{combination}{xml:#1:combination}
-% statements (primary objects)
-\xmlsetsetup{#1}{corollary|definition|lemma|notation|property|theorem|}{xml:#1:statement} 
-% best practice (secondary info)
-\xmlsetsetup{#1}{craft|uses|item}{xml:#1:*}
-% illustration
-\xmlsetsetup{#1}{figure|example}{xml:#1:*} 
-% text (tertiary info)
-\xmlsetsetup{#1}{remark|remarks|text}{xml:#1:*} 
-%\xmlsetsetup{suites}{remarks/remark}{xml:remarks:remark} 
-% exercises
-%\xmlsetsetup{#1}{exercise}{xml:#1:*}
-% proofs
-\xmlsetsetup{#1}{proof}{xml:#1:*}
-\stopxmlsetups 
-
-\xmlregistersetup{xml:#1} 
-
-\startxmlsetups xml:#1:flush
-\xmlflush{##1}%
-\stopxmlsetups
-
-
-\startxmlsetups xml:#1:craft
-\ctxlua{L.processNewStatement("##1")}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:example
-\ctxlua{L.processExample("##1")}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:group
-\ctxlua{L.processGroup("##1")}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:context
-\ctxlua{L.processRawContent("##1")}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:statement
-\ctxlua{L.processNewStatement("##1")}%
-%\placeleftfigure{}{\useMPgraphic{Frame}}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:combination
-%\ctxlua{L.processRawContent("##1")}%
-\xmlflush{##1}%
-%\ctxlua{L.processCombination("##1")}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:figure
-\ctxlua{L.processFigure("##1")}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:proof
-\ctxlua{L.processProof("##1")}%
-\stopxmlsetups
-
-
-
-
-% remarks
-\startxmlsetups xml:#1:remark
-\ctxlua{L.processRemark("##1")}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:remarks 
-{\tenpoint\startitemize[packed,intext,joinedup,2,nowhite,after]%
-\xmlflush{##1}%
-\stopitemize}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:remarks:remark
-\item\ctxlua{L.processRawContent("##1")}%
-\stopxmlsetups
-
-% texts
-\startxmlsetups xml:#1:text
-\ctxlua{L.processRawContent("##1")}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:uses
-{\tenpoint
-\startitemize[packed,intext,joinedup,4,nowhite,after]
-\xmlflush{##1}%
-\stopitemize}
-\stopxmlsetups
-
-
-\startxmlsetups xml:#1:item
-\ctxlua{L.processContent("##1","\\item")}%
-\stopxmlsetups
-
-\startxmlsetups xml:#1:flushsidefloats
-\flushsidefloats
-\stopxmlsetups
-
-}
 
 \def\pn{\medskip}
 
@@ -240,22 +136,46 @@ endfor;
 \setuplist[subsection][width=3.5em, margin=2.5em]   
 \setuplist[subject][margin=1.5em]
 \setupcombinedlist[content][list={domain, chapter,section,subsection}]
-\iffalse\applySettups{introduction}
+
+
+%\defineitemgroup[List][levels=4]
+\setupitemgroup[List][1][n,joinedup,nowhite]
+\setupitemgroup[List][2][a,joineup,nowhite]
+\setupitemgroup[List][3][5,joineup,nowhite]
+\setupitemgroup[List][4][6,joineup,nowhite]
+
+
+%defineitemgroup[Set][levels=4]
+\setupitemgroup[Set][1][1,joinedup,nowhite]
+\setupitemgroup[Set][2][2,joineup,nowhite]
+\setupitemgroup[Set][3][3,joineup,nowhite]
+\setupitemgroup[Set][4][4,joineup,nowhite]
+
+\applySettups{introduction}
 \applySettups{suites}
+\applySettups{séries}
 \applySettups{sommes}
 \applySettups{logique}
 \applySettups{ensembles}
-\applySettups{systèmes}
+\applySettups{C}
+\applySettups{fonction}
+\applySettups{limf}
+\applySettups{continuité}
+\applySettups{dérivation}
+\applySettups{fn}
+\applySettups{dl}
+\applySettups{intégration}
+\applySettups{systemes}
 \applySettups{matrices}
 \applySettups{ev}
 \applySettups{polynomes}
 \applySettups{probabilités}
 \applySettups{VAR}
-\fi
+\applySettups{poly}
 %\applySettups{maths}
 % Fondements théoriques
 % alphabet grec
-\enabletrackers[lxml.loading,lxml.setups]
+%\enabletrackers[lxml.loading,lxml.setups]
 \xmlprocessfile{poly}{xml/ECS_poly.xml}{}
 %\startdomain[title=Bases théoriques
 %\xmlprocessfile{maths}{xml/ECS_Avant_propos.xml}{}
@@ -343,34 +263,9 @@ endfor;
 %B3.7 convergence et approximation
 
 \fi
-%\stopdomain
-
-
-
-
-
-
-
-%\xmlprocessfile{maths}{xml/Limbo_Structures_algèbriques.xml}{}
-
-\starttext
-\chapter{Fiches}
-\completeRecords
-\stopcolumns
-\stoptext
 
 \starttext
 \completecontent[criterium=all]
 \stoptext
 
-
-
-\starttext
-\stoptext
-
-\iffalse
-\starttext
-\completeindex
-\stoptext
-\fi
 \stopproduct

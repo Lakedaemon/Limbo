@@ -1,5 +1,5 @@
 \startenvironment environment_Limbo_cours
-\directlua{dofile("Limbo_cours.lua")}
+\directlua{dofile("Limbo.lua")}
 \unprotect
 
 % mark up
@@ -54,134 +54,126 @@
 % Prooving: proof/
 %
 % Exercice: exercise/ 
+\def\applyIgnoreSettups#1{
+\startxmlsetups xml:#1
+\xmlsetsetup{#1}{*}{-}
+\stopxmlsetups 
+\xmlregistersetup{xml:#1} 
+}
 
-
-\startxmlsetups xml:limbo
-\xmlsetsetup{maths}{*}{-}
+\def\applySettups#1{
+\startxmlsetups xml:#1
+\xmlsetsetup{#1}{*}{-}
+\xmlsetsetup{#1}{root}{xml:#1:flush}%
 % includes
-\xmlsetsetup{maths}{include}{xml:include}
-\xmlsetsetup{maths}{ref}{xml:inject}
+\xmlsetsetup{cours}{include}{xml:cours:include}
+\xmlsetsetup{cours}{ref}{xml:cours:inject}
 % sectioning
-\xmlsetsetup{maths}{part|chapter|section|subsection|subsubsection|concept}{xml:group}
+\xmlsetsetup{#1}{domain|part|chapter|section|subsection|subsubsection|concept}{xml:#1:group}
+%\xmlsetsetup{#1}{part|chapter|section|subsection|subsubsection|concept}{xml:#1:group}%
 % grouping 
-\xmlsetsetup{maths}{group}{xml:group}
-\xmlsetsetup{maths}{combination}{xml:combination}
+\xmlsetsetup{#1}{group}{xml:#1:group}
+\xmlsetsetup{#1}{context}{xml:#1:context}
+\xmlsetsetup{#1}{combination}{xml:#1:flush}
 %\xmlsetsetup{maths}{combination/property}{xml:combination/statement}
 % statements (primary objects)
-\xmlsetsetup{maths}{corollary|definition|lemma|notation|property|theorem|}{xml:statement} 
+\xmlsetsetup{#1}{corollary|definition|lemma|notation|property|theorem}{xml:#1:statement} 
 % best practice (secondary info)
-\xmlsetsetup{maths}{craft|uses|item}{xml:*}
+\xmlsetsetup{#1}{craft}{xml:#1:*}
+%\xmlsetsetup{#1}{uses|item}{xml:#1:*}
 % illustration
-\xmlsetsetup{maths}{figure|example}{xml:*} 
+%\xmlsetsetup{#1}{figure|example}{xml:#1:*} 
 % text (tertiary info)
-\xmlsetsetup{maths}{remark|remarks|text}{xml:*} 
-\xmlsetsetup{maths}{remarks/remark}{xml:remarks:remark} 
+%\xmlsetsetup{#1}{remark|remarks|text}{xml:#1:*} 
+
 % exercises
-\xmlsetsetup{maths}{exercise}{xml:*}
+%\xmlsetsetup{#1}{exercise}{xml:#1:*}
 % proofs
-\xmlsetsetup{maths}{proof}{xml:*}
-
+%\xmlsetsetup{#1}{proof}{xml:#1:*}
 \stopxmlsetups 
+\xmlregistersetup{xml:#1} 
 
-\xmlregistersetup{xml:limbo} 
-
-\startxmlsetups xml:craft
-\ctxlua{L.processStatement("#1")}%
+\startxmlsetups xml:cours:include
+\ctxlua{L.processInclude("##1")}%
 \stopxmlsetups
 
-% example
-\iffalse
-\startxmlsetups xml:example
-\ctxlua{L.processExample("#1")}%
-\stopxmlsetups
-\fi
-
-
-\startxmlsetups xml:include
-\ctxlua{L.processInclude("#1")}%
+\startxmlsetups xml:cours:inject
+\ctxlua{L.processInject("##1")}%
 \stopxmlsetups
 
-\startxmlsetups xml:inject
-\ctxlua{L.processInject("#1")}%
+\startxmlsetups xml:#1:flush
+\xmlflush{##1}%
 \stopxmlsetups
 
-\startxmlsetups xml:group
-\ctxlua{L.processGroup("#1")}%
+\startxmlsetups xml:#1:group
+\ctxlua{L.processGroupFiches("##1")}%
 \stopxmlsetups
 
-\startxmlsetups xml:statement
-statement
-\ctxlua{L.processStatement("#1")}%
+\startxmlsetups xml:#1:context
+\ctxlua{L.processContextFiches("##1")}%
+\stopxmlsetups
+
+\startxmlsetups xml:#1:statement
+\ctxlua{L.processStatementFiches("##1")}%
 %\placeleftfigure{}{\useMPgraphic{Frame}}%
 \stopxmlsetups
 
-\startxmlsetups xml:combination
-\ctxlua{L.processCombination("#1")}%
+\startxmlsetups xml:#1:craft
+\ctxlua{L.processStatementFiches("##1")}%
 \stopxmlsetups
 
-%exercices
 \iffalse
-\startxmlsetups xml:exercise
-\ctxlua{L.processExercise("#1")}%
+\startxmlsetups xml:#1:combination
+\ctxlua{L.processCombination("##1")}%
 \stopxmlsetups
 \fi
 
-\startxmlsetups xml:figure
-\ctxlua{L.processFigure("#1")}%
+\startxmlsetups xml:#1:example
+\ctxlua{L.processExample("##1")}%
 \stopxmlsetups
 
-% proofs
-\iffalse
-\startxmlsetups xml:proof
-\ctxlua{L.processProof("#1")}%
-\stopxmlsetups
-\fi
+
+
 
 % remarks
-\iffalse
-\startxmlsetups xml:remark
-\ctxlua{L.processRemark("#1")}%
+\startxmlsetups xml:#1:remark
+\ctxlua{L.processRemark("##1")}%
 \stopxmlsetups
 
-\startxmlsetups xml:remarks 
+\startxmlsetups xml:#1:remarks 
 {\tenpoint\startitemize[packed,intext,joinedup,2,nowhite,after]%
-\xmlflush{#1}%
+\xmlflush{##1}%
 \stopitemize}%
 \stopxmlsetups
 
-\startxmlsetups xml:remarks:remark
-\item\ctxlua{L.processRawContent("#1")}%
+\startxmlsetups xml:#1:remarks:remark
+\item\ctxlua{L.processRawContent("##1")}%
 \stopxmlsetups
-\fi
 
 % texts
-\iffalse
-\startxmlsetups xml:text
-
-\ctxlua{L.processRawContent("#1")}%
+\startxmlsetups xml:#1:text
+\ctxlua{L.processRawContent("##1")}%
 \stopxmlsetups
-\fi
 
-\iffalse
-\startxmlsetups xml:uses
+\startxmlsetups xml:#1:uses
 {\tenpoint
 \startitemize[packed,intext,joinedup,4,nowhite,after]
-\xmlflush{#1}%
+\xmlflush{##1}%
 \stopitemize}
 \stopxmlsetups
 
 
-\startxmlsetups xml:item
-\ctxlua{L.processContent("#1","\\item")}%
+\startxmlsetups xml:#1:item
+\ctxlua{L.processContent("##1","\\item")}%
 \stopxmlsetups
-\fi
+}
 
-\startxmlsetups xml:flushsidefloats
-\flushsidefloats
-\stopxmlsetups
 
-\def\setupCourse#1{\ctxlua{L.setCourse("#1")}}
-\def\completeRecords{\ctxlua{L.showRecords()}}%
+
+
+
+%\def\setupCourse#1{\ctxlua{L.setCourse("#1")}}
+
 
 \protect
 \stopenvironment
