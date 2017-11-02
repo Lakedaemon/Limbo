@@ -112,8 +112,8 @@ Par contre, la première est plus simple.
 
 <concept t="quantificateurs"><text>Nier une proposition comportant les quantificateurs $∀$ et $∃$ se fait de manière totalement mécanique, via les relations suivantes</text>
 <combination>
-<property>$\text{non }\quote{∀x∈X, \mc P_x} = \quote{∃x∈X, \text{ non }\mc P_x}$</property>
-<property>$\text{non }\quote{∃x∈X, \mc P_x} = \quote{∀x∈X, \text{ non }\mc P_x}$</property>
+<property m="?" t="{\it négation avec $∀$}">$\text{non }\quote{∀x∈X, \mc P_x} = \quote{∃x∈X, \text{ non }\mc P_x}$</property>
+<property m="?" t="{\it négation avec $∃$}">$\text{non }\quote{∃x∈X, \mc P_x} = \quote{∀x∈X, \text{ non }\mc P_x}$</property>
 </combination>
 <example>La négation de la phrase \quote{Pour chaque étudiant, il y a une page du cours dont tous les mots sont incompréhensibles} est 
 \quote{il y a un étudiant, pour lequel toutes les pages du cours comportent au moins un mot qu'il comprend}.</example>
@@ -178,8 +178,8 @@ et fausse si les deux propositions sont fausses</text>
 
 	
 <concept t="négation">
-<combination><property c="" h="$\mc P, \mc Q$ propositions">$\overline{\mc P\Et\mc Q}=\overline{\mc P}\Ou\overline{\mc Q}$</property>
-<property c="" h="$\mc P, \mc Q$ propositions"> $\overline{\mc P\Ou\mc Q}=\overline{\mc P}\Et\overline{\mc Q}$</property>
+<combination><property t="loi de Morgan" m="?" c="" h="$\mc P, \mc Q$ propositions">$\overline{\mc P\Et\mc Q}=\overline{\mc P}\Ou\overline{\mc Q}$</property>
+<property t="loi de Morgan" c="" m="?" h="$\mc P, \mc Q$ propositions"> $\overline{\mc P\Ou\mc Q}=\overline{\mc P}\Et\overline{\mc Q}$</property>
 </combination>
 <example>Les nombres $x$ qui ne vérifient pas \quote{$x>5$ ou $x\Le-2$} vérifient \quote{$x⩽ 5$ et $x⩾ 2$}. Autrement dit, il sont dans $[-2,5]$. </example>
 </concept>
@@ -188,7 +188,7 @@ et fausse si les deux propositions sont fausses</text>
 </subsection>
 
 
-<subsection t="Disjonction exclusive">
+<subsection t="\rare{Disjonction exclusive}">
 
 
 <concept t="disjonction\\exclusive" i="logique+ou exclusif">
@@ -219,8 +219,8 @@ et fausse si les deux propositions sont fausses</text>
 
 <subsection t="Equivalence">
 
-<concept t="équivalence" i="logique+équivalence">L'équivalence deux propositions est la proposition affirmant qu'elles ont la même valeur logique.
-<definition>$(\mc P⟺\mc Q) := \quote{\mc P \Et \mc Q \text{  ont même valeur logique}}$</definition>
+<concept t="équivalence" i="logique+équivalence"><text>L'équivalence de deux propositions est la proposition affirmant qu'elles ont la même valeur logique.</text>
+<definition m="?">$(\mc P⟺\mc Q) := \quote{\mc P \Et \mc Q \text{  ont même valeur logique}}$</definition>
 <remarks>
 <remark>L'équivalence de $\mc P$ et $\mc Q$ se note \quote{$\mc P⟺\mc Q$}.</remark>
 <remark>Lorsque l'équivalence $\mc P⟺ \mc Q$ est vraie, on dit que les propositions $\mc P$ et $\mc Q$ sont équivalentes.</remark>
@@ -240,7 +240,7 @@ et fausse si les deux propositions sont fausses</text>
 
 <concept t="table de vérité">
 <text>La proposition \quote{$\mc P⟺\mc Q$} est vraie si les deux propositions sont vraies ou si les deux propositions sont fausses.</text>
-<property i="table de vérité+équivalence"><![CDATA[\tikzpicture[Nested Picture]
+<property t="table de vérité" i="table de vérité+équivalence" m="?"><![CDATA[\tikzpicture[Nested Picture]
 	\matrix (tableau) [Tableau Operateur]{
 		\&  $\mc Q$ Vrai \&  $\mc Q$ Faux \\
 		$\mc P$ Vrai \&  Vrai \&  Faux\\
@@ -272,7 +272,7 @@ et fausse si les deux propositions sont fausses</text>
 <concept t="table de vérité">
 <text>La proposition $\mc P⟹\mc Q$ est vraie si $\mc P$ est fausse ou si $\mc P$ et $\mc Q$ sont vraies. 
 La proposition $\mc P⟹\mc Q$ est fausse si $\mc P$ est vraie et si $\mc Q$ est fausse.</text>
-<property i="table de vérité+équivalence"><![CDATA[\tikzpicture[Nested Picture]
+<property t="table de vérité" m="?" i="table de vérité+équivalence"><![CDATA[\tikzpicture[Nested Picture]
 	\matrix (tableau) [Tableau Operateur]{
 		\&  $\mc Q$ Vrai \&  $\mc Q$ Faux \\
 		$\mc P$ Vrai \&  Vrai \&  Faux\\
@@ -282,16 +282,19 @@ La proposition $\mc P⟹\mc Q$ est fausse si $\mc P$ est vraie et si $\mc Q$ est
 	\endtikzpicture]]></property>
 </concept>
 
-<method>Pour établir une équivalence $\mc P⟹\mc Q$, on suppose que la proposition $\mc P$ est vraie puis on essaye de montrer que la proposition $\mc Q$ est vraie.</method>
+<craft m="?" t="Pour établir une implication $\mc P⟹\mc Q$">
+\startList \item Supposertque la proposition $\mc P$ est vraie
+\item Montrer que la proposition $\mc Q$ est vraie
+\stopList</craft>
 
 <concept t="implication" i="logique+implication+réciproque">
-<definition c="" h="$\mc P, \mc Q$ proposition">La réciproque de $\mc P⟹\mc Q$ est l'implication $\mc Q⟹\mc P$</definition>
+<definition m="?" t="réciproque" c="" h="$\mc P, \mc Q$ proposition">La réciproque de $\mc P⟹\mc Q$ est l'implication $\mc Q⟹\mc P$</definition>
 <remark>Une implication et sa réciproque n'ont pas forcément la même valeur logique. </remark>
 </concept>
 
 
 <concept t="implication" i="logique+implication+contraposée">
-<definition c="" h="$\mc P, \mc Q$ proposition">La contraposée de $\mc P⟹\mc Q$ est l'implication $\overline{\mc Q}⟹\overline{\mc P}$</definition>
+<definition m="?" t="contraposée" c="" h="$\mc P, \mc Q$ proposition">La contraposée de $\mc P⟹\mc Q$ est l'implication $\overline{\mc Q}⟹\overline{\mc P}$</definition>
 
 <remark>Une implication et sa contraposée ont la même valeur logique</remark>
 <property c="" h="$\mc P, \mc Q$ propositions" m="-">$(\mc P⟹\mc Q)= (\overline{\mc Q}⟹\overline{\mc P})$</property>
@@ -308,7 +311,7 @@ La proposition $\mc P⟹\mc Q$ est fausse si $\mc P$ est vraie et si $\mc Q$ est
 
 <concept t="Double implication" i="raisonnement+double implication">
 <text>Pour établir l'équivalence $\mc P⟺\mc Q$, il suffit de démontrer $\mc P⟹\mc Q$ et $\mc Q⟹\mc P$.</text>
-<property c="" h="$\mc P, \mc Q$ propositions" m="+"> $(\mc P⟺\mc Q) = \big((\mc P⟹\mc Q)\Et(\mc Q⟹\mc P)\big)$</property>
+<property t="double implication" c="" h="$\mc P, \mc Q$ propositions" m="+"> $(\mc P⟺\mc Q) = \big((\mc P⟹\mc Q)\Et(\mc Q⟹\mc P)\big)$</property>
 </concept>
 </subsection>
 

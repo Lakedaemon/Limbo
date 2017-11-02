@@ -1,0 +1,147 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Analyse">
+
+<chapter t="Séries">
+
+<context>
+Dans cette section, $S$ désigne la suite des sommes partielles d'une suite $u∈𝕂^ℕ$ définie par 
+\startformula
+S_n = ∑_{k=0}^nu_k\qquad(n⩾0)
+\stopformula
+{\it Remarque : une suite $v$ peut être considérée comme une série de terme général $u$ défini par 
+\startformula
+u_0= v_0 \text{ et }u_k=v_k-u_{v-1}\qquad (k⩾1)
+\stopformula}
+</context>
+
+<section t="Généralités">
+
+<concept t="Convergence">
+<definition  m="?" t="convergence et divergence">
+$S\text{ converge}⟺∑\L_{k=0}^∞u_k\text{ converge }$
+\crlf Si $S$ converge, on dit que la série de terme général $u$ converge ou qu'elle est de nature convergeante.
+\crlf Si $S$ diverge, on dit que la série de terme général $u$ diverge ou qu'elle est de nature divergente. \crlf
+</definition>
+<!--\NC\text{La série de terme général $u$ est de nature convergente}\NR-->
+</concept>
+
+<concept t="Somme de la série">
+<definition m="?" t="Somme d'une série">En cas de convergence de la suite $S$ des sommes partielles, sa limite $ℓ$ est appelée somme de la série et est notée
+\startformula
+∑_{k=0}^∞u_k = ℓ =\lim S =  \lim_{n→∞}∑_{k=0}^nu_k
+\stopformula</definition>
+</concept>
+
+<concept t="Suite des restes">
+<definition  m="?" t="Suite des restes"> La suite $R$ des reste d'une série \important{convergente} de terme général~$u$ est définie par 
+\startformula
+R_n = ∑_{k=0}^∞u_k -S_n = \sum_{k=n+1}^∞u_k\qquad (n⩾0)
+\stopformula
+</definition>
+<property>Si la série de terme général $u$ converge, alors 
+$\D\sum_{k=0}^∞u_k = S_n+R_n$ pour $n⩾0$</property>
+</concept>
+
+<concept t="Condition nécéssaire de convergence">
+<text>Si $u∈ℝ^ℕ$ est le terme général d'une série convergente, alors $u$ converge vers $0$.</text>
+<property  m="?" t="Condition nécéssaire de convergence"> $\D ∑_{k=0}^∞u_k \text{ converge}\ ⟹ \ u→0$\crlf
+Lorsque la suite $u$ ne converge pas vers $0$, on dit que la série diverge grossièrement</property>
+</concept>
+
+<concept t="Relation de Chasles">
+<property  m="?" t="Relation de Chasles">
+$\D ∑_{k=0}^∞u_k\text{ converge } ⟺ ∑_{k=\important{m}}^∞u_k\text{ converge } \qquad(\important{m∈ℕ})$
+\crlf Et en cas de convergence, on a 
+\startformula
+∑_{k=0}^∞u_k = ∑_{k=0}^{m-1}u_k + ∑_{k=m}^∞u_k\qquad(m∈ℕ)
+\stopformula
+</property>
+<remark>La convergence d'une série ne dépend que de ce qui se passe au voisinage de l'infini.</remark>
+</concept>
+
+<concept t="Linéarité">
+<property  m="?" t="linéarité">Soient $λ∈𝕂$, $μ∈𝕂$ et $u$ et $v$ les termes généraux de deux séries convergentes, alors la série de terme général $λu+μv$ converge et  
+\startformula
+∑_{k=0}^∞(λu_k+μv_k)=λ∑_{k=0}^∞u_k+μ∑_{k=0}^∞v_k
+\stopformula</property>
+</concept>
+
+<concept  m="?" t="Addition">
+<property  m="?" t="addition"> Si $∑u_n$ et $∑v_n$ convergent, alors $∑(u_n+v_n)$ converge\crlf
+ Si $∑u_n$ converge et si  $∑v_n$ diverge, alors $∑(u_n+v_n)$ diverge.
+ </property>
+</concept>
+
+<concept t="Convergence absolue">
+<definition  m="?" t="convergence absolue"> On dit qu'une série de terme général $u$ converge absolument si et seulement si la série de terme général $|u|$ converge
+\startformula
+∑_{k=0}^∞u_k\text{ converge absolument} ⟺ ∑_{k=0}^∞|u_k|\text{ converge}
+\stopformula 
+</definition>
+</concept>
+
+<concept t="Convergence absolue et simple">
+<property  m="?" t="convergence absolue et inégalité"> Si la série $∑u_k$ converge absolument, alors la série $∑u_k$ converge et de plus
+\startformula
+\Q|∑_{k=0}^∞u_k\W|⩽ ∑_{k=0}^∞|u_k|
+\stopformula</property>
+</concept>
+</section>
+
+<section t="Séries à termes positifs">
+
+<context>Dans cette section $u$ est à terme positifs ou nuls (mais les énoncés sont aussi valables pour les suites négatives ou nulles quite à tout multiplier par $-1$)
+En pratique, il faut que $u$ reste de signe constant à partir d'un certain rang.
+</context>
+
+<concept t="équivalent">
+<property  m="?"  t="équivalent"> Soient $u$ et $v$ deux suites à termes positifs ou nuls. Si $u∼v$, alors les séries de termes généraux $u$ et $v$ ont la même nature
+{\it Plus généralement, on a }
+\startformula 
+\SystemR{
+	\NC u∼v\NR
+	\NC u_n \text{ de signe constant pour $n⩾N$}\NR}
+	⟹ ∑_{n=0}^∞u_k \text{ a même nature que }  ∑_{n=0}^∞v_k
+	\stopformula
+	</property>
+</concept>
+
+<concept t="inégalité">
+<property  m="?" t="inégalité"> Soient $u$ et $v$ deux suites telles que $0⩽u_n⩽v_n$ pour $n⩾0$. \crlf
+Si $∑u_k$ diverge, alors $∑v_k$ diverge  \crlf
+Si $∑v_k$ converge, alors $∑u_k$ converge et on a 
+\startformula 
+0⩽∑_{n=0}^∞u_k⩽  ∑_{n=0}^∞v_k
+\stopformula</property>
+</concept>
+
+<concept t="petit o">
+<property  m="?" t="petit o"> Soient $u$ et $v$ deux suites à termes positifs ou nuls telles que $u_n=o(v_n)$. \crlf
+Si $∑u_k$ diverge, alors $∑v_k$ diverge  \crlf
+Si $∑v_k$ converge, alors $∑u_k$ converge.</property>
+</concept>
+
+</section>
+<section t="Séries de référence">
+<context>Dans toute cete section, $α$ et $x$ désignent des nombres réels</context>
+
+<concept m="?" t="Série de Riemann">
+<property  m="?" t="série de Riemann">$\D ∑_{n=1}^∞{1\F n^α} \text{ converge } \quad ⟺\quad  α>1$</property>
+</concept>
+
+<concept t="Série géométrique et dérivées">
+<property t="convergence">$\D ∑x^n$, $\D ∑nx^{n-1}$ et $\D ∑n(n-1)x^{n-2}$ convergent \ssi $-1\Le x\Le 1$.</property>
+
+<property  m="?" t="série géométrique">$\D ∑_{n=0}^∞ x^n \NC={1\F 1-x}\qquad(-1 \Le x\Le 1)$</property>
+<property  m="?" t="série géométrique$^{(1)}$">$\D ∑_{n=1}^∞ nx^{n-1} \NC={1\F (1-x)²}\qquad(-1 \Le x\Le 1)$</property>
+<property  m="?" t="série géométrique$^{(2)}$">$\D ∑_{n=2}^∞ n(n-1)a^{n-2} \NC={2\F (1-a)^3}\qquad(-1 \Le x\Le 1)$</property>
+
+</concept>
+
+<concept t="Exponentielle">
+<property  m="?" t="exponentielle">$\D ∑_{n=0}^∞ {x^n\F n!} =\e^x\qquad (x∈ℝ)$</property>
+</concept>
+
+</section>
+</chapter>
+</part>

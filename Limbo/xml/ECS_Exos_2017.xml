@@ -1,7 +1,7 @@
 <?xml version='1.0' standalone='yes'?>
 <root>
 <!-- -->
-<chapter t="Révisions, suites de référence">
+<chapter t="{Révisions, suites de référence}">
 
 
 
@@ -44,8 +44,12 @@
 <subject t="Suites de référence">
 <exo p="exercise[@id='Anu']"/>
 
-<subject t="Suite géométrique">
+
+
+<subject t="suite géométrique">
 </subject>
+
+
 
 
 <subject t="récurrence linéaire">
@@ -94,20 +98,22 @@
 
 
 <!-- -->
-<chapter t="{Récurrences, sommes, produits}">
+<chapter t="{Récurrences, sommes, produits, factorielles}">
 
 <subject t="Récurrence">
-<exo p="exercise[@id='F2.1']"/>
-<exo p="exercise[@id='F2.2']"/>
+<exo p="exercise[@id='ECSA2.1']"/>
+
+<exo p="exercise[@id='ECSA2.2']"/>
 <exo p="exercise[@id='C193']"/>
-<exo p="exercise[@id='Bij']"/>
-<exo p="exercise[@id='F2.6']"/>
-<exo p="exercise[@id='Apx']"/>
+
+<exo p="exercise[@id='ECSA2.6']"/>
+
 </subject>
 
 <subject t="Récurrence à 2 pas">
-<exo p="exercise[@id='F2.3']"/>
-<exo p="exercise[@id='F2.4']"/>
+<exo p="exercise[@id='Apx']"/>
+<exo p="exercise[@id='ECSA2.3']"/>
+<exo p="exercise[@id='ECSA2.4']"/>
 </subject>
 
 <subject t="Récurrence ou somme telescopique">
@@ -117,20 +123,31 @@
 </subject>
 
 <subject t="Sommes">
+
 <exo p="exercise[@id='Axo']"/>
-<exo p="exercise[@id='F2.7']"/>
+<exo p="exercise[@id='ECSA2.7']"/>
+<exo p="exercise[@id='Axn']"/>
+<exo p="exercise[@id='ECSA3.2']"/>
+<exo p="exercise[@id='ECSA3.3']"/>
 
 <subject t="Somme telescopique">
-<exo p="exercise[@id='F2.8']"/>
-<exo p="exercise[@id='F2.9']"/>
+<exo p="exercise[@id='ECSA2.8']"/>
+<exo p="exercise[@id='ECSA2.9']"/>
 <exo p="exercise[@id='ECSA2.12']"/>
 <exo p="exercise[@id='C34']"/>
 
 <subject t="Somme de Bernouilli">
 <exo p="exercise[@id='ECSA1.13']"/>
+<exo p="exercise[@id='C182']"/>
 </subject>
 
-<exo p="exercise[@id='Axn']"/>
+
+<subject t="Récurrence">
+<exo p="exercise[@id='C183']"/>
+
+</subject>
+
+
 </subject>
 
 
@@ -140,14 +157,15 @@
 
 
 
-<filter p="field[@type='somme']/.."/>
+<!--<filter p="field[@type='somme']/.."/>-->
 </subject>
 
 <subject t="Produits">
-<exo p="exercise[@id='Base2']"/>
+<exo p="exercise[@id='ECSA2.15']"/>
+<exo p="exercise[@id='ECSA2.14']"/>
+<exo p="exercise[@id='Bij']"/>
 
-
-<filter p="field[@type='produit']/.."/>
+<!--<filter p="field[@type='produit']/.."/>-->
 </subject>
 
 <subject t="Factorielles">
@@ -155,8 +173,11 @@
 </chapter>
 
 <!-- -->
-<chapter t="Suites et $ℝ$">
+<chapter t="{$ℝ$ et Suites}">
 
+<exo p="exercise[@id='ECSA3.4']"/>
+
+<exo p="exercise[@id='ECSA3.1']"/>
 <exo p="exercise[@id='C43']"/>
 <exo p="exercise[@id='C44']"/>
 <exo p="exercise[@id='C42']"/>
@@ -227,6 +248,9 @@
 
 <!-- -->
 <chapter t="Combinatoire">
+
+
+<exo p="exercise[@id='C184']"/>
 </chapter>
 
 

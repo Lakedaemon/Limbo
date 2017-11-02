@@ -23,13 +23,13 @@
 <context>Dans la suite de cette section, $A$, $B$ et $C$ désignent des ensembles.</context>
 
 <concept t="inclusion"><text>Un ensemble $A$ est inclus dans un ensemble $B$ \ssi tous les éléments de $A$ sont dans~$B$.</text>
-<definition t="inclusion" c="" h="$A,B$ ensembles">$A⊂B ⟺ (∀ a∈A, a∈B)$</definition>
+<definition m="?" t="inclusion" c="" h="$A,B$ ensembles">$A⊂B ⟺ (∀ a∈A, a∈B)$</definition>
 <remark>Lien logique : $A⊂B⟺ (x∈A ⟹ x∈B)$</remark>
 </concept>
 
 <concept t="Double inclusion">
 <text>Deux ensembles sont égaux \ssi ils ont les mêmes éléments</text>
-<property t="double inclusion" c="" h="$A,B$ ensembles">$(A⊂B \Et B⊂A) ⟺ (A = B)$</property>
+<property m="?" t="double inclusion" c="" h="$A,B$ ensembles">$(A⊂B \Et B⊂A) ⟺ (A = B)$</property>
 <remark>\rare{Cette propriété est en fait l'axiome d'extensionnalité de Zermelo}</remark>
 <remark>Lien logique : $A=B ⟺ (x∈A ⟺ x∈B)$</remark>
 </concept>
@@ -40,30 +40,30 @@
 </concept>
 
 <concept t="Ensemble des parties"><text>L'ensemble $\mc P(A)$ des parties d'un ensemble $A$ est l'ensemble constitué de tous les sous-ensembles de $A$.</text>
-<definition t="ensemble des parties" c="" h="$A$ ensemble">$\mc P(A):=\{B:B ⊂ A\}$</definition>
+<definition m="?" t="ensemble des parties" c="" h="$A$ ensemble">$\mc P(A):=\{B:B ⊂ A\}$</definition>
 <remark>Lien logique : $A∈\mc P(B)⟺ A ⊂ B$</remark>
 </concept>
 
 <concept t="intersection">
 <text>L'intersection de deux ensembles est l'ensemble constitué par les éléments communs aux deux ensembles</text>
-<definition t="intersection" c="" h="$A,B$ ensembles">$A∩B:=\{x:x ∈ A \Et x∈B\}$</definition>
+<definition m="?" t="intersection" c="" h="$A,B$ ensembles">$A∩B:=\{x:x ∈ A \Et x∈B\}$</definition>
 <remark>Lien logique : $x∈A∩B⟺ (x∈A \Et x∈B)$</remark>
 </concept>
 
 <concept t="intersection\\multiple">
 <text>L'intersection d'une famille d'ensembles est l'ensemble constitué par les éléments communs à tous les ensembles de la famille</text>
-<definition c="" h="$A_i$ ensemble d'indice $i∈I$">$\displaystyle ⋂_{i∈I}A_i:=\{x:∀i∈I, x∈A_i\}$</definition>
+<definition m="?" t="intersection multiple" c="" h="$A_i$ ensemble d'indice $i∈I$">$\displaystyle ⋂_{i∈I}A_i:=\{x:∀i∈I, x∈A_i\}$</definition>
 <remark>Lien logique : $x∈⋂_{i∈I}A_i⟺ (∀i∈I, x∈A_i)$</remark>
 </concept>
 
 <concept t="réunion">
 <text>La réunion de deux ensembles est l'ensemble constitué par les éléments appartenant à au moins l'un des deux ensembles</text>
-<definition  t="réunion" c="" h="$A,B$ ensembles">$A∪B:=\{x:x ∈ A \Ou x ∈ B\}$</definition>
+<definition  m="?" t="réunion" c="" h="$A,B$ ensembles">$A∪B:=\{x:x ∈ A \Ou x ∈ B\}$</definition>
 <remark>Lien logique : $x∈A∪B⟺ (x∈A \Ou x∈B)$</remark>
 </concept>
 
 <concept t="distributivité">
-<property t="distributivité">$\displaystyle
+<property m="?" t="distributivité">$\displaystyle
 \Align{
 \NC (A∪B)∩C=(A∩C)∪(B∩C)\NR 
 \NC (A∩B)∪C=(A∪C)∩(B∪C)\NR 
@@ -72,7 +72,7 @@
 
 <concept t="réunion\\multiple">
 <text>La réunion d'une famille d'ensembles est l'ensemble constitué par les éléments appartenant à au moins l'un des ensembles de la famille</text>
-<definition h="$A_i$ ensemble d'indice $i∈I$">
+<definition m="?" t="réunion multiple" h="$A_i$ ensemble d'indice $i∈I$">
 \startformula 
 ⋃_{i∈I}A_i:=\{x: ∃i∈I,x∈A_i\}
 \stopformula
@@ -81,7 +81,7 @@
 </concept>
 
 <concept t="complémentaire"><text>Le complémentaire d'un ensemble $A$ dans un ensemble $B$ est formé des éléments de $B$ qui ne sont pas dans $A$ (c'est $B$ privé des éléments de $A$).</text>
-<definition t="complémentaire" c="" h="$A⊂B$">$\complement_B(A):=\{x∈B:x\∉ A\}=:B∖A$</definition>
+<definition m="?" t="complémentaire" c="" h="$A⊂B$">$\complement_B(A):=\{x∈B:x\∉ A\}=:B∖A$</definition>
 <remarks><item>Pour simplifier les notations et lorsqu'il est évident que les complémentaires sont calculés dans un ensemble $D$, on note parfois $\bar A=∁_D(A)$.</item>
 <item>Lien logique : $x∈\overline A ⟺ \overline{x∈A}⟺ x\∉A$</item>
 <item>Lien logique : $x∈B∖A ⟺ x∈B \Et x\∉A$</item>
@@ -89,16 +89,16 @@
 </concept>                                                     
 
 <concept t="involution">
-<property t="involution">$\overline{\ \overline A\ } = A$</property></concept>
+<property m="?" t="involution">$\overline{\ \overline A\ } = A$</property></concept>
 
 <concept t="lois de Morgan">
-<property t="lois de Morgan">$\displaystyle\Align{
+<property m="?" t="lois de Morgan">$\displaystyle\Align{
 \NC \overline{A∩B}=\overline A∪\overline B\NR 
 \NC \overline{A∪B}=\overline A∩\overline B
 }$</property></concept>
 
 <concept t="disjonction"><text>Deux ensembles sont disjoints s'ils n'ont aucun élément en commun</text>
-<definition t="disjonction" c="" h="$A,B$ ensembles">$A\Et B \text{ disjoints} \ ⟺\  A∩B=\varnothing$</definition>
+<definition m="?" t="disjonction" c="" h="$A,B$ ensembles">$A\Et B \text{ disjoints} \ ⟺\  A∩B=\varnothing$</definition>
 <example>Un ensemble $A$ et son complémentaire $\bar A$ (dans un autre ensemble $B$) sont disjoints.</example>
 <remark>Des ensembles $Ω_i$ pour $i∈I$ sont disjoints s'ils sont disjoints deux à deux.</remark>
 </concept>
@@ -106,7 +106,7 @@
 
 <concept t="partition\\système complet">
 <text>Une partition de $A$ est une famille de parties de $A$ disjoints deux à deux dont la réunion vaut $A$.</text>
-<definition c="" h="$A$ ensemble">$
+<definition m="?" c="" h="$A$ ensemble">$
 (Ω_i)_{i∈I} \Choices{\NC\text{ partition }\NR
 \NC \text{ système complet }} \text{ de } A ⟺\System{
 \NC ∀i∈I, Ω_i⊂A\NR
@@ -123,7 +123,7 @@
 
 <concept t="produit\\cartésien">
 <text>La produit cartésien de deux ensemble est l'ensemble des couples constitués par les éléments de ces ensembles</text>
-<definition t="produit\\cartésien">$A×B:=\big\{(a,b):a∈A \Et b∈B\big\}$</definition>
+<definition m="?" t="produit\\cartésien">$A×B:=\big\{(a,b):a∈A \Et b∈B\big\}$</definition>
 <remarks>
 <item>Lien logique : $(x,y)∈A×B⟺ (x∈A \Et y∈B)$</item>
 <item>Par \quote{abus} de notation : $A×B×C=(A×B)×C=A×(B×C)=\big\{(a,b,c):a∈A,b∈B,c∈C\big\}$</item>
@@ -158,7 +158,7 @@
 <context>Dans la suite de cette section, $f:A→B$ désigne une fonction.</context>
 
 <concept t="image\\antécédent">
-<definition t="image et antécédent">\ChoicesR{
+<definition m="?" t="image et antécédent">\ChoicesR{
 \NC x \text{ antécédent par $f$ de } y\NR
 \NC y \text{ image par $f$ de } x\NR
 }\ ⟺\ $y=f(x)\ \rare{⟺\ (x,y)∈f}$
@@ -167,7 +167,7 @@
 
 <concept t="ensemble de définition">
 <text>L'ensemble de définition d'une fonction est l'ensemble des éléments de l'ensemble de départ auxquels la fonction associe une image</text>
-<definition t="ensemble de définition" c="" h="$f:A→B$">$\mc Df:=\{x ∈ A: ∃ y ∈ B, y=f(x)\}$</definition>
+<definition m="?" t="ensemble de définition" c="" h="$f:A→B$">$\mc Df:=\{x ∈ A: ∃ y ∈ B, y=f(x)\}$</definition>
 </concept>
 
 
@@ -183,7 +183,7 @@ A partir d'une fonction $f:A → B$, on appelle restriction de $f$ au départ à
 </subsection><subsection t="Applications">
 
 <concept t="application"><text>Une application $f:A → B$ associe à chaque élément $x$ de $A$ une \important{\bf unique} image $y$ dans $B$.</text>
-<definition>Une application $F$ de $A$ dans $B$ est une fonction $f:A→B$ vérifiant
+<definition m="?"  t="application">Une application de $A$ dans $B$ est une fonction $f:A→B$ vérifiant
 \startformula
 ∀x∈A, ∃!y∈B: y=f(x)
 \stopformula
@@ -192,16 +192,16 @@ A partir d'une fonction $f:A → B$, on appelle restriction de $f$ au départ à
 </concept>
 
 <concept t="ensemble">
-<definition t="espace des applications" c="" h="$A,B$ ensembles">$\mc F(A,B)=\{f:A→B\text{ application}\}=B^A$</definition>
+<definition m="?" t="espace des applications" c="" h="$A,B$ ensembles">$\mc F(A,B)=\{f:A→B\text{ application}\}=B^A$</definition>
 </concept>
 
 <concept t="image\\directe"><text>L'image d'un ensemble $C⊂A$  par une application $f:A→B$ est~l'ensemble </text>
-<definition t="ensemble image">$f(C):=\{f(x):x ∈ C\}\qquad(C⊂A)$</definition>
+<definition m="?" t="ensemble image">$f(C):=\{f(x):x ∈ C\}\qquad(C⊂A)$</definition>
 </concept>
 
 <concept t="image\\réciproque">
 <text>L'image réciproque  d'un ensemble $D⊂B$  par une application $f:A→B$ est~l'ensemble</text>
-<definition t="image réciproque">$f^{-1}(D):=\{x ∈ A:f(x) ∈ D\}\qquad(D⊂B)$</definition>
+<definition m="?" t="image réciproque">$f^{-1}(D):=\{x ∈ A:f(x) ∈ D\}\qquad(D⊂B)$</definition>
 </concept>
 
 
@@ -221,7 +221,7 @@ puis on ne travaille plus qu'avec l'application $\Restr f_{\mc Df}$ : c'est plus
 
 <concept t="composition">
 <text>La composée de $f:A→B$ et $g:B→C$ est l'application définie par</text>
-<definition t="composition" h="$f:A→B$ et $g:B→C$, des applications">\startsdformula
+<definition m="?" t="composée" c="" h="$f:A→B$ et $g:B→C$, des applications">La composée de l'application $f:A→B$ par l'application $g:B→C$ est l'application définie par \startsdformula
 \Function{g∘f:A→C|x↦g\big(f(x)\big)}\stopsdformula</definition>
 </concept>
 
@@ -234,33 +234,34 @@ h∘(g∘f) = (h∘g)∘f
 
 </subsection><subsection t="Injections, surjections et bijections">
 
-<context>Dans toute cette section $f:A→B$ est une application</context>
+<context>Dans toute cette section $f:A→B$ est une application et $A$ et $B$ sont des ensembles non-vides</context>
+
 <concept t="injection"><text>Une application est injective \ssi chaque élément à l'arrivée admet au plus un antécédent au départ.</text>
-<definition c="" h="$f:A→B$">$f\text{ injective} \ ⟺\ \big(f(x) = f(x')  ⟹ (x = x')\big)$</definition>
+<definition  t="injection" m="?" c="" h="$f:A→B$">$f\text{ injective} \ ⟺\ \big(∀x∈A,∀x'∈A,f(x) = f(x')  ⟹ (x = x')\big)$</definition>
 <remark>Une application est injective \ssi elle associe deux images différentes à deux éléments différents. </remark>
 <remark>Une application injective s'appelle une injection</remark>
 </concept>
 
 <concept t="surjection">
 <text>Une application est surjective \ssi chaque élément à l'arrivée admet au moins un antécédent au départ.</text>
-<definition c="" h="$f:A→B$">$ f\text{ surjective} \ ⟺ \ f(A)=B$</definition>
-<property t="surjection">$f\text{ surjective} \ ⟺ \ \big(∀ y ∈ B, ∃ x ∈ A:y=f(x)\big)$</property>
+<definition   t="surjection" m="?" c="" h="$f:A→B$">$ f\text{ surjective} \ ⟺ \ f(A)=B$</definition>
+<property m="?" t="surjection">$f\text{ surjective} \ ⟺ \ \big(∀ y ∈ B, ∃ x ∈ A:y=f(x)\big)$</property>
 <remark>Une application surjective s'appelle une surjection</remark>
 </concept>
 
 <concept ><text>Une application est bijective \ssi elle est injective et surjective.</text>
-<definition t="bijection" c="" h="$f:A→B$">$\displaystyle f\text{ bijective} \ ⟺ \ \System{
+<definition m="?" t="bijection" c="" h="$f:A→B$">$\displaystyle f\text{ bijective} \ ⟺ \ \System{
 \NC f\text{ injective}\NR
 \NC f\text{ surjective} }$
 </definition>
-<property t="bijection">$f\text{ bijective} \ ⟺ \ \big(∀ y ∈ B, ∃! x ∈ A:y=f(x)\big)$</property>
+<property m="?" t="bijection">$f\text{ bijective} \ ⟺ \ \big(∀ y ∈ B, ∃! x ∈ A:y=f(x)\big)$</property>
 
 <remark>Une fonction $f$ de $A$ dans $B$ est bijective \ssi chaque élément au départ admet une image à l'arrivée et chaque élément à l'arrivée 
 admet un antécédent au départ</remark>
 <remark>Une application $f:A→B$ est bijective \ssi pour chaque $y$ à l'arrivée, l'équation $y=f(x)$ admet exactement une solution au départ.</remark>
 </concept>
 
-<craft t="étudier si une application $f:A→B$ est injective, surjective ou bijective">
+<craft m="?" t="étudier si une application $f:A→B$ est injective, surjective ou bijective">
 \startList\item Fixer un élément \important{$y∈B$} quelconque.
 \item Résoudre l'équation $y=f(x)$.
 \item Si \important{pour chaque élément $y∈B$}, il y a : \startSet\item au plus une solution \important{$x∈A$}, $f$ est surjective
@@ -275,34 +276,35 @@ $g∘f \text{ est une bijection}$
 
 
 <concept t="identité"><text>L'application identité $\Id_A$ d'un ensemble $A$ est définie de la façon suivante</text>
-<definition t="identité" h="$A$ ensemble">$\displaystyle\Function{\Id_A:A→A|x↦x}$</definition>
-<remark>L'application identité est une bijection.</remark>
+<definition m="?" t="identité" c="" h="$A$ ensemble">$\displaystyle\Function{\Id_A:A→A|x↦x}$</definition>
+<property t="identité" c="" h="$A$ ensemble">L'identité de $A$ est une bijection ($\Id_A∘\Id_A=\Id_A$)</property>
 </concept>
 
 
 <concept t="réciproque"><text>La bijection réciproque $f^{-1}:B→A$ d'une bijection $f:A→B$ est l'application définie par</text>
-<definition t="bijection réciproque" h="$f:A → B$ bijection">\startformula f^{-1}(y) = x ⟺ y = f(x)\qquad(x∈A, y∈B)\stopformula</definition>
+<definition m="?" t="bijection réciproque" c="" h="$f:A → B$ bijection">La bijection réciproque $f^{-1}:B→A$ d'une bijection $f:A→B$ est l'application définie par
+\startformula f^{-1}(y) = x ⟺ y = f(x)\qquad(x∈A, y∈B)\stopformula</definition>
 <remark>Pour chaque élément $y$ de $B$, $f^{-1}(y)$ est l'unique antécédent dans $A$ de $y$ par $f$.</remark>
 </concept>
 
 <concept t="inverse">
-<property h="$f:A → B$ bijection">
+<property m="?" h="$f:A → B$ bijection">
 $\displaystyle
 g= f^{-1} ⟺ \System{
 \NC f∘g=\Id_B\NR 
 \NC g∘f=\Id_A}$</property>
 <remark>La bijection réciproque de $f$ est l'inverse de $f$ pour la loi $∘$.</remark>
-<corollary h="$f:A→B$ bijection">$f^{-1}$ est bijective</corollary>
+<corollary>Soit $f:A→B$, une bijection. Alors, $f^{-1}$ est bijective</corollary>
 <remark>L'inverse d'une bijection pour la loi $∘$ est une bijection.</remark>
 </concept>
 
 </subsection></section>
 
-<section t=" Ensembles finis">
+<section t="Ensembles finis">
 
 <subsection t="Cardinal">
 
-<concept t="equipotence"><text>Deux ensembles sont equipotents (en bijection) \ssi  il existe une bijection de l'un dans l'autre.</text>
+<concept p="-e" t="equipotence"><text>Deux ensembles sont equipotents (en bijection) \ssi  il existe une bijection de l'un dans l'autre.</text>
 <definition h="$E,F$ ensembles">
 \startformula 
 E∼F\ ⟺ (∃\text{ bijection }E→F)
@@ -310,95 +312,67 @@ E∼F\ ⟺ (∃\text{ bijection }E→F)
 </concept>
 
 <concept t="partie finie\\de $ℕ$">
-<definition h="$E⊂ℕ$">
-\startformula 
-E\text{ fini}⟺ E \text{ majorée}
-\stopformula
-</definition>
+<definition c="" h="$E⊂ℕ$">Une partie de $ℕ$ est finie \ssi elle est majorée</definition>
 </concept>
 
 <concept t="intervalle d'entiers">
-<definition h="$m,n∈ℝ$">
-\startformula 
-⟦m:n⟧:=\{k∈ℤ:m⩽k⩽n\}
-\stopformula</definition>
+<definition>$⟦m:n⟧:=\{k∈ℤ:m⩽k⩽n\}\qquad(m∈ℝ,n∈ℝ)$</definition>
 <remark>Pour deux entiers $m⩽n$, on rencontre également la notation $\{m,⋯,n\}$.</remark>
-<remark>$P$ est une partie finie de $ℕ$ \ssi il existe un entier $n$ tel que  $P∼⟦1,n⟧ $.</remark>
 </concept>
 
 <concept t="cardinal"><text>A chaque ensemble $E$, on associe un cardinal (son nombre d'éléments).</text>
-<definition h="$n∈ℕ^*$">
-\startformula 
-\card(E)=n\ ⟺ \ E∼⟦1:n⟧
-\stopformula</definition>
-<remark>On convient que $\card(\varnothing)=0$.</remark>
-<remark>Lorsque $E=\varnothing$ ou $E∼⟦1:n⟧$, le cardinal $\card(E)$ est dit fini. 
+<definition h="$n∈ℕ^*$">$\card(E)=n$ \ssi $⟦1:n⟧$ et $E$ sont en bijection</definition>
+<convention>$\card(\varnothing)=0$</convention>
+<remark>Lorsque $E=\varnothing$ ou lorsque $E$ est en bijection avec $⟦1:n⟧$, le cardinal $\card(E)$ est dit fini. 
 Il est dit infini dans le cas contraire.</remark>
 </concept>
 
-<concept t="ensemble fini"><text>Un ensemble est fini \ssi il est en bijection avec une partie finie de $ℕ$.</text>
-<definition h="$E$ ensemble">
-\startformula 
-E\text{ fini }⟺ \card(E) \text{ fini}
-\stopformula</definition>
+<concept t="ensemble fini">
+
+<definition>Un ensemble est fini \ssi il est en bijection avec une partie finie de~$ℕ$</definition>
+<property c="" h="$E$ ensemble">$E\text{ fini }⟺ \card(E) \text{ fini}$</property>
 <remark>Un ensemble est fini \ssi il existe une injection de cet ensemble dans une partie finie de $ℕ$.</remark>
 <remark>Un ensemble est fini \ssi il existe une surjection d'une partie finie de $ℕ$ dans  cet ensemble.</remark>
 </concept>
 
-<concept t="ensemble dénombrable" p="-β+β">
- <definition h="$E$ ensemble" >
-\startformula
-E\text{ dénombrable } ⟺ E∼ℕ
-\stopformula
-</definition>
-<remark>$ℤ$ et $ℚ$  sont dénombrables mais $ℝ$ et $ℂ$ ne le sont pas.</remark>
- </concept>
+<concept t="ensemble dénombrable" p="-βe+βe">
+<definition m="?" c="" h="$E$ ensemble" >Un ensemble est dénombrable \ssi il est en bijection avec une partie de~$ℕ$</definition>
+<property>Un ensemble est dénombrable \ssi il existe une injection de cet ensemble dans $ℕ$.</property>
+<property>Un ensemble est dénombrable \ssi il existe une surjection de $ℕ$ dans cet ensemble.</property>
+<theorem>$ℕ$, $ℤ$, \rare{$𝔻$} et $ℚ$  sont dénombrables mais $ℝ$ et $ℂ$ ne le sont pas.</theorem>
+</concept>
 
 <concept t="équipotence\\finie">
-<property h="$E$ ensemble fini">
-\startformula
- F∼E ⟺ \Card(F)=\Card(E)
-\stopformula</property>
+<property h="$E$ fini">$F\text{ en bijection avec }E ⟺ \Card(F)=\Card(E)$</property>
 </concept>
 
 <concept t="inclusion\\injection\\surjection">
 <property h="$E$ fini"> 
-\startformula 
-\ChoicesR{
+$ \ChoicesR{
 \NC F⊂ E\NR
 \NC ∃ \text{ injection }F→E\NR
 \NC ∃ \text{ surjection }E→F\NR
 }⟹ \System{\NC F \text{ fini}\NR\NC\Card(F)⩽\Card(E)\NR}
-\stopformula
+$
 </property>
 </concept>
 
 
 <concept t="égalité" m="+">
   <property h="$F⊂ E$ fini" >
-\startformula
-F= E ⟺ \card(F)=\card(E)
-\stopformula
-</property>
+$F= E ⟺ \card(F)=\card(E)$</property>
  </concept>
 
 <concept t="lien">
-<property h="$E,F$ de même cardinal fini, $f:E → F$"> 
-\startformula 
-f\text{ injective} ⟺ f\text{ surjective} ⟺ f\text{ bijective}
-\stopformula
+<property m="?" t="caractérisation" h="$f$ application entre ensembles \important{de même cardinal fini}"> $f\text{ injective} ⟺ f\text{ surjective} ⟺ f\text{ bijective}$
 </property>
 </concept>
 
 </subsection><subsection t="Opérations">
-
+<context>Dans cette section $E$ et $F$ désignent des ensembles finis de cardinaux respectifs $n$ et $p$</context>
 
 <concept t="réunion\\intersection">
-<property h="$E,F$ finis">
-\startformula 
-\Card(E∪F)=\Card(E)+\Card(F)-\Card(E∩F)
-\stopformula
-</property>
+<property t="réunion" m="?" c="" h="$E,F$ finis">$\Card(E∪F)=\Card(E)+\Card(F)-\Card(E∩F)$</property>
 <remark>Si $E$ et $F$ sont disjoints, on~a 
 \startformula 
 \Card(E∪F)=\Card(E)+\Card(F)
@@ -410,11 +384,7 @@ f\text{ injective} ⟺ f\text{ surjective} ⟺ f\text{ bijective}
 </concept>
 
 <concept t="produit cartésien">
-<property h="$E,F$ finis">
-\startformula 
-\Card(E×F)=\Card(E)×\Card(F) 
-\stopformula
-</property>
+<property  t="produit cartésien" m="?" c="" h="$E,F$ finis">$ \Card(E×F)=\Card(E)×\Card(F)=np$</property>
 <remark>Si $E$ est de cardinal fini et $n⩾1$, alors
 \startformula 
 \Card(E^n)=\Card(E)^n
@@ -423,48 +393,34 @@ f\text{ injective} ⟺ f\text{ surjective} ⟺ f\text{ bijective}
 </concept>
 
 <concept t="ensemble des parties">
-<property h="$E$ fini">
-\startformula 
-\Card\big(\mc P(E)\big)=2^{\Card(E)}
-\stopformula
-</property>
+<property m="?" t="ensemble des parties" c="" h="$E$ fini">$\Card\big(\mc P(E)\big)=2^{\Card(E)}=2^n$</property>
 </concept>
 
 <concept t="applications">
-<property h="$E,F$ finis">
-\startformula 
-\Card\Q(F^E\W)=\Card(F)^{\Card(E)}.
-\stopformula
+<property m="?" t="nombre d'applications" c="" h="$E,F$ finis">$\Card\Q(F^E\W)=\Card(F)^{\Card(E)}=p^n$
+\crlf C'est le nombre de $p$-listes d'un ensemble à $n$ éléments
+
 </property>
 </concept>
 
 <concept t="permutations\\bijections">
-<property h="$E$ fini">
-\startformula 
-\Card\big(\{\text{bijection }E→E\}\big)=\Card(E)!
-\stopformula
-</property>
+<property t="permutations" m="?" c="" h="$E$ fini">$\Card\big(\{\text{bijection }E→E\}\big)=\Card(E)!=n!$
+\crlf C'est le nombre de permutations d'un ensemble à $n$ éléments.</property>
 </concept>
 
 <concept t="arrangements\\injections">
-<property h="$E,F$ de cardinaux finis $n⩾p$" >
-\startformula 
-\Card\big(\{\text{injection } F→E\}\big)=A_n^p:={n!\F (n-p)!}
-\stopformula
+<property t="arrangements" m="?" c="" h="$E,F$ de cardinaux finis $n⩾p$">$\Card\big(\{\text{injection } F→E\}\big)=A_n^p:={n!\F (n-p)!}\qquad(n⩾p)$
+\crlf C'est le nombre de $p$-listes sans répétition d'un ensemble à $n$ éléments
 </property>
 <remark>Le nombre $A_n^p$ est aussi le nombre de façons d'arranger (d'établir une liste ordonnée) de $p$ éléments choisis parmi $n$.</remark>
 </concept>
 
 <concept t="combinaisons\\parties à $k$ éléments">
-<property h="$E$ de cardinal fini $n$">
-\startformula 
-\Card\big(\{F⊂E:\Card(F)=p\}\big)={n\choose p}
-\stopformula
+<property t="combinaisons" m="?" c=""  h="$E$ de cardinal fini $n$">$\Card\big(\{F⊂E:\Card(F)=p\}\big)={n\choose p}\qquad(0⩽p⩽n)$
+\crlf C'est le nombre de combinaisons (de listes non-ordonnées) de $p$ éléments choisis parmi $n$
 </property>
 <remark>Le nombre ${n\choose p}$ est le nombre de  combinaisons (de listes non-ordonnées) de $p$ éléments choisis parmi $n$.</remark>
 </concept>
-
-
 
 </subsection></section>
 </chapter>

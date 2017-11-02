@@ -1,0 +1,358 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Analyse">
+
+<chapter t="Nombres complexes">
+
+<section t="Forme algébrique">
+
+<subsection t="Généralités">
+
+<concept t="nombre complexe">
+<context>Dans cette section, $x$, $x'$, $y$ et $y'$ désignent des nombres réels</context>
+<definition t="Nombre complexe"> Un nombre complexe est un nombre du type $z=x+iy$ avec $x,y$ réels et $i^2=-1$.</definition>
+<definition t="addition">$(x + iy) + (x' + iy')=(x + x') + i(y + y')$</definition>
+<definition t="multiplication">$(x + iy) × (x' + iy')=(xx' - yy') + i(xy' + yx')$</definition>
+</concept>
+<property t="interpretation géométrique des nombres complexes">\crlf\centerline{
+\tikzpicture
+\clip (-0.5,-0.5) rectangle (5.4,3.1);
+%\draw[blue!20,ultra thin] (-0.5,-0.5) grid (5.4,3.1);
+\draw[-] (-0.5,0) -- (5,0) coordinate (x axis);
+\draw[-] (0,-0.5) -- (0,3) coordinate (y axis);
+\draw[-triangle 60,thick] (0,0) -- node [anchor=south,sloped] {$\vec v=x\vec i+y\vec j$} node [anchor=north,sloped,pos=0.6,color=red] {$z=x+yi$} (4.3,2.4) node [anchor=south] {$M (x,y)$} node [anchor=north west,color=red] {$M (z)$} ;
+\draw[-triangle 45,thick] (0,0) -- node [anchor=east,pos=0.65] {$y\vec j$} (0,2.4);
+\draw[-triangle 45,thick] (0,0) -- node [anchor=north,pos=0.7] {$x\vec i$} (4.3,0);
+\draw[dashed] (4.3,2.4) -- (0,2.4) node [color=red,anchor=south west] {$yi$};
+\draw[dashed] (4.3,2.4) -- (4.3,0) node [color=red,anchor=south west] {$x$};
+\draw[-open triangle 60,thick] (0,0) -- node [pos=0.4,anchor=east] {$\vec j$} (0,1);
+\draw[-open triangle 60,thick] (0,0) -- node [pos=0.4,anchor=north] {$\vec i$} (1,0);
+\node [anchor=north east] (O) at (0,0) {$O$};
+\endtikzpicture}</property>
+
+<property t="interpretation géométrique de l'addition">Géométriquement, l'addition de deux nombres complexes $s=a+ib$ et $z=c+id$ s'interprètre 
+par la règle du parallèlogramme : en effet, les points $O$, $M$, $P$ et $Q$, d'affixes~respectives $0$, $s$, $z$ et $s+z$, 
+forment un parallèlogramme. \crlf
+\centerline{
+\tikzpicture[scale=0.8]
+\draw[-] (-0.2,0) -- (6.5,0) coordinate (x axis);
+\draw[-] (0,-0.2) -- (0,4.5) coordinate (y axis);
+\draw[-,thick,dotted] (2,2.5) -- (6,4) ;
+\draw[-,thick,dotted] (4,1.5) -- (6,4);
+\draw[-open triangle 60,thick] (0,0) -- node [pos=0.4,anchor=east] {$\vec j$} (0,1);
+\draw[-open triangle 60,thick] (0,0) -- node [pos=0.4,anchor=north] {$\vec i$} (1,0);
+\draw[-triangle 60,thick] (0,0) --  (2,2.5) node [anchor=south east] {$M (s)$};
+\draw[dashed] (2,2.5) -- (0,2.5) node [color=red,anchor=east] {$b$};
+\draw[dashed] (2,2.5) -- (2,0) node [color=red,anchor=north] {$a$};
+\draw[-triangle 60,thick] (0,0) --  (4,1.5) node [anchor=north west] {$P (z)$};
+\draw[dashed] (4,1.5) -- (0,1.5) node [color=red,anchor=east] {$d$};
+\draw[dashed] (4,1.5) -- (4,0) node [color=red,anchor=north] {$c$};
+\draw[-triangle 60,thick] (0,0) --  (6,4) node [anchor=south] {$Q (s+z)$};
+\draw[dashed] (6,4) -- (0,4) node [color=red,anchor=east] {$b+d$};
+\draw[dashed] (6,4) -- (6,0) node [color=red,anchor=north] {$a+c$};
+\node [anchor=north east] (O) at (0,0) {$O$};
+\endtikzpicture}</property>
+</subsection>
+
+
+<subsection t="Parties réelles et imaginaires">
+
+<concept t="partie réelle\\imaginaire">
+<definition>
+Pour $x,y$ nombres réels, les parties réeeles et imaginaires du nombre complexe $z=x+iy$ sont les nombres réels $ ℜe(z):=x$ et $ℑm(z):=y$
+</definition>
+</concept>
+
+<property t="linéarité">$\D
+\startmatrix
+\NC ℜe(λs+μz)=λℜe(s)+μℜe(z)\NR
+\NC ℑm(λs+μz)=λℑm(s)+μℑm(z)\NR
+\stopmatrix \qquad(λ∈ℝ, μ∈ℝ)$
+</property>
+
+<property t="caractérisation">$\D s = z ⟺  \System{
+\NC ℜe(s)=ℜe(z)\NR
+\NC ℑm(s)=ℑm(z)}$
+</property>
+
+<property t="nombre réel">Un nombre réel est un nombre complexe de partie imaginaire nulle
+\startsdformula z∈ℝ⟺ℜe(z)=z⟺ℑm(z)=0⟺ \overline z = z\stopsdformula</property>
+
+<property t="imaginaire pur">Un nombre imaginaire pur est un nombre complexe de partie réelle nulle
+\startsdformula
+z∈iℝ⟺ℜe(z)=0⟺iℑm(z)=z⟺ \overline z = -z
+\stopsdformula
+</property>
+
+</subsection>
+<subsection t="Conjuguaison">
+<context>Dans cette section, $s$ et $z$ désignent des nombres complexes</context>
+
+<definition>Pour $x,y$ nombres réels, le conjugué de $z=x+iy$ est le nombre complexe $\overline z = x-iy$</definition>
+
+<property t="lien avec les parties réelles et imaginaires">
+\startformula  \startcases[style=\displaystyle]
+\NC z = ℜe(z) + i ℑm(z)\NR 
+\NC\overline z = ℜe(z) - i ℑm(z)\NR
+\stopcases
+\qquad
+\startcases
+  \NC ℜe(z)={z+\overline z\F 2}\NR
+  \NC ℑm(z)={z-\overline z\F2i}\NR
+\stopcases\stopformula
+</property>
+
+<property t="linéarité">$\overline{λ s+μz}=λ\overline{s}+μ\overline{z}\qquad(λ∈ℝ, μ∈ℝ)$</property>
+
+<property t="produit">$\overline{s×z} =\overline{s}×\overline{z}$</property>
+<property t="quotient">$\D\overline{s\F z}={\overline{s}\F\overline{z}}\qquad(\important{z≠0})$</property>
+<property t="puissance">$\D{\overline s^n}= {\overline s}^n\qquad(n∈ℤ, \important{s≠0 \text{ si }n\Le 0})$</property>
+
+<property t="involution">$\overline{\overline z} = z$</property>
+
+</subsection>
+</section>
+<section t="Forme trigonométrique">
+
+
+<subsection t="Module">
+<context>Dans cette section, $s$ et $z$ désignent des nombres complexes</context>
+
+<definition t="module">Le module d'un nombre complexe $z=x+iy$ est le nombre réel positif ou nul $|z|=\sqrt{x^2+y^2}$</definition>
+
+<property t="interpretation géométrique">\crlf\centerline{
+\tikzpicture
+\clip (-1,-0.7) rectangle (6.5,2.7);
+\draw[-] (-0.5,0) -- (6,0) coordinate (x axis);
+\draw[-] (0,-0.5) -- (0,2.7) coordinate (y axis);
+\node [anchor=north east] (O) at (0,0) {$O$};
+\draw[-triangle 45,thick] (0,0) -- node [anchor=south,sloped,pos=0.4] {$OM=|z|=\sqrt{x^2+y^2}$} 
+ (5.3,2.4) node [anchor=west] {$M (z)$};
+\draw[-triangle 45,thick] (0,0) -- node [anchor=south] {$x\vec i$} (5.3,0) ;
+\draw[-triangle 45,thick] (5.3,0) -- node [anchor=east] {$y\vec j$} (5.3,2.4);
+\draw[-open triangle 60,thick] (0,0) -- node [pos=0.4,anchor=east] {$\vec j$} (0,1);
+\draw[-open triangle 60,thick] (0,0) -- node [anchor=north] {$\vec i$} (1,0);
+\endtikzpicture}</property>
+
+<property t="positivité">$|z|∈ℝ+$</property>
+
+<property t="\quote{définie}">$|z|=0 ⟺ z=0$</property>
+
+<property t="inégalités triangulaires">$\big| |s|-|z|\big|⩽|s+z|⩽|s|+|z|$</property>
+
+<property t="module du conjugué">$|z|=|\overline z|$</property>
+<property t="module du produit">$\Q|s×z\W|=|s|×|z|\qquad(\important{s≠0})$</property>
+<property t="module du quotient">$\Q|{s\F z}\W|={\thinspace|s|\thinspace\F|z|}\qquad(\important{s≠0})$</property>
+<property t="module des puissances">$\Q|z^n\W|=|z|^n\qquad(n∈ℤ, \important{z≠0 \Si n\Le 0})$</property>
+
+<property t="module et conjugué">$|z|^2=z\overline z$</property>
+<property t="majoration">$\Align{\NC \big|ℜe(z)\big|\NC ⩽ |z|\NR
+\NC \big|ℑm(z)\big|⩽|z|}$</property>
+
+<property t="module et valeur absolue">$\underbrace{|x|}_{\text{module}}=\underbrace{|x|}_{\text{valeur absolue}}\qquad(x∈ℝ)$</property>
+
+
+<craft m="?" t="pour mettre le quotient $1/z$ sous forme algébrique"> 
+Multiplier numérateur et dénominateur par le conjugué de $z$. 
+\rare{
+\startsdformula
+{1\F z}={\overline z\F z\overline z}={\overline z\F |z|^2}={x-iy\F x^2+y^2}={x\F x^2+y^2}-i {y\F x^2+y^2}.
+\stopsdformula}
+</craft>
+
+</subsection>
+
+<subsection t="Argument">
+
+<definition t="argument">L'argument d'un nombre complexe $z$ de module $1$ est la longueur $\theta$ en~radian 
+de l'arc du cercle trigonométrique allant de $1$ à $z$ dans le sens direct. Cette~longueur, qui est unique modulo $2\pi$, 
+est notée $\arg(z)\equiv\theta\quad[2\pi]$.\crlf
+\centerline{\tikzpicture
+\clip (-2,-2) rectangle (2,2);
+\node  (O) at (1.5,-0.2) {$1$};
+\node  (O) at (0,0) {$0$};
+\node  (0) at (-0.75,1.299) {$×$};
+\node  (O) at (1.5,0) {$×$};
+\node  (O) at (-0.7,1.6) {$z$};
+\node [anchor=south east] (O) at (1.3,1.3) {${\red ϑ}$};
+\draw [thin, lightgray] (1.5,0) arc (0:360:1.5) ;
+\draw [-triangle 45, thick, red] (1.5,0) arc (0:120:1.5) ;
+\endtikzpicture}
+L'argument d'un nombre complexe $z≠0$ est l'argument de $z/|z|$.
+</definition>
+
+<property t="caractérisation">$s=z ⟺\System{
+\NC |s|=|z|\NR
+\NC \arg(s) ≡arg(z)\quad[2\pi]
+}$</property>
+
+<property>$\D\arg(z\times s)=\arg(z)+\arg(s)\quad[2\pi]$</property>
+<property>$\D\arg\Q({z\F s}\W)=\arg(z)-\arg(s)\quad[2\pi]$</property>
+
+<property>$\D\arg(\overline z)\equiv-\arg(z)\quad[2\pi]$</property>
+<property>$\D\arg\Q({1\F z}\W)\equiv-\arg(z)\quad[2\pi]$</property>
+
+</subsection>
+<subsection t="Exponentielle complexe">
+
+<definition t="exponentielle d'un nombre réel">L'exponentielle réelle $x↦\e^x$ est la bijection réciproque du logarithme népérien $x↦\ln(x)$. En d'autres termes
+\startsdformula
+y=\e^x⟺ x=\ln(y)\qquad(y>0, x∈ℝ)
+\stopsdformula</definition>
+
+<property>L'exponentielle réelle est indéfiniment dérivable sur $ℝ$ et $(e^x)'=\e^x \qquad (x∈ℝ)$</property>
+<definition t="exponentielle d'un imaginaire pur">L'exponentielle d'un nombre imaginaire pur $i\theta$ est l'unique nombre complexe $z$ de module $1$ et d'argument $\theta$</definition>
+<definition t="exponentielle complexe">$\e^{x+iy}=\e^x×\e^{iy}\qquad(x∈ℝ,y∈ℝ)$</definition>
+<corollary>$|\e^z|=\e^{ℜe(z)}\Et \arg(\e^z)≡ ℑm(z)\quad[2\pi]$</corollary>
+
+<corollary t="égalité">$\e^z=\e^s⟺∃k∈ℤ, z=s\e^{2πik}$</corollary>
+<property>$\e^z=1⟺ (∃k∈ℤ, z=2πki)$</property>
+
+<theorem t="relation fondamentale">$\e^{z+s}=\e^z×\e^s\qquad(z∈ℂ,s∈ℂ)$</theorem>
+<corollary t="inverse">${1\F \e^{z}}=\e^{-z}\qquad(z∈ℂ)$</corollary>
+<corollary t="quotient">$\e^{z-s}={\e^z\F\e^s}\qquad(z∈ℂ, s∈ℂ)$</corollary>
+<corollary t="puissance">$\e^{nz}=\Q(\e^z\W)^n\qquad(z∈ℂ, n∈ℤ)$</corollary>
+
+<property t="racines $n\high{ième}$ de l'unité">$z^n=1⟺ (∃k∈⟦1,n⟧, z=\e^{{2πik\F n}})\qquad(n∈ℕ^*)$</property>
+</subsection>
+
+<property>$\e^z≠0\qquad(z∈ℂ)$</property>
+
+<subsection t="Forme trigonométrique">
+
+<definition>$z=|z|\e^{i\arg(z)}\qquad(z∈ℂ^*)$</definition>
+<property>$∀z∈∈ℂ, ∃!r⩾0, ∃\underbrace{ϑ∈]-π,π]}_{\text{unique si $ϑ≠0$}}, z=r\e^{iϑ}$</property>
+
+</subsection>
+
+</section>
+
+<section t="Trigonométrie">
+<subsection t="cosinus et sinus">
+
+<definition t="cosinus et sinus">$\Align{
+\NC\cos(ϑ)=ℜe\Q(\e^{iϑ}\W)\NR
+\NC\sin(ϑ)=ℑm\Q(\e^{iϑ}\W)}
+\qquad(ϑ∈ℝ)$</definition>
+
+<property m="?" t="formule d'Euler">$\e^{iϑ}=\cos(ϑ)+i\sin(ϑ)\qquad(ϑ∈ℝ)$</property>
+
+<property>Les fonctions cosinus et sinus sont $2\pi$-périodiques \rare{ et $π$-antipériodiques} sur $ℝ$
+\startsdformula
+\Align{
+\NC\cos(x+2π)=\cos(x)\NC\Et\NC\cos(x+π)=-\cos(x)\qquad(x∈ℝ)\NR
+\NC\sin(x+2π)=\sin(x)\NC\Et\NC\sin(x+π)=-\sin(x)\qquad(x∈ℝ)}
+\stopsdformula
+</property>
+
+<property>La fonction cosinus est paire sur $ℝ$ et la fonction sinus est impaire sur $ℝ$
+\startsdformula
+\Align{
+\NC \cos(-x)\NC =\cos(x)\NR
+\NC \sin(-x)\NC =-\sin(x)}
+\qquad(x∈ℝ)
+\stopsdformula
+</property>
+
+<property>Les fonctions cosinus et sinus sont indéfiniment dérivables sur $ℝ$
+\startsdformula
+\Align{
+\NC\cos'(x)=\interesting{\cos\Q(x+{\pi\F2}\W)}\NC =-\sin(x)\NR
+\NC\sin'(x)=\interesting{\sin\Q(x+{\pi\F2}\W)}\NC =\cos(x)} \qquad (x∈ℝ)
+\stopsdformula
+\centerline{
+	\tikzpicture[domain=-4:4,samples=66]
+		\draw[very thin,color=gray,step={(1.570796327,1)}] (-4.1,-1.1) grid (4.1,1.1);
+		\draw[->] (0,0) -- (4.2,0) node[below] {$x$};
+		\draw[->] (0,0) -- (0,1.2) node[left] {$y$};
+		\draw[color=red,smooth] plot (\x,{cos(\x r)}) ;
+		\node[rotate=-45,color=red] at (1.45,0.4) {$\cos x$};
+		\draw[color=blue,smooth] plot (\x,{sin(\x r)});
+		\node[rotate=-45,color=blue] at (3.1,0.4) {$\sin x$};
+	\endtikzpicture
+}%
+</property>
+
+<property>$\cos^2(x)+\sin^2(x)=1\qquad(x∈ℝ)$</property>
+
+
+<property m="?" t="addition de l'angle">$\Align{
+\NC \cos(a+b)\NC=\cos a\cos b-\sin a\sin b\NR
+\NC\sin(a+b)\NC=\sin a\cos b+\cos a\sin b}\qquad(a∈ℝ, b∈ℝ)$
+</property>
+
+<corollary m="?" t="duplication de l'angle">\startsdformula\Align{
+\NC \cos(2x)\NC=\cos^2(x)-\sin^2(x)=1-2\sin^2(x)=2\cos^2(x)-1\NR
+\NC\sin(2x)\NC =2\sin x\cos x}\qquad(x∈ℝ)\stopformula
+</corollary>
+
+<property t="formule de Moivre">$\cos(n\theta)+i\sin(n\theta)=(\cos\theta+i\sin\theta)^n\qquad(ϑ∈ℝ, n∈ℤ)$</property>
+
+<property t="égalité de cosinus">$\cos x=\cos y⟺ \underbrace{x≡y\quad[2π]\Ou x≡-y\quad[2π]}_{x≡±y\quad[2π]}$</property>
+<property t="égalité de sinus">$\sin x=\sin y⟺ x≡y\quad[2π]\Ou x≡π-y\quad[2π]$</property>
+
+</subsection>
+
+<subsection t="tangente">
+<context>Dans cette section, $x$, $a$ et $b$ désignent des nombres réels</context>
+
+<definition>La fonction tangente est la fonction définie par $\tan x={\sin x\F\cos x}$</definition>
+<property t="ensemble de définition">$𝓓\tan=\{x∈ℝ:x\not≡{π\F 2}\quad [π]\}$</property>
+
+<property>La fonction tangente est $π$-périodique sur son ensemble de définition
+\startsdformula
+\tan(x+π)=\tan(x)\qquad(x\not ≡{π\F 2}\quad [π])
+\stopsdformula
+</property>
+
+<property>La fonction tangente est impaire sur son ensemble de définition
+\startsdformula
+\NC \tan(-x)\NC =-\tan(x)\qquad(x\not≡{π\F 2}\quad [π])
+\stopsdformula
+</property>
+
+<property>La fonction tangente est indéfiniment dérivable sur son ensemble de définition et 
+\startsdformula
+\NC\tan'(x)=\interesting{\tan^2(x)+1}\NC ={1\F\cos^2(x)}\qquad (x\not≡{π\F 2}\quad [π])
+\stopsdformula
+\centerline{
+	\tikzpicture[domain=-1.3:1.3,samples=66, scale=0.5]
+	\draw[very thin,color=gray,step={(3.141592654,1)}] (-7.58,-3.5) grid (7.58,3.5);
+		1111111111
+	\draw[->] (0,0) -- (1,0) node[below] {$x$};
+		\draw[->] (0,0) -- (0,1) node[left] {$y$};
+		\node[rotate=60,color=red] at (1.45,1) {$\tan x$};
+		\draw[color=red,smooth] plot (\x,{tan(\x r)}) ;
+		\draw[color=red,smooth] plot (\x+3.1415,{tan(\x r)}) ;
+		\draw[color=red,smooth] plot (\x-3.1415,{tan(\x r)}) ;
+		\draw[color=red,smooth] plot (\x+6.283,{tan(\x r)}) ;
+		\draw[color=red,smooth] plot (\x-6.283,{tan(\x r)}) ;
+		\endtikzpicture
+	
+}%
+</property>
+
+<property t="addition de l'angle">$\tan(a+b)={\tan a+\tan b\F1-\tan a\tan b}\qquad(a, b \Et a+b \not ≡ {π\F 2}\quad [π])$
+</property>
+
+
+</subsection>
+<subsection t="arctangente">
+
+<definition>La fonction arctangente $\arctan:ℝ→]-{π\F 2},{π\F 2}[$ est la bijection réciproque de la restriction à l'intervalle $]-{π\F 2},{π\F 2}[$ de la fonction tangente
+\blank[small]\centerline{
+	\tikzpicture[domain=-1.4:1.4,samples=66, scale=0.5]
+	\draw[very thin,color=gray,step={(1,1.57)}] (-5,-1.57) grid (5,1.57);
+	\draw[color=red,smooth] plot ({tan(\x r)},\x) ;
+		\endtikzpicture
+}%
+</definition>
+
+<property>La fonction arctangente est indéfiniment dérivable sur $ℝ$ et 
+\startsdformula
+\arctan'(x)={1\F x^2+1}\quad(x∈ℝ)\stopsdformula</property>
+
+
+</subsection>
+</section>
+</chapter>
+</part>

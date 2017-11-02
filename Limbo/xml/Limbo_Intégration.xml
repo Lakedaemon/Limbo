@@ -60,11 +60,39 @@ Pour chaque $ ε>0$, il existe deux fonction réelles $ φ$ et $\psi$ en escalie
 
 
 
-</subsection></section><section t="Intégrale d'une fonction continue par morceaux">
+</subsection></section>
+
+<section t="Primitives">
+<context>Dans cette section, $F$ et $f$ désignent des fonctions définies sur un intervalle $I$</context>
+
+<concept t="primitives">
+<definition m="?" t="primitives">$F$ est une primitive de $f$ sur l'intervalle $I$ \ssi $F$ est dérivable sur $I$ et $F'(x)=f(x)\quad(x∈I)$</definition>
+<notation>Une primitive $F$ de $f$ sur un intervalle $I$ se note $F(x)=\int f(t)\d t\qquad(x∈I)$</notation>
+<property m="?" t="constante d'intégration">Si $F$ et $G$ sont deux primitives à valeurs dans $𝕂$ d'une fonction $f$ \important{sur un intervalle $I$}, alors, il existe $c∈𝕂$ tel que $G(x)=F(x)+c\quad(x∈I)$</property>
+<remark>Ne jamais oublier la constante d'intégration lorsque l'on intégre !</remark>
+<property>Une primitive sur $I$ d'une fonction de classe $\𝓒^n$ sur $I$ est de classe $\mc C^{n+1}$ sur $I$</property>
+</concept>
+
+<concept t="existence de primitives">
+<theorem  t="existence de primitives">Toute fonction continue sur un intervalle admet  une primitive sur cet intervalle</theorem>
+</concept>
+
+<concept t="primitives de référence">
+<property  t="monômes">$\D \int x^α\d x\NC={x^{α+1}\F{α+1}} + c\qquad (\important{α≠-1}, x>0)$</property>
+<property  t="inverse">$\D \int{\d x\F x}=\ln|x| + c\qquad (x>0\Ou x\Le 0)$</property>
+<property  t="cosinus">$\D \int\cos(x)\d x=\sin(x) + c\qquad (x∈ℝ)$</property>
+<property  t="sinus">$\D \int\sin(x)\d x=-\cos(x) + c\qquad (x∈ℝ)$</property>
+<property  t="exponentielle">$\D \int\e^x\d x=\e^x + c\qquad (x∈ℝ)$</property>
+<property  t="logarithme">$\D \int\ln(x)\d x=x\ln(x) -x + c\qquad (x>0)$</property>
+<property  t="à connaitre">$\D \int{\d x\F x^2+1}=\arctan(x) + c\qquad (x∈ℝ)$</property>
+</concept>
+
+</section>
+<section t="Intégrale des fonctions continues par morceaux">
 
 
 
-<subsection t="Intégrale d'une fonction en escalier">
+<subsection p="-e" t="Intégrale d'une fonction en escalier">
 
 <definition>Soit $f:[a,b] → ℂ$ une fonction en escalier sur $[a,b]$, avec $a\Le b$. Alors, pour chaque subdivision $\sigma=\{x_0,\cdots,x_n\}$ de $[a,b]$ adaptée à la fonction $f$, la somme 
 \startformula 
@@ -124,11 +152,66 @@ en escalier sur $[a,b]$. Alors, l'application $|f|$ est en escalier sur $[a,b]$ 
 \Q|\int_a^bf\W| ⩽ \int_a^b|f|.
 \stopformula </property>
 
+</subsection>
+
+<subsection t="Intégrale des fonctions continues">
+
+<context>Dans cette section, $f$ désigne une application à valeurs dans $𝕂$, continue sur un segment $[a,b]$</context>
+
+<concept>
+<definition m="?" p="e" t="intégrale">
+L'intégrale de $a$ à $b$ d'une fonction continue $f:[a,b]→𝕂$ est  
+\startformula 
+\int_a^b f(t)\d t = F(b) − F (a),
+\stopformula
+où $F$ désigne n'importe laquelle des primitives de $f$ sur le segment $[a,b]$</definition>
+<remark>La valeur de l'intégrale ne dépend pas de la primitive $F$ choisie pour la calculer</remark>
+</concept>
 
 
-</subsection><subsection t="Intégrale d'une fonction continue par morceaux">
+<theorem m="?" t="primitive et intégrale"> 
+Soit $f$ une fonction continue sur un intervalle $I$, contenant $a$. Alors, 
+l'unique primitive de $f$ sur $I$, s'annulant en $a$, est l'application $F$ définie par 
+\startformula 
+\Align{
+\NC F: I\NC  → 𝕂\NR
+\NC  x\NC  ↦  \int_a^xf(t)\d t}
+\stopformula
+Par ailleurs, la fonction $F$ est de classe $\mc C^1$ sur $I$</theorem>
 
-<definition>Soient $(a,b) ∈ ℝ^2$ avec $a\Le b$ et $f:[a,b] → ℝ$ une application continue par morceaux sur $[a,b]$. 
+<property m="?" t="intégrale d'une dérivée">Pour toute primitive $F$ sur un intervalle $I$ d'une fonction $f$ continue sur $I$, on a 
+\startformula 
+\int_a^x f(t)\d t=[F]_a^x=F(x)-F(a)\qquad(x∈I). 
+\stopformula
+En particulier, pour toute fonction $f$ de classe $\mc C^1$ sur $I$, on a 
+\startformula 
+\int_a^xf'(t)\d t=[f]_a^x=f(x)-f(a). 
+\stopformula</property>
+
+</subsection>
+
+<subsection t="Intégrale des fonctions continues par morceaux">
+
+<concept t="intégrale">
+<definition m="?" p="e" t="intégrale">L'intégrale d'une fonction $f$ continue par morceaux  sur$[a,b]$ est 
+\startformula
+\int_a^b f(t)\d t=∑_{k=1}^n\int_{x_{k-1}}^{x_k}f(t)\d t, 
+\stopformula
+où $x_0=a\Le x_1\Le ⋯\Le x_n=b$ désigne une subdivision de $[a,b]$ adaptée à $f$.  
+</definition>
+<remark>Cette intégrale ne dépend pas de la subdivision adaptée choisie. Par ailleurs, chaque petite intégrale est définie 
+en tant qu'intégrale sur un segment d'une fonction continue (le prolongement par continuité à $[x_{k-1}, x_k]$ 
+de la restriction de $f$ à $]x_{k-1},x_k[$</remark>
+
+<craft m="?" t="en présence d'une intégrale">
+\important{Vérifier qu'elle est bien définie,} c'est-à-dire qu'on intégre une fonction continue (par morceaux) sur $[a,b]$, \important{avant de la manipuler}
+</craft> 
+<remark>L'aire (algèbrique) de la zone délimitée, pour $a ⩽ x ⩽ b$, par l'axe des abscisses et le graphe d'une fonction $f$ continue par morceaux est, par définition, l'intégrale de $f$ de $a$ à $b$. </remark>
+<remark>Lodifier les valeurs d'une fonction en un nombre fini de points ne modifie pas son intégrale.</remark>
+</concept>
+
+<concept p="-e" t="intégrale">
+<definition >Soient $(a,b) ∈ ℝ^2$ avec $a\Le b$ et $f:[a,b] → ℝ$ une application continue par morceaux sur $[a,b]$. 
 Alors, il existe une suite croissante $( φ_n)_{n ∈ ℕ}$ et une suite décroissante $(\psi_n)_{n ∈ ℕ}$ de fonctions en escaliers sur $[a,b]$ telles que 
 \placeformula[gah]
 \startformula 
@@ -146,10 +229,12 @@ Par convention, on pose
 
 \Remarque: la première chose que l'on fait AVANT d'intégrer une fonction sur $[a,b]$, c'est de vérifier qu'elle est bien intégrable $[a,b]$, c'est-à-dire qu'elle est continue par morceaux sur $[a,b]$. 
 \bigskip
+</concept>
 
-<remark>le fait de modifier les valeurs de la fonction en un nombre fini d'endroits ne modifie pas son intégrale. </remark>
 
-<definition>Soient $(a,b) ∈ ℝ^2$, soit $f:[a,b] → ℂ$ une application continue par morceaux sur $[a,b]$ et soient $g:[a,b] → ℝ$ et $h:[a,b] → ℝ$ les parties réelles et imaginaires de la fonction $f$. Autrement dit 
+
+
+<definition p="-e">Soient $(a,b) ∈ ℝ^2$, soit $f:[a,b] → ℂ$ une application continue par morceaux sur $[a,b]$ et soient $g:[a,b] → ℝ$ et $h:[a,b] → ℝ$ les parties réelles et imaginaires de la fonction $f$. Autrement dit 
 \startformula 
  ∀ x ∈[a,b], \qquad f(x)=\underbrace{g(x)}_{ ℜe f(x)}+i\underbrace{h(x)}_{ ℑm f(x)}
 \stopformula
@@ -158,53 +243,37 @@ Alors, l'intégrale de la fonction $f$ de $a$ à $b$ est par définition le nomb
 \int_a^bf:=\int_a^bg+i\int_a^bh.
 \stopformula</definition>
 
-<remark>l'intégrale d'une fonction sur $[a,b]$ d'une fonction continue par morceaux est (par définition) l'aire (algèbrique) de la zone délimitée par l'axe des abscisses et le graphe de la fonction $f$ pour $a ⩽ x ⩽ b$. 
-\bigskip
-\Remarque  : le fait de modifier les valeurs de la fonction en un nombre fini de points ne modifie pas son intégrale. </remark>
 
 
 
-</subsection><subsection t="Propriétés fondamentales de l'intégrale">
 
-<property t="Relation de Chasles">
-Soient $(a,b,c) ∈ ℝ^3$ et $f:[a,c] → 𝕂$ une fonction continue par morceaux sur le segment d'extrémités $\min\{a,b,c\}$ et $\max\{a,b,c\}$. Alors, la fonction $f$ est continu epar morceaux sur les segments $[a,b]$, $[b,c]$, $[a,c]$ et on a 
+</subsection><subsection t="Propriétés fondamentales">
+
+<context>Dans cette section, $f$ et $g$ désignent des fonctions à valeurs dans $𝕂$, continues par morceaux sur un segment $[a,b]$?</context>
+
+<property m="?" t="Relation de Chasles">
+Soit $f$ une fonction à valeurs dans $𝕂$, continue par morceaux sur un segment contenant $a$, $b$ et $c$. Alors, $\D \int_a^cf=\int_a^bf+\int_b^cf$. </property>
+
+<property m="?" t="linéarité">$\D \int_a^b( λ f+ μ g)= λ \int_a^bf+ μ \int_a^bg\qquad(λ∈𝕂, μ∈𝕂)$</property>
+
+<property m="?" t="positivité">$\important{a ⩽ b} \Et \underbrace{
+ f(x) ⩾0\quad(a⩽x⩽b)}_{f ⩾0}\quad ⟹\quad \int_a^bf ⩾0$</property>
+
+
+<property m="?" t="croissance">$\important{a ⩽ b} \Et \underbrace{f(x) ⩾ g(x)\quad (a⩽x⩽b)}_{f ⩾ g}\quad ⟹\quad \int_a^bf ⩾ \int_a^bg$</property>
+
+<property m="?" t="valeur absolue">L'application $|f|$ est continue par morceaux sur $[a,b]$ et  
 \startformula 
-\int_a^cf=\int_a^bf+\int_b^cf. 
-\stopformula</property>
+\Q|\int_a^bf\W| ⩽ \int_a^b|f|
+\stopformula
+</property>
 
-<property t="Linéarité de l'intégrale">
-Soit $(a,b) ∈ ℝ^2$ et soient $f:[a,b] → 𝕂$ et $g:[a,b] → 𝕂$ deux fonctions continues par morceaux sur $[a,b]$. Alors, pour $( λ, μ) ∈ 𝕂^2$, la fonction $ λ f+ μ g$ est continue par morceaux sur $[a,b]$ et on a 
+<concept t="caractérisation">
+<theorem m="?" t="caractérisation">Soit $f:[a,b]→ ℝ$, une fonction \important{continue et à valeurs positives ou nulles}. Alors,  
 \startformula 
-\int_a^b( λ f+ μ g)= λ \int_a^bf+ μ \int_a^bg. 
-\stopformula</property>
-
-<property t="positivité de l'intégrale">
-Soient $a ⩽ b$ deux nombres réels et soit $f:[a,b] → ℝ$ une fonction continue par morceaux sur $[a,b]$. Alors, 
-\startformula 
-\underbrace{
- ∀ x ∈[a,b],\quad f(x) ⩾0}_{f ⩾0}\qquad ⟹\qquad \int_a^bf ⩾0.
-\stopformula </property>
-
-
-<property t="Croissance de l'intégrale">
-Soient $a ⩽ b$ deux nombres réels et soient $f:[a,b] → ℝ$ et $g:[a,b] → ℝ$ deux fonctions continues par morceaux sur $[a,b]$. Alors, on a 
-\startformula 
-\underbrace{
- ∀ x ∈[a,b],\quad f(x) ⩾ g(x)}_{f ⩾ g}\qquad ⟹\qquad \int_a^bf ⩾ \int_a^bg.
-\stopformula </property>
-
-<property t="module">
-Soient $a ⩽ b$ deux nombres réels et soit $f:[a,b] → ℝ$ une fonction 
-continue par morceaux sur $[a,b]$. Alors, l'application $|f|$ est continue par morceaux sur $[a,b]$ et on a 
-\startformula 
-\Q|\int_a^bf\W| ⩽ \int_a^b|f|.
-\stopformula </property>
-
-<theorem> [$f:{[a,b]} → ℝ^+$ fonction continue] 
-\startformula 
-\underbrace{ ∀ x ∈[a,b],\quad f(x)=0}_{f=0}\qquad ⟺ \int_a^bf(t)\d t=0.
+\underbrace{f(x)=0\quad(a⩽x⩽b)}_{f=0}\quad ⟺ \quad \int_a^bf(t)\d t=0.
 \stopformula</theorem>
-
+</concept>
 
 
 </subsection><subsection t="Moyennes">
@@ -262,12 +331,12 @@ est un produit scalaire sur $\mc C\big([a,b], ℝ\big)$, c'est à dire une forme
 
 </subsection><subsection t="Sommes de Riemann">
 
-<definition>Soient $a\Le b$ deux nombres réels. Alors, le pas d'une subdivision $\sigma=\{x_0,x_1,\cdots,x_n\}$ du segment $[a,b]$ est le nombre réel défini par
+<definition p="-e">Soient $a\Le b$ deux nombres réels. Alors, le pas d'une subdivision $\sigma=\{x_0,x_1,\cdots,x_n\}$ du segment $[a,b]$ est le nombre réel défini par
 \startformula 
 |\sigma|:=\max_{1 ⩽ k ⩽ n}(x_k-x_{k-1}).
 \stopformula</definition>
 
-<definition>Soient $a\Le b$ deux nombres réels et $f:[a,b] → 𝕂$ une fonction continue. Pour chuaqe subdivision $\sigma:=\{x_0,\cdots,x_n\}$ du segment $[a,b]$ et chaque famille $Y=\{y_1,\cdots, y_n\}$ vérifiant 
+<definition p="-e">Soient $a\Le b$ deux nombres réels et $f:[a,b] → 𝕂$ une fonction continue. Pour chuaqe subdivision $\sigma:=\{x_0,\cdots,x_n\}$ du segment $[a,b]$ et chaque famille $Y=\{y_1,\cdots, y_n\}$ vérifiant 
 \startformula 
  ∀ k ∈\{1,\cdots, n\}, \qquad x_{k-1} ⩽ y_k ⩽ x_k, 
 \stopformula
@@ -276,7 +345,7 @@ on appelle Somme de Riemann la quantité définie par
 R_{\sigma,Y}(f):= ∑_{1 ⩽ k ⩽ n}(x_k-x_{k-1})f(y_k).
 \stopformula</definition>
 
-<theorem t="Somme de Riemann" h="$f:[a,b] → 𝕂$ fonction continue"> 
+<theorem p="-e" t="Sommes de Riemann" h="$f:[a,b] → 𝕂$ fonction continue"> 
 \startformula 
 \int_a^bf(x)\d x=\lim_{\mbox{$\scriptstyle\sigma$  subdivision de $\scriptstyle[a,b]$
 }\atop\scriptstyle |\sigma| →0}R_{\sigma,Y}(f)
@@ -290,9 +359,14 @@ Autrement dit, l'intégrale de $f$ sur le segment $[a,b]$ est la limite des somm
 }
 \stopformula</theorem>
 
-Exercice :  Calculer $\displaystyle\lim_{n →+ ∞} ∑_{1 ⩽ k ⩽ n}{n\F k^2+n^2}$. 
+<theorem m="?" p="e" t="Sommes de Riemann"> Soit $f:[0,1] → 𝕂$ une fonction continue. Alors 
+\startformula 
+\int_0^1f(x)\d x\NC =\lim_{n →+ ∞}{1\F n} ∑_{k=0}^{n-1}f\Q({k\F n}\W)=\lim_{n →+ ∞}{1\F n} ∑_{k=1}^nf\Q({k\F n}\W)
+\stopformula</theorem>
 
-<property>Soient $a\Le b$ deux nombres réels et $f:[a,b] → 𝕂$ une fonction $K$-lipschitzienne. Alors, pour chaque subdivision $\sigma$ de $[a,b]$, on a 
+<exercice>Calculer $\displaystyle\lim_{n →+ ∞} ∑_{1 ⩽ k ⩽ n}{n\F k^2+n^2}$. </exercice>
+
+<property p="-e">Soient $a\Le b$ deux nombres réels et $f:[a,b] → 𝕂$ une fonction $K$-lipschitzienne. Alors, pour chaque subdivision $\sigma$ de $[a,b]$, on a 
 \startformula 
 \int_a^bf(x)\d x=R_{\sigma,Y}(f)+O(|\sigma|).
 \stopformula</property>
@@ -307,7 +381,11 @@ Ainsi, on a
 \int_a^bf(t)\d t=\lim_{n →+ ∞} ∑_{i=1}^n(x_{i+1}-x_i){f(x_i)+f(x_{i+1})\F 2}
 \stopformula</remark>
 
-</subsection></section></chapter><chapter t="Intégration et dérivation">
+</subsection>
+</section>
+</chapter>
+
+<chapter t="Intégration et dérivation">
 
 \noindent
 Dans tout ce chapitre, le symbole $ 𝕂$ désigne le corps $ 𝕂= ℝ$ ou le corps $ 𝕂= ℂ$. 
@@ -358,25 +436,38 @@ En particulier, pour toute fonction $f$ ce classe $\mc C^1$ sur $I$, on a
 
 </subsection><subsection t="Théorèmes fondamentaux">
 
-<theorem i="Theoreme@Théorème!Integration par partie@Intégration par partie" t="Intégration par partie">
-Soit $(a,b) ∈ ℝ^2$ avec $a\Le b$ et soient $f$ et $g$ deux fonctions de classe $\mc C^1$ sur le segment $[a,b]$. Alors, on a 
+<context>Dans cette section, $I$ désigne un intervalle et les nombres réels $a$ et $b$ vérifient $a\Le b$.</context>
+
+<concept t="Intégration par parties">
+<theorem m="?" t="Intégration par parties" i="Theoreme@Théorème!Integration par partie@Intégration par partie">
+Soient $f$ et $g$ des fonctions de classe $\mc C^1$ sur $[a,b]$. Alors,  
 \startformula 
 \int_a^bf(t)g'(t)\d t=[fg]_a^b-\int_a^bf'(t)g(t)\d t. 
 \stopformula</theorem>
+</concept>
 
-<theorem i="Theoreme@Théorème!de changement de variable" t="Changement de variable">
-Soit $(a,b) ∈ ℝ^2$ avec $a\Le b$, soit $ φ:[a,b] → I$ une fonction de classe $\mc C^1$ et $f:I → 𝕂$ une fonction continue. Alors, on a 
+<concept t="changement de variables">
+<theorem m="?" t="changement de variables" i="Theoreme@Théorème!de changement de variable">
+Soient $f$ une fonction continue \rare{(par morceaux)} sur $[c,d]$ et $φ:[a,b]→[c,d]$ une fonction de classe $\mc C^1$ sur $[a,b]$. Alors,  
 \startformula 
 \int_a^bf\big( φ(x)\big) φ'(x)\d x=\int_{ φ(a)}^{ φ(b)}f(t)\d t.
 \stopformula</theorem>
 
-<theorem i="Theoreme@Théorème!de changement de variable" t="Changement de variable">
+<theorem p="-e" i="Theoreme@Théorème!de changement de variable">
 Soit $(a,b) ∈ ℝ^2$ avec $a\Le b$ et soit $f:[a,b] → 𝕂$ une fonction continue. Soit $I$ un intervalle et soit $ φ:I →[a,b]$ un difféormorphisme de classe $\mc C^1$ (i.e. une bijection $ φ:I →[a,b]$ de classe $\mc C^1$ sur $[a,b]$ dont la bijection réciproque $ φ^{-1}$ est de classe $\mc C^1$ sur $I$). alors, 
 on a 
 \startformula 
 \int_a^bf(t)\d t=\int_{ φ^{-1}(a)}^{ φ^{-1}(b)}f\big( φ(x)\big) φ'(x)\d x. 
 \stopformula</theorem>
 
+
+<corollary p="e" m="?" t="changement de variables bijectif" i="Theoreme@Théorème!de changement de variable">
+Soient $f$ une fonction continue \rare{(par morceaux)} sur $[c,d]$ et $φ:[a,b]→[c,d]$ une bijection de classe $\mc C^1$ sur $[a,b]$. Alors, 
+\startformula 
+\int_c^df(x)\d x=\int_{ φ^{-1}(c)}^{ φ^{-1}(d)}f\big( φ(u)\big) φ'(u)\d u 
+\stopformula</corollary>
+<remark>C'est le théorème précédent avec appliqué pour $c=φ(a)$, $d=φ(b)$, $a=φ^{-1}(c)$ et $b=φ^{-1}(d)$ </remark>
+</concept>
 
 
 </subsection></section><section t="Calcul de primitives">

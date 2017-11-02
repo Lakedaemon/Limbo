@@ -37,30 +37,11 @@ l'ensemble de ses parties $\mc P(Ω)$ est une tribu.
 </concept>
 
 <concept t="espace probabilisable">
-<text>Un espace probabilisable est un ensemble muni d'une tribu.
-</text><definition h="$T$ tribu de $Ω$">\startformula 
-(Ω,T) \text{ espace probabilisable}
-\stopformula</definition>
+<text>Un espace probabilisable est un ensemble muni d'une tribu.</text>
+<definition h="$T$ tribu de $Ω$">$(Ω,T) \text{ espace probabilisable }⟺ T \text{ tribu de }Ω$</definition>
 </concept>
 
-<concept t="événement"><text>Les résultats potentiels d’une expérience aléatoire sont appelés des événements. 
-Un événement d'un espace probabilisable est un élément de sa tribu.</text>
-<definition t="$(Ω,T)$ espace probabilisable">
-\startformula 
-A\text{ événement}⟺A∈T
-\stopformula</definition>
-<remark>$∅$ est un événement impossible, i.e. un événement qui n’est jamais réalisé. </remark>
-<remark>$Ω$ est un événement certain, i.e. un événement qui est toujours réalisé.</remark>
-<remark>Un événement est élémentaire, lorsqu'il contient exactement un élément de $Ω$. </remark>
-<remark>$\bar A$ est l’événement contraire de $A$.</remark>
-<remark>$A∪B$ est l’événement \quote{$A$ ou $B$}.</remark>
-<remark>$A∩B$ est l’événement \quote{$A$ et $B$}.</remark>
-<remark>$A∖B$ est l’événement \quote{$A$ mais pas $B$}.</remark>
-<remark>On dit que \quote{$A$ implique $B$} lorsque $A⊂B$.</remark>
-<example>Lors d'un jet de dé à $6$ faces, l'événement $\{1,3,5\}$ signifie que le résultat du dé est impair, l'événement $\{1,6\}$ signifie que l'on obtient un \quote{as} ou un \quote{six}.</example>
-</concept>
-
-<concept t="événements incompatibles"><text>Deux événements sont incompatibles si'ils sont disjoints.</text>
+<concept t="événements incompatibles"><text>Deux événements sont incompatibles \ssi ils sont disjoints.</text>
 <definition h="$A,B$ événements">
 \startformula 
 A \Et B \text{ incompatibles}⟺ A∩B= ∅

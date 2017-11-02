@@ -5,189 +5,179 @@
 
 <section t="Continuité locale">
 
-<subsection t="définition">
+<context>Dans toute cette section, $f:I→𝕂$ désigne une application définie sur un intervalle $I$ contenant $a$</context>
+
+<subsection t="Généralités">
 
 <concept t="continuité\\à gauche\\à droite">
 
-<definition h="$f:I→ℂ$, $a∈I$">
-\startformula 
-f \text{ continue en } a ⟺ f→\limits_a f(a)
-\stopformula</definition>
+
+<definition m="?" c="" h="$f:I→ℂ$, $a∈I$">$f \text{ continue en } a ⟺ f→\L_a f(a)$</definition>
 <remark>La continuité de $f$ en $a$ est une notion locale. Elle ne dépend que de ce qui se passe pour $f$ lorsque $x$ est très proche de $a$.</remark>
 <remark>$f$ est continue à gauche en $a$ \ssi $f(a^-)=f(a)$</remark>
 <remark>$f$ est continue à droite en $a$ \ssi $f(a)=f(a^+)$</remark>
 <remark>$f$ est continue en $a$ \ssi $f(a^-)=f(a)=f(a^+)$</remark>
 <combination>
-<definition h="$f:I→ℂ$, $a∈I$">
-\startformula 
-f \text{ continue à gauche en } a ⟺ f→\limits_{a^-} f(a)
-\stopformula</definition>
-<definition h="$f:I→ℂ$, $a∈I$">
-\startformula 
-f \text{ continue à droite en } a ⟺ f→\limits_{a^+} f(a)
-\stopformula</definition>
+<definition m="?" c="" h="$f:I→ℂ$, $a∈I$">$
+f \text{ continue à gauche en } a ⟺ f→\limits_{a^-} f(a)⟺ f(a^-)=f(a)$</definition>
+<definition c="" h="$f:I→ℂ$, $a∈I$">$f \text{ continue à droite en } a ⟺ f→\limits_{a^+} f(a) ⟺ f(a^+)=f(a)$</definition>
 </combination>
 <remark>La continuité de $f$ à gauche (resp. à droite) en $a$ n'a de sens que si $f$ est définie sur un intervale du type $]b,a]$ (resp. $[a,b[$).</remark>
 </concept>
 
 <concept t="lien">
-<property h="$f:]c,d[→ℂ$, $a∈]c,d[$">
-\startformula 
-f \text{ continue en } a ⟺ \System{
+<property c="" h="$f:]c,d[→ℂ$, $a∈]c,d[$">$
+f \text{ continue en } a ⟺ f(a^-)=f(a)=f(a^+) ⟺ \System{
 \NC  f \text{ continue à gauche en } a\NR 
-\NC  f \text{ continue à droite en } a}
-\stopformula
+\NC  f \text{ continue à droite en } a}$
 </property>
 </concept>
 
 <concept t="prolongement par continuité">
-<theorem h="$f→\limits_aℓ∈ℂ$">
+<theorem m="?" t="prolongement par continuité" c="" h="$f→\limits_aℓ∈ℂ$">
+Soient $I$ un intervalle contenant $a$ et une application $f:I\ssm \{a\}→ℝ$ vérifiant $f→\limits_aℓ∈ℝ$. Alors, l'application $\tilde f$ définie sur $I$ par 
 \startformula 
 \Align{
 \NC  \tilde f(x):=\System{
-\NC f(x)\Si x≠a\NR
-\NC ℓ\Si x=a}\NR
-\NC \text{est continue en } a}
+\NC f(x)\NC\Si x≠a\NR
+\NC ℓ\NC\Si x=a} }\quad\text{ est continue en } a
 \stopformula
-</theorem></concept>
+</theorem><remark>
+Cette application $\tilde f$ est égale à $f$ en tout point de $I$ sauf en $a$, où elle est continue et $f$ n'est pas définie. 
+C'est la raison pour laquelle on l'appelle \quote{prolongement par continuité de $f$ en $a$} et, très souvent on la note simplement $f$ au lieu de $\tilde f$ {\it (léger abus de notation, consistant à remplacer $f$ par $\tilde f$)}</remark></concept>
 
 </subsection><subsection t="Opérations">
 
 <concept t="addition\\multiple\\produit">
 <text>La somme, les multiples et le produit de fonctions continues est continue.</text>
-<property h="$f,g:I→𝕂$, $λ∈𝕂$">
-\startformula
-\SystemR{
-\NC f\NR
-\NC g}\text{ continue en }a⟹\Choices{
-\NC f+g\NR
-\NC λf\NR
-\NC f×g
-} \text{ continue en }a
-\stopformula
-</property>
+<property m="?" t="opérations algébriques" c="" h="$f,g:I→𝕂$, $λ∈𝕂$">Soient $f$ et $g$ des fonctions continues en $a$. Alors, les fonctions $f+g$, $f×g$ et $λf$ sont continues en $a$ pour $λ∈ℝ$.</property>
 <remark>En particulier, une combinaison linéaire de fonctions continues  en $a$ est continue en $a$. </remark>
 </concept>
 
 <concept t="quotient">
 <text>Le quotient, dont le dénominateur ne s'annule pas en $a$, de deux fonctions continues en $a$ est continue en $a$. </text>
-<property h="$f,g:I→𝕂$, $a∈I$">
-\startformula
-\SystemR{
-\NC f\text{ continue en }a\NR
-\NC g\text{ continue en }a\NR
-g(a)≠0}⟹{f\F g}\text{ continue en }a
-\stopformula
-</property>
+<property t="quotient" m="?" c="" h="$f,g:I→𝕂$, $a∈I$">Soient $f$ et $g$ des fonctions continues en $a$ telles que $\important{g(a)≠0}$. Alors, la fonction ${f\F g}$ est définie au voisinage de $a$ et continue en $a$.</property>
 </concept>
 
 <concept t="composée">
 <text>Lorsque cela a un sens, la composée d'une fonction $f$ continue en $a$ et d'une fonction continue en $f(a)$ est continue en $a$.</text>
-<definition h="$a∈I$, $f:I→ℝ$, $g:J→ℂ$">
+<theorem t="composée" m="?" c="" h="$a∈I$, $f:I→ℝ$, $g:J→ℝ$">Soient deux applications $f:I→ℝ$ et $g:J→ℝ$ avec $a∈I$. Alors, 
 \startformula
 \SystemR{
 \NC f(I)⊂J\NR
 \NC f\text{ continue en }a\NR
 \NC g\text{ continue en }f(a)}⟹g∘f\text{ continue en }a
 \stopformula
-</definition>
+</theorem>
 </concept>
-
-<concept t="réciproque">
-<text>La bijection réciproque d'une bijection $f$ continue en $a$ est continue en $f(a)$.</text>
-<property h="$f:I→J$ bijection, $a∈I$">
-\startformula
-f\text{ continue en }a⟹f^{-1}\text{ continue en }f(a)
-\stopformula
-</property>
-</concept>
-
 
 </subsection>
 </section>
+
+<warning>La bijection réciproque d'une fonction $f$:I→J$ continue en $a∈I$ n'est pas forcément continue en $f(a)$</warning>
+
 
 <section t="Continuité globale">
 
 <subsection t="Continuité sur un ensemble">
 
+<context>Dans cette section, $D$ désigne un ensemble et $f:A→𝕂$ une application définie sur un domaine $A$ réel </context>
+
 <concept t="continuité sur un ensemble">
-<definition h="$D⊂\mc Df$">
-\startformula 
-f\text{ continue sur }D⟺∀a∈D, f \text{ continue en }a
-\stopformula</definition>
+<definition c="" h="$D⊂\mc Df$">$f\text{ continue sur }D⟺(\text{$f$ est continue en $a$ pour $a∈D$})\qquad(D⊂D_f)$</definition>
 <remark>Lorsqu'on dit qu'une fonction est continue, sans préciser sur quelle ensemble, 
 cela sous-entend qu'elle l'est sur son ensemble de définition. En cas d'ambiguité, il faut l préciser. </remark>
-<remark>Les fonctions constantes $x↦c$ sont continues.</remark>
-<remark>L'identité $x↦x$ est continue.</remark>
-<remark>Les fonctions polynômes $x↦P(x)$ pour $P∈ℂ[X]$ sont continues.</remark>
+<property>Les fonctions constantes sont continues.</property>
+<property>La fonction identité est continue.</property>
+<property>Les fonctions polynômes sont continues.</property>
 </concept>
 
-<concept t="espace"><definition h="$D$ ensemble">
-\startformula 
-\mc C^0(D,𝕂)=\{f:D→𝕂:f \text{ continue}\} 
-\stopformula
-</definition>
+<concept t="espace">
+<definition m="?" t="espace des fonctions continues" c="" h="$D$ ensemble">
+$\mc C(D,𝕂)=\mc C^0(D,𝕂)=\{f:D→𝕂\text{ continue}\}$</definition>
+<property>$\mc C(I,𝕂)$ est un $𝕂$-SEV de $\mc F(I,𝕂)$</property>
 </concept>
 
-<concept t="algèbre"><text>La somme, les multiples et le produit de fonctions continues sur un ensemble $D$ est continue sur $D$.</text>
-<property h="$D$ ensemble">
-\startformula 
-(\mc C^0(D,𝕂), +, ⋅, ×)=\text{ algèbre commutative} 
-\stopformula
-</property>
+<concept t="opérations algébriques"><property m="?" t="opérations algébriques">La somme, les multiples et le produit de fonctions continues sur un ensemble $D$ est continue sur $D$.</property>
+<property p="-e" h="$D$ ensemble">$(\mc C^0(D,𝕂), +, ⋅, ×)=\text{ algèbre commutative}$</property>
 <remark>En particulier, on calcule avec les fonctions continues comme avec les nombres réels</remark>
-
 </concept>
-</subsection>
-<subsection t="Théorème fondamentaux">
 
-<concept t="théorème fondamental"><text>L'image d'un segment par une fonction continue réelle est un segment</text>
-<theorem h="$f:[a,b]→ℝ$ continue">
-\startformula 
-f([a,b]) \text{ segment}
+<concept t="quotient">
+<text>Le quotient, dont le dénominateur ne s'annule pas, de deux fonctions continues est continue. </text>
+<property t="quotient" m="?">Soient $f$ et $g$ des fonctions continues sur $D$ telles que $\important{g(a)≠0\ (a∈D)}$. Alors la fonction ${f\F g}$ est définie et continue sur $D$.</property>
+</concept>
+
+<concept t="composée">
+<text>Lorsque cela a un sens, la composée de deux fonctions continues est conctinue</text>
+<theorem t="composée" m="?" c="" h="$a∈I$, $f:I→ℝ$, $g:J→R$">Soient deux applications $f:I→ℝ$ et $g:J→ℝ$. Alors, 
+\startformula
+\SystemR{
+\NC f(I)⊂J\NR
+\NC f\text{ continue sur }I\NR
+\NC g\text{ continue sur }J}⟹g∘f\text{ continue sur }I
 \stopformula
 </theorem>
+</concept>
+
+<concept t="réciproque">
+<text>La bijection réciproque d'une bijection $f$ continue est continue.</text>
+<property m="?" t="réciproque" c="" h="$f:I→J$ bijection, $a∈I$">Soit $f:I→J$ une bijection continue sur $I$. Alors, la bijection réciproque $f^{-1}$ est continue sur $J$.</property>
+</concept>
+
+</subsection><subsection t="Théorèmes fondamentaux">
+
+<concept t="théorème fondamental">
+<theorem m="?" t="continuité et intervalles">L'image d'un intervalle par une fonction continue réelle est un intervalle</theorem>
+<theorem m="?" t="continuité et segments">L'image d'un segment par une fonction continue réelle est un segment</theorem>
 <remark>Ce théorème est à la fois un théorème de compacité (concernant les majorations, minima et maxima globaux de la fonction) et un théorème de connexité (affirmant que l'image de l'ensemble de départ (qui est en un morceau) est en un morceau)</remark>
+<corollary>Une fonction continue sur un segment est bornée</corollary>
+<corollary>Une fonction périodique et continue sur $ℝ$ est bornée</corollary>
 </concept>
 
 <concept t="théorème des valeurs intermédiaires">
-<theorem h="$f:[a,b]→ℝ$ continue">
-\startformula 
-[f(a),f(b)]⊂f([a,b])
-\stopformula
+<theorem m="?" t="théorème des valeurs intermédiaires" c="" h="$f:[a,b]→ℝ$ continue">
+Soit $f$ une fonction continue sur un segment $[a,b]$. Alors $[f(a),f(b)]⊂f([a,b])$
 </theorem>
 <remark>Autrement dit, pour chaque $y∈]f(a),f(b)[$, il existe $x∈]a,b[$ tel que $y=f(x)$. 
 Toutes les valeurs entre $f(a)$ et $f(b)$ sont atteintes entre $a$ et $b$ par la fonction $f$.</remark>
 <remark>Ce théorème est un corrolaire du théorème précédent</remark>
+<text>Le corrolaire suivant est communément utilisé pour remplir plus rapidement la ligne du signe de $f'$ dans les tableaux de variation</text>
+<corollary>Une fonction réelle continue sur $[a,b]$ qui s'annule uniquement en $a$ et en $b$ est soit strictement positive sur $]a,b[$, soit strictement négative sur $]a,b[$</corollary>
+
 </concept>
 
 <concept t="théorème des valeurs intermédiaires">
-<theorem h="$f:]a,b[→ℝ$ continue">
-\startformula 
-\System{
+<property c="" h="$f:]a,b[→ℝ$ continue">
+$\SystemR{
+\NC f\text{ continue sur }]a,b[\NR
 \NC f→\limits_{a^+}ℓ\NR
-\NC f→\limits_{b^-}ℓ'\NR
-}⟹ ]ℓ,ℓ'[⊂f\big(]a,b[\big)
-\stopformula
-</theorem>
+\NC f→\limits_{b^-}ℓ'
+}\qquad ⟹\qquad ]ℓ,ℓ'[⊂f\big(]a,b[\big)
+$
+</property>
 <remark>Autrement dit, pour chaque $y∈]f(a),f(b)[$, il existe $x∈]a,b[$ tel que $y=f(x)$. 
 Toutes les valeurs entre $f(a)$ et $f(b)$ sont atteintes entre $a$ et $b$ par la fonction $f$.</remark>
 <remark>Ce théorème est un corrolaire du théorème précédent</remark>
 </concept>
 
 <concept t="théorème de la bijection">
-<text>L'orsqu'une fonction réelle possède sur un intervalle $I$ deux des caractéristiques suivantes : bijective, monotonie stricte, continuité, elle possède également la troisième.</text><theorem h="$f:]a,b[→ℝ$">
+<theorem m="?" t="théorème de la bijection">Soit $f$ une application réelle, continue et strictement monotone sur un intervalle $I$. Alors, $f$ est une bijection strictement monotone de $I$ sur $J=f(I)$, qui est un intervalle. La bijection réciproque $f^{-1}$ est continue sur $J$ et a le même sens de variation que $f$</theorem>
+</concept>
+
+<concept t="caractérisation">
+<text>Lorsqu'une fonction réelle possède sur un intervalle $I$ deux des caractéristiques suivantes : bijective, monotonie stricte, continuité, elle possède également la troisième.</text><theorem t="caractérisation" c="" h="$f:]a,b[→ℝ$">Soit $f$ une application réelle définie sur un intervalle $I$. Alors, 
 \startformula 
-f\System{
-\NC\text{continue }\NR
-\NC \text{monotone stricte}}
-⟺ f \System{
-\NC \text{continue}\NR
-\NC\text{bijective}}
+\System{
+\NC f\text{ continue sur $I$}\NR
+\NC f \text{ monotone stricte sur $I$}}
+⟺\System{
+\NC f\text{ continue sur $I$}\NR
+\NC f\text{ bijective sur $I$}}
 ⟺ 
-f\System{
-\NC \text{bijective}\NR
-\NC\text{monotone stricte}}
+\System{
+\NC f\text{ bijective sur $I$}\NR
+\NC f\text{ monotone stricte sur $I$}}
 \stopformula
 </theorem>
 <remark>En particulier, la bijection réciproque d'une bijection strictement monotone sur un intervalle est également strictement monotone, de même sens de variation.</remark>

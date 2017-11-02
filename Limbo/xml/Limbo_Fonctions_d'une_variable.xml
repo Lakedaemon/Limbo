@@ -341,7 +341,7 @@ $f$ est strictement décroissante ou strictement croissante (resp. décroissante
 
 </section><section t="Comparaison">
 
-<subsection t="Fonctions dominées" p="-β+β"> 
+<subsection t="Fonctions dominées" p="-eβ+β"> 
 <concept t="fonction dominée"><text>Une fonction est dominée par une autre fonction lorsqu'elle est toujours plus petite en module qu'un multiple de l'autre fonction.</text>
 <definition h="$f,g:D→ℂ$">
 \startformula 
@@ -410,141 +410,82 @@ f ≪\L_D g \ ⟹ \  {1\F g} ≪\L_D {1\F f}
 
 </subsection><subsection t="fonctions négligeables"> 
 
-<concept t="fonction négligeable"><text>Une fonction est négligeable en $a$ devant une autre fonction lorsqu'elle est égale au produit de cette fonction par une fonctionde limite nulle en $a$.</text>
-<definition h="$f,g:D→ℂ$">
-\startformula 
-\startChoicesR
+<context>Dans cette section, $a$ désigne un nombre réel ou un symbole $a=+∞$ ou $a=-∞$ 
+et $f$, $g$, $h$, $F$, $G$ et $ε$ désignent des fonctions définies autour de $a∈ℝ$, c'est-à-dire sur un intervalle $I$ admettant $a$ comme élément ou comme extrémité. 
+Pour simplifier, on note 
+\startformula
+\underbrace{f≺\L_ag}_{\rare{\text{non standard}}} ⟺  \startChoices
 \NC f=o_a(g)\NR
-\NC f \text{ est négligeable devant } g \text{ en } a\NR
-\NC f ≺\L_a g  \NR
+\NC f \text{ est négligeable devant } g \text{ en } a
 \stopChoicesR
-\ ⟺\  f= αg \Avec α →\L_a 0. 
-\stopformula</definition>
+\stopformula
+
+</context>
+
+<concept t="fonction négligeable"><text>Une fonction est négligeable en $a$ devant une autre fonction lorsqu'elle est égale au produit de cette fonction par une fonctionde limite nulle en $a$.</text>
+<definition m="?" t="fonction négligeable" c="" h="$f,g:D→ℂ$">$f=o_a(g)  ⟺\  f(x)= g(x)×ε(x) \Avec ε →\L_a 0$</definition>
 <remark>Lorsque $g$ ne s'annule pas autour de $a$, cela revient à dire que $f/g$ tends vers $0$ en $a$.</remark>
 </concept>
 
 <concept t="transitivité"><text>En $a$, si $f$ est négligeable devant $g$ qui est négligeable $h$, alors $f$ est négligeable devant $h$.</text>
-<property h="$f,g,h:D→ℂ$">
-\startformula
-f ≺\L_a g ≺\L_a h \ ⟹ \  f ≺\L_a h
-\stopformula
-</property>
+<property m="?" t="transitivité" c="" h="$f,g,h:D→ℂ$">$f ≺\L_a g ≺\L_a h \ ⟹ \  f ≺\L_a h$</property>
 </concept>
 
 <concept t="somme\\produit\\puissance\\multiple\\quotient">
 <text>Les relations suivantes permettent de simplifier des relations  faisant intervenir sommes, produit, puissances et quotients.</text>
 <combination>
-<property h="$f,g:D→ℂ$">
-\startformula
-\SystemR{
-	\NC f ≺\L_a h\NR
-	\NC g ≺\L_a h
-} \ ⟹ \  f+g ≺\L_a h
-\stopformula
-</property>
-<property h="$f,g,F,G:D→ℂ$">
-\startformula	
-\SystemR{
-	\NC f ≺\L_a F\NR
-	\NC g ≺\L_a G
-} \ ⟹ \  fg ≺\L_a FG
-\stopformula
-</property>
+<property m="?" t="multiple" c="" h="$f,g:D→ℂ$, $λ,μ∈ℂ^*$">$f ≺ g \ ⟺\  λf ≺ μg\qquad(λ∈𝕂^*, μ∈𝕂^*)$</property>
+<property m="?" t="somme" c="" h="$f,g:D→ℂ$">$(f ≺\L_a h \Et g ≺\L_a h) \ ⟹ \  f+g ≺\L_a h$</property>
+<property m="?" t="produit" c="" h="$f,g,F,G:D→ℂ$">
+$(f ≺\L_a F\Et g ≺\L_a G) \ ⟹ \  fg ≺\L_a FG$</property>
 </combination>
 <combination>
-<property h="$f,g:D→ℂ$, $k⩾1$">
-\startformula	
-f ≺ g \ ⟹ \  f^k ≺ g^k
-\stopformula
-</property>
-<property h="$f,g:D→ℂ$, $λ,μ∈ℂ^*$">
-\startformula	
-f ≺ g \ ⟺\  λf ≺ μg
-\stopformula
-</property>
-<property h="$f,g:D→ℂ^*$">
-\startformula	
-f≺\L_a g \ ⟹ \  {1\F g} ≺\L_a {1\F f}
-\stopformula
-</property>
+<property m="?" t="puissance" c="" h="$f,g:D→ℂ$, $k⩾1$">$f ≺ g \ ⟹ \  f^k ≺ g^k\qquad(k⩾1)$</property>
+<property m="?" t="quotient" c="" h="$f,g:D→ℂ^*$">
+$\displaystyle f≺\L_a g \ ⟹ \  {1\F g} ≺\L_a {1\F f}\qquad(f\text{ non nulle autour de }a)$</property>
 </combination>
 </concept>
 
 </subsection><subsection t="Fonctions équivalentes"> 
 
+<context>Dans cette section, $a$ désigne un nombre réel ou un symbole $a=+∞$ ou $a=-∞$ et $f$, $g$, $h$, $F$, $G$ et $β$ désignent des fonctions définies autour de $a∈ℝ$, c'est-à-dire sur un intervalle $I$ admettant $a$ comme élément ou comme extrémité. </context>
+
+
 <concept t="fonctions équivalentes"><text>Une fonction est équivalente en $a$ à une autre fonction lorsqu'elle est égale au produit de cette fonction par une fonction de limite $1$ en $a$.</text>
-<definition h="$f,g:D→ℂ$">
-\startformula 
-\startChoices
+<definition m="?" t="fonctions équivalentes" c="" h="$f,g:D→ℂ$">
+\startformula
+\startChoicesR
 \NC f∼\L_ag\NR
 \NC f \text{ est équivalente à } g \text{ en } a\NC
 \stopChoices
-\ ⟺\  f= αg \Avec α →\L_a 1. 
+\ ⟺\  f(x)= g(x)×β(x) \Avec β →\L_a 1
 \stopformula</definition>
 <remark>Lorsque $g$ ne s'annule pas, cela revient à dire que $f/g$ tends vers $1$ en $a$.</remark>
-<remark>La relation précédente peut également s'écrire 
-\startformula 
-f∼\L_ag \ ⟺\  f = g + o(g)
-\stopformula
-</remark>
-<remark>Cette relation est reflexive et symétrique : pour $f,g:D→ℂ$, on a 
-\startformula
-\Align{
-	\NC f∼\L_ag \ ⟺\ g∼\L_af\qquad\NC\text{(symétrie)}\NR
-	\NC f∼\L_af\NC\text{(reflexivité)}
-}
-\stopformula</remark>
+<property t="lien avec les fonctions négligeables">$f∼\L_ag \ ⟺\  f = g + o_a(g)$</property>
+<property t="reflexivité">$f∼\L_af$</property>
+<property t="symétrie">$f∼\L_ag \ ⟺\ g∼\L_af$</property>
 </concept>
 
+
 <concept t="transitivité"><text>En $a$, si $f$ est équivalente à $g$ qui est équivalente à $h$, alors $f$ est équivalente à $h$.</text>
-<property h="$f,g,h:D→ℂ$">
-\startformula
-f ∼\L_a g ∼\L_a h \ ⟹ \  f ∼\L_a h
-\stopformula
+<property  m="?" t="transitivité" c="" h="$f,g,h:D→ℂ$">$f ∼\L_a g ∼\L_a h \ ⟹ \  f ∼\L_a h$
 </property>
 </concept>
 
 <concept t="signe"><text>Deux fonctions réelles équivalentes en $a$ ont même signe autour de $a$.</text>
-<property h="$f,g:D→ℝ$">
-\startformula
-f∼\L_ag\ ⟹ \  (\text{signe}\,(f(x))=\text{signe}\,(g(x))\quad (x\text{ autour de }a))
-\stopformula
-</property>
-<remark>La fonction signe dont il est question dans cette propriété est définie par 
-\startformula
-\text{signe}\,(x)=\startcases
-\NC\text{positif}\NC (x>0)\NR
-\NC \text{nul}\NC \Si (x=0)\NR
-\NC\text{négatif}\NC (x\Le 0)
-\stopcases
-\stopformula
-</remark>
+<property m="?" t="signe" c="" h="$f,g:D→ℝ$">
+$f∼\L_ag\ ⟹ \  f(x) \Et g(x)$ ont les mêmes signes autour de $a$ : ils sont tous les deux nuls, strictement positifs ou strictement négatifs</property>
 </concept>
 
 
 <concept t="produit\\puissance\\quotient">
 <text>Les relations suivantes permettent de simplifier des relations d'équivalence faisant intervenir produits, puissances et quotients.</text>
 <combination>
-<property h="$f,g,F,G:D→ℂ$">
-\startformula	
-\SystemR{
-	\NC f ∼\L_a F\NR
-	\NC  g∼\L_a G
-} \ ⟹ \  fg ∼\L_a FG
-\stopformula
-</property>
+<property m="?" t="produit" c="" h="$f,g,F,G:D→ℂ$">$(f ∼\L_a F\Et g∼\L_aG) \ ⟹ \  fg ∼\L_a FG$</property>
 </combination>
 <combination>
-<property h="$f,g:D→ℂ$, $k⩾1$">
-\startformula	
-f ∼\L_a g \ ⟹ \  f^k ∼\L_a g^k
-\stopformula
-</property>
-<property h="$f,g:D→ℂ^*$">
-\startformula	
-f ∼\L_a g \ ⟺ \  {1\F f} ∼\L_a {1\F g}
-\stopformula
-</property>
+<property m="?" t="puissance" c="" h="$f,g:D→ℂ$, $k⩾1$">$f ∼\L_a g \ ⟹ \  f^k ∼\L_a g^k$</property>
+<property m="?" t="quotient" c="" h="$f,g:D→ℂ^*$">$	f ∼\L_a g \ ⟺ \  {1\F f} ∼\L_a {1\F g}\qquad(f\text{ non nul autour de $a$})$</property>
 </combination>
 </concept>
 
@@ -559,25 +500,18 @@ f(x)+g(x)=0\not\!∼\L_0 x=F(x)+G(x).
 </text>
 
 <concept t="limite">
-<property h="$f:D→ℂ$, $ℓ≠0$">
-\startformula 
-\Align{
-\NC f→\L_aℓ\NC \ ⟺\ \NC f∼\L_aℓ,\NR
+<property m="?" t="lien avec les limites" c="" h="$f:D→ℂ$, $ℓ≠0$">
+$\Align{
+\NC f→\L_aℓ\NC \ ⟺\ \NC f∼\L_aℓ\qquad(\important{ℓ≠0})\NR
 \NC f→\L_a0 \NC \ ⟺\ \NC f≺\L_a1
-}
-\stopformula</property>
+}$</property>
 </concept>
 
 <concept t="comparaison\\fonctions de références"><text>A l'infini et  en zéro, un logarithme croit moins vite qu'un monôme. A l'infini, un monôme croît moins vite qu'une exponentielle (qu'une puissance).</text>
 <combination>
-<theorem  h="$α,β,γ>0$"> 
-\startformula 
-\ln(x)^α ≺\limits_{+∞} x^β ≺\L_{+∞} \e^{γx}
-\stopformula</theorem>
-<theorem  h="$α,β>0$"> 
-\startformula 
-\ln(x)^α ≺\L_0 x^{-β}
-\stopformula</theorem>
+<theorem m="?" t="croissances comparées" c="" h="$α,β,γ>0$">  
+$\ln(x)^α ≺\limits_{+∞} x^β ≺\L_{+∞} \e^{γx}\qquad(α>0,β>0,γ>0)$</theorem>
+<theorem  m="?" t="croissances comparées" c="" h="$α,β>0$"> $\ln(x)^α ≺\L_{0^+} x^{-β}$</theorem>
 </combination>
 </concept>
 
