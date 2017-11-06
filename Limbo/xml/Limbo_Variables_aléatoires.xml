@@ -5,22 +5,22 @@
 
 <section t="Généralités">
 
-<context>Dans cette section, $(Ω,\mc T)$ désigne un espace probabilisable (la tribu des événements est $\mc T=\mc P(ℝ)$ au premier semestre et \later{$\mc T$ tribu quelconque au second semestre}).
+<context>Dans cette section, $(Ω,\mc T)$ désigne un espace probabilisable (la tribu $\mc T$ des événements est $\mc P(ℝ)$ au premier semestre \later{et $\mc T$ tribu quelconque au second semestre}).
  Pour $x∈ℝ$ et $A⊂ℝ$, nous adoptons les notations habituelles
-\startformula
-\Align{
-\NC\rare{X^{-1}\big(]-∞, x]\big)}=\{ω∈Ω:X(ω)⩽x\}=[X⩽x]\NR
-\NC\rare{X^{-1}\big(\{x\}\big)}=\{ω∈Ω:X(ω)=x\}=[X=x]\NR 
-\NC\rare{X^{-1}\big(A\big)}=\{ω∈Ω:X(ω)∈A\}=[X∈A]\NR
-\NC \text{\etc}}
-\stopformula
+\startmdformula
+\Align{[align={right, left, center, left, left}]
+\NC\rare{X^{-1}\big(]-∞, x]\big)}\NC =\NC \{ω∈Ω:X(ω)⩽x\}\NC =\NC [X⩽x]\NR
+\NC\rare{X^{-1}\big(\{x\}\big)}\NC =\NC \{ω∈Ω:X(ω)=x\}\NC =\NC [X=x]\NR 
+\NC\rare{X^{-1}\big(A\big)}\NC =\NC \{ω∈Ω:X(ω)∈A\}\NC =\NC [X∈A]\NR
+\NC \NC\NC\text{\etc}}
+\stopmdformula
 </context>
 
 <concept t="variable aléatoire">
 <definition m="?" t="variable aléatoire réelle">Une V.A.R. sur un espace probabilisable $(Ω,\mc T)$ est une application $X:Ω→ℝ$ \later{vérifiant
-\startformula
+\startmdformula
 \underbrace{\{ω∈Ω:X(ω)⩽x\}∈\mc T}_{[X⩽x]\text{ événement}}\qquad(x∈ℝ)
-\stopformula}
+\stopmdformula}
 </definition>
 </concept>
 
@@ -36,7 +36,7 @@
 
 
 <concept t="univers image">
-<definition  t="univers image" c="" h="$X$ v.a. sur $Ω$">L'univers image d'une V.A.R. $X$ sur un espace probabilisable~$(Ω,\mc T)$ est l'ensemble image $X(Ω)=\{X(ω):ω∈Ω\}$</definition>
+<definition  m="?" t="univers image" c="" h="$X$ v.a. sur $Ω$">L'univers image d'une V.A.R. $X$ sur un espace probabilisable~$(Ω,\mc T)$ est l'ensemble image $X(Ω)=\{X(ω):ω∈Ω\}$</definition>
 <remark>Pour le calcul de probabilités, l'univers image $X(Ω)$ sert davantage et est donc plus important que l'univers $Ω$. </remark>
 </concept>
 
@@ -45,23 +45,23 @@
 
 
 <concept t="système complet">
-<definition t="système complet">Le système complet associé à une V.A.R. $X$ sur un espace probabilisable $(Ω, \mc T)$, \important{avec $X(Ω)$ dénombrable}, est la famille d'événements $\{[X=x]\}_{x∈X(Ω)}$</definition>
+<definition m="?" t="système complet">Le système complet associé à une V.A.R. $X$ sur un espace probabilisable $(Ω, \mc T)$, \important{avec $X(Ω)$ dénombrable}, est la famille d'événements $\{[X=x]\}_{x∈X(Ω)}$</definition>
 </concept>
 
 <context>Pour la suite de cette section, $X$ désique une V.A.R. sur un espace probabilisé $(Ω, \mc T, P)$.</context>
 
 <concept t="loi d'une V.A.R.">
 <definition t="loi d'une V.A.R."> La loi de $X$ est la probabilité $P_X$ définie sur $X(Ω)$ par
-\startformula
+\startmdformula
 P_X(A) = P(X∈A)\qquad(A \text{ événement de } X(Ω))
-\stopformula
+\stopmdformula
 </definition>
 <remark>Au premier semestre, $X(Ω)$ est fini et les événements de $X(Ω)$ sont tous les sous-ensembles de $X(Ω)$</remark>
 <remark>Cette formule sera également valable au second semestre, lorsque $ℝ$ sera muni de la tribu (borelienne) engendrée par les intervalles du type $]-∞, x]\quad(x∈ℝ)$</remark>
 </concept>
 
 <concept t="fonction de répartition">
-<definition>La fonction de répartition de $X$ est $F_X$ l'application $F_X:ℝ→[0,1]$ définie par 
+<definition m="?">La fonction de répartition de $X$ est $F_X$ l'application $F_X:ℝ→[0,1]$ définie par 
 \startformula
 F_X(x)=P(X⩽x)\qquad(x∈ℝ)
 \stopformula
@@ -73,31 +73,6 @@ et vérifie $F_X→\L_{-∞}0$ \text{ et } $F_X→\L_{+∞}1$
 </property>
 <property>La fonction de répartition caractérise la loi d'une variable aléatoire</property>
 </concept>
-
-
-<concept t="densité">
-<definition h="$X$ v.a. finie">
-\Function{f_X:X(Ω)→[0,1]|x↦P(X=x)}\text{ densité de }X
-</definition>
-<remark>La densité de $X$ est également appelée (abusivement ?) \quote{loi de probabilité de $X$}.</remark>
-</concept>
-
-<concept t="lien">
-<combination>
-<property h="$X$ v.a. finie sur $(Ω,P)$">
-\startformula 
-∀x∈ℝ, F_X(x)=∑_{y∈X(Ω)\atop y⩽x}f_X(y)
-\stopformula
-</property>
-<property h="$X$ v.a. finie sur $(Ω,P)$">
-\startformula 
-∀x∈ℝ,  f_X(x)=F_X(x)-F_X(x^-)
-\stopformula
-</property>
-</combination>
-<remark>Le rapport entre fonction de répartition et fonction de densité est un peu le même que le rapport entre primitive et dérivée, à partir de l'une, on peut retrouver l'autre.</remark>
-</concept>
-
 
 </section><section t="Espérance et variables aléatoires discrètes">
 
@@ -128,42 +103,50 @@ f \text{ densité} ⟺ ∃A⊂ℝ : \System{
 <definition t="variable aléatoire discrète">$X \text{ V.A.R. discrète}⟺ X(Ω)\text{ dénombrable}$</definition>
 </concept>
 
+<concept t="\rare{fonction de masse}">
+<definition t="fonction de masse" c="" h="$X$ v.a. finie">La fonction de masse d'une V.A.R \important{discrète} $X$ est  
+\startsdformula p_X:\Align{[align={center, left, left}]\NC\NR
+\NC X(Ω)\NC →\NC [0,1]\NR 
+\NC x \NC ↦\NC P(X=x)}\stopsdformula
+</definition>
+<remark>La fonction de masse de $X$ est également appelée (abusivement ?) \quote{loi de probabilité de $X$}.</remark>
+</concept>
+
+<concept t="lien">
+<combination>
+<property c="" h="$X$ v.a. finie sur $(Ω,P)$">
+Si $X$ est finie \later{(resp. discrète)}, alors $\D F_X(x)=∑_{y∈X(Ω)\atop y⩽x}\rare{\underbrace{\normal{P(X=y)}}_{p_X(y)}}\qquad(x∈ℝ)$</property>
+<property c="" h="$X$ v.a. finie sur $(Ω,P)$">
+Si $X$ est finie \later{(resp. discrète)}, $p_X(x)=P(X=x)=F_X(x)-F_X(x^-)\quad(x∈ℝ)$
+</property>
+</combination>
+<remark>Le rapport entre fonction de répartition et fonction de densité est un peu le même que le rapport entre primitive et dérivée, à partir de l'une, on peut retrouver l'autre.</remark>
+</concept>
+
 <concept t="espérance">
-<definition t="espérance">Une V.A.R. discrète $X$ admet une espérance
+<definition m="?" t="espérance">Une V.A.R. discrète $X$ admet une espérance
 \startformula 
-E(X) = \sum_{x∈ X(Ω)}xP(X=x)
+E(X) = \sum_{x∈ X(Ω)}x\rare{\underbrace{\normal{P(X=x)}}_{p_X(x)}}
 \stopformula
 \later{si, et seulement si, cette somme est absolument convergente}
 </definition>
 </concept>
 
 <concept t="espérance">
-<definition h="$X$ va finie">
-\startformula 
-E(X)=∑_{x∈X(Ω)}xP(X=x)
-\stopformula
-</definition>
-<remark>En particulier, avec $Ω=\{x_1,⋯,x_n\}$, on a 
-\startformula 
+<corollary m="?"> Soit $X$ une V.A.R finie, d'univers image $X(Ω)=\{x_1,⋯,x_n\}$. 
+Alors 
+\startsdformula
 E(X)=∑_{k=1}^nx_kP(X=x_k)
-\stopformula
-</remark>
-<remark>Une variable aléatoire est \quote{centrée} \ssi son espérance est nulle.</remark>
-<remark>Une variable aléatoire positive et \quote{centrée} est presque surement nulle.
-\startformula 
-\SystemR{
-\NC X⩾0\NR
-\NC E(X)=0
-} ⟹ P\big(X=0\big)=1
-\stopformula
-</remark>
+\stopsdformula
+</corollary>
 </concept>
 
 <concept t="formule de transfert">
-<theorem t="théorème de transfert" h="$X$ va finie, $f:ℝ→ℝ$">Soit $X$ une V.A.R. et $f$ une fonction définie sur $X(Ω)$
-\startformula 
+<theorem m="?" t="théorème de transfert" c="" h="$X$ va finie, $f:ℝ→ℝ$">Soit $X$ une V.A.R. finuie \later{(resp. discrète)} et $f$ une fonction définie sur $X(Ω)$. Alors, 
+\startsdformula 
 E\big(f(X)\big)=∑_{x∈X(Ω)}f(x)P(X=x)
-\stopformula
+\stopsdformula
+\later{si, et seulement si, cette somme est absolument convergente}
 </theorem>
 <remark>Cette formule permet de déterminer l'espérance d'une v.a. composée $Y=f(X)$, que l'on peut également calculer via la formule  
 \startformula 
@@ -183,12 +166,12 @@ E(Y)=∑_{y∈Y(Ω)}xP(Y=y)
 <context>Pour la suite de cette section, $X$ désigne une V.A.R. à densité</context>
 <concept  t="densité">
 <definition m="?" t="densité">$f:ℝ→ℝ$ est une densité de $X$ \ssi $f$ ne différe de $F_X'$ qu'en un nombre fini de points</definition>
-<property>$f\text{ densité de $X$}⟺ F_X(x)=\int_{-∞}^xf(t)\d t\qquad(t∈ℝ)$</property>
+<property>$f\text{ densité de $X$}⟺ \D F_X(x)=\int_{-∞}^xf(t)\d t\qquad(t∈ℝ)$</property>
 </concept>
 
 <theorem>$f:ℝ→ℝ$ est la densité d'une V.A.R. $X$ \ssi $f$ est positive, continue sur $ℝ$ privé d'un nombre fini de points et vérifie $\int_{-∞}^{+∞}f(t)\d t=1$</theorem>
 
-<property>$X$ est une V.A.R. à densité \ssi $aX+b$ est une V.A.R. à densité \quad(a≠0,b∈ℝ)</property>
+<property>$X$ est une V.A.R. à densité \ssi $aX+b$ est une V.A.R. à densité \quad$(a≠0,b∈ℝ)$</property>
 
 <craft m="?" t="Pour obtenir fonction de répartition et densité de $Y=aX+b$">
 \startList
@@ -213,10 +196,10 @@ f_Y(y)=F_Y'(y)\Align{[align={left,left}]
 
 <concept t="espérance">
 <definition>Une V.A.R. $X$ de densité $f$ admet une esperance 
-\startformula 
+\startsdformula 
 E(X)=\int_{-∞}^{+∞}xf(x)\d x
-\stopformula
-si, et seulement si, cette intégrale converge absolument</definition>
+\stopsdformula
+\important{si, et seulement si, cette intégrale converge absolument}</definition>
 </concept>
 
 
@@ -233,28 +216,32 @@ si et seulement si cette intégrale est absolument convergente.
 
 <section t="Espérance">
 
-<context>Dans cette section, $X$ est une V.A.R. discrète \later{ou à densité} sur un espace probabilisé $(Ω, \mc T, P)$.</context>
+<context>Dans cette section, $X$ est une V.A.R. finie, \later{discrète ou à densité} sur un espace probabilisé $(Ω, \mc T, P)$.</context>
 
 <concept t="Espérance d'une V.A.R. quasi certaine">
-<property>Soit $c∈ℝ$ et $X=c$ p.s. Alors, $E(X)=c$</property>
+<property>Soit $c∈ℝ$ et $X=c$ presque sûrement. Alors, $E(X)=c$</property>
 </concept>
 
 
 <concept t="moments">
-<definition c="" h="$X$ va finie, $k⩾1$">Le moment d'ordre $k∈ℕ^*$ d'une V.A.R. $X$ est le nombre $E(X^k)$, \later{s'il existe}. </definition>
+<definition c="" h="$X$ va finie, $k⩾1$">Le moment d'ordre $k∈ℕ^*$ de $X$ est le nombre $m_k(X)=E(X^k)$, \later{s'il existe}. </definition>
 </concept>
 
 
 <concept t="V.A.R. centrée"><definition>$X$ est une V.A.R. centrée \ssi \later{$X$ admet une espérance et} $E(X)=0$</definition>
 
-<property>$X$ est une V.A.R. positive et centrée \ssi $X=0$ p.s.</property>
+<property>$X$ est une V.A.R. positive et centrée \ssi $X=0$ presque sûrement</property>
 </concept>
 
 <concept t="linéarité">
-<property h="$X,Y$ va finie, $λ,μ∈ℝ$">Soient $(λ,μ)∈ℝ^2$ et $X$ et $Y$ deux V.A.R. \later{admettant une esperance}. Alors, \later{la V.A.R. $λX+μY$ admet une espérance et } 
-\startformula 
-E(λX+μY)=λE(X)+μE(Y)
-\stopformula</property>
+<property c="" h="$X,Y$ va finie, $λ,μ∈ℝ$">Soient $(λ,μ)∈ℝ^2$ et des V.A.R. $X$ et $Y$ \later{admettant une esperance}. Alors, \later{la~V.A.R. $λX+μY$ admet une espérance et } $E(λX+μY)=λE(X)+μE(Y)$</property>
+
+<corollary>Soit $X$ une V.A.R. \later{admettant une esperance}. 
+Alors, 
+\startformula
+E(aX+b)=aE(X)+b\qquad(a∈ℝ,b∈ℝ)
+\stopformula
+</corollary>
 </concept>
 
 <craft m="?" t="Pour centrer une V.A.R $X$\later{, qui admet une espérance}">
@@ -262,8 +249,7 @@ Lui soustraire son espérance pour obtenir la V.A.R. centrée $Y=X-E(X)$</craft>
 
 <context>\later{Dans la suite de cette section, $X$ admet une espérance}</context>
 
-<concept t="positivité\\NR
-\NC oissance">
+<concept t="positivité\\Croissance">
 <combination>
 <property c="" h="$0⩽X$ va finie">$X⩾0\rare{\text{ p.s. }}⟹E(X)⩾0$
 </property>
@@ -311,24 +297,24 @@ $
 
 <concept t="variance">
 <text>La variance est le moment d'ordre $2$ de la va centrée $X-E(X)$</text>
-<definition h="$X$ va finie">\later{Lorsqu'elle existe,} la variance d'une V.A.R. $X$ else le nombre 
-\startformula
+<definition c="" h="$X$ va finie">\later{Lorsqu'elle existe,} la variance d'une V.A.R. $X$ est le nombre 
+\startmdformula
 V(X)=E\Q((X-E(X))^2\W)
-\stopformula
+\stopmdformula
 </definition>
-<property>$V(X)=0$ \ssi il existe $c∈ℝ$ tel que $X=c$ p.s. </property>
+<property>$V(X)=0$ \ssi il existe $c∈ℝ$ tel que $X=c$ presque sûrement</property>
 </concept>
 
 <concept t="formule de Kœnig-Huygens"><text>La variance est la différence de l'espérance du carré et du carré de l'espérance.</text>
-<property t="\later{CNS d'existence}">$X$ admet une espérance et une variance \ssi $X$ admet un moment d'ordre $2$</property>
-<property t="formule de Kœnig-Huygens">\later{Lorsque la variance de $X$ existe}, on a  
-\startformula
+<property t="\later{CNS d'existence}">$X$ admet une variance (et une espérance) \ssi $X$ admet un moment d'ordre $2$</property>
+<property t="formule de Kœnig-Huygens">\later{Lorsque la variance de $X$ existe},  
+\startmdformula
 V(X)=E(X²)-E(X)²
-\stopformula</property>
+\stopmdformula</property>
 </concept>
 
 <concept t="transformation affine">
-<property t="\later{variance et transformée affine}">Soit$X$ une V.A.R admettant une variance. Alors, pour $(λ,μ)∈ℝ^2$, $λX+μ$ admet une variance</property>
+<property t="\later{variance et transformée affine}">Si $X$ admet une variance, alors $λX+μ$ admet une variance pour $λ∈ℝ$ et $μ∈ℝ$</property>
 <property>$V(λX+μ)=λ²V(X)\qquad(λ∈ℝ,μ∈ℝ)$</property>
 </concept>
 
@@ -350,7 +336,7 @@ V(X)=E(X²)-E(X)²
 </concept>
 
 <concept t="positivité">
-<property  t="positivité" h="$X$ va finie">$σ(X)⩾0$</property>
+<property  t="positivité">$σ(X)⩾0$</property>
 </concept>
 
 <concept t="V.A.R. réduite">
@@ -373,7 +359,7 @@ X^*={X-μ\F σ} ⟺ X=μ+σX*
 </section><section t="Approximations">
 <subsection t="Théorèmes fondamentaux">
 <concept t="Inégalité de Markov">
-<theorem t="Inégalité de Markov"> Soit $X$ une V.A.R. positive \rare{presque surement} \later{admettant une espérance}. 
+<theorem t="Inégalité de Markov"> Soit $X$ une V.A.R. positive \rare{presque sûrement} \later{admettant une espérance}. 
 Alors, 
 \startformula 
 P\big(X⩾ε\big)⩽{E(X)\F ε}\qquad(ε>0)
@@ -400,7 +386,7 @@ X_n→\L^PX⟺ \lim P\big([|X n − X| > ε]\big) = 0\qquad(ε>0)
 <concept t="loi faible des grands nombres (loi binomiale)">
 <theorem t="loi faible des grands nombres (loi binomiale)">
 \startformula
-X_n↪\mc B(n, p)\quad(n∈ℕ)\ ⟹\ {X_n\F n}→\L^Pp
+X_n↪\mc B(n, p)\quad(n∈ℕ)\ ⟹\ {X_n\F n}\ →\L^P\ p
 \stopformula</theorem>
 </concept>
 </subsection>
@@ -412,7 +398,7 @@ X_n↪\mc B(n, p)\quad(n∈ℕ)\ ⟹\ {X_n\F n}→\L^Pp
 <definition m="?" t="convergence en loi">
 $\D X_n→\L^{\mc L}X⟺ \lim_{n→∞} F_{X_n}(x)=F_X(x)\quad(\text{$F$ continue en $x$})$</definition>
 </concept>
-</subsection>
+
 
 <concept t="Théorème limite central">
 <theorem t="Théorème limite central">
@@ -422,6 +408,7 @@ $\D\ChoicesR{
 avec $Y$ de loi normale centrée, réduite 
 </theorem></concept>
 
+</subsection>
 </section>
 
 <!--
@@ -452,9 +439,9 @@ f \text{ fonction de répartition} ⟺ \System{
 <subsection t="Loi certaine">
 
 <concept t="loi certaine">
-<definition m="?" t="loi certaine">$X \text{ certaine, égale à } m⟺P(X=m)=1$
+<definition m="?" t="loi certaine">$X \text{ suit une loi certaine, égale à } m⟺P(X=m)=1$
 </definition>
-<remark>Pour une telle V.A.R., on dit que $X$ suit la loi certaine égale à $m$ et aussi que $X=m$ presque surement.</remark>
+<remark>Pour une telle V.A.R., on dit que $X$ suit la loi certaine égale à $m$ et aussi que $X=m$ presque sûrement.</remark>
 </concept>
 
 <context>Pour la suite de cette section, $X$ désigne une variable aléatoire réelle certaine égale à $m∈ℝ$</context>

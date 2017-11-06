@@ -805,6 +805,9 @@ Interprétation de l'intégrale en termes d'aire.}
 </section>
 
 <section t="Intégrales sur un intervalle quelconque" sequence="28">
+
+<include path="xml/Maths_Intégrales_généralisées.xml" as="intégrales"/>
+<ref from="intégrales" path="section[@t=='Intégrales généralisées']"/>
 </section>
 
 </chapter>
@@ -1100,6 +1103,27 @@ est un système complet si elle vérifie les conditions deux suivantes :$A_i\cap
 
 <ref from="probabilités" path="section[@t=='Espaces probabilisés']"/>
 </section>
+
+
+<section t="Limite monotone" sequence="24">
+
+<programme>
+\startSet\item Théorème de la limite monotone
+{\it Pour toute suite croissante $(A_n)$ d'événements
+\startformula
+P\Q(⋃_{n=0}^{+∞}\W)=\lim_{n→+∞}P(A_n)
+\stopformula
+Pour toute suite décroissante $(A_n)$ d'événements
+\startformula
+P\Q(\bigcap_{n=0}^{+∞}\W)=\lim_{n→+∞}P(A_n)
+\stopformula
+}
+
+\stopSet
+</programme>
+<ref from="probabilités" path="section[@t=='Limite monotone']"/>
+</section>
+
 
 <section t="Probabilités conditionnelles">
 

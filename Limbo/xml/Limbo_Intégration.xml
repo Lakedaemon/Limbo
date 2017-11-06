@@ -441,31 +441,31 @@ En particulier, pour toute fonction $f$ ce classe $\mc C^1$ sur $I$, on a
 <concept t="Intégration par parties">
 <theorem m="?" t="Intégration par parties" i="Theoreme@Théorème!Integration par partie@Intégration par partie">
 Soient $f$ et $g$ des fonctions de classe $\mc C^1$ sur $[a,b]$. Alors,  
-\startformula 
+\startsdformula 
 \int_a^bf(t)g'(t)\d t=[fg]_a^b-\int_a^bf'(t)g(t)\d t. 
-\stopformula</theorem>
+\stopsdformula</theorem>
 </concept>
 
 <concept t="changement de variables">
 <theorem m="?" t="changement de variables" i="Theoreme@Théorème!de changement de variable">
 Soient $f$ une fonction continue \rare{(par morceaux)} sur $[c,d]$ et $φ:[a,b]→[c,d]$ une fonction de classe $\mc C^1$ sur $[a,b]$. Alors,  
-\startformula 
+\startmdformula 
 \int_a^bf\big( φ(x)\big) φ'(x)\d x=\int_{ φ(a)}^{ φ(b)}f(t)\d t.
-\stopformula</theorem>
+\stopmdformula</theorem>
 
 <theorem p="-e" i="Theoreme@Théorème!de changement de variable">
 Soit $(a,b) ∈ ℝ^2$ avec $a\Le b$ et soit $f:[a,b] → 𝕂$ une fonction continue. Soit $I$ un intervalle et soit $ φ:I →[a,b]$ un difféormorphisme de classe $\mc C^1$ (i.e. une bijection $ φ:I →[a,b]$ de classe $\mc C^1$ sur $[a,b]$ dont la bijection réciproque $ φ^{-1}$ est de classe $\mc C^1$ sur $I$). alors, 
 on a 
-\startformula 
+\startsdformula 
 \int_a^bf(t)\d t=\int_{ φ^{-1}(a)}^{ φ^{-1}(b)}f\big( φ(x)\big) φ'(x)\d x. 
-\stopformula</theorem>
+\stopsdformula</theorem>
 
 
 <corollary p="e" m="?" t="changement de variables bijectif" i="Theoreme@Théorème!de changement de variable">
 Soient $f$ une fonction continue \rare{(par morceaux)} sur $[c,d]$ et $φ:[a,b]→[c,d]$ une bijection de classe $\mc C^1$ sur $[a,b]$. Alors, 
-\startformula 
-\int_c^df(x)\d x=\int_{ φ^{-1}(c)}^{ φ^{-1}(d)}f\big( φ(u)\big) φ'(u)\d u 
-\stopformula</corollary>
+\startsdformula 
+\int_c^df(t)\d t=\int_{ φ^{-1}(c)}^{ φ^{-1}(d)}f\big( φ(x)\big) φ'(x)\d x 
+\stopsdformula</corollary>
 <remark>C'est le théorème précédent avec appliqué pour $c=φ(a)$, $d=φ(b)$, $a=φ^{-1}(c)$ et $b=φ^{-1}(d)$ </remark>
 </concept>
 

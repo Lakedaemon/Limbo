@@ -107,18 +107,19 @@ En pratique, il faut que $u$ reste de signe constant à partir d'un certain rang
 </concept>
 
 <concept t="inégalité">
-<property  m="?" t="inégalité"> Soient $u$ et $v$ deux suites telles que $0⩽u_n⩽v_n$ pour $n⩾0$. \crlf
-Si $∑u_k$ diverge, alors $∑v_k$ diverge  \crlf
-Si $∑v_k$ converge, alors $∑u_k$ converge et on a 
-\startformula 
-0⩽∑_{n=0}^∞u_k⩽  ∑_{n=0}^∞v_k
-\stopformula</property>
+<property  m="?" t="inégalité"> Soient $u$ et $v$ deux suites telles que $0⩽u_n⩽v_n$ pour $n⩾0$. 
+\startSet
+\item Si $∑u_k$ diverge, alors $∑v_k$ diverge
+\item Si $∑v_k$ converge, alors $∑u_k$ converge et on a $\D 0⩽∑_{n=0}^∞u_k⩽  ∑_{n=0}^∞v_k$
+\stopSet
+</property>
+
 </concept>
 
 <concept t="petit o">
-<property  m="?" t="petit o"> Soient $u$ et $v$ deux suites à termes positifs ou nuls telles que $u_n=o(v_n)$. \crlf
-Si $∑u_k$ diverge, alors $∑v_k$ diverge  \crlf
-Si $∑v_k$ converge, alors $∑u_k$ converge.</property>
+<property  m="?" t="petit o"> Soient $u$ et $v$ deux suites à termes positifs ou nuls telles que $u_n=o(v_n)$. 
+\startSet\item Si $∑u_k$ diverge, alors $∑v_k$ diverge  
+\item Si $∑v_k$ converge, alors $∑u_k$ converge.\stopSet</property>
 </concept>
 
 </section>
@@ -130,11 +131,11 @@ Si $∑v_k$ converge, alors $∑u_k$ converge.</property>
 </concept>
 
 <concept t="Série géométrique et dérivées">
-<property t="convergence">$\D ∑x^n$, $\D ∑nx^{n-1}$ et $\D ∑n(n-1)x^{n-2}$ convergent \ssi $-1\Le x\Le 1$.</property>
+<property t="convergence">$\D ∑x^n$, $\D ∑nx^{n-1}$ et $\D ∑n(n-1)x^{n-2}$ convergent \ssi  $-1\Le x\Le 1$.</property>
 
 <property  m="?" t="série géométrique">$\D ∑_{n=0}^∞ x^n \NC={1\F 1-x}\qquad(-1 \Le x\Le 1)$</property>
 <property  m="?" t="série géométrique$^{(1)}$">$\D ∑_{n=1}^∞ nx^{n-1} \NC={1\F (1-x)²}\qquad(-1 \Le x\Le 1)$</property>
-<property  m="?" t="série géométrique$^{(2)}$">$\D ∑_{n=2}^∞ n(n-1)a^{n-2} \NC={2\F (1-a)^3}\qquad(-1 \Le x\Le 1)$</property>
+<property  m="?" t="série géométrique$^{(2)}$">$\D ∑_{n=2}^∞ n(n-1)x^{n-2} \NC={2\F (1-x)^3}\qquad(-1 \Le x\Le 1)$</property>
 
 </concept>
 

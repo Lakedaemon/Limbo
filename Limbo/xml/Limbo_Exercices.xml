@@ -20381,7 +20381,7 @@ $h$ n'est pas surjective car $x^2+4x=(x+2)^2-4⩾-4$ de sorte que $h(ℝ)⊂[-4,
 \stopformula
 Par la méthode de résolution d’équation, montrer que $g$ déﬁnit une bijection de $ℝ^+$ sur $ℝ^+$ 
 et déterminer $g^{-1}$. 
-\item Retrouver le résultat sur la bijection de $g$ en utilisant le théorème de la bijection.
+\item Retrouver le résultat sur la bijection $g$ en utilisant le théorème de la bijection.
 \stopList
 </text>
 <solution>\startList\item La fonction $f$ est définie et dérivable sur $ℝ∖\{-2\}$. Sa dérivée, qui vaut   
@@ -20396,7 +20396,7 @@ $f'(x)$,{[nc=2]$+$},$0$,{[nc=2]$-$},,{[nc=2]$-$},$0$,{[nc=2]$+$},\\
 ,,,$12$,,,,$+∞$,,,,$+∞$\\
 $f(x)$,,$↗$,,$↘$,,,,$↘$,,$↗$,\\
 ,$-∞$,,,,$-∞$,,,,$0$,,,}
-\item Il résulte du tableau de varaition (et du théorème des valeurs intermediaires) que l'équation $f(x)=1$ a deux antécédents : l'un dans $]-2,0[$ et l'autre dans $]0,+∞[$. 
+\item Il résulte du tableau de variation (et du théorème des valeurs intermediaires) que l'équation $f(x)=1$ a deux antécédents : l'un dans $]-2,0[$ et l'autre dans $]0,+∞[$. 
 A fortiori, $f$ n'est pasinjective sur $]-2,+∞[$. 
 \item De même, il résulte du tableau de variation que $f(]-2,+∞[)=ℝ^+≠ℝ$. A fortiori, $f$ n'est pas une surjection de $]-2,+∞[$ sur $ℝ^+$.
 \item Etant donné $y∈ℝ⁺$, nous remarquons d'une part que $y-\sqrt{24y+y²}\Le0$ 
@@ -25051,11 +25051,11 @@ u_n={n!\F n^n}\qquad v_n=∑_{k=0}^{2n}{(-1)^k\F k+1}\qquad w_n={\ln n\F n}\qqua
 
 
 <exercise id="ECSA3.4" m="e2" t="suite géométrique" level="1">
-<text>Soit $u$ la suite définie par $u_0=2$ et $2u_{n+1}=u_n+3$</text></exercise>
+<text>Soit $u$ la suite définie par $u_0=2$ et $2u_{n+1}=u_n+3$
 \startList\item Montrer que $u$ est minorée par $2$ et majorée par $3$.
 \item Etudier la monotonie de $u$.
 \item Exprimer $u_n$ en fonction de $n$.
 \item Calculer $v_n=∑_{k=0}^{n-3}u_k$
-\srtopList
+\stopList</text></exercise>
 
 </exercises>

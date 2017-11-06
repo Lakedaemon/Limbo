@@ -5,7 +5,7 @@
 
 <section t="Espaces probabilisables">
 
-<concept t="expérience aléatoire"><text>Une expérience aléatoire est un processus dont le résultat est incertain</text>
+<concept t="expérience aléatoire"><text>Une expérience aléatoire est un processus (renouvelable) de résultat incertain</text>
 <example>Jet de dé, pile ou face,…</example></concept>
 
 <concept t="univers"><text>L’ensemble des résultats d’une expérience aléatoire est appelé univers des possibles.</text>
@@ -162,7 +162,28 @@ p={\text{nombre de cas favorables}\F
 </concept>
 
 </section>
+<section t="Limite monotone">
 
+
+<theorem t="limite monotone"> Pour toute suite croissante (au sens de l'inclusion) d'événements $(A_n)_{n⩾0}$,on a 
+\startformula
+P\Q(\bigcup_{n⩾0}A_i\W)=\lim_{n→∞}P(A_i)
+\stopformula
+Pour toute suite cdéroissante (au sens de l'inclusion) d'événements $(A_n)_{n⩾0}$,on a 
+\startformula
+P\Q(\bigcap_{n⩾0}A_i\W)=\lim_{n→∞}P(A_i)
+\stopformula
+</theorem>
+
+<corollary>Pour toute suite d'événements $(A_n)_{n⩾0}$,on a 
+\startformula
+\Align{
+\NC P\Q(\bigcup_{n⩾0}A_i\W)\NC =\NC \displaystyle\lim\limits_{n→∞}P\Q(\bigcup_{0⩽i⩽n}A_i\W)\NR
+\NC P\Q(\bigcap_{n⩾0}A_i\W)\NC =\NC \displaystyle\lim_{n→∞}P\Q(\bigcap_{0⩽i⩽n}A_i\W)\NR
+}
+\stopformula
+</corollary>
+</section>
 <section t="Probabilités conditionnelles">
 
 
@@ -297,6 +318,9 @@ $$</property></concept>
 \stopformula
 </definition>
 </concept>
+
+
+
 
 
 </section>

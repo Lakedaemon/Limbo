@@ -316,20 +316,20 @@ $f$ est strictement décroissante ou strictement croissante (resp. décroissante
 <text>Une fonction croissante (resp. décroissante) converge en $a^-$ \ssi elle est majorée (resp. minorée) sur un voisinage de $a^-$.</text>
 <combination>
 <theorem h="$f:D→ℝ$ croissante">
-\startformula
+\startmdformula
 \Align{[align={right,middle,left}]
 	\NC f\text{ converge en } a^-\NC \ ⟺\ \NC  ∃r>0: f\text{ est majorée sur } ]a-r,a]\NR
 	\NC \lim_{a^-} f \NC = \NC \sup\{f(x):x\Le a\}
 }
-\stopformula
+\stopmdformula
 </theorem>
 <theorem h="$f:D→ℝ$ décroissante">
-\startformula
+\startmdformula
 \Align{[align={right,middle,left}]
 	\NC f\text{ converge en } a^-\NC \ ⟺\ \NC ∃r>0:: f\text{ est minorée sur }[a,a+r[\NR
 	\NC \lim_{a^-} f \NC = \NC \inf\{f(x):x⩽a\}
 }
-\stopformula
+\stopmdformula
 </theorem>
 </combination>
 <remark>Pour les limites en $a^+$, c'est un peu la même chose sauf que l'on inverse minorée/majorée et $\inf/\sup$.</remark>

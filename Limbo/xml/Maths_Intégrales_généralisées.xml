@@ -1,0 +1,568 @@
+<?xml version='1.0' standalone='yes'?>
+<part id="Analyse">
+
+<chapter t="Intégrales généralisées">
+<section t="Intégrales généralisées">
+<subsection t="Intégrale généralisée simple">
+<context>dans cette section, $f$ et $g$ désignent des fonctions continues par morceaux sur chaque segment inclus dans un intervalle $I$ fermé en $a∈ℝ$ et ouvert en $b$, qui peut être un nombre réel ou l'un des symbôles $-∞$ ou $+∞$.</context>
+
+<definition t="intégrale généralisée simple">L'intégrale suivante converge et est égale à 
+\startsdformula
+\rare{\int_a^bf=}\int_a^bf(t)\d t:=\lim_{x\to b}\int_a^xf(t)\d t, 
+\stopsdformula
+si, et seulement si, la limite existe et est finie. Dans le cas contraire, l'intégrale diverge.
+</definition>
+
+<property t="fausse intégrale généralisée">Si $f$ admet une limite finie en $b∈ℝ$, alors l'intégrale $\int_a^bf$ converge.
+\rare{\it Notant $\tilde f$ le prolongement par continuité de $f$ en $b$, on a 
+\startsdformula
+\int_a^bf(t)\d t=\int_a^b\underbrace{\tilde f(t)}_{\rlap{\text{continue sur le segment $[a,b]$}}}\d t\stopsdformula}
+</property>
+
+</subsection>
+<subsection t="Intégrales des fonctions positives">
+<context>Dans cette section, $f$ et $g$ désignent des fonctions continues et \important{positives} sur l'intervalle $[a,b[$ ou $a∈ℝ$ et ou $b$ est un nombre réel ou le symbôle $+∞$.</context>
+
+<property>$\int_a^bf\text{ converge }⟺ \rare{\underbrace{\normal{∃M\ge0, \int_a^xf(t)\d t\le M\qquad(a\le x\Le b)}}_{\text{la fonction $x↦\int_a^xf(t)\d t$ est majorée sur $[a,b[$}}}$
+</property>
+
+<theorem t="Intégration des inégalités">Supposons que $0\le f(x)\le g(x)$ pour $a\le x\Le b$. 
+\startSet
+\item Si $\int_a^bf$ diverge, alors $\int_a^bg$ diverge. 
+\item Si $\int_a^bg$ converge alors $\int_a^bf$ converge et $0\le \int_a^bf\le \int_a^bg$
+\stopSet</theorem>
+
+
+<theorem t="Intégration des o">Supposons que $f=o_b\big(g\big)$. Alors, 
+\startSet
+\item Si $\int_a^bf$ diverge, alors $\int_a^bg$ diverge \rare{et $\int_a^x f=o_b\big(\int_a^xg\big)$ (hors programme)}
+\item Si $\int_a^bg$ converge alors $\int_a^bf$ converge \rare{et $\int_x^b f=o_b\big(\int_x^bg\big)$ (hors programme)}
+\stopSet
+</theorem>
+
+<theorem t="intégration des équivalents">Supposons que $f\mathop{∼}\L_bg$. Alors, $\int_a^bf$ et $\int_a^bg$ ont même nature.
+\startSet
+\item \rare{En cas de divergence, $\int_a^xf\mathop{∼}\L_b\ \int_a^xg$ (hors programme)}
+\item \rare{En cas de convergence, $\int_x^bf\mathop{∼}\L_b\ \int_x^bg$ (hors programme)}
+\stopSet
+</theorem>
+
+</subsection>
+
+
+<subsection t="Intégrales généralisées complexes">
+
+<context>Dans cette section, $f$ désigne une fonction continue sur $]a_1,a_2[∪⋯∪]a_{n-1},a_n[$ ou $⋃_{k=1}^n]a_k,a_{k+1}[$, où $a=a_1\Le ⋯\Le a_n=b$ 
+désignent des nombres réels ou les symbôles $-∞$ et $+∞$</context>
+
+<definition t="Intégrale généralisée complexe">L'intégrale suivante converge et vaut
+\startformula
+\int_a^bf=∑_{k=1}^n\Q(\int_{a_k}^{c_k}f+ \int_{c_k}^{a_{k+1}}f\W)
+\stopformula
+\ssi pour $1⩽k⩽n$ et $c_k\in]a_k,a_{k+1}[$ quelconque, les intégrales $\int_{a_k}^{c_k}f$ et $\int_{c_k}^{a_{k+1}}f$ convergent. </definition>
+
+
+
+<property t="relation de Chasles">$\int_c^bf \text{ converge}⟺ \int_a^bf \text{ converge}\qquad(c∈I)$\crlf
+Lorsque les intégrales convergent, on a  
+\startsdformula
+\int_a^bf=\int_a^cf+\int_c^bf 
+\stopsdformula</property>
+
+<property t="multiple">$\int_a^b λf \text{ converge}⟺\int_a^b f\text{ converge}\qquad(λ≠0)$\crlf
+De plus, en cas de convergence $\int_a^b λ f=λ \int_a^b f$ 
+</property>
+
+<property t="addition"> 
+\startSet\item Si $\int_a^bf$ converge et si $\int_a^bg$ diverge, alors $\int_a^b(f+g)$ diverge.
+\item Si $\int_a^bf$ et $\int_a^bg$ convergent, alors $\int_a^b(f+g)\d t$ converge et 
+\startsdformula
+\int_a^b(f+g)=\int_a^bf+\int_a^bg 
+\stopsdformula
+\stopSet
+</property>
+
+<corollary t="linéarité">Si $\int_a^bf$ et $\int_a^bg$ convergent alors
+\startsdformula
+\int_a^b(λf+μg)=λ\int_a^bf+μ\int_a^bg\qquad(λ∈ℝ, μ∈ℝ). 
+\stopsdformula</corollary>
+
+
+<concept t="Convergence absolue">
+
+<definition t="Convergence absolue">$\int_a^bf$ converge absolument \ssi $\int_a^b\big|f\big|$ converge</definition>
+
+<property t="Convergence absolue">Si $a⩽b$ et si $\int_a^bf$ converge absolument, alors
+\startformula
+\Q|\int_a^bf(t)\d t\W|⩽\int_a^b\big|f(t)\big|\d t
+\stopformula</property>
+</concept>
+</subsection>
+<subsection t="théorème fondamentaux">
+<context>En ECS, il est clairement indiqué que les techniques de calcul (intégration par parties, changement de variables non affine) 
+doivent être pratiquées sur des intégrales sur un segment. A fortioti, pour appliquer ces techniques à une intégrale généralisée, il faudra d'abord \quote{poser un x} et écrire que 
+\startmdformula
+\int_a^bf(t)\d t:=\lim_{x\to b}\int_a^xf(t)\d t,
+\stopmdformula
+puis appliquet les théorèmes, vus au premier semestre à l'intégrale $\int_a^xf(t)\d t$\crlf
+{\it Comme la formulation du programme officiel n'interdit pas le calcul de primitive sur un intervalle ou l'usage de la notation $[f]_{-∞}^{+∞}$, 
+il pourra nous arriver d'utiliser les propriétés suivantes : }
+</context>
+
+<notation t="Généralisation des crochets">Soit $f$ une fonction définie sur l'intervalle $]a,b[$, où $a$ et $b$ sont des nombres réels où les symbôles $-∞$ ou $+∞$. 
+Lorsque les limites suivantes sont toutes les deux définies, on note
+\startsdformula
+\Big[f(t)\Big]_a^b=\lim_{t→b} f(t)-\lim_{t→a}f(t)
+\stopsdformula</notation>
+
+<property t="Primitives et Intégrales">Soit $F$ une primitive sur un intervalle $[a,b[$ d'une fonction $f$ continue. Alors, 
+\startsdformula
+\int_a^bf(t)\d t=\Q[F(t)\W]_a^b,
+\stopsdformula
+l'intégrale étant convergente \ssi le crochet admet une limite finie</property>
+
+
+</subsection>
+
+
+
+
+
+
+<subsection t="Intégrales de référence">
+
+<property t="exponentielle">$\D\int_0^{+\infty}\e^{-\alpha t}\d t \text{ converge }⟺ \alpha>0$</property>
+
+
+
+
+</subsection>
+</section>
+</chapter>
+</part>
+<!--
+\Definition [$f$ continue par morceaux sur $I$ intervalle d'extrémités $a\in \ob R$ inclus et $b\in\overline{\ob R}$ exclus] 
+L'intégrale impropre $\int_a^bf(t)\d t$ converge $\Longleftrightarrow$ la limite $\lim\limits_{\ss x\to b\atop\ss x\in I}\int_a^xf(t)\d t$ existe (et est finie), 
+\vskip-1em \noindent auquel cas, on pose\vskip.5em
+$$
+\int_a^bf(t)\d t:=\lim_{\ss x\to b\atop\ss x\in I}\int_a^xf(t)\d t. 
+$$ 
+Lorsque l'intégrale $\int_a^bf(t)\d t$ ne converge pas, on dit qu'elle diverge.
+
+\Exemple. $\int_0^1\ln t\d t=-1$. 
+
+\Propriete [$\alpha\in\ob R$]
+$$
+\sbox{L'intégrale impropre }\int_0^{+\infty}\e^{-\alpha t}\d t \sbox{ converge }\ssi \alpha>0.
+$$ 
+
+\Propriete [$\alpha\in\ob R$]
+$$
+\eqalignno{
+\qquad\qquad\qquad\qquad\qquad\qquad\sbox{L'intégrale }\int_1^{+\infty}t^{-\alpha}\d t \sbox{ converge }&\ssi \alpha>1& 
+\mbox{(\bf Intégrales de Riemann)}\cr
+\sbox{L'intégrale }\int_0^1t^{-\alpha}\d t \sbox{ converge }&\ssi\alpha<1.&}
+$$
+
+\Propriete [$I$ intervalle d'extrémités $a\in \ob R$ inclus et $b\in\overline{\ob R}$ exclus] 
+Si l'application $f:\Q]a,b\W[\to\ob C$ est continue par morceaux sur $\Q[a,b\W[$ et si $c\in\Q[a,b\W[$, alors les~intégrales $\int_a^bf(t)\d t$ et $\int_c^bf(t)\d t$ ont même nature. En cas de convergence, on a 
+\Equation [Relation de Chasles]
+$$
+\int_a^bf(t)\d t=\int_a^cf(t)\d t+\int_c^bf(t)\d t. 
+$$
+
+\Definition [$k\ge 1$ et $-\infty\le a_0<a_1<\cdots<a_k\le +\infty$, suite 
+strictement croissante]
+Si $f:\Q]a_0,a_k\W[\to\ob C$ est continue par morceaux l'intervalle $\Q]a_{n-1},a_n\W[$ pour $1\le n\le k$. Alors, 
+l'intégrale $\int_{a_0}^{a_k}f(t)\d t$ converge $\Longleftrightarrow$ pour chaque $n\in\{1,\cdots,k\}$, il~existe $c_n\in\Q]a_{n-1},a_n\W[$ tel que 
+les intégrales $\int_{a_{n-1}}^{c_n}f(t)\d t$ et $\int_{c_n}^{a_n}f(t)\d t$ convergent. Dans ce cas, on pose
+$$
+\int_{a_0}^{a_k}f(t)\d t=\sum_{1\le n\le k}\Q(\int_{a_{n-1}}^{c_n}f(t)\d t+\int_{c_n}^{a_n}f(t)\d t\W). 
+$$
+
+
+\Exemple. L'intégrale $\ds\int_{-1}^1{\d t\F t}$ diverge.
+\bigskip
+
+\Exemple. Les intégrales $\ds \int_{-1}^1{\d t\F\sqrt{1-t^2}}$ et $\ds\int_{-\infty}^{+\infty}\e^{-|t|}\d t$ 
+convergent. 
+\bigskip
+
+
+\Subsection rah, Propriétés.
+
+
+\Propriete [$(a,b)\in\ob R^2$, $a\le b$] 
+Si $f:\Q[a,b\W[\to\ob C$ est une application continue sur $\Q[a,b\W[$ admettant une limite finie en $b$, 
+alors la fonction~$\tilde f$ définie par 
+$$
+\tilde f(x):=\Q\{
+\eqalign{
+f(x)&\sbox{ si }a\le x<b\cr 
+\lim_{x\to b}f(t)&\sbox{ si }x=b\cr}\W.
+$$
+est continue sur $[a,b]$ et l'intégrale impropre $\int_a^bf(t)\d t$ converge et vérifie 
+\Equation [Fausse intégrale impropre]
+$$
+\underbrace{\int_a^bf(t)\d t}_{\mbox{\sevenrm intégrale généralisée}}
+=\underbrace{\int_a^b\tilde f(t)\d t.}_
+{\mbox{\sevenrm integrale ``normale''}}
+$$
+
+
+\Exemple. $\ds \int_0^1{\sin t\F t}\d t$ est une fausse intégrale impropre. 
+\bigskip
+
+
+\Propriete [$(a,b)\in\overline{\ob R}^2$, $\lambda\in\ob C^*$]
+Si $f:\Q]a,b\W[\to\ob C$ est continue par morceaux sur~$\Q]a,b\W[$, alors $\int_a^b \lambda f(t)\d t$ et $\int_a^b f(t)\d t$ ont même nature et, 
+en cas de convergence, vérifient 
+\Equation [multiplication par une constante non nulle]
+$$
+\int_a^b \lambda f(t)\d t=\lambda \int_a^b f(t)\d t. 
+$$
+
+
+\Propriete [$(a,b)\in\overline{\ob R}^2$] 
+Soient $f$ et $g$ deux fonctions continues par morceaux sur $\Q]a,b\W[$. \pn
+Si $\int_a^bf(t)\d t$ converge et si $\int_a^bg(t)\d t$ diverge, alors $\int_a^b\b(f(t)+g(t)\b)\d t$ diverge. \medskip\noindent
+Si $\int_a^bf(t)\d t$ et $\int_a^bg(t)\d t$ convergent, alors $\int_a^b\b(f(t)+g(t)\b)\d t$ converge et l'on a 
+\Equation [\bf addition]
+$$
+\int_a^b\b(f(t)+g(t)\b)\d t=\int_a^bf(t)\d t+\int_a^bg(t)\d t. 
+$$
+
+\Exemple. $\ds\int_0^1{\cos(2t)\F t}\d t=\int_0^1{1-\sin(2t)^2\F t}\d t$ diverge car $\ds\int_0^1{\d t\F t}$ diverge et $\ds\int_0^1{\sin(2t)^2\F t}\d t$ converge. 
+\bigskip
+
+\Remarque : $\int_a^b\b(f(t)+g(t)\b)\d t$ peut converger alors que $\int_a^bf(t)\d t$ et $\int_a^bg(t)\d t$ divergent. Dans ce cas, vous n'avez pas le droit d'écrire que 
+$$
+\int_a^b\b(f(t)+g(t)\b)\d t=\underbrace{\int_a^bf(t)\d t}_{\mbox{\Red{diverge!}}}
++\underbrace{\int_a^bg(t)\d t. }_{\mbox{\Red{diverge !}}}
+$$
+
+\Exercice{akv}%
+
+\Propriete [$(a,b)\in\ol{\ob R}^2$, {$f:\Q]a,b\W[\to \ob R$ et $g:\Q]a,b\W[\to\ob R$ continues par morceaux sur~$\Q]a,b\W[$}] 
+L'intégrale $\int_a^b\b(f(t)+ig(t)\b)\d t$ converge $\Leftrightarrow$ les intégrales $\int_a^bf(t)\d t$ et $\int_a^bg(t)\d t$ convergent. 
+Dans ce cas, on a 
+$$
+\int_a^b\b(f(t)+ig(t)\b)\d t=\int_a^bf(t)\d t+i\int_a^bg(t)\d t. 
+$$
+
+\Exemple. $\ds\int_0^1{\e^{2it}-1\F t}\d t$ converge car $\ds\int_0^1{\cos(2t)-1\F t}\d t$ et $\ds\int_0^1{\sin(2t)\F t}\d t$ convergent. 
+\bigskip
+
+\Concept Intégration par partie
+
+\Theoreme[$a$ et $b$ dans $\ol{\ob R}$, $f$ et $g$ deux fonctions de classe $\sc C^1$ sur {$\Q]a,b\W[$}] 
+Si deux des trois nombres $\int_a^bf'(t)g(t)\d t$, $\int_a^bf(t)g'(t)\d t$ et 
+$$
+\Big[f(t)g(t)\Big]_a^b:=\lim\limits_{t\to b}\Big(f(t)g(t)\Big)-\lim\limits_{t\to a}\Big(f(t)g(t)\Big)
+$$
+sont définis, alors le troisième l'est aussi et l'on a 
+\Equation [\bf Intégration par partie]
+$$
+\int_a^bf'(t)g(t)\d t=\Big[f(t)g(t)\Big]_a^b-\int_a^bf(t)g'(t)\d t. 
+$$
+
+
+
+\Concept Théorème de changement de variable
+
+
+\Theoreme [$a<b$ dans $\overline{\ob R}$, $\varphi$ difféomorphisme de classe $\sc C^1$ de {$\Q]a,b\W[$} dans un intervalle $I$]
+Si $f:I\to\ob C$ est continue par morceaux sur $I$. 
+Alors $\int_{\varphi(a)}^{\varphi(b)}f(x)\d x$ et $\int_a^bf\big(\varphi(t)\big)\varphi'(t)\d t$ 
+ont même nature. En cas de convergence, on a 
+\Equation [\bf Changement de variable]
+$$
+\int_{\varphi(a)}^{\varphi(b)}f(x)\d x=\int_a^bf\big(\varphi(t)\big)\varphi'(t)\d t.
+$$
+{\it Remarque : si $\varphi$ est croissante on a $J=\Q]\varphi(a), \varphi(b)\W[$, sinon on a $J=\Q]\varphi(b),\varphi(a)\W[$. }
+
+\Exemple. $\ds\int_0^\pi{\sin t\F\sqrt{1+\cos t}}\d t$ et $\ds\int_{-1}^1{\d x\F\sqrt{1-x}}$ ont même nature car $t\mapsto -\cos t$ 
+est un difféomorphisme de classe $C^1$ de $\Q]0,\pi\W[$ sur $\Q]-1,1\W[$. 
+\bigskip
+
+\Remarque : Le non-respect des hypothèses de ce théorème mène à des horreurs, surtout avec les changement de variables trigonométriques... 
+\medskip
+
+\Exercice{PTakw}%
+
+\Propriete [$(a,b)\in\ol{\ob R}^2$ et {$f:\Q]a,b\W[\to\ob C$ continue par morceaux sur~$\Q]a,b\W[$}]
+Si l'intégrale $\int_a^b\big|f(t)\big|\d t$ converge, alors l'intégrale $\int_a^bf(t)\d t$ converge et l'on a 
+\Equation [\bf convergence absolue]
+$$
+\Q|\int_a^bf(t)\d t\W|\le \int_a^b\b|f(t)\b|\d t. 
+$$
+
+\Concept Convergence absolue
+
+\Definition
+L'intégrale $\int_a^bf(t)\d t$ converge absolument $\ssi$ l'intégrale $\int_a^b\big|f(t)\big|\d t$ converge. 
+
+\Exemple. $\ds\int_1^\infty{\d t\F t^2}$ converge, donc $\ds \int_1^\infty{\e^{it}\F t^2}\d t$ 
+est absolument convergente. 
+\bigskip
+
+\Concept Semi-convergence
+
+\Definition
+L'intégrale $\int_a^bf(t)\d t$ est ``semi-convergente'' $\ssi$ $\int_a^bf(t)\d t$ converge et $\int_a^b\big|f(t)\big|\d t$ diverge.
+
+\Exemple. $\ds\int_1^\infty{\sin t\F t}\d t$ est semi-convergente car elle converge et car $\ds\int_1^\infty{|\sin t|\F t}\d t$ diverge.  
+\bigskip
+
+
+\Concept [] Fonctions intégrables
+
+\Definition [$I$ intervalle]
+Une fonction $f:I\to\ob C$ continue par morceaux sur $I$ est intégrable sur $I\ssi$ $f$ admet sur $I$ une intégrale absolument convergente $\ssi$ il existe un réel $M\ge0$ tel que 
+$$
+\sbox{Pour tout segment } [a,b]\subset I, \qquad \int_a^b\big|f(t)\big|\d t\le M
+$$
+Dans ce cas, on appelle intégrale de $f$ sur $I$, l'intégrale (eventuellement généralisée)
+$$
+\int_If(t)\d t:=\int_{\inf I}^{\sup I}f(t)\d t. 
+$$
+
+\Section Intpos, Intégrales généralisées des fonctions positives. 
+
+\Subsection intposprop, Propriété fondamentale. 
+
+
+\Propriete [$a\in\ob R$, $b>a$ un élément de $\ol{\ob R}$, {$f:\Q[a,b\W[\to\ob R$} 
+une fonction croissante]
+Si $f$ est majorée sur $\Q[a,b\W[$, alors $\lim\limits_{x\to b}f(x)=\sup\{f(x):a\le x<b\}$. \medskip\noindent
+Si $f$ n'est pas majorée sur $\Q[a,b\W[$, alors $\lim\limits_{x\to b}f(x)=+\infty$. 
+
+
+
+\Propriete [$a\in\ob R$, $b>a$ dans $\ol{\ob R}$, {$f:\Q]a,b\W]\to\ob R$} continue par morceaux] 
+Si $f$ est positive sur $\Q[a,b\W[$, alors l'intégrale $\int_a^bf(t)\d t$ converge $\Longleftrightarrow$ $x\mapsto\int_a^xf(t)\d t$ est une fonction majorée sur $\Q[a,b\W[$ $\Longleftrightarrow$ il existe $M\ge0$ tel que 
+$$
+\Q|\int_a^xf(t)\d t\W|\le M\qquad(a\le x<b)
+$$ 
+
+
+\Exemple. $\int_0^1\sin{1\F t}\d t$ est absolument convergente. 
+\medskip
+
+\Subsection Int, Intégration des relations de comparaison. 
+
+\Propriete [$a\in\ob R$, $b>a$ un élément de $\ol R$] 
+Soient $f:\Q[a,b\W[\to\ob R$ et $g:\Q[a,b\W[\to\ob R$ deux applications continues par morceaux sur~$\Q[a,b\W[$ telles que 
+$$
+0\le f(x)\le g(x)\qquad (a\le x<b). 
+$$
+Si $\int_a^bf(t)\d t$ diverge, alors $\int_a^bg(t)\d t$ diverge. \medskip\noindent
+Si $\int_a^bg(t)\d t$ converge alors $\int_a^bf(t)\d t$ converge et l'on a 
+\Equation [\bf Intégration des inégalités]
+$$
+0\le \int_a^bf(t)\d t\le \int_a^bg(t)\d t. 
+$$ 
+
+\Exemple. $\ds\int_0^1{\d t\F t+t^2}$ diverge car ${1\F t+t^2}\ge{1\F 2t}$ pour $0<t\le 1$. 
+
+\Exemple. $\ds\int_0^\infty{\sin t\d t\F1+t^2}$ converge absolument et vérifie 
+$\ds\Q|\int_0^\infty{\sin t\d t\F1+t^2}\W|\le {\pi\F2}$. 
+\medskip
+
+\Theoreme [$a\in\ob R$ et $b>a$ élément de $\ol R$]
+Soient $f$ et $g$ des fonctions continues par morceaux et {\bf positives} sur $\Q[a,b\W[$ telles que 
+$$
+f(x)=o_b\b(g(x)\b).
+$$ 
+Si $\int_a^b f(t)\d t$ diverge, alors $\int_a^bg(t)\d t$ diverge et l'on a 
+\Equation [\bf intégration des petits $o$]
+$$
+\underbrace{\int_a^x f(t)\d t}_{F(x)}=o_b\Bigg(\underbrace{\int_a^xg(t)\d t}_{G(x)}\Bigg). 
+$$
+Si $\int_a^b g(t)\d t$ converge, alors $\int_a^bf(t)\d t$ converge et l'on a 
+\Equation [\bf intégration des petits $o$]
+$$
+\underbrace{\int_x^b f(t)\d t}_{F(b)-F(x)}.=o_b\Bigg(\underbrace{\int_x^bg(t)\d t}_{G(b)-G(x)}\Bigg). 
+$$
+
+\Remarque : Ce théorème permet notament d'intégrer les développements asymptotiques. 
+\bigskip
+
+\Application : $\ds \arccos(1-u)=\int_{1-u}^1{\d t\F\sqrt{1-t^2}}
+=\int_0^u{\d x\F\sqrt{2x-x^2}}=\sqrt{2u}+{u\sqrt u\F6\sqrt2}+o(u^2)\qquad(u\to0^+)$. 
+
+\Exercice{PTakx}%
+\bigskip
+
+\Remarque : Ecrire $\ds \int_1^\infty{\sin t\F \sqrt t}\d t$ converge 
+et $\ds{\sin^2 t\F t}=o\Q({\sin t\F\sqrt t}\W)$ lorsque $t$ tends vers $+\infty$ 
+donc l'intégrale $\ds \int_1^\infty{\sin^2 t\F t}\d t$ converge est une horreur...
+\bigskip
+
+
+\Theoreme [$a\in\ob R$ et $b>a$ un élément de $\ol R$] 
+Soient $f$ et $g$ des fonctions continues par morceaux et {\bf positives} sur $\Q[a,b\W[$ telles que 
+$$
+f(x)\mathop{\sim}\limits_bg(x).
+$$ 
+Alors,~$\int_a^bf(t)\d t$ et $\int_a^bg(t)\d t$ ont même nature. 
+De plus, en cas de divergence, on a 
+\Equation [\bf intégration des équivalences]
+$$
+\underbrace{\int_a^xf(t)\d t}_{F(x)}\ \mathop{\sim}_b\ \underbrace{\int_a^xg(t)\d t}_{G(x)}. 
+$$
+et en cas de convergence, on a 
+\Equation [\bf intégration des équivalences]
+$$
+\underbrace{\int_x^bf(t)\d t}_{F(b)-F(x)}\ \mathop{\sim}_b\ \underbrace{\int_x^bg(t)\d t}_{G(b)-G(x)}.
+$$
+
+\Exemple. Comme $\ds \int_0^1{\d t\F\arctan t}$ diverge, on a $\ds \int_x^1{\d t\F\arctan t}\ \mathop{\sim}\limits_{0^+}\ -\ln x$. 
+\bigskip
+
+\Exemple. Comme $\ds \int_4^\infty{\d t\F t^2-3t}$ converge, on a $\ds\int_x^\infty{\d t\F t^2-3t}\ \mathop{\sim}_{\infty}\ {1\F x}$. 
+\bigskip
+
+\Remarque : Si $f(t)\sim g(t)>0$ lorsque $t\to b$, alors $f(t)>0$ lorsque $t\to b$. 
+\bigskip
+
+\Section gah, Intégrales à un paramètre. 
+\bigskip
+
+
+\Subsection asf, Continuité des intégrales à un paramètre. 
+
+\Theoreme [Index=Theoreme@Théorème!de continuite@de continuité des intégrales à un paramètre;Title=Théorème de continuité des intégrales {\it généralisées}à un paramètre;$a<b$ dans $\ol{\ob R}$, $I$ intervalle, $f:(t,x)\mapsto f(t,x)$ application] 
+Si l'application $t\mapsto f(t,x)$ est continue par morceaux sur $\Q]a,b\W[$ pour chaque $x\in I$ fixé, \pn
+si l'application $x\mapsto f(t,x)$ est continue sur $I$ pour chaque nombre réel $t\in\Q]a,b\W[$ fixé et \pn
+s'il existe $g:\Q]a,b\W[\to\ob R^+$ continue par morceaux telle que $\int_a^bg(t)\d t$ converge et telle que 
+\Equation [hypothèse de domination]
+$$
+\big|f(t,x)\big|\le g(t)\qquad(a<t<b, x\in I), 
+$$
+alors l'intégrale $F(x):=\int_a^bf(t,x)\d t$ converge absolument pour chaque nombre $x\in I$ et 
+la fonction $F:I\to\ob C$ est continue sur $I$. En particulier, pour chaque $x_0\in I$, on a 
+\Equation [Convergence dominée] 
+$$
+\lim_{x\to x_0}\underbrace{\int_a^bf(t,x)\d t}_{F(x)}=\underbrace{\int_a^b\lim_{x\to x_0}f(t,x)\d t}_{F(x_0)}. 
+$$
+
+\sidx{Theoreme@Théorème!de convergence dominee@de convergence dominée}%
+\sidx{Theoreme@Théorème!de Lebesgue}%
+
+\Remarque : ce théorème de continuité des intégrales {\it généralisées} à un pramètre est également appelé théorème de convergence dominé ou théorème de Lebesgue.
+
+\Remarque : si l'application $(t,x)\mapsto f(t,x)$ est continue sur $\Q]a,b\W[\times I$, les deux premières hypothèses du théorème sont automatiquement vérifiées. 
+\bigskip
+
+\Remarque : Ce théorème permet d'intervertir limite et intégration. 
+\bigskip
+
+\Remarque : comme ce théorème ne permet pas de faire tendre $x$ vers $\pm\infty$ (certaines de ses variantes hors programme le permettent), nous devrons pour cela contourner la difficulté en posant $x={1/u}$ pour se ramener à une limite en $0^+$ ou en $0^-$. 
+\bigskip
+
+\Application : Calculer la limite $\ds\lim_{x\to+\infty}\int_0^1{x\F x\e^{it}+t}\d t$. 
+\bigskip
+
+\Concept Variante pour les intégrales non-impropres. 
+
+\Propriete [$a<b$ dans $\ob R$, $I$ intervalle] Si $f:(t,x)\mapsto f(t,x)$ est continue sur $[a,b]\times I$ à valeurs dans $\ob C$, alors l'application
+$$
+\eqalign{F:&I\to\ob C\cr
+x&\mapsto\int_a^bf(t,x)\d t}
+$$ 
+est définie et continue sur l'intervalle $I$. 
+
+\Application : La fonction $\ds F:x\mapsto\int_0^1\sqrt{1+\cos(tx)}\d t$ est continue sur $\ob R$. 
+\bigskip
+
+
+\Remarque : Ce théorème est également vrai lorsque l'on remplace l'intervalle $I$ par un ouvert $U$ de $\ob R^n$. 
+\bigskip
+
+\Application : La fonction $\ds F:(x,y)\mapsto\int_0^1\e^{xt-yt^2}\d t$ est continue sur $\ob R^2$. 
+\bigskip
+
+
+\Subsection asf, Dérivation des intégrales à un paramètre. 
+
+\Theoreme [Index=Theoreme@Théorème!de derivation des integrales a un parametre@de dérivation des intégrales à un paramètre;Title=Théorème de dérivation des intégrales {\it généralisées} à un paramètre;$a<b$ dans $\ol{\ob R}$, $I$ intervalle, $f:(t,x)\mapsto f(t,x)$ application] 
+Si l'application $x\mapsto \ds{\partial f\F\partial x}(x,t)$ est définie et continue sur $I$ pour $t\in\Q]a,b\W[$ fixé, \pn
+si $t\mapsto\ds{\partial f\F\partial x}(x,t)$ et $t\mapsto f(t,x)$ sont $\sc C^0$ par morceaux et intégrables sur~$\Q]a,b\W[$ pour~$x\in I$ et 
+s'il existe $h:\Q]a,b\W[\to\ob R^+$ continue par morceaux telle que~$\int_a^bh(t)\d t$ converge et telle que 
+\Equation [hypothèse de domination]
+$$
+\Q|{\partial f\F\partial x}(t,x)\W|\le h(t)\qquad(a<t<b, x\in I), 
+$$
+alors l'intégrale $F(x):=\int_a^bf(t,x)\d t$ converge absolument pour chaque nombre $x\in I$ et 
+la fonction $F:I\to\ob C$ est de classe~$\sc C^1$ sur $I$ et vérifie
+\Equation [Dérivation sous l'intégrale]
+$$
+\forall x\in I, \qquad {\d\F\d x}\underbrace{\int_a^bf(t,x)\d t}_{F(x)}=\int_a^b{\partial f\F\partial x}(t,x)\d t. 
+$$
+
+\Remarque : si l'application $t\mapsto\ds{\partial f\F\partial x}(x,t)$ est continue par morceaux et vérifie l'ypothèse de domination, elle est automatiquement intégrable sur $\Q]a,b\W[$. 
+\bigskip
+
+\Remarque : si l'application $(t,x)\mapsto f(t,x)$ est de classe $\sc C^1$ sur $\Q]a,b\W[\times I$, les trois premières hypothèses du théorème sont vérifiées. 
+\bigskip
+
+\Remarque : Ce théorème permet d'intervertir dérivation et intégration. 
+\bigskip
+
+\Remarque : le théorème est encore vrai si l'on enlève ``intégrable'' de la deuxième hypothèse et si l'on ajoute que l'intégrale $\int_a^bf(t,x)\d t$ doit converger pour au moins un $x_0\in I$. 
+Cette~version plus puissante n'étant pas officiellement au programme, nous contournerons la difficulté en intégrant par partie. 
+\bigskip
+
+\Application : la fonction définie par $F(x)=\int_1^\infty{\sin t\F x+t}\d t$ est dérivable sur $\Q[0, +\infty\W[$. 
+
+\Concept [Index=Theoreme@Théorème!de derivation des integrales a un parametre@de dérivation des intégrales à un paramètre] Théorème de dérivation multiple des intégrales {\it généralisées} à un paramètre
+
+\Theoreme [$k\in\ob N^*$, $a<b$ dans $\ol{\ob R}$, $I$ intervalle, $f:(t,x)\mapsto f(t,x)$ application] 
+Si l'application $x\mapsto f(x,t)$ est de classe $\sc C^k$ sur l'intervalle $I$ pour $t\in\Q]a,b\W[$ fixé, \pn
+si $t\mapsto\ds{\partial f^n\F\partial x^n}(x,t)$ est continue par morceaux et intégrable sur $\Q]a,b\W[$ pour $x\in I$ et $0\le n\le k$ fixés et 
+s'il~existe $g:\Q]a,b\W[\to\ob R^+$continue par morceaux tel que~$\int_a^bg(t)\d t$ converge, avec 
+\Equation [hypothèse de domination]
+$$
+\Q|{\partial^kk\F\partial x^k}(t,x)\W|\le g(t)\qquad(a<t<b, x\in I),
+$$
+alors la fonction définie par $F(x):=\int_a^bf(t,x)\d t$ est de classe~$\sc C^k$ sur $I$ et vérifie
+$$
+\forall n\in\{0, \cdots, k\}, \quad \forall x\in I, \qquad {\d^n\F\d x^n}\underbrace{\int_a^bf(t,x)\d t}_{F(x)}=\int_a^b{\partial^n f\F\partial x^n}(t,x)\d t. 
+$$
+
+
+\Concept [Index=Theoreme@Théorème!de derivation des integrales a un parametre@de dérivation des intégrales à un paramètre] Théorème de dérivation multiple des intégrales à un paramètre
+
+\Propriete [$k\in\ob N\cup\{\infty\}$, $a<b$ dans $\ob R$, $I$ intervalle]
+Si la fonction $f:(t,x)\mapsto f(t,x)$ est de classe $\sc C^k$ sur $[a,b]\times I$, alors l'application 
+$$
+\eqalign{
+F:&I\to\ob C\cr
+x&\mapsto\int_a^bf(x,t)\d t}
+$$
+est de classe~$\sc C^k$ sur~l'intervalle~$I$. De plus, pour $0\le n\le k$, on a 
+$$
+\forall x\in I, \qquad {\d^n\F\d x^n}\underbrace{\int_a^bf(t,x)\d t}_{F(x)}=\int_a^b{\partial^n f\F\partial x^n}(t,x)\d t. 
+$$
+
+\Remarque : Ce théorème est également vrai lorsque l'on remplace l'intervalle $I$ par un ouvert $U$ de $\ob R^n$. 
+\bigskip
+
+\Application : La fonction $\ds F:(x,y)\mapsto\int_0^1\e^{xt-yt^2}\d t$ est de classe $\sc C^\infty$ sur $\ob R^2$. 
+\bigskip
+
+
+
+\Subsection rah, Intégration des intégrales à un paramètre. 
+\medskip
+
+
+\Concept Théorème de Fubini
+
+\Theoreme [$a<b$ et $c<d$ dans $\ob R$] 
+Si $f:(t,x)\mapsto f(t,x)$ est une application continue sur $[a,b]\times[c,d]$, alors on a 
+$$
+\int_a^b\bigg(\int_c^df(t,x)\d x\bigg)\d t=\int\limits_{[a,b]\times[c,d]}
+\!\!f(t,x)\d t\d x=\int_c^d\bigg(\int_a^bf(t,x)\d t\bigg)\d x.
+$$-->

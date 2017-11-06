@@ -29,27 +29,27 @@
 
 <concept  t="croissance\\décroissance">
 <definition m="?" t="croissance" c="" h="$f:I→ℝ$, $I$ intervalle"> 
-\startformula
-f \text{ est }\Choices{
+\startsdformula
+f \text{ est }\Choices{[align=left]
 	\NC\text{croissante }\NR
 	\NC\text{strictement croissante }
 } \text{ sur }I \ ⟺\ \Choices{
 	\NC f(y) ⩾ f(x)\NR
 	\NC f(y) > f(x)
 }\qquad(x\Le y\text{ dans }I)
-\stopformula
+\stopsdformula
 </definition>
 
 <definition m="?" t="décroissance" c="" h="$f:I→ℝ$, $I$ intervalle"> 
-\startformula
-f \text{ est }\Choices{
+\startsdformula
+f \text{ est }\Choices{[align=left]
 	\NC\text{décroissante }\NR
 	\NC\text{strictement décroissante }
 } \text{ sur }I \ ⟺\ \Choices{
 	\NC f(y) ⩽ f(x)\NR
 	\NC f(y) \Le f(x)
 }\qquad(x\Le y\text{ dans }I)
-\stopformula
+\stopsdformula
 </definition>
 </concept>
 
@@ -80,21 +80,21 @@ $f$ est strictement décroissante ou strictement croissante (resp. décroissante
 <context>Pour la suite de cette section $a∈ℝ$, $b∈ℝ$ ou $b=+∞$ et $f$ désigne une foinction définie sur $[a,b[$. </context>
 
 <theorem m="?" t="limite monotone">Soit $f$ une fonction croissante sur $[a,b[$. Alors,  
-\startformula
+\startsdformula
 \Align{
 \NC\text{$f$ majorée} \NC⟺ \NC\text{$f$ admet une limite finie en $b$}\NR
 \NC\text{$f$ non majorée} \NC⟺ \NC\text{$f$ diverge vers $+∞$ en $b$}}
-\stopformula
-De plus, on a $\lim\L_{x→b}f(x)=\sup\L_{[a,b[}f(x)$.
+\stopsdformula
+Dans tous les cas, on a $\lim\L_{x→b}f(x)=\sup\L_{[a,b[}f(x)$.
 </theorem>
 
 <theorem t="limite monotone">Soit $f$ une fonction décroissante sur $[a,b[$. Alors,  
-\startformula
+\startsdformula
 \Align{
 \NC\text{$f$ minorée} \NC⟺ \NC\text{$f$ admet une limite finie en $b$}\NR
 \NC\text{$f$ non minorée} \NC⟺ \NC\text{$f$ diverge vers $-∞$ en $b$}}
-\stopformula
-De plus, on a $\lim\L_{x→b}f(x)=\inf\L_{[a,b[}f(x)$.
+\stopsdformula
+Dans tous les cas, on a $\lim\L_{x→b}f(x)=\inf\L_{[a,b[}f(x)$.
 </theorem>
 
 
@@ -166,26 +166,21 @@ Pour expliciter ces opérations, nous utilisons une notation pratique mais \rare
 \NC\text{impaire} ∘ \text{impaire} = \text{paire}\NC\NC\text{paire} ∘ \text{impaire} = \text{paire}\NR
 }
 \stopformula
-Comme pour les limites, il existe quelques opérations, dont il n'est pas possible à priori de prévoir le resultat (formes indeterminées), sans faire un calcul détaillé, comme
-\startformula
-\text{paire} + \text{impaire} = ?
-\stopformula
-</context>
-
+Comme pour les limites, il existe quelques opérations, dont il n'est pas possible à priori de prévoir le resultat (formes indeterminées), sans faire un calcul détaillé, comme \quote{paire + impaire = ?}</context>
 
 <concept t="dérivation">
 <property t="dérivée">Soit $f$ une fonction dérivable sur $I$. Alors, 
-\startformula
+\startsdformula
 \Align{
 \NC f \text{ paire sur $I$}\NC⟹ \NC f' \text{ impaire sur $I$}\NR
 \NC f \text{ impaire sur $I$}\NC⟹ \NC f' \text{ paire sur $I$}
 }
-\stopformula
+\stopsdformula
 </property>
 </concept>
 
 <concept t="réciproque">
-<property t="réciproque">Soit $f:I→J$ une bijection impaire. Alors, l'ensemble $J$ satisfait (\in[ensembleSymetriqueParRapportAZero]) et la bijection réciproque $f^{-1}$ est impaire sur $J$ </property>
+<property t="réciproque">Soit $f:I→J$ une bijection impaire. Alors, $J$ satisfait (\in[ensembleSymetriqueParRapportAZero]) et la bijection réciproque $f^{-1}$ est impaire sur $J$ </property>
 <remark>Une fonction paire ne peut pas être bijective</remark>
 </concept>
 

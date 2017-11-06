@@ -20,7 +20,7 @@
 <remark>L'ensemble vide est unique.</remark>
 </concept>
 
-<context>Dans la suite de cette section, $A$, $B$ et $C$ désignent des ensembles.</context>
+<context>Dans la suite de cette section, $I$, $A$, $B$ et $C$ désignent des ensembles, de même que $A_i$ pour $i∈I$. </context>
 
 <concept t="inclusion"><text>Un ensemble $A$ est inclus dans un ensemble $B$ \ssi tous les éléments de $A$ sont dans~$B$.</text>
 <definition m="?" t="inclusion" c="" h="$A,B$ ensembles">$A⊂B ⟺ (∀ a∈A, a∈B)$</definition>
@@ -72,11 +72,7 @@
 
 <concept t="réunion\\multiple">
 <text>La réunion d'une famille d'ensembles est l'ensemble constitué par les éléments appartenant à au moins l'un des ensembles de la famille</text>
-<definition m="?" t="réunion multiple" h="$A_i$ ensemble d'indice $i∈I$">
-\startformula 
-⋃_{i∈I}A_i:=\{x: ∃i∈I,x∈A_i\}
-\stopformula
-</definition>
+<definition m="?" t="réunion multiple" c="" h="$A_i$ ensemble d'indice $i∈I$">$\D ⋃_{i∈I}A_i:=\{x: ∃i∈I,x∈A_i\}$</definition>
 <remark>Lien logique : $x∈⋃_{i∈I}A_i⟺ (∃i∈I, x∈A_i)$</remark>
 </concept>
 
@@ -108,10 +104,10 @@
 <text>Une partition de $A$ est une famille de parties de $A$ disjoints deux à deux dont la réunion vaut $A$.</text>
 <definition m="?" c="" h="$A$ ensemble">$
 (Ω_i)_{i∈I} \Choices{\NC\text{ partition }\NR
-\NC \text{ système complet }} \text{ de } A ⟺\System{
-\NC ∀i∈I, Ω_i⊂A\NR
+\NC \text{ système complet }} \text{ de } A ⟺\System{[align=left]
+\NC Ω_i⊂A\qquad(i∈I)\NR
 \NC Ω_i∩Ω_j=\varnothing\quad(i≠j)\NR
-\NC ⋃_{i∈I}Ω_i=A 
+\NC \D ⋃_{i∈I}Ω_i=A 
 }$
 </definition>
 <example>$([n,n+1[)_{n∈Z}$ forme une partition de $ℝ$.</example>
@@ -174,9 +170,9 @@
 <concept t="restriction\\au départ\\à l'arrivée"><text>
 A partir d'une fonction $f:A → B$, on appelle restriction de $f$ au départ à $C$ ou/et à l'arrivée à $D$ les fonctions obtenues en posant</text>
 <combination>
-<definition t="restriction au départ">$\displaystyle\Function{\Restr f_C:C→B|x↦f(x)}\qquad(C⊂A)$</definition>
-<definition t="restriction à l'arrivée">$\displaystyle\Function{\Restr f^D:A→D|x↦f(x)}\qquad(D⊂B)$</definition>
-<definition t="au départ et à l'arrivée">$\displaystyle\Function{\Restr f_C^D:C→D|x↦f(x)}\qquad(C⊂A, D⊂B)$</definition>
+<definition t="restriction au départ">$\D\Fun{\Restr f_C:C→B|x↦f(x)}\qquad(C⊂A)$</definition>
+<definition t="restriction à l'arrivée">$\displaystyle\Fun{\Restr f^D:A→D|x↦f(x)}\qquad(D⊂B)$</definition>
+<definition t="au départ et à l'arrivée">$\displaystyle\Fun{\Restr f_C^D:C→D|x↦f(x)}\qquad(C⊂A, D⊂B)$</definition>
 </combination>
 </concept>
 
@@ -206,15 +202,17 @@ A partir d'une fonction $f:A → B$, on appelle restriction de $f$ au départ à
 
 
 <concept t="restrictions">
-<property h="$f:A→B$ function, $C⊂A$ et $D⊂B$">
-\startformula
-\Restr f_C^D\text{ application} ⟺ f(C)⊂D
-\stopformula
+<property c="" h="$f:A→B$ function, $C⊂A$ et $D⊂B$">Soient $f:A→B$ une function et deux ensembles $C⊂A$ et $D⊂B$. Alors, 
+\startsdformula
+\Restr f_C^D\text{ application} ⟺ \System{[align=left]
+\NC C⊂\𝓓 f\NR
+\NC f(C)⊂D}
+\stopsdformula
 </property>
 <remark>La restriction d'une application au départ est une application. Autrement dit, on peut toujours restreindre une application au départ (et obtenir une application).</remark>
 <remark>La restriction d'une application à l'arrivée n'est pas forcément une application.Autrement dit, il faut faire attention lorsque l'on restreind une application à l'arrivée.</remark>
 <example>La restriction du cosinus à l'arrivée à l'ensemble $[2,+∞[$ n'est pas une application.</example>
-<corollary h="$f:A→B$ fonction">$\displaystyle\Restr f_{\mc Df} \text{ est une application}$</corollary>
+<corollary c="" h="$f:A→B$ fonction">La restriction d'une fonction $f$ au départ à $\𝓓f$ est une application</corollary>
 <remark>Etant donnée une  fonction $f:A → B$, on détermine d'abord l'ensemble de~définition $\mc Df$, 
 puis on ne travaille plus qu'avec l'application $\Restr f_{\mc Df}$ : c'est plus pratique !</remark>
 </concept>
@@ -226,7 +224,8 @@ puis on ne travaille plus qu'avec l'application $\Restr f_{\mc Df}$ : c'est plus
 </concept>
 
 <concept t="associativité"><text>La loi de composition $∘$ des applications est associative.</text>
-<property t="associativité" h="$f:A→B$, $g:B→C$ et $h:C→D$, des applications">\startsdformula 
+<property t="associativité">Soient $f:A→B$, $g:B→C$ et $h:C→D$, des applications. Alors, 
+\startsdformula 
 h∘(g∘f) = (h∘g)∘f
 \stopsdformula</property>
 <remark>Cette composée est notée plus simplement $h∘g∘f$.</remark>
@@ -276,7 +275,7 @@ $g∘f \text{ est une bijection}$
 
 
 <concept t="identité"><text>L'application identité $\Id_A$ d'un ensemble $A$ est définie de la façon suivante</text>
-<definition m="?" t="identité" c="" h="$A$ ensemble">$\displaystyle\Function{\Id_A:A→A|x↦x}$</definition>
+<definition m="?" t="identité" c="" h="$A$ ensemble">$\D\Fun{\Id_A:A→A|x↦x}$</definition>
 <property t="identité" c="" h="$A$ ensemble">L'identité de $A$ est une bijection ($\Id_A∘\Id_A=\Id_A$)</property>
 </concept>
 
@@ -343,16 +342,16 @@ Il est dit infini dans le cas contraire.</remark>
 </concept>
 
 <concept t="équipotence\\finie">
-<property h="$E$ fini">$F\text{ en bijection avec }E ⟺ \Card(F)=\Card(E)$</property>
+<property c="" h="$E$ fini">Soit $E$ un ensemble fini. Alors, $F\text{ en bijection avec }E ⟺ \Card(F)=\Card(E)$</property>
 </concept>
 
 <concept t="inclusion\\injection\\surjection">
-<property h="$E$ fini"> 
+<property c="" h="$E$ fini">Soit $E$ un ensemble fini. Alors,  
 $ \ChoicesR{
 \NC F⊂ E\NR
 \NC ∃ \text{ injection }F→E\NR
 \NC ∃ \text{ surjection }E→F\NR
-}⟹ \System{\NC F \text{ fini}\NR\NC\Card(F)⩽\Card(E)\NR}
+}⟹ \System{[align=left]\NC F \text{ fini}\NR\NC\Card(F)⩽\Card(E)\NR}
 $
 </property>
 </concept>

@@ -161,9 +161,9 @@
 \def\setupCourse#1{\ctxlua{L.setCourse("#1")}}
 \def\sh{\mathop{\rm sh}\nolimits}%
 \def\solution#1{\ctxlua{L.infernoDisplaySolution("#1")}}%
-\def\ssi{{\it ssi} }%
+\def\ssi{{\it ssi } }%
 \def\ssil{{\it ss'}}%
-\def\ssm{\setminus}%
+\let\ssm\setminus
 
 \definemathmatrix[Align][align={right,left}]%
 \definemathmatrix[Choices][left={\left\vert\ \,},right={\right.}]%
@@ -207,6 +207,23 @@
 \def\EtQQ{\qquad\Et\qquad}%
 \let\F\over
 \def\I{{\rm I}}%
+
+
+\def\startFun #1\stopFun{\Fun{#1}}%
+\def\Fun#1{\Fun@doFive #1\End}%
+\def\Fun@doFive #1:#2→#3|#4↦#5\End{%
+  \startmatrix[align={right,middle,middle,middle}]%
+  \NC\NR
+  \NC #1:\NC #2\NC\to\NC #3\NR
+  \NC\NC #4\NC\mapsto\NC #5\stopmatrix
+}%
+\def\Fun@doFour #1→#2|#3↦#4\End{%
+  \startmatrix%
+  \NC\NR
+  \NC #1\NC\to\NC #2\NR
+  \NC #3\NC\mapsto\NC #4\stopmatrix
+}%
+
 
 \def\startFunction #1\stopFunction{\Function{#1}}%
 \def\Function#1{\Function@doFive #1\End}%

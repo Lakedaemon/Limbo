@@ -4,7 +4,7 @@
 <chapter t="{Probabilités sur un espace quelconque}" p="β">
 
 <section t="Expériences aléatoires">
-<concept t="expérience aléatoire"><definition>Une expérience aléatoire est un processus (renouvelable) dont le résultat est incertain</definition>
+<concept t="expérience aléatoire"><definition>Une expérience aléatoire est un processus (renouvelable) de résultat incertain</definition>
 <remark>Chaque renouvellement de l'expérience est appelé une épreuve. Une épreuve peut combiner plusieurs épreuves élémentaires, consécutives ou simultanées. Par exemple, le jet de deux dés peut être considéré comme la combinaisons de deux épreuves élémentaires.</remark>
 <example>Jet de dé, pile ou face,…</example></concept>
 
@@ -19,8 +19,8 @@
 <section t="Tribus" p="-e+e">
 
 <concept t="tribu"><text>
-</text><definition>${\cal T}\text{ tribu de }Ω⟺ {\cal T}⊂\mc P(Ω),\  Ω∈{\cal T} \Et {\cal T}\text{ stable pour }
-\System{
+</text><definition m="?">${\cal T}\text{ tribu de }Ω⟺ {\cal T}⊂\mc P(Ω),\  Ω∈{\cal T} \Et {\cal T}\text{ stable pour }
+\System{[align=left]
 \NC\text{complémentaire}\NR
 \NC \text{union (dénombrable)}
 }$
@@ -79,10 +79,10 @@ Un événement d'un espace probabilisable est un élément de sa tribu.</text>
 
 <concept t="système complet">
 <definition m="?" t="système complet">
-Pour $I$ ensemble fini \later{(resp. dénombrable)}, les événements $(E_i)_{i∈I}$ forment un système complet fini \later{(resp. dénombrable)}\ssi
-$\System {
+Pour $I$ ensemble fini \later{(resp. dénombrable)}, les événements $(E_i)_{i∈I}$ forment un système complet fini \later{(resp. dénombrable)} \ssi
+$\System {[align=left]
 \NC E_i∩E_j=∅\qquad(i≠j) \NR
-\NC ∪_{i∈I}E_i = Ω_NR
+\NC ⋃\L_{i∈I}E_i = Ω
 }$
 </definition>
 </concept>
@@ -93,9 +93,9 @@ $\System {
 <concept t="probabilité">
 <definition m="?" t="probabilité">
 Une probabilité sur un espace probabilisable $(Ω,{\cal T})$ est une application $P:{\cal T}→[0,1]$ vérifiant $P(Ω)=1$ et 
-\startformula 
-P\Q(⋃_{i∈I}A_i\W)=∑_{i∈I}P(A_i)\qquad((A_i)_{i∈I} \text{événements mutuellement incompatibles avec $I$ \later{dénombrable}})
-\stopformula</definition>
+\startsdformula 
+P\bigg(⋃_{i∈I}A_i\bigg)=∑_{i∈I}P(A_i)\qquad((A_i)_{i∈I} \text{événements mutuellement incompatibles \later{avec $I$ dénombrable}})
+\stopsdformula</definition>
 <remark>On a nécéssairement $P(\varnothing)=0$, ainsi que 
 \startformula 
 \Align{
@@ -115,7 +115,8 @@ En particulier, si $A⊂B$, alors $P(B∖A)=P(B)−P(A)$.</remark>
 </concept>
 
 <concept t="événement quasi-impossible">
-<definition t="événement quasi-impossible">$A \text{ quasi-impossible}⟺ P(A)=0$</definition>
+<definition t="événement quasi-impossible">$\ChoicesR{\NC A \text{ quasi-impossible}\NR
+\NC A \text{ négligeable}}⟺ P(A)=0$</definition>
 </concept>
 
 <concept t="événements équiprobables">
@@ -125,18 +126,18 @@ En particulier, si $A⊂B$, alors $P(B∖A)=P(B)−P(A)$.</remark>
 
 
 <concept t="probabilités et univers finis"><theorem>Soit $Ω=\{ω_1,⋯,ω_n\}$ un univers fini. Alors, 
-\startformula 
+\startsdformula 
  ∃P\text{ probabilité sur }Ω:∀i∈⟦1,n⟧, P(ω_i ) = p_i⟺\System{
  \NC ∀i∈⟦1,n⟧, pi⩾0\NR
 \NC p_1+⋯+p_n=1}
-\stopformula
+\stopsdformula
 </theorem>
 </concept>
 
 <concept t="probabilité uniforme"><definition m="?" t="probabilité uniforme">La probabilité uniforme sur un univers fini $Ω$ , non vide, est l'application $P:{\cal P}(Ω)→[0,1]$ définie par 
-\startformula 
+\startmdformula 
 P(A)={\card A\F\card Ω}\quad(A⊂Ω)
-\stopformula
+\stopmdformula
 </definition>
 <remark>On retiendra que la probabilité (uniforme) $p$ d'un événement est donné par 
 \startformula 
@@ -172,7 +173,25 @@ P(A_1∪⋯∪A_n)=∑_{k=1}^n(-1)^{k-1}∑_{1⩽i_1\Le ⋯\Le i_k⩽n}P(A_{i1}�
 </remark>
 </concept>
 </section>
+<section t="Limite monotone">
+<context>Dans cette section, la monotonie des suites d'événements est relative à l'inclusion</context>
 
+<theorem m="?" t="limite monotone">
+\startsdformula
+\Align{
+\NC \D P\bigg(⋃_{n⩾0}A_n\bigg)=\lim_{n→∞}P(A_n)\NC\qquad\big((A_n)_{n⩾0} \text{ suite croissante d'événements}\big)\NR
+\NC \D P\bigg(\bigcap_{n⩾0}A_n\bigg)=\lim_{n→∞}P(A_n)\NC\qquad\big((A_n)_{n⩾0} \text{ suite décroissante d'événements}\big)
+}
+\stopsdformula
+</theorem>
+
+<corollary m="?" t="limite monotone">Pour toute suite d'événements $(A_n)_{n⩾0}$, 
+\startformula
+P\bigg(⋃_{n⩾0}A_n\bigg)=\lim\L_{n→∞}P\bigg(⋃_{0⩽k⩽n}A_k\bigg)\EtQ
+P\bigg(\bigcap_{n⩾0}A_n\bigg)=\lim_{n→∞}P\bigg(\bigcap_{0⩽k⩽n}A_k\bigg)
+\stopformula
+</corollary>
+</section>
 
 <section t="Probabilités conditionnelles">
 
@@ -194,8 +213,8 @@ P_E(A)={\card(A∩E)\F\card(E)}
 
 <concept t="espace probabilisé"><text>La probabilité conditionnelle sachant $E$ est une nouvelle probabilité sur $Ω$</text>
 <property c="" h="$(Ω,{\cal T},P)$ espace probabilisé, $P(E)>0$">Lorsque $P(E)≠0$, on définit une probabilité de $(Ω,{\cal T})$ en posant  
-\startformula
-\Function{P_E:{\cal T}→[0,1]|A↦P_E(A)}\stopformula
+\startmdformula
+\Function{P_E:{\cal T}→[0,1]|A↦P_E(A)}\stopmdformula
 </property>
 <remark>En particulier, $(Ω,{\cal T},P_E)$ est un nouvel espace probabilisé (les événements sont les mêmes mais leurs probabilités sont différentes)</remark>
 <remark>La probabilité conditionnelle étant une probabilité, elle satisfait les propriétés suivantes
@@ -215,7 +234,9 @@ P_E(A)={\card(A∩E)\F\card(E)}
 </property></concept>
 
 <concept t="conditionnement successif"><text>La formule des probabilités composées permet de calculer la probabilité d'une intersection multiple.</text>
-<property t="formule de conditionnement successif" m="?" >$P(A_1∩⋯∩A_n)=P(A_1)×P_{A_1}(A_2)×⋯× P_{A_1∩⋯∩A_{n-1}}(A_n)\qquad (\important{P(A_1∩⋯∩A_{n-1})≠0})$</property>
+<property t="formule de conditionnement successif" m="?" >\startmdformula
+P(A_1∩⋯∩A_n)=P(A_1)×P_{A_1}(A_2)×⋯× P_{A_1∩⋯∩A_{n-1}}(A_n)\qquad (\important{P(A_1∩⋯∩A_{n-1})≠0})
+\stopmdformula</property>
 </concept>
 <remark>La condition $P(A_1∩⋯∩A_{n-1})≠0$ assure l'existence de toutes les probabilités conditionnelles.</remark>
 
@@ -246,7 +267,7 @@ P(A)=P_E(A)×P(E)+P_{\bar E}(A)×P(\bar E)
 
 <concept t="formule de Bayes">
 <property m="?" t="formule de Bayes" c="" h="système complet $E_1,⋯,E_n$ et $A$ tous non-négligeables" >
-Soit $(E_i)_{i∈I}$ un  système complet fini (\later{resp. dénombrable}) d'événements vérifiant \important{$P(E_i)≠0$}. alors, 
+Soit $(E_i)_{i∈I}$ un  système complet fini (\later{resp. dénombrable}) d'événements vérifiant \important{$P(E_i)≠0$}. Alors, 
 \startformula 
 P_A(E_i)={P(E_i)×P_{E_i}(A)\F ∑_{k∈I}P(E_k)P_{E_k}(A)}\qquad(1⩽i⩽n)\stopformula
 </property>
@@ -272,17 +293,17 @@ P_A(B)={P(B)×P_B(A)\F P(B)P_B(A)+P(\bar B)P_{\bar B}(A)}
 
 <concept t="indépendance  et conditionnement">
 <property t="indépendance et conditionnement" m="?" c="" h="$A$, $B$ événements">\startformula
-\Align{\NC A\Perp  B\NC⟺\NC P_A(B)=P(B)\qquad(P(A≠0)\NR
-\NC\NC⟺\NC P_B(A)=P(A)\qquad(P(B)≠0)}\stopformula</property>
+\Align{\NC A\Perp  B\NC⟺\NC P_A(B)=P(B)\qquad(\important{P(A≠0)}\NR
+\NC\NC⟺\NC P_B(A)=P(A)\qquad(\important{P(B)≠0)}}\stopformula</property>
 </concept>
 
 <concept t="indépendance mutuelle"><text>Des événements sont mutuellement indépendants si la probabilité de toute intersection finie est le produit de leurs probabilités</text>
-<definition c="" h="$A_1,⋯,A_n$ événements">Des événements  $A_1, ⋯,A_n$ sont mutuellement indépendants \ssi
+<definition m="?" t="indépendance mutuelle" c="" h="$A_1,⋯,A_n$ événements">$A_1, ⋯,A_n$ sont mutuellement indépendants \ssi
 \startformula 
 P(A_{i_1}∩⋯∩A_{i_k}) = P(A_{i_1})×⋯×P(A_{i_k})\qquad (1⩽k⩽n  \Et 1⩽i_1\Le ⋯\Le i_k⩽n)
 \stopformula
 </definition>
-<property>Soient $A_1, ⋯,A_n$, des événements mutuellement indépendants. Alors, pour $1⩽k⩽n$ et $B_i=A_i$ ou $B_i=\bar A_i$, les événements $B_1,⋯B_k$ sont mutuellement indépendants.</property>
+<property m="?">Soient $A_1, ⋯,A_n$, des événements mutuellement indépendants. Alors, posant $B_i=A_i$ ou $B_i=\bar A_i$ pour $1⩽i⩽k⩽n$, les événements $B_1,⋯,B_k$ sont mutuellement indépendants.</property>
 </concept>
 
 

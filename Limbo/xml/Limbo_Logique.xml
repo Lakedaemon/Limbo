@@ -71,12 +71,12 @@ Par contre, la première est plus simple.
 </concept>
 
 <concept t="table de vérité"><text>La table de vérité de l'opérateur identité est </text> 
-<property><![CDATA[\tikzpicture[Nested Picture]
+<property t="table de vérité"><![CDATA[\vcenter{\tikzpicture[Nested Picture]
 	\matrix (tableau) [Tableau Operateur]{
 		$\mc P$ \&  Vrai \&  Faux\\
 		$(\mc P)$  \&  Vrai\phantom{(} \&  Faux\phantom{(} \\
 	};
-	\endtikzpicture
+	\endtikzpicture}
 ]]></property>
 </concept>
 
@@ -95,25 +95,25 @@ Par contre, la première est plus simple.
 </concept>
 
 <concept t="table de vérité"><text>La table de vérité de l'opérateur logique de négation est </text> 
-<property><![CDATA[\tikzpicture[Nested Picture]
+<property t="table de vérité"><![CDATA[\vcenter{\tikzpicture[Nested Picture]
 	\matrix (tableau) [Tableau Operateur]{
 		$\mc P$ \&  Vrai \&  Faux\\
 		$\overline{\mc P}$ \&  Faux\&  Vrai \\
 	};
-	\endtikzpicture]]></property>
+	\endtikzpicture}]]></property>
 </concept>
 
 <concept t="double négation">
 <text>On ne change pas le sens et la valeur d'une proposition en lui appliquant deux fois l'opérateur~de négation.</text>
-<property>$\text{non }(\text{non }\mc P)=\mc P$
+<property t="double négation">$\overline{\thinspace \overline{\mc P}\thinspace }=\mc P$
 </property>
 <remark>La logique, c'est simple, il ne faut pas paniquer !</remark>
 </concept>
 
 <concept t="quantificateurs"><text>Nier une proposition comportant les quantificateurs $∀$ et $∃$ se fait de manière totalement mécanique, via les relations suivantes</text>
 <combination>
-<property m="?" t="{\it négation avec $∀$}">$\text{non }\quote{∀x∈X, \mc P_x} = \quote{∃x∈X, \text{ non }\mc P_x}$</property>
-<property m="?" t="{\it négation avec $∃$}">$\text{non }\quote{∃x∈X, \mc P_x} = \quote{∀x∈X, \text{ non }\mc P_x}$</property>
+<property m="?" t="{\it négation avec $∀$}">$\overline{∀x∈X, \mc P_x} = \quote{∃x∈X, \overline{\mc P_x}}$</property>
+<property m="?" t="{\it négation avec $∃$}">$\overline{∃x∈X, \mc P_x} = \quote{∀x∈X, \overline{\mc P_x}}$</property>
 </combination>
 <example>La négation de la phrase \quote{Pour chaque étudiant, il y a une page du cours dont tous les mots sont incompréhensibles} est 
 \quote{il y a un étudiant, pour lequel toutes les pages du cours comportent au moins un mot qu'il comprend}.</example>
@@ -134,7 +134,7 @@ $\mc P$ et $\mc Q$ est la proposition \quote{$\mc P$ et $\mc Q$ sont vraies}</te
 
 
 <concept t="table de vérité"><text>La proposition \quote{$\mc P$ et $\mc Q$} est vraie si les deux propositions sont vraies et fausse si l'une au moins des propositions est fausse</text>
-<property i="table de vérité+et"><![CDATA[\tikzpicture[Nested Picture]
+<property t="table de vérité" i="table de vérité+et"><![CDATA[\vcenter{\tikzpicture[Nested Picture]
 	\matrix (tableau) [Tableau Operateur] {
 	%|[draw=none]|		
 	\&  $\mc Q$ Vrai \&  $\mc Q$ Faux \\
@@ -142,7 +142,7 @@ $\mc P$ et $\mc Q$ est la proposition \quote{$\mc P$ et $\mc Q$ sont vraies}</te
 		$\mc P$ Faux \&  Faux \&  Faux\\
 	};
 	\draw (tableau-2-1.150) --  (tableau-1-2.west) node [sloped,pos=0.5,above,inner sep=1pt] (t) {$\mc P$ et $\mc Q$};
-	\endtikzpicture]]></property>
+	\endtikzpicture}]]></property>
 </concept>
 
 
@@ -167,14 +167,14 @@ a⩽b \text{ signifie } \quote{a \Le b \Ou a=b}
 <concept t="table de vérité">
 <text>La proposition \quote{$\mc P$ ou $\mc Q$} est vraie si l'une au moins des propositions est vraie 
 et fausse si les deux propositions sont fausses</text>
-<property i="table de vérité+ou"><![CDATA[\tikzpicture[Nested Picture]
+<property t="table de vérité" i="table de vérité+ou"><![CDATA[\vcenter{\tikzpicture[Nested Picture]
 	\matrix (tableau) [Tableau Operateur]{
 		\&  $\mc Q$ Vrai \&  $\mc Q$ Faux \\
 		$\mc P$ Vrai  \&  Vrai \&  Vrai \\
 		$\mc P$ Faux \&  Vrai \&  Faux\\
 	};
 	\draw (tableau-2-1.150) --  (tableau-1-2.west) node [sloped,pos=0.5,above,inner sep=1pt] (t) {$\mc P$ ou $\mc Q$};
-	\endtikzpicture]]></property></concept>
+	\endtikzpicture}]]></property></concept>
 
 	
 <concept t="négation">
@@ -206,14 +206,14 @@ et fausse si les deux propositions sont fausses</text>
 </concept>
 
 <concept t="table de vérité">
-<property i="table de vérité+xor"><![CDATA[\tikzpicture[Nested Picture]
+<property t="table de vérité" i="table de vérité+xor"><![CDATA[\vcenter{\tikzpicture[Nested Picture]
 	\matrix (tableau) [Tableau Operateur]{
 		\&  $\mc Q$ Vrai \&  $\mc Q$ Faux \\
 		$\mc P$ Vrai  \&  Faux  \&  Vrai \\
 		$\mc P$ Faux \&  Vrai \&  Faux  \\
 	};
 	\draw (tableau-2-1.150) --  (tableau-1-2.west) node [sloped,pos=0.5,above,inner sep=1pt] (t) {$\mc P$ xor $\mc Q$};
-	\endtikzpicture]]></property>
+	\endtikzpicture}]]></property>
 </concept>
 </subsection>
 
@@ -240,14 +240,14 @@ et fausse si les deux propositions sont fausses</text>
 
 <concept t="table de vérité">
 <text>La proposition \quote{$\mc P⟺\mc Q$} est vraie si les deux propositions sont vraies ou si les deux propositions sont fausses.</text>
-<property t="table de vérité" i="table de vérité+équivalence" m="?"><![CDATA[\tikzpicture[Nested Picture]
+<property t="table de vérité" i="table de vérité+équivalence" m="?"><![CDATA[\vcenter{\tikzpicture[Nested Picture]
 	\matrix (tableau) [Tableau Operateur]{
 		\&  $\mc Q$ Vrai \&  $\mc Q$ Faux \\
 		$\mc P$ Vrai \&  Vrai \&  Faux\\
 		$\mc P$ Faux \&  Faux \&  Vrai \\
 	};
 	\draw (tableau-2-1.150) --  (tableau-1-2.west) node [sloped,pos=0.5,above,inner sep=1pt] (t) {$\mc P⟺\mc Q$};
-	\endtikzpicture]]></property>
+	\endtikzpicture}]]></property>
 </concept>
 
 </subsection>
@@ -255,7 +255,7 @@ et fausse si les deux propositions sont fausses</text>
 
 <concept t="implication" i="logique+implication">
 
-<definition c="" h="$\mc P, \mc Q$ proposition">$(\mc P⟹\mc Q):=\quote{\mc P \text{ faux ou } \mc Q \text{ vrai}}$</definition>
+<definition c="" h="$\mc P, \mc Q$ proposition">$(\mc P⟹\mc Q):=\quote{\mc P \text{ faux ou } \mc Q \text{ vrai}}\rare{ =\quote{\overline{\mc P} \Ou \mc Q}}$</definition>
 <remarks>
 <remark>L'implication $\mc P⟹\mc Q$ se prononce \quote{$\mc P$ implique $\mc Q$}.</remark>
 <remark>Lorsque l'implication $\mc P⟹ \mc Q$ est vraie, on dit que la proposition $\mc P$ implique la proposition $\mc Q$.</remark>
@@ -272,29 +272,29 @@ et fausse si les deux propositions sont fausses</text>
 <concept t="table de vérité">
 <text>La proposition $\mc P⟹\mc Q$ est vraie si $\mc P$ est fausse ou si $\mc P$ et $\mc Q$ sont vraies. 
 La proposition $\mc P⟹\mc Q$ est fausse si $\mc P$ est vraie et si $\mc Q$ est fausse.</text>
-<property t="table de vérité" m="?" i="table de vérité+équivalence"><![CDATA[\tikzpicture[Nested Picture]
+<property t="table de vérité" m="?" i="table de vérité+équivalence"><![CDATA[\vcenter{\tikzpicture[Nested Picture]
 	\matrix (tableau) [Tableau Operateur]{
 		\&  $\mc Q$ Vrai \&  $\mc Q$ Faux \\
 		$\mc P$ Vrai \&  Vrai \&  Faux\\
 		$\mc P$ Faux \&  Vrai \&  Vrai \\
 	};
 	\draw (tableau-2-1.150) --  (tableau-1-2.west) node [sloped,pos=0.5,above,inner sep=1pt] (t) {$\mc P⟹\mc Q$};
-	\endtikzpicture]]></property>
+	\endtikzpicture}]]></property>
 </concept>
 
 <craft m="?" t="Pour établir une implication $\mc P⟹\mc Q$">
-\startList \item Supposertque la proposition $\mc P$ est vraie
+\startList \item Supposer que la proposition $\mc P$ est vraie
 \item Montrer que la proposition $\mc Q$ est vraie
 \stopList</craft>
 
 <concept t="implication" i="logique+implication+réciproque">
-<definition m="?" t="réciproque" c="" h="$\mc P, \mc Q$ proposition">La réciproque de $\mc P⟹\mc Q$ est l'implication $\mc Q⟹\mc P$</definition>
+<definition m="?" t="réciproque" c="" h="$\mc P, \mc Q$ proposition">La réciproque de $\quote{\mc P⟹\mc Q}$ est l'implication $\quote{\mc Q⟹\mc P}$</definition>
 <remark>Une implication et sa réciproque n'ont pas forcément la même valeur logique. </remark>
 </concept>
 
 
 <concept t="implication" i="logique+implication+contraposée">
-<definition m="?" t="contraposée" c="" h="$\mc P, \mc Q$ proposition">La contraposée de $\mc P⟹\mc Q$ est l'implication $\overline{\mc Q}⟹\overline{\mc P}$</definition>
+<definition m="?" t="contraposée" c="" h="$\mc P, \mc Q$ proposition">La contraposée de $\quote{\mc P⟹\mc Q}$ est l'implication $\quote{\overline{\mc Q}⟹\overline{\mc P}}$</definition>
 
 <remark>Une implication et sa contraposée ont la même valeur logique</remark>
 <property c="" h="$\mc P, \mc Q$ propositions" m="-">$(\mc P⟹\mc Q)= (\overline{\mc Q}⟹\overline{\mc P})$</property>
@@ -393,17 +393,17 @@ On prouve que la propriété se transmet du (ou des) rang(s) précédent(s) au r
 <text>Il existe beaucoup de variations du schema de démonstration par récurrence. 
 C'est pourquoi il est essentiel de bien comprendre le principe de récurrence pour pouvoir l'adapter aux divers cas rencontrés. </text>
 
-<property t="récurrence faible" i="raisonnement+récurrence+faible">$\displaystyle  (\forall k⩾0, \mc P_k) = 
+<property t="récurrence faible" i="raisonnement+récurrence+faible">$\D  (\forall k⩾0, \mc P_k) = 
 \startcases
 \NC\mc P_0\NR
 \NC\mc P_n⟹\mc P_{n+1}
 \stopcases$
 </property>
 
-<property t="récurrence forte"  i="raisonnement+récurrence+forte">$\displaystyle(\forall k⩾0, \mc P_k) = 
+<property t="récurrence forte"  i="raisonnement+récurrence+forte">$\D(\forall k⩾0, \mc P_k) = 
 \startcases
 \NC\mc P_0\NR
-\NC\mc P_0,…,\mc P_n⟹\mc P_{n+1}
+\NC\mc P_0,⋯,\mc P_n⟹\mc P_{n+1}
 \stopcases
 $
 </property>

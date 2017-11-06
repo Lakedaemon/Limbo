@@ -1,0 +1,113 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][A,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][a,joineup,nowhite]
+
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+\centerline{\bfb DEVOIR SURVEILLE 1}
+\blank[big]
+
+%S1 suites de référence, S2 logique,S3 récurrence, produits, sommes, S4 R, suites | S5 ensembles, applications, S6 limites et C°
+
+%1617-DS-02-cor S1 + S4 bof
+%/home/lakedaemon/Dropbox/Belial_Maths/ECS_2017_2018/Devoirs/DS2__suites_ensembles_applications_continuité/ds01.pdf 
+% Exo 6 (S1 arithmético-géométrique)
+% EXO 7 suites presque homeographique (+ fonctions)
+% exo 8 (recurrence, factorielles)
+%/home/lakedaemon/Dropbox/Belial_Maths/ECS_2017_2018/Devoirs/DS2__suites_ensembles_applications_continuité/DS1_osezene.pdf
+% EXO 3 suites et tableaux de variation
+% /home/lakedaemon/Dropbox/Belial_Maths/ECS_2017_2018/Devoirs/DS2__suites_ensembles_applications_continuité/DS_20152016.pdf
+%EXO 1 page 18 (suites et récurrence)
+% /home/lakedaemon/Dropbox/Belial_Maths/ECS_2017_2018/Devoirs/DS2__suites_ensembles_applications_continuité/DS_20142015.pdf
+% exo 4 p 2 fonctions et suites récurrentes
+\startList\item%Exo
+Les parties A, B et C de cet exercice peuvent être traitées de manière indépendante.
+Soit $f$ la fonction définie par $\D f(x)={x^2\F 2x-1}$
+\startList\item\startList\item Donner le domaine de définition $\𝓓f$ de la fonction $f$
+\item Etudier les variations de la fonction $f$
+\item Montrer qu’il existe des réels $a$, $b$ et $c$ tels que $f(x)=ax+b+{c\F 2x-1}$ pour $x∈\𝓓f$ 
+et donner la valeur de ces trois réels
+\item Donner une équation de la tangente à la courbe de $f$ au point d'abscisse $2$.
+\stopList
+\item On définit une suite $u$ en posant $u_0=2$ et $u_{n+1}=f(u_n)$ pour $n⩾0$
+\startList\item Démontrer que $f(x)⩾1$ pour $x⩾1$.
+\item Montrer que $u_n⩾1$ pour $n∈ℕ$
+\item Résoudre l'équation $f(x)=x$
+\item Etudier la monotonie de la suite $u$
+\stopList
+\item On se propose  d’exprimer $u_n$ en fonction de $n$. Pour cela, 
+on pose $v_n={u_n-1\F u_n}$ et $w_n=\ln(v_n)$ pour $n∈ℕ$. 
+\startList\item Vérifier que $v_n$ et $w_n$ sont définis pour tout entier naturel $n$.
+\item Démontrer que $w$ est une suite géométrique
+\item Pour $n∈ℕ$, exprimer $w_n$ puis $v_n$ en fonction de $n$ et en déduire que
+\startformula
+u_n={1\F 1-\Q({1\F 2}\W)^{2n}}
+\stopformula
+\stopList
+%\item\filterpages[2015/DS1/ds2.pdf][2][width=18cm]
+%\item\filterpages[2016/DS1/DS1_2013.pdf][2][width=18cm]%Exo 3
+%\item\filterpages[2016/DS1/DS1_2015.pdf][2][width=18cm]%Exo 2
+%\item\filterpages[2016/DS1/DS1(2009-2010).pdf][2][width=18cm]%Sommes
+\stopList
+
+
+
+\item%Exos
+Pour $n∈ℕ$, on pose $u_n={2n\choose n}={(2n)!\F n!^2}$
+\startList\item Pour $n∈ℕ$, simplifier le quotient $u_{n+1}\F u_n$. En déduire que $u_{n+1}⩾2u_n$. 
+\item Démontrer par récurrence que $u_{n+1}⩾2^n$ pour $n∈ℕ$.
+\item En déduire $\D\lim_{n→+∞}u_n$.
+\stopList
+
+\item%Exos
+Soit $α$ un nombre réel strictement positif. On définit la suite $u$ par $\System{
+[align=left]
+\NC u_0=α\NR
+2u_{n+1}=3u_n^2\qquad(n∈ℕ)}$
+\startList\item Montrer que $u_n>0$ pour $n∈ℕ$. alors, on pose $v_n=\ln u_n$ pour $n∈ℕ$.
+\item Montrer que la suite $v$ est arithmético-géométrique
+\item Déterminer une expression de $v_n$ en fonction de $n$
+\item En déduire une expression de $u_n$ en fonction de $n$
+\item A quelle condition portant sur $α$, la suite $u$ est-elle convergente ?
+\stopList
+
+\item \exo{C85}
+
+\stopList%exos
+
+
+\iffalse
+\page
+\centerline{\bfb CORRECTION DU DEVOIR SURVEILLE 1}
+\blank[big]
+\startList\item%\item\filterpages[2015/DS1/ds2-correction.pdf][1,2][width=18cm]
+\%item\filterpages[2016/DS1/corrige-DS1_2013.pdf][2][width=18cm]
+%\item\filterpages[2016/DS1/corrige-DS1_2015.pdf][1,2][width=18cm]
+%\item\filterpages[2016/DS1/DS1(2009-2010).pdf][6,7][width=18cm]
+
+
+\item \solution{C85}
+\stopList
+\fi
+\stoptext
+\stopcomponent
+\endinput

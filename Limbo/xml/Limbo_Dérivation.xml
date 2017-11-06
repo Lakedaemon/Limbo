@@ -395,7 +395,7 @@ avec le théorème de compacité (une fonction continue sur un segment admet un 
 <concept t="prolongement $\mc C^1$"> 
 
 <theorem t="prolongement $\mc C^1$" m="?" c="" h="$f:[a,b] → ℂ$ continue, de classe $\mc C^1$ sur $\Q]a,b\W]$">
-Soit $I$ un intervalle contenant au moins $2$ points, dont~$a$ et $f$ une fonction continue sur $I$, de classe $\mc C^1$ sur $I\ssm\{a\}$ telle que 
+Soit $I$ un intervalle contenant au moins $2$ points, dont~$a$, et $f$ une fonction continue sur $I$, de classe $\mc C^1$ sur $I\ssm\{a\}$ telle que 
 $f'$ admet une limite finie en $a$. Alors, l'application $f$ est de classe $\mc C^1$ sur $I$.
 </theorem>
 </concept>

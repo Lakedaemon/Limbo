@@ -615,11 +615,11 @@ $u$ est strictement décroissante ou strictement croissante (resp. décroissante
 <concept t="limite\\monotonie">
 <text>Une suite croissante (resp. décroissante) converge \ssi elle est majorée (resp. minorée).</text>
 <combination>
-<theorem t="théorème de limite monotone" c="" h="$u∈ℝ^ℕ$ croissante">Soit $u$ une suite croissante. Alors, $ u\text{ converge}  \ ⟺\ u\text{ est majorée}$. 
-Dans les deux cas, $\lim u = \sup\limits_{n∈ℕ}u_n$.
+<theorem m="?" t="théorème de limite monotone" c="" h="$u∈ℝ^ℕ$ croissante">Une suite croissante $u$ converge \ssi $u$ est majorée.
+Dans tous les cas, $\lim u = \sup\limits_{n∈ℕ}u_n$
 </theorem>
-<theorem t="théorème de limite monotone" c="" h="$u∈ℝ^ℕ$ décroissante">Soit $u$ une suite décroissante. Alors, $ u\text{ converge}  \ ⟺\ u\text{ est minorée}$.
-Dans les deux cas, $\lim u = \inf\limits_{n∈ℕ}u_n$.
+<theorem t="théorème de limite monotone" c="" h="$u∈ℝ^ℕ$ décroissante">Une suite décroissante $u$ converge \ssi $u$ est minorée.
+Dans tous les cas, $\lim u = \inf\limits_{n∈ℕ}u_n$.
 </theorem>
 </combination>
 <remark>Une suite croissante qui n'est pas majorée diverge vers $+∞$ et une suite décroissante qui n'est pas minorée diverge vers $-∞$</remark>
@@ -873,7 +873,7 @@ u \text{ suite arithmétique } \ ⟺\ (∃r∈𝕂:u \text{ suite arithmétique 
 
 <concept t="somme"><text>La somme des termes d'une suite arithmétique est égale au nombre de termes multiplié par 
 la moyenne des termes aux extrémités</text>
-<property m="?" t="somme" h="$u$ arithmetique de raison $r$">
+<property m="?" t="somme" c="" h="$u$ arithmetique de raison $r$">Soit $u$ une suite arithmétique de raison $r$. Alors, 
 \startformula
 \sum_{m⩽k⩽n}u_k=\rare{{u_m+u_n\F 2}(n-m+1)}=\text{moyenne aux extrémités}×\text{nombre de termes}\qquad (0⩽m⩽n).
 \stopformula
@@ -904,7 +904,7 @@ u \text{ suite géométrique } \ ⟺\ (∃q∈𝕂:u \text{ suite géométrique 
 
 <concept t="somme"><text>La somme des termes d'une suite géométrique est égale au quotient du terme qui suivrait le dernier moins le premier terme par la raison moins $1$. 
 la moyenne des termes auxextrémités</text>
-<property m="?" t="somme" h="$u$ géométrique de raison \important{$q≠1$}">
+<property m="?" t="somme" c="" h="$u$ géométrique de raison \important{$q≠1$}">Soit $u$ une suite géométrique de raison \important{$q≠1$}. Alors, 
 \startformula
 \sum_{m⩽k⩽n}u_k=\rare{{u_m-q×u_n\F 1-q}}={\text{premier terme }-\text{ terme après le dernier}\F 1 - \text{ raison}}\qquad (0⩽m⩽n).
 \stopformula
@@ -933,7 +933,7 @@ $u \text{ arithmético-géométrique} \ ⟺ \ ∃(a,b)∈𝕂^2\text{ vérifiant
 
 
 <concept t="formule">
-<property h="\important{$a≠1$} et $c = {b\F 1-a}$"> 
+<property c="" h="\important{$a≠1$} et $c = {b\F 1-a}$">Soient \important{$a≠1$} et $c = {b\F 1-a}$. Alors, 
 \startformula
 u \text{ vérifie (\in[relationArithméticoGéométrique])}\ ⟺ \ \rare{u_n = c + a^n(u_0-c)\qquad(n⩾0)}.
 \stopformula

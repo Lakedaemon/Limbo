@@ -55,14 +55,16 @@ mais aussi de \quote{séparer} en deux sommes, en procédant aux additions dans 
 <item>Il est souvent utile de commencer par établir la formule du changement d'indice inverse $ℓ=k-d$.</item>
 </remarks>
 <craft m="?" t="changement d'indice">\crlf{\it Illustration via le changement d'indice $k=ℓ+d ⟺ ℓ = k-d$}
-\startList\item écrire une somme portant sur le nouvel indice \startformula
+\startList\item écrire une somme portant sur le nouvel indice 
+\startsdformula
 ∑_{k=m}^na_k=\important{∑_{ℓ=}}
-\stopformula
-\item recopier ce que l'on somme en remplaçant l'ancien indice par son expression utilisant le nouvel indice \startformula
+\stopsdformula
+\item recopier ce que l'on somme en remplaçant l'ancien indice par son expression utilisant le nouvel indice 
+\startsdformula
 ∑_{k=m}^na_k=∑_{ℓ=}\important{a_{ℓ+d}}
-\stopformula
+\stopsdformula
 \item déterminer les bornes de la nouvelle somme en trouvant les valeurs du nouvel indice correspondant à l'ancien indice
-\startformula
+\startsdformula
 \SystemR{
 \NC k=n\NR
 \NC k=m\NR
@@ -70,11 +72,11 @@ mais aussi de \quote{séparer} en deux sommes, en procédant aux additions dans 
 \NC ℓ=n-d\NR
 \NC ℓ=m-d\NR
 }
-\stopformula
+\stopsdformula
 \item reporter les bornes correctement dans la somme {(\it échanger les bornes de place si la monotonie de la suite des indices a changé)} 
-\startformula
+\startsdformula
 ∑_{k=m}^na_k=∑_{ℓ=\important{m-d}}^{\important{n-d}}a_{ℓ+d}
-\stopformula
+\stopsdformula
 \stopList
 </craft>
 
@@ -96,17 +98,17 @@ a_m+⋯+a_n=a_n+⋯+a_m
 <craft m="?" t="somme téléscopique">
 {\it Illustration avec $∑_{k=0}^n(a_{k+1}-a_k)$}
 \startList\item séparer les sommes
-\startformula 
+\startsdformula 
 ∑_{k=0}^n(a_{k+1}\important{-} a_k)=∑_{k=0}^na_{k+1}\important{-}∑_{k=0}^na_k
-\stopformula
+\stopsdformula
 \item Faire un changement d'indice pour rendre identique ce que l'on somme
-\startformula 
+\startsdformula 
 ∑_{k=0}^n\underbrace{a_{k+1}}_{\important{ℓ=k+1}}-∑_{k=0}^na_k=\important{∑_{ℓ=1}^{n+1}a_ℓ}-∑_{k=0}^na_k
-\stopformula
+\stopsdformula
 \item Garder dans les sommes les termes en commun, sortir ceux qui ne le sont pas
-\startformula 
+\startsdformula 
 ∑_{k=0}^n(a_{k+1}-a_k)=∑_{ℓ=1}^{\important{n}}a_ℓ +\important{a_{n+1}} -\Q(\important{a_0}+∑_{\important{k=1}}^na_k\W)
-\stopformula
+\stopsdformula
 \item Simplifier les sommes, qui doivent disparaître.
 \stopList
 </craft>
@@ -317,8 +319,8 @@ u_n \text{ géomètrique de raison }q⟺ u_{n+1} = u_n×q
 <subsection t="Sommes multiples">
 <!--<context>Dans cette section, $x$ et $y$ désignent des nombres complexes</context>-->
 
-<concept t="théorème de Fubini">
-<theorem m="?" t="théorème de Fubini">$\displaystyle ∑_{k=b}^c ∑_{ℓ=d}^ea_{k,ℓ}= ∑_{ℓ=d}^e ∑_{k=b}^ca_{k,ℓ}$</theorem>
+<concept t="théorème de Fubini \Box">
+<theorem m="?" t="théorème de Fubini \Box">$\displaystyle ∑_{k=b}^c ∑_{ℓ=d}^ea_{k,ℓ}= ∑_{ℓ=d}^e ∑_{k=b}^ca_{k,ℓ}$</theorem>
 <remark>La somme précédente peut également être notée
 \startformula 
  ∑_{b⩽k⩽c\atop d⩽ℓ⩽e}a_{k,ℓ}
@@ -327,27 +329,29 @@ u_n \text{ géomètrique de raison }q⟺ u_{n+1} = u_n×q
 <text>Ce théorème d'interversion de sommes se décline fréquemment dans sa version triangulaire : 
 </text>
 
-<theorem t="théorème de Fubini (triangle)">$\displaystyle ∑_{k=0}^n ∑_{ℓ=0}^ka_{k,ℓ}= ∑_{ℓ=0}^n ∑_{k=ℓ}^na_{k,ℓ}$</theorem>
+<concept t="théorème de Fubini \triangle">
+<theorem t="théorème de Fubini \triangle">$\displaystyle ∑_{k=0}^n ∑_{ℓ=0}^ka_{k,ℓ}= ∑_{ℓ=0}^n ∑_{k=ℓ}^na_{k,ℓ}$</theorem>
 <remark>La somme double précédente peut également être notée avec un seul symbôle somme 
 \startformula 
 ∑_{0⩽k⩽ℓ⩽k}a_{k,ℓ}
 \stopformula</remark>
+</concept>
 
 <craft m="?" t="Pour intervertir deux sommes">
-{\it illustration via la formule \startformula ∑_{k=0}^n ∑_{ℓ=0}^ka_{k,ℓ}= ∑_{ℓ=0}^n ∑_{k=ℓ}^na_{k,ℓ}\stopformula}
+{\it illustration via le théorème de Fubini \triangle}
 \startList
 \item Ecrire deux sommes en recopiant ce que l'on somme et en intervertissant les indices de sommation
-\startformula
+\startsdformula
 ∑_{k=0}^n ∑_{ℓ=0}^ka_{k,ℓ}= \important{∑_{ℓ=}∑_{k=}a_{k,ℓ}}
-\stopformula
+\stopsdformula
 \item Déterminer et reporter les valeurs constantes extrèmes que peut prendre l'indice de gauche {(\it ici, $0⩽k⩽n$ et $0⩽ℓ⩽k$ induisent que $\important{0}⩽\important{ℓ}⩽k⩽\important{n}$)}
-\startformula
+\startsdformula
 ∑_{k=0}^n ∑_{ℓ=0}^ka_{k,ℓ}= ∑_{\important{ℓ}=\important{0}}^{\important{n}}∑_{k=}a_{k,ℓ}
-\stopformula
-\item Déterminer et reporter les valeurs extrèmes que peut prendre l'indice de droite {\it (ici, $0⩽\important{ℓ}⩽\important{k}⩽\important{n}$)}, qui peuvent dépendre de l'indice de gauche
-\startformula
+\stopsdformula
+\item Déterminer et reporter les valeurs extrèmes que peut prendre l'indice de droite\crlf {\it (ici, $0⩽\important{ℓ}⩽\important{k}⩽\important{n}$)}, qui peuvent dépendre de l'indice de gauche
+\startsdformula
 ∑_{k=0}^n ∑_{ℓ=0}^ka_{k,ℓ}= ∑_{ℓ=0}^n∑_{\important{k}=\important{ℓ}}^{\important{n}}a_{k,ℓ}
-\stopformula
+\stopsdformula
 \stopList
 </craft>
 </concept>
@@ -400,7 +404,7 @@ ou une somme en produit (via l'exponentielle). Lorsque $a_k>0$, nous avons
 </concept>
 
 <concept t="puissances">
-<property t="puisances" h="$ℓ∈ℤ$ et \important{$a_k≠0$}">$\displaystyle ∏_{k=m}^n(a_k)^ℓ=\Q(∏_{k=m}^na_k\W)^ℓ$</property>
+<property t="puissances" c="" h="$ℓ∈ℤ$ et \important{$a_k≠0$}">$\displaystyle ∏_{k=m}^n(a_k)^ℓ=\Q(∏_{k=m}^na_k\W)^ℓ\qquad(ℓ∈ℤ\Et \important{a_k≠0 \Si \ell\Le 0})$</property>
 </concept>
 
 <concept t="changement d'indice">
@@ -417,7 +421,7 @@ a_m×⋯×a_n=a_n×⋯×a_m
 </concept>
 
 <concept t="produits téléscopiques">
-<property t="produit téléscopique" h="$a_k≠0$">$\displaystyle ∏_{k=0}^n{a_{k+1}\F a_k}={a_{n+1}\F a_0}$</property>
+<property t="produit téléscopique" c="" h="$a_k≠0$">$\displaystyle ∏_{k=0}^n{a_{k+1}\F a_k}={a_{n+1}\F a_0}\qquad(\important{a_k≠0 \text{ pour } 0⩽k⩽n})$</property>
 <remark>Le principe des produits téléscopiques se décline en de multiples variantes. En pratique, on sépare les produits
 \startformula 
 ∏_{k=0}^n{a_{k+1}\F a_k}={∏_{k=0}^na_{k+1}\F ∏_{k=0}^na_k}

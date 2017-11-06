@@ -58,7 +58,7 @@ forment un parallèlogramme. \crlf
 
 <concept t="partie réelle\\imaginaire">
 <definition>
-Pour $x,y$ nombres réels, les parties réeeles et imaginaires du nombre complexe $z=x+iy$ sont les nombres réels $ ℜe(z):=x$ et $ℑm(z):=y$
+Pour $x$ et $y$ réels, les parties réelles et imaginaires du complexe $z=x+iy$ sont les nombres réels $ℜe(z):=x$ et $ℑm(z):=y$
 </definition>
 </concept>
 
@@ -75,11 +75,11 @@ Pour $x,y$ nombres réels, les parties réeeles et imaginaires du nombre complex
 </property>
 
 <property t="nombre réel">Un nombre réel est un nombre complexe de partie imaginaire nulle
-\startsdformula z∈ℝ⟺ℜe(z)=z⟺ℑm(z)=0⟺ \overline z = z\stopsdformula</property>
+\startsdformula z∈ℝ⟺\rare{ℜe(z)=z}⟺ℑm(z)=0⟺ \overline z = z\stopsdformula</property>
 
 <property t="imaginaire pur">Un nombre imaginaire pur est un nombre complexe de partie réelle nulle
 \startsdformula
-z∈iℝ⟺ℜe(z)=0⟺iℑm(z)=z⟺ \overline z = -z
+z∈iℝ⟺ℜe(z)=0⟺\rare{iℑm(z)=z}⟺ \overline z = -z
 \stopsdformula
 </property>
 
@@ -87,7 +87,7 @@ z∈iℝ⟺ℜe(z)=0⟺iℑm(z)=z⟺ \overline z = -z
 <subsection t="Conjuguaison">
 <context>Dans cette section, $s$ et $z$ désignent des nombres complexes</context>
 
-<definition>Pour $x,y$ nombres réels, le conjugué de $z=x+iy$ est le nombre complexe $\overline z = x-iy$</definition>
+<definition>Pour $x$ et $y$ réels, le conjugué de $z=x+iy$ est le nombre complexe $\overline z = x-iy$</definition>
 
 <property t="lien avec les parties réelles et imaginaires">
 \startformula  \startcases[style=\displaystyle]
