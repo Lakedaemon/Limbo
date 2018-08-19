@@ -1,0 +1,202 @@
+%2multibyte Version: 5.50.0.2953 CodePage: 65001
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{Codepage=65001}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, December 18, 2013 11:12:08}
+%TCIDATA{LastRevised=Wednesday, June 29, 2016 08:57:39}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{PageSetup=28,28,28,28,0}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+\begin{document}
+
+
+\subsubsection{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \protect\underline{Chapitre 4 : l'instruction r\'{e}p\'{e}titive $%
+for.$}}
+
+\paragraph{\protect\underline{1. Utilisation de l'\'{e}diteur Scinotes.}}
+
+D\`{e}s que l'on a besoin d'\'{e}crire des programmes un peu d\'{e}velopp%
+\'{e}s, on utilisera la fen\^{e}tre d'\'{e}dition Scinotes, qui permet d'%
+\'{e}crire, de sauvegarder, de modifier des programmes complets.
+
+Pour ouvrir la fen\^{e}tre Scinotes, on clique sur l'ic\^{o}ne situ\'{e}e en
+haut \`{a} gauche de l'\'{e}cran " d\'{e}marrer Scinotes" qui ouvre une
+seconde fen\^{e}tre dans laquelle on pourra \'{e}crire le programme consid%
+\'{e}r\'{e}.
+
+On tape alors les commandes que l'on veut dans la fen\^{e}tre Scinotes, en
+enregistrant r\'{e}guli\`{e}rement gr\^{a}ce au menu "fichier" puis
+"enregistrer sous" pour le premier enregistrement, puis "enregistrer" pour
+les suivants ( fichier enregistr\'{e} avec l'extension \ $\cdot sce).$
+
+\bigskip
+
+Afin de rendre un programme plus compr\'{e}hensible, il est judicieux de
+placer des commentaires qui apparaissent \`{a} droite des caract\`{e}res " $%
+//$ ".
+
+\paragraph{ \protect\underline{2. R\'{e}daction de la boucle $for.$}}
+
+L'instruction $for$ permet de faire une it\'{e}ration sur les composantes
+d'un vecteur ligne donn\'{e}.
+
+\underline{R\'{e}daction de cette instruction :}
+
+Consid\`{e}rons le programme suivant :
+
+$for$ \ $x=v;$ \ \ \ \ $//$ $v$ est un vecteur ligne
+
+\ \ \ \ \ \ \ \ suite d'instructions portant ou non sur la variable $x;$
+
+$end$
+
+Dans la commande ci-contre , l'instruction sera ex\'{e}cut\'{e}e pour $x$
+prenant successivement comme valeurs les composantes de $v$.
+
+\bigskip
+
+Exemple :
+
+$For$ \ $i=1:5;$ \ \ $//$ \ $i$ prend successivement les valeurs 1,2,3,4 et
+5.
+
+\ \ \ \ \ \ $disp(i.\symbol{94}2)$ \ \ $//$ afficher $i^{2}$ \ pour \ $i$
+variant de 1 \`{a} 5.
+
+$end$
+
+\bigskip
+
+\paragraph{\protect\underline{3. Exercices sur l'instruction $for.$}}
+
+\underline{Exercice 1 :}
+
+Ecrire un programme qui calcule et affiche \ la somme des N premiers nombres
+entiers pour un N non nul choisi par l'utilisateur.
+
+\underline{Exercice 2 :}
+
+Ecrire un programme qui calcule et affiche le factoriel \ $n!$ \ pour un $n$
+choisi par l'utilisateur.
+
+\underline{Exercice 3 :}
+
+Ecrire un programme qui calcule et affiche $\sum_{k=1}^{n}\frac{1}{k!}$ \
+pour un $n$ non nul choisi par l'utilisateur.
+
+\underline{Exercice 4 :}
+
+Soit la suite u d\'{e}finie par : $u_{n+1}=3u_{n}-2.$
+
+Ecrire un programme qui calcule et affiche\ \ les termes successifs de cette
+suite pour une valeur initiale $u_{1}$ et jusqu'\`{a} un rang n , ces deux
+valeurs \'{e}tant entr\'{e}es par l'utilisateur et repr\'{e}senter les
+termes successifs de la suite .
+
+\underline{Exercice 5:}
+
+On consid\'{e}re la suite de Fibonacci d\'{e}finie par: $\ \
+u_{n}=u_{n-1}+u_{n-2}$ \ \ \ \ \ ,\ \ $u_{1}=1$ \ \ et\ \ \ \ $u_{2}=1.$
+
+Ecrire un programme qui calcule et affiche la valeur de $u_{n}$ pour un n
+choisi par l'utilisateur.
+
+\underline{Exercice 6 :}
+
+On consid\`{e}re les suites $\left( a_{n}\right) $ et $\left( b_{n}\right) $
+d\'{e}finies par : $a_{1}=1$ , $b_{1}=1$ et $\forall n\in \mathbb{N}^{\ast
+},a_{n+1}=\dfrac{a_{n}}{n+1}-\dfrac{b_{n}}{\left( n+1\right) ^{2}}$ et $%
+b_{n+1}=\dfrac{b_{n}}{n+1}\smallskip $
+
+Ecrire un programme qui calcule et affiche les $n$ premiers termes de
+chacune des suites $\left( a_{n}\right) $ et $\left( b_{n}\right) $ pour une
+valeur de $n$ entr\'{e}e par l'utilisateur et qui permet de repr\'{e}senter
+sur un m\^{e}me graphique les termes successifs de ces suites .
+
+\underline{Exercice 7 :}
+
+On consid\`{e}re les suites d\'{e}finies par : $\left\{ 
+\begin{array}{cc}
+u_{1}=1 & v_{1}=2 \\ 
+\forall n\in \mathbb{N}^{\ast }\text{ }v_{n+1}=\dfrac{u_{n}+v_{n}}{2} & 
+u_{n+1}=\sqrt{u_{n}v_{n}}%
+\end{array}%
+\right. .$
+
+1. Ecrire un programme qui calcule et affiche les $n$ premiers termes de
+chacune des suites $\left( u_{n}\right) $ et $\left( v_{n}\right) $ pour une
+valeur de $n$ entr\'{e}e par l'utilisateur et qui permet de repr\'{e}senter
+sur un m\^{e}me graphique les termes successifs de ces suites .
+
+2. En d\'{e}duire le comportement de ces suites ( monotonie, convergence,
+limite...)
+
+\bigskip
+
+\bigskip \underline{Exercice 8 :}Soit la suite $(u_{n})_{n\in \mathbb{N}}$ d%
+\'{e}finie par $u_{0}=1$ et $\forall n\in \mathbb{N}:u_{n+1}=u_{n}+\dfrac{1}{%
+4}(2-u_{n}^{2})$. \newline
+On pose $f:x\mapsto x+\dfrac{1}{4}(2-x^{2})$.\thinspace
+
+1. Etudier les variations de $f$ et d\'{e}terminer ses points fixes.
+
+Tracer sur une m\^{e}me figure la courbe de $f$ et la courbe de la droite d'%
+\'{e}quation $y=x$ sur $\left[ 1;\sqrt{2}\right] .$
+
+2. Ecrire un programme qui calcule et affiche les $n$ premiers termes de la
+suite $\left( u_{n}\right) $ pour une valeur de $n$ entr\'{e}e par
+l'utilisateur et qui permet de repr\'{e}senter sur un m\^{e}me graphique les
+termes successifs de cette suite .
+
+3. Etudier le comportement asymptotique de la suite $\left( u_{n}\right) $
+et donner en cas de convergence la limite de $u.$
+
+\underline{Exercice \ 9 :}
+
+Ecrire un programme qui demande \`{a} l'utilisateur un entier naturel non
+nul $n$ et qui permet d'afficher une matrice triangulaire sup\'{e}rieure de $%
+M_{n}\left( 
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+\right) $ dont les coefficients diagonaux sont \'{e}gaux \`{a} 4 et tous les
+coefficients au-dessus de la diagonale \'{e}gaux \`{a} -1.
+
+\bigskip
+
+\end{document}

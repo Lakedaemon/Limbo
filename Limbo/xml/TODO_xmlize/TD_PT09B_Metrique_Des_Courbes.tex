@@ -1,0 +1,99 @@
+\catcode`@=11\relax
+
+\input LD@Maths@TD.tex
+
+
+
+
+
+%%% TD 9.
+\vglue-10mm\rightline{Spé PT\hfill TD : Métriques des courbes\hfill}
+\bigskip
+
+
+\centerline{\fourteenbf Abscisse curviligne}
+
+\Definition [$f(t)=\vec{OM}(t)$ arc paramétré de classe $\sc C^1$ sur un intervalle $I$]
+L'abscisse curviligne du point $M(t)$ est l'intégrale  
+$$
+s(t)=\int_{t_0}^t\Q|\!\Q|f'(u)\W|\!\W|\d u=\int_{t_0}^t\Q|\!\Q|{\d\vec{OM}(u)\F \d u}\W|\!\W|\d u\qquad (t\in I),  
+$$
+l'origine de l'abscisse curviligne étant le point $M(t_0)$. 
+
+%\Exercice{PTaai}%
+%\bigskip
+
+\centerline{\fourteenbf Repère de Frenet et  courbure dans le plan}
+
+\Definition [arc paramétré $f(t)=\vec{OM}(t)$]\noindent
+1) calculer $f'(t)=\vec v={\d\vec{OM}\F\d t}$ et en déduire le vecteur unitaire tangent
+$$
+\vec T:={f'(t)\F\Norme{f'(t)}}={\vec v\F\Norme{\vec v}}.
+$$
+2) Le repère de Frenet en $M$ est le repère orthonormé direct $(M,\vec T,\vec N)$. On obtient le vecteur unitaire normal $\vec N$ en faisant pivoter $\vec T$ de $+90^\circ$ de la façon suivante :
+$$
+\hbox{si }\quad\vec T=\pmatrix{a\cr b}a\vec i+b\vec j\quad\hbox{ alors }\quad\vec N=\pmatrix{-b\cr a}=-b\vec i+a\vec j.
+$$
+3) calculer $f''(t)=\vec a={\d^2\vec{OM}\F\d t^2}$ et en déduire la courbure
+$$
+\gamma={f''(t)\F\Norme{f'(t)}^2}.\vec N={\vec a\F\Norme{\vec v}^2}.\vec N
+$$
+4) Si $\gamma\neq0$, en déduire le rayon de courbure 
+$$
+r_c={1\F\gamma}.
+$$
+5) Déduire le centre de courbure $C$ de la relation $\vec{MC}=r_c\vec N$ en écrivant 
+$$
+\vec{OC}=\vec{OM}+r_c\vec N.
+$$
+
+{\eightpts 
+\Exercice{PTaag}%
+\bigskip
+
+\Exercice{PTach}%
+\bigskip}
+
+\centerline{\fourteenbf Repère de Frenet, courbure et torsion dans l'espace}
+\bigskip
+
+\Definition [arc paramétré $f(t)=\vec{OM}(t)$]\noindent
+1) calculer $f'(t)=\vec v={\d\vec{OM}\F\d t}$ et en déduire le vecteur unitaire tangent
+$$
+\vec T:={f'(t)\F\Norme{f'(t)}}={\vec v\F\Norme{\vec v}}.
+$$
+2) calculer $f''(t)=\vec a={\d^2\vec{OM}\F\d t^2}$ et en déduire le vecteur unitaire binormal 
+$$
+\vec B={f'(t)\wedge f''(t)\F\|f'(t)\wedge f''(t)\|}={\vec v\wedge \vec a\F\Norme{\vec v\wedge\vec a}}
+$$
+puis le vecteur unitaire normal (principal) $\vec N=\vec B\wedge\vec T$. Le repère de frenet est le repère orthonormé direct $(M,\vec T,\vec N,\vec B)$. \pn
+3) En déduire la courbure, le rayon de courbure et le centre courbure avec 
+$$
+\gamma={f''(t)\F\Norme{f'(t)}^2}.\vec N={\vec a\F\Norme{\vec v}^2}.\vec N, \qquad r_c={1\F\gamma}\quad\hbox{et}\quad \vec{MC}=r_c\vec N
+$$
+On pourra aussi utiliser la formule
+$$
+\gamma={\|f'(t)\wedge f''(t)\|\F \|f'(t)\|^3}={\vec v\wedge\vec a\F \Norme{\vec v\Norme\vec a}^3}. 
+$$
+4) calculer  $f'''(t)=\vec a'={\d^3\vec{OM}\F\d t^3}$ et en déduire la torsion et  le rayon de torsion 
+$$
+\tau={\det\b(f'(t),f''(t),f'''(t)\b)\F\|f'(t)\wedge f''(t)\|^2}\qquad r_t={1\F \tau}.
+$$
+
+\Exercice{PTaam}%
+\bigskip
+
+%\Exercice{PTacd}%
+%\bigskip
+
+\centerline{\fourteenbf Repère de Frenet dans le plan en polaire}
+\bigskip
+
+\Exercice{PTaaj}%
+\bigskip
+
+
+\Exercice{PTaak}%
+\bigskip
+
+\bye

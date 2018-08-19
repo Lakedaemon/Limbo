@@ -1,0 +1,32 @@
+\magnification 1200
+\hsize180truemm\vsize 270truemm\hoffset=-10truemm\voffset=-13truemm
+\pretolerance=500\tolerance=1000\brokenpenalty=5000
+\parindent3mm
+
+
+\input color.txs
+\input pstricks
+\input pst-plot
+\input eplaingt
+\input Macrols
+
+\input ExosPTSI
+
+%%%  Numérotation automatique des questions 
+\newcount\numeroexo
+\newcount\numeroqprob
+\numeroqprob=0
+\def\pbq#1\par{\global\advance\numeroqprob by 1\noindent\the\numeroexo.\the\numeroqprob. #1\medskip}
+
+%%% Probleme 1.
+\vglue-10mm\rightline{PTSI\hfill TD 7 : Injections, bijections, surjections\hfill \date}
+\bigskip
+\exoqj
+\vfill
+\exoqk
+\vfill
+\exoqi
+\vfill
+\exoql
+\bye
+ 

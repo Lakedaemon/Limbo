@@ -1,0 +1,774 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+\let\ds\displaystyle
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][i,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+\def\tr{\text{tr}}
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iftrue
+\page
+\centerline{\bfb DEVOIR SURVEILLE 5 (CORRECTION)}
+\blank[big]
+
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][3][a,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+
+
+
+\startList
+
+
+
+
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+\setupitemgroup[List][4][i,joineup,nowhite]
+
+
+\item%
+\startList
+\item D'après la formule définissant $T_n$ par récurrence, on a 
+\startformula 
+\Align{
+\NC T_2\NC =2XT_1-T_0=2X×2X-1=4X^2-1\NR
+\NC T_3\NC =2XT_2-T_1=2X×(4X^2-1)-2X=8X^3-4X
+}
+\stopformula
+\item\startList
+\item Pour $n∈ℕ^*$, démontrer par récurrence la proposition 
+\startformula
+\mc P_n:\qquad \exists Q_n∈ℝ[X]: T_n=2^nX^n+Q_n \Et \deg(Q_n)<n
+\stopformula
+\startitemize[1]
+\item $\mc P_0$ est vraie car $T_0=1=2^0X^0+0$ avec $Q_0=0∈ℝ[X]$ et $\deg(0)=-∞<0$. 
+$\mc P_1$ est vraie car $T_1=2X=2^1X^1+0$ avec $Q_1=0∈ℝ[X]$ et $\deg (0)=-∞<1$. 
+\item Supposons les propositions $\mc P_{n-1}$ et $\mc P_{n-2}$ pour un entier $n⩾2$.
+Il résulte alors de la formule définissant $T_n$ par récurrence que 
+\startformula
+\Align{
+\NC T_n\NC =2XT_{n-1}-T_{n-2}\NR
+\NC\NC =2X(2^{n-1}X^{n-1}+Q_{n-1})-T_{n-2}\NR
+\NC\NC = 2^nX^n+\underbrace{2XQ_{n-1}-T_{n-2}}_{Q_{n+1}}=2^nX^n+Q_{n+1}
+}
+\stopformula
+avec $Q_{n+1}=2XQ_{n-1}-T_{n-2}$ polynôme de $ℝ[X]$ vérifiant (d'après $\mc P_{n-2}$)
+\startformula
+\Align{
+\NC \deg(Q_{n+1})\NC ⩽\max\Q(\deg(2XQ_{n-1}), \deg(T_{n-2})\W)\NR
+\NC \NC ⩽\max\Q(1+\deg(Q_{n-1}), n-2)\W)\NR
+\NC \NC ⩽\max\Q(1+n-2, n-2)\W)=n-1<n
+}
+\stopformula
+En particulier, la proposition $\mc P_n$ est satisfaite
+\stopitemize
+En conclusion, la proposition $\mc P_n$ est vraie pour $n∈ℕ$, de sorte que $T_n$ est un polynôme de degré $n$ et de coefficient dominant $2^n$. 
+
+\item Pour $n∈ℕ$, prouvons par récurrence la proposition 
+\startformula
+\mc Q_n:\qquad T_n(-X)=(-1)^nT_n(X)
+\stopformula
+\startitemize[1]
+\item $\mc Q_0$ est vraie car $T_0(-X)=1=(-1)^0T_0(X)$. De même $\mc Q_1$ est vraie car $T_1(-X)=-2X=(-1)^1T_1(X)$. 
+\item Supposons les proposition $\mc Q_{n-2}$ et $\mc Q_{n-1}$ pour un entier $n⩾2$. 
+D'aprè la relation définissant par récurrence le polynôme $T_n$, nous avons 
+\startformula
+\Align{
+\NC T_n(-X)\NC =-2XT_{n-1}(-X)-T_{n-2}(-X)=-2X(-1)^{n-1}T_{n-1}(X)-(-1)^{n-2}T_{n-2}(X)\NR
+\NC\NC = 2X(-1)^nT_{n-1}(X)-(-1)^n(-1)^2T_{n-2}(X)\NR
+\NC\NC = (-1)^n(2XT_{n-1}(X)-T_{n-2}(X))=(-1)^nT_n(X)
+}
+\stopformula
+En particulier, la proposition $\mc Q_n$ est satisfaite
+\stopitemize
+En conclusion, la proposition $\mc Q_n$ est vérifiée pour $n∈ℕ$, de sorte que la parité de $T_n$ en tant que polynôme (ou fonction polynôme) 
+est la même que la parité de $n$ (en tant que nombre entier).
+\stopList
+\item Pour $n∈ℕ$, nous posons  $u_n=T_n(1)$ et nou substituons $1$ à $X$ dans la relation définissant $T_n$ par récurrence pour obtenir que 
+\startformula
+u_n=T_n(1)=2×1×T_{n-1}(1)-T_{n-2}(1)=2u_{n-1}-u_{n-2}\qquad (n⩾2).
+\stopformula
+En particulier, la suite $u$ vérifie une relation de récurrence linéaired'ordre $2$, de polynôme caractéristique 
+\startformula
+X^2-2X+1=(X-1)^2
+\stopformula
+Comme ce polynôme admet $1$ comme racine double, nous obtenons qu'il existe deux constantes réelles $λ$ et $μ$ telles que 
+\startformula
+u_n=T_n(1)=λ×1^n+μ×n1^n=λ+μn
+\stopformula
+Comme $u_0=T_0(1)=1$ et comme $u_1=T_1(1)=2×1=2$, il vient $λ=1$ et $μ+λ=2$ d'où $μ=1$. 
+En conclusion, nous avons donc obtenu que 
+\startformula
+u_n=λ+μn=1+n\qquad(n⩾0).
+\stopformula
+
+\item\startList
+\item Pour $n∈ℕ$, prouvons par récurrence la proposition 
+\startformula
+\mc H_n:\qquad T_n(\cos ϑ)={\sin\big((n+1)ϑ\big)\F\sin ϑ}\qquad (0<ϑ<π)
+\stopformula
+\startitemize[1]
+\item La proposition $\mc H_0$ est vraie car $T_0(\cos ϑ)=1={\sin ϑ\F\sin ϑ}$ pour $0<ϑ<π$ (le sinus ne s'annulant pas).
+La proposition $\mc H_1$ est également vraie car $T_1(\cos ϑ)=2\cos ϑ={\sin 2ϑ\F\sin ϑ}$ pour $0<ϑ<π$, car il est bien connu que $\sin(2ϑ)=2\sin(ϑ)\cos(ϑ)$.
+\item Supposons les proposition $\mc H_{n-2}$ et $\mc H_{n-1}$ pour un entier $n⩾2$. 
+D'aprè la relation définissant par récurrence le polynôme $T_n$, nous avons 
+\startformula
+\Align{
+\NC T_n(\cos ϑ)\NC =2\cos(ϑ)T_{n-1}(\cos ϑ)-T_{n-2}(\cos ϑ)\NR
+\NC\NC = 2\cos(ϑ){\sin(nϑ)\F\sin ϑ}-{\sin\big((n-1)ϑ\big)\F\sin ϑ}(\cos ϑ)\NR
+\NC\NC = {2\cos(ϑ)\sin(nϑ)-\sin\big((n-1)ϑ\big)\F\sin ϑ}\NR
+\NC\NC = {{\red 2\cos(ϑ)\sin(nϑ)}-\sin\big((n-1)ϑ\big)\F\sin ϑ}\NR
+\NC\NC = {{\red \sin(nϑ+ϑ)+\sin(nϑ-ϑ)}-\sin\big((n-1)ϑ\big)\F\sin ϑ}\NR
+\NC\NC = {\sin\big((n+1)ϑ\big)\F\sin ϑ}\qquad (0<ϑ<π)
+}
+\stopformula
+En particulier, la proposition $\mc H_n$ est vérifiée
+\stopitemize
+En conclusion, la proposition $\mc H_n$ est vraie pour $n∈ℕ$. 
+\item Pour $1⩽k⩽n$ et $ϑ={kπ\F n+1}$, nous déduisons de la formule précédente que 
+\startformula
+T_n(\cos ϑ)={\sin\big((n+1)ϑ\big)\F\sin ϑ}={\sin\big(kπ\big)\F\sin ϑ}=0
+\stopformula
+De sorte que le nombre $\cos{kπ\F n+1}$ est une racine de $T_n$ pour $1⩽k⩽n$. 
+Comme ces nombres sont distincts $2$ à $2$ lorsque $1⩽k⩽n$, car la fonction cosinus est une bijection strictement décroissante de $]0,π]$ sur $]-1,1[$ et car 
+$0<{kπ\F n+1}⩽{nπ\F n+1}<π$, nous remarquons que ce sont les racines du polynôme $T_n$ , qui est de degré $n$. e plus ils appartient à l'intervalle et appartient à l'intervalle $]-1,1[$
+\item Comme $T_n$ est de degré $n$, de coefficient dominant $2^n$ et de racines $\cos{kπ\F n+1}$ pour $1⩽k⩽n$, 
+il résulte du théorème de décomposition des polynômes (dans $ℝ$) que 
+\startformula 
+T_n=2^n∏_{k=1}^n\Q(X-\cos{kπ\F n+1}\W)
+\stopformula
+\item Soit $n∈ℕ^*$. En substituant $1$ à $X$ dans l'identité précédente, il vient 
+\startformula 
+u_n=1+n=T_n(1)=2^n∏_{k=1}^n\Q(1-\cos{kπ\F n+1}\W)
+\stopformula
+Comme il est bien connu que $\cos(2ϑ)=1-2\sin^2(ϑ)$ et donc que $1-\cos(2ϑ)=2\sin^2ϑ$, 
+nous obtenons alors pour $ϑ={kπ\F 2(n+1)}$ que 
+\startformula 
+1+n=2^n∏_{k=1}^n\Q(1-\cos{kπ\F n+1}\W)=2^n∏_{k=1}^n\sin^2{kπ\F 2(n+1)}
+\stopformula
+En particulier, il vient 
+\startformula 
+{1+n\F 2^n} =∏_{k=1}^n\sin^2{kπ\F 2(n+1)}=\Q(∏_{k=1}^n\sin{kπ\F 2(n+1)}\W)^2
+\stopformula
+En passant à la racine carrée, nous obtenons que le produit des sinus (qui est positif), vaut 
+\startformula 
+{\sqrt{1+n}\F 2^{n\F 2}} ==(∏_{k=1}^n\sin{kπ\F 2(n+1)}\qquad (n⩾0)
+\stopformula
+{\it Wow , chaud !}
+\stopList
+\item\startList
+\item Pour $n∈ℕ$, démontrer que 
+\startformula
+\sin^2(ϑ)T_n''(\cos ϑ)-3\cos(ϑ)T_n'(\cos ϑ)+(n^2+2n)T_n(\cos ϑ)=0\qquad(0<ϑ<π)
+\stopformula
+En dérivant deux fois la fonction (nulle, d'après le résultat de la question 4a), nous obtenons que 
+\startformula
+\Align{
+\NC 0\NC =g'(ϑ)=\cos(ϑ)T_n(\cos ϑ)-\sin(ϑ)^2T_n'(\cos ϑ)-(n+1)\cos\big((n+1)ϑ\big)\qquad(0<ϑ<π)\NR
+\NC 0\NC =g''(ϑ)=-\sin(ϑ)T_n(\cos ϑ)-\sin(ϑ)\cos(ϑ)T_n'(\cos ϑ)\NR\NC\NC-2\sin(ϑ)\cos(ϑ)T_n'(\cos ϑ)\NR
+\NC\NC+\sin(ϑ)^3T_n''(\cos ϑ)+(n+1)\sin\big((n+1)ϑ\big)\NR
+\NC\NC = -\sin(ϑ)T_n(\cos ϑ)-3\sin(ϑ)\cos(ϑ)T_n'(\cos ϑ)+\sin(ϑ)^3T_n''(\cos ϑ)\NR
+\NC\NC+{\red (n+1)^2\sin\big((n+1)ϑ\big)}\qquad(0<ϑ<π)
+}
+\stopformula
+En divisant par $\sin ϑ$, il vient
+\startformula
+\Align{[align={right, left}]
+\NC 0\NC = -T_n(\cos ϑ)-3\cos(ϑ)T_n'(\cos ϑ)+\sin(ϑ)^2T_n''(\cos ϑ)+{\red (n+1)^2{\sin\big((n+1)ϑ\big)\F \sin ϑ}}\NR
+\NC\NC= -T_n(\cos ϑ)+3\cos(ϑ)T_n'(\cos ϑ)-\sin(ϑ)^2T_n''(\cos ϑ)+{\red (n+1)^2T_n(\cos ϑ)}\NR
+\NC\NC= \big (n+1)^2-1\big)T_n(\cos ϑ)+3\cos(ϑ)T_n'(\cos ϑ)-\sin(ϑ)^2T_n''(\cos ϑ)\NR
+\NC\NC= (n^2+2n)T_n(\cos ϑ)+3\cos(ϑ)T_n'(\cos ϑ)-\sin(ϑ)^2T_n''(\cos ϑ)\qquad(0<ϑ<π)
+}
+\stopformula
+\item Soit $n∈ℕ$. 
+D'après la formule précédente, on a 
+\startformula
+0=(n^2+2n)T_n(\cos ϑ)+3\cos(ϑ)T_n'(\cos ϑ)-(1-\cos(ϑ)^2)^2T_n''(\cos ϑ)\qquad(0<ϑ<π)
+\stopformula
+Comme le polynôme $Q=(X^2-1)T_n''+3XT_n'-(n^2+2n)T_n$ admet pour racine les nombres 
+$\cos(ϑ)$ pour $0<ϑ<π$ et  Comme le seul polynôme admettant une infinité de racine est la polynôme nul, on conclut que $Q=0$, c'est à dire que 
+\startformula
+(X^2-1)T_n''+3XT_n'-(n^2+2n)T_n=0
+\stopformula
+\stopList
+\stopList
+
+\item%Edhec S 2013
+{\bf Extrait EDHEC S}. Pour $n∈ℕ$, on pose $\ds u_n=\int_0^{π\F 2}(\sin t)^n\d t$
+\startList
+\item Remarque : Pout $n∈ℕ$, la fonction $t↦(\sin t)^n$ est continue sur $[0,{π\F 2}]$. A fortiori, le nombre $u_n$ est défini en tant qu'intégrale sur un segment d'une fonction continue
+\startList
+\item 
+\startformula
+\Align{
+\NC u_0\NC =\int_0^{π\F 2}(\sin t)^0\d t=\int_0^{π\F 2}\d t=\Q[t\W]_0^{π/F 2}={π\F 2}\NR
+\NC u_1\NC =\int_0^{π\F 2}(\sin t)^1\d t=\int_0^{π\F 2}\sin(t)\d t=\Q[-\cos(t)\W]_0^{π/F 2}=1
+}
+\stopformula
+\item Soit $n∈ℕ$. Nous déduisons de la positivité de l'intégrale que 
+\startformula
+\Align{
+\NC u_{n+1}-u_n\NC =\int_0^{π\F 2}(\sin t)^{n+1}\d t-\int_0^{π\F 2}(\sin t)^n\d t\NR
+\NC \NC =\int_0^{π\F 2}\Q((\sin t)^{n+1}-(\sin t)^n\W)\d t\NR
+\NC \NC =\int_0^{π\F 2}\underbrace{(\sin t)^n\Q(\sin t-1\W)}_{⩽0}\d t⩽0
+}
+\stopformula
+En particulier, la suite $u$ est décroissante
+\item Comme la fonction $t↦(\sin t)^n$ est positive sur le segment $[0,{π\F 2}]$, il résulte de la positivité de l'intégrale que 
+$u_n=\int_0^{π\F 2}(\sin t)^n\d t⩾0$. Comme la suite $u$ est minorée par $0$ et décroissante, elle converge.
+\stopList
+\item\startList
+\item Soit $n∈ℕ$. Commençons par remarquer que 
+\startformula
+\Align{
+\NC u_{n+2}\NC =\int_0^{π\F 2}(\sin t)^{n+2}\d t\NR
+\NC\NC =\int_0^{π\F 2}(\sin^2t)(\sin t)^n\d t\NR
+\NC\NC =\int_0^{π\F 2}(\sin t)^n\d t-\int_0^{π\F 2}\cos(t)×\cos(t)(\sin t)^n\d t\NR
+\NC\NC =u_n-\int_0^{π\F 2}\cos(t)×\cos(t)(\sin t)^n\d t
+}
+\stopformula
+Comme les applications $t↦\cos(t)$ et $t↦{(\sin t)^{n+1}\F n+1}$ sont de classe $\mc C^1$ sur le segment $[0,{π\F 2}]$, 
+en procédant à une intégration par partie, il vient
+\startformula
+\Align{
+\NC u_{n+2}\NC = u_n-\Q(\Q[\cos(t){(\sin t)^{n+1}\F n+1}\W]_0^{π\F 2}-\int_0^{π\F 2}(-\sin t)×{(\sin t)^{n+1}\F n+1}\d t\W)\NR
+\NC u_{n+2}\NC = u_n-\Q(0+{1\F n+1}\int_0^{π\F 2}(\sin t)^{n+2}\d t\W)\NR 
+\NC u_{n+2}\NC = u_n-{1\F n+1}u_{n+2} 
+}
+\stopformula
+En multipliant par $n+1$, nous obtenons alors que $(n+1)u_{n+2}=(n+1)u_n-u_{n+2}$ puis que 
+\startformula
+(n+2)u_{n+2}=(n+1)u_n
+\stopformula
+\item Pour $n∈ℕ$, prouvons par récurrence la proposition 
+\startformula
+\mc P_n:\qquad u_{2n}={(2n)!\F (2^nn!)^2}{π\F 2}
+\stopformula
+\startitemize[1]
+\item $\mc P_0$ est vraie car $u_0={π\F 2}={(2×0)!\F (2^00!)^2}{π\F 2}$
+\item Supposons $\mc P_n$ pour un entier $n∈ℕ$. D'après la relation obtenue précédemment, nous avons 
+\startformula
+u_{2(n+1)}=u_{n+2}={2n+1\F 2n+2}u_{2n}
+\stopformula
+Il résulte alors de $\mc P_n$ que 
+\startformula
+\Align{
+\NC u_{2(n+1)}\NC ={2n+1\F 2n+2}{(2n)!\F (2^nn!)^2}{π\F 2}={2n+1\F 2(n+1)}{(2n)!\F (2^nn!)^2}{π\F 2}\NR
+\NC \NC ={2n+1\F 2(n+1)}{2n+2\F 2n+2}{(2n)!\F (2^nn!)^2}{π\F 2}\NR
+\NC \NC ={(2n+1)(2n+2)\F 2(n+1)×2(n+1)}{(2n)!\F (2^nn!)^2}{π\F 2}\NR
+\NC \NC ={(2n+2)!\F (2^{n+1}(n+1)!)^2}{π\F 2}={(2(n+1))!\F (2^{n+1}(n+1)!)^2}{π\F 2}
+}
+\stopformula
+En particulier, la proposition $\mc P_{n+1}$ est vraie
+\stopitemize
+En conclusion, la proposition $\mc P_n$ est vraie pour $n∈ℕ$.
+
+\item Montrons que l'on définit une suite constante $v$ égale à ${π\F 2}$ en posant
+\startformula
+v_n=(n+1)u_{n+1}{\red u_n}\qquad(n∈ℕ).
+\stopformula
+Soit $n∈ℕ$. Il résulte alors du résultat établi à la question 2a que 
+\startformula
+v_n={\red (n+1)}u_{n+1}{\red u_n}={\red (n+2)u_{n+2}} u_{n+1}=v_{n+1}
+\stopformula
+En particulier, la suite $v$ est constante. Or il résulte du résultat établi à la question 1 que 
+\startformula
+v_0=1×u_1×u_0=1×{π\F 2}={π\F 2}
+\stopformula
+En conclusion, on a bien $v_n=(n+1)u_{n+1}u_n={π\F 2}$ pour $n∈ℕ$.
+\item Il résulte du résultat précédent que $(2n+1)u_{2n+1}u_{2n}={π\F 2}$ pour $n⩾0$. A fortiori, nous déduisons du résultat de la question 2b que 
+\startformula
+\Align{
+\NC u_{2n+1}\NC ={{π\F 2}\F (2n+1){\red u_{2n}}}\NR
+\NC\NC ={{π\F 2}\F (2n+1)}×{\red { (2^nn!)^2\F (2n)!}{1\F {π\F 2}}}\NR
+\NC\NC={ (2^nn!)^2\F (2n+1)!}\qquad (n∈ℕ)
+}
+\stopformula
+\stopList
+\item\startList
+\item Comme $(n+2)u_{n+2}=(n+1)u_n$ d'après le résultat de la question 2a, il vient
+\startformula
+{u_{n+2}\F u_n}= {n+1\F n+2}=1-{1\F n+2}\qquad (n∈ℝ)
+\stopformula
+En particulier, nous obtenons que $\lim_{n→+∞}{u_{n+2}\F u_n}=1$.
+\item En remarquant que $u_{n+2}⩽u_{n+1}⩽u_n$, et en divisant par $u_n$ (qui est non nul d'après les formules obtenues précédemment), 
+nous obtenons que 
+\startformula
+{u_{n+2}\F u_n} ⩽{u_{n+1}\F u_n}⩽1\qquad (n∈ℕ)
+\stopformula
+Comme les suites de droite et de gauche convergent vers $1$, il résulte du principe des gendarmes que $\ds \lim_{n→+∞}{u_{n+1}\F u_n}=1$.
+\item Comme  $(n+1)u_{n+1}u_n={π\F 2}$, nous remarquons que 
+\startformula
+{2n\F π}(u_n)^2=(n+1)u_nu_{n+1}×{2\F π}{n\F n+1}{u_n\F u_{n+1}}={n\F n+1}{u_n\F u_{n+1}}
+\stopformula
+Comme $\lim_{n→+∞}{u_{n+2}\F u_n}=1$ et $\lim_{n→+∞}{n\F n+1}=1$, nous remarquons d'une part que
+$\ds \lim_{n→+∞}{2n\F π}(u_n)^2=1$ et d'autre part (en prenant la racine carrée, qui est continue en $1$) que 
+\startformula
+\lim_{n→+∞}{u_n\F \sqrt{π\F 2n}}= \lim_{n→+∞}\sqrt{{2n\F π}(u_n)^2}=\sqrt{1}=1
+\stopformula
+En particulier, on a $u_n∼\sqrt{π\F 2n}$.
+\stopList
+\stopList
+
+
+\setupitemgroup[List][2][I,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][n,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+\item%Exo matrices
+\startList
+\item{\bf ETUDE de $\mc SM_3(ℝ)$}
+\startList
+\item\startList
+\item \startitemize[1]
+\item Par définition $\mc SM_3(ℝ)⊂\mc M_3(ℝ)$, qui est un espace vectoriel de référence
+\item $\mc SM_3(ℝ)≠\emptyset$ car la matrice $J$ est une matrice semi-magique (les sommes sur les lignes et les colonnes valent toutes $3$)
+\item 
+Soient $(λ,μ)∈ℝ^2$ et $(M,N)∈\mc SM_3(ℝ)^2$. Nous remarquons d'une part $λM+μN∈\mc M_3(ℝ)$, par stabilité par combinaison linéaire de l'espace vectoriel $\mc M_3(ℝ)$ 
+mais d'autre part que  
+\startformula
+(λM+μN)J=λMJ+μMJ=λJM+μJN=J(λM+μN)
+\stopformula
+En particulier, la matrice $λM+μN$ est une matrice semi-magique de $\mc SM_3(ℝ)$ (d'après sa définition admise avec $J$)
+\stopitemize
+En conclusion, $\mc SM_3(ℝ)$ est un sous-espace vectoriel de $E$, contenant $J$.
+\item Soit $M∈SM_3(ℝ)$.Alors $JM=MJ$ et nous déduisons alors des propriétés de la transposition que 
+\startformula
+J\strut^{t}M=\strut^{t}J\strut^{t}M=\strut^{t}(MJ)=\strut^{t}(JM)=\strut^{t}M\strut^{t}J=\strut^{t}MJ
+\stopformula
+En particulier, nous obtenons que $\strut^{t}M∈SM_3(ℝ)$.
+\stopList
+\item\startList
+\item La matrice $E_1$ est une matrice carrée de taille $3$ vérifiant 
+\startformula
+\Align{
+\NC JE_1=\Matrix{
+\NC 0+1-1\NC -1+0+1\NC 1-1+0\NR 
+\NC 0+1-1\NC -1+0+1\NC 1-1+0\NR
+\NC 0+1-1\NC -1+0+1\NC 1-1+0
+}=0\NR
+\NC=\Matrix{
+\NC 0-1+1\NC 0-1+1\NC 0-1+1\NR
+\NC 1+0-1\NC 1+0-1\NC 1+0-1\NR
+\NC -1+1+0\NC -1+1+0\NC -1+1+0
+}  = E_1J
+}
+\stopformula
+En particulier, nous avons $E_1∈\mc SM_3(ℝ)$. 
+Comme $E_1$, $E_2$, $E_3$ et $E_4$ sont des vecteurs de $\mc SM_3(ℝ)$ 
+et comme $G=\Vect(E_1,E_2,E_3,E_4)$, nous remarquons que $G$ est un espace vectoriel engendré par une partie de $\mc SM_3(ℝ)$. A fortiori, 
+$G$ est un sous-espace vectoriel de $\mc SM_3(ℝ)$.
+La famille $(E_1, E_2, E_3, E_4)$ est clairement génératrice de $G$. Montrons que c'est une famille libre
+{\it on pourrait faire un calcul de rang mais c'est lourd avec une matrice $9×4$, c'est plus agréable ici via la méthode théorique standard}.
+Soient $a,b,c,d$ des nombres réels tels que $aE_1+bE_2+cE_3+dE_4=0$.
+En regardant le coefficient de la premiere ligne, premiere colonne, il vient 
+\startformula
+a×0+b×1+c×0+d×0=b=0
+\stopformula
+de sorte que $b=0$ et $aE_1+cE_3+dE_4=0$. En regardant le coefficient central, il vient 
+\startformula
+a×0+c×0+d×1=d=0
+\stopformula
+de sorte que $d=0$ et $aE_1+cE_3=0$. Comme $E_1$ et $E_3$ ne sont pas colinéaires, ils forment une famille libre à eux deux, de sorte que 
+$a=0$ et $c=0$.
+A fortiori, $a=b=c=d=0$. En conclusion, la famille $(E_1, E_2, E_3, E_4)$ est libre, comme elle engendre $G$, 
+c'est une base de $G$, qui est donc de dimension $4$. 
+\item Soit $M∈G=\Vect(E_1,E_2,E_3,E_4)$. Alors, il existe des nombres réels $a$, $b$, $c$ et $d$ tels que 
+\startformula
+M=aE_1+bE_2+cE_3+dE_4
+\stopformula
+et alors, par linéarité de la trace, nous obtenons que 
+\startformula
+\Align{
+\NC \tr(M)\NC =\tr(aE_1+bE_2+cE_3+dE_4)=a\tr(E_1)+b\tr(E_2)+c\tr(E_3)+d\tr(E_4)\NR
+\NC\NC =a×(0+0+0)+b×(1+0-1)+c×(0+0+0)+d×(0+1-1)=0
+}
+\stopformula
+On admet pour la suite que 
+\startformula
+G=\{M∈\mc SM_3(ℝ):\tr(M)=0\}
+\stopformula
+\item Comme $G$ et $\Vect(J)$ sont des sous-espaces vectoriels de $\mc M_3(ℝ)$ et contiennent le même $0$, 
+il est trivial que $\{0\}⊂G∩\Vect(J)$. Montrons maintenant que  $G∩\Vect(J)⊂\{0\}$. 
+Soit $M∈G∩\Vect(J)$. Alors $M∈\Vect(J)$, de sorte qu'il existe un nombre réel $λ$ tel que $M=λJ$. 
+Mais comme $M∈G$, nous déduisons de la propriété admise de $G$ que $0=\tr(M)=\tr(λJ)=λ\tr(J)=3λ$.
+A fortiori, $λ=0$ et donc $M=λJ=0J=0$, ce qu'il fallait démontrer, nous avons bien que $M∈\{0\}$ et donc que 
+$G∩\Vect(J)⊂\{0\}$
+En conclusion, nous avons établi que $G∩\Vect(J)=\{0\}$
+\stopList
+\item Soit $M∈\mc SM_3(ℝ)$ et $N=M-{\tr(M)\F 3}J$. Nous remarquons que 
+\startformula
+JN=J\Q(M-{\tr(M)\F 3}J\W)=JM-{\tr(M)\F 3}J×J=MJ-{\tr(M)\F 3}J×J=\Q(M-{\tr(M)\F 3}J\W)J=NJ
+\stopformula
+En particulier, la matrice $N$ est semi-magique. De plus, nous observons également que 
+\startformula
+\tr(N)=\tr\Q(M-{\tr(M)\F 3}J\W)=\tr(M)-{\tr(M)\F 3}\tr(J)=\tr(M)-{\tr(M)\F 3}×3=0
+\stopformula
+En particulier, la matrice $N$ appartient à $G$.
+\item\startList
+ \item Nous avons montré à la question 2c que $G∩\Vect(J)=\{0\}$, de sorte que nous avons $G⊕\Vect(J)$ (la somme de $G$ et de $\Vect(J)$ est directe).
+Il ne reste plus qu'à montrer que $\mc SM_3(ℝ)=G+\Vect(J)$ et plus particulièrement que $\mc SM_3(ℝ)⊂G+\Vect(J)$ (puisque l'autre implication est triviale, $G$ et $\Vect(J)$ étant des sous-espaces vectoriels de $\mc SM_3(ℝ)$).
+Soit $M∈\mc SM_3(ℝ)$. Nous remarquons alors que 
+\startformula
+M= \underbrace{M-{\tr(M)\F 3}J}_{N∈G} + \underbrace{{\tr(M)\F 3}J}_{∈\Vect(J)}=N+\tr(M)J
+\stopformula
+En particulier, $M$ est la somme de $N$ qui appartient à $G$ (résultat de la question 3) et de $\tr(M)J$ qui appartient à $\Vect(J)$, de sorte que $M∈G+\Vect(J)$, CQFD.
+En conclusion, nous avons établi que $\mc SM_3(ℝ)=G⊕\Vect(J)$.
+\item $(E_1,E_2,E_3,E_4)$ forme une base de $G$, $J≠0$ forme une base de $\Vect(J)$ et $\mc SM_3(ℝ)=G⊕\Vect(J)$. 
+A fortiori, $(E_1,E_2,E_3,E_4, J)$ (la concaténation des bases) forme une base de $\mc SM_3(ℝ)$, qui est de dimension $5$.
+\stopList
+
+\stopList
+\item {\bf Etude d'un sous-espace vectoriel de $\mc SM_3(ℝ)$}\crlf
+Pour $M=(m_{i,j})_{1⩽i⩽3\atop1⩽j⩽3}∈\mc SM_3(ℝ)$, on pose
+\startformula
+φ(M)=m_{1,1}+m_{1,2}+m_{1,3}\quad\Et\quad ψ(M)=m_{3,1}+m_{2,2}+m_{1,3}
+\stopformula
+On admet que $H=\{M∈\mc SM_3(ℝ):φ(M)=ψ(M)=\tr(M)\}$ est un sous espace vectoriel de $\mc SM_3(ℝ)$ de dimension $3$.
+\startList
+\item On pose $D=\Matrix{
+\NC -1\NC 2\NC λ\NR
+\NC 0\NC 0\NC 0\NR
+\NC 1\NC -2\NC 1
+}$
+\startList
+\item Pour que $D$ appartienne à $H⊂\mc SM_3(ℝ)$, il est nécéssaire que $D$ soit une matrice semi-magique, c'est-à-dire que $λ=-1$ pour que les sommes sur les colonnes et les lignes de $D$ valent toutes $0$. 
+Réciproquement, pour $λ=0$, la matrice $D$ est semi-magique et vérifie $\tr(D)=-1+0+1=0\quad φ(M)=-1+2+λ=0\quad ψ(M)=1+0+λ=0$ de sorte que $D$ appartient à $H$. (c'est un carré magique en fait)
+\item Comme $D$ est semi-magique, sa transposée $\strut^{t}$ est semi-magique (résultat 1b). Comme $ψ(\strut^tD)=\tr(D)$, $\tr(\strut^tD)=ψ(D)$, nous en déduisons que $\strut^tD$ appartient aussi à $H$ (ces deux nombres restant égaux à $φ(D)=φ\strut^tD)$, car $D$ est semi-magique).
+En bref, $\strut^tD$ est aussi un carré magique.	
+\item Les matrices, $D$ (d'après II1a), $\strut^tD$ (d'après II1b) et $J$ (trivial) sont des matrices de $H$, qi est de dimension $3$.
+Comme ces trois matrices forment une famille libre (via le rang ou la démonstration suivante), c'est une base de $H$.
+Montrons que la famille est libre (via la définition). Soient $a$,$b$ et $c$ des nombres réels tels que $aD+b\strut^tD+cJ=0$.
+En regardant le coefficient central, on obtient que 
+\startformula
+a×0+b×0+c×1=c=0
+\stopformula
+Donc $c=0$ et $aD+b\strut^tD=0$. Comme les vecteurs $D$ et $\strut^tD$ ne sont pas colinéaires, ils forment une famille libre (de deux vecteurs) de sorte que $a=b=0$.
+En conclusion, nous avons obtenu que $a=b=c=0$. La famille $(J,D, \strut^{t}D)$ est donc libre et forme une base de $H$.
+\stopList
+\iffalse
+\item On désigne par $\mc S_3(ℝ)$ l'ensemble des matrices $3×3$ symétriques et par $\mc A_3(ℝ)$ celui des matrices $3×3$ anti-symétriques et on pose 
+\startformula 
+G_A=Q∩\mc A_3(ℝ)\quad\Et\quad G_S=G∩\mc S_3(ℝ).
+\stopformula
+\startList
+\item Soit $M∈G$. On pose $N_1={1\F 2}\Q(M+\strut^tM\W)$ et $N_2={1\F 2}\Q(M-\strut^tM\W)$. Montrer que $N_1∈G_S$ et que $N_2∈G_A$.
+\item En déduire que $G=G_S⊕G_A$ 
+\stopList
+\fi
+\iffalse
+\item\startList
+\item Soit $M$ une matrice anti-symétrique avec $M=\Matrix{
+\NC 0\NC α\NC β\NR
+\NC -α\NC 0\NC γ\NR
+\NC -β\NC -γ\NC 0}$ où $(α, β, γ)∈ℝ^3$
+Montrer que si $M∈G_A$, alors $M∈\Vect(E_1)$
+\item En déduire une base de $G_A$
+\stopList
+\item Déterminer une base de $G_S$
+\fi
+\stopList
+\stopList
+
+
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+\setupitemgroup[List][4][i,joineup,nowhite]
+\item%Edhec 2000
+{\bf Extrait EDHEC E}. On lance $n$ fois, de façon indépendante, une pièce donnant pile avec la probabilité $p∈]0,1[$ et face avec la probabilité $q=1-p$. \crlf 
+Pour $k⩾2$, on dit que le $k\high{ième}$ lancer est un {\it changement} s'il amène un résultat différent du $(k-1)\high{ième}$~lancer.
+Pour $n⩾2$, on note $X_n$ la variable égale au nombre de changements survenus durant les $n$ premiers lancers\crlf
+On note $P_k$ l'événement \quote{on obtient pile au $k\high{ième}$ lancer}. 
+\startList
+\item \startList
+\item On a soit zéro, soit un changement au cours des $2$ lancers, de sorte que $X_2$ suit une loi de Bernoulli. De plus, on a 
+$(X_2=1)=(P_1∩\overline{P_2})∪(\overline{P_1}∩P_2)$. Les deux intersections étant incompatibles et les lancers étant indépendants, on a 
+\startformula
+\Align{
+\NC P(X_2=1)\NC =P(P_1∩\overline{P_2})+P(\overline{P_1}∩P_2)\NR
+\NC\NC =P(P_1)×P(\overline{P_2}) + P(\overline{P_1})×P(P_2)\NR
+\NC\NC =p×q+q×p=2pq
+}
+\stopformula
+En conclusion, $X_2\hookrightarrow B(2pq)$.
+\item On procède comme à la question 1. Il sera utilse de remarquer que 
+\startformula
+{\red 1=}(p+q)^3=p^3+3p^2q+3pq^2+q^3=p^3+q^3+3pq(p+q)={\red p^3+q^3+3pq}
+\stopformula
+
+Pour $3$ lancers, on peut avoir $0$, $1$ ou $2$ changements ($X_3(Ω)=⟦0,2⟧$) et on a 
+\startformula
+\Align{
+\NC P(X_3=0)\NC =P(P_1∩P_2∩P_3)+P(\overline{P_1}∩\overline{P_2}∩\overline{P_3})\NR
+\NC\NC = P(P_1)×P(P_2)×P(P_3)+P(\overline{P_1})×P(\overline{P_2})×P(\overline{P_3})\NR
+\NC\NC = p^3+q^3={\red (p+q)^3-3p^2q-3pq^2=1-3pq(p+q)=1-3pq}
+}
+\stopformula
+De même, on a 
+\startformula
+\Align{
+\NC P(X_3=2)\NC =P(P_1∩\overline{P_2}∩P_3)+P(\overline{P_1}∩P_2∩\overline{P_3})\NR
+\NC\NC = P(P_1)×P(\overline{P_2})×P(P_3)+P(\overline{P_1})×P(P_2)×P(\overline{P_3})\NR
+\NC\NC = pqp+qpq=pq(p+q)=pq
+}
+\stopformula
+A fortiori, il vient $P(X_3=1)=1-P(X_3=0)-P(X_3=2)=1-p^3-q^3-pq={\red 1-(1-3pq)-pq =2pq}$. 
+On vient de donner tout ce qu'il faut pour déterminer la loi de $X_3$, qui n'est pas une loi connue :
+\startformula
+P(X_3=0)=1-3pq  \qquad P(X_3=1)=2pq, \qquad P(X_3=2)=pq
+\stopformula
+Pour l'espérance, nous déduisons de la définition de l'espérance et de la formule de transfert que 
+\startformula
+\Align{
+\NC E(X_3)\NC=0×P(X_3=0)+1×P(X_3=1)+2×P(X_3=2)\NR
+\NC\NC = 1-p^3-q^3-pq+2×pq=1-p^3-q^3+pq={\red 4pq}\NR
+\NC E(X_3^2)\NC=0^2×P(X_3=0)+1^2×P(X_3=1)+2^2×P(X_3=2)\NR
+\NC\NC = 1-p^3-q^3-pq+4×pq=1-p^3-q^3+3pq={\red 6pq}\NR
+}
+\stopformula
+A fortiori, il résulte de la formule de Koenig-Huygens que 
+\startformula
+\Align{
+\NC V(X_3)\NC =E(X_3^2)-E(X_3)^2=1-p^3-q^3+3pq-(1-p^3-q^3+pq)^2\NR 
+\NC \NC ={\red 6pq}-({\red 4pq})^2=6pq - 16p^2q^2=2pq (3-8pq)
+}
+\stopformula
+Les calculs étant un peu horribles, il doit y avoir un truc....
+Remarquons que $1=p+q$, de sorte que le binôme de Newton induit que  
+\startformula
+1=1^3=(p+q)^3=p^3+q^3+3p^2q+3pq^2=p^3+q^3+3pq(p+q)=p^3+q^3+3pq
+\stopformula
+En particulier, nous remarquons que ${\red 1-p^3-q^3=3pq}$ et en reportant ({\red en rouge} dans les calculs précédents, il vient
+\startformula
+P(X_3=0)=1-3pq, \ P(X_3=1)=2pq\ P(X_3=2)=pq\ E(X_3)=4pq,\ V(X_3)=6pq-16p^2q^2
+\stopformula
+Bon, on ne reconnait toujours pas de loi du cours.
+\stopList
+\item Dans cette question, $n$ désigne un entier supérieur ou égal à $2$.
+\startList
+\item \startList
+\item En jettant $n$ pieces, on peut avoir entre $0$ et $n-1$ changements, de sorte que 
+$X_n(Ω)=⟦0,n-1⟧$.
+\item Exprimer $(X_n=0)=∩_{k=1}^nP_k∪∩_{k=1}^n\overline{P_k}$. Comme les deux intersections sont incompatibles et comme les lancers sont indépendants, il vient 
+\startformula
+\Align{
+\NC P(X_n=0)\NC =P\Q(∩_{k=1}^nP_k\W)+P\Q(∩_{k=1}^n\overline{P_k}\W)=∏_{k=1}^nP(P_k)+∏_{k=1}^nP(\overline{P_k})\NR
+\NC\NC =p^n+q^n
+}
+\stopformula
+\item En remarquant que 
+\startformula
+\Align{
+\NC (X_n=1) \NC = \text{\quote{Que des piles puis que des faces ou que des faces puis que des piles}}\NR
+\NC \NC = ∪_{k=1}^{n-1}\Q(∩_{j=1}^kP_j∩∩_{j=k+1}^n\overline{P_j}\W)∪∪_{k=1}^{n-1}\Q(∩_{j=1}^k\overline{P_j}∩∩_{j=k+1}^nP_j\W)
+}
+\stopformula
+Comme toutes les intersections sont incompatibles$2$ à $2$ et que les lancers sont indépendants,  on a 
+\startformula
+\Align{
+\NC P(X_n=1)\NC =∑_{k=1}^{n-1}P\Q(∩_{j=1}^kP_j∩∩_{j=k+1}^n\overline{P_j}\W)+∑_{k=1}^{n-1}P\Q(∩_{j=1}^k\overline{P_j}∩∩_{j=k+1}^nP_j\W)\NR
+\NC \NC =∑_{k=1}^{n-1}∏_{j=1}^kP(P_j)×∏_{j=k+1}^nP(\overline{P_j})+∑_{k=1}^{n-1}∏_{j=1}^kP(\overline{P_j})×∏_{j=k+1}^nP(P_j)\NR
+\NC \NC =∑_{k=1}^{n-1}p^k×q^{n-k}+∑_{k=1}^{n-1}q^k×p^{n-k}
+}
+\stopformula
+Comme on obtient deux sommes de termes de suites géométriques de raison ${p\F q}≠1$ et ${q\F p}≠1$, il vient 
+(en multipliant en haut et en bas par $q$ le premier quotient et par $p$ le second) 
+\startformula
+\Align{
+\NC P(X_n=1)\NC ={pq^{n-1}-p^n\F 1-{p\F q}}+ {qp^{n-1}-q^n\F 1-{q\F p}}\NR
+\NC \NC ={pq^n-p^nq\F q-p}+ {qp^n-pq^n\F p-q}\NR
+\NC \NC ={pq^n-p^nq-qp^n+pq^n\F q-p}=2{pq^n-p^nq\F q-p}\NR
+\NC \NC =2pq{q^{n-1}-p^{n-1}\F q-p}
+}
+\stopformula
+\item 
+\item En remarquant que 
+\startformula
+\Align{
+\NC (X_n=n-1) \NC = \text{\quote{Les piles alternent avec les faces}}\NR
+\NC \NC = ∩_{j=1\atop j \text{pair}}^nP_j∩∩_{j=1\atop j \text{impair }}^n\overline{P_j}∪
+∩_{j=1\atop j\text{ pair}}^n\overline{P_j}∩∩_{j=1\atop j\text{ impair}}^nP_j
+}
+\stopformula
+Comme les intersections sont incompatibles $2$ à $2$ et que les lancers sont indépendants, il vient
+\startformula
+\Align{
+\NC P(X_n=n-1) \NC = P\Q(∩_{j=1\atop j \text{pair}}^nP_j∩∩_{j=1\atop j \text{impair }}^n\overline{P_j}\W)+
+P\Q(∩_{j=1\atop j\text{ pair}}^n\overline{P_j}∩∩_{j=1\atop j\text{ impair}}^nP_j\W)\NR
+\NC \NC = ∏_{j=1\atop j \text{pair}}^nP(P_j)×∏_{j=1\atop j \text{impair }}^nP(\overline{P_j})+
+∏_{j=1\atop j\text{ pair}}^nP(\overline{P_j})×∏_{j=1\atop j\text{ impair}}^nP(P_j)\NR
+\NC \NC = ∏_{j=1\atop j \text{pair}}^np×∏_{j=1\atop j \text{impair }}^nq+
+∏_{j=1\atop j\text{ pair}}^nq×∏_{j=1\atop j\text{ impair}}^np
+}
+\stopformula
+En notant $P$ le nombre de nombres pairs entre $1$ et $n$ et $I$ le nombre de nombres impairs entre $1$ et $n$, il vient
+\startformula
+P(X_n=n-1) = p^P×q^I+q^P×p^I=\System{
+\NC p^kq^k+q^kp^k=2(pq)^k=2(pq)^{n/2}\NC\text{ si $n=2k$}\NR
+\NC p^kq^{k+1}+q^kp^{k+1}=(q+p)(pq)^k=(pq)^k=(pq)^{(n-1)/2}\NC\text{ si $n=2k+1$}\NR
+}
+\stopformula
+\item Appliquons le résultat obtenu à la question 2.a.iii  pour $n=4$. Alors, il résulte des identités $q^3-p^3=(q-p)(q^2+pq+p^2)$  et $1=1^2=(p+q)^2=p^2+2pq+q^2$ que 
+\startformula
+\Align{
+\NC P(X_4=1)\NC =2pq{q^{4-1}-p^{4-1}\F q-p}=2pq{q^3-p^3\F q-p}\NR
+\NC\NC =2pq(q^2+pq+p^2)=2pq(1-2pq+pq)=2pq(1-pq)}
+\stopformula
+Comme le résultat de la question 2.a.ii, et la formule du binôme de Newton donnent que
+$P(X_4=0)=p^4+q^4$ et $(p+q)^4=p^4+4p^3q+6p^2q^2+4pq^3+q^4$, il vient
+\startformula 
+\Align{
+\NC P(X_4=0)\NC =p^4+q^4=(p+q)^4-4p^3q-6p^2q^2-4q^3p\NR
+\NC \NC=1-4pq(p^2+q^2)-6p^2q^2\NR
+\NC \NC= 1-4pq((p+q)^2-2pq)-6p^2q^2\NR
+\NC\NC=1-4pq(1-2pq)-6p^2q^2=1-4pq+2p^2q^2
+}
+\stopformula
+Enfin, le résultat obtenu à la question 2.a.iv donne pour $n=4$ (cas pair) que 
+$P(X_4=3)=2(pq)^2$.A fortiori, via le complémentaire, nous obtenons que 
+\startformula
+\Align{
+\NC P(X_4=2)\NC =1-P(X_4=0)-P(X_4=1)-P(X_4=3)\NR
+\NC\NC = 1-(1-4pq+2p^2q^2)-2pq(1-pq)-2(pq)^2\NR
+\NC\NC = 4pq-2(pq)^2-2pq + 2(pq)^2-2(pq)^2=2pq-2(pq)^2=2pq(1-pq)
+}
+\stopformula
+La loi de $X_4$ est donnée par $X_4(Ω)=⟦0,3⟧$ et 
+\startformula
+P(X_4=0)=1-4pq+2p^2q^2, \ P(X_4=1)=P(X_4=2)=2pq(1-pq),\ P(X_4=3)=2(pq)^2
+\stopformula
+Ce n'est pas une loi du cours.
+L'esperance de $X_4$ vaut 
+\startformula
+\Align{
+\NC E(X_4)\NC =0×P(X_4=0)+1×P(X_4=1)+2×P(X_4=2)+3×P(X_4=3)\NR
+\NC\NC =0+2pq(1-pq)+2×2pq(1-pq)+3×2(pq)^2\NR
+\NC\NC = 6pq 
+}
+\stopformula
+\stopList
+\item du fait de l'incompatibilité des intersections et de l'indépendance destirages, on a 
+\startformula
+\Align{
+\NC P(Z_k=1)\NC =P(P_{k-1}∩\overline{P_p}∪\overline{P_{k-1}}∩P_k)\NR
+\NC \NC =P(P_{k-1}∩\overline{P_p})+P(\overline{P_{k-1}}∩P_k)\NR
+\NC \NC =P(P_{k-1})P(\overline{P_p})+P(\overline{P_{k-1}})P(P_k)\NR
+\NC \NC =pq+qp=2pq
+}
+\stopformula
+En particulier, $Z_k$ suit la loi de bernoulli de paramètre $2pq$. 
+
+Pour $2⩽k⩽n$, Pour compter le nombre de changements, il suffit d'ajouter $1$ lors d'un changement et $0$ lorsqu'il n'y en a pas au tirage $k$. 
+C'est exactement ce que fait la formule $X_n=∑_{k=2}^nZ_k$. L'espérance étant linéaire, il vient 
+\startformula
+E(X_n)=E\Q(∑_{k=2}^nZ_k\W)=∑_{k=2}^nE(Z_k)=∑_{k=2}^n2pq=2(n-1)pq
+\stopformula
+\stopList
+\item Dans cette question, on suppose que $p=q={1\F 2}$.
+\startList
+\item En reprenant les probabilités trouvées au 1.b, pour $p=q={1\F 2}$, on obtient que 
+\startformula
+\Align{
+\NC P(X_3=0)=1-3pq=1-{3\F 4}={1\F 4}={2\choose 0}{1\F 2^2}\NR
+\NC P(X_3=1)=2pq={1\F 2}={2\choose 1}{1\F 2}{1\F 2}, \NR
+\NC P(X_3=2)=pq={1\F 4}={2\choose 2}{1\F 2^2}
+}
+\stopformula
+En particulier, on reconnait que $X_3$ suit la loi binomiale $\mc B\Q(2,{1\F2}\W)$.\crlf
+De même, en reprenant les probabilités trouvées au 2.a.v, pour $p=q={1\F 2}$, on obtient que 
+\startformula
+\Align{
+\NC P(X_4=0)=1-4pq+2p^2q^2={1\F 8}={3\choose 0}{1\F 2^3},\NR 
+\NC P(X_4=1)=P(X_4=2)=2pq(1-pq)={3\F 8}=\underbrace{{3\choose 1}}_{={3\choose 2}}{1\F 2^1}{1\F 2^2},\NR
+\NC P(X_4=3)=2(pq)^2={1\F 8}={3\choose 3}{1\F 2^3}
+}
+\stopformula
+En particulier, on reconnait que $X_3$ suit la loi binomiale $\mc B\Q(3,{1\F2}\W)$.
+\item Soit $n⩾2$. 
+\startList
+\item Pour $1⩽k⩽n$, il résulte de l'indépendance du $n+1)\high{ième}$ tirage avec les $n$ premiers tirages que 
+\startformula
+\Align{
+\NC P\big((X_n=k)∩P_n∩P_{n+1}\big)=P\big((X_n=k)∩P_n\big)P(P_{n+1})={1\F 2}P\big((X_n=k)∩P_n\big)\NR
+\NC P\big((X_n=k)∩\overline{P_n}∩\overline{P_{n+1}}\big)=P\big((X_n=k)∩\overline{P_n}\big)P(\overline{P_{n+1}})={1\F 2}P\big((X_n=k)∩\overline{P_n}\big)
+}
+\stopformula
+Il résulte alors de la formule des probabilités totales appliquée au système complet d'événements $S=(P_n∩P_{n+1}, P_n∩\overline{P_{n+1}}, \overline{P_n}∩P_{n+1}, \overline{P_n}∩\overline{P_{n+1}}$ que 
+\startformula
+\Align{
+\NC P\big(X_n=k)∩(X_{n+1}=k)\big)\NC =P\big(X_n=k)∩(X_{n+1}=k)∩P_n∩P_{n+1}\big)\NR
+\NC\NC +P\big(X_n=k)∩(X_{n+1}=k)∩P_n∩\overline{P_{n+1}}\big)\NR
+\NC\NC +P\big(X_n=k)∩(X_{n+1}=k)∩\overline{P_n}∩P_{n+1}\big)\NR\NC\NC+P\big(X_n=k)∩(X_{n+1}=k)∩\overline{P_n}∩\overline{P_{n+1}}\big)\NR
+\NC \NC =P\big(X_n=k)∩P_n∩P_{n+1}\big)+0\NR\NC\NC + 0+P\big(X_n=k)∩\overline{P_n}∩\overline{P_{n+1}}\big)\NR
+\NC \NC ={1\F 2}P\big(X_n=k)∩P_n\big)+{1\F 2}P\big(X_n=k)∩\overline{P_n}\big)\NR
+\NC\NC = {1\F 2}P\big(X_n=k)\big)
+}
+\stopformula
+et en déduire que 
+\startformula
+P\big((X_n=k)∩(X_{n+1}=k)\big)={1\F 2}P(X_n=k)
+\stopformula
+On admettra que l'on démontrerait de même que
+\startformula
+P\big((X_n=k-1)∩(X_{n+1}=k)\big)={1\F 2}P(X_n=k-1)
+\stopformula
+\item Pour $n∈ℕ$, démontrons par récurrence la proposition
+\startformula
+P(X_n=k)={n-1\choose k}{1\F 2^{n-1}}\qquad (0⩽k⩽n-1)
+\stopformula
+\startitemize[1]
+\item Comme $X_2\hookrightarrow\mc B(1, {1\F2})=B\big({1\F 2}\big)=B({2pq})$, la proposition $\mc P_2$ est vraie.
+\item Supposons la proposition $\mc P_n$ pour un entier $n⩾2$. 
+Soit $k∈⟦1,n⟧$. Alors, il résulte de la formule de Pascal que 
+\startformula
+\Align{
+\NC P(X_{n+1}=k)\NC =P((X_n=k)∩(X_{n+1}=k))+P((X_n=k-1)∩(X_{n+1}=k))\NR
+\NC\NC = {1\F 2}P(X_n=k)+{1\F 2}P(X_n=k-1)\NR
+\NC\NC = {1\F 2}{n-1\choose k}{1\F 2^{n-1}}+{1\F 2}{n-1\choose k-1}{1\F 2^{n-1}}\NR
+\NC\NC = {1\F 2^n}\Q({n-1\choose k}+{n-1\choose k-1}\W)\NR
+\NC\NC = {1\F 2^n}{n\choose k}
+}
+\stopformula
+Par ailleurs, pour $k=0$, le résultat de la question 2.a.ii donne que 
+\startformula
+P(X_{n+1}=0)=p^{n+1}+q^{n+1}=2{1\F ^{n+1}}={1\F 2^n}={n\choose 0}{1\F 2^n}
+\stopformula
+En particulier, la proposition $\mc P_{n+1}$ est vraie
+\stopitemize
+En conclusion, pour $n⩾2$, la variable $X_n$ suit la loi $\mc B(n-1,{1\F 2})$ lorsque $p=q={1\F 2}$.
+\stopList
+\stopList
+\stopList
+\stopList
+
+
+
+
+
+\stoptext
+\stopcomponent
+\endinput

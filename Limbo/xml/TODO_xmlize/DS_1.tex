@@ -1,0 +1,184 @@
+%%%% Newif
+
+\newif\ifexonumber
+
+%%%% Switches
+\exonumberfalse
+
+\input Preprocessing.tex
+
+\transparent
+%\nomorecolors
+
+\vglue-10mm\rightline{PT\hfill DS 1 (probl\`emes ind\'ependants) \hfill \date}
+\bigskip
+\medskip
+\pn{\eightpts 
+OLUS 6 : lire tout le sujet et rep\'erer/m\'emoriser les d\'efinitions (\`a surligner) et  les questions faciles 
+\pn
+OLUS 66 : Appliquer les m\'ethodes du cours et soigner la r\'edaction (cela vous aide et donne + de points)
+\pn
+OLUS 666 : Paniquez,  lisez mal les questions, comprenez de travers, zapez les hypoth\`eses, plantez vous et surtout surtout surtout faites nimportenawak (qu'on se marre un peu...)
+}
+\bigskip
+
+\noindent{\bf Probl\`eme 1 \it(ENSAM, ESTP, ECRIN, ARCHIMEDE).}
+\medskip
+\noindent
+1. Soit $u$ un endomorphisme de rang $1$ d'un $\ob C$-espace vectoriel $E$ de dimension finie $n\ge1$. 
+\bigskip
+\noindent
+i) Selon la dimension de $\IM(u)\cap\ker(u)$, montrer que l'on a soit 
+$E=\mbox{Im}(u)\oplus \ker(u)$ ou soit $\mbox{Im}(u)\subset\ker(u)$.
+\bigskip
+\noindent
+ii) Soit $e\neq0$ dans $\mbox{Im}(u)$. Justifier l'existence d'une base de $E$ dont le $1^{\hbox{\sevenrm er}}$ vecteur est~$e$.  \pn
+Dans le cas o\`u $\IM(u)\subset\ker(u)$, quelle est la forme de la matrice de $u$ sur une telle base\pn
+Dans le cas o\`u $\IM(u)\subset\ker(u)$, montrer que $\mbox{Tr}(u)=0$. \pn  
+{\it On rappelle que $\mbox{Tr}(u)$ est la trace de la matrice de $u$ (dans une base quelconque de~$E$).} 
+\bigskip
+\noindent
+iii) Montrer l'\'equivalence des trois assertions suivantes : \medskip\noindent
+a) il existe une base $\sc B$ de $E$ dans laquelle $\sc Mat_{\sc B}(u)$ est diagonale\smallskip\noindent
+b) $E=\IM(u)\oplus\ker(u)$. \smallskip\noindent
+c) $\mbox{Tr}(u)\neq0$. 
+\bigskip\noindent
+On note $\sc M_n(\ob C)$ le $\ob C$-espace vectoriel des matrices carr\'ees de taille $n$ \`a coefficients dans~$\ob C$ et  on note $\sc M_n(\ob C)^*$ le dual de $\sc M_n(\ob C)$, c'est-\`a-dire l'espace vectoriel   $\sc L\big(\sc M_n(\ob C), \ob C\big)$ des formes lin\'eaires sur $\sc M_n(\ob C)$.  \bigskip
+\noindent
+2. On fixe $A$ dans $\sc M_n(\ob C)$ et l'on pose 
+$$
+\forall X\in\sc M_n(\ob C), \qquad F_A(X):=\mbox{Tr}(AX), 
+$$
+o\`u $\mbox{Tr}(AX)$ d\'esigne la trace de la matrice $AX$. 
+\bigskip
+\noindent
+i) Montrer que la relation pr\'ec\'edente d\'efinit une forme lin\'eaire $F_A$ sur $\sc M_n(\ob C)$. \bigskip
+\noindent
+ii) La matrice $A$ n'\'etant plus fix\'ee, on consid\`ere 
+$$
+\eqalign{F:\sc M_n(\ob C)&\to\sc M_n(\ob C)^*\cr A\quad &\mapsto F_A}
+$$
+Montrer que $F$ est une application lin\'eaire
+\bigskip
+\noindent
+iii) Pour $(i,j)\in\{1, \cdots, n\}^2$, on note $E_{i,j}$ la matrice dont tous les coefficients sont nuls, except\'e le coefficient de la ligne $i$ et de la colonne $j$, qui vaut $1$. 
+\bigskip
+\noindent
+Pour $(i,j)\in\{1, \cdots, n\}^2$, exprimer $F_A(E_{i,j})$ en fonction des coefficients de $A=(a_{i,j})_{1\le i\le n\atop1\le j\le n}$. \pn En d\'eduire que $F$ est injective. 
+\bigskip
+\noindent
+iv) Montrer que $F$ est un isomorphisme. 
+\bigskip
+\noindent
+3. Soit $J$ une matrice non nulle de $\sc M_n(\ob C)$ et soit $f$ une forme lin\'eaire non nulle sur $\sc M_n(\ob C)$, i.e. une forme lin\'eaire qui n'est pas la forme lin\'eaire nulle $M\mapsto0$. 
+On consid\`ere 
+$$
+\eqalign{\psi_f:\sc M_n(\ob C)&\to\sc M_n(\ob C)\cr
+X\quad&\mapsto f(X)J}
+$$
+Prouver que $\psi_f$ est un endomorphisme de $\sc M_n(\ob C)$. \bigskip
+\noindent
+i) Justifier l'existence d'une unique matrice $A$ de $\sc M_n(\ob C)$ telle que : 
+$$
+\forall X\in\sc M_n(\ob C), \qquad f(X)=\mbox{Tr}(AX).
+$$
+ii) Comparer le noyau de $\psi_f$ et le noyau de $f$. Que valent l'image et le rang de $\psi_f$ ? 
+\bigskip
+\noindent
+iii) Exprimer la trace de $\psi_f$ en fonction de $A$ et $J$. \bigskip
+\noindent
+iv) En d\'eduire une condition n\'ec\'essaire et suffisante pour qu'il existe une base $\sc B$ de $\sc M_n(\ob C)$ dans laquelle la matrice de $\psi_f$ est diagonale. 
+\bigskip
+
+\noindent{\bf Probl\`eme 2 \it(ENSAE).}
+\medskip
+\noindent $\sc M_2(\ob R)$ d\'esigne l'espace vectoriel des matrices carr\'ees de taille $2$ \`a coefficients r\'eels. \pn
+Pour $(a,b)\in\ob R^2$, on pose 
+$$
+M(a,b):=\pmatrix{a&-b\cr b&a}.
+$$
+1.a. Montrer que l'ensemble $\sc C:=\Q\{M(a,b):(a,b)\in\ob R^2\W\}$ est un espace vectoriel. \pn
+Pr\'eciser sa dimension et en donner une base. 
+\medskip\noindent
+On consid\`ere l'application 
+$$
+\eqalign{\Phi:\ob C&\to\sc C\cr z&\mapsto \pmatrix{\re z&-\im z\cr\im z&\re z}}.
+$$
+b) Montrer que, pour tous nombres complexes $z$ et $z'$ et tout nombre r\'eel $\lambda$, on a 
+$$
+\eqalign{
+\Phi(\lambda.z)&=\lambda.\Phi(z)\cr
+\Phi(z+z')&=\Phi(z)+\Phi(z')\cr
+\Phi(z\times z')&=\Phi(z)\times\Phi(z')\cr
+}
+$$
+En d\'eduire que 
+$$
+\forall z\in\ob C, \quad\forall p\in\ob N, \qquad \Phi(z^p)=\Phi(z)^p.
+$$
+c) L'application $\Phi$ est-elle un isomorphisme ? Entre quel genre de structure alg\'ebrique ? 
+\bigskip
+2.a. Soit $\theta\in[0,2\pi[$ et soit $A(\theta)$ la matrice 
+$$
+A(\theta):=\pmatrix{\cos(\theta)&-\sin(\theta)\cr\sin(\theta)&\cos(\theta)}.
+$$
+Pour $k\in\ob N$, calculer $A(\theta)^k$. Le r\'esultat obtenu est-il encore valable pour $k\in\ob Z$ ? 
+\bigskip\noindent
+b) Soit $p\in\ob N^*$. D\'eterminer une matrice $M\in\sc M_2(\ob R)$ telle que 
+$M^p=\pmatrix{-2&0\cr0&-2}$.  \bigskip\noindent
+3. On consid\`ere 
+$$
+\eqalign{f:\ob R[X]&\to\ob R[X]\cr
+P\ &\mapsto (1+X^2)P''(X)-2XP'(X)}
+$$
+a) Pour $n\ge1$, justifier que la restriction $f_n$ de $f$ \`a l'espace $\ob R_n[X]$ est un endomorphisme. 
+$$
+\eqalign{f_n:\ob R_n[X]&\to\ob R_n[X]\cr
+P\ &\mapsto (1+X^2)P''(X)-2XP'(X)}
+$$
+\bigskip\noindent
+b) D\'eterminer le noyau de $f_n$ et en pr\'eciser la dimension. 
+\bigskip
+\noindent
+c) D\'eterminer les valeurs propres de $f_n$ et pr\'eciser leur multiplicit\'e. 
+\medskip\noindent
+d) Peut-on trouver une base $\sc B$ de $\ob R_n[X]$ dans laquelle la matrice de $f_n$ est diagonale ? 
+\medskip
+\noindent
+e) Soit $p\ge1$. D\'eterminer un endomorphisme $g_n$ de $\ob R_n[X]$ tel que $(g_n)^p=f_n$. \pn
+{\it On pourra utiliser la question 2.b}
+\bigskip
+\noindent{\bf Exercices ind\'ependants\it(Mines-Ponts).}\bigskip
+\noindent
+{\bf Exercice A)} Soit $E$ un $\ob R$-espace vectoriel  et soit $f\in\sc L(E)$ un endomorphisme de $E$.  \medskip
+\noindent
+1) D\'emontrer que la suite des noyaux des endomorphismes $f^k$ est une suite de sous-espaces vectoriels de $E$ emboit\'es, c'est-\`a-dire v\'erifiant $\ker f^k\subset\ker f^{k+1}$ pour $k\ge0$, 
+$$
+\ker f^0\subset\ker f\subset\ker f^2\subset\ker f^3\subset\cdots
+$$
+2) S'il existe $p\ge0$ tel que $\ker f^p=\ker f^{k+1}$, prouver que 
+$$
+\forall q\ge p, \qquad \ker f^q=\ker f^p. 
+$$
+3) Si $E$ est de dimension finie $n\ge1$, en d\'eduire que la suite des noyaux $u=(\ker f^p)_{p\ge0}$ est constante \`a partir d'un rang $q\le n$. 
+\bigskip\noindent
+4) De plus, s'il existe $d\ge1$ tel que $f^d=0$, prouver qu'il existe $s\le n$ 
+tel que $f^s=0$. 
+\bigskip
+\noindent
+{\bf Exercice B)} Soit $E$ un $\ob R$-espace vectoriel et soient $f$ et $g$ deux endomorphismes de $E$. \medskip
+\noindent 1) s'il existe $\lambda\in\ob R$ tel que 
+$f^2=\lambda\mbox{Id}_E+g$, prouver que $f$ et $g$ commuttent entre eux, i.e. 
+$$
+f\circ g=g\circ f. 
+$$
+On suppose d\'esormais que $f$ et $g$ commuttent entre eux. \medskip\noindent
+\noindent
+2) Soient $P$ et $Q$ des polyn\^omes \`a coefficients r\'eels. Prouver que $P(f)$ commutte avec $g$, puis que $P(f)$ commutte avec $Q(g)$. 
+\bigskip
+\noindent
+3) Pour $\lambda\in\ob R$, prouver que l'espace $F_\lambda:=\ker(f-\lambda\mbox{Id}_E)$ est stable par $g$, c'est-\`a-dire que 
+$$
+g(F_\lambda)\subset F_\lambda
+$$
+\bye

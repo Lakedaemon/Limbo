@@ -1,0 +1,184 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\%blank[big]}]
+%\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][4][1,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iftrue
+
+% Proposer à Nathan et Damien de faire le DS 6 2016-2017
+
+\page
+\centerline{\bfb DEVOIR SURVEILLE 7}
+\blank[big]
+
+\setupitemgroup[List][1][n][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][i,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+\centerline{\bf EXO 1}
+Soit $n∈ℕ^*$. On effectue une série illimitée de tirages d’une boule avec remise dans une urne contenant $n$ boules numérotées de $1$ à $n$. 
+Pour $k∈ℕ^*$, on note $X_k$ la variable aléatoire égale au numéro de la boule obtenue au $k\high{ème}$ tirage 
+et on note $S_k$ la somme des numéros des boules obtenues lors des $k$ premiers tirages :
+\startformula
+S_k=∑_{i=1}^kX_i
+\stopformula
+On considère enfin la variable aléatoire $T_n$ égale au nombre de tirages nécessaires pour que, 
+pour la première fois, la somme des numéros des boules obtenues soit supérieure ou égale à $n$.
+\blank[small]
+{\bf Exemple :} pour $n = 10$, si $2$, $4$, $1$, $5$, $9$ sont les numéros obtenus aux cinq premiers tirages, alors on obtient :
+$S_1 = 2$, $S_2 = 6$, $S_3 = 7$, $S_4 = 12$, $S_5 = 21$ et $T_{10} = 4$. 
+\centerline{\bf Partie A}
+\startList
+\item Pour $k∈ℕ^*$, déterminer la loi de $X_k$ ainsi que son espérance.
+\item\startList
+\item Déterminer $T_n(Ω)$
+\item Calculer $P(T_n=1)$ et $P(T_n=n)$
+\stopList
+\item Dans cette question $n=2$. Donner la loi de $T_2$
+\item Dans cette question $n=3$. Donner la loi de $T_3$. Calculer $E(T_3)$
+\stopList
+\centerline{\bf Partie B}
+\startList
+\item Déterminer $S_k(Ω)$ pour $k∈ℕ^*$
+\item Soit $k∈⟦1,n-1⟧$.
+\startList
+\item Exprimer $S_{k+1}$ en fonction de $S_k$ et de $X_{k+1}$
+\item En utilisant un système complet d’événements lié à $S_k$, montrer que
+\startformula
+P(S_{k+1}=i)={1\F n}∑_{j=k}^{i-1}P(S_k=j)\qquad(k+1⩽i⩽n)
+\stopformula
+\stopList
+\item\startList
+\item Pour $k∈ℕ^*$ et $j∈ℕ^*$, rappeler la formule liant ${j-1\choose k-1}$, ${j-1\choose k}$ et ${}j\choose k$.
+\item En déduire que 
+$\displaystyle ∑_{j=k}^{i-1}{j-1\choose k-1}={i-1\choose k}$ pour $1⩽k⩽i-1$
+
+\item Pour $k∈⟦1,n⟧$, démontrer par récurrence la proposition $\mc H_k$ définie par 
+\startformula
+\mc H_k:\qquad ∀i∈⟦k,n⟧, P(S_k=i)={1\F n^k}{i-1\choose k-1}
+\stopformula
+\stopList
+\item%4
+\startList
+\item Soit $k∈⟦1, n-1⟧$. Comparer les événements $(T_n>k)$ et $(S_k⩽n-1)$
+\item En déduire que 
+$\displaystyle P(T_n>k)={1\F n^k}{n-1\choose k}$ pour $0⩽k⩽n$
+\stopList
+\item Démontrer que $\displaystyle E(T_n)=∑_{k=0}^{n-1}P(T_n>k)$ puis que $E(T_n)=\Q(1+{1\F n}\W)^{n-1}$
+\item Calculer $\displaystyle\lim_{n→+∞}E(T_n)$.
+\stopList
+\centerline{\bf Partie C}
+Dans cette partie, on fait varier l’entier $n$ et on étudie la suite de variable $(T_n)_{n≥1}$.
+\startList
+\item Soit $Y$ la variable aléatoire définie par $\displaystyle P(Y=k)={k-1\F k!}$ pour $k∈ℕ^*$.
+\startList
+\item%a
+Vérifier par le calcul que $\displaystyle ∑_{k=1}^{+∞}P(Y=k)=1$. 
+\item Montrer que $Y$ admet une espérance et la calculer. 
+\stopList
+\item Pour $k∈ℕ^*$, démontrer que $\displaystyle 
+\lim_{n→+∞}P(T_n>k)={1\F k!}$
+\item Démontrer que $(T_n)_{n⩾1}$ converge en loi vers $Y$, c'est à dire que 
+\startformula
+\lim_{n→+∞}P(T_n=k)=P(Y=k)\qquad(k∈ℕ^*)
+\stopformula
+\stopList
+
+\blank[big]
+\centerline{\bf EXO 2}
+On rappelle que $2<\e<3$ et que si les suites $(u_{2n})_{n⩾1}$ et $(u_{2n+1})_{n⩾1}$ convergent vers la même limite $ℓ$, alors la suite $(u_n)_{n⩾1}$ converge vers $ℓ$. 
+\blank[medium]
+On s'intéresse à la série de terme général $\displaystyle u_n=(-1)^n{\ln n\F n}$ pour $n⩾1$.
+\startList
+\item On note $\displaystyle w_n=∑_{k=1}^n{1\F k}-\ln(n)$ pour $n⩾1$. 
+\startList
+\item Rappeler les développements limités à l’ordre $2$ en $0$ de  $\ln(1+x)$ et de ${1\F 1+x}$
+\item Montrer que $\displaystyle w_{n+1}-w_n∼-{1\F 2n^2}$
+\item Montrer que la série de terme général $(w_{n+1} − w_{n})$ converge, puis que la suite $(w_n)$ converge 
+vers un nombre réel $γ$, appelé constante d’Euler, que l'on ne cherchera pas à calculer.
+\stopList
+\item Etudier les variations de la fonction $f:t↦{\ln(t)\F t}$ sur $]0, +∞[$. Dresser son tableau de variations en précisant les limites aux bornes de son ensemble de définition.
+\item On note $\displaystyle S_n=∑_{k=1}^nu_k$ pour $n⩾1$. 
+\startList
+\item Montrer que les suites $(S_{2n})_{n ⩾2}$ et $(S_{2n+1})_{n⩾2}$ sont adjacentes.
+\item En déduire que la série de terme général $u_n$ converge. Est-elle absolument convergente ?
+\stopList
+\item%4
+ On note $\displaystyle v_n=∑_{k=1}^n{\ln(k)\F k}-{\ln(n)^2\F 2}$ pour $n⩾1$. 
+\startList
+ \item Pour $n⩾3$, justifier que $\displaystyle
+{\ln(n+1)\F n+1}⩽\int_n^{n+1}{\ln(t)\F t}\d t⩽{\ln(n)\F n}$
+\item Calculer $\displaystyle\int_a^b{\ln(t)\F t}\d t$ pour $a>0$ et $b>0$. 
+\item En déduire que la suite $(v_n)_{n⩾3}$ est décroissante et minorée. Qu'en déduire ?
+\stopList
+\item%5
+Soit $n⩾1$. En remarquant que 
+\startformula
+∑_{k=1}^{2n}u_k=∑_{1⩽k⩽2n\atop k=2ℓ}u_k+∑_{1⩽k⩽2n\atop k=2ℓ+1}u_k,
+\stopformula
+montrer que pour tout entier $n⩾1$,
+\startformula
+S_{2n}+∑_{k=1}^{2n}{\ln(k)\F k}=2∑_{ℓ=1}^n{\ln(2ℓ)\F 2ℓ}
+\stopformula
+puis que 
+\startformula
+S_{2n}=\ln(2)∑_{k=1}^n{1\F k}+v_n-v_{2n}-{\ln(2)^2\F 2}-\ln(2)\ln(n)
+\stopformula
+\item Démontrer alors que 
+\startformula
+∑_{n=1}^{+∞}(-1)^n{\ln(n)\F n}=γ\ln(2)-{\ln(2)^2\F 2}
+\stopformula
+
+\stopList
+\blank[medium]
+\centerline{\bf EXO 3 extrait de EML lyon 2018}
+Soit $n⩾2$. Pour tout polynôme $P$ de $ℝ[X]$, on pose 
+\startformula
+φ(P)={1\F n}X(1-X)P'+XP
+\stopformula
+\startList
+\item \startList
+\item Montrer que $P↦φ(P)$ définit une application linéaire de $ℝ_n[X]$ dans $ℝ[X]$
+\item Calculer $φ(X^n)$. 
+\item Montrer que $φ:P↦φ(P)$ définit un endomorphisme de $ℝ_n[X]$.
+\stopList
+\item Déterminer la matrice $A$ de $φ$ dans la base canonique $ℬ$ de $ℝ_n[X]$. Préciser le rang de cette matrice.
+\item \startList
+\item L'endomorphisme $φ$ est il injectif ? Justifier votre réponse.
+\item Soit $P$ un polynôme non nul de $\ker(φ)$. Montrer que $P$ admet $1$ comme unique racine (dans $ℂ$) et que $P$ est de degré $n$. 
+\item En déduire une base de $\ker(φ)$
+\item Pour $k∈⟦0, n⟧$, on pose $P_k=X^k(1-X)^{n-k}$. Calculer $φ(P_k)$. 
+\item Montrer que la famille $(P_0, P_1, …, P_n)$ forme une base de $ℝ_n[X]$ et expliciter la matrice de $φ$ dans cette base. 
+\stopList
+\stopList
+
+\stoptext
+\stopcomponent
+\endinput

@@ -1,0 +1,155 @@
+\catcode`@=11\relax
+\input LD@Header.tex
+\input LD@Library.tex
+
+\def\LD@Maths@Exercice@Display{\ignorespaces\LD@Exo@@Exo}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%															%
+%						Probleme 00 : Révisions de sup					%
+%															%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vglue-10mm\rightline{Sp\'e PT\hfill corrig\'e du mini DL 2\hfill\date}%
+\bigskip
+\bigskip
+\vfill
+\noindent
+1.  $E_1$ est non vide car il contient la fonction nulle. \pn 
+$E_1$ est inclus dans l'espace vectoriel de r\'ef\'erence $E:=\sc C(\ob R,\ob R)$. \pn
+Soient $f$ et $g$ dans $E_1$ et $(\lambda,\mu) $
+un couple de nombres r\'eels, alors
+$$
+\int_x^X(\lambda f+\mu g)(t)\e^{-t}\d t=\lambda\int_x^Xf(t)\e^{-t}\d t+
+\mu \int_x^Xg(t)\e^{-t}\d t\qquad(X>x)
+$$
+qui, par hypoth\`ese, a une limite finie lorsque $X$ tend vers $+\infty $.
+\bigskip
+\noindent
+2a.  Pour $x\in\ob R$, la fonction $t\mapsto\e^{-t}$ est continue sur $\Q[x,+\infty\W[$ et 
+$$
+\int_x^{+\infty}\e^{-t}\d t=\Q[-\e^{-t}\W]_x^{\infty}=\e^{-x}.
+$$ 
+\bigskip
+\noindent
+Pour $n\in\ob N$, la fonction $t\mapsto t^n\e^{-t}$ est continue et positive sur $\Q[x,+\infty\W[$. Comme 
+$$
+t^n\e^{-t}=o\Q(\e^{-t/2}\W)\qquad(t\to+\infty)
+$$ 
+et comme l'int\'egrale $\int_x^{+\infty}\e^{-t/2}\d t$ converge, l'int\'egrale  $\int_x^{+\infty}t^n\e^{-t}\d t$ converge \'egalement. 
+\bigskip
+\noindent
+2b. La fonction $t\mapsto \e^{-t}\cos t$ est continue sur $\Q[x,+\infty \W[$ et satisfait 
+$$
+\Q|\e^{-t}\cos t\W|\le \e^{-t}\qquad(t\in\ob R).
+$$ 
+Comme l'int\'egrale $\int_x^{+\infty}\e^{-t}\d t$ converge, l'int\'egrale  $\int_x^{+\infty}\cos(t)\e^{-t}\d t$ converge \'egalement. 
+\bigskip
+\noindent
+2c. L'espace $E_1$ contient la fonction $\cos$ d'apr\`es 2b et les fonctions polyn\^omiales $t\mapsto t^n\  (n\in\ob N)$~d'apr\`es~2a.
+\bigskip
+\noindent
+3a. Comme $f\in E_1$, nous remarquons que l'int\'egrale $c:=\int_0^{+\infty}f(t)\e^{-t}\d t$ converge. \pn
+La fonction $t\mapsto f(t)\e^{-t}$ \'etant continue sur $\ob R$, l'application  
+$$
+x\mapsto \int_x^{+\infty }
+f(t)\e^{-t}\d t=c-\int_0^xf(t)\e^{-t}\d t
+$$ 
+est de classe $\sc C^1$ sur $\ob R$ et a pour d\'eriv\'ee $-f(x)\exp(-x)$. 
+Donc $F$ est de classe $\sc C^1$, en tant que produit de fonctions de classe $\sc C^1$, et~v\'erifie 
+$$
+F'(x)=\e^x\Q(-f(x)\exp(-x)+\int_x^{+\infty }f(t)\e^{-t}\d t\W)=-f(x)+F(x)\qquad (x\in\ob R).
+$$
+3b.  $E_1$ et $E$ sont bien des $\ob R$-espaces vectoriels. Par ailleurs, $\varphi$ est bien une application.
+En effet, \'etant donn\'e $f\in E_1$, nous d\'eduisons de 3a que la la fonction $F$ est d\'efinie et de classe $\sc C^1$ sur $\ob R$. A fortiori, $\varphi(f)=F$ est de classe $\sc C^0$ sur $\ob R$ et appartient bien \`a l'espace $E$.  \pn
+Enfin, \'etant donn\'ees deux fonctions $f$ et $g$ dans $E_1$ et deux nombres r\'eels $\lambda$ et $\mu$, nous remarquons (les int\'egrales \'etant convergentes) que 
+$$
+\eqalign{
+\varphi(\lambda f+\mu g)(x)&=\e^x\int_x^{+\infty }(\lambda f+\mu g)(t)\e^{-t}\d t\cr
+&=\lambda \e^x\int_x^{+\infty }f(t)\e^{-t}\d t+\mu\e^x\int_x^{+\infty }g(t)\e^{-t}\d t\cr
+&=\lambda\varphi(f)(x)+\mu\varphi(g)(x)\qquad (x\in\ob R)}
+$$
+et a fortiori que $\varphi(\lambda f+\mu g)=\lambda\varphi(f)+\mu\varphi(g)$. 
+\bigskip
+\noindent
+3c. D'apr\`es 3a, si $F$ est identiquement nulle, alors $f$ l'est aussi. Par cons\'equent,  le noyau de $\varphi $ est r\'eduit \`a la fonction nulle et l'application lin\'eaire $\varphi $ est injective.
+\bigskip
+\noindent
+3d. La fonction $f$ est vecteur propre de $\varphi $ de valeur propre $\lambda \Longleftrightarrow F=\lambda f$. \pn 
+En appliquant b), nous remarquons alors que $f$ est solution de l'\'equation diff\'erentielle
+$$
+\lambda y'=(\lambda -1)y. \eqno{(*)}
+$$
+Comme $\varphi $ est injective, $\lambda=0$ n'est pas valeur propre. Par ailleurs, $\lambda $ est valeur propre $\Leftrightarrow$ l'\'equation diff\'erentielle $(*)$ admet des solutions non nulles dans $E_1$. La solution g\'en\'erale est
+$$
+y(x)=c\e^{x(\lambda-1)/\lambda}
+$$
+Ces fonctions sont continues sur $\ob R$. Elles appartiennent \`a l'espace $E_1$ si, et seulement si, les int\'egrales 
+$$
+\int_x^{+\infty}\e^{x(\lambda-1)/\lambda}\e^{-t}\d t\qquad(x\in\ob R)
+$$
+convergent, c'est-\`a-dire lorsque ${\lambda -1\F\lambda }-1<0\Longleftrightarrow \lambda >0$.
+\bigskip
+\noindent
+Les valeur propres de $\varphi $ sont donc les r\'eels strictement positifs, et le sous-espace propre associ\'e \`a la valeur propre $\lambda $ est la droite vectorielle engendr\'ee par la fonction $x\mapsto \e^{x(\lambda -1)/\lambda }$.
+\bigskip
+\noindent
+3e. Puisque $f$ est de classe $\sc C^1$, nous pouvons int\'egrer par parties pour obtenir que
+ $$
+ \int_x^Xf(t)\e^{-t}\d t=\left[-f(t)\e^{-t}\right]_x^X+\int_x^Xf'(t)\e^{-t}\d t\qquad (x<X).
+ $$
+ La fonction $f$ \'etant born\'ee, il suit $\ds \lim_{X\to+\infty}f(X)\exp(-X)=0$. A fortiori, l'int\'egrale $\ds \int_x^{+\infty }f'(t)\e^{-t}\d t$ converge et
+ $$
+ \int_x^{+\infty }f(t)\e^{-t}\d t=f(x)\exp(-x)+\int_x^{+\infty }f'(t)\e^{-t}\d t\qquad(x\in\ob R).
+ $$
+ En multipliant par $\e^x $, il vient $\varphi (f)=f+\varphi (f')$
+et, compte tenu de 3b, nous concluons que $\varphi (f)'=\varphi (f')$.
+\bigskip
+\noindent
+4a. Cons\'equence imm\'ediate des questions 1 et 2a.
+\bigskip
+\noindent
+4b.
+i)  $\psi$ est lin\'eaire. Reste \`a montrer que $\psi(E_{2})\subset E_{2}$. \pn
+Soit $P$ un polyn\^ome. La propri\'et\'e 
+$$
+\lim_{X\to+\infty}P(X)\exp(-X)=0
+$$ 
+restant v\'erifi\'ee (comparaison exponentielle-puissance), nous pouvons appliquer le m\^eme raisonnement qu'au 3e et donc
+$$
+\varphi (P)'=\varphi (P')
+$$
+En it\'erant cette formule (\`a chaque fois, nous avons des polyn\^omes), nous obtenons que
+$$
+\varphi (P)^{(k)}=\varphi(P^{(k)}).
+$$
+Comme $P$ est de degr\'e inf\'erieur ou \'egal \`a $n$, $P^{(n+1)}$ est nul et donc $\varphi(P)^{(n+1)}$ est nul. Par cons\'equent, 
+$\varphi(P)$ est un polyn\^ome de degr\'e au plus $n$.
+\bigskip
+\noindent ii) L'endomorphisme $\psi$  est injectif car $\varphi$ l'est. Comme $E_{2}$ est un espace de dimension finie,  $\psi$ est un auto-morphisme. 
+\bigskip
+\noindent
+iii) Chaque vecteur propre de $\psi $ est vecteur propre de $\varphi $.
+Les seuls vecteurs propres, d\'etermin\'es au 3.d, qui sont des polyn\^omes sont les fonctions constantes (associ\'ees \`a la valeur propre $\lambda =1$). Elles constituent une droite vectorielle. \pn
+En conclusion, a part dans le cas trivial $n=0$, l'endomorphisme $\psi $ n'est pas diagonalisable.
+\bigskip
+\noindent
+4. La relation du 3b) s'\'ecrit $\varphi (f)=(\varphi (f))'+f$. Ce qui, compte tenu de 3e) \'etendu aux polyn\^omes, s'\'ecrit
+$$
+\varphi (f)=\varphi (f')+f.
+$$
+En appliquant ceci \`a $f'$, qui est un polyn\^ome, on obtient
+$$
+\varphi (f)=\varphi (f'')+f'+f.
+$$
+En it\'erant, on obtient
+$$
+\varphi(f)=\varphi(f^{(n+1)})+f^{(n)}+\cdots+f'+f.
+$$
+D'une part, $f^{(n+1)}$ est nul. D'autre part, la d\'efinition m\^eme de $\varphi $ montre que, si $f(t)$ est positive sur $
+\Q[x,+\infty\W[$, alors $\varphi (f)(x)$ est positive. Donc ici, si $x\ge a$, on obtient bien
+$$
+\sum_{k=0}^{n} f^{(k)}(x)\ge 0.
+$$
+
+\bye

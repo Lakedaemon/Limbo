@@ -1,0 +1,219 @@
+\catcode`@=11\relax
+\def\LD@Catcodes@Change{%
+	\catcode`¤=0\relax
+	\catcode`\#=11\relax
+	\catcode`\\=11\relax
+}%
+{%
+\newlinechar=`|\relax
+	\LD@Catcodes@Change
+	¤long¤gdef¤LD@Lilypond@Template@Pre{%
+righthand={}|
+lefthand={}|
+rightfoot={}|
+leftfoot={}
+	}%
+	¤long¤gdef¤LD@Lilypond@Template@Post{%
+\version "2.10.33" |
+\paper {|
+indent = 0\mm|
+oddFooterMarkup=##f
+oddHeaderMarkup=##f
+bookTitleMarkup = ##f
+scoreTitleMarkup = ##f
+#(define dump-extents #t)|
+force-assignment = #""|
+printallheaders=##f|
+}|
+\score {|
+\new DrumStaff <<|
+\new DrumVoice {\stemDown\rightfoot}|
+\new DrumVoice {\stemDown\lefthand}|
+\new DrumVoice {\stemUp\righthand}|
+\new DrumVoice {\stemUp\leftfoot}|
+>>|
+}|
+\header {|
+  tagline = ##f|
+  composer = ##f|
+}|
+\layout {|
+indent = 0\mm|
+line-width=¤LD@Option@@LineWidth \mm|
+ragged-right=##t|
+}|
+	}%
+}%
+\newwrite\LD@Lilypond@Output
+\newcount\LD@Lilypond@Count\global\LD@Lilypond@Count=0\relax
+\def\Lilypond{%
+	\@getoptionalarg
+	\LD@Lilypond
+}%
+\def\LD@Lilypond{%
+	\LD@Catcodes@Change
+	\LD@Lilypond@Process
+}%
+\def\LD@Lilypond@Process#1\par{%
+	\def\LD@Option@@LineWidth{120}%
+	\LD@Option@Process
+	\global\advance\LD@Lilypond@Count by1\relax
+	\edef\LD@Lilypond@File{Lilypond\LD@Drums@Thème\the\LD@Lilypond@Count}%
+	\if Y\LD@Drums@Lilypond@Process
+		\EA\immediate\EA\openout\EA\LD@Lilypond@Output\LD@Lilypond@File.ly\relax
+		{\newlinechar=`|\relax
+			\immediate\write\LD@Lilypond@Output{\LD@Lilypond@Template@Pre}%
+			\immediate\write\LD@Lilypond@Output{#1}%
+			\immediate\write\LD@Lilypond@Output{\LD@Lilypond@Template@Post}%
+		}%
+		\immediate\closeout\LD@Lilypond@Output
+		\immediate\write18{"F:/Program Files/Lilypond/usr/bin/Lilypond-windows.exe" -b eps -dgui  -f pdf G:/TeX/Output/\LD@Lilypond@File.ly}%
+	\fi
+	\LD@Catcodes@Restore
+	\global\advance\LD@Drums@Pattern by1\relax
+	\noindent
+	\llap{%
+		\bf\the\LD@Drums@Pattern.\quad
+	}%
+	\noindent
+	\setbox\LD@Box=\hbox{\XeTeXpdffile "G:/TeX/Output/\LD@Lilypond@File.pdf" }%
+	\LD@Dimen=\ht\LD@Box\relax
+	\advance\LD@Dimen by\dp\LD@Box
+	\divide\LD@Dimen by2\relax
+	\raise-\LD@Dimen\copy\LD@Box
+	\qquad\LD@Drums@Process
+	\medskip
+}%
+
+\def\LD@Catcodes@Restore{%
+	\catcode`¤=11\relax
+	\catcode`\#=6\relax
+	\catcode`\\=0\relax
+}%
+\newcount\LD@Drums@Pattern
+\def\Thème#1.{%
+	\def\LD@Drums@Thème{#1}%
+	\global\LD@Drums@Pattern=0\relax
+	\goodbreak
+	\centerline{\seventeenbf #1}%
+	\bigskip
+}%
+\def\Session{%
+	\@getoptionalarg
+	\LD@Drums@Session
+}%
+\def\LD@Drums@Session #1/#2/#3.{%
+	\def\LD@Option@@{}%
+	\LD@Option@Process
+	\let\LD@Drums@Tempo@Session\LD@Option@@
+	\def\LD@Drums@Date{#3/#2/#1}%
+}%
+\def\Drums{%
+	\@getoptionalarg
+	\LD@Drums
+}%
+\def\LD@Drums#1, #2 : #3.{%
+	\let\LD@Option@@\LD@Drums@Tempo@Session
+	\LD@Option@Process
+	\let\LD@Drums@Tempo\LD@Option@@
+	\def\LD@Drums@String{}%
+	\LD@Loop@FFor\LD@Loop@Token=#3\WithSeparator ,\Do{%
+			\LD@Strings@Options@Separate\LD@Loop@Token
+			\def\LD@Option@@{}%
+			\LD@Option@Process
+			\ifx\LD@Option@@\LD@Empty
+				\unless\ifx\LD@Drums@Tempo\LD@Empty
+					\ifx\@optionalarg\LD@Empty
+						\edef\@optionalarg{\@optionalarg\LD@Drums@Tempo}%
+					\else
+						\edef\@optionalarg{\@optionalarg,\LD@Drums@Tempo}%
+					\fi
+				\fi
+			\fi
+			\unless\ifx\LD@Drums@String\LD@Empty
+				\edef\LD@Drums@String{\LD@Drums@String ,}%
+			\fi
+			\ifx\@optionalarg\LD@Empty
+				\edef\LD@Drums@String{\LD@Drums@String\LD@Loop@Token}%
+			\else
+				\edef\LD@Drums@String{\LD@Drums@String[\@optionalarg]\LD@Loop@Token}%
+			\fi
+	 }%
+	\ifcsname LD@Drums@@#1-#2\endcsname
+		\EA\let\EA\LD@Trash\CS LD@Drums@@#1-#2\EC
+		\EA\edef\CS LD@Drums@@#1-#2\EC{\LD@Trash,\LD@Drums@String}%
+	\else
+		\EA\let\CS LD@Drums@@#1-#2\EC\LD@Drums@String
+	\fi
+}%
+
+\def\LD@Strings@Options@Separate#1{%
+	\unless\ifx#1\LD@Empty
+		\def\LD@Strings@Value@Extract##1\LD@End{%
+			\def#1{##1}%
+		}%
+		\def\@optionalarg{}%
+		\EA\@getoptionalarg\EA\LD@Strings@Value@Extract #1\LD@End
+	\else
+		\def#1{}%
+		\def\@optionalarg{}%
+	\fi
+}%
+\newcount\LD@Drums@Count
+\def\LD@Loop@FFor#1=#2\WithSeparator#3\Do#4{%
+	\EA\def\EA\LD@Loop@FFor@Tail\EA{#2}%
+	\unless\ifx\LD@Loop@FFor@Tail\LD@Empty
+		\EA\def\EA\LD@Loop@FFor@Tail\EA{\LD@Loop@FFor@Tail #3}%
+		\def\LD@Loop@FGobble##1#3##2\LD@Loop@FEmpty{%
+			\def#1{##1}%
+			\def\LD@Loop@FFor@Tail{##2}%
+		}%
+		\def\LD@Loop@FFor@Iterate{%
+			\ifx\LD@Loop@FFor@Tail\LD@Empty
+				\let\LD@Loop@FFor@Next\relax
+			\else	
+				\EA\LD@Loop@FGobble\LD@Loop@FFor@Tail\LD@Loop@FEmpty
+				#4\relax
+				\let\LD@Loop@FFor@Next\LD@Loop@FFor@Iterate
+			\fi
+			\LD@Loop@FFor@Next
+		}%
+		\LD@Loop@FFor@Iterate
+	\fi
+}%
+\def\LD@Drums@Process{%
+	\LD@Loop@For\LD@Loop@Token=01,02,03,11,12,13,21,22,23,31,32,33\WithSeparator ,\Do{%
+		\EA\def\CS LD@Drums@@Variant\LD@Loop@Token\EC{0}%
+		\EA\def\CS LD@Drums@@Variant\LD@Loop@Token @Tempo\EC{0}%
+	}%
+	\ifcsname LD@Drums@@\LD@Drums@Thème-\the\LD@Drums@Pattern\endcsname
+		\EA\let\EA\LD@Temp\CS LD@Drums@@\LD@Drums@Thème-\the\LD@Drums@Pattern\EC
+		\LD@Loop@FFor\LD@Loop@Token=\LD@Temp\WithSeparator ,\Do{%
+			\LD@Strings@Options@Separate\LD@Loop@Token
+			\def\LD@Option@@{}%
+			\LD@Option@Process
+			\unless\ifx\LD@Option@@\LD@Empty
+				\EA\ifnum\CS LD@Drums@@Variant\LD@Loop@Token @Tempo\EC<\LD@Option@@\relax
+					\EA\edef\CS LD@Drums@@Variant\LD@Loop@Token @Tempo\EC{\LD@Option@@}%
+				\fi
+			\fi
+			\LD@Drums@Count=\CS LD@Drums@@Variant\LD@Loop@Token\EC
+			\advance\LD@Drums@Count by1\relax
+			\EA\edef\CS LD@Drums@@Variant\LD@Loop@Token\EC{\the\LD@Drums@Count}%
+		}%
+		\hfil
+		{\parindent0mm%
+			\tikzstyle{Case}=[rectangle,text width=1cm,text height=11pt,text depth=3pt,inner sep=0pt]
+			\tikzpicture [baseline=(current bounding box.west)]
+				\foreach \x in{1,2,3}
+					\foreach \y in{0,1,2,3}
+						\node[Case,draw,text centered] at (\x*1.2cm,-\y*17pt) {\noindent\EA\ifnum\CS LD@Drums@@Variant\y\x\EC>0\relax$\CS LD@Drums@@Variant\y\x @Tempo\EC^{\CS LD@Drums@@Variant\y\x\EC}$\fi};
+				\foreach \x in{1,2,3}
+					\node[rectangle,text width=1.2cm,text height=15pt,text depth=2pt,inner sep=0pt,text centered] at (\x*1.2cm,17pt) (a) {\LD@Drums@Cymbals\x};
+				\foreach \y in{0,1,2,3}
+					\node[Case] at (4.8cm,-\y*17pt) {\LD@Drums@HiHat\y};
+			\endtikzpicture
+		}%
+	\fi
+}%
+\endinput

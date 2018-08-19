@@ -1,0 +1,218 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][1][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][1,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+
+\centerline{TD SCILAB : Programmation}
+\blank[big]
+\startList\item {\bf Echange du contenu de deux variables.} \crlf Supposons que a et b sont deux variables déjà définies dans Scilab. \crlf
+Donner les instructions pour échanger les valeurs des variables a et b, puis les faire afficher. \crlf
+Tester votre programme (prendre par exemple a=3 et b=5)
+
+\item {\bf Demande, affichage et transformation de données.} \crlf Demandez à l'utilisateur son année de naissance (avec {\bf input}), sauvegardez la dans une variable {\bf annee}, 
+puis écrire les instructions nécessaires à l’affichage de son âge, en années, puis en secondes.
+
+\item {\bf Utilisation simple de tests (if, then, elif, else)}.\crlf
+Le niveau de pollution à l’ozone dans l'atmosphère est calculé à partir d’une concentration en ozone de la façon suivante :
+\startitemize[1]
+\item Le niveau 1 est atteint à partir de 140 unités ($μg/m^3$), 
+\item le niveau 2 à partir de 180 unités
+\item le niveau 3 à partir de 220 unités. 
+\stopitemize
+Ecrire un programme qui demande la concentration d’ozone dans l’air et qui donne le niveau de pollution. 
+{\it l’utilisateur doit voir l’affichage \quote{Aujourd’hui, niveau de pollution $0$ (resp. $1$, $2$, ou $3$)}.}
+
+\item {\bf Analyse de programme\high{1}.} Deviner ce que fait le script suivant :
+\starttyping 
+n=input( "entrer un entier n"); 
+s=0;
+for i=1:n
+  s=s+i
+end
+disp(s)\stoptyping
+Vérifier alors votre intuition en affichant le résultat correspondant à la formule mathématique ...
+
+\item {\bf Analyse de programme\high{2} : suites et boucle for.}
+\startList\item Deviner l’affichage du programme suivant avant de l’exécuter :
+\starttyping
+u=0
+for i=1:6
+  u=2*u+3
+  disp(u)
+end
+ \stoptyping
+\item Quelle est la suite mathématiques en jeu ?
+\item Modifier le programme précédent afin qu’il affiche uniquement $u_100$ .
+\item bonus : trouver la forme explicite de la suite pour en déduire un programme sans la boucle for. 
+\stopList
+
+\item {\bf Calcul de termes de suites}\crlf
+Dans les cas suivants, écrire un programme demandant $n$ et affichant $u_n$ :
+\startList\item $u_0 = 0.1$ et $∀n ∈ ℕ, u_{ n+1} = 1 − \e^{ −2∗u_n}$ (pour vérifier $u_5 = 0.6976037$).
+\item  $u_1 = 1$ et $∀n ∈ ℕ^∗$, $u_{n+1} = 2nu n + 3$ (pour vérifier $u_7 = 135759$).
+\item Modifier les programmes précédents pour en faire des fonctions.
+\stopList
+
+\item {\bf Analyse de programme\high{3}.}\crlf
+Soit le script suivant :
+\starttyping
+n=input('n?')
+u=0 // u=u0
+v=1 // v=u1
+for i=1:n
+  w=2*u-3*v // w=u(i+1)
+  u=v // u= .......
+  v=w // v= .........
+end
+disp(u,'u=') 
+disp(v,'v=')
+\stoptyping
+{\bf Avant d’exécuter le script,}
+\startList\item Déterminer les valeurs successivement prises par $u$, $v$, $w$ et $i$ lorsque $n=3$.
+\item Comprendre le commentaire définissant $w$ à ligne 5 et compléter les deux commentaires suivants.
+\item Quelle est la suite récurrente définie par ce programme ?
+\item Quels sont les termes de cette suite affichés à la fin ?\crlf
+Exécuter alors le script pour les valeurs de $n=1$, $n=3$, $n=10$. Que se passe-t-il pour $n=-10$ ?
+\stopList
+
+\item {\bf Sommes et boucle for}
+\startList\item On pose $S n =∑_{k=1}^n{1\F k}$. 
+Ecrire une fonction qui à un entier $n$ renvoie la valeur de $S_n$.
+Conjecturer $\lim\L_{n→+∞} S_n$ , $\lim\L_{n→+∞} {S_n\F n}$ ainsi que $\lim\L_{n→+∞} {S_n\F \ln n}$
+\item Ecrire une fonction qui à deux entiers $n$ et $p$ renvoie la valeur de $∑_{k=1}^nk^p$. \crlf
+Vérifier votre script pour les valeurs $p = 1$ et $p = 2$ à l’aide des formules mathématiques.
+\stopList
+\item {\bf Suites.} Soit la suite u définie par $u_1 = 0$, $u_2 = −9$ et la relation de récurrence : 
+\startsdformula 
+u_{n+2} = 6u_{n+1} − 9u_n\qquad(n⩾1)
+\stopsdformula
+On pose pour tout $n ∈ ℕ$, $S_n$ la somme des $n$ premiers termes de la suite.
+\startList\item Ecrire un script qui demande $n$ et affiche la valeur de $u_n$.
+\item Compléter le script précédent, afin qu’il renvoie également la valeur de $S_n$.
+\stopList
+
+\item {\bf Suites.}  Ecrire une fonction qui à un entier $n$ associe la valeur de $u_n$ où la suite $u$ est définie par récurrence par 
+$u_1 = 0$ et $u_2 = 1$ et pour tout entier 
+\startsdformula u_{n+2} = (n + 1)u_{n+1} − u_n\qquad(n⩾1)\stopsdformula 
+(pour vérifier $u_6 = 85$)
+
+
+\goodbreak
+\item {\bf Algorithme de Syracuse.}\crlf
+On choisit un entier naturel quelconque. S’il est pair, on le divise par 2, sinon on le multiplie par 3 et on
+ajoute 1. En répétant ce processus, on constate qu’au bout d’un certain nombre d’itérations, on aboutit
+à 1 (actuellement personne n’a su le démontrer).
+Exemple : 7 ; 22 ; 11 ; 34 ; 17 ; 52 ; 26 ; 13. ...
+\startList
+\item Terminer \quote{à la main} la liste précédente.
+\item Écrire une fonction syracuse(n) qui affiche le nombre suivant le nombre n dans la liste de syracuse.
+\item Compléter ce programme de façon à lui faire effectuer la boucle complète jusqu’à arriver à 1.
+\item Convertir votre programme en fonction qui comptabiliser le nombre d'opérations nécessaires pour arriver jusqu'à $1$.
+\item Ecrire un programme qui trouve le nombre compris entre $1$ et $1000$, pour lequel il y a le plus d'opérations ?
+
+\stopList
+
+
+\item {\bf Analyse (while).}\crlf
+Deviner l’affichage du programme suivant avant de l’exécuter :
+\starttyping
+x=0
+while x<=5
+x=x+1
+disp(x)
+end
+\stoptyping
+
+\item {\bf On s’intéresse au jeu suivant :} la machine choisit un entier au hasard entre $1$ et $100$ et le joueur doit le deviner.
+\startList\item Compléter le programme suivant afin de pouvoir y jouer !
+\starttyping
+cible=grand(1,’uin’,1,100)// l’ordinateur choisit un entier au hasard entre 1 et 100
+essai=input(’Entrez votre proposition’)
+while ...................................
+if ................. then
+disp("Trop grand")
+else disp("Trop petit")
+end
+essai=input(’Entrez votre proposition’)
+end
+disp("Gagné")
+\stoptyping
+\item Ajouter une variable qui compte le nombre d’essais du joueur et l’afficher.
+\item Comment optimiser la stratégie du joueur pour faire le moins d’essais possibles ?
+En combien d’essais au maximum peut-on alors y arriver ?
+\item Modifier le programme pour que le joueur n’ait droit qu’à 7 essais maximum. On affichera ”Perdu” si le joueur
+n’a toujours pas trouvé au septième essai.
+\stopList
+
+
+\item {\bf termes de suites.} On considère la suite définie par $u_0 = 4$ et 
+\startformula
+∀n ∈ ℕ, \qquad u_{n+1} = u_n^2+ 1
+\stopformula
+\startList\item À l’aide de l'instruction while, écrire un programme demandant un réel $x$ et renvoyant 
+le premier terme de la suite qui soit supérieur ou égal à~$x$.\crlf
+{\it (Pour vérifier : $x = 17$ affiche $17$ et $x = 1000$ affiche $84101$).}
+\item Modifier votre programme pour qu’il renvoie également l’indice de ce terme.
+\crlf{\it (Pour vérifier : pour $x=1000$ on trouve $n=3$). } \crlf A quelle vitesse diverge cette suite ?
+\item Réécrire ce programme pour en faire une fonction. Attention, il y aura deux valeurs de sortie !
+\stopList
+
+\item {\bf suites et limites. }Soit la suite $u$ définie par $u_0 = 3/4$ et la relation : 
+\startformula
+∀n ∈ ℕ, u_{n+1} = u_n − u_n^2.
+\stopformula
+On admet que la suite $u$ est décroissante et converge vers $0$.
+Ecrire un programme qui déterminer le premier entier $n$ pour lequel $u_n < 10^{−3}$ .
+
+\item Soit $u$ la suite définie par $u_0=1$ et $\D u_{n+1}={2u_n^2\F 1+5u_n}\qquad(n∈ℕ)$.\crlf
+Une  étude mathématiques montre que la suite $u$ décroît et converge vers $0$ et que $∀n ∈ ℕ, |u n | ≤ \Q({2\F 5}\W)^n$.
+\startList\item Utiliser l’étude mathématique pour déterminer un entier $n$ tel que $|u_n | ≤ 10^{−3}$ (choisir le plus petit possible).
+\item Ecrire un programme scilab qui calcule le premier entier $n$ tel que $|u_n | ≤ 10^{−3}$.
+Le comparer avec l’entier trouvé dans la question précédente.
+\stopList
+
+\item {\bf Bonus.} On veut déterminer la limite de la suite $u$ définie par $u_0 = 0$ et 
+\startformula 
+∀n ∈ ℕ, \qquad u_{n+1} = a + u_n,\qquad \text{ avec }a > 0
+\stopformula
+\startList\item On fait l’hypothèse suivante : si $|u_{n+1} − u_n | < 0.001$, alors $u_n$ est une approximation de la limite 
+de la suite à $0.001$ près. \crlf{\it Ce n’est pas vrai dans tous les cas, mais si la suite est plutôt \quote{sympa}, l’approximation est bonne.}
+\crlf Ecrire maintenant un programme qui demande à l’utilisateur $a$ et qui renvoie une valeur approchée de la limite 
+de la suite $u$ à $0.001$ près.\crlf
+{\it indication : introduire les variables $u$ pour $u_n$ et $v$ pour $u_n+1$.}
+\item En fait, on peut montrer mathématiquement que pour tout a > 0, la suite u converge vers $α={1+\sqrt{1+4a}\F 2}$.
+Compléter le programme précédent afin qu’il affiche la valeur théorique de la limite de la suite u à savoir $α$, puis
+vérifier l’hypothèse d’approximation faite ci-dessus.
+\stopList
+
+
+\stoptext
+\stopcomponent
+\endinput

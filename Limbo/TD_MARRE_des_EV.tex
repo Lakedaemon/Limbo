@@ -1,0 +1,76 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][1][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][1,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+
+\centerline{TD EV et exercices théoriques}
+\blank[big]
+\startList\item{\bf Démos de cours}\startList\item Soit $F$ un sous-espace vectoriel d'un espace vectoriel $E$. Prouver que $0_E=0_F$.
+\item Soient $F$ et $G$ deux sous-espaces vectoriels d'un $𝕂$-espace vectoriel $E$. Prouver que $F∩G$ est un sous-espace vectoriel de $E$.
+\stopList
+\item Les ensembles suivants sont-ils des espaces vectoriels sur $𝕂$ (pour les opérations usuelles sur les vecteurs de $𝕂^n$) ?
+\startList
+\item $𝕂×𝕂$
+\item $𝕂*×𝕂$
+\item $\{0\}×𝕂$
+\item $𝕂\ssm\{(0,1)\}$
+\item $𝕂^+×𝕂$
+\item $E=\{(x,y,z,t)∈𝕂^4,2x+3y-4z=0\}$
+\item $E=\{(x,y,z)∈𝕂^3,x^2+y^2+z^2⩽4\}$
+\item $E=\{(a,b,a+b):a∈𝕂,b∈𝕂\}$
+\item $E=ℂ$
+\item $E=\{(x,y,z,t)∈𝕂^4:x=z,y=2t\}$
+\item $E=\{(a,b,c)∈𝕂^3:ab=0\}$
+\item $E=\{(x,y,z)∈𝕂^3:x⩽y⩽z\}$
+\item $E=\{(x+y,z+2t,x+z+t):(x,y,z,t)∈𝕂^4\}$
+\item $E=\{(a,b,1):a∈𝕂,b∈𝕂\}$
+\item $E=\{(a,b,c)∈𝕂^3:a+b-c+3=0\}$
+\stopList
+
+\item Les ensembles suivants sont-ils des sous-espaces vectoriels de l'ensemble des applications de $ℝ$ dans $ℝ$ ?
+\startList
+\item L'ensemble des fonctions positives sur $ℝ$
+\item L'ensemble des fonctions définies sur $ℝ$ qui s'annulent en $1$
+\item L'ensemble des fonctions dérivables vérifiant $f'(x)+xf(x)=0\qquad(x∈ℝ)$
+\item l'ensemble des fonctions croissantes sur $ℝ$
+\item l'ensemble des fonctions réelles qui tendent vers $+∞$ en $+∞$.
+\item l'ensemble des fonctions réelles qui tendant vers $0$ en $+∞$
+\item l'ensemble des fonctions $π$-périodiques
+\stopList
+
+\item Soient $F$ et $G$ deux sous-espaces vectoriels d'un même $𝕂$-espace vectoriel $E$. Prouver que 
+\startformula
+F∪G\text{ espace vectoriel}⟺(F⊂E\Ou G⊂E)
+\stopformula
+
+\stopList
+\stoptext
+\stopcomponent
+\endinput

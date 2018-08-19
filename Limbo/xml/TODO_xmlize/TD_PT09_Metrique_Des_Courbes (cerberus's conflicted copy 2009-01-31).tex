@@ -1,0 +1,204 @@
+%\def\Variables{MathsVariables}%
+\catcode`@=11\relax
+\def\Api{Mathematicon@Api}%
+%%%% Newif
+%\def\@firstofone#1{#1}
+
+\newif\ifexonumber
+%%%% Switches
+\exonumberfalse
+\catcode`@=11\relax
+\input LD@Header.tex
+\input LD.tex
+\input LD@Typesetting.tex
+\input LD@Exercices.tex
+\input LD@Exercices.tex
+\def\LD@Exercice@Display@Code{\eightpts}%
+% debug tikz
+\let\@firstofone\pgfutil@firstofone
+\let\@ifnextchar\pgfutil@ifnextchar
+
+\olspept
+\DefineRGBcolor F0F9E3=VLGreen.
+\DefineRGBcolor E5F9D1=LGreen.
+\DefineRGBcolor DAF9BE=TGreen.
+\DefineRGBcolor 5DA93B=Green.
+\DefineRGBcolor F6DCCA=VLRed.
+\DefineRGBcolor F6D4BD=LRed.
+\DefineRGBcolor DAF9BE=TRed.
+\DefineRGBcolor B5F9A1=TTRed.
+\DefineRGBcolor F6B080=Red.
+\DefineRGBcolor F9F5E3=VLOrange.
+\DefineRGBcolor F9F5D0=LOrange.
+\DefineRGBcolor DAF9BE=TOrange.
+\DefineRGBcolor B5F9A1=TTOrange.
+\DefineRGBcolor D7A93B=Orange.
+\DefineRGBcolor EEEEEE=VLBlack.
+\DefineRGBcolor DDDDDD=LBlack.
+\DefineRGBcolor CCCCCC=TBlack.
+\DefineRGBcolor B5F9A1=TTBlack.
+\DefineRGBcolor 000000=Black.
+
+\def\transparent{%
+	\CS long\EC\def\Demonstration##1\CQFD{}%
+}%
+%\transparent
+\def\Students{%
+	\DefineRGBcolor FFFFFF=VLGreen.
+	\DefineRGBcolor FFFFFF=LGreen.
+	\DefineRGBcolor FFFFFF=TGreen.
+	\DefineRGBcolor 000000=Green.
+	\DefineRGBcolor FFFFFF=VLRed.
+	\DefineRGBcolor FFFFFF=LRed.
+	\DefineRGBcolor FFFFFF=TRed.
+	\DefineRGBcolor FFFFFF=TTRed.
+	\DefineRGBcolor 000000=Red.
+	\DefineRGBcolor FFFFFF=VLOrange.
+	\DefineRGBcolor FFFFFF=LOrange.
+	\DefineRGBcolor FFFFFF=TOrange.
+	\DefineRGBcolor FFFFFF=TTOrange.
+	\DefineRGBcolor 000000=Orange.
+	\DefineRGBcolor FFFFFFF=VLBlack.
+	\DefineRGBcolor FFFFFF=LBlack.
+	\DefineRGBcolor FFFFFF=TBlack.
+	\DefineRGBcolor FFFFFF=TTBlack.
+	\DefineRGBcolor 000000=Black.
+}
+\Students
+\def\red{}
+\def\blue{}
+\def\Red#1{#1}%%%% Fix this !
+\def\Blue#1{#1}%
+\def\Font #1@#2pt{\font\olbi=cmr10\olbi}
+\font\SvgText=cmr10\relax
+%
+%
+%\catcode`@=11\relax
+%\def\Api{Mathematicon@Api}%
+%
+%\input LD@Header.tex
+%\input LD.tex
+%\input LD@Exercices.tex
+%\input LD@Typesetting.tex
+%
+%\catcode`@=11\relax
+\font\LD@Font@Arial="Arial" at 10pt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%															%
+%						Métrique des courbes							%
+%															%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcount\LD@Count@Temp
+\def\LD@Exercice@Display@Code{}%%\LD@Option@@Label\qquad\eightpts}%
+\def\LD@Exercice@Display@Code@Post{%
+	\ifcsname LD@Exo@@Solution\endcsname
+		\unless\ifx\LD@Exo@@Solution\LD@Empty
+			\pn{\eightpts Solution : \eightpts \LD@Exo@@Solution}%
+		\fi
+	\fi
+}%
+\def\LD@Display#1{%
+	\LD@Count@Temp=#1\relax
+	\ifcase\LD@Count@Temp
+	\or
+	Math. Sup.
+	\or
+	Math. Sp\'e
+	\else
+	\fi
+}%
+\newcount\LD@Exo@Total\LD@Exo@Total=0\relax
+
+%%% TD 9.
+\vglue-10mm\rightline{Sp\'e PT\hfill TD 9 : M\'etriques des courbes\hfill}%\date}
+\bigskip
+
+
+\centerline{\fourteenbf Abscisse curviligne}
+\bigskip
+
+
+\Definition [$f(t)=\vec{OM}(t)$ arc param\'etr\'e de classe $\sc C^1$ sur un intervalle $I$]
+L'abscisse curviligne du point $M(t)$ est l'int\'egrale  
+$$
+s(t)=\int_{t_0}^t\Q|\!\Q|f'(u)\W|\!\W|\d u=\int_{t_0}^t\Q|\!\Q|{\d\vec{OM}(u)\F \d u}\W|\!\W|\d u\qquad (t\in I),  
+$$
+l'origine de l'abscisse curviligne \'etant le point $M(t_0)$. 
+
+\Exercice{PTaai}%
+\bigskip
+
+\centerline{\fourteenbf Rep\`ere de Frenet et  courbure dans le plan}
+\bigskip
+
+\Definition [arc param\'etr\'e $f(t)=\vec{OM}(t)$]\noindent
+1) calculer $f'(t)=\vec v={\d\vec{OM}\F\d t}$ et en d\'eduire le vecteur unitaire tangent
+$$
+\vec T:={f'(t)\F\Norme{f'(t)}}={\vec v\F\Norme{\vec v}}.
+$$
+2) Le rep\`ere de Frenet en $M$ est le rep\`ere orthonorm\'e direct $(M,\vec T,\vec N)$. On obtient le vecteur unitaire normal $\vec N$ en faisant pivoter $\vec T$ de $+90^\circ$ de la façon suivante :
+$$
+\hbox{si }\quad\vec T=\pmatrix{a\cr b}a\vec i+b\vec j\quad\hbox{ alors }\quad\vec N=\pmatrix{-b\cr a}=-b\vec i+a\vec j.
+$$
+3) calculer $f''(t)=\vec a={\d^2\vec{OM}\F\d t^2}$ et en d\'eduire la courbure
+$$
+\gamma={f''(t)\F\Norme{f'(t)}^2}.\vec N={\vec a\F\Norme{\vec v}^2}.\vec N
+$$
+4) Si $\gamma\neq0$, en d\'eduire le rayon de courbure 
+$$
+r_c={1\F\gamma}.
+$$
+5) D\'eduire le centre de courbure $C$ de la relation $\vec{MC}=r_c\vec N$ en \'ecrivant 
+$$
+\vec{OC}=\vec{OM}+r_c\vec N.
+$$
+
+\Exercice{PTaag}%
+\bigskip
+
+%\Exercice{PTach}%
+%\bigskip
+
+\centerline{\fourteenbf Rep\`ere de Frenet, courbure et torsion dans l'espace}
+\bigskip
+
+\Definition [arc param\'etr\'e $f(t)=\vec{OM}(t)$]\noindent
+1) calculer $f'(t)=\vec v={\d\vec{OM}\F\d t}$ et en d\'eduire le vecteur unitaire tangent
+$$
+\vec T:={f'(t)\F\Norme{f'(t)}}={\vec v\F\Norme{\vec v}}.
+$$
+2) calculer $f''(t)=\vec a={\d^2\vec{OM}\F\d t^2}$ et en d\'eduire le vecteur unitaire binormal 
+$$
+\vec B={f'(t)\wedge f''(t)\F\|f'(t)\wedge f''(t)\|}={\vec v\wedge \vec a\F\Norme{\vec v\wedge\vec a}}
+$$
+puis le vecteur unitaire normal (principal) $\vec N=\vec B\wedge\vec T$. Le rep\`ere de frenet est le rep\`ere orthonorm\'e direct $(M,\vec T,\vec N,\vec B)$. \pn
+3) En d\'eduire la courbure, le rayon de courbure et le centre courbure avec 
+$$
+\gamma={f''(t)\F\Norme{f'(t)}^2}.\vec N={\vec a\F\Norme{\vec v}^2}.\vec N, \qquad r_c={1\F\gamma}\quad\hbox{et}\quad \vec{MC}=r_c\vec N
+$$
+On pourra aussi utiliser la formule
+$$
+\gamma={\|f'(t)\wedge f''(t)\|\F \|f'(t)\|^3}={\vec v\wedge\vec a\F \Norme{\vec v\Norme}^3}. 
+$$
+4) calculer  $f'''(t)=\vec a'={\d^3\vec{OM}\F\d t^3}$ et en d\'eduire la torsion et  le rayon de torsion 
+$$
+\tau={\det\b(f'(t),f''(t),f'''(t)\b)\F\|f'(t)\wedge f''(t)\|^2}\qquad r_t={1\F \tau}.
+$$
+
+\Exercice{PTaam}%
+\bigskip
+
+%\Exercice{PTacd}%
+%\bigskip
+
+\centerline{\fourteenbf Rep\`ere de Frenet dans le plan en polaire}
+\bigskip
+
+\Exercice{PTaaj}%
+\bigskip
+
+
+\Exercice{PTaak}%
+\bigskip
+
+\bye

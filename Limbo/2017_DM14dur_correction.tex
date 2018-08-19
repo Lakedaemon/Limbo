@@ -1,0 +1,682 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\%blank[big]}]
+%\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][4][1,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iftrue
+\page
+\centerline{\bfb DEVOIR MAISON 14}
+\blank[big]
+
+\setupitemgroup[List][1][A,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+
+\centerline{\bf CORRECTION DU PROBLÈME 1}
+\blank[big]
+\startList%
+\item%1 Généralités
+\startList
+\item%a
+
+\startitemize[1]
+\item $\mc C_A$ est inclus, par définition, dans $\mc M_n(ℝ)$, qui est un $ℝ$-espace vectoriel de référence 
+\item $\mc C_A$ contient la matrice nulle car $A×0=0=0×A$ de sorte que $\mc C_A≠\emptyset$
+\item Soient $(λ,μ)∈ℝ^2$ et $(M,N)∈\mc C_A^2$. Comme $AM=MA$ et $AN=NA$, il résulte de la distributivité du produit matriciel et de la loi du scalaire mobile que  
+\startformula
+(λM+μN)×A=λMA+μNA=λAM+μAN=(λM+μN)×A
+\stopformula
+En particulier, $λM+μN∈\mc C_A$. L'ensemble $\mc C_A$ est donc stable par combinaison linéaire.
+\stopitemize
+En conclusion, $\mc C_A$ est un sous-espace vectoriel de $\mc M_n(ℝ)$. 
+\item%b
+Pour $M∈\mc M_n(ℝ)$, et $λ∈ℝ$, il résulte de l'associativité du produit, de la loi du scalaire mobile et du fait que $I_n$ soit un élément neutrte pour la multiplication, que 
+\startformula
+M×(λI_n)=λ(M×I_n)=λM=λ(I_n×M)=(λI_n)×M
+\stopformula
+En particulier $M∈\mc C_{λI_n}$, de sorte que 
+\startformula
+\mc C_{λI_n}=\mc M_n(ℝ)\qquad(λ∈ℝ).
+\stopformula
+\item Soit $A∈\mc M_n(ℝ)$. Si $A∈\Vect(I_n)$, il résulte des calculs effectués dans la question précédente que 
+$\dim(\mc C_A)=\dim\big(\mc M_n(ℝ)\big)=n^2⩾2$.
+
+Si $A\∉\Vect(I_n)$, alors $\mc C_A$ est un sous-espace vectoriel de $\mc M_n(ℝ)$, contenant les matrices $I_n$ (car $A×I_n=A=I_n×A$) et $A$ (car $A×A=A^2=A×A$). 
+Comme la famille $\{I_n,A\}$ est libre (puisque $A∉\Vect(I_n)$), $\mc C_A$ est de dimension au moins $2$ car il contient une famille libre de deux vecteurs.
+\crlf
+Dans tous les cas, $\mc C_A$ est au moins de dimension $2$.
+\item {\it Houla, c'est une question technique ça... qui exploite le fait que les bases permettent de transformer (via isomorphisme) vecteurs en coordonnées, applications linéaires en matrices, etc...}
+Soit $\Fun{ψ:\mc L(ℝ^n)→M_n(ℝ)|f↦\mc Mat_ℬ(f)}$ l'isomorphisme (d'après le cours) associant à un endomorphisme $f$ de $ℝ^n$, sa matrice dans la base $ℬ$.
+Alors, je prétends que $ψ$ transforme $\mc C_f$ en $\mc C_A$, c'est à dire que $ψ(\mc C_f)=\mc C_A$, ce qui implique (les deux espaces étant isomorphes) que 
+\startformula
+\dim(\mc C_f)=\dim(\mc C_A)
+\stopformula
+En effet, comme $A= \mc Mat_ℬ(f)=ψ(f)$, pour $f∈ℒ(ℝ^n)$, nous remarquons que 
+\startformula
+\Align{
+\NC g∈\mc C_f\NC ⟺ f∘g=g∘f⟺\mc Mat_ℬ(f∘g)=\mc Mat_ℬ(g∘f)\NR
+\NC \NC ⟺\mc Mat_ℬ(f)×\mc Mat_ℬ(g)=\mc Mat_ℬ(g)×\mc Mat_ℬ(f)\NR
+\NC \NC ⟺\mc A×\mc Mat_ℬ(g)=\mc Mat_ℬ(g)×A\NR
+\NC\NC ⟺\mc Mat_ℬ(g)∈\mc C_A\NR
+\NC\NC ⟺ ψ(g)∈\mc C_A
+}
+\stopformula
+A fortiori, on a bien $ψ(\mc C_f)=ψ(\mc C_A)$.
+\item {\it du Scilab !}\crlf
+\starttyping
+function [r]=commutables(A,B)
+   r = A*B == B*A
+endfunction
+\stoptyping
+\stopList
+\item%2
+\startList
+\item%a
+{\it On peut utiliser la méthode MARRE mais on va faire ici plus court/élégant via des équivalences}\crlf
+Pour $M∈\mc M_n(ℝ)$, nous remarquons que 
+\startformula
+\Align{
+\NC M∈\mc C_B\NC ⟺M×B=B×M⟺M\Q(A-{\text{tr}(A)\F 2}I_2\W)=\Q(A-{\text{tr}(A)\F 2}I_2\W)M\NR
+\NC\NC MA-{\text{tr}(A)\F 2}M=AM-{\text{tr}(A)\F 2}⟺MA=AM\NR
+\NC\NC ⟺M∈\mc C_A
+}
+\stopformula
+En particulier, nous avons $\mc C_B=\mc C_A$. 
+\item Nous remarquon que 
+\startformula
+B=\Matrix{
+\NC {a-d\F 2}\NC b\NR
+\NC c\NC {d-a\F 2}}\qquad B^2=\Matrix{
+\NC \Q({a-d\F 2}\W)^2+bc\NC {a-d\F 2}b+b{d-a\F 2}\NR
+\NC c{a-d\F 2}+{d-a\F 2}c\NC bc+\Q({d-a\F 2}\W)^2
+}=\Q(bc+\Q({d-a\F 2}\W)^2\W)I_2
+\stopformula
+En particulier, pour $r=bc+\Q({d-a\F 2}\W)^2$ et $P=x^2-rI_2$, nous avons 
+\startformula
+P(B)=B^2-rI_2=0
+\stopformula
+De sorte que $P$ est un polynôme annulateur de $B$.
+\item Soient $r∈ℝ$ et $N=\Matrix{\NC a\NC b\NR \NC c\NC d}∈\mc M_2(ℝ)$. alors, on a 
+\startformula
+\Align{[align={right, left,left}]
+\NC N∈\mc C_M\NC ⟺\NC NM=MN⟺\Matrix{\NC a\NC b\NR\NC c\NC d}×\Matrix{\NC 0\NC r\NR\NC 1\NC 0}=\Matrix{\NC 0\NC r\NR\NC 1\NC 0}×\Matrix{\NC a\NC b\NR\NC c\NC d}\NR
+\NC \NC ⟺\NC \Matrix{
+\NC b\NC ar\NR\NC d\NC cr}=\Matrix{
+\NC rc\NC rd\NR \NC a\NC b}\NR
+\NC \NC  ⟺\NC \System{
+\NC b=rc\NR
+\NC ar=rd\NR
+\NC d=a\NR
+\NC cr=b
+}\NR
+\NC\NC ⟺\NC \System{
+\NC b=rc\NR
+\NC d=a
+}
+}
+\stopformula
+A fortiori, on a
+\startformula
+\mc C_M=\Q\{aI_2+c\Matrix{\NC 0\NC r\NR\NC 1\NC 0}:(a,c)∈ℝ^2\W\}=\Vect\Q(I_2, \Matrix{\NC 0\NC r\NR\NC 1\NC 0}\W)
+\stopformula
+De sorte que $\mc C_M$ est de dimension $2$ quel que soit $r∈ℝ$
+\item {\it Question bizarrement posée. Il faut lire la question suivante pour voir où ils veulent en venir... }\crlf
+Supposons que les trois familles de deux vecteurs $(e_1,f(e_1)$, $(e_2, f(e_2))$ et $(e_1+e_2, f(e_1+e_2))$ soient liées. 
+Comme $e_1$, $e_2$ et $e_1+e_2$ sont des vecteurs non nuls, il existe $(a,b,c)∈ℝ^3\ssm\{(0,0,0)\}$ tels que 
+\startformula
+\System{
+\NC f(e_1)=ae_1\NR
+\NC f(e_2) = be_2\NR
+\NC f(e_1+e_2)=c(e_1+e_2)
+}
+⟹ 0=f(e_1+e_2)-f(e_1)-f(e_2)=(c-a)e_1+(c-b)e_2=0
+\stopformula
+Comme $(e_1,e_2$ est libre (puisque c'est une base), nous avons forcément $c-a=0=c-b$, de sorte que $a=c=b$.
+Nous en déduisons alors que $f(e_1)=ae_1=a\text{Id}(e_1)$ et $f(e_2)=be_2=ae_2=a\text{Id}(e_2)$.
+Comme les applications linéaires $f$ et $a\text{Id}$ coincident sur la base $(e_1,e_2)$, elles sont égales, de sorte que 
+\startformula
+f=a\text{Id}
+\stopformula
+Ceci contredit la définition de $f$, car la matrice canoniquement associée à $f$ est $B=A-{\text{tr}(A)\F 2}I_2≠aI_2$, en effet $(A, I_2)$ est libre
+\item Il résulte du raisonnement par l'absurde  mené à la question précédente qu'il existe un vecteur $v∈ℝ^2$ tel que $(v, f(v))$ soit libre car les trois familles 
+$(e_1, f(e_1)$, $(e_2, f(e_2))$ et $(e_1+e_2, f(e_1+e_2))$ ne peuvent pas être toutes liées. 
+A fortiori, la famille libre $𝓓=(v, f(v))$ de deux vecteurs de $ℝ^2$, en constitue une base. \crlf
+{\it Accrochez vous !}\crlf
+Comme $X^2-r$ est un polynôme annulateur de $B$, c'est également un polynôme annulateur de $f$, de sorte que
+$f^2-r\text{Id}=0$. 
+
+En particulier, $f^2(v)=r\text{Id}(v)=rv$. De sorte que 
+\startformula
+\mc Mat_𝓓(f)=\Matrix{\NC 0\NC r\NR
+\NC 1\NC 0}=M
+\stopformula
+\item {\it Faisons la synthèse des questions précédentes}
+Il résulte de la question 2a que $\dim(\mc C_A)=\dim(\mc B)$. Or d'après la question 1d, il vient 
+$\dim(\mc C_B)=\dim(\mc C_f)$. Or dans la base $𝓓$, $\mc Mat_𝓓(f)=M$, de sorte que l'on peut montrer que 
+$\dim(\mc C_f)=\dim(\mc C_M)$ {\it (un peu comme à la question 1d, sauf qu'au lieu d'utiliser la base canonique, on utilise la base $𝓓$)}
+Et enfin, il résulte de la question 2c que $\dim(\mc C_M)=2$ de sorte que $\dim(\mc C_A)=2$. Comme $(A, I_2)$ est une famille libre de $\mc C_A$, c'en est une base.
+{\it Une manière bien torturée d'arrivr à ce résultat, dans un cas relativement simple...la dimension $2$}
+\stopList
+\item%3
+\startList
+\item%a
+{\it On remarque au brouillon que $C_1-C_2=0$ et que $C_1-C_3=0$...}
+Les vecteurs $(1,-1,0)$ et $(1,0,-1)$ appartiennent au noyau de $f$ car
+\startformula
+A×\Matrix{
+\NC 1\NR
+\NC -1\NR
+\NC 0} = \Matrix{
+\NC 1-1+0\NR
+\NC -1+1+0\NR
+\NC 1-1+0
+}=0\Et A×\Matrix{
+\NC 1\NR
+\NC 0\NR
+\NC -1} = \Matrix{
+\NC 1+0-1\NR
+\NC -1+0+1\NR
+\NC 1+0-1
+}=0
+\stopformula
+Comme $A$ est clairement de rang $1$, il résulte du thèorème du rang que $\dim(\ker f)=\dim(ℝ^3)-\rg(f)=3-1-2$ de sorte que 
+\startformula
+\ker(f)=\Vect\big((1,-1,0),(1,0,-1)\big)
+\stopformula
+Ensuite, l'image de $f$ qui est de dimension $1$, est $\IM(f)=\Vect(f(1,0,0))=\Vect\big((1,-1,1)\big)$.
+{\it le sujet demande l'image et le noyau de $a$, un léger abus, il derait demander le noyau et l'image de l'endomorphisme $f$ associé à $A$ dans la base canonique}
+\item On remarque que $A^2=\Matrix{
+\NC 1-1+1\NC 1-1+1\NC 1-1+1\NR
+\NC -1+1-1\NC -1+1-1\NC -1+1-1\NR
+\NC 1-1+1\NC 1-1+1\NC 1-1+1}=A$. 
+
+A fortiori, $A$ est la matrice d'un projecteur, donc $f$ est un projecteur.
+L'endomorphisme $f$ est donc une projection sur son image $\IM (f)$ déterminée précédemment, parallélement à son noyau, déterminée précédemment également.
+\item $P$ est inversible car c'est une matrice de $\mc M_3(ℝ)$ de rang $3$. En effet
+\startformula
+\rg(P)=\rg\Matrix{
+\NC 2\NC 1\NC 0\NR
+\NC -1\NC -1\NC 0\NR
+\NC 1\NC 0\NC -1}=\rg\Matrix{
+\NC 2\NC 1\NC 0\NR
+\NC -1\NC -1\NC 0\NR
+\NC 0\NC 0\NC -1}=\rg\Matrix{
+\NC 1\NC 0\NC 0\NR
+\NC -1\NC -1\NC 0\NR
+\NC 0\NC 0\NC -1}=3
+\stopformula
+{\it J'aurais mieux fait d'inverser directement $P$, vu qu'on a aussi besoin de l'inverse...}
+En déduisons que la matrice $P$ est inversible, d'inverse 
+\startformula
+P^{-1}=Q=\Matrix{
+\NC 1\NC 1\NC 1\NR
+\NC -1\NC -2\NC -1\NR
+\NC 1\NC 1\NC 0
+},
+\stopformula
+du calcul
+\startformula
+Q×P=
+\Matrix{
+\NC 1\NC 1\NC 1\NR
+\NC -1\NC -2\NC -1\NR
+\NC 1\NC 1\NC 0
+}×\Matrix{
+\NC 1\NC 1\NC 1\NR
+\NC -1\NC -1\NC 0\NR
+\NC 1\NC 0\NC -1
+}=\Matrix{
+\NC 1-1+1\NC 1-1\NC 1-1\NR
+\NC -1+2-1\NC -1+2\NC -1+1\NR
+\NC 1-1\NC 1-1\NC 1
+}=I_3.
+\stopformula
+ {\it J'ai fait la recherche de matrice inverse au brouillon bien sûr, avec l'algorithme standard}
+
+ \item $Φ$ est un automorphisme de $\mc M_n(ℝ)$ car c'est un endomorphisme de $\mc M_n(ℝ)$
+ \startitemize[1]
+\item  $\mc M_n(ℝ)$ est un $ℝ$-espace vectoriel (au départ et à l'arrivée)
+\item Pour $M∈ \mc M_n(ℝ)$, $P×M×P^{-1}$ est définit et appartient à $\mc M_n(ℝ)$ en tant que produit de matrices réelles carrées de taille $n$.
+De sorte que $Φ:\mc M_n(ℝ)→\mc M_n(ℝ)$ est une application
+\item Soient $(λ,μ)∈ℝ²$ et $(M,N)∈\mc M_n(ℝ)^2$, il résulte de la distributivité et de la loi du scalaire mobile que  
+\startformula
+\Align{
+\NC Φ(λM+μN)\NC =P(λM+μN)P^{-1}=P(λM)P^{-1}+P(μN)P^{-1}\NR
+\NC\NC =λPMP^{-1}+μPNP^{-1}\NR
+\NC\NC=λΦ(M)=+μΦ(N)
+}
+\stopformula
+\stopitemize
+De plus, le noyau de $Φ$ est réduit à la matrice nulle car (en multipliant par $P$ à droite et $P^{-1}$ à gauche)
+\startformula
+M∈\ker(Φ)⟺Φ(M)=0⟺PMP^{-1}=0⟺PM=0×P=0⟺M=P^{-1}×0=0
+\stopformula
+A fortiori, $Φ$ est injective et même (espace vectoriel de même dimension finie au départ et à l'arrivée) bijective
+C'est doncun automorphisme de $\mc M_n(ℝ)$. 
+Enfin, pour une matrice $M$ de $\mc M_n(ℝ)$, nous remarquons que $Φ^{-1}(M)=P^{-1}MP$ et aussi que (multiplication par $P^{-1}$ à gauche et par $P$ à droite)
+\startformula
+\Align{
+\NC M∈\mc C_{PAP^{-1}}\NC ⟺M×PAP^{-1}=PAP^{-1}×M\NR
+\NC\NC ⟺P^{-1}M×PAP^{-1}=AP^{-1}×M\NR
+\NC\NC ⟺P^{-1}M×PA=AP^{-1}×M×P\NR
+\NC\NC ⟺P^{-1}MP×A=A×P^{-1}MP\NR
+\NC\NC ⟺Φ^{-1}(M)×A=A×Φ^{-1}(M)\NR
+\NC\NC ⟺ Φ^{-1}(M)∈\mc C_A\NR
+\NC\NC ⟺ M∈Φ(\mc C_A)\NR
+}
+\stopformula
+A fortiori, nous obtenons que $Φ(\mc C_A)=C_{PAP^{-1}}=C_{Φ(A}$
+\item Nous remarquons que 
+\startformula
+\Align{
+\NC PAP^{-1}\NC =PAQ=\Matrix{
+\NC 1\NC 1\NC 1\NR
+\NC -1\NC -2\NC -1\NR
+\NC 1\NC 1\NC 0
+}×\Matrix{
+\NC 1\NC 1\NC 1\NR
+\NC -1\NC -1\NC -1\NR
+\NC 1\NC 1\NC 1
+}×\Matrix{
+\NC 1\NC 1\NC 1\NR
+\NC -1\NC -2\NC -1\NR
+\NC 1\NC 1\NC 0
+}\NR
+\NC\NC =\Matrix{
+\NC 1\NC 1\NC 1\NR
+\NC 0\NC 0\NC 0\NR
+\NC 0\NC 0\NC 0
+}×\Matrix{
+\NC 1\NC 1\NC 1\NR
+\NC -1\NC -2\NC -1\NR
+\NC 1\NC 1\NC 0
+}=\Matrix{
+\NC 1\NC 0\NC 0\NR
+\NC 0\NC 0\NC 0\NR
+\NC 0\NC 0\NC 0
+}=D }
+\stopformula
+
+{\it Pour info, nous venons de diagonaliser la matrice $A$ (algorithme ECS2), c'est sensé simplifier le probleme car $D$ est plus simple que $A$}
+Etant donnée une matrice $M=\Matrix{
+\NC a\NC b\NC c\NR
+\NC d\NC e\NC f\NR
+\NC g\NC g\NC i
+}$, nous avons
+\startformula
+\Align{
+\NC M∈\mc C_D\NC ⟺MD=DM⟺\Matrix{
+\NC a \NC 0\NC 0\NR
+\NC d\NC 0\NC 0\NR
+\NC g\NC 0\NC 0}=\Matrix{
+\NC a\NC b\NC c\NR
+\NC 0\NC 0\NC 0\NR
+\NC 0\NC 0\NC 0\NR
+}\NR
+\NC \NC ⟺ M = \Matrix{
+\NC a\NC 0\NC 0\NR
+\NC 0\NC e\NC f\NR
+\NC 0\NC g\NC i
+}
+}
+\stopformula
+De sorte que $\mc C_D=\mc C_{PAP^{-1}}=\Vect\Q(D, \Matrix{
+\NC 0\NC 0\NC 0\NR
+\NC 0\NC 1\NC 0\NR
+\NC 0\NC 0\NC 0
+},  \Matrix{
+\NC 0\NC 0\NC 0\NR
+\NC 0\NC 0\NC 1\NR
+\NC 0\NC 0\NC 0
+},  \Matrix{
+\NC 0\NC 0\NC 0\NR
+\NC 0\NC 0\NC 0\NR
+\NC 0\NC 1\NC 0
+},  \Matrix{
+\NC 0\NC 0\NC 0\NR
+\NC 0\NC 0\NC 0\NR
+\NC 0\NC 0\NC 1
+}\W)$
+et que $\dim(\mc C_A)=\dim(Φ(\mc C_A))\dim(\mc C_D)=5$
+{\it Wahh, c'est bourrin quand même...}
+\stopList
+\item \startList
+\item Comme $p$ est un projecteur de $ℝ^n$, on sait que
+\startformula
+ℝ^n=\ker p ⊕ \IM p
+\stopformula
+Comme $p$ est de rang $p$, la dimension de son image est $p$.
+Soit $e_1,…,e_p$ une base de son image et $e_{p+1}, …,e_n$ une base de son noyau (qui est de dimension $n-p$, d'après l'identité ci-dessus).
+Alors, d'après la propriété de concaténation des bases, $ℬ=(e_1, …, e_n)$ est une base de $ℝ^n$ et comme les vecteurs de l'image de $p$ sont  invariants par $p$ 
+alors que les vecteurs du noyau de $p$ sont transformés en $0$, on a 
+\startformula
+\mc Mat_{ℬ}(p)=\Matrix{
+\NC 1\NC 0\NC ⋯\NC ⋯\NC ⋯\NC 0\NR
+\NC 0\NC ⋱\NC⋱ \NC\NC \NC⋮\NR
+\NC⋮\NC ⋱ \NC 1\NC ⋱\NC \NC⋮\NR
+\NC⋮\NC  \NC ⋱\NC 0\NC ⋱ \NC⋮\NR
+\NC⋮\NC  \NC \NC ⋱\NC ⋱ \NC⋮\NR
+\NC 0\NC ⋯ \NC ⋯\NC ⋯\NC ⋯ \NC 0
+}=\Matrix{\NC I_r\NC 0\NR\NC 0\NC 0}=J_r,
+\stopformula
+La matrice ci dessus contenant $r$ $1$ sur la diagonale principale
+\item $f$ appartient à $\mc C_p$ si et seulement si $f$ commute avec $p$. Procédons {\it avec la méthode MARRE} par double implication.
+Supposons que $p$ commute avec $f$. Alors, pour $x∈\ker(p)$, on a
+\startformula
+p\big(f(x)\big)=p∘f(x)=f∘p(x)=f\big(p(x)\big)=f(0)=0
+\stopformula
+De sorte que $p(x)∈\ker(p)$. Le noyau de $p$ est donc stable par $f$.
+Par ailleurs, si $y∈\IM(p)$, alors il existe $x∈ℝ^n$ tel que $y=p(x)$ et alors
+\startformula
+f(y)=f\big(p(x)\big)=f∘p(x)=p∘f(x)=p\big(f(x)\big)∈\IM(p)
+\stopformula
+De sorte que l'image de $p$ est également stable par $f$. \crlf
+Réciproquement, supposons que le noyau et l'image de $p$ soit stable par $f$.
+Soit $x∈ℝ^n$. Comme $ℝ^n=\ker p ⊕ \IM p$, il existe un vecteur $y∈\IM(p)$ (et donc $y=p(y)$) et un vecteur $z∈\ker(p)$ (et donc $p(z)=0$) tels que $x=y+z$.
+A fortiori, commeles vecteurs de l'image de $p$ sont invariants par $p$, il vient 
+\startformula
+\Align{
+\NC f∘p(x)\NC =f\big(p(x)\big)=f\big(p(y+z)\big)=f\big(p(y)+p(z)\big)=f\big(y+0\big)\NR
+\NC \NC =\underbrace{f(y)}_{∈\IM(p)}=p\big(f(y)\big) + 0=p\big(f(y)\big)+p\big(\underbrace{f(z)}_{∈\ker(p)}\big)\NR
+\NC\NC =p\big(f(y+z)\big)=p\big(f(x)\big)\NR
+\NC\NC=p∘f(x)
+}
+\stopformula
+En particulier, les applications $f∘p$ et $p∘f$ coincident sur $ℝ^n$, donc elles sont égales. De sorte que $p∘f=f∘p$, c'est à dire qu'elles commutent.
+{\it Ouch, dur...}
+\item La matrice de $f∈\mc C_p$ dans la base de la question a doit avoir la forme $\Matrix{\NC M_r\NC 0\NR\NC 0\NC N_{n-r}}$, 
+avec $M_r$ matrice carrée quelconque de taille $r$ et $N_{n-r}$ matrice carrée quelconque de taille $n-r$, 
+Car le noyau et l'images de $p$ doivent être stables par $f$, 
+{\it $M_r$ est la matrice de la restriction de $f$ à $\IM(p)$ et $N_{n-r}$ est la matrice de la restriction de $f$ à $\ker(p)$}
+\item En particulier, comme $\mc C_p$ est l'ensemble des applications $f$ dont la matrice (dans la base de a) vérifie les contraintes énoncées dans la question précédentes, on a 
+\startformula
+\dim(\mc C_p) = r^2+(n-r)^2
+\stopformula
+\item $M$ est la matrice d'un projecteur $p$ de rang $r=\rg(M)$. A fortiori, on a 
+\startformula
+\dim(\mc C_M)= \dim(\mc C_p) = r^2+(n-r)^2=\rg(M)^2+\big(n-\rg(M)\big)^2
+\stopformula
+\stopList
+
+
+\centerline{\bf Correction du Problème 2}
+
+{\bf 0.} Comme $\displaystyle\lim_{n→+∞}\arctan(n)=+{π\F 2}$, comme $\displaystyle\lim_{n→∞}{\sin n\F n}=0$ et comme 
+\startformula
+n\sin{1\F n}∼n×{1\F n}=1→1,
+\stopformula
+il vient
+\startformula
+\lim_{n→+∞}M_n=\Matrix{\NC {π\F 2}\NC 0\NR\NC 1\NC 3}
+\stopformula
+\startList
+\item Soit $n∈ℕ$. Slors, nous déduisons du changement d'indice $i'=i-r$ et de la $r$-périodicité de la suite $x$ que
+\startformula
+\Align{
+\NC \displaystyle{1\F r}∑_{i=n}^{n+r-1}x_i-y\NC\displaystyle={1\F r}∑_{i=n}^{n+r-1}x_i-{1\F r}∑_{i=0}^{r-1}x_i\NR
+\NC \NC \displaystyle= {1\F r}\Q(∑_{i=r}^{n+r-1}x_i-∑_{i=0}^{n-1}x_i\W)\NR
+\NC\NC \displaystyle= {1\F r}\Q(∑_{i'=0}^{n-1}x_{i'+r}-∑_{i=0}^{n-1}x_i\W)\NR
+\NC\NC \displaystyle= {1\F r}\Q(∑_{i'=0}^{n-1}x_{i'}-∑_{i=0}^{n-1}x_i\W)=0\NR
+}
+\stopformula
+En particulier, nous obtenons que $\displaystyle y={1\F r}∑_{i=n}^{n+r-1}x_i$ pour $n∈ℕ$.
+\item Pour $n⩾1$, nous remarquons que 
+\startformula
+\Align{
+\NC w_{n+r}\NC =\displaystyle (n+r)y_{n+r}-(n+r)y=(n+r){1\F n+r}∑_{i=0}^{n+r-1}x_i-(n+r)y\NR
+\NC \NC \displaystyle= ∑_{i=0}^{n+r-1}x_i-(n+r)y\NR
+\NC \NC \displaystyle= ∑_{i=0}^{n-1}x_i + ∑_{i=n}^{n+r-1}x_i-(n+r)y\NR
+\NC \NC \displaystyle= ny_n + \underbrace{∑_{i=n}^{n+r-1}x_i}_{ry}-(n+r)y\NR
+\NC \NC = ny_n -ny=w_n
+}
+\stopformula
+En particulier, la suite $(w_n)_{n⩾1}$ est $r$-périodique.
+\item Une suite $r$-périodique $(x_n)_{n⩾0}$ est bornée car 
+\startformula
+|x_k|⩽M=\max\big\{|x_0|, ⋯, |x_{r-1}|\big\}\qquad(k⩾0)
+\stopformula
+En effet, pour $k∈ℕ$, il résulte de la division euclidienne de $k$ par $r$ qu'il existe deux entiers $q⩾0$ et $s∈⟦0,r-1⟧$ tel que $k=qr+s$ et alors, on a 
+\startformula
+|x_k|=|x_{qr+s}|=|w_s|⩽M
+\stopformula
+\item Comme la suite $w$ est $r$-périodique, elle est bornée, de sorte qu'il existe un nombre réel $M$ vérifiant $|w_n|⩽M$ pour $n⩾1$.
+Alors, nous obtenons que 
+\startformula
+|y_n-y|=\Q|{w_n\F n}\W|={|w_n|\F n}⩽{M\F n}\qquad (n⩾1).
+\stopformula
+Comme $\displaystyle\lim_{n→+∞}{M\F n}=0$, il résulte de la propriété des gendarmes que 
+\startformula
+\displaystyle\lim_{n→+∞}(y_n-y)=0
+\stopformula
+et donc que $\displaystyle\lim_{n→+∞}y_n=y$.
+\stopList
+\item \startList
+\item Nous remarquons que 
+\startformula
+\System{
+\NC B-{1\F 6}C=A\NR
+\NC B+C=I_2}⟺\System{
+\NC B-{1\F 6}C=A\NR
+\NC {7\F 6}C=I_2-A}⟺
+\System{
+\NC B=A+{1\F 7}(I_2-A)={1\F 7}(I_2+6A)={1\F 7}\Matrix{\NC 3\NC 4\NR \NC 3\NC 4}\NR
+\NC C={6\F 7}(I_2-A)={6\F 7}\Matrix{\NC {2\F 3}\NC {-2\F 3}\NR \NC{-1/2}\NC {1\F 2}}
+={1\F 7}\Matrix{\NC 4\NC -4\NR \NC -3\NC 3}
+}
+\stopformula
+\item De simples calculs matriciels donnent
+\startformula
+\Align{
+\NC B^2\NC ={1\F 7^2}\Matrix{\NC 21\NC 28\NR \NC 21\NC 28}={1\F 7}\Matrix{\NC 3\NC 4\NR \NC 3\NC 4}=B\NR
+\NC C^2\NC ={1\F 7^2}\Matrix{\NC 28\NC -28\NR \NC -21\NC 21}={1\F 7}\Matrix{\NC 4\NC -4\NR \NC -3\NC 3}=C\NR
+\NC BC\NC ={1\F 7^2}\Matrix{\NC 12-12\NC -12+12\NR \NC 12-12\NC -12+12}=0\NR
+\NC CB\NC ={1\F 7^2}\Matrix{\NC 12-12\NC 16-16\NR \NC -9+9\NC -12+12}=0\NR
+}
+\stopformula
+En particulier, $B$ et $C$ sont des matrices de projecteurs qui commutent.
+\item Pour $n⩾1$, il résulte alors du binôme de Newton ($B$ et $C$ commutent) que
+\startformula
+\Align{
+\NC A^n\NC \displaystyle=\Q(B-{1\F 6}C\W)^n=∑_{k=0}^n{n\choose k}\Q(-{1\F 6}C\W)^kB^{n-k}\NR
+\NC\NC \displaystyle=B^n+\Q(-{1\F 6}C\W)^n+∑_{k=1}^{n-1}{n\choose k}\Q(-{1\F 6}C\W)^kB^{n-k}\NR
+\NC\NC \displaystyle=B+\Q(-{1\F 6}\W)^nC+∑_{k=1}^{n-1}{n\choose k}\Q(-{1\F 6}\W)^k\underbrace{CB}_{0}\NR
+\NC\NC \displaystyle=B+\Q(-{1\F 6}\W)^nC
+}
+\stopformula
+En particulier, nous obtenons que $A^n=B+\Q(-{1\F 6}\W)^nC∈\Vect(B,C)$
+\item Il résulte du calcul précédent que $\lim_{n→+∞}A^n=B$. Par ailleurs, nous déduisons de la formule des sommes géométriques que 
+\startformula
+\Align{
+\NC P_n(A)\NC \displaystyle={1\F n}∑_{k=0}^{n-1}A^k={1\F n}\Q(I_2+∑_{k=1}^{n-1}\Q(B+\Q(-{1\F 6}\W)^kC\W)\W)\NR
+\NC\NC \displaystyle={1\F n}\Q(I_2+(n-1)B+ \Q(∑_{k=1}^{n-1}\Q(-{1\F 6}\W)^k\W)C\W)\NR
+\NC\NC \displaystyle={1\F n}\Q(I_2+(n-1)B+ {-{1\F 6}-\Q(-{1\F 6}\W)^n\F 1+{1\F 6}}C\W)
+}
+\stopformula
+En particulier, nous obtenons que $\displaystyle\lim_{n→+∞}P_n(A)=B$
+\stopList
+\item\startList
+\item Nous remarquons que 
+\startformula
+M^2=\Matrix{
+\NC 0\NC 0\NC 1\NR
+\NC 1\NC -3\NC 3\NR
+\NC 3\NC -8\NC 6}\qquad\Et\qquad 
+M^3=\Matrix{
+\NC 1\NC -3\NC 3\NR
+\NC 3\NC -8\NC 6\NR
+\NC 6\NC -15\NC 10}
+\stopformula
+Alors, nous remarquons que 
+\startformula
+M^3-3M^2+3M-I_3=\Matrix{
+\NC 1-1\NC -3+3\NC 3-3\NR
+\NC 3-3\NC -8+9-1\NC 6-9+3\NR
+\NC 6-9+3\NC -15+24-9\NC 10-18+9-1}=0
+\stopformula
+de sorte que le polynôme unitaire $P=X^3-3X^2+3X-1$ est un polynôme annulateur de $M$. 
+\item Procédons à la division euclidienne (théorique) de $X^n$ par $P$. Alors, il existe deux polynômes $Q∈ℝ[X]$ et $P∈R_2[X]$ uniques tels que $X^n=PQ+R$.
+{\it On veut surtout le reste de la division en fait...}
+
+Comme $P=X^3-3X^2+3X-1=(X-1)^3$, en substituant $1$ à $X$ puis en dérivant et en substituant $1$ à $X$, puis en dérivant $2$ fois et en substituant $1$ à $X$ dans 
+\startformula
+X^n=PQ+R=(X-1)^3Q+a+bX+cX^2,
+\stopformula
+il vient
+\startformula
+\System{
+\NC a+b+c = 1\NR
+\NC b+2c = n\NR
+\NC 2c = n(n-1)
+}⟺ \System{
+\NC c={n(n-1)\F 2}\NR
+\NC b=n-n(n-1)=n(2-n)\NR
+\NC a=1-b-c=1-{n(n-1)\F 2}-n(2-n)={n^2-3n+2\F 2}
+}
+\stopformula
+
+En notant $R=a+bX+cX^2$ et en substituant $M$ à $X$ il vient
+\startformula
+\Align{
+\NC X^n\NC =P(M)Q(M)+R(M)=0+aI_3+bM+cM^2\NR
+\NC\NC ={n^2-3n+2\F 2}I_3+n(2-n)M+{n(n-1)\F 2}M^2\qquad(n⩾1)
+}
+\stopformula
+\item La suite $\big(P_n(M)\big)_{n⩾1}$ n'est pas convergente. {\it Prouvons le par l'absurde en essayant d'éviter de souffrir}.
+En effet, si elle était convergente alors 
+\startformula
+(I_3-M)×P_n(M)={1\F n}(1-M)∑_{k=0}^{n-1}M^k={1\F n}\Q(I_3-M^n\W)
+\stopformula
+le serait aussi et en particulier, la suite ${1\F n}M^n$ serait convergente, ce qui n'est clairement pas le cas, vu l'expression trouvée à la question précédente.
+\stopList
+\item\startList
+\item {\it Wow, des permutations maintenant et le symbôle de Kronecker...qui n'est pas expliqué, c'est mal...
+\startformula
+δ_{i,j}=\System{
+\NC 1 \NC \Si i=j\NR
+\NC 0 \NC \Si i≠j}
+\stopformula
+Autrement dit, la matrice $A_σ$ a un $1$ par ligne. Sur la ligne $i$, le $1$ est situé sur la colonne de même rang que $σ(i)$, l'image par $i$ de la permutation
+}
+\item Notons $A_σ=(a_{i,j})_{1⩽i⩽n\atop 1⩽j⩽n}$, $A_τ=(b_{i,j})_{1⩽i⩽n\atop 1⩽j⩽n}$ et $A_σA_τ=(c_{i,j})_{1⩽i⩽n\atop 1⩽j⩽n}$. Soit $i∈⟦1,n⟧$ et $j∈⟦1,n⟧$. D'après le cours, on a 
+\startformula
+\Align{
+\NC c_{i,j}\NC \displaystyle=∑_{k=1}^na_{i,k}b_{k,j}=∑_{k=1}^n\underbrace{δ_{i, σ(k)}δ_{k,τ(j)}}_{\rlap{=0 \text{ si $i≠σ(k)$ ou $k≠τ(j)$ et $=1$ sinon}}}\NR
+\NC\NC \displaystyle= δ_{i, σ(σ^{-1}(i))}δ_{σ^{-1}(i),τ(j)}=δ_{σ^{-1}(i),τ(j)}=δ_{i,σ(τ(j))}
+}
+\stopformula
+(la seule valeur de $k$ pouvant donner autre chose que $0$ est $k=σ^{-1}(i)$ et on a également $σ^{-1}(i)=τ(j) ⟺i=σ(τ(j))$ ). En particulier, on obtient que la matrice $A_σA_τ$ a les mêmes coefficients que la matrice $A_{σ∘τ}$, de sorte que 
+\startformula
+A_σA_τ=A_σ∘τ
+\stopformula
+{\it Pour info, les MP* font ce genre de question relativement souvent et ils en ont plusieurs comme cela à tous leurs ds...
+La, il valait mieux l'admettre peut être ^^}
+\item On a $A_{Id}=I_p$ (les $1$ sont tous sur la diagonale principale) et comme $A_σA_{σ^{-1}}=A_{σ∘σ^{-1}}=A_{Id}=I_p$, nous remarquons que la matrice $A_σ$ est inversible, d'inverse 
+$A_{σ^{-1}}$. 
+\item Il y a $p!$ permutations de $⟦1,p⟧$ et il y a donc autant de matrices de permutation
+\item Comme il n'y a qu'un nombre fini de matrice de permutations et comme les matrices $(A_σ)^n=A_{σ^n}$ sont toutes des matrices de permutation pour $n⩾1$, il y en a au moins eux qui sont égales. autrement dit, 
+il existe deux entiers distincts $p$ et $q$ tels que $(A_σ)^p=(A_σ)^q$. 
+{\it Wow, on fait ce genre de raisonnement quand on fait de la théorie des groupes... ça a l'air fun fun la prépa ECS à st louis...}
+\item Comme $(A_σ)^p=(A_σ)^q$ et comme ces matrice sont inversibles, on remarque que 
+\startformula
+(A_σ)^p\Q((A_σ)^q\W)^{-1}=I_r=(A_σ)^p(A_σ)^{-q}=(A_σ)^{p-q}
+\stopformula
+En particulier, il existe un entier $r=p-q≠0$ tel que $(A_σ)^r=I_p$
+{\it en prenant pour $p$ le plus grand des deux entiers et pour $q$ le plus petit des entiers, on obtient également que $r=q-p>0$ de sorte que $r⩾1$}
+\item La suite $(A_σ)^n$ est $r$-périodique car 
+\startformula
+(A_σ)^{n+r}=(A_σ)^n(A_σ)^r=(A_σ)^nI-r=(A_σ)^n\qquad(n⩾1)
+\stopformula
+\item {\it Bon, la je crois que l'auteur souhaite nous voir faire un raisonnement avec les matrices identique à celui utilisé pour obtenir le lemme au 1 (que l'on a jamais utilisé).
+Si on fait le parallèle, la suite $(A_σ)^n$ est $r$-périodique et donc $P_n(A_σ)$ est sensé converger d'après le lemme vers $y={1\F n}∑_{k=0}^{r-1}(A_σ)^k$, etc...\crlf
+bref, passons à l'exercice
+}
+\stopList
+\stopList
+
+
+\centerline{Correction de l'exercice}
+
+{\it Préparons nous à un festival de méthode MARRE}
+\startList
+\item Soit $k∈ℕ$.  
+\startitemize[1]
+\item Montrons que $N_k⊂N_{k+1}$. Soit $x∈N_k=\ker(f^k)$. Alors $f^k(x)=0$ de sorte que $f^{k+1}(x)=f\Q(f^k(x)\W)=f(0)=0$ et par conséquent $x∈\ker(f^{k+1})=N_{k+1}$. CQFD
+\item Montrons que $I_{k+1}⊂I_k$. Soit $y∈I_{k+1}=\IM(f^{k+1})$. Alors il existe $x∈ℝ^n$ tel que $y=f^{k+1}(x)$ et alors, on remarque que $y=f^k(f(x))∈\IM(f^k)=I_k$. CQFD
+\stopitemize 
+\item Supposons qu'il n'existe pas d'entiers $p⩽n$ tel que $N_p=N_{p+1}$. Alors la suite croissante de noyau $N_1⊂N_2⊂N_3⊂⋯⊂N_n⊂N_{n+1}$ est strictement croissante (aucun noyau n'est égale au suivant), de sorte qu'en pmrenant leur dimension, on obtient que 
+\startformula
+\dim(N_1)<\dim(N_2)<\dim(N_3)<⋯<\dim(N_{n+1})
+\stopformula
+Mais alors, on obtient une suite strictement croissante de $n+1$ entiers de $⟦0,n⟧$. De sorte que $\dim(N_1)=0$, d'où $f$ est injective et donc bijective mais dans ce cas tous les noyaux $N_k$ valent $\{0\}$ et on a notre contradiction...
+CQFD, il existe au moins un entier $p⩽n$ tel que $N_p=N_{p+1}$.
+{\it Il y a une idée importante à retenir ici : quand une application $f$ a un noyau de dimension non nulle, les noyaux itérés de $f$ ont une dimension qui augmente strictement puis qui devient constante}
+\item $I_{p+1}=I_p$ d'après a) Et il résulte du théorème du rang que 
+\startformula
+\dim(I_{p+1})=\dim(ℝ^n)-\dim(N_{p+1})=\dim(ℝ^n)-\dim(N_p)=\dim(I_p)
+\stopformula
+Comme les noyaux ont même dimension finie et l'un est inclus dans l'autre, on a $I_{p+1}=I_p$. 
+\item Pour $k∈ℕ$, prouvons par récurrence la proposition $\mc P_k:N_{p+k}=N_p$. 
+\startitemize[1]
+\item Les propositions $\mc P_0$ et $\mc P_1$ sont vraies d'après le résultat de la question b 
+\item Supposons la proposition $\mc P_k$ pour un entier $k⩾0$. 
+
+Rappelons que $N_k⊂N_{p+k+1}$ (suite croissante de noyaux) et montrons maintenant que $N_{p+k+1}⊂N_p$.
+
+Soit $x∈N_{p+k+1}=\ker(f^{p+k+1})$. alors, on a $0=f^{p+k+1}(x)=f^{p+k}\big(f(x)\big)$. A fortiori, $f(x)∈\ker(f^{p+k})=N_{p+k}=N_p=\ker(f^p)$ de sorte que 
+\startformula
+0=f^p\big(f(x)\big)=f^{p+1}(x).
+\stopformula
+En particulier $x∈\ker(f^{p+1})=N_{p+1}=N_p$. CQFD
+
+En conclusion, $N_{p+k+1}⊂N_p$ et $N_p=N_{p+k+1}$ de sorte que la proposition $\mc P_{k+1}$ est vraie
+\stopitemize
+En conclusion, la proposition $\mc P_k$ est vraie pour $k∈ℕ$. 
+\item On remarque que $N_p∩I_p=\{0\}$. En effet, si $y∈N_p∩I_p$, alors $f^p(y)=0$ et il existe un $x∈ℝ^n$ tel que $y=f^p(x)$ mais alors $0=f^p(y)=f^p(f^p(x))=f^{2p}(x)$
+et donc $x∈N_{2p}=N_p$ de sorte que $y=f^p(x)=0$. .
+En particulier, nous obtenons que $I_p⊕N_p$. Par ailleurs, il résulte du thèorème du rang appliqué à la fonction $f^p$ que 
+$\dim(ℝ^n)=\dim\ker (f^p)+\dim(\IM(f^p)=\dim N_p+\dim I_p=\dim(N_p⊕I_p)$.
+Comme $I_p⊕N_p⊂ℝ^n$, il vient
+\startformula
+ℝ^n=I_p⊕N_p
+\stopformula
+{\it magnifique...}
+
+\stopList
+
+
+
+
+
+
+
+\stoptext
+\stopcomponent
+\endinput

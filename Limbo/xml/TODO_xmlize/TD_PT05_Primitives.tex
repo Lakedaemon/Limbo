@@ -1,0 +1,151 @@
+\catcode`@=11\relax
+\def\Api{Mathematicon@Api}%
+\input LD@Header.tex
+\input LD.tex
+
+\DefineRGBcolor F0F9E3=VLGreen.
+\DefineRGBcolor E5F9D1=LGreen.
+\DefineRGBcolor DAF9BE=TGreen.
+\DefineRGBcolor 5DA93B=Green.
+\DefineRGBcolor F6DCCA=VLRed.
+\DefineRGBcolor F6D4BD=LRed.
+\DefineRGBcolor DAF9BE=TRed.
+\DefineRGBcolor B5F9A1=TTRed.
+\DefineRGBcolor F6B080=Red.
+\DefineRGBcolor F9F5E3=VLOrange.
+\DefineRGBcolor F9F5D0=LOrange.
+\DefineRGBcolor DAF9BE=TOrange.
+\DefineRGBcolor B5F9A1=TTOrange.
+\DefineRGBcolor D7A93B=Orange.
+\DefineRGBcolor EEEEEE=VLBlack.
+\DefineRGBcolor DDDDDD=LBlack.
+\DefineRGBcolor CCCCCC=TBlack.
+\DefineRGBcolor B5F9A1=TTBlack.
+\DefineRGBcolor 000000=Black.
+
+%\DefineRGBcolor 000000=Green.
+%\definecolor{ColorVLGreen}{rgb}{1,1,1}%
+%\definecolor{ColorLGreen}{rgb}{1,1,1}%
+%\definecolor{ColorTGreen}{rgb}{1,1,1}%
+%\expandafter\definecolor\temp
+%\DefineRGBcolor 000000=Red.
+%\definecolor{ColorVLRed}{rgb}{1,1,1}%
+%\definecolor{ColorLRed}{rgb}{1,1,1}%
+%\definecolor{ColorTRed}{rgb}{1,1,1}%
+\input LD@Exercices.tex
+\catcode`@=11\relax
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%															%
+%						Primitives : prérequis pour les équas diffs				%
+%															%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% TD 5.
+\vglue-10mm\rightline{Sp\'e PT\hfill TD 5 : Primitives\hfill}%\date}
+\bigskip
+\vfill
+
+
+
+\centerline{Primitives}
+\hrule
+\medskip\noindent
+On rappelle que la notation $\int f(t)\d t$ sans bornes se traduit par ``{\bf une} primitive de $f$'' \pn 
+{\it  Retenir : s'il n'y a pas de bornes, c'est qu'il s'agit de primitives et non pas d'int\'egrales. }
+\medskip 
+Le $\d t$ est la pour pr\'eciser la variable (ici $t$) d'int\'egration (avec laquelle on travaille) et 
+l'on pr\'ecise en g\'en\'eral sur quel intervalle on calcule les primitives. \medskip
+\noindent
+Ne pas oublier que la notation  $\int f(t)\d t$ contient  implicitement une constante additive.
+\medskip
+
+\noindent
+{\bf Exemples : }
+$$
+\eqalign{
+\int\cos(t)\d t &=\sin(t)+c\qquad(t\in\ob R).\cr
+\int{\d u\F\sqrt{1-u^2}}&=\arcsin(u)+d\qquad(-1<u<1).
+}
+$$
+\bigskip
+\centerline{Int\'egrer par partie}
+\hrule
+\medskip\noindent
+Pour calculer des primitives de $fg'$ sur un intervalle $I$, l'int\'egration par partie consiste \`a : \pn
+1) v\'erifier (s'il vous plait) que les fonctions $f$ et $g$ sont de classe $\sc C^1$ sur $I$. \pn
+2) \'ecrire que  
+$$
+\int f'(t)g(t)\d t=f(t)g(t)-\int f(t)g(t)\d t\qquad(t\in I).
+$$
+{\bf Exemple : }
+$$
+\int t\e^t\d t=t\e^t-\int \e^t\d t=t\e^t-\e^t+c\qquad (t\in\ob R).
+$$\bigskip
+
+\centerline{Changement de variable $x=\varphi(t)$ pour $t\in I$}
+\hrule
+\medskip\noindent
+Pour  proc\'eder au changement de variable $x=\varphi(t)$ pour $t\in I$: \pn 
+1) v\'erifier (s'il vous plait) que $\varphi:I\to J$ est un diff\'eomorphisme de classe $\sc C^1$. \pn
+2) calculer $\d x=\varphi'(t)\d t$. \pn
+3) utiliser que $x=\varphi(t)$ pour $t\in I$ et \'ecrire que 
+$$
+\int f(x)\d x=\int f\big(\varphi(t)\big)\varphi'(t)\d t\qquad (t\in I). 
+$$
+4) \`a la fin du raisonnement, utiliser le changement inverse $x=\varphi^{-1}(t)$ pour $x\in J$. \medskip
+
+\noindent
+{\bf Exemple : }changement de variable $x=\ln(t)$. \medskip
+$$
+\eqalign{
+\int{\e^x\d x\F1+2\e^x}=\int {t\F 1+2t}{\d t\F t}=\int{\d t\F 1+2t}&={\ln(1+2t)\F 2}+c\qquad (t>0)\cr
+&={\ln(1+2\e^x)\F 2}+c\qquad (x\in\ob R).
+}
+$$
+En effet $t\mapsto\ln(t)$ est un diff\'eomorphisme de classe $\sc C^1$ de $I=]0,+\infty[$ dans $J=\ob R$. \bigskip
+\bigskip
+
+\centerline{primitives des fonctions continues}
+\hrule
+\medskip\noindent
+Si $f$ est une fonction continue sur un intervalle $I$ contenant un point $a$, alors, $f$ admet des primitives sur l'intervalle $I$ donn\'ees par 
+$$
+\int f(t)\d t=\int_a^tf(u)\d u+c\qquad (t\in I).
+$$
+\eject\vfill\noindent
+Exercice{} 1. Primitiver les fonctions suivantes (on pr\'ecisera sur quel ensemble) : 
+$$
+\eqalign{
+&f_1(x):=x\ln(x), \qquad f_2(x):=\arctan(x), \qquad  f_3(x)=\ch(x)^3,\qquad f_4(x)=\ch(x)\sin(x),\cr
+&f_5(x)={\ln(x)\F x}, \qquad f_6(x)={1\F x\ln(x)},\qquad f_7(x):=\cotan(x),\cr
+& f_8(x):={1\F \cos(x)},\qquad f_9(x):=\tan(x)^3,\qquad f_{10}(x)=\sin(x)^4\cr
+&f_{11}(x)=x^2\e^x, \qquad f_{12}(x)={1\F x(x+1)}, \qquad f_{13}(x)={\ln(1+x)\F(1+x)^2}\cr
+&f_{14}(x)={x^2-5x+6\F x+1}, \qquad f_{15}(x):=\sh(2x)^2\ch(3x),\qquad f_{16}(x)={1\F \sin(x)^2}\cr
+& f_{17}(x)={1\F x^2-1}, \qquad f_{18}(x)={1\F(x^2-1)^2}, \qquad f_{19}(x)={1\F(x^2-1)^3},\cr
+&f_{20}(x)={1\F 1+x^2}, \qquad f_{21}(x)={1\F(1+x^2)^2}, \qquad f_{22}(x)={1\F(1+x^2)^3}
+}
+$$\bigskip\noindent
+Exercice 2. Calculer les int\'egrales suivantes : 
+$$
+I_1=\int_0^1\ln (1 + x^2)\d x, \qquad I_2:=\int_0^1 {\d x\F x^2+2}, \qquad I_3:= \int_{-1/2}^{1/2}{\d x\F 1-x^2}.
+$$
+Exercice 3. Calculer$\ds I=\int_0^{\ln 2}\sqrt{e^x-1} \d x$ via le changement de variables $ u=\sqrt{e^x-1}$.  
+\bigskip\bigskip\noindent
+Exercice 4. Soient $I:= \int_0^\pi x\cos(x)^2\d x$ et $J :=\int_0^\pi x\sin(x)^2\d x$.\pn
+1. Calculer $ I$ et $ I + J$.\pn
+ 2. En d\'eduire $ J$.
+\bigskip
+\bigskip
+\noindent
+Exercice 5. Calculer les primitives suivantes :
+$$
+\int {1\F \sqrt{2+x}+\root3\of{2+x}}\d x, \qquad (t=\root 6\of {2+x})
+$$
+$$\int {1\F ((x-1)^2-4)^2}\d x, \qquad (x=1+2\th(u) \mbox{ ou }x=1+2\coth u) 
+$$
+
+$$ 
+\int (\arcsin x)^2 \d x \qquad ; \qquad \int x^2 \sqrt{1+x^3}\d x. 
+$$ 
+\bye

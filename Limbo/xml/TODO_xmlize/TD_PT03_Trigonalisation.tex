@@ -1,0 +1,161 @@
+\catcode`@=11\relax
+%\def\Api{Mathematicon@Api}%
+\input LD@Header.tex
+\input LD@Library.tex
+\input LD@Exercices.tex
+\input LD@Typesetting.tex
+
+\DefineRGBcolor F0F9E3=VLGreen.
+\DefineRGBcolor E5F9D1=LGreen.
+\DefineRGBcolor DAF9BE=TGreen.
+\DefineRGBcolor 5DA93B=Green.
+\DefineRGBcolor F6DCCA=VLRed.
+\DefineRGBcolor F6D4BD=LRed.
+\DefineRGBcolor DAF9BE=TRed.
+\DefineRGBcolor B5F9A1=TTRed.
+\DefineRGBcolor F6B080=Red.
+\DefineRGBcolor F9F5E3=VLOrange.
+\DefineRGBcolor F9F5D0=LOrange.
+\DefineRGBcolor DAF9BE=TOrange.
+\DefineRGBcolor B5F9A1=TTOrange.
+\DefineRGBcolor D7A93B=Orange.
+\DefineRGBcolor EEEEEE=VLBlack.
+\DefineRGBcolor DDDDDD=LBlack.
+\DefineRGBcolor CCCCCC=TBlack.
+\DefineRGBcolor B5F9A1=TTBlack.
+\DefineRGBcolor 000000=Black.
+
+%\DefineRGBcolor 000000=Green.
+%\definecolor{ColorVLGreen}{rgb}{1,1,1}%
+%\definecolor{ColorLGreen}{rgb}{1,1,1}%
+%\definecolor{ColorTGreen}{rgb}{1,1,1}%
+%\expandafter\definecolor\temp
+%\DefineRGBcolor 000000=Red.
+%\definecolor{ColorVLRed}{rgb}{1,1,1}%
+%\definecolor{ColorLRed}{rgb}{1,1,1}%
+%\definecolor{ColorTRed}{rgb}{1,1,1}%
+
+\catcode`@=11\relax
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%															%
+%						TD 03 : Trigonalisation						%
+%															%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vglue-10mm\rightline{PT\hfill TD 3 :  Trigonalisation\hfill}
+\bigskip
+\bigskip\noindent\null
+\vfill
+\tikzstyle{object}=[ellipse,fill=red!20, draw,inner sep=0.5em,text depth=-0.2em]
+\tikzstyle{operator}=[rectangle,rounded corners,fill=blue!20, draw,text height=1em,text depth=0.2em,inner sep=0.4em]
+\tikzstyle{fork}=[diamond,fill=green!20, draw,text height=1.2em,text depth=0.2em]
+\tikzstyle{line}=[draw,line width=0.5ex]
+\tikzstyle{thinline}=[draw,line width=0.2ex]
+\tikzpicture
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\node[object,text width=2.3cm] (a) {\eightpts Valeur propre $\lambda$\pn de multiplicit\'e $m$} ;
+\node[operator,node distance=4cm,right of=a,text width=2.4cm,text height=1.8em] (b) {\eightpts\quad R\'esolution de\pn$(A-\lambda I_n)X=0$} ;
+\node[above of=b,node distance=0.8cm] (bb) {$k=1$};
+\node[object,text width=2.4cm, yshift=0.5cm,right of=b,node distance=4cm] (c) {\eightpts Espace propre $E_\lambda$} ;
+\node[object,text width=2.3cm, below of=c] (d) {\eightpts $\sc B$ base de $E_\lambda$} ;
+\node[fork,node distance=2cm,below of=d,text width=1.2cm] (e) {\eightpts $\sc B$ a $m$\pn vecteurs} ;
+\node[right of=e,node distance=3cm,regular polygon,regular polygon sides=6,draw=red,line] (g) {$\!\!\!$Stop$\!\!\!$};
+\path (e)-- node[midway,fill=white] (f) {oui} (g) ;
+\node[operator,node distance=2.5cm,below of=b,text width=2.4cm,text height=1.8em] (i) {\eightpts\quad R\'esolution de\pn$(A-\lambda I_n)^kX=0$} ;
+\path (e)-- node[midway,fill=white] (h) {\eightpts non } (i) ;
+\node[above of=i,node distance=0.8cm] (ii) {ajouter $1$ \`a $k$};
+\node[object,text width=2.5cm, yshift=0.7cm,left of=i,node distance=4cm] (j) {\eightpts Espace solution $E$} ;
+\node[object,text width=2.5cm,text height=1.4em, node distance=1.3cm,below of=j] (k) {\eightpts Compl\'eter $\sc B$ en une base de $E$} ;
+
+\pgfonlayer{background}
+	\draw[->,thinline] (a) -- (b) ;
+	\draw[->,thinline] (b) -- (c.west) ;
+	\draw[->,thinline] (c) -- (d) ;
+	\draw[->,thinline] (d) -- (e) ;
+	\draw [->,thinline] (e) -- (g) ;
+	\draw [->,thinline] (e) -- (i) ;
+	\draw [->,thinline] (i) -- (j.east) ;
+	\draw [->,thinline] (j) -- (k) ;
+	\draw [->,thinline] (k.south) -- +(0 cm,-0.3cm) -| (e.south) ;
+\endpgfonlayer
+\endtikzpicture
+\par
+\vfill
+\bigskip\bigskip\bigskip
+\medskip
+\centerline{Pour Trigonaliser une matrice}
+\medskip
+
+On proc\`ede presque comme pour la diagonalisation :  seules les \'etapes 3 et 4 sont l\'eg\`erement diff\'erentes. 
+\medskip
+\noindent
+{\bf Etape 1 : }Ecrire la relation $P(\lambda)=\det(A-\lambda\hbox{I}_n)$, en dessinant la matrice. \medskip\noindent
+\medskip
+\noindent
+{\bf Etape 2 : }Calculer et factoriser $P$. En d\'eduire les valeurs propres $\lambda$ et leur multiplicit\'e~$m_\lambda$.\medskip\noindent
+\medskip
+\noindent
+{\bf Etape 3 : }Pour chaque valeur propre $\lambda$ : \pn 
+a) R\'esoudre le syst\`eme $(A-\lambda\hbox{I}_n)X=0$ et en d\'eduire une base~$\sc B_\lambda$ de l'espace propre de $\lambda$. \pn
+b) Prendre $k=1$. Tant que la base $\sc B_\lambda$ comporte moins de $m$ vecteurs, effectuer l'\'etape n\'ecessaire suivante (\'eventuellement plusieurs fois) :\pn
+c) Ajouter $1$ \`a $k$, r\'esoudre le syst\`eme $(A-\lambda\hbox{I}_n)^kX=0$ et compl\'eter $\sc B_\lambda$ en une base de l'espace des solutions de ce syst\`eme. 
+\medskip\noindent
+{\bf Etape 4 : } a) Mettre toutes les bases $\sc B_\lambda$ bout \`a bout pour fabriquer une grande base $\sc B$ en respectant la contrainte suivante : 
+$$
+\hbox{\it l'ordre $k$ de fabrication de deux vecteurs associ\'es \`a une m\^eme valeur propre doit \^etre respect\'e}. 
+$$
+b) Ecrire la relation $A=PTP^{-1}$. \pn
+c) Ecrire la matrice $P$ dont les colonnes sont les vecteurs de la grande base $\sc B$. \pn
+d) Ecrire la matrice triangulaire $T$ de l'endomorphisme $X\mapsto AX$ dans la base $\sc B$. \pn
+{\it Cette matrice aura la particularit\'e utile suivante :}
+$$ 
+\vbox{\it Chaque coefficient de la diagonale principale de $T$ sera la valeur propre associ\'e au vecteur de $P$ dispos\'e sur la m\^eme colonne.} 
+$$
+\medskip
+\noindent
+{\bf Etape 5 : }Au besoin, inverser la matrice $P$ pour obtenir la matrice $P^{-1}$. 
+\def\LD@Exercice@Display@Code{}%
+%\def\LD@Exercice@Display@Code@Post{}%
+\LD@Inferno@Master@false
+\eject
+\Exercice{PTann}%
+\bigskip
+\Exercice{PTajf}%
+
+\bigskip
+\Exercice{PTajh}%
+\bigskip
+\Exercice{PTaji}%
+\bigskip
+\Exercice{PTajg}%
+\bigskip
+\Exercice{PTajj}%
+
+
+\unless\ifLD@Inferno@Master@
+	\eject
+	\Chapter Indications, Indications.
+
+	\LD@Exo@Indication@Display
+
+	\Chapter Notions, Notions.
+
+	\LD@Exo@Notion@Display
+
+	\Chapter Solutions, Solutions.
+
+	\LD@Exo@Sol@Display
+\fi
+\bye
+
+
+
+
+
+
+
+
+

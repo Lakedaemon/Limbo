@@ -1,0 +1,78 @@
+\catcode`@=11\relax
+
+\input LD@Maths@TD.tex
+
+\vglue-10mm\rightline{Spé PT\hfill TD 14 :  Intégrales généralisées à un paramètre\hfill}
+\bigskip
+
+{\eightpts
+Dans tout ce TD, on va étudier une fonction $F$ définie par une intégrale à un paramètre, i.e du type 
+$$
+\forall x\in I, \qquad F(x):=\int_a^bf(x,t)\d t.
+$$
+\bigskip
+
+\centerline{Pour prouver qu'une intégrale impropre à un paramètre est continue}
+\hrule
+\medskip\noindent
+
+\Theoreme [$a<b$ dans $\ol{\ob R}$, $I$ intervalle, $f:(t,x)\mapsto f(t,x)$ application]  
+Si l'application $t\mapsto f(t,x)$ est continue  par morceaux sur $]a,b[$ pour chaque $x\in I$ fixé, \pn
+si l'application $x\mapsto f(t,x)$ est continue sur $I$ pour chaque nombre réel $t\in[a,b]$ fixé et \pn
+s'il existe  $g:]a,b[\to\ob R^+$ continue par morceaux telle que $\int_a^bg(t)\d t$ converge et telle que 
+$$
+\big|f(t,x)\big|\le g(t)\qquad(a<t<b, x\in I), \leqno{(\hbox{\it hypothèse de domination de } f)}
+$$
+alors l'intégrale $F(x):=\int_a^bf(t,x)\d t$ converge absolument pour chaque nombre $x\in I$ et 
+la fonction $F:I\to\ob C$ est continue sur $I$. En particulier, pour chaque $x_0\in I$, on a  
+\Equation [\hbox{\bf Convergence dominée}] 
+$$
+\lim_{x\to x_0}\underbrace{\int_a^bf(t,x)\d t}_{F(x)}=\underbrace{\int_a^b\lim_{x\to x_0}f(t,x)\d t}_{F(x_0)}. 
+$$
+
+\bigskip
+
+\Exercice{PTjz}
+\bigskip
+
+\centerline{Pour prouver qu'une intégrale impropre à un paramètre est de classe $\sc C^k$}
+\hrule
+\medskip\noindent
+
+\Theoreme  [$k\in\ob N^*$, $a<b$ dans $\ol{\ob R}$, $I$ intervalle, $f:(t,x)\mapsto f(t,x)$ application]  
+Si l'application $x\mapsto f(x,t)$ est de classe $\sc C^k$ sur $I$ pour $t\in[a,b]$ fixé,  \pn
+si  $t\mapsto\ds{\partial f^n\F\partial x^n}(x,t)$ est $\sc C^0$ P.M. et si $\int_a^b\Q|{\partial f^n\F\partial x^n}(x,t)\W|\d t$ converge  pour $x\in I$ et $0\le n\le k$ fixés et 
+s'il~existe   $g:]a,b[\to\ob R^+$continue par morceaux telle que~$\int_a^bh(t)\d t$ converge et telle que 
+$$
+\Q|{\partial f^k\F\partial x^k}(t,x)\W|\le g(t)\qquad(a<t<b, x\in I), \leqno{(\hbox{\it hypothèse de domination de }{\partial f^k\F\partial x^k})}
+$$
+alors l'intégrale $F(x):=\int_a^bf(t,x)\d t$ converge absolument pour chaque nombre $x\in I$ et 
+la fonction $F:I\to\ob C$ est de classe~$\sc C^1$ sur $I$ et vérifie
+\Equation 
+$$
+\forall n\in\{0, \cdots, k\}, \quad \forall x\in I, \qquad {\d^n\F\d x^n}\underbrace{\int_a^bf(t,x)\d t}_{F(x)}=\int_a^b{\partial^n f\F\partial x^n}(t,x)\d t. 
+$$
+
+}
+\bigskip
+\Exercice{PTmr}
+\bigskip
+
+\Exercice{PTjw}
+\bigskip
+
+\Exercice{PTdg}
+\bigskip
+\Exercice{PTms}
+
+
+\bigskip
+\Exercice{PTmp}
+\bigskip
+\Exercice{PTmo}
+
+
+\centerline{\fourteenbf Problème (à rendre vendredi 19/11)}
+\bigskip
+\Exercice{PTaql}
+\bye

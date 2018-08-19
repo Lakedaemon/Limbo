@@ -1,0 +1,229 @@
+%2multibyte Version: 5.50.0.2953 CodePage: 65001
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{Codepage=65001}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Tuesday, February 11, 2014 09:26:47}
+%TCIDATA{LastRevised=Wednesday, June 29, 2016 08:58:27}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{PageSetup=28,28,28,28,0}
+%TCIDATA{AllPages=
+%H=36
+%F=36
+%}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+\begin{document}
+
+
+\subsection{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \protect\underline{Chapitre 6 : l'instruction while.}}
+
+\bigskip
+
+\subsubsection{\protect\underline{1. D\'{e}finition de l'instruction while.}}
+
+\paragraph{\protect\underline{1.1. R\'{e}daction.}}
+
+La boucle while correspond \`{a} "tant que ".
+
+R\'{e}daction : $\ 
+\begin{array}{c}
+while\text{ cond 1 } \\ 
+Instruction\text{ }1; \\ 
+\vdots \\ 
+Instruction\text{ }p; \\ 
+end \\ 
+Inst\text{ }A%
+\end{array}%
+$
+
+Elle fonctionne de la fa\c{c}on suivante :
+
+Si la condition bool\'{e}enne cond 1 est vraie, le bloc d'instruction est ex%
+\'{e}cut\'{e}, puis on recommence la boucle.
+
+Sinon on arr\^{e}te d'effectuer la boucle et on effectue l'instruction A .
+
+Il est clair que le bloc d'instructions doit pouvoir modifier
+l'environnement de mani\`{e}re \`{a} ce que l'expression bool\'{e}enne
+puisse au bout d'un nombre fini d'\'{e}tapes prendre la valeur fausse ( \%F).
+
+\paragraph{\protect\underline{1.2. Propri\'{e}t\'{e}s.}}
+
+\underline{Quelle boucle utiliser ?}
+
+On utilise les boucles for lorsqu'on conna\^{\i}t \`{a} priori le nombre d'it%
+\'{e}rations. Dans le cas contraire on utilise une boucle while.
+
+\underline{Comment compter le nombre d'it\'{e}rations ?}
+
+Lors de l'utilisation de la boucle while, m\^{e}me si l'on ne conna\^{\i}t
+pas \`{a} l'avance le nombre d'it\'{e}rations \`{a} effectuer, on peut avoir
+besoin de les d\'{e}compter ou d'en conna\^{\i}tre le nombre final.
+
+C'est le cas lorsque l'on effectue des calculs sur des suites r\'{e}%
+currentes.
+
+Pour ce faire, il suffit d'introduire un compteur qui compte 1 \`{a} chaque
+passage dans la boucle.
+
+On d\'{e}finit donc une variable k, \`{a} initialiser en dehors de la
+boucle, et on \'{e}crit dans la boucle l'instruction $"k=k+1".$
+
+\subsubsection{\protect\underline{2. Exercices.}}
+
+\paragraph{\protect\underline{Exercice 1 :}}
+
+1. On consid\`{e}re le programme Scilab suivant :
+
+v=input('donner un entier naturel v= ');
+
+\ \ s = 1;
+
+i = 1;
+
+\ \ while $s<v$
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i = 1+i;
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s= s + 1/i;
+
+\ \ \ end
+
+disp(s, 'la valeur est ');
+
+Pour v = 2, donner la valeur affich\'{e}e par l'ordinateur.
+
+2. On d\'{e}montre que la suite $u$ d\'{e}finie pour tout $n\geq 1$ par $%
+u_{n}=\underset{k=1}{\overset{n}{\sum }}\frac{1}{k}-\ln n$ est une suite d%
+\'{e}croissante, minor\'{e}e par 0 et donc convergente.Sa limite est appel%
+\'{e}e constante d'Euler $C$ avec $C\approx 0.577215.$
+
+Modifier le programme pr\'{e}c\'{e}dent pour qu'il d\'{e}termine la valeur
+de $n$ \`{a} partir de laquelle la valeur de $u_{n}$ est une approximation
+de $C$ \`{a} $\varepsilon $ pr\`{e}s, la valeur de $\varepsilon $ \'{e}tant
+choisie par l'utilisateur.
+
+\paragraph{\protect\underline{Exercice 2 : }}
+
+On consid\`{e}re la suite r\'{e}elle $\left( u_{n}\right) $ d\'{e}finie par $%
+u_{0}=-0.01$ et \ $\forall n\in \mathbb{N},$ \ $u_{n+1}=u_{n}-u_{n}^{2}.$
+
+1. Ecrire un programme Scilab qui demande \`{a} l'utilisateur de saisir un
+entier N et qui affiche tous les termes de la suite jusqu'au rang N.
+
+2. Ecrire un programme qui calcule et affiche le premier rang n \`{a} partir
+duquel $u_{n}\leq -10.$
+
+\bigskip
+
+\paragraph{\protect\underline{Exercice 3 :}}
+
+On consid\`{e}re la suite $\left( u_{n}\right) $ d\'{e}finie par : $u_{0}=1,$
+$u_{1}=2$ et $u_{n+2}=u_{n+1}+2u_{n}.$ \ 
+
+Ecrire un programme qui calcule et affiche le premier rang n \`{a} partir
+duquel $u_{n}\geq 10.$
+
+\paragraph{\protect\underline{Exercice 4 :}}
+
+( Etude de la suite de Syracuse )
+
+On consid\`{e}re la suite $u$ d\'{e}finie par : $u_{0}\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+$ et $\forall n\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+,$ \ $u_{n+1}=\left\{ 
+\begin{array}{c}
+\dfrac{u_{n}}{2}\text{ si }u_{n}\text{ est pair} \\ 
+3u_{n}+1\text{ \ \ \ sinon}%
+\end{array}%
+\right. .$
+
+1. Ecrire un programme qui demande deux entiers naturels $u_{0}$ et $n$,qui
+renvoie la valeur de $u_{n}$ et qui repr\'{e}sente les termes de $u.$
+
+2. Quel est le comportement de la suite $u$ si $u_{0}=1$ ?
+
+3. a. Ecrire un script qui demande un entier naturel $u_{0}$ et qui calcule
+la plus petite valeur de $n$ pour laquelle $u_{n}=1.$
+
+\ \ \ b. Compl\'{e}ter ce script pour qu'il calcule et affiche la plus
+grande valeur prise par la suite.
+
+( On parle d'altitude de la suite )
+
+\paragraph{\protect\underline{Exercice 5 :\thinspace }}
+
+On consid\`{e}re la suite $u$ d\'{e}finie par $u_{0}=-1$ et $\forall n\in 
+\mathbb{N},\quad u_{n+1}=\dfrac{e^{u_{n}}-3}{2}$ ainsi que la fonction $f$ d%
+\'{e}finie sur $\mathbb{R}$ par : $f(x)=\dfrac{e^{x}-3}{2}.$
+
+1. Montrer que l'application $f$ admet un unique point fixe $\alpha $ sur $%
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+^{-}$. Justifier que $-2\leqslant \alpha \leqslant -1.$
+
+2. Justifier que $f(]-\infty ,0])\subset ]-\infty ,0]$ et que $\forall x\in
+]-\infty ,0],\quad \left\vert f^{\prime }(x)\right\vert \leqslant \dfrac{1}{2%
+}.$
+
+3. Montrer que $\forall n\in \mathbb{N},\quad u_{n}\leqslant 0.$
+
+4. Montrer que $\forall n\in \mathbb{N},\quad $ $\left\vert u_{n}-\alpha
+\right\vert \leqslant \dfrac{1}{2^{n}}.$
+
+5. En d\'{e}duire que la suite $u$ converge vers $\alpha .$
+
+6.Ecrire un programme affichant une valeur approch\'{e}e de $\alpha $ \`{a} $%
+\varepsilon $ pr\`{e}s, la pr\'{e}cision $\varepsilon $ \'{e}tant fournie
+par l'utilisateur et indiquant le nombre d'it\'{e}rations n\'{e}cessaires.
+
+\bigskip
+
+\bigskip
+
+\end{document}

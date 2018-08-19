@@ -1,0 +1,204 @@
+%2multibyte Version: 5.50.0.2953 CodePage: 65001
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{Codepage=65001}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, March 04, 2015 14:33:20}
+%TCIDATA{LastRevised=Wednesday, June 29, 2016 08:59:51}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{PageSetup=28,28,28,28,0}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+\begin{document}
+
+
+\subsubsection{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \protect\underline{%
+Chapitre 8 : Calcul approch\'{e} d'int\'{e}grales, m\'{e}thodes des
+rectangles.}}
+
+\paragraph{\protect\underline{1. Sommes de Riemann.}}
+
+\underline{D\'{e}finition :} Soit $f$ une fonction d\'{e}finie sur $\left[
+a,b\right] .$
+
+On appelle sommes de Riemann de $f$ les suites $(s_{n})$ et $(t_{n})$ d\'{e}%
+finies par :
+
+$\forall n\geq 1,$ \ $s_{n}=\QDOVERD( ) {b-a}{n}{\sum\limits_{k=0}^{n-1}f(a+k%
+}\QDOVERD( ) {b-a}{n})$ \ et \ \ $t_{n}=\QDOVERD( ) {b-a}{n}{%
+\sum\limits_{k=1}^{n}f(a+k}\QDOVERD( ) {b-a}{n}).$
+
+\underline{Th\'{e}or\`{e}me :} Si $f$ une fonction continue sur $\left[ a,b%
+\right] ,$ alors on a : $\underset{n\rightarrow +\infty }{\lim }s_{n}=%
+\underset{n\rightarrow +\infty }{\lim }t_{n}=\int_{a}^{b}f(t)dt.$
+
+\underline{Cor :} Si $f$ une fonction continue sur $\left[ 0,1\right] ,$
+alors on a :
+
+$\underset{n\rightarrow +\infty }{\lim }\QDOVERD( ) {1}{n}{%
+\sum\limits_{k=0}^{n-1}f}\QDOVERD( ) {k}{n}=\underset{n\rightarrow +\infty }{%
+\lim }\QDOVERD( ) {1}{n}{\sum\limits_{k=1}^{n}f}\QDOVERD( )
+{k}{n}=\int_{0}^{1}f(t)dt.$
+
+\underline{Exercice 1 :} Calculer la limite des suites suivantes :
+
+1) $w_{n}={\sum\limits_{k=0}^{n-1}}\dfrac{1}{k+n}$\ \ 2)\ $u_{n}={%
+\sum\limits_{k=1}^{n}}\dfrac{2k+n}{k^{2}+kn+n^{2}}$ \ \ \ \ 3) $v_{n}=\frac{1%
+}{n}+\frac{e^{\frac{1}{n}}}{n}+\frac{e^{\frac{2}{n}}}{n}+...+\frac{e^{(1-%
+\frac{1}{n})}}{n}.$
+
+\paragraph{\protect\underline{2. M\'{e}thodes des rectangles.}}
+
+\underline{Position du probl\`{e}me :}
+
+Les sommes de Riemann $(s_{n})$ et $(t_{n})$ fournissent des valeurs approch%
+\'{e}es de $\int_{a}^{b}f(t)dt,$ obtenues par la m\'{e}thode des rectangles.
+
+\underline{Exercice 2 ( Interpr\'{e}tation graphique ) :}
+
+Consid\'{e}rons la fonction $f$ d\'{e}finie sur $\left[ 0;1\right] $ par : $%
+f(x)=\ln (1+x).$
+
+Nous cherchons \`{a} d\'{e}terminer une approximation de l'aire du domaine $%
+D=\left\{ \left( x,y\right) /0\leq x\leq 1\text{ et }0\leq y\leq
+f(x)\right\} .$
+
+Pour cela, nous allons utiliser la m\'{e}thode des rectangles.
+
+On subdivise l'intervalle $\left[ 0,1\right] $ en $n$ intervalles de m\^{e}%
+me longueur $\frac{1}{n}$ avec $n\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+^{\ast }.$
+
+On consid\`{e}re alors les $n$ rectangles $R_{k}$ pour $k$ variant de $0$ 
+\`{a} $\left( n-1\right) $, de base $\frac{1}{n},$ obtenus sur chaque
+intervalle $\left[ \dfrac{k}{n};\dfrac{k+1}{n}\right] $ et de hauteur $%
+f\QDOVERD( ) {k}{n}.$
+
+Alors la somme des aires des $n$ rectangles $R_{k}$ nous donne une
+approximation de l'aire du domaine $D.$
+
+1. Taper le programme suivant et expliquer le r\^{o}le de chaque instruction
+:
+
+\ \ \textit{n=input("donner n :") //}
+
+\ \ \textit{x=[0:0.001:1]; //}
+
+\ \ \textit{y=log(1+x); \ //}
+
+\ \textit{for k=0:(n-1) //}
+
+\textit{\ \ \ \ \ \ \
+plot2d([k/n,k/n,(k+1)/n,(k+1)/n],[0,log(1+k/n),log(1+k/n),0])}
+
+\ \ \textit{end}
+
+\ \ \textit{plot2d(x,y,style=4)}
+
+2. Compl\'{e}ter le programme suivant afin qu'il calcule une valeur approch%
+\'{e}e de $\int_{0}^{1}\ln (1+t)dt$ \ lorsque l'utilisateur fournit
+successivement $n\in \left\{ 10,100,1000\right\} .$
+
+\textit{disp(" M\'{e}thode des rectangles");}
+
+\textit{n=input(" Donner n :")}
+
+\textit{S=0;}
+
+$\mathit{\vdots }$
+
+\textit{disp(S)}
+
+\bigskip
+
+\bigskip \underline{Exercice 3 : M\'{e}thode des rectangles.}
+
+Soit $f$ une fonction d\'{e}finie sur $\left[ a,b\right] .$
+
+On note $\left( x_{0},...,x_{n}\right) $ la subdivision r\'{e}guli\`{e}re de 
+$\left[ a,b\right] $ de pas $\QDOVERD( ) {b-a}{n}$.
+
+On a donc : $\forall k\in \left\{ 0,...,n-1\right\} ,$ \ $x_{k}={a+k}%
+\QDOVERD( ) {b-a}{n}.$
+
+On note $S_{n}$ et $T_{n}$ les sommes de Riemann associ\'{e}es \`{a} $f.$
+
+1. On suppose que $f$ est une fonction continue et croissante sur $\left[ a,b%
+\right] .$
+
+a. Montrer que : $\forall k\in \left\{ 0,...,n-1\right\} ,$ $\ \QDOVERD( )
+{b-a}{n}f(x_{k})\leq \int_{x_{k}}^{x_{k+1}}f(t)dt\leq \QDOVERD( )
+{b-a}{n}f(x_{k+1})$
+
+b. En d\'{e}duire que : $\forall n\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+^{\ast },$ $S_{n}\leq \int_{a}^{b}f(t)dt\leq T_{n}.$
+
+c. Ecrire un programme en Scilab qui affiche les valeurs approch\'{e}es par
+exc\`{e}s et par d\'{e}faut de $\int_{0}^{1}\exp (t^{2})dt,$ l'entier $n$ 
+\'{e}tant fourni par l'utilisateur.
+
+2*. On suppose maintenant que $f$ est de classe $C^{1}$ sur $\left[ a,b%
+\right] .$
+
+a. Etablir que $\forall n\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+^{\ast },$ $\left\vert S_{n}-\int_{a}^{b}f(t)dt\right\vert \leq \underset{k=0%
+}{\overset{n-1}{\sum }}\int_{x_{k}}^{x_{k+1}}\left\vert
+f(x_{k})-f(t)\right\vert dt.$
+
+b. Montrer qu'il existe un r\'{e}el $M$ tel que : $\forall n\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+^{\ast },$ $\left\vert S_{n}-\int_{a}^{b}f(t)dt\right\vert \leq M\dfrac{%
+\left( b-a\right) ^{2}}{2n}.$
+
+c. Ecrire un programme en Scilab qui demande la valeur d'un r\'{e}el
+strictement positif eps et qui renvoie une valeur approch\'{e}e de $%
+\int_{0}^{1}\exp (t^{2})dt$ \`{a} eps pr\`{e}s
+
+\end{document}

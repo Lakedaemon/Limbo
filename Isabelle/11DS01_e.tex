@@ -1,0 +1,173 @@
+\documentclass[11pt,a4paper]{article}
+\setlength{\textwidth}{17cm}
+\setlength{\marginparwidth}{0cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\textheight}{26cm}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\headheight}{0.5cm}
+\setlength{\headsep}{0.5cm}
+\setlength{\hoffset}{-0.5cm}
+\setlength{\voffset}{0cm}
+
+\usepackage[francais]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[latin1]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{fancybox}
+\usepackage{graphicx}
+%\usepackage{pstricks,pst-plot}
+
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\K}{\ensuremath{\mathbb{K}}}
+\newcommand{\ch}{\ensuremath{\text{ch\,}}}
+\newcommand{\sh}{\ensuremath{\text{sh\,}}}
+\newcommand{\tnh}{\ensuremath{\text{th\,}}}
+\newcommand{\ach}{\ensuremath{\text{argch\,}}}
+\newcommand{\ash}{\ensuremath{\text{argsh\,}}}
+\newcommand{\ath}{\ensuremath{\text{argth\,}}}
+\newcommand{\re}{\ensuremath{\text{Re\,}}}
+\newcommand{\Id}{\ensuremath{\text{Id}}}
+\newcommand{\im}{\ensuremath{\text{Im\,}}}
+\newcommand{\Ker}{\ensuremath{\text{Ker\,}}}
+\newcommand{\Vect}{\ensuremath{\text{Vect}}}
+\newcommand{\Card}{\ensuremath{\text{Card}}}
+\newcommand{\rg}{\ensuremath{\text{rg}}}
+
+\begin{document}
+
+\lhead{DS n°1}
+\rhead{Page \thepage{} sur \pageref{LastPage}}
+\cfoot{isabelle.chauvin@free.fr}
+\lfoot{PTSI, Lycée Newton, Clichy}
+\rfoot{Année 2011-2012}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\pagestyle{fancy}
+
+\begin{center}
+	\shadowbox{\Large{\textbf{DEVOIR SURVEILLE n°1}}}\\
+	Vendredi 23 septembre 2011 -- 13h-17h\\
+	\textbf{L'usage de calculatrices est interdit}.\\
+	La présentation, la lisibilité, l'orthographe, la qualité de la 
+	rédaction, la clarté et la précision des raisonnements entreront 
+	pour une part importante dans l'appréciation des copies. \\
+	En particulier, les résultats non justifiés ne seront pas pris 
+	en compte.\\
+	Les candidats sont invités à \textbf{encadrer} les résultats de leurs 
+	calculs.\\
+\end{center}
+
+\begin{center}
+	\fbox{\large{\textbf{Exercice I}}}
+	%% Préparation 2006-2007, 01logique.pdf, exo 6
+\end{center}
+
+	\noindent
+	Pour chacune des questions suivantes, étudier les deux implications 
+	(a) $\Rightarrow$ (b) et (b) $\Rightarrow$ (a). \\
+	En d'autres termes, préciser si ces implications sont vraies, et prouver le résultat.
+	\begin{enumerate}
+		\item $n$ est un entier naturel.
+			\begin{enumerate}
+				\item $n$ est multiple de 2.
+				\item $n$ est multiple de 4 ou $n$ est multiple de 6.
+			\end{enumerate}
+		\item $x$ est un réel.
+			\begin{enumerate}
+				\item $x-3 = x^2 + 2x$
+				\item $(x-3)^2 = (x^2 + 2x)^2$
+			\end{enumerate}
+		\item 
+			\begin{enumerate}
+				\item $z \in \C$
+				\item $\exists r \in \R_+^*,\; \exists \theta \in \R,\; 
+					z = r e^{i \theta}$\\
+			\end{enumerate}
+	\end{enumerate}
+				
+
+\begin{center}
+	\fbox{\large{\textbf{Exercice II}}}
+	%% Préparation 2006-2007, 02rec.pdf, exo 1
+\end{center}
+
+	\noindent
+	Montrer la propriété : 
+	$$\forall n \in \N,\quad n \geqslant 2,\quad 
+	\sum \limits_{k=1}^n \dfrac{1}{k^2} > \dfrac{3n}{2n+1}$$\\
+		
+	
+\begin{center}
+	\fbox{\large{\textbf{Exercice III}}}
+	%% Préparation 2006-2007 -> Complexes -> trigo0607.pdf
+\end{center}
+
+	\begin{enumerate}		\item Résoudre dans $\R$ l'équation \quad $(E_1) : \cos x - \sqrt 3 \sin x = 1$
+		\item Résoudre dans $\R$ l'équation \quad $(E_2) : \sin(5x) = \frac{1}{2}$
+		\item Résoudre dans $\R$ l'équation 
+			\quad $(E_3) : \cos x + \sin x + 2 \sqrt 2 \sin x \cos x = 0$
+		\item Résoudre dans $\R$ l'inéquation \quad $(I_1) : \cos x > \frac{\sqrt 2}{2}$
+		\item Résoudre dans $\R$ l'inéquation \quad $(I_2) : \sin x \leqslant \frac{1}{2}$
+		\item Linéariser l'expression \quad 
+			$A = \cos^3(x) \sin^2(x)$ pour $x \in \R$.
+		\item Résoudre dans $\C$ l'équation \quad $(E_4) : z^2 + iz + 1 - 3i = 0$	\end{enumerate}
+
+\newpage	
+	
+\begin{center}
+	\fbox{\large{\textbf{Exercice IV}}}
+	%% Complexes
+\end{center}
+
+	\noindent
+	Le but de cet exercice est l'étude de la somme 
+	$C_n(\theta)$ définie pour tout entier naturel non nul $n$ et 
+	tout réel $\theta$ par : 
+	$$C_n(\theta) = \sum\limits_{k=1}^n (\cos \theta)^k \cdot \cos (k\theta)$$
+	\begin{enumerate}
+		\item Montrer que $C_1(\theta)$ et $C_2(\theta)$ sont positifs ou 
+			nuls pour toute valeur de $\theta$.
+		\item 
+			\begin{enumerate}
+				\item Justifier que, pour tout entier relatif $p$, on a : 
+					\quad $\cos (p\pi) = (-1)^p$.
+				\item En déduire la valeur de $C_n(\theta)$ lorsqu'il existe 
+					un entier relatif $p$ tel que $\theta = p\pi$.
+			\end{enumerate}
+		\item 
+			\begin{enumerate}
+				\item Montrer que, pour tout réel $\theta$, on a : \quad 
+					$1 - (\cos \theta) e^{i\theta} 
+					= - i (\sin \theta) e^{i\theta}$.
+				\item On pose 
+					$$S_n(\theta) = \sum\limits_{k=1}^n 
+					(\cos \theta)^k \cdot \sin (k\theta)$$
+					Montrer que $C_n(\theta) + i S_n(\theta)$ est 
+					une somme de termes consécutifs d'une suite géométrique, 
+					dont on précisera le premier terme et la raison.
+				\item En déduire que, lorsque $\theta$ n'est pas multiple 
+					de $\pi$, on a pour tout entier naturel non nul $n$ :
+					$$C_n(\theta) = \dfrac{(\cos \theta)^{n+1} \cdot 
+					\sin (n \theta)}{\sin \theta}$$
+			\end{enumerate}
+		\item Etudier en fonction des valeurs de $\theta$ le signe de 
+			$C_3(\theta)$.
+		\item 
+			\begin{enumerate}
+				\item Montrer que lorsque $\theta$ n'est pas multiple de $\pi$, 
+					on a pour tout entier naturel $n$ non nul :
+					$$|C_n(\theta)| \leqslant 
+					\dfrac{|\cos \theta|^{n+1}}{|\sin \theta|}$$
+				\item En déduire, selon les valeurs de $\theta$, la limite de 
+					$C_n(\theta)$ lorsque $n$ tend vers $+\infty$.
+			\end{enumerate}
+	\end{enumerate}
+	
+		
+\end{document}

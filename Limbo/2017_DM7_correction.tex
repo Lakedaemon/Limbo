@@ -1,0 +1,330 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\%blank[big]}]
+%\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][4][1,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iftrue
+\page
+\centerline{\bfb DEVOIR MAISON 7}
+\blank[big]
+
+\setupitemgroup[List][1][A,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+\centerline{\bf CORRECTION DU PROBLÈME 1 - UNE ÉLECTION EN DEUX TOURS ... OU TROIS}
+\blank[big]
+\startList%Partie
+\item%A
+ \startList%B
+\item D'après la formule des probabilités totales, appliquée au système complet d'événements (non-négligeables) $\{A_1, B_1, R_1\}$, on a 
+\startformula
+\Align{
+\NC P(A_2)\NC =P(A_1)×P_{A_1}(A_2)+P(B_1)×P_{B_1}(A_2)+P(R_1)×P_{A_1}(A_2)\NR
+\NC\NC {40\F 100}×{7\F 10}+{30\F 100}×{5\F 100}+{30\F 100}×{3 \F 10}\NR
+\NC P(B_2)\NC =P(A_1)×P_{A_1}(B_2)+P(B_1)×P_{B_1}(B_2)+P(R_1)×P_{A_1}(B_2)\NR
+\NC\NC {40\F 100}×{2\F 10}+{30\F 100}×{85\F 100}+{30\F 100}×{4 \F 10}={800+2550+1200\F 10000}={4550\F 10000}
+}
+\stopformula
+\item Il résulte de la formule des probabilité conditionnelle, de la formule de conditionnement et du résultat de la aquestion précédente que 
+\startformula
+P_{B_2}(B_1)={P_{B_1∩B_2}\F P(B_2)}={P(B_1)×P_{B_1}(B_2)\F 4550/10000}={30\F 100}×{85\F 100}×{10000\F 4550}={2550\F 4550}
+\stopformula
+\item Comme les événements $A_1∩A_2$, $B_1∩B_2$ et $C_1∩C_2$ sont mutuellement indépendants, il résulte de la formule de conditionnement que 
+\startformula
+\Align{
+\NC \NC P(\text{\quote{un électeur vote de la même façon aux deux tours}})\NR
+\NC =\NC P\big((A_1∩A_2)∪(B_1∩B_2)∪(C_1∩C_2)\big)\NR
+\NC = \NC P(A_1∩A_2) + P(B_1∩B_2) + P(C_1∩C_2)\NR
+\NC = \NC P(A_1)×P_{A_1}(A_2) + P(B_1)×P_{B_1}(B_2) + P(R_1)×P_{R_1}(R_2)\NR
+\NC = \NC{40\F 100}×{7\F 10} + {30\F 100}×{85\F 100} + {30\F 100}×{3\F 10}\NR
+\NC =\NC {2800+2550+900\F 10000}= {6250\F 10000}
+}
+\stopformula
+\stopList
+\item {\bf La campagne sur internet}
+\startList
+\item Les probabilités données par l'énoncés sont 
+\startformula
+P_{V_k}(V_{k+1})={6\F 10},\quad P_{V_k}(\overline{V_{k+1}})={4\F 10},\quad P_{\overline{V_k}}(V_{k+1})={8\F 10}\quad\Et\quad P_{\overline{V_k}}(\overline{V_{k+1}})={2\F 10},
+\stopformula
+\item Soit $k∈ℕ$. D'après la formule des probabilités totales, appliqué au système complet d'événements (non-négligeables) $\{V_k, \overline{V_k}\}$, il vient 
+\startformula
+\Align{
+\NC P(V_{k+1}) \NC =P(V_k)×P_{V_k}(V_{k+1})+P(\overline{V_k})×P_{\overline{V_k}}(V_{k+1})\NR
+\NC \NC = P(V_k)× {6\F 10} + \big(1-P(V_k)\big)×{8\F 10}\NR
+\NC \NC = -{2\F 10}P(V_k)  + {8\F 10}
+}
+\stopformula
+\item D'après l'expression obtenue précédemment, la suite définie par $u_k=P(V_k)$ pour $k⩾0$ est arithmético-géométrique. 
+En posant $c={8\F 12}={2\F 3}$ l'unique solution de l'équation $c=-{2\F 10}c+{8\F 10}$, nous remarquons que la suite définie par $v_n=u_n-c$ satisfait la relation
+\startformula
+v_0=u_0-c=P(V_0)-{2\F 3}\quad \Et\quad v_{k+1}=-{2\F 10}v_k\quad(k⩾0)
+\stopformula
+La suite $v$ étant géométrique de raison $-{2\F 10}$, nous en déduisons d'une part que 
+\startformula
+v_k = v_0\Q(-{2\F 10}\W)^k=\Q(P(V_0)-{2\F 3}\W)×\Q(-{2\F 10}\W)^k\qquad(k⩾0)
+\stopformula
+et d'autre part que 
+\startformula
+P(V_k)=u_k=v_k+c={2\F 3}+\Q(P(V_0)-{2\F 3}\W)×\Q(-{2\F 10}\W)^k\qquad(k⩾0)
+\stopformula
+\item Comme la raison de la suite $v$ est dans $]-1,1[$, on a $\lim v = 0$. 
+A fortiori, $\lim_{k→+∞}P(V_k)=\lim u = \lim\Q(v+{2\F 3}\W)={2\F 3}$.
+\stopList
+\item 
+\startList
+\item Il résulte de l'indépendance entre les tirs et de la formule de conditionnement que 
+\startformula
+\Align{[align=left]
+\NC P(C_1)=P(A_1)=p_1\NR
+\NC P(C_2)=P(\overline{A_1}∩B_1)=P(\overline{A_1})×P(B_1)=(1-p_1)p_2\NR
+\NC P(C_3)=P(\overline{A_1}∩\overline{B_1}∩A_2)=P(\overline{A_1})×P(\overline{B_1})×P(A_2)=(1-p_1)(1-p_2)p_1
+}
+\stopformula
+\item Soit $n ∈ℕ^*$, Selon la parité de $n$, on va avoir deux formules différentes :
+\startitemize[1]
+\item Lorsque $n$ est pair, posons $n=2k$ et remarquons que 
+\startformula
+\Align{
+\NC P(C_n)\NC =P\Q(\overline{A_k}B_n∩⋂_{i=1}^{k-1}(\overline{A_i}∩\overline{B_i})\W)\NR
+\NC \NC =P(\overline{A_k})×P(B_n)×∏_{i=1}^{k-1}\Q(P(\overline{A_i})×P(\overline{B_i})\W)\NR
+\NC \NC = (1-p_1)^k(1-p_2)^{k-1}p_2=(1-p_1)^{n/2}(1-p_2)^{n/2-1}p_2
+}
+\stopformula
+\item Lorsque $n$ est impair, posons $n=2k+1$ et remarquons que 
+\startformula
+\Align{
+\NC P(C_n)\NC =P\Q({A_n}∩⋂_{i=1}^k(\overline{A_i}∩\overline{B_i})\W)\NR
+\NC \NC =P(A_n)×∏_{i=1}^{k}\Q(P(\overline{A_i})×P(\overline{B_i})\W)\NR
+\NC \NC = p_1(1-p_1)^k(1-p_2)^k=(1-p_1)^{n/2}(1-p_2)^{n/2}p_1
+}
+\stopformula
+\stopitemize
+\item La somme dont on doit calculer la limite est pénible à exprimer, à cause des deux cas pairs et impairs. 
+Rusons pour ne faire qu'un seul cas et essayer de limiter notre souffrance, en commençant par calculer la valeur de la somme suivante
+\startformula
+\Align{
+\NC S_N\NC \D=∑_{n=1}^{2N}P(C_n)=∑_{1⩽n⩽2N\atop n=2k}P(C_n) + ∑_{1⩽n⩽2N\atop n=2k+1}P(C_n)\NR
+\NC \NC \D=∑_{k=1}^NP(C_{2k})+ ∑_{k=0}^{N-1}P(C_{2k+1})\NR
+\NC \NC \D=∑_{k=1}^N(1-p_1)^k(1-p_2)^{k-1}p_2+ ∑_{k=0}^{N-1}(1-p_1)^k(1-p_2)^kp_1
+}
+\stopformula
+Il résulte alors des formules bien connues pour ces deux sommes des termes de suites géométriques de raison $(1-p_1)(1-p_2)≠1$ que 
+\startformula
+S_N = {(1-p_1)p2-(1-p_1)^{N+1}(1-p_2)^Np_2\F 1-(1-p_1)(1-p_2)} + {p_1-(1-p_1)^{N+1}(1-p_2)^{N+1}p_1\F 1-(1-p_1)(1-p_2)} 
+\stopformula
+comme $0⩽1-p_1<1 $et $0⩽1-p_2<1$, on a  
+\startformula
+\lim_{n→+∞}(1-p_1)^n=0=\lim_{n+∞}(1-p_2)^n
+\stopformula
+de sorte que 
+\startformula
+\Align{
+\NC \lim_{N→+∞}S_N\NC ={(1-p_1)p2\F 1-(1-p_1)(1-p_2)} + {p_1\F 1-(1-p_1)(1-p_2)}\NR
+\NC\NC = {(1-p_1)p2+p_1\F 1-(1-p_1)(1-p_2)}= {p_2-p_1p2+p_1\F 1-(1-p_1-p_2+p_1p_2)}=1
+}
+\stopformula
+Maintenant, remarquons que la suite définie par $s_N=\D∑_{n=1}^NP(C_n)$ pour $N⩾0$ est croissante (car on ajoute des nombres positifs ou nuls) et nous déduisons de la relation
+$ 2\lfloor {n\F 2}\rfloor⩽n⩽2\lfloor {n\F 2}\rfloor + 2$ (en bref, on encadre $n$ entre deux nombres pairs en dessous et au dessus que l'on exprime via les parties entières) que 
+\startformula
+S_{\lfloor {n\F 2}\rfloor}=s_{2\lfloor {n\F 2}\rfloor}⩽s_n⩽s_{2\lfloor {n\F 2}\rfloor + 2}=S_{\lfloor {n\F 2}\rfloor+1}\qquad(n⩾0)
+\stopformula
+En remarquant que la suite tout à gauche et la suite tout à droite convergent vers $1$ lorsque $n$ tend vers $+∞$, il résulte alors du principe des gendarmes que
+\startformula
+\lim_{n→+∞}s_n=1
+\stopformula
+{\it Si l'un d'entre vous a une preuve {\bf juste, rigoureuse, plus simple ou plus élégante} utilisant les suites et les valeurs trouvées pour $P(C_n)$, je suis preneur.\crlf
+(dire que $Ω=∪_{n=0}^∞C_n$, et que $(C_n)_{n⩾0}$ est un système complet d'événements, etc...  ne compte pas)} 
+\stopList
+\stopList
+\blank[big]
+\centerline{\bf CORRECTION DU PROBLÈME 2 - TIRAGES SANS REMISE PUIS AVEC REMISE}
+\blank[big]
+
+\startList
+\item {\bf Étude du cas particulier où $b$ et $n$ valent $2$}\crlf
+\startList
+\item On a $P(X_0)=P(B_1)={2\F 4}={1\F 2}$ (probabilité uniforme pour le tirage d'une des deux blanches parmi les 4 boules).
+De même, il résulte de la formule de conditionnement (et de la formule des probabilités composées pour $X_2$) que 
+\startformula
+\Align{
+\NC P(X_1)=P(N_1∩B_2)=P(N_1)×P_{N_1}(B_2)={2\F 4}×{2\F 3}={1\F 3}\NR
+\NC P(X_2)=P(N_1∩N_2∩B_3)=P(N_1)×P_{N_1}(N_2)×P_{N_1∩N_2}(B_3)={2\F 4}×{1\F 3}×{2\F 2}={1\F 6}
+}
+\stopformula
+\item D'après la formule des probabilités totales appliquée au système complet d'événements (non négligeables) $\{X_0, X_1, X_2\}$, on a 
+\startformula
+\Align{
+\NC P(Y_0)\NC =P(X_0)×P_{X_0}(Y_0)+P(X_1)×P_{X_1}(Y_0)+P(X_2)×P_{X_2}(Y_0)\NR
+\NC \NC = {1\F 2}×P_{B_1}(B_2')+{1\F 3}×P_{N_1∩B_2}(B_3')+{1\F 6}×P_{N_1∩N_2∩B_3}(B_4')
+\NC \NC = {1\F 2}×{1\F 3}+{1\F 3}×{1\F 2}+{1\F 6}×{1\F 1}={3\F 6}={1\F 2}
+}
+\stopformula
+\item Soit $i∈ℕ$. D'après la formule des probabilités composées, on a
+\startformula
+\Align{[align={left,left}]
+\NC P(X_0∩Y_i)\NC = P(X_0)×P_{X_0}(Y_i)={1\F 2}×P_{B_1}(N_2'∩⋯∩N_{1+i}'∩B_{2+i})\NR
+\NC \NC = {1\F 2}×P_{B_1}(N_2')×⋯×P_{B_1∩N_2'∩⋯∩N_{1+i}'}(B_{2+i})\NR
+\NC \NC = {1\F 2}×\Q({2\F 3}\W)^i×{1\F 3}\NR
+\NC P(X_1∩Y_i)\NC = P(X_1)×P_{X_1}(Y_i)={1\F 3}×P_{N_1∩B_2}(N_3'∩⋯∩N_{2+i}'∩B_{3+i})\NR
+\NC \NC = {1\F 3}×P_{N_1∩B_2}(N_3')×⋯×P_{N_1∩B_2∩N_3'∩⋯∩N_{2+i}'}(B_{3+i})\NR
+\NC \NC = {1\F 3}×\Q({1\F 2}\W)^i×{1\F 2}\NR
+\NC  P(X_2∩Y_i) \NC= P(X_2)×P_{X_2}(Y_i)={1\F 6}×P_{N_1∩N_2∩B_3}(N_4'∩⋯∩N_{3+i}'∩B_{4+i}')\NR
+\NC \NC ={1\F 6}×P_{N_1∩N_2∩B_3}(B_4')={1\F 6}×{1\F 1}={1\F 6} \text{ si $i=0$}\NR
+\NC \NC ={1\F 6}×0=0 \text{ si $i⩾1$}}
+\stopformula
+\item Soit $i⩾1$. D'après la formule des probabilités totales, appliquée au système complet d'événements $\{X_0, X_1, X_2$, 
+nous obtenons que 
+\startformula
+\Align{
+\NC P(Y_i)\NC =P(X_0∩Y_i)+P(X_1∩Y_i)+P(X_2∩Y_i)\NR
+\NC \NC = {1\F 2}×\Q({2\F 3}\W)^i×{1\F 3} + {1\F 3}×\Q({1\F 2}\W)^i×{1\F 2} + 0
+}
+\stopformula
+En particulier, nous utilisons l'égalité $P(Y_0)={1\ F2}$ et nous obtenons deux sommes de termes de suite géométriques de raison différente de $1$ en calculant  
+\startformula
+\Align{
+\NC ∑_{i=0}^NP(Y_i)\NC = P(Y_0) + ∑_{i=1}^N\Q({1\F 2}×\Q({2\F 3}\W)^i×{1\F 3} + {1\F 3}×\Q({1\F 2}\W)^i×{1\F 2}\W)\NR
+\NC\NC = {1\F 2} + {1\F 2}×{1\F 3}×∑_{i=1}^N\Q({2\F 3}\W)^i + {1\F 3}×{1\F 2}×∑_{i=1}^N\Q({1\F 2}\W)^i\NR
+\NC \NC = {1\F 2} + {1\F 6}{{2\F 3}-\Q({2\F 3}\W)^{N+1}\F 1-{2\F 3}} + {1\F 6}×{{1\F 2}-\Q({1\F 2}\W)^{N+1}\F 1-{1\F 2}}
+}
+\stopformula
+En particulier, lorsque $N$ tends vers $+∞$, nous obtenons que 
+\startformula
+\lim_{N→+∞}∑_{i=0}^NP(Y_i) = {1\F 2}+{1\F 6} ×{{2\F 3}\F 1-{2\F 3}} + {1\F 6}×{{1\F 2}\F 1-{1\F 2}}={1\F 2}+{2\F 6}+{1\F 6}=1
+\stopformula
+\stopList
+\item {\bf Retour au cas général}
+\startList
+\item Pour $k∈ ⟦1, n⟧$, nous remarquons que $P(X_k)=P(N_1∩⋯∩N_k∩B_{k+1})$ et nous déduisons de la formule des probabilités composées que 
+\startformula
+\Align{
+\NC P(X_k)\NC =P(N_1)×P_{N_1}(N_2)×⋯×P_{N_1∩⋯∩N_k}(B_{k+1})\NR
+\NC\NC = ∏_{i=1}^k {n+1-i\F n+b +1- i}×{b\F n+b - k}\NR
+\NC\NC ={n!\F (n-k)!}× {(n+b-k)!\F (n+b)!}×{b\F n+b - k}\NR 
+\NC\NC ={(n+b-k-1)!\F (n-k)!}× {n!\F (n+b)!}×b\NR 
+\NC\NC ={(n+b-k-1)!\F (n-k)!\red (b-1)!}× {n!{\red (b-1)!}\F (n+b)!}×b\NR 
+\NC\NC ={n+b-k-1\choose b-1}× {n!{\red b!}\F (n+b)!}\NR
+\NC\NC ={n+b-k-1\choose b-1}× {1\F {n+b\choose b}}\NR
+\NC\NC = {{n-k+b-1\choose b-1}\F {n+b\choose b}}
+}
+\stopformula
+\item Comme $\{X_0,⋯,X_n\}$ est un système complet d'événements de $Ω$ (puisque ces événements sont incompatibles deux à deux 
+	et puisque le joueur $A$ tire forcément un nombre $k$ de noires dans $⟦0, n⟧$ avant de tirer une blanche...), nous avons
+
+\startformula
+1=P(Ω)=P(⋃_{k=1}^nX_k)=∑_{k=0}^nP(X_k)
+\stopformula
+Il résulte alors de la formule trouvée précedemment que 
+\startformula
+1= ∑_{k=0}^n{{n-k+b-1\choose b-1}\F {n+b\choose b}}
+\stopformula
+En plutipliant de chaque coté par ${n+b\choose b}$, il vient alors que 
+\startformula
+{n+b\choose b}=∑_{k=0}^n{n-k+b-1\choose b-1}
+\stopformula
+Par conséquent on vient de démontrer la formule suivante :
+\placeformula[gah]
+\startformula
+∀N∈ℕ, ∀a∈ℕ,∑_{k=0}^N{k+a\choose a}={N+a+1\choose a+1}
+\stopformula
+\item Soit $k⩾1$, $N⩾1$ et $a∈ℕ$. Nous remarquons que 
+\startformula
+\Align{
+\NC k{k+a\choose a}\NC =k{(k+a)!\F a!k!}={(k+a)!\F a!(k-1)!}=(a+1){(k+a)!\F (a+1)!(k-1)!}\NR
+\NC\NC=(a+1){(k+a)!\F (a+1)!(k-1)!}=(a+1){k+a\choose a+1}
+}
+\stopformula
+En particulier, nous désuisons de la relation de Chasles que  
+\startformula
+∑_{k=0}^N k{k+a\choose a}=0+∑_{k=1}^N k{k+a\choose a}=∑_{k=1}^N (a+1){k+a\choose a+1}=(a+1)∑_{k=1}^N{k+a\choose a+1}
+\stopformula
+En procédant au changement d'indice $ℓ=k-1$, il suit
+\startformula
+∑_{k=0}^N k{k+a\choose a}=(a+1)∑_{ℓ=0}^{N-1}{ℓ+1+a\choose a+1}
+\stopformula
+
+Et il résulte de la formule \in[gah] obtenue plus haute (pour $N'=N-1$, $k'=ℓ$ et $a'=a+1$) que 
+\startformula
+∑_{k=0}^N k{k+a\choose a}=(a+1){N-1+a+1+1\choose a+1+1}=(a+1){N+a+1\choose a+2}
+\stopformula
+\item D'après la formule précédemment obtenue pour $P(X_k)$, nous avons 
+\startformula
+\sum_{k=0}^n(n-k)P(X_k) = \sum_{k=0}^n(n-k){{n-k+b-1\choose b-1}\F {n+b\choose b}}= {1\F {n+b\choose b}}\sum_{k=0}^n(n-k){n-k+b-1\choose b-1}
+\stopformula
+En procédant au changement d'indice $k'=n-k$, il vient 
+\startformula
+\sum_{k=0}^n(n-k)P(X_k) = {1\F {n+b\choose b}}\sum_{k'=0}^nk'{k'+b-1\choose b-1}
+\stopformula
+On reconnait alors la formule obtenue à la question précédente (pour $N=n$, $k=k'$ et $a=b-1$), de sorte que 
+\startformula
+\sum_{k=0}^n(n-k)P(X_k) = {1\F {n+b\choose b}} (b-1+1)∑_{ℓ=0}^{n-1}{ℓ+1+b-1\choose b-1+1}
+={1\F {n+b\choose b}} b∑_{ℓ=0}^{n-1}{ℓ+b\choose b}
+\stopformula
+Il résulte alors de la formule \in[gah] (pour $N=n-1$, $a=b$ et $k=ℓ$) que 
+\startformula
+∑_{k=0}^n(n-k)P(X_k) = {1\F {n+b\choose b}} b {n-1+b+1\choose b+1}={b!n!\F (n+b)!}b{(n+b)!\F (b+1)!(n-1)!}={bn\F b+1}
+\stopformula
+Comme $\D\sum_{k=0}^n(n-k)P(X_k)+∑_{k=0}^nkP(X_k)=∑_{k=0}^nnP(X_k)=n∑_{k=0}^nP(X_k)=n$, nous concluons alors que 
+\startformula
+∑_{k=0}^nkP(X_k)=n-{bn\F b+1}={n\F b+1}
+\stopformula
+\item Pour tout $k∈⟦0,n⟧$ et tout $i∈ℕ$, nous avons 
+\startformula
+\Align{
+\NC P(X_k∩Y_i)\NC =P(X_k)×P_{X_k}(Y_i)=P(X_k)×P_{N_1∩⋯∩N_k∩B_{k+1}}(N_{k+2}'∩⋯∩N_{k+1+i}∩B_{k+2+i}')\NR
+\NC\NC = P(X_k)×\Q({n-k\F n+b -k -1}\W)^i{b-1\F n+b-k-1}={{n-k+b-1\choose b-1}\F {n+b\F b}}×\Q({n-k\F n+b -k -1}\W)^i{b-1\F n+b-k-1}
+}
+\stopformula 
+Pour savoir si les événements $X_k$ et $Y_i$ sont indépendants, il est nécessaire de connaître la probabilité $P(Y_i)$, que nous n'avons pas.
+Son calcul a l'air très difficile (voire infaisable). Par exemple, on a 
+\startformula
+P(Y_i)=∑_{k=0}^nP(X_k∩Y_i)=∑_{k=0}^n{{n-k+b-1\choose b-1}\F {n+b\F b}}×\Q({n-k\F n+b -k -1}\W)^i{b-1\F n+b-k-1}
+\stopformula
+La somme précédente étant assez horrible, il n'est pas attendu des étudiants qu'ils sachent la calculer.
+De sorte que la question semble ambigue et mal posée.\crlf 
+L'auteur du sujet souhaitait certainement poser la question \quote{Les événements $X_k$ et $Y_i$ sont ils indépendants pour tout $i$ et pour tout $k$}, à laquelle il est beaucoup plus facile de répondre.
+Par exemple, en remarquant que la probabilité $P_{X_k}(Y_i)=\Q({n-k\F n+b -k -1}\W)^i{b-1\F n+b-k-1}$ varie selon les valeurs de $k$ (ce n'est apparemment pas une constante indépendante de $k$) et ne peut donc pas être égale à la probabilité $P(Y_i)$.\crlf 
+A fortiori, les événements $X_k$ et $Y_i$ ne peuvent pas être indépendants pour tout $i$ et tout $k$.
+
+\stopList
+\stopList
+
+
+
+
+
+
+
+
+\stoptext
+\stopcomponent
+\endinput

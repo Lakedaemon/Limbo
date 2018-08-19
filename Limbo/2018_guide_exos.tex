@@ -1,0 +1,51 @@
+\startcomponent component_DL1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+%\setupitemgroup[List][1][n,joineup][after=,before=Exercice ,inbetween={\blank[small]}]
+%\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][3][1,joineup,nowhite]
+
+
+
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+
+%ag❛❜g❛g\exo{Ah}❛❜
+\let\ds\displaystyle
+
+\centerline{\bf Preuves et erreurs}
+
+{\bf Objectifs :}
+\startSet
+\item Apprendre à déterminer si une démonstration est juste ou fausse (sans prof)
+\item Apprendre à localiser les erreurs
+\item Apprendre à recycler les démonstrations, contourner les erreurs mineures propager les corrections. 
+\stopSet
+\blank[big]
+\startList
+\item \exo{Guide1}
+\item \exo{Guide2}
+\item \exo{Guide3}
+\item \exo{Guide4}
+\item \exo{Guide5}
+\stopList
+%\centerline{\bf Exo 7}
+%\exo{Guide2}
+
+\stoptext
+\stopcomponent
+\endinput

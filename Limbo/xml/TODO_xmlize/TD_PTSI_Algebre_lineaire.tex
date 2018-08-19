@@ -1,0 +1,197 @@
+\catcode`@=11\relax
+
+\input LD@Maths@TD.tex
+
+\vglue-10mm\rightline{PTSI/PT\hfill TD :  Op«±rations «±l«±mentaires : Rang, inversion, d«±terminant\hfill}
+\bigskip
+
+\bigskip
+\hrule
+\centerline{Rang\strut}
+\hrule\medskip
+\Exercice{PTSIwv}%
+
+%\Exercice{PTSIww}%
+
+\Exercice{PTSIwx}%
+
+%\Exercice{PTSIwy}%
+
+%\Exercice{PTSIxf}%
+
+\Exercice{PTSIwz}%
+
+\Methode [Pour calculer le rang d'une matrice $A$]
+Utiliser $\underline{\hbox{\bf sur les lignes et les colonnes}}$ les op«±rations «±l«±mentaires, $\underline{\hbox{\bf qui ne changent pas~le~rang}}$ :\pn
+a)  $L_i\leftrightarrow L_j$ : «±changer la ligne $i$ avec la ligne $j$,\pn
+b)  $L_i\leftarrow \lambda L_i$ : multiplier la ligne $i$ par un scalaire non nul $\lambda$,\pn
+c)  $L_i\leftarrow Li+\sum_{j\neq i}\lambda_j L_j$ : ajouter «¢  la ligne $i$ une combinaison lin«±aire des autres lignes, \pn
+jusqu'«¢ ce que tous les coefficients non-nuls soient isol«±s sur leur ligne et leur~colonne. \pn
+Le rang de la matrice de d«±part est alors le nombre de coefficients non-nuls restant «¢ la fin. 
+
+\Conseil : Une bonne strat«±gie consiste «¢ utiliser le pivot de Gauss pour faire appara«Âtre des z«±ros, en cherchant «¢ rendre la matrice triangulaire (cela «±vite de tourner en rond)...
+
+\Exercice{PTSIxe}%
+
+\Rappel : Le rang d'une famille $\{a,b,c,d\}$ de vecteurs est le rang de l'espace $\hbox{Vect}(a,b,c,d)$ qu'ils engendrent. C'est aussi le rang de la matrice $\pmatrix{a|b|c|d}$ des vecteurs mis c«Ôte «¢ c«Ôte. 
+
+
+
+\hrule
+\centerline{Inverse\strut}
+\hrule\medskip
+
+\Exercice{PTSIod}%
+
+\Exercice{PTSIxc}%
+
+
+\Methode[Pour inverser une matrice $A${,} via l'algorithme $A|I_n\to I_n|A^{-1}$]
+Ecrire $A|I_n$ puis effectuer {\bf sur les  lignes} des deux matrices les op«±rations «±l«±mentaires a,b et c. 
+Le but est d'obtenir la matrice $I_n$ «¢ gauche pour r«±cup«±rer la matrice $A^{-1}$ «¢ droite.
+
+\Exercice{PTSIwu}%
+\medskip
+
+\Conseil : Retenez la technique pr«±c«±dente. Cela reviendra dans les exercices et c'est une fa\c con agr«±able et peu calculatoire de savoir si une matrice est inversible et, le cas «±ch«±ant, d'en trouver un inverse. 
+\medskip
+
+
+\eject
+\Chapter Solutions, Solutions.
+
+\LD@Exo@Sol@Display
+
+
+\bye
+\vglue-10mm\rightline{PT\hfill TD :  Alg\`ebre lin«±aire\hfill}
+\bigskip
+\bigskip
+\hrule
+\centerline{Sous-espace vectoriel\strut}
+\hrule\medskip
+
+\Exercice{PTaim}%
+\medskip
+
+\Exercice{PTSIwt}%
+
+
+\Methode [Pour prouver que $E$ est un $\ob K$-espace vectoriel]
+Montrer que c'est un sous-espace vectoriel d'un $\ob K$-espace vectoriel du cours : \pn
+1) Prouver que $E\neq\emptyset$, \pn
+2) Prouver que $E$ est inclus dans un $\ob K$-espace vectoriel de r«±f«±rence, «¢ d«±terminer. \pn
+3) Prouver que $\lambda x+\mu y\in E$ pour $(\lambda,\mu)\in \ob K^2$ et $(x,y)\in E^2$. 
+
+
+\hrule
+\centerline{Familles libres, g«±n«±ratrices, bases\strut}
+\hrule\medskip
+
+\Exercice{PTSIxb}%
+
+\Conseil :  Lorsque vous «±tudiez un espace vectoriel, essayez de trouver sa dimension le plus t«Ôt possible. Souvent, cela vous aidera pour la suite (utilisation du th«±or\`eme du rang, etc...). 
+
+\Exercice{PTaip}%
+\medskip
+
+\Exercice{PTSIkq}%
+
+\Exercice{PTps}%
+
+
+\Methode [Pour prouver que deux ensembles $E$ et $F$ sont «±gaux]
+Proc\`eder par double-inclusion : \pn
+1) Prouver que $E\subset F$, \qquad\qquad
+2) Prouver que $F\subset E$.
+
+\Methode [Pour prouver que deux $\ob K$-espaces vectoriels de dim finie sont «±gaux]
+Etablir une inclusion ainsi que l'«±galit«±~des~dimensions : \pn
+1) Prouver que $E\subset F$ (par exemple)\qquad\qquad 2) Prouver que $\dim E=\dim F$. 
+
+\hrule
+\centerline{Technique diabolique (de r«±solution des exos durs sans refl«±chir)\strut}
+\hrule\medskip
+
+\Exercice{PTais}%
+\medskip
+\Exercice{PTaio}%
+
+\Methode [Pour prouver une «±quivalence {$A\Longleftrightarrow B$}]
+Proc\`eder par double-implication : \pn
+1) Prouver que $A\Longrightarrow B$, \qquad\qquad
+2) Prouver que $A\Longleftarrow B$.
+
+\Methode [Pour prouver une implication {$A\Longrightarrow B$}]
+Supposer que $A$ est vrai et «±tablir que~$B$ est vrai. 
+
+
+\Exercice{PTSIol}%
+
+
+\Methode [Pour «±crire la matrice  de $u$ dans les bases {$\sc E=\{e_1, \cdots, e_n\}$ et $\sc F=\{f_1, \cdots, f_p\}$}]
+$$
+\vtop{\hsize 9cm\noindent 1) Dessiner la matrice vide avec ses donn«±es comme ceci : \pn 2) Completer en pla\c cant dans la $j^{\hbox{\sevenrm i\`eme}}$ colonne, les~coefficients de la d«±\-com\-po\-si\-tion de 
+l'image $u(e_j)$ du vecteur~$e_j$ par $u$ sur la base d'arriv«±e $\{f_1, \cdots, f_p\}$ }\quad\raise-0.3cm\hbox{$\sc Mat_{\sc E, \sc F}(u)=$}{e_1\ \cdots\ e_n\quad\atop \pmatrix{&&&&&\cr&&&&&\cr&&&&&\cr&&&&&}\matrix{f_1\cr \vdots\cr f_p}}
+$$
+
+\Exercice{PTSIvw}%
+
+
+\Methode [Pour prouver que l'application $u:E\to F$ est $\ob K$-lin«±aire]
+Prouver que l'image d'une combinaison lin«±aire est la combinaison lin«±aire des images : \pn
+1) Prouver que $E$ et $F$ sont des $\ob K$-espaces vectoriels,\pn
+2) Prouver que $u(\lambda x+\mu y)=\lambda u(x)+\mu u(y)$ pour $(\lambda,\mu)\in \ob K^2$ et $(x,y)\in E^2$. 
+
+
+
+\Exercice{PTain}%
+
+
+\Methode [Pour savoir si une application lin«±aire $f:E\to F$ est  injective]
+Regarder son noyau
+$$
+f\sbox{ injective}\ssi \Ker f=\{0\}.
+$$
+
+\Exercice{PTaiq}%
+
+
+\Methode [Pour savoir si une application {\bf lin«±aire} $f:E\to F$ est  surjective]
+Si $E$ et $F$ sont de m«´me dimension {\bf finie}, se ramener «¢ une «±tude d'injectivit«±  : \pn
+$$
+f\sbox{  injective }\ssi f\sbox{ surjective }\ssi f \sbox{ bijective.}
+$$ 
+Si $E$ est de dimension finie diff«±rente de celle de $F$, utiliser le th«±or\`eme du rang et calculer la dimension du noyau de $f$
+$$
+\dim E=\dim\Ima f+\dim\Ker f.
+$$
+Si $\dim E=+\infty$, essayer de se ramener «¢ la dimension finie ou utiliser  une autre m«±thode. 
+
+\Methode [Pour savoir si une application $f:E\to F$ est  injective (resp. surjective{,} bijective)] 
+Fixer $y$ dans $F$ et regarder si l'«±quation $y=f(x)$ a au plus (resp au moins, resp. exactement) une solution $x$ dans $E$. 
+
+
+
+
+\hrule
+\centerline{R«±currences lin«±aires\strut}%
+\hrule
+\medskip
+%\Exercice{PTSIoi}%
+
+\Exercice{PTaib}%
+
+\Exercice{PTSImd}%
+
+\Exercice{PTSIme}%
+
+\hrule
+\centerline{Calcul matriciel et R«±currence\strut}%
+\hrule
+\medskip
+
+\Exercice{PTSIvx}%
+
+\bye
+

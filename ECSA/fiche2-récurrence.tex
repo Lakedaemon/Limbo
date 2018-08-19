@@ -1,0 +1,331 @@
+%2multibyte Version: 5.50.0.2953 CodePage: 65001
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{Codepage=65001}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, August 29, 2007 15:11:43}
+%TCIDATA{LastRevised=Tuesday, June 28, 2016 19:33:47}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{PageSetup=43,28,28,28,0}
+%TCIDATA{AllPages=
+%H=36
+%F=36,\PARA{038<p type="texpara" tag="Body Text" > \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Fiche n$\U{b0}2-$\thepage }
+%}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+\begin{document}
+
+
+\subsection{ \protect\bigskip\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \protect\underline{\textbf{Fiche n}$%
+%TCIMACRO{\U{b0}}%
+%BeginExpansion
+{{}^\circ}%
+%EndExpansion
+2$\textbf{\ : \ R\'{e}currence et sommation.}}}
+
+\underline{Exercice 1 :} On consid\`{e}re la suite $(u_{n})$ d\'{e}finie par
+: $\left\{ 
+\begin{array}{c}
+u_{0}=3 \\ 
+\forall n\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+,u_{n+1}=\sqrt{u_{n}}%
+\end{array}%
+\right. .$
+
+1) Montrer que la suite $(u_{n})$ est bien d\'{e}finie et v\'{e}rifie : $%
+\forall n\epsilon \mathbb{N},$ \ $u_{n}>0.$
+
+2) Montrer que : $\forall n\epsilon \mathbb{N},$ \ $u_{n}=\left( 3\right)
+^{\left( \frac{1}{2}\right) ^{n}}.$
+
+\underline{Exercice 2* :} On consid\`{e}re la suite $(u_{n})$ d\'{e}finie
+par : $\left\{ 
+\begin{array}{c}
+u_{0}=1 \\ 
+\forall n\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+,u_{n+1}=\frac{u_{n}+1}{u_{n}+2}%
+\end{array}%
+\right. .$
+
+Montrer par r\'{e}currence que : $(u_{n})$ est bien d\'{e}finie et v\'{e}%
+rifie $\forall n\epsilon \mathbb{N},$ $0\leq u_{n}\leq 1.$
+
+\underline{Exercice 3 :} Soit la suite $u$ d\'{e}finie par : $\left\{ 
+\begin{array}{c}
+u_{0}=2\text{ et }u_{1}=3 \\ 
+\forall n\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+,\text{ }u_{n+2}=3u_{n+1}-2u_{n}%
+\end{array}%
+.\right. $
+
+V\'{e}rifier que $\forall n\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+,$ $u_{n}=1+2^{n}.$
+
+\underline{Exercice 4* :}On pose $u_{0}=2,$ $u_{1}=4$ et $\forall n\epsilon 
+\mathbb{N},u_{n+2}=\dfrac{u_{n+1}^{4}}{u_{n}^{3}}.$
+
+1. Montrer que $(u_{n})$ est bien d\'{e}finie et v\'{e}rifie : $\forall
+n\epsilon \mathbb{N},$ \ $u_{n}>0.$
+
+2. D\'{e}montrer, pour tout entier naturel $n$, l'\'{e}galit\'{e} $%
+u_{n}=\left( \sqrt{2}\right) ^{3^{n}+1}.$
+
+\underline{Exercice 5* :} D\'{e}montrer que pour tout entier $n\geq 1,$ $\
+3^{2n+2}-2^{n+1}$ est divisible par 7.
+
+\underline{Exercice 6 :}D\'{e}montrer par r\'{e}currence que :
+
+pour tout entier naturel $n>0,$ \ $\ 1.2.3+2.3.4+3.4.5+...+n(n+1)(n+2)=\frac{%
+n(n+1)(n+2)(n+3)}{4}.$
+
+\underline{Exercice 7 :}Calculer les sommes suivantes :
+
+1. $S_{n}=\overset{n-1}{\underset{k=1}{\sum }}(5.3^{-k}-4.2^{2k-1})$ \ \ \ \
+\ \ \ 2. $A_{n}=1+\left( \frac{1}{4}\right) ^{2}+\left( \frac{1}{4}\right)
+^{4}+...+\left( \frac{1}{4}\right) ^{2n}$ \ \ \ \ \ \ \ \ \ 3. \ $B_{n}=%
+\overset{n}{\underset{k=1}{\sum }}\frac{n^{2}.k+n.k^{2}-3k^{3}}{n^{4}}$ \ \
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+
+\ 4*. $I_{n}=\overset{n}{\underset{k=0}{\sum }}(\frac{k(k-1)3^{k}-5^{k-1}}{%
+3^{k}})$ \ \ \ \ \ \ \ \ \ 5*. $J_{n}=\overset{2n-1}{\underset{k=0}{\sum }}%
+\frac{5}{6^{k-1}}.$
+
+\bigskip
+
+\underline{Exercice 8 :}1) D\'{e}terminer deux r\'{e}els $a$ et $b$ tq $%
+\frac{1}{n(n+1)}=\frac{a}{n}+\frac{b}{n+1}.$
+
+2) En d\'{e}duire la valeur de la somme $S_{n}=\overset{n}{\underset{k=1}{%
+\sum }}\frac{3}{k(k+1)}.$
+
+\underline{Exercice 9* :}1) D\'{e}terminer trois r\'{e}els $a,b$ et $c$ tq $%
+\frac{1}{n(n^{2}-1)}=\frac{a}{n}+\frac{b}{n-1}+\frac{c}{n+1}$
+
+2) En d\'{e}duire la valeur de la somme $S_{n}=\overset{n}{\underset{k=3}{%
+\sum }}\frac{1}{k(k^{2}-1)}.$
+
+\underline{Exercice 10 :}
+
+1.D\'{e}montrer par r\'{e}currence que pour tout entier naturel $n\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+^{\ast },$ $\overset{n}{\underset{k=1}{\sum }}k\times k!=\left( n+1\right)
+!-1.$
+
+2. En utilisant la m\'{e}thode du t\'{e}lescopage, retrouver la valeur de la
+somme $\overset{n}{\underset{k=1}{\sum }}k\times k!.$
+
+\underline{Exercice 11* :}
+
+1. D\'{e}montrer par r\'{e}currence que pour tout entier naturel $n\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+^{\ast },$ $\overset{n}{\underset{k=1}{\sum }}\dfrac{k}{\left( k+1\right) !}%
+=1-\dfrac{1}{\left( n+1\right) !}.$
+
+2. Red\'{e}montrer ce r\'{e}sultat en utilisant la m\'{e}thode du t\'{e}%
+lescopage.
+
+\underline{Exercice 12 :}Soit $q\neq 1.$
+
+1. Calculer $\left( 1-q\right) \overset{n}{\underset{k=0}{\sum }}q^{k}.$ En d%
+\'{e}duire $\overset{n}{\underset{k=0}{\sum }}q^{k}.$
+
+2. Application : calculer \ les sommes suivantes : \ \ \ \ - $\overset{2n}{%
+\underset{k=1}{\sum }}q^{k}$ \ \ \ \ \ \ \ - $\overset{n}{\underset{k=0}{%
+\sum }}q^{2k+1}$
+
+\underline{Exercice 13* :}Soit $n\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+.$
+
+1. En utilisant l'\'{e}galit\'{e} $\overset{n+1}{\underset{k=1}{\sum }}%
+k^{2}= $ $\overset{n+1}{\underset{k=1}{\sum }}\left( (k-1)+1\right) ^{2}$,
+et en d\'{e}veloppant le second membre, retrouvez la valeur de la somme $%
+S_{1}=\overset{n}{\underset{k=1}{\sum }}k.$
+
+2. Utiliser une m\'{e}thode analogue pour retrouver la valeur de la somme $%
+S_{2}=\overset{n}{\underset{k=1}{\sum }}k^{2}.$
+
+\underline{Exercice 14 :} D\'{e}montrer par r\'{e}currence que pour tout
+entier naturel $n\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+^{\ast },$ $\overset{n}{\underset{k=1}{\dprod }}(n+k)=2^{n}\overset{n}{%
+\underset{k=1}{\dprod }}\left( 2k-1\right) .$
+
+\underline{Exercice 15* :}
+
+Calculer les sommes et les produits qui suivent : 1. 
+\begin{tabular}[t]{llll}
+$\overset{n}{\underset{k=1}{\sum }}\ln k$ & 2. $\overset{n}{\underset{k=1}{%
+\dprod }}e^{k}$ & 3. $\overset{2p}{\underset{k=p}{\sum }}k^{2}$ & 4. $%
+\overset{n}{\underset{k=1}{\dprod }}ke^{-2k}$%
+\end{tabular}%
+.
+
+\underline{Exercice 16* :}Pour tout entier n, on pose : $u_{n}=\overset{n}{%
+\underset{k=0}{\sum }}\left( -1\right) ^{n-k}k^{2}.$
+
+1. Calculer $u_{n}+u_{n+1}$ pour tout entier naturel $n.$
+
+2. D\'{e}montrer que \ $\forall n\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+,$ $u_{n}=\dfrac{n\left( n+1\right) }{2}.$
+
+\underline{Exercice 17* :}Soient $\left( x_{i}\right) _{i\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+}$ et $\left( f_{i}\right) _{i\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+}$ deux suites de r\'{e}els. On suppose que tous les $f_{i}$ sont
+strictement positifs et on pose :
+
+$\forall n\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+,\forall x\in 
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+,$ $v_{n}(x)=\dfrac{\overset{n}{\underset{i=1}{\sum }}f_{i}(x_{i}-x)^{2}}{%
+\overset{n}{\underset{i=1}{\sum }}f_{i}}.$
+
+1. Pour tout entier $n\geq 1,$ d\'{e}terminer le r\'{e}el $m_{n}$ tel que la
+fonction $v_{n}$ admet un minimum absolu sur $%
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+.$
+
+2. On pose alors : $V_{m}=v_{n}(m_{n}).$ Montrer que $%
+V_{n}=v_{n}(0)-m_{n}^{2}.$
+
+\underline{Exercice 18*: In\'{e}galit\'{e} de Cauchy-Schwarz.}Le but de
+l'exercice est de d\'{e}montrer pour tout entier naturel n non nul, et pour
+tout n-uplets r\'{e}els $(a_{1},...,a_{n})\in 
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+^{n},(b_{1},...,b_{n})\in 
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+^{n}$ l'in\'{e}galit\'{e} : $\left( \overset{n}{\underset{k=1}{\sum }}%
+a_{i}b_{i}\right) ^{2}\leq \left( \overset{n}{\underset{k=1}{\sum }}%
+a_{i}^{2}\right) \left( \overset{n}{\underset{k=1}{\sum }}b_{i}^{2}\right) .$
+
+On pose $A=\overset{n}{\underset{k=1}{\sum }}a_{i}^{2},$ $B=\overset{n}{%
+\underset{k=1}{\sum }}b_{i}^{2}$ et $C=\overset{n}{\underset{k=1}{\sum }}%
+a_{i}b_{i}.$
+
+1. Exprimer $P(x)=\overset{n}{\underset{k=1}{\sum }}\left(
+a_{i}x+b_{i}\right) ^{2}$ en fonction de $A,B,C.$
+
+2. En d\'{e}duire que $C^{2}\leq AB.$
+
+3. Si $a_{1},a_{2},...,a_{n}$ sont des nombres r\'{e}els strictement
+positifs, montrer que $n^{2}\leq \left( \overset{n}{\underset{k=1}{\sum }}%
+a_{i}\right) \left( \overset{n}{\underset{k=1}{\sum }}\dfrac{1}{a_{i}}%
+\right) .$
+
+\underline{Exercice 19 :}Calculer : \ a. $\sum\limits_{k=1}^{n}\dfrac{1}{%
+k(k+1)(k+2)}.$ \ \ \ \ \ \ b. $\overset{n}{\underset{k=1}{\dprod }}%
+ke^{-k^{2}}$ c. $J_{n}=\overset{n}{\underset{k=1}{\sum }}\left( \frac{%
+k3^{k}+2^{k}}{3^{k-1}}\right) $
+
+\underline{Exercice 20 :} D\'{e}montrer que $\forall n\in 
+%TCIMACRO{\U{2115} }%
+%BeginExpansion
+\mathbb{N}
+%EndExpansion
+,$ \ $\overset{n}{\underset{k=0}{\dprod }}\left( 1+\dfrac{1}{2k+1}\right) >%
+\sqrt{2n+3}.$
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\qquad
+
+\bigskip
+
+.
+
+\end{document}

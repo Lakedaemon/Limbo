@@ -1,0 +1,80 @@
+\catcode`@=11\relax
+
+\input LD@Maths@TD.tex
+
+\vglue-10mm\centerline{Spé PT\hfill TD : Fonctions de classe $\sc C^k$\hfill}
+\bigskip
+
+\hrule
+\centerline{Comment montrer qu'une fonction $f$ est de classe $\sc C^0$ sur un domaine $D$ ?}
+\hrule
+\bigskip
+\noindent
+A) Trouver le plus grand ensemble $E\subset D$ sur lequel $f$ peut être obtenu en faisant des sommes, différences, produits, quotients dont le dénominateur ne s'annule pas, ou compositions de fonctions de classe~$\sc C^1$. 
+\medskip
+\noindent
+B) {\bf Si $D\neq E$}, prouver que $f$ est continue en chaque point à problème $a\in D\smallsetminus E$, en montrant que  
+$$
+\lim_{X\to a\atop X\neq a}f(X)=f(a).
+$$
+
+\hrule
+\centerline{Comment montrer qu'une fonction $f$ est de classe $\sc C^1$ sur un domaine $D$ ?}
+\hrule
+
+\bigskip\noindent
+I) Trouver le plus grand ensemble $E\subset D$ sur lequel $f$ peut être obtenu en faisant des sommes, différences, produits, quotients dont le dénominateur ne s'annule pas, ou compositions de fonctions de classe~$\sc C^1$, 
+\medskip\noindent
+II) {\bf Si $D\neq E$}, effectuer en chaque point à problème $a\in D\smallsetminus E$ les opérations suivantes : \pn
+i) prouver que $f$ est $\sc C^0$ sur $D$ (faire l'étape B) de l'algorythme précédent). \pn
+ii) Montrer que les dérivées partielles de $f$ existent en $a$ et les calculer en faisant des taux d'accroissement :
+$$
+{\partial f\F\partial x}(a)=\lim_{h\to 0}{f(a+(h,0))-f(a)\F h}\qquad {\partial\F\partial y}(a)=\lim_{h\to 0}{f(a+(0,h))-f(a)\F h}. 
+$$
+iii) Calculer les dérivées partielles de $f$, à l'aide des formules traditionnelles de dérivation en un point $X\in D$. 
+Puis, prouver que ces dérivées partielles sont continues en $a$, en montrant que  
+$$
+\lim_{X\to a\atop X\neq a}{\partial f\F\partial x}(X)={\partial f\F\partial x}(a)\qquad \hbox{et} \lim_{X\to a\atop X\neq a}{\partial f\F\partial y}(X)={\partial f\F\partial y}(a)
+$$
+
+\hrule
+\centerline{Comment montrer qu'une fonction $f$ est de classe $\sc C^k$ sur un domaine $D$ avec $k>1$ ?}
+\hrule
+
+\bigskip\noindent
+1) Trouver le plus grand ensemble $E\subset D$ sur lequel $f$ peut être obtenu en faisant des sommes, différences, produits, quotients dont le dénominateur ne s'annule pas, ou compositions de fonctions de classe~$\sc C^k$. 
+\medskip\noindent
+{\bf Si $D\neq E$}, effectuer en chaque point à problème $a\in D\smallsetminus E$ les opérations suivantes : \pn
+2) Prouver que $f$ est de classe $\sc C^0$ (en effectuant l'étape B). \pn
+3) prouver que $f$ est de clase $\sc C^1$ (en effectuant les étapes i, ii et iii). \pn
+4) prouver que $f$ est $\sc C^2$ (en prouvant à l'aide des étapes i, ii et iii que ${\partial f\F\partial x}$ et  ${\partial f\F\partial x}$ sont de classe $\sc C^1$).\pn
+5) prouver que $f$ est $\sc C^3$ (en prouvant que les dérivées secondes sont de classe $\sc C^1$).\pn
+6) ...etc...\pn
+On ne vous donnera jamais d'exercice faisant intervenir les étapes 5+. 
+\medskip
+\hrule
+\centerline{Exercices}
+\hrule
+\bigskip
+\Exercice{PTir}\par\noindent
+({\it D'après le théorème de Schwarz ${\partial^2f\F\partial x\partial y}(a)={\partial^2f\F\partial y\partial x}(a)$ si $f$ est de classe $\sc C^2$ autour de $a$}).
+\goodbreak
+\Exercice{PTaoo}
+\vfill
+\Exercice{PTis}
+\vfill
+\Exercice{PTaon}
+\vfill
+\Exercice{PTcv}
+\vfill
+\Exercice{PTgs}
+\vfill
+\Exercice{PTanh}
+\vfill
+\Exercice{PTani}
+\vfill
+\Exercice{PTanj}
+\vfill
+\Exercice{PTjd}
+\vfill\null\eject
+\bye

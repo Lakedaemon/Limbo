@@ -165,7 +165,7 @@ x+iy \text{ est bornée } \ ⟺\  x \Et y \text{ sont bornées }
 
 <concept t="limite">
 <combination>
-<definition t="\rare{limite {\it(ECS)}}" c="" h="$u∈𝕂^ℕ$, $ℓ∈𝕂$">$u→ℓ$ \ssi tout intervalle ouvert contenant $\ell$ contient $u_n$ pour tous les indices $n$, sauf pour un nombre fini d'entre eux.</definition>
+<definition t="ECS : limite" c="" h="$u∈𝕂^ℕ$, $ℓ∈𝕂$">$u→ℓ$ \ssi tout intervalle ouvert contenant $\ell$ contient $u_n$ pour tous les indices $n$, sauf pour un nombre fini d'entre eux.</definition>
 <definition  t="limite" c="" h="$u∈𝕂^ℕ$, $ℓ∈𝕂$">$u → ℓ\  ⟺\  \Q(∀ε>0, ∃ N∈ℕ:∀ n⩾N, |u_n-ℓ|⩽ε\W)$</definition>
 </combination>
 <skill>
@@ -229,7 +229,7 @@ u→ℓ\ ⟹\ |u|→|ℓ|
 <remark>Il est plus facile de montrer que la suite $u-\ell$ converge vers $0$ que de montrer que la suite $u$ converge vers $\ell$. </remark>
 </concept>
 
-<concept p="-e" t="principe des gendarmes"><text>Une suite complexe inférieure en module à une suite de limite nulle converge vers $0$.</text>
+<concept p="-e" t="principe des gendarmes//complexe"><text>Une suite complexe inférieure en module à une suite de limite nulle converge vers $0$.</text>
 <property h="$u∈ℂ^ℕ$, $α∈ℝ^ℕ$"> 
 \startformula 
 \SystemR{
@@ -518,13 +518,13 @@ Soient $u→ℓ$ et $w→ℓ$. Alors,  $u⩽v⩽w ⟹ v→ℓ$
 </subsection><subsection t="Suites divergeant vers l’infini">
 <context>Dans cette section, $u$ et $v$ désignent des suites réelles.</context>
 <concept t="divergence vers $-∞$">
-<definition t="\rare{divergence vers $-∞$ {\it(ECS)}}" c="" h="$u∈ℝ^ℕ$">Une suite diverge vers $-∞$ si tout intervalle ouvert d'extrémité $-∞$ contient les $u_n$ pour tous les indices $n$, sauf pour un nombre fini d'entre eux.</definition>
+<definition t="ECS:divergence vers $-∞$" c="" h="$u∈ℝ^ℕ$">Une suite diverge vers $-∞$ si tout intervalle ouvert d'extrémité $-∞$ contient les $u_n$ pour tous les indices $n$, sauf pour un nombre fini d'entre eux.</definition>
 <definition t="divergence vers $-∞$" c="" h="$u∈ℝ^ℕ$">$u → -∞  \ ⟺ \ (∀ m ∈ ℝ, ∃ N ∈ ℕ:∀n⩾N,u_n ⩽ m)$</definition>
 <remark>Lorsque $u$ tends ver $+∞$ (on dit également que $u$ diverge vers $+∞$), on note $\lim u=+∞$.</remark>
 </concept>
 
 <concept t="divergence vers $+∞$">
-<definition t="\rare{divergence vers $+∞$ {\it(ECS)}}" c="" h="$u∈ℝ^ℕ$">Une suite diverge vers $+∞$ si tout intervalle ouvert d'extrémité $+∞$ contient les $u_n$ pour tous les indices $n$, sauf pour un nombre fini d'entre eux.</definition>
+<definition t="ECS:divergence vers $+∞$" c="" h="$u∈ℝ^ℕ$">Une suite diverge vers $+∞$ si tout intervalle ouvert d'extrémité $+∞$ contient les $u_n$ pour tous les indices $n$, sauf pour un nombre fini d'entre eux.</definition>
 <definition t="divergence vers $+∞$" c="" h="$u∈ℝ^ℕ$">$u → +∞  \ ⟺ \ (∀ M ∈ ℝ, ∃ N ∈ ℕ:∀n⩾N,u_n ⩾ M)$</definition>
 <remark>Lorsque $u$ tends ver $+∞$ (on dit également que $u$ diverge vers $+∞$), on note $\lim u=+∞$.</remark>
 </concept>
@@ -615,11 +615,11 @@ $u$ est strictement décroissante ou strictement croissante (resp. décroissante
 <concept t="limite\\monotonie">
 <text>Une suite croissante (resp. décroissante) converge \ssi elle est majorée (resp. minorée).</text>
 <combination>
-<theorem m="?" t="théorème de limite monotone" c="" h="$u∈ℝ^ℕ$ croissante">Une suite croissante $u$ converge \ssi $u$ est majorée.
-Dans tous les cas, $\lim u = \sup\limits_{n∈ℕ}u_n$
+<theorem t="théorème de limite monotone" c="" h="$u∈ℝ^ℕ$ croissante">Soit $u$ une suite croissante. Alors, $ u\text{ converge}  \ ⟺\ u\text{ est majorée}$. 
+Dans les deux cas, $\lim u = \sup\limits_{n∈ℕ}u_n$.
 </theorem>
-<theorem t="théorème de limite monotone" c="" h="$u∈ℝ^ℕ$ décroissante">Une suite décroissante $u$ converge \ssi $u$ est minorée.
-Dans tous les cas, $\lim u = \inf\limits_{n∈ℕ}u_n$.
+<theorem t="théorème de limite monotone" c="" h="$u∈ℝ^ℕ$ décroissante">Soit $u$ une suite décroissante. Alors, $ u\text{ converge}  \ ⟺\ u\text{ est minorée}$.
+Dans les deux cas, $\lim u = \inf\limits_{n∈ℕ}u_n$.
 </theorem>
 </combination>
 <remark>Une suite croissante qui n'est pas majorée diverge vers $+∞$ et une suite décroissante qui n'est pas minorée diverge vers $-∞$</remark>
@@ -760,7 +760,7 @@ $\displaystyle
 </combination>
 <combination>
 <property c="" h="$u,v∈ℂ^ℕ$, $k⩾1$">$u ≺ v \ ⟹ \  u^k ≺ v^k \qquad (k⩾1)$</property>
-<property c="" h="$u,v∈ℂ^ℕ$, $λ,μ∈ℂ^*$">$u ≺ v \ ⟺\  λu ≺ μv\qquad(λ≠0, μ≠0)$</property>
+<property h="$u,v∈ℂ^ℕ$, $λ,μ∈ℂ^*$">$u ≺ v \ ⟺\  λu ≺ μv\qquad(λ≠0)$</property>
 <property h="$u$ et $v$ suites ne s'annulant pas">Alors $\displaystyle u≺ v \ ⟺ \  {1\F v} ≺ {1\F u}$</property>
 </combination>
 </concept>
@@ -857,7 +857,7 @@ n!∼\Q({n\F \e}\W)^n\sqrt{2πn}
 <context>Dans cette section, $r$ désigne un nombre de $𝕂$.</context>
 
 <concept t="suite arithmétique\\raison">
-<definition m="?" c="ch" h="$u∈𝕂^ℕ$ et $r∈𝕂$">$u \text{ arithmétique de raison } r \ ⟺ \ u_{n+1}-u_n=r\qquad(n⩾0)$</definition>
+<definition c="ch" h="$u∈𝕂^ℕ$ et $r∈𝕂$">$u \text{ arithmétique de raison } r \ ⟺ \ u_{n+1}-u_n=r\qquad(n⩾0)$</definition>
 <remark>Une suite est dite arithmétique lorsqu'on passe d'un terme au terme suivant en lui ajoutant la même constante
 \startformula
 u \text{ suite arithmétique } \ ⟺\ (∃r∈𝕂:u \text{ suite arithmétique de raison }r).
@@ -866,16 +866,16 @@ u \text{ suite arithmétique } \ ⟺\ (∃r∈𝕂:u \text{ suite arithmétique 
 </concept>
 
 <concept t="expression">
-<property m="?" t="formule" c="" h="$u∈𝕂^ℕ$ et $r∈𝕂$">$u \text{ arithmétique de raison } r \ ⟺ \ u_n = u_0 + nr\qquad(n⩾0)$</property>
+<property c="ch" h="$u∈𝕂^ℕ$ et $r∈𝕂$">$u \text{ arithmétique de raison } r \ ⟺ \ u_n = u_0 + nr\qquad(n⩾0)$</property>
 <remark>$u$ diverge si $|r|≠0$.</remark>
 <remark>$u$ est constante si $r=0$.</remark>
 </concept>
 
 <concept t="somme"><text>La somme des termes d'une suite arithmétique est égale au nombre de termes multiplié par 
 la moyenne des termes aux extrémités</text>
-<property m="?" t="somme" c="" h="$u$ arithmetique de raison $r$">Soit $u$ une suite arithmétique de raison $r$. Alors, 
+<property h="$u$ arithmetique de raison $r$">
 \startformula
-\sum_{m⩽k⩽n}u_k=\rare{{u_m+u_n\F 2}(n-m+1)}=\text{moyenne aux extrémités}×\text{nombre de termes}\qquad (0⩽m⩽n).
+\sum_{m⩽k⩽n}u_k={u_m+u_n\F 2}(n-m+1)\qquad (0⩽m⩽n).
 \stopformula
 </property>
 </concept>
@@ -885,7 +885,7 @@ la moyenne des termes aux extrémités</text>
 <context>Dans cette section, $q$ désigne un nombre de $𝕂$.</context>
 
 <concept t="suite géométrique">
-<definition m="?" c="ch" h="$u∈𝕂^ℕ$ et $q∈𝕂$">$u \text{ géométrique de raison } q \ ⟺ \ u_{n+1}=qu_n\qquad(n⩾0)$</definition>
+<definition c="ch" h="$u∈𝕂^ℕ$ et $q∈𝕂$">$u \text{ géométrique de raison } q \ ⟺ \ u_{n+1}=qu_n\qquad(n⩾0)$</definition>
 <remarks><item>Une suite est dite géométrique lorsqu'on passe d'un terme au terme suivant en le multipliant par la même constante
 \startformula
 u \text{ suite géométrique } \ ⟺\ (∃q∈𝕂:u \text{ suite géométrique de raison }q.
@@ -896,7 +896,7 @@ u \text{ suite géométrique } \ ⟺\ (∃q∈𝕂:u \text{ suite géométrique 
 </concept>
 
 <concept t="expression">
-<property m="?" t="formule" c="ch" h="$u∈𝕂^ℕ$ et $q∈𝕂$">$u \text{ géométrique de raison } q \ ⟺ \ u_n=u_0q^n\qquad(n⩾0)$</property>
+<property  c="ch" h="$u∈𝕂^ℕ$ et $q∈𝕂$">$u \text{ géométrique de raison } q \ ⟺ \ u_n=u_0q^n\qquad(n⩾0)$</property>
 <remark>$u$ converge vers $0$ si $|q|\Le1$.</remark>
 <remark>$u$ est constante si $q=1$.</remark>
 <remark>$u$ diverge lorsque $|q|⩾1$ et $q≠1$.</remark>
@@ -904,7 +904,7 @@ u \text{ suite géométrique } \ ⟺\ (∃q∈𝕂:u \text{ suite géométrique 
 
 <concept t="somme"><text>La somme des termes d'une suite géométrique est égale au quotient du terme qui suivrait le dernier moins le premier terme par la raison moins $1$. 
 la moyenne des termes auxextrémités</text>
-<property m="?" t="somme" c="" h="$u$ géométrique de raison \important{$q≠1$}">Soit $u$ une suite géométrique de raison \important{$q≠1$}. Alors, 
+<property h="$u$ géométrique de raison \important{$q≠1$}">
 \startformula
 \sum_{m⩽k⩽n}u_k=\rare{{u_m-q×u_n\F 1-q}}={\text{premier terme }-\text{ terme après le dernier}\F 1 - \text{ raison}}\qquad (0⩽m⩽n).
 \stopformula
@@ -922,9 +922,13 @@ u_{n+1}=au_n+b\qquad(n⩾0)
 </context>
 
 <concept t="suite arithmético-géométrique">
-<definition m="?" c="" h="$u∈𝕂^ℕ$">
+<definition c="" h="$u∈𝕂^ℕ$">
 $u \text{ arithmético-géométrique} \ ⟺ \ ∃(a,b)∈𝕂^2\text{ vérifiant (\in[relationArithméticoGéométrique])}$</definition>
-<remarks>
+<remarks><item>Une suite est dite arithmétique-géométrique lorsqu'il existe des nombres $a$ et $b$ tels que 
+\placeformula[suiteArithméticoGéométriqueDef]
+\startformula 
+u_{n+1} = au_n+b\qquad(n⩾0)
+\stopformula</item>
 <item>Si $a=0$, les solutions de (\in[relationArithméticoGéométrique]) sont constantes à partir du rang 1</item>
 <item>Si $a=1$, les solutions de (\in[relationArithméticoGéométrique]) sont arithmétiques, de raison $b$</item>
 <item>Si $b=0$, les solutions de (\in[relationArithméticoGéométrique]) sont géométriques, de raison $a$</item>
@@ -933,15 +937,16 @@ $u \text{ arithmético-géométrique} \ ⟺ \ ∃(a,b)∈𝕂^2\text{ vérifiant
 
 
 <concept t="formule">
-<property c="" h="\important{$a≠1$} et $c = {b\F 1-a}$">Soient \important{$a≠1$} et $c = {b\F 1-a}$. Alors, 
+<property h="\important{$a≠1$} et $c = {b\F 1-a}$"> 
 \startformula
 u \text{ vérifie (\in[relationArithméticoGéométrique])}\ ⟺ \ \rare{u_n = c + a^n(u_0-c)\qquad(n⩾0)}.
 \stopformula
-</property><craft m="?" t="présentation recommandée">
+</property><craft>
+{\it Méthode recommandée : }
 \startList
-\item Chercher la suite constante $c$ vérifiant (\in[relationArithméticoGéométrique]) en résolvant l'équation $x=ax+b$
-\item Soustraire et remarquer que la suite $v_n=u_n-c$ est géométrique de raison $a$ 
-\item En déduire la formule de $u_n$.
+\item Chercher la suite constante $c$ vérifiant (\in[suiteArithméticoGéométriqueDef]) en résolvant l'équation $x=ax+b$
+\item En faisant une soustraction, remarquer que la suite $v_n=u_n-c$ est géométrique de raison $a$ 
+\item en déduire la formule.
 \stopList
 </craft>
 </concept>
@@ -959,7 +964,7 @@ au_{n+2}+bu_{n+1}+cu_n = 0\qquad(n⩾0).
 
 
 <concept t="récurrence linéaire homogène du second ordre">
-<definition m="?" c="" h="$u$ suite réelle">Une suite $u$ satisfait une récurrence linéaire homogène du second ordre \ssi il existe des nombres réels $a≠0$, $b$ et $c≠0$ vérifiant (\in[récurrenceLinéaireDef]).</definition>
+<definition c="" h="$u$ suite réelle">Une suite $u$ satisfait une récurrence linéaire homogène du second ordre \ssi il existe des nombres réels $a≠0$, $b$ et $c≠0$ vérifiant (\in[récurrenceLinéaireDef]).</definition>
 <remarks><item>Une telle suite est complétement déterminée par la donnée de ses $2$ premiers termes $u_0$ et $u_1$</item>
 <item>Si $a=b=c=0$, toutes les suites sont solutions de  l'équation (\in[récurrenceLinéaireDef]), qui n'a aucun intérêt</item>
 <item>Si $(a,b,c)≠(0,0,0)$ avec $a=0$ ou $c=0$, les solutions de (\in[récurrenceLinéaireDef]) sont aithmético-géométriques</item>
@@ -968,7 +973,7 @@ au_{n+2}+bu_{n+1}+cu_n = 0\qquad(n⩾0).
 </concept>
 
 <concept t="polynôme caractéristique">
-<definition m="?" c="" h="$a≠0$, $b$ et $c$ réels">
+<definition c="" h="$a≠0$, $b$ et $c$ réels">
 Le polynôme caractéristique associé à (\in[récurrenceLinéaireDef]) est le trinôme
 \placeformula[récurrenceLinéairePolynomeCaractéristiqueDef]
 \startformula
@@ -983,12 +988,12 @@ L'équation caractéristique associée à (\in[récurrenceLinéaireDef]) est l'�
 </definition>
 </concept>
 
-<concept t="solutions"><property m="?" c="" h="$a≠0$, $b$ et $c$ réels">
+<concept t="solutions"><property c="" h="$a≠0$, $b$ et $c$ réels">
 Si le polynôme caractéristique (\in[récurrenceLinéairePolynomeCaractéristiqueDef]) admet une racine double $s$, une suite réelle $u$ est solution de (\in[récurrenceLinéaireDef]) \ssi il existe des nombres réels $λ$ et $μ$ tels que 
 \startformula
 u_n=λs^n+μ{\darkred n}z^n\qquad(n⩾0)
 \stopformula</property>
-<property m="?" c="" h="$a≠0$, $b$ et $c$ réels">Si le polynôme caractéristique (\in[récurrenceLinéairePolynomeCaractéristiqueDef])  admet deux racines distinctes $s$ et $z$, une suite réelle $u$ est solution de (\in[récurrenceLinéaireDef]) \ssi il existe des nombres $λ$ et $μ$ tels que
+<property c="" h="$a≠0$, $b$ et $c$ réels">Si le polynôme caractéristique (\in[récurrenceLinéairePolynomeCaractéristiqueDef])  admet deux racines distinctes $s$ et $z$, une suite réelle $u$ est solution de (\in[récurrenceLinéaireDef]) \ssi il existe des nombres $λ$ et $μ$ tels que
 \startformula
 u_n=λs^n+μz^n\qquad(n⩾0)
 \stopformula

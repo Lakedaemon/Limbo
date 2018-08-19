@@ -1,0 +1,258 @@
+\catcode`@=11\relax
+\input LD@Header.tex
+\input LD@Library.tex
+
+\def\LD@Maths@Exercice@Display{\ignorespaces\LD@Exo@@Exo}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%															%
+%						Probleme 00 : Révisions de sup					%
+%															%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vglue-10mm\rightline{Sp\'e PT\hfill DS 2.\hfill\date}%
+\bigskip
+\bigskip
+\vfill
+
+
+\centerline{\seventeenbf Probl\`eme}
+\medskip
+
+\noindent 
+{\it Les parties I et II de ce probl\`eme  sont largement ind\'ependantes}.
+\medskip
+\noindent
+{\bf Partie I : La constante $\gamma$. Une expression sous forme de s\'erie.}
+\medskip
+\noindent 
+1a.  Montrer que : 
+$$
+\forall x \in [0,1[,\qquad  x + \ln (1-x) \le 0.
+$$
+1b. Montrer que : 
+$$
+\forall x \in [0,1[, \qquad  x - \ln (1+x) \ge 0.
+$$
+Pour chaque entier naturel $n \ge 2$, on pose
+$$
+S_n:=\sum_{k=1}^n{1\F k}, \qquad 
+u_n:=S_n-\ln n, \qquad \mbox{et}\qquad 
+v_n:=S_{n-1}-\ln n.
+$$
+2a. Montrer que la suite $u=(u_n)_{n \ge 2}$ est d\'ecroissante.
+\smallskip
+\noindent
+2b. Montrer que la suite $v=(v_n)_{n \ge 2}$ est croissante.
+\smallskip
+\noindent
+2c. Montrer que les suites $u$ et $v$ sont adjacentes. 
+\smallskip
+\noindent
+2d. Donner \`a un encadrement \`a $10^{-1}$ de la limite commune des deux suites 
+$$
+\gamma:=\lim_{n\to+\infty}u_n=\lim_{n\to+\infty}v_n.
+$$ 
+3. Prouver que l'on a  
+$$
+\gamma=\lim_{n\to\infty}\sum_{k=1}^n \Q({1\F k}-\ln\Q(1+ {1\F k} \W)\W).
+$$  
+{\bf Partie II : Une expression int\'egrale de la
+constante $\gamma$.  }
+\medskip
+\noindent
+1a. Donner un \'equivalent simple en $0$ de la fonction $f$ d\'efinie par 
+$$
+f(x):=x-1+e^{-x}\qquad(x\in\ob R).
+$$
+1b.  En d\'eduire que  la fonction $g$ d\'efinie par 
+$$
+g(x)={1\F1-e^{-x}}-{1\F x}\qquad(x>0).
+$$
+peut \^etre prolong\'ee en une fonctioncontinue sur $\ob R^+$. 
+\smallskip
+\noindent
+1c.  En d\'eduire que $g$ est born\'ee sur $\ob R^+$. \pn
+Pour toute la suite, on fixe un nombre r\'eel $K$ v\'erifiant  
+$$
+\Q|g(x)\W| \le K\qquad(x\ge0).
+$$
+2. Montrer que l'int\'egrale $\displaystyle I:=\int_0^{+\infty}e^{-x}g(x)\mbox{d}x$  est convergente.
+\smallskip
+\noindent
+3.  On pose  
+$$
+I_n:=\int_1^{+\infty}{e^{-x}-e^{-nx}\F x}\d x\qquad \mbox{et}\qquad
+I_n(X):=\int_1^X{e^{-x}-e^{-nx}\F x}\d x\qquad(X>0,n\in\ob N^*).
+$$
+a. Montrer que l'int\'egrale $I_n$ est convergente. 
+En d\'eduire que $ I_n(X)$ a une limite, que l'on exprimera en fonction des donn\'ees du probl\`eme {\it mais dont on ne calculera pas la valeur}, lorsque $X$ tend vers $+\infty$,. 
+\smallskip
+\noindent
+b. On note 
+$$
+J(X):=\int_1^X{e^{-x}\F x}\d x\qquad\mbox{ et } \qquad\ds K_n(X):=\int_1^X{e^{-nx}\F x}\d x\qquad(X>0)
+$$
+i) Montrer que $J(X)$ et $K_n(X)$ ont des limites lorsque $X$ tend vers $+\infty$.
+\smallskip
+\noindent
+ii) Montrer que $\ds K_n(X)=\int_n^{nX}{e^{-x}\F x}\d x$.
+\smallskip
+\noindent
+iii) En d\'eduire que $\ds I_n=\int_1^n{e^{-x}\F x}\d x$.
+\smallskip
+\noindent
+3c. En utilisant {\bf II.3.b.iii)} montrer que 
+$$
+I_n=\ln n - \int_1^n{1-e^{-x}\F x}\d x.
+$$
+4a. Soit $t\in\ob R$.  Montrer que la fonction $\varphi_t$ d\'efinie par 
+$$
+\varphi _t(x):={e^{-x}-e^{-xt}\F x}\qquad (x\neq 0)
+$$ 
+peut \^etre prolong\'ee par continuit\'e en $0$. 
+\smallskip
+\noindent
+4b. En d\'eduire que l'on d\'efinit bien une application sur $\ob R$ en posant 
+$$
+F(t)=\int_0^1{e^{-x}-e^{-xt}\F x}\d x\qquad(t\in\ob R).
+$$
+4c. A l'aide d'une in\'egalit\'e de Taylor, montrer qu'il existe une constante $M$ (\`a d\'eterminer) telle que :
+$$
+\Q|e^{-hx}-1+hx\W|\le  M{h^2x^2\F 2}\qquad (-1\le h\le 1,0\le x\le 1).
+$$
+4d. Pour $t \in \ob R$ et $h \in [-1,1]$ non nul, montrer que 
+$$
+\Q|{F(t+h)-F(t)\F h}-\int_0^1e^{-xt}\d x\W|\le M\int_0^1{|h|x\F 2}e^{-xt}\d x.
+$$
+4e.  En d\'eduire que $F$ est d\'erivable sur $\ob R$ et d\'eterminer $F'(t)$ pour $t \in \ob R$.
+\smallskip
+\noindent
+4f. Calculer $F(1)$.
+\smallskip
+\noindent
+4g. En utilisant {\bf II.4.e)} et {\bf II.4.f)}, montrer que $F(t)=\ds\int_1^t{1-e^{-x}\F x}\d x$.
+\smallskip
+\noindent
+5a. Montrer que l'int\'egrale $\ds \int_0^{+\infty}{e^{-x}-e^{-nx}\F x}\d x$ est convergente.
+\smallskip
+\noindent
+5b. Montrer que $\ds I_n= \ln n - \int_0^1{e^{-x}-e^{-nx}\F x}\d x$.
+\smallskip
+\noindent
+5c. En d\'eduire que $\ds \int_0^{+\infty}{e^{-x}-e^{-nx}\F x}\d x=\ln n$.
+\smallskip
+\noindent
+6. On pose 
+$$
+L_n =\int_0^{+\infty}(e^{-x}-e^{-nx})g(x)\d x\qquad(n\ge2).
+$$
+a. Pour chaque entier $n\ge 2$, montrer que $|L_n-I|\le{K\F n}$.
+\smallskip
+\noindent
+b. Montrer que la suite $(L_n)_{n \ge 2}$ converge. Donner sa limite.
+\smallskip
+\noindent
+c. Pour chaque entier $n\ge2$, montrer que $L_n=v_n$.
+\smallskip
+\noindent
+d. En d\'eduire que 
+$$
+\gamma = \int_0^{+\infty}e^{-x}g(x)\d x.
+$$
+
+\bye
+
+
+
+corrige :
+
+\textbf{Probl\`eme}\newline\newline
+\textbf{Pr\'eliminaires}\newline\newline 1) a) $\forall n\geq n_0,
+w_n=u_n-v_n\leq u_{n_0}-v_n$ car $(u_n)$ d\'ecro\^it.\newline b)
+$(u_n)$ et $(-v_n)$ d\'ecroissent donc $(w_n)$
+d\'ecro\^it.\newline c) $(w_n)$ d\'ecro\^it et tend vers 0 donc
+$w_n\geq 0$. D'o\`u $v_n\leq u_n\leq u_{n_0}$, $\forall n\geq
+n_0$.\newline d) On a une suite major\'ee et croissante donc elle
+converge.\newline 2) $u_n-v_n\rightarrow 0$ donc $u_n$ converge
+vers la m\^eme limite.\newline 3) $(v_n)$ cro\^it vers $l$ et
+$(u_n)$ d\'ecro\^it vers $l$ d'o\`u l'encadrement.\newline\newline
+\textbf{Partie I}\newline\newline 1) a) Soit $f(x)=x+\ln(1-x)$,
+$\displaystyle{f'(x)=1-\frac{1}{1-x}=\frac{-x}{1-x}\leq
+0}$.\newline Ainsi $f$ d\'ecro\^it de $[0,1[$ vers $]-\infty,0]$,
+donc elle est bien n\'egative.\newline b) Raisonnement
+identique.\newline 2) a)
+$\displaystyle{u_{n+1}-u_n=S_{n+1}-S_n-\ln(n+1)+\ln
+n=\frac{1}{n+1}+\ln(1-\frac{1}{n+1})\leq 0}$ d'apr\`es
+1)a).\newline b)
+$\displaystyle{v_{n+1}-v_n=S_n-S_{n-1}-\ln(1+\frac{1}{n})=\frac{1}{n}-\ln(1+\frac{1}{n})\geq
+0}$ d'apr\`es 1)b).\newline c)
+$\displaystyle{u_n-v_n=S_n-S{n-1}=\frac{1}{n}\rightarrow 0}$ donc
+les suties sont adjacentes.\newline d) $\forall n\geq n_0, v_n\leq
+\gamma\leq u_n$. Pour $n=7$ on a $0.5\leq \gamma\leq 0.6$.\newline
+3) a)
+$\displaystyle{x_n=\frac{1}{n}-\ln(1+\frac{1}{n})=\frac{1}{2n^2}+o(\frac{1}{n^2})}$.\newline
+b) Comme $\displaystyle{x_n\sim\frac{1}{2n^2}}$, $\sum x_n$
+converge (Riemann).\newline c) $x_n=1/n+\ln n-\ln(n+1)$ donc
+$\displaystyle{\sum_{n=1}^N x_n=S_N-\ln(N+1)=v_{N+1}\rightarrow
+l}$.\newline\newline \textbf{Partie II}\newline\newline 1) a) On a
+$\displaystyle{f(x)\underset{x\rightarrow 0}{\sim}
+\frac{x^2}{2}}$\newline b)
+$\displaystyle{g(x)=\frac{x-1+e^{-x}}{x(1-e^{-x})}\underset{x\rightarrow
+0}{\sim} \frac{x^2/2}{x\times x}=\frac{1}{2}}$ donc on peut la
+prolonger par continuit\'e en posant $g(0)=1/2$.\newline c)
+$g\underset{x\rightarrow +\infty}{\longrightarrow} 1$ donc $g$ est
+born\'ee sur $\rset-+$ (car une fonction continue sur $\rset_+$
+ayant une limite finie en $+\infty$ est born\'ee).\newline 2)
+Comme $x^2\times e^{-x}g(x)\underset{x\rightarrow
++\infty}{\longrightarrow} 0$, l'int\'egrale est convergente
+(r\`egle de Riemann).\newline 3) a) $\displaystyle{x^2\times
+\frac{e^{-x}-e^{-nx}}{x}\underset{x\rightarrow
++\infty}{\longrightarrow} 0}$ donc $I_n$ converge (et ainsi
+$I_n(X)$ a une limite qui est $I_n$).\newline b) i) Avec la
+r\`egle de Riemann on a la convergence ($x^2\times e^{-x}/x,
+x^2\times e^{-nx}/x$ tendent vers 0 en $+\infty$).\newline ii)
+Avec le changement de variable $u=nx$, on a
+$\displaystyle{K_n(X)=\int_n^{nX}\frac{e^{-u}}{u}du}$.\newline
+iii) On a $\displaystyle{I_n(X)=J(X)-K_n(X)=\int_1^X
+\frac{e^{-u}}{u}du-\int_n^{nX}\frac{e^{-u}}{u}du\underset{X\rightarrow
++\infty}{\longrightarrow}
+\int_1^{+\infty}-\int_n^{+\infty}=\int_1^n
+\frac{e^{-u}}{u}=I}$.\newline c) $\displaystyle{I_n=\int_1^n
+\frac{1-1+e^{-x}}{x}dx=\ln n-\int_1^n
+\frac{1-e^{-x}}{x}dx}$.\newline 4) a)
+$\displaystyle{\varphi_t(x)=\frac{1-x-(1-xt)+o(x)}{x}=\frac{x(t-1)+o(x)}{x}\sim
+t-1}$ donc on peut la prolonger par continuit\'e en 0 en posant
+$\varphi_t(0)=t-1$.\newline b) Elle est faussement
+g\'en\'eralis\'ee en 0 (vu que $\varphi_t$ y est continue) donc
+elle converge.\newline c) On va utiliser l'in\'egalit\'e de
+Taylor: $\displaystyle{|f(b)-f(a)-(b-a)f'(a)|\leq
+M\frac{(b-a)^2}{2}}$ avec $f(u)=e^{-u}$, $b=hx$ et $a=0$.\newline
+d) $\displaystyle{|\frac{F(t+h)-F(t)}{h}-\int_0^1
+e^{-xt}dx|=|-\int_0^1 \frac{e^{-(t+h)x}-e^{-xt}}{xh}-\int_0^1
+e^{-xt}dx|}$\newline $\displaystyle{\leq e^{-xt}\int_0^1
+\frac{|e^{-hx}-1+hx|}{|h|x}\leq \int_0^1
+\frac{|h|x}{2}e^{-xt}Mdx}$ avec 4)c).\newline e) En faisant tendre
+$h$ vers 0 , on a $\displaystyle{F'(t)=\int_0^1
+e^{-xt}dx=\frac{1-e^{-t}}{t}}$.\newline f) On a $F(1)=0$.\newline
+Comme $F$ s'annule en 1, on a $\displaystyle{F(t)=\int_1^t
+\frac{1-e^{-x}}{x}dx}$\newline 5) a) $\displaystyle{x^2\times
+\frac{e^{-x}-e^{-nx}}{x}\rightarrow 0}$, de plus la fonction est
+continue en 0 donc l'int\'egrale converge (r\`egle de
+Riemann).\newline b) $\displaystyle{I_n=\ln n-\int_1^n
+\frac{1-e^{-x}}{x}dx=\ln n-F(n)=\ln n
+-\int_0^1\frac{e^{-x}-e^{-nx}}{x}dx}$\newline c) \'Evident avec
+5)b) et la d\'efiniton de $I_n$.\newline 6) a)
+$\displaystyle{|L_n-I|\leq \int_0^{+\infty} e^{-nx}|g(x)|dx\leq
+K\int_0^{+\infty} e^{-nx}dx=\frac{K}{n}}$.\newline b) Ainsi
+$L_n\rightarrow I$.\newline c) $\displaystyle{L_n=\int_0^{+\infty}
+\frac{e^{-x}-e^{-nx}}{1-e^{-x}}dx-\int_0^{+\infty}
+\frac{e^{-x}-e^{-nx}}{x}dx=\int_0^{+\infty}
+\frac{1}{e^x}\frac{1-e^{-(n-1)x}}{1-e^{-x}}dx-\ln n}$\newline
+$\displaystyle{=\int_0^{+\infty} \sum_{k=1}^{n-1} e^{-kx}dx-\ln
+n=\sum_{k=1}^{n-1}\frac{1}{k}-\ln n=S_{n-1}-\ln n=v_n}$.\newline
+d) Comme $v_n\rightarrow \gamma$ et que $L_n\rightarrow I$ on a
+$I=\gamma$.
+
+
+

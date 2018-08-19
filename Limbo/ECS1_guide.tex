@@ -1,0 +1,138 @@
+\startproduct Limbo
+\project project_Cours
+\setupCourse{e}
+\let\fubinitriangle\triangleleft
+\definepapersize[emc][width=29.7cm,height=21cm]
+\setuppapersize[emc][emc]
+\setuplayout[backspace=1.5cm,topspace=0.5cm,width=26.7cm,height=19cm,header=0.5cm,footer=0.5cm, headerdistance=0.5cm,footerdistance=0.5cm]
+
+\definehead[domain] [chapter]
+\setuphead[domain][number=no]
+\setuphead[domain] [incrementnumber=list]
+\setuplist[domain][width=0em,style=bold]  
+\setuplist[chapter][width=1.5em]  
+\setuplist[section][width=2.5em]                                              
+\setuplist[subsection][width=3.5em, margin=2.5em]   
+\setuplist[subject][margin=1.5em]
+\setupcombinedlist[content][list={domain, chapter,section,subsection}]
+
+
+%\defineitemgroup[List][levels=4]
+\setupitemgroup[List][1][n,joinedup,nowhite]
+\setupitemgroup[List][2][a,joineup,nowhite]
+\setupitemgroup[List][3][5,joineup,nowhite]
+\setupitemgroup[List][4][6,joineup,nowhite]
+
+
+%defineitemgroup[Set][levels=4]
+\setupitemgroup[Set][1][1,joinedup,nowhite]
+\setupitemgroup[Set][2][2,joineup,nowhite]
+\setupitemgroup[Set][3][3,joineup,nowhite]
+\setupitemgroup[Set][4][4,joineup,nowhite]
+
+
+%\definereferenceformat[eqref][left=(,right=)]
+%\definehighlight[avoid][color=darkgray]
+\definecolor[myMagenta][r=0.61, g=0.15, b=0.69]%
+\definecolor[myBlue][r=0, g=0.51, b=0.56]%
+%before={\startaxiomframe},after={\stopaxiomframe}
+\def\colorA#1{{\myBlue #1}}
+\def\colorB#1{{\myMagenta #1}}
+\def\later#1{{\myMagenta\it #1}}
+\def\interesting#1{{\myBlue\it #1}}
+\def\normal#1{{\black #1}}
+\def\identityOne#1{#1}
+\def\shouldTest#1{$\underline{\text{#1}}$}
+\def\displayCommand#1{#1}
+\defineenumeration[definition][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text={\displayCommand{Définition}},location=serried,counter=property,alternative=left,title=yes,style=normal,list=all,listtext={Définition }]
+\defineenumeration[theorem][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text={\displayCommand{Théorème}},counter=property,title=yes,style=normal,list=all,listtext={Théorème }]
+\defineenumeration[property][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,title=yes,way=bychapter,style=normal,list=all,text=\displayCommand{Propriété},listtext={Propriété }]
+\defineenumeration[corollary][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=\displayCommand{Corollaire},counter=property,title=yes,style=normal,list=all,listtext={Corollaire }]
+\defineenumeration[notation][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=\displayCommand{Notation},counter=property,title=yes,style=normal,list=all,listtext={Notation }]
+\defineenumeration[convention][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=\displayCommand{Convention},counter=property,title=yes,style=normal,list=all,listtext={Convention }]
+\defineenumeration[craft][left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,text=\displayCommand{Méthode},counter=property,title=yes,style=normal,list=all,listtext={Méthode }]
+
+
+\catcode`𝕂=\active
+\def𝕂{ℝ}
+
+%\defineenumeration[iproperty][hang=fit,left={\somenamedheadnumber{chapter}{current}.},location=serried,width=fit,title=yes,style=normal,list=all,text=Propriété,listtext={Propriété }]
+
+%\ctxlua{lxml.load("calcul", 'xml/Limbo_Méthodes_de_calcul.xml')}%
+%\ctxlua{L.insertSubsection("calcul", 'section[attribute("t")=="Sommes"]')}%
+%\meaning\xmlprocessfile
+%\meaning\doxmlprocess
+%\ctxlua{L.test()}%
+
+
+\def\pn{\medskip}
+
+% defines unnumbered domain
+% see http://wiki.contextgarden.net/Titles#Unnumbered_titles_in_table_of_contents
+% see http://wiki.contextgarden.net/Table_of_Contents#Including_unnumbered_heads_in_the_ToC
+\definehead     [domain] [chapter]
+\setuphead      [domain] [incrementnumber=list]
+\setuplist[domain][width=0em,style=bold]  
+\setuplist[chapter][width=1.5em]  
+\setuplist[section][width=2.5em]                                              
+\setuplist[subsection][width=3.5em, margin=2.5em]   
+\setuplist[subject][margin=1.5em]
+\setupcombinedlist[content][list={domain, chapter,section,subsection}]
+%\applyIgnoreSettups{introduction}
+\applySettups{guide}
+\applySettups{suites}
+\applySettups{séries}
+\applySettups{sommes}
+\applySettups{logique}
+\applySettups{ensembles}
+\applySettups{C}
+\applySettups{fonction}
+\applySettups{limf}
+\applySettups{continuité}
+\applySettups{dérivation}
+\applySettups{fn}
+\applySettups{dl}
+\applySettups{intégration}
+\applySettups{intégrales}
+\applySettups{systemes}
+\applySettups{matrices}
+\applySettups{ev}
+\applySettups{polynomes}
+\applySettups{probabilités}
+\applySettups{VAR}
+\applySettups{cours}
+
+
+
+
+
+%\setuphead[after={\blank[samepage]}]
+%\setuphead[section][after=]
+%\setuphead[chapter][after=]
+\definehead[chapter][page=no,before=,after=]
+\definehead[section][page=no,before=,after=]
+%\setuphead[chapter][aftersection=, after=, commandafter=]
+\def\Concept#1{}%
+
+\starttext
+\begingroup\eightpoint\startcolumns[n=2,rule=on]
+%\enabletrackers[lxml.loading,lxml.setups]
+\xmlprocessfile{cours}{xml/ECS_guide_structure.xml}{}
+
+\completecontent[criterium=all]
+\stopcolumns\endgroup
+\stoptext
+
+
+%\xmlprocessfile{maths}{xml/Limbo_Structures_algèbriques.xml}{}
+\iffalse
+\starttext
+\completecontent[criterium=all]
+\stoptext
+\fi
+\iffalse
+\starttext
+\completeindex
+\stoptext
+\fi
+\stopproduct

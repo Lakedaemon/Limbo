@@ -1,0 +1,66 @@
+\catcode`@=11\relax
+
+\input LD@Maths@TD.tex
+
+\vglue-10mm\rightline{PTSI/PT\hfill TD :  Opérations élémentaires : Rang, inversion, déterminant\hfill}
+\bigskip
+
+\bigskip
+\hrule
+\centerline{Rang\strut}
+\hrule\medskip
+\Exercice{PTSIwv}%
+
+%\Exercice{PTSIww}%
+
+\Exercice{PTSIwx}%
+
+%\Exercice{PTSIwy}%
+
+%\Exercice{PTSIxf}%
+
+\Exercice{PTSIwz}%
+
+\Methode [Pour calculer le rang d'une matrice $A$]
+Utiliser $\underline{\hbox{\bf sur les lignes et les colonnes}}$ les opérations élémentaires, $\underline{\hbox{\bf qui ne changent pas~le~rang}}$ :\pn
+a)  $L_i\leftrightarrow L_j$ : échanger la ligne $i$ avec la ligne $j$,\pn
+b)  $L_i\leftarrow \lambda L_i$ : multiplier la ligne $i$ par un scalaire non nul $\lambda$,\pn
+c)  $L_i\leftarrow Li+\sum_{j\neq i}\lambda_j L_j$ : ajouter à  la ligne $i$ une combinaison linéaire des autres lignes, \pn
+jusqu'à ce que tous les coefficients non-nuls soient isolés sur leur ligne et leur~colonne. \pn
+Le rang de la matrice de départ est alors le nombre de coefficients non-nuls restant à la fin. 
+
+\Conseil : Une bonne stratégie consiste à utiliser le pivot de Gauss pour faire apparaître des zéros, en cherchant à rendre la matrice triangulaire (cela évite de tourner en rond)...
+
+\Exercice{PTSIxe}%
+
+\Rappel : Le rang d'une famille $\{a,b,c,d\}$ de vecteurs est le rang de l'espace $\hbox{Vect}(a,b,c,d)$ qu'ils engendrent. C'est aussi le rang de la matrice $\pmatrix{a|b|c|d}$ des vecteurs mis côte à côte. 
+
+
+
+\hrule
+\centerline{Inverse\strut}
+\hrule\medskip
+
+\Exercice{PTSIod}%
+
+\Exercice{PTSIxc}%
+
+
+\Methode[Pour inverser une matrice $A${,} via l'algorithme $A|I_n\to I_n|A^{-1}$]
+Ecrire $A|I_n$ puis effectuer {\bf sur les  lignes} des deux matrices les opérations élémentaires a,b et c. 
+Le but est d'obtenir la matrice $I_n$ à gauche pour récupérer la matrice $A^{-1}$ à droite.
+
+\Exercice{PTSIwu}%
+\medskip
+
+\Conseil : Retenez la technique précédente. Cela reviendra dans les exercices et c'est une fa\c con agréable et peu calculatoire de savoir si une matrice est inversible et, le cas échéant, d'en trouver un inverse. 
+\medskip
+
+
+\eject
+\Chapter Solutions, Solutions.
+
+\LD@Exo@Sol@Display
+
+
+\bye

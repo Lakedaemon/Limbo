@@ -1,0 +1,663 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iffalse
+\page
+\centerline{\bfb DEVOIR SURVEILLE 3}
+\blank[big]
+
+
+
+
+
+\startList
+
+
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+
+
+\item%Exo
+{\it Les flèches (optionnelles) sont utilisées pour aider les étudiants à distinguer les vecteurs, dans cet exercice mélangeant suites et espaces vectoriels }\crlf
+On considère l’ensemble de suites suivant :
+\startformula
+E = \{\vec u=(u_n)_{n∈ℕ} : ∀ n ∈ ℕ , 8u_{n+3} −12u_{n+2} + 6u_{n+1} − u_n = 0\} 
+\stopformula
+Soient $\vec i=(i_n)_{n∈ℕ}$, $\vec j=(j_n)_{n∈ℕ}$, $\vec k=(k_n)_{n∈ℕ}$ les suites définies par 
+\startformula
+\Align{
+\NC i_n=\Q({1\F 2}\W)^n\qquad (n∈ℕ)\NR
+\NC j_n=n\Q({1\F 2}\W)^n\qquad (n∈ℕ)\NR
+\NC k_n=n^2\Q({1\F 2}\W)^n\qquad (n∈ℕ)
+}
+\stopformula
+\startList%1
+\item Prouver que $E$ forme un sous-espace vectoriel de l’espace $ℝ^ℕ$ des suites réelles
+\item\startList%2
+\item Prouver que $\vec i∈E$, que $\vec j∈E$ et que $\vec k∈E$ (sur 6 points)
+\item Prouver que $(\vec i,\vec j,\vec k)$ est une famille libre de $E$
+\stopList%2
+\item Soit $\vec u=(u_n)_{n∈ℕ}$ une suite de $E$. On définit une suite $\vec w=(w_n)_{n∈ℕ}$ en posant
+\startformula
+w_k=2^{k+1}u_{k+1}-2^ku_k\qquad(k∈ℕ)
+\stopformula
+\startList%2
+\item On admet qu'il existe $(λ,μ)∈ℝ^2$ tel que 
+\startformula
+w_k=λ+μk\qquad(k∈ℕ)
+\stopformula
+Pour $n∈ℕ^*$, calculer de deux manière la somme $\D S_{n-1}=∑_{k=0}^{n-1}w_k$.
+\item En déduire que $\vec u$ est une combinaison linéaire des suites $\vec i$, $\vec j$, $\vec k$.  
+\stopList%2
+\item A l'aide de ce qui précède, déterminer une base de $E$.
+\item {\bf On va démontrer ici le résultat admis au 3a).}\crlf
+On considère une suite $\vec u=(u_n)_{n∈ℕ}$ de $E$ et on pose $\vec w=(w_n)_{n∈ℕ}$ avec 
+\startformula
+w_k = 2^{k+1}u_{k+1}-2^ku_k\qquad(k∈ℕ)
+\stopformula
+\startList%2
+\item Prouver que $∀k∈ℕ, w_{k+2}-2w_{k+1}+w_k=0$
+\item En déduire l'expression de $w_k$ en fonction de $k$ admise au 3a)
+\stopList%2
+\item On pose $F=\{\vec u=(u_n)_{n∈ℕ}∈E:u_0-2u_1=0\}$
+\startList%2
+\item Montrer que $F$ est un sous-espace vectoriel de $E$
+\item Montrer que $\vec i∈F$.
+\item Soit $\vec u=(u_n)_{n∈ℕ}∈F$. Justifier que $∃!(α, β, γ)∈ℝ^3$ tel que 
+\startformula
+u_n=αi_n+βj_n+γk_n\qquad(n∈ℕ)
+\stopformula
+puis montrer que $γ=-β$.
+\item En déduire une base de $F$
+\stopList%2
+\stopList%1
+
+\goodbreak
+
+\item%Exo(dénombrement)
+Un site internet demande de choisir un mot de passe de $8$ caractères 
+parmi les $26$ lettres minuscules de l’alphabet, les $10$ chiffres et $6$ signes de ponctuation (,;!.:?).
+\startList 
+\item Combien y a-t-il de mots de passe possibles ?
+\item Combien y a-t-il de mots de passe possibles commençant par $5$ minuscules et se terminant par un nombre avec $3$ chiffres distincts
+\item Combien y a-t-il de mots de passe possibles avec au moins un chiffre ou un signe de ponctuation ? 
+\item Combien y a t-il de mots de passe avec au moins deux signes de ponctuation ? 
+\item Combien y a t-il de mots de passe avec exactement trois chiffres et un signe de ponctuation
+\item Combien y a-t'il de mots de passe constitués uniquement de $8$ chiffres distincts placés dans l'ordre croissant
+\stopList
+
+
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][A,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][n,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+
+\item%Exo(proba)
+Soit $n ∈ ℕ^∗$. On considère trois urnes : l’urne n° $1$ contient deux boules rouges et trois boules bleues, 
+l’urne n° $2$ contient une boule rouge et aucune boule bleue et l’urne n° $3$ contient une 
+boule bleue et aucune boule rouge.
+On choisit d’abord une de ces trois urnes au hasard avec équiprobabilité. Une fois cette urne choisie, 
+on effectue dans cette urne et sans jamais en changer un nombre fini de n de tirages successifs 
+d’une boule, avec remise dans cette urne. Lorsque l’urne a été choisie, les tirages sont 
+considérés comme indépendants.
+Pour $i∈\{1, 2, 3\}$ on note $U_i$ l’événement \quote{l’urne choisie pour les tirages est l’urne n° $i$}.
+Pour tout entier naturel non nul $k$, on note $R_k$ l’événement \quote{le $k\high{ième}$ tirage a amené une boule
+rouge}.
+\startList%Partie
+\item%A
+\startList%1
+\item Donner les probabilités conditionnelles $P_{U_1}(R_k)$, $P_{U_2}(R_k)$, $P_{U_3}(R_k)$ et en déduire que $P(R_k)={7\F 15}$.
+\item\startList%22
+\item Justifier que $P_{U_1}(R_1∩R_2∩⋯∩R_n)=\Q({2\F 5}\W)^n$.
+\item Préciser les valeurs de $P_{U_2}(R_1∩R_2∩⋯∩R_n)$ et $P_{U_3}(R_1∩R_2∩⋯∩R_n)$.
+\item En déduire que $P(R_1∩R_2∩⋯∩R_n)={1\F 3}\Q({2\F 5}\W)^n+{1\F 3}$
+\stopList%22
+\item Montrer que les événements $R_1$ et $R_2$ ne sont pas indépendants pour la probabilité $P$
+\stopList%1
+\item%Partie B
+\startList%1
+\item
+Pour $2⩽k⩽n$, montrer que 
+\startformula
+P_{R_1∩R_2∩⋯∩R_{k-1}}(R_k)={1+\Q({2\F 5}\W)^k\F 1+\Q({2\F 5}\W)^{k-1}}
+\stopformula
+\item Pour $1⩽k⩽n$, on note $A_k$ l’événement \quote{une boule bleue apparaît pour la première fois 
+au tirage n° $k$} et $A$ l’événement \quote{aucune boule bleue n’apparaît jamais lors des $n$ tirages}.
+\startList%22
+\item Calculer $P(A_1)$
+\item Soit $k⩾2$. Exprimer $A_k$ en fonction des événements $R_k$.\crlf
+En déduire, avec les questions précédentes, pour $k⩾2$, la valeur de $P(A k)$ en fonction de $k$.
+\item Calculer la probabilité $P(A)$. 
+\stopList%22
+\stopList%1
+\stopList%Partie
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+
+\goodbreak
+\item%Exo
+On pose $∀x∈ℝ,\quad g(x)=\e^x-x$. 
+\startList%1
+\item\startList%11
+\item Etudier les variations de $g$
+\item Pour $n⩾2$, prouver que l'équation $g(x)=n$ admet une unique solution strictement positive, que l'on notera $β_n$, et une unique solution strictement négative, que l'on notera $α_n$. 
+\stopList%11
+\item%2
+\startList%22
+\item Pour $n⩾2$, montrer que $1⩽g(\ln n)⩽n$.
+\item Pour $n⩾2$, montrer que $\D g(\ln(2n))=n+g(\ln(n))-\ln 2$ puis que 
+\startformula g(\ln(2n))⩾n
+\stopformula
+\item Pour $n⩾2$, en déduire que $\D\ln(n)⩽β_n⩽\ln(2n)$ puis que $\D\lim_{n→+∞}β_n$.
+\item Déterminer $\D\lim_{n→+∞}{β_n\F\ln(n)}$
+\stopList%22
+\item {\bf Dans cette question, on cherche une valeur approchée de $α_2$}.\crlf
+On considère la suite $u$ définie par $u_0=-1$ et 
+\startformula
+u_{n+1}=\e^{u_n}-2\qquad(n∈ℕ)
+\stopformula
+\startList
+\item Calculer $g(-2)$ et $g(-1)$. En déduire que $α_2∈]-2,-1[$
+\item Montrer que $α_2⩽u_k⩽-1$ pour $k∈ℕ$. 
+\item On pose $∀t∈[α_2, -1]$, $h(t)=\e^t-2$. Montrer que 
+\startformula
+h(x)-α_2⩽{1\F \e}(x-α_2)\qquad(α_2⩽x⩽-1)
+\stopformula
+\item En déduire que $\D 0⩽u_{k+1}-α_2⩽{1\F\e}(u_k-α_2)$ pour $k∈ℕ$.
+\item Montrer que $\D 0⩽u_k-α_2⩽\Q({1\F\e}\W)^k$ pour $k∈ℕ$
+\item En déduire que la suite $u$ converge et préciser sa limite.
+\stopList
+\stopList
+
+
+
+
+
+\stopList%Exos
+
+\else
+Au final ce ds (plutôt facile) comportait
+\startList
+\item Espaces vectoriels : questions faciles(1, 2a, 4, 5a, 5b, 6a, 6b), questions moyennes (2b,3a,6c,6d), questions difficiles (3b)
+\item Dénombrement : questions faciles(1, 3), questions moyennes (2, 4, 5), questions difficiles (6)
+\item Probabilités : questions faciles(A1, A2a, A2b,A3, B1, B2a), questions moyennes (A2c), questions difficiles (B2b, B2c)
+\item Fonctions : questions faciles(1a,2b,2d,3d,3e,3f), questions moyennes (1b,2a,2c,3a,3c), questions difficiles (3b)
+\stopList
+Les résultats étant donnés dans la plupart des questions (ce n'est pas toujours le cas). C'est rassurant et cela permet d'admettre le resultat pour traiter simplement les questions suivantes
+
+
+L'exo de dénombrement est le plus court et simple (rentable) à rédiger, suivi de l'exo sur les fonctions.\crlf
+L'exo de proba est plus simple que ce qui tombe en moyenne dans le même style.
+Comme d'habitude, des points classiques du cours : sommes géométriques, sommes (et produits) telescopiques, récurrences linéaires, systèmes rodent dans le sujet...  
+\blank[big]
+\startList
+\item%Exo A
+\startList%A1a
+\item%1
+\startitemize[1]
+\item $E⊂ℝ^ℕ$qui est un espace vectoriel de référence, par définition de $E$.
+\item $E≠\emptyset$. En effet, la suite nulle $v=(0)_{n∈ℕ}$ appartient à $E$ car 
+\startformula
+8v_{n+3}-12v_{n+2}+6v_{n+1}-v_n=8×0-12×0+6×0-0=0\qquad(n∈ℕ)
+\stopformula
+\item Soient $(λ,μ)∈ℝ^2$ et soit $(u,v)∈E^2$. Montrons que $λu+μv∈E$.
+\startitemize[2]
+\item Comme $u∈E⊂ℝ^ℕ$,  comme $v∈E⊂ℝ^ℕ$ et comme $ℝ^ℕ$ est stable par combinaisons linéaires, en tant qu'espace vectoriel, 
+on a $λu+μv∈ℝ^ℕ$
+\item Pour $n∈ℕ$, nous remarquons que 
+\startformula
+\Align{
+\NC \NC 8(λu+μv)_{n+3}-12(λu+μv)_{n+2}+6(λu+μv)_{n+1}-(λu+μv)_n\NR
+\NC = \NC 8λu_{n+3}+8μv_{n+3}-12λu_{n+2}-12μv_{n+2}+6λu_{n+1}+6μv_{n+1}-λu_n-μv_n\NR
+\NC = \NC λ(8u_{n+3}-12u_{n+2}+6u_{n+1}-u_n)+μ(8v_{n+3}-12v_{n+2}+6v_{n+1}-v_n)
+}
+\stopformula
+Comme $u∈E$ et $v∈E$, nous remarquons alors que 
+\startformula
+8(λu+μv)_{n+3}-12(λu+μv)_{n+2}+6(λu+μv)_{n+1}-(λu+μv)_n
+= λ×0+μ×0=0
+\stopformula
+\stopitemize%2
+A fortiori, $λu+μv∈E$
+\stopitemize%1
+En conclusion, $E$ forme un $ℝ$ sous-espace vectoriel de $ℝ^ℕ$.
+\item%2
+\startList
+\item%2a
+\startitemize[1]%2a-
+\item Comme la suite $\vec i$ appartient à $ℝ^ℕ$ et satisfait 
+\startformula
+\Align{[align={left, left}]
+\NC\NC 8i_{n+3}-12i_{n+2}+6i_{n+1}-i_n\NR
+\NC =\NC 8\Q({1\F 2}\W)^{n+3}-12\Q({1\F 2}\W)^{n+2}+6\Q({1\F 2}\W)^{n+1}-\Q({1\F 2}\W)^n\NR
+\NC =\NC\Q({1\F 2}\W)^n\Q({8\F 2^3}-{12\F 2^2}+{6\F 2}-1\W)=\Q({1\F 2}\W)^n(1-3+3-1)=0,
+}
+\stopformula
+nous remarquons que $\vec i∈E$.
+\item Comme la suite $\vec j$ appartient à $ℝ^ℕ$ et satisfait 
+\startformula
+\Align{[align={left, left}]
+\NC\NC 8j_{n+3}-12j_{n+2}+6j_{n+1}-j_n\NR
+\NC =\NC 8(n+3)\Q({1\F 2}\W)^{n+3}-12(n+2)\Q({1\F 2}\W)^{n+2}+6(n+1)\Q({1\F 2}\W)^{n+1}-n\Q({1\F 2}\W)^n\NR
+\NC =\NC \Q({1\F 2}\W)^n\Q({8(n+3)\F 2^3}-{12(n+2)\F 2^2}+{6(n+1)\F 2}-n\W)\NR
+\NC=\NC\Q({1\F 2}\W)^n(n+3-3(n+2)+3(n+1)-n)=\Q({1\F 2}\W)^n×0=0,
+}
+\stopformula
+nous remarquons que $j∈E$.
+\item Comme la suite $k$ appartient à $ℝ^ℕ$ et satisfait 
+\startformula
+\Align{[align={left, left}]
+\NC\NC 8k_{n+3}-12k_{n+2}+6k_{n+1}-k_n\NR
+\NC =\NC 8(n+3)^2\Q({1\F 2}\W)^{n+3}-12(n+2)^2\Q({1\F 2}\W)^{n+2}+6(n+1)^2\Q({1\F 2}\W)^{n+1}-n^2\Q({1\F 2}\W)^n\NR
+\NC =\NC\Q({1\F 2}\W)^n\Q({8(n+3)^2\F 2^3}-{12(n+2)^2\F 2^2}+{6(n+1)^2\F 2}-n^2\W)\NR
+\NC=\NC\Q({1\F 2}\W)^n\underbrace{\big((n+3)^2-3(n+2)^2+3(n+1)^2-n^2)}_{(1-3+3-1)^2+n(6-12+6)+3^2-3×2^2+3}=\Q({1\F 2}\W)^n×0=0,
+}
+\stopformula
+nous remarquons que $\vec k∈E$.
+\stopitemize%2a-
+\item%A2b
+Les vecteurs $\vec i$, $\vec j$ et $\vec k$ appartienent à $E$. 
+Supposons qu'il existe des saclaires $x$, $y$ et $z$ dans $ℝ$ 
+tels que $x\vec i+y\vec j+z\vec k=\vec0$, où $\vec 0$ désigne le vecteur nul de l'espace des suites, 
+c'est à dire la suite constante nulle.
+Alors, en choisssant les indices, $n=0$, n$=1$ et $n=2$, on obtient le système
+\startformula
+\Align{[align={left, left}]
+\NC \NC \System{[align={left, left}]
+\NC {\red 0=}\NC xi_0+yj_0+zk_0=x+y×0+z×0^2={\red x}\NR
+\NC {\red 0=}\NC xi_1+yj_1+zk_1={x\F 2}+{y\F 2}×1+{z\F 2}×1^2={\red {x\F 2}+{y\F 2}+{z\F 2}}\NR
+\NC {\red 0=}\NC xi_2+yj_2+zk_2={x\F 4}+{y\F 4}×2+{z\F 4}×2^2={\red {x\F 4}+{2y\F 4}+{4z\F 4}}\NR
+}\NR
+\NC ⟺\NC \System{[align={left, left}]
+\NC 0=x\NR
+\NC 0=y+z\NR
+\NC 0=2y+4z
+}\NR
+\NC ⟺\NC \System{[align={left, left}]
+\NC 0=x\NR
+\NC 0=y\NR
+\NC 0=z
+}}
+\stopformula
+A fortiori, $x=y=z=0$.Et la famille $(\vec i,\vec j,\vec k)$ est libre. En conclusion, c'est une famille libre de vecteurs de $E$.
+\stopList%A2
+\item%3
+\startList%A3
+\item En remarquant que l'on somme les termes d'une suite arithmétique, nous obtenons que 
+\startformula
+S_{n-1}=∑_{k=0}^{n-1}(λ+μk)= n×{λ+λ+μ(n-1)\F 2}=n×\Q(λ+μ{n-1\F 2}\W)
+\stopformula
+D'autre part, nous déduisons de la relation $w_k=2^{k+1}u_{k+1}-2^ku_k$ que $S_{n-1}$ est une somme telescopique de sorte que 
+\startformula
+\Align{
+\NC S_{n-1}\NC =\D∑_{k=0}^{n-1}(2^{k+1}u_{k+1}-2^ku_k)\NC\NR
+\NC \NC = \D∑_{k=0}^{n-1}2^{k+1}u_{k+1}-∑_{k=0}^{n-1}2^ku_k\NC\qquad\text{(séparation)}\NR
+\NC \NC = \D∑_{ℓ=1}^n2^ℓu_ℓ-∑_{k=0}^{n-1}2^ku_k\NC\qquad\text{(changement d'indice  $ℓ=k+1$)}\NR
+\NC \NC = \D∑_{ℓ=1}^{n-1}2^ℓu_ℓ+2^nu_n-2^0u_0-∑_{k=1}^{n-1}2^ku_k\NC\qquad\text{(Chasles)}\NR
+\NC \NC = 2^nu_n-u_0
+}
+\stopformula
+\item Nous déduisons des résultats de la question précédente que 
+\startformula
+2^nu_n-u_0=n\Q(λ+μ{n-1\F 2}\W)\qquad(n⩾1)
+\stopformula
+En particulier, nous remarquons que 
+\startformula
+\Align{
+\NC u_n\NC ={u_0\F 2^n} + λ{n\F 2^n}+μ{n^2-n\F 2^{n+1}}\NR
+\NC \NC = u_0 {1\F 2^n}+ \Q(λ-{μ\F 2}\W){n\F 2^n}+ {μ\F 2}{n^2\F 2^n}\NR
+\NC\NC =  u_0i_n+ \Q(λ-{μ\F 2}\W)j_n+ {μ\F 2}k_n
+}\qquad(n⩾1)
+\stopformula
+Comme cette relation est également vérifiée pour $n=0$, nous concluons que
+\startformula
+\vec u=u_0\vec i+\Q(λ-{μ\F 2}\W)\vec j+ {μ\F 2}\vec k
+\stopformula
+Ainsi, $\vec u$ est est combinaison linéaire des suites $\vec i$, $\vec j$ et $\vec k$.
+\stopList%A3
+\item La famille $\mc B=(\vec i, \vec j, \vec k)$ est une famille libre de $E$ d'après 1.2b et génératrice de $E$ d'après 1.3b 
+puisque   toute suite $\vec u$ de $E$ est combinaison linéaire des suites $\vec i$, $\vec j$ et $\vec k$. 
+A fortiori, $\mc B$ est une base de $E$.
+\item Pour $k∈ℕ$, nous remarquons que 
+\startformula
+\Align{
+\NC w_{k+2}-2w_{k+1}+w_k\NC =\underbrace{2^{k+3}u_{k+3}-2^{k+2}u_{k+2}}_{w_{k+2}}-2\Q(\underbrace{2^{k+2}u_{k+2}-2^{k+1}u_{k+1}}_{w_{k+1}}\W)+\underbrace{2^{k+1}u_{k+1}-2^ku_k}_{w_k}\NR
+\NC\NC =2^k\Q(\underbrace{8u_{k+3}-12u_{k+2}+6u_{k+1}-u_k}_{0\text{ car $u∈E$}}\W)=0}
+\stopformula
+\item D'après la question précédente, la suite $w$ satisfait une récurrence linéaire homogène d'ordre $2$ d'équation caractéristique
+\startformula
+x^2-2x+1=0⟺(x-1)^2=0,
+\stopformula
+admettant la racine double $1$. En particuier, $∃!(λ,μ)∈ℝ^2$ tel que 
+\startformula
+w_k=λ1^k+μk1^k=λ+μk\qquad(k⩾0)
+\stopformula
+\item%6
+\startList%6a
+\item \startitemize[1]
+\item $F⊂E$ qui est un espace vectoriel.
+\item $F≠\emptyset$. En effet, la suite nulle $v=(0)_{n∈ℕ}$ appartient à $F$ car 
+\startformula
+v_0-2v_1=0-2×0=0
+\stopformula
+\item Soient $(λ,μ)∈ℝ^2$ et soit $(u,v)∈F^2$. Montrons que $λu+μv∈F$.
+\startitemize[2]
+\item Comme $u∈F⊂E$,  comme $v∈F⊂E$ et comme $E$ est stable par combinaisons linéaires, en tant qu'espace vectoriel, 
+on a $λu+μv∈E$
+\item Nous remarquons que 
+\startformula
+(λu+μv)_0-2(λu+μv)_1=λu_0+μv_0-2λu_1-2μv_1=  λ(u_0-2u_1)+μ(v_0-2v_1)
+\stopformula
+Comme $u∈F$ et $v∈F$, nous remarquons alors que 
+\startformula
+(λu+μv)_0-2(λu+μv)_1= λ×0+μ×0=0
+\stopformula
+\stopitemize%2
+A fortiori, $λu+μv∈F$
+\stopitemize%1
+En conclusion, $F$ forme un $ℝ$ sous-espace vectoriel de $E$.
+\item%6b
+Nous avons déjà montré au 2a que $\vec i∈E$ et nous remarquons que 
+\startformula
+i_0-2i_1={1\F 2^0}-2{1\F 2^1}=0.
+\stopformula
+De sorte que $\vec i∈F$.
+\item Comme $\vec u∈F$ et comme $F$ est un sous-espace vectoriel de $E$, nous avons $\vec u∈F$. 
+Or nous avons montré au 4 que la famille $\mc E=(\vec i, \vec j, \vec k)$ forme une base de $E$. 
+Alors, il existe un unique triplet $(α, β, γ)∈ℝ^3$ tel que 
+$\vec u = α\vec i+β\vec j+γ\vec k$.
+{\it Comme la famille $\mc E$ est génératrice, le triplet existe. Comme cetre famille est libre, le triplet est unique}\crlf
+Comme $\vec u∈F$, nous remarquons alors que 
+\startformula
+0=u_0-2u_1=αi_0+βj_0+γk_0-2(αi_1+βj_1+γk_1)=α-2\Q({α\F 2}+β{1\F 2}+γ{1\F 2}\W)={β+γ\F 2}
+\stopformula
+A fortiori, nous avons $γ=-β$. 
+\item Il résulte des calculs effectués dans la question précédente que 
+\startformula
+\vec u = α\vec i+β\vec j+γ\vec k= α\vec i+β\vec j-β\vec k= α\vec i+β(\vec j-\vec k)
+\stopformula
+En particulier, une suite $\vec u$ quelconque de $F$ est combinaison linéaires des suites $\vec i∈F$ et $\vec j-\vec k$. 
+Comme la suite $\vec j-\vec k$ appartient à $F$ d'après la relation
+\startformula
+(j-k)_0-2(j-k)_1=j_0-k_0-2j_1+2k_1={0\F 1}-{0^2\F 1}-2{1\F 2}+2{1^2\F 2}=0
+\stopformula
+Nous remarquons que la famille $\mc F=(\vec i,\vec j-\vec k)$ est une famille génératrice de $F$, qui est également libre car
+Si $x∈ℝ$ et $y∈ℝ$ vérifient $x\vec i+y(\vec j-\vec k)=\vec 0=x\vec i+y\vec j-y\vec k$, alors nous remarquons que nous avons une combinaison linéaire nulle 
+de la famille libre $(\vec i, \vec j, \vec k)$ (montré en 2b), de sorte que $x=y=-y=0$.
+En conclusion la famille $\mc F$ forme une base de $F$.
+\stopList%6a
+\stopList%A
+
+\item%ExoB
+\startList%B
+\item Il y a autant de mots de passe que de $8$-listes d'éléments de l'ensemble $E$ constitué des $26$ minuscules, $10$ chiffres et $6$ signes de ponctuation.
+Il y en a 
+\startformula
+(26+10+6)^8=42^8
+\stopformula
+\item Pour constituer un tel mot de passe, on commence par constituer une $5$-liste avec les minuscules (il y en a $26^5$) que l'on complete avec une $3$ liste sans répétition des $10$ chiffres (il y en a $A_{10}^3$). 
+Au total, il y a $26^5×A_{10}^3$ mots de passe.
+\item L'ensemble de ces mots de passe est constitué de tous les mots de passe ($42^8$), privé des mots de passe ne comportant ni chiffre, ni signe de ponctuation ($26^8$). Au~total, il y en a $42^8-26^8$.
+\item L'ensemble de ces mots de passe est cnstitué de tous les mots de passe ($42^8$), privé des mots de passe sans signe de ponctuation (il y en a $(26+10)^8=36^8$) et des mots de passe comportant exactement un signe de ponctuation (on choisit le signe de ponctuation, sa position, et on complete les 7 cases qui restent avec des minuscules ou des chiffres : il y en a ${6\choose 1}×{8\choose 1}×36^7$).
+Au total, il y en~a 
+\startformula
+42^8-36^8-{6\choose 1}{8\choose 1}36^7
+\stopformula
+\item Pour constituer un mot de passe avec exactement trois chiffres et un signe de ponctuation,  
+\startitemize[n]
+\item On choisit $3$ positions pour les trois chiffres \big(${8\choose 3}$ possibilités\big)
+\item On choisit les chiffres pour ces trois positions ($10^3$ possibilités)
+\item On choisit la position du signe de ponctuation \big(${5\choose 1}$ possibilités\big)
+\item On choisit le signe de ponctuation \big(${6\choose 1}$ possibilités\big)
+\item On complete les quatre cases restantes avec des minuscules ($26^4$ possibilités)
+\stopitemize
+Au total, il y en a 
+\startformula
+{8\choose 3}×10^3×{5\choose 1}×{6\choose 1}×26^4
+\stopformula
+\item Pour constituer un tel mot de passe, on choisit huit chiffres distincts (${10\choose 8}$), puis on les dispose dans l'ordre croissant.
+Au total, il y en a ${10\choose 8}=40$\crlf 
+{\it spéciale dédicace : K., tu peux les écrire tous, si tu le souhaites, je valide}
+\stopList%B
+
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][A,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][n,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+\item%Exo C
+\startList%Parties
+\item%PartieA
+\startList%L1
+\item Comme les tirages de boules sont indépendants et comme les boules ont les mêmes probabilités d'être tirées, 
+on utilise la probabilité uniforme pour calculer nos probabilités conditionnelles.
+En particulier, on a
+\startformula
+\Align{[align={right, left}]
+\NC P_{U_1}(R_k)\NC ={2\F 5}\NR
+\NC P_{U_2}(R_k)\NC ={1\F 1} =1\NR
+\NC P_{U_3}(R_k)\NC ={0\F 1} =0
+}
+\stopformula
+Il résulte alors de la formule des probabilités totales appliquée au système complet d'événements (non négligeables) $\{U_1,U_2,U_3\}$ que 
+\startformula
+\Align{
+\NC P(R_k)\NC =P(U_1)×P_{U_1}(R_k)+P(U_2)×P_{U_2}(R_k)+P(U_3)×P_{U_3}(R_k)\NR
+\NC \NC ={1\F 3}×{2\F 5}+{1\F 3}×1+{1\F 3}×0={2+5\F 15}={7\F 15}
+}
+\stopformula
+\item%2
+\startList%L22
+\item%2a
+D'après l'indépendance des tirages des boules (une fois l'urne choisie),  
+\startformula
+P_{U_1}(R_1∩⋯∩R_n)=P_{U_1}(R_1)×⋯×P_{U_1}(R_n)=\Q({2\F 5}\W)^n
+\stopformula
+\item De même, on a
+\startformula
+\Align{[align={left, left}]
+\NC P_{U_2}(R_1∩⋯∩R_n)\NC =P_{U_2}(R_1)×⋯×P_{U_2}(R_n)=1^n=1\NR
+\NC P_{U_3}(R_1∩⋯∩R_n)\NC =P_{U_3}(R_1)×⋯×P_{U_3}(R_n)=0^n=0
+}
+\stopformula
+\item Les résultats précédents et la formule des probabilités totales appliquée au système complet d'événements (non négligeables) $\{U_1,U_2,U_3\}$ induisent~que
+\startformula
+\Align{
+\NC P(R_1∩⋯∩R_n)\NC =P(U_1)×P_{U_1}(R_1∩⋯∩R_n)+P(U_2)×P_{U_2}(R_1∩⋯∩R_n)\NR
+\NC\NC \quad +P(U_3)×P_{U_3}(R_1∩⋯∩R_n)\NR
+\NC \NC = {1\F 3}×\Q({2\F 5}\W)^n+{1\F 3}×1+{1\F 3}×0={1\F 3}\Q({2\F 5}\W)^n+{1\F 3}
+}
+\stopformula
+\stopList%L1
+\item D'après les résultas des questions 2a et 2c, nous avons 
+\startformula
+\Align{
+\NC P(R_1∩R_2)\NC ={1\F 3}\Q({2\F 5}\W)^2+{1\F 3}={4+25\F 3×5^2}={29\F 3×5^2}\NR
+\NC P(R_1)P(R_2)\NC =\Q({7\F 15}\W)^2={49\F 3^2×5^2}}
+\stopformula
+Comme $P(R_1∩R_2)≠P(R_1)P(R_2)$, les événements $R_1$ et $R_2$ ne sont pas indépendants pour la probabilité $P$.
+\stopList%L22
+\item%PartieB
+\startList%L1
+\item Soit $k∈⟦2,n⟧$. Alors, il résulte du résultat de la question 2a et de la définition ds probabilités conditionnelles que 
+\startformula
+P_{R_1∩⋯∩R_{k-1}}(R_k)={P(R_1∩⋯∩R_{k-1}∩R_k)\F P(R_1∩⋯∩R_{k-1})}={{1\F 3}\Q({2\F 5}\W)^k+{1\F 3}\F {1\F 3}\Q({2\F 5}\W)^{k-1}+{1\F 3}}={\Q({2\F 5}\W)^k+1\F \Q({2\F 5}\W)^{k-1}+1}
+\stopformula
+\item%B2
+\startList%Bl2
+\item Nous déduisons du résultat de la question A1a que 
+\startformula
+P(A_1)=P(\overline{R_1})=1-P(R_1)=1-{7\F15}={8\F 15}
+\stopformula
+\item Pour $⩾2$, nous remarquons que $A_k=R_1∩⋯∩R_{k-1}∩\overline{R_k}$. En particulier, nous déduisons de la formule des probabilités composées (vu qu'il n'y a pas indépendance entre les $R_i$) que 
+\startformula
+\Align{
+\NC P(A_k)\NC =P(R_1)×P_{R_1}(R_1∩R_2)×⋯×P_{R_1∩⋯∩R_{k-2}}(R_{k-1})×P_{R_1∩⋯∩R_{k-1}}(\overline{R_k})\NR
+\NC \NC = {7\F 15}×\Q(∏_{ℓ=2}^{k-1}P_{R_1∩⋯∩R_{ℓ-1}}(R_ℓ)\W)×\Q(1-P_{R_1∩⋯∩R_{k-1}}(R_k)\W)\NR
+\NC\NC = {7\F 15}×∏_{ℓ=2}^{k-1}{\Q({2\F 5}\W)^ℓ + 1\F \Q({2\F 5}\W)^{ℓ-1}+1}×\Q(1-{\Q({2\F 5}\W)^k + 1\F \Q({2\F 5}\W)^{k-1}+1}\W)\qquad\qquad\text{(produits telescopiques)}\NR
+\NC\NC = {7\F 15}×\Q({\Q({2\F 5}\W)^{k-1}+1\F \Q({2\F 5}\W)^1+1}-{\Q({2\F 5}\W)^k+1\F \Q({2\F 5}\W)^1+1}\W)\NR
+\NC\NC = {7\F 15}×{\Q({2\F 5}\W)^{k-1}-\Q({2\F 5}\W)^k\F {7\F 5}}={5\F 15}\Q({2\F 5}\W)^{k-1}×\Q(1-{2\F 5}\W)\NR
+\NC\NC = {1\F 5}×\Q({2\F 5}\W)^{k-1}={1\F 2}×\Q({2\F 5}\W)^k
+}
+\stopformula
+\item On remarque que $\overline{A}=∪_{k=1}^nA_k$ de sorte que l'on déduit de la formule des sommes géométriques de raison différente de $1$ que  
+\startformula
+\Align{
+\NC P(A)\NC =1-P(∪_{k=1}^nA_k)=1-∑_{k=1}^nP(A_k)\NC\text{(événements mutuellement incompatibles)}\NR
+\NC \NC =1-∑_{k=1}^n{1\F 2}×\Q({2\F 5}\W)^k\NC\text{(Somme géométrique de raison $≠1$)}\NR
+\NC\NC =1-{1\F 2}{\Q({2\F 5}\W)^1-\Q({2\F 5}\W)^{n+1}\F 1-{2\F 5}}=1-{1\F3}\Q(1-\Q({2\F 5}\W)^n\W)\NR
+\NC\NC ={2\F 3}+{1\F3}\Q({2\F 5}\W)^n
+}
+\stopformula
+\stopList%Bl2
+\stopList%L1
+\stopList%Parties
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+
+\item%Exo D
+\startList%L1
+\item \startList%1L
+\item {\it Réaliser un tableau de variation de $g$ aide beaucoup pour la suite}\crlf
+La fonction $g$ est dérivable sur $ℝ$ en tant que différence de fonctions dérivables. De plus, on a 
+\startformula
+g'(x)=\e^x-1\qquad(x∈ℝ)
+\stopformula
+En particulier, il résulte de la croissance stricte de la fonction exponentielle et de l'égalité $\e^0=1$ que  
+\startformula
+g'(x)>0⟺x>0\qquad g'(x)=0⟺ x=0\qquad g'(x)<0⟺x<0
+\stopformula
+La fonction $g$ est donc strictement décroissante sur $]-∞,0[$ (sur $]-∞,0]$ d'après la propriété 10.76 du cours) et strictement croissante sur $]0,+∞[$ (idem sur $[0,+∞[$).
+\item La fonction $g$ est continue, strictement croissante sur $[0,+∞[$ donc est une bijection $\tilde g$ de $[0,+∞[$ dans $g([0,+∞[)=[1,+∞[$ (il résulte en effet du théorème de croissance comparée que $\D\lim\L_{x→+∞}g(x)=+∞$.
+	En particulier, il existe une unique solution strictement positive $β_n$ de l'équation $g(x)=n$ (car $g(0)=1\Le n$), il s'agit de $β_n=\tilde g^{-1}(n)$. \crlf
+	De même, il existe une unique solution $α_n$ stritement négative à l'équation $g(x)=n$ (pour les mêmes raisons, car $\D\lim_{x→-∞}g(x)=+∞$.	
+\stopList%1L
+\item%2
+\startList%2L
+\item Pour $n⩾2$, nous déduisons l'inégalité $g(n)⩾1$ de la croissance de $g$ sur l'intervalle $[0,+∞[$ 
+et de $g(0)=\e^0-0=1$. 
+De plus, nous remarquons que 
+\startformula
+g(\ln n)=\e^{\ln n}-\ln(n)=n-\underbrace{\ln(n)}_{⩾0}⩽n.
+\stopformula
+\item Pour $n⩾2$, nous remarquons que 
+\startformula
+g(\ln(2n))=\e^{\ln(2n)}-\ln(2n)=2n-\ln(2)-\ln(n)=n+(n-\ln(n))-\ln(2)=n+g(\ln(n))-\ln(2).
+\stopformula
+Comme $g(\ln(n))⩾1⩾\ln (2)$ (car il est bien connu que $2<\e$ et donc que $\ln(2)<\ln(\e)=1$), nous en déduisons que 
+\startformula
+g(\ln(2n))=n+\underbrace{g(\ln(2b))-\ln(2)}_{⩾0}⩾n
+\stopformula
+\item Pour $n⩾2$, nous avons $g(\ln(n))⩽n=g(β_n)⩽g(\ln(2n))$, d'après les résultats précédents. 
+La fonction $g$ étant strictement croissante sur $[0,+∞[$, nous avons alors nécéssairement
+\startformula
+\ln(n)⩽β_n⩽\ln(2n)\qquad(n⩾2).
+\stopformula
+Comme $β_n⩾\ln(n)$ pour $n⩾2$ et comme $\lim_{n→+∞}\ln(n)=+∞$, il résulte du théorème d'encadrement (ou du principe des gendarmes, etc...) que 
+\startformula
+\lim_{n→+∞}β_n=+∞
+\stopformula
+\item En divisant par $\ln(n)$ l'inégalité obtenue précédemment, il vient 
+\startformula
+1={\ln(n)\F \ln(n)}⩽{β_n\F\ln(n)}⩽{\ln(2n)\F \ln(n)}=1+{\ln(2)\F\ln(n)}\qquad(n⩾2).
+\stopformula
+Comme les suites à gauche et à droite convergent vers $1$, il résulte du principe des gendarmes que 
+\startformula
+\lim_{n→+∞}{β_n\F\ln(n)}=1
+\stopformula
+Ce qui revient à dire que $β_n∼\ln(n)$
+\stopList%2L
+\item \startList%3L
+\item Comme $\e>1$, nous remarquons que 
+\startformula
+g(-1)=\e^{-1}+1 \Le 2=g(α_2)\Le \e^{-2}+2=g(-2)
+\stopformula
+La fonction $g$ étant strictement décroissante sur l'intervalle $]-∞,0[$, qui contient $-2$, $α_2$ et $-1$, nous avons nécéssairement 
+$-2\Le α_2\Le -1$.
+\item Pour $k∈ℕ$, prouvons par récurrence la propriété $\mc P_n:α_2⩽u_k⩽-1$.
+\startitemize[1]
+\item $\mc P_0$ est vraie d'après l'égalité $u_0=-1$ et le résultat de la question 3a : $-2\Le α_2\Le -1$.
+\item Supposnons $\mc P_n$ pour un entier $n∈ℕ$ et montrons $\mc P_{n+1}$.
+Commençons par remarquer que $u_{n+1}=\e^{u_n}-2=g(u_n)+u_n-2$. Or, d'après $\mc P_n$, 
+nous avons $α_2⩽u_n⩽-1$ et il résulte de la décroissance de $g$ sur $]-∞,0]$ que $2=g(α2)⩽g(u_n)⩽g(-1)=1+\e^{-1}$. De sorte que  
+\startformula
+α_2=2+α_2-2⩽u_{n+1}=g(u_n)+u_n-2⩽1+\e^{-1}-1-2⩽-1
+\stopformula
+En particulier $\mc P_{n+1}$ est vraie
+\stopitemize
+En conclusion, la proposition $\mc P_n$ est vraie pour $n∈ℕ$.
+\item {\it ARGH le sujet n'utilise pas une nouvelle lettre pour la nouvelle fonction $g$.}
+Pour éviter les confusions dans le corrigé, je vais poser 
+\startformula
+h(t)=\e^t-2\qquad(α_2⩽t⩽-1)
+\stopformula
+{\red \it Cette question sent à plein nez l'inégalité des acrroissements finis.}\crlf
+La fonction $h$ est évidemment de classe $\sc C^1$ sur le segment $[α_2, -1]$ et on a 
+\startformula
+h'(t)={\darkgray \underbrace{ 0⩽}_{\text{ne servira pas}}}\e^t⩽{\red 1\F \e}\qquad(α_2⩽t⩽-1)
+\stopformula
+Il résulte alors de l'inégalité des accroissements finis appliquée entre $x∈[α_2,-1]$ et $α_2$ que 
+\startformula
+{\darkgray 0=0×(x-α_2)}⩽h(x)-α_2⩽{\red 1\F\e}(x-α_2)\qquad(α_2⩽x⩽-1)
+\stopformula
+\item Soit $k∈ℕ$. Pour le nombre réel $x=u_k$, qui appartient à l'intervalle $[α_2,-1]$ d'après la question 3b, il résulte de l'égalité $u_{n+1}=h(u_n)$ et de l'inégalité établie au 3c que 
+\startformula
+u_{k+1}-α_2=h(u_k)-α_2⩽{ 1\F\e}(u_k-α_2)\qquad(k∈ℕ)
+\stopformula
+\item Pour $k∈ℕ$, prouvons par récurrence la proposition $\mc P_k:0⩽u_k-α_2⩽\Q({1\F \e}\W)^k$
+\startitemize[1]
+\item $\mc P_0$ est vraie car $0=-1-(-1)⩽u_0-α_2=-1-α_2⩽1-(-2)=1$ puisque $-2⩽α_2⩽-1$ et $u_0=-1$.
+\item Supposons la proposition $\mc P_k$ pour un entier $k⩾0$ et montrons $\mc P_{k+1}$
+Nous remarquons que 
+\startformula
+\Align{
+\NC \overbrace{0⩽}^{\text{d'après 3b}}u_{k+1}-α_2\NC \overbrace{⩽}^{\text{d'après 3d}}{ 1\F\e}(u_k-α_2)=\overbrace{⩽}^{\text{d'après $\mc P_k$}}{ 1\F\e}\Q({1\F \e}\W)^k\NR
+\NC\NC ⩽\Q({1\F \e}\W)^{k+1}
+}
+\stopformula
+Donc $\mc P_{k+1}$ est vraie.
+\stopitemize
+
+\item Il résulte de la question précédente et du principe des gendarmes que la suite $u_n-α_2$ converge vers $0$. 
+A fortiori, la suite $u$ converge vers $α_2$.
+\stopList%3L
+\stopList%L1
+\stopList
+ \fi
+
+\stoptext
+\stopcomponent
+\endinput

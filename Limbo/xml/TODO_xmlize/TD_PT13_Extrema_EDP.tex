@@ -1,0 +1,66 @@
+\catcode`@=11\relax
+
+\input LD@Maths@TD.tex
+
+\vglue-10mm\rightline{Spé PT\hfill TD 13 : Extrema et équations aux dérivées partielles\hfill}%\date}
+\bigskip
+
+\centerline{\bf Pour localiser les extrema locaux, cherchez les points critiques ! }
+\hrule
+\bigskip\noindent
+
+\Definition [$a\in D\subset\ob R^n$] 
+Le point $a$ est un point critique d'une fonction $f:D\to \ob R$, si et~seulement~si $f$ admet des dérivées partielles en $a$, 
+qui sont nulles, i. e. 
+$$
+\forall k\in\{1,\cdots, n\}, \qquad {\partial f\F\partial x_k}(a)=0.
+$$
+
+\Theoreme [$a\in U$ ouvert de $\ob R^n$] 
+Si $f\in\sc C^1(U,\ob R)$ admet un extremum relatif en un point $a$ de l'{\bf ouvert} $U$, 
+alors $a$ est un point critique de $f$.   
+\medskip
+
+\centerline{\bf Pour tester si un point critique est un extemum local}
+\hrule
+\medskip\noindent
+{\bf Utiliser un DL, des inégalités, l'astuce, etc... mais d'abord le théorème suivant  : }
+\bigskip
+
+\Theoreme [$U$ ouvert de $\ob R^2$, $a\in U$ point critique de $f\in\sc C^2(U,\ob R)$] 
+Soient $r$, $s$ et  $t$ les nombres réels définis par 
+$$
+\ds r={\partial^2f\F\partial x^2}(a),\qquad 
+\ds s={\partial^2f\F\partial x\partial y}(a)\quad \hbox{ et }\quad 
+\ds t={\partial^2f\F\partial y^2}(a). \leqno{(*)}
+$$
+Alors, quatre cas se présentent : 
+\medskip
+\noindent 
+1) Si $rt-s^2>0$ et $r<0$, la fonction $f$ admet un maximum relatif en $a$. \pn
+2) Si $rt-s^2>0$ et $r>0$, la fonction $f$ admet un minimum relatif en $a$. \pn
+3) Si $rt-s^2<0$, la fonction $f$ n'admet pas d'extremum relatif en $a$ {\it (selle de cheval).} \pn
+4) Si $rt-s^2=0$, on ne peut conclure. {\it Il faudrait affiner l'estimation de $f$ en $a$.} 
+
+
+
+\vfill\noindent
+\Exercice{PTajt}
+\vfill\noindent
+\Exercice{PTajq}
+\vfill\noindent
+\Exercice{PTajw}
+\vfill \noindent
+\Exercice{PTajs}
+\vfill \noindent
+\Exercice{PTajx}
+\vfill \noindent
+\Exercice{PTajr}
+\vfill \noindent
+\Exercice{PTakb}
+\vfill \noindent
+\Exercice{PTakc}
+\vfill \noindent
+\Exercice{PTajy}
+\vfill\vfill\vfill\vfil\vfill\vfill\vfill\vfill\vfill\vfill\vfill\vfill\null
+\bye

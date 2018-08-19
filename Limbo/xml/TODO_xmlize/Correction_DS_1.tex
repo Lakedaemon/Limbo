@@ -1,0 +1,171 @@
+%%%% Newif
+
+\newif\ifexonumber
+
+%%%% Switches
+\exonumberfalse
+
+\input Preprocessing.tex
+
+\transparent
+%\nomorecolors
+
+\vglue-10mm\rightline{PT\hfill Correction du DS 1 \hfill \date}
+\bigskip
+\medskip
+
+\bigskip
+
+\noindent{\bf Probl\`eme 1 \it(ENSAM, ESTP, ECRIN, ARCHIMEDE).}
+\medskip
+\noindent
+1.  i) Comme $0\le \dim(\IM(u)\cap\ker(u))\le \dim\IM(u)=\mbox{rang}(u)=1$, les deux seules possibilit\'es sont  :\pn
+soit $\dim(\IM(u)\cap\ker(u))=1$ ce qui implique que $ \IM(u)\cap\ker(u)=\IM(u)$ et par suite que $\IM(u)\subset\ker(u)$. \pn
+soit $\dim(\IM(u)\cap\ker(u))=0$ auquel cas $\IM(u)\cap\ker(u)=\{0\}$. 
+\medskip
+ii) A l'aide du th\'eor\`eme de la base incompl\`ete, on compl\`ete la famille libre $\{e\}$ \`a l'aide de vecteurs de la famille $\{x\}_{x\in E}$, qui est g\'en\'eratrice, pour former une base de $E$ dont le premier vecteur est $e$. \medskip\noindent
+Dans le cas o\`u $\IM(u)\subset\ker(u)$, la matrice de $u$ est de la forme
+$$
+\pmatrix{0 &\alpha_2&\cdots&\alpha_n\cr 0&0&\cdots&0\cr
+\cr 0&0&\cdots&0 }\leqno{*)}
+$$
+La trace de cette matrice est nulle. 
+\medskip\noindent
+iii) Si $\IM(u)\cap\ker(u)=\{0\}$, la matrice de $u$ dans la base $B$ constitu\'e du vecteur $e$ compl\'et\'e par une base de $\ker u$  est de la forme
+$$
+\pmatrix{\alpha&0&\cdots&0\cr 0&0&\cdots&0\cr
+\cr 0&0&\cdots&0 }\leqno{**)}
+$$
+avec $u(e)=\alpha e$. Autrement dit, elle est diagonale. Comme $e\neq0$ et $\IM(u)\cap\ker(u)=\{0\}$, on a $u(e)\neq0$ d'o\`u $\mbox{Tr}(u)=\alpha \neq0$. \medskip
+Si $\mbox{Tr}(u)\neq0$, on est forc\'ement dans le cas $\IM(u)\cap\ker(u)=\{0\}$ et du coup la matrice est diagonale. 
+Enfin, si la matrice de $u$ est diagonale...comme elle ne peut \^etre que de la forme *) ou **) et que la matrice de $u$ ne peut pas \^etre nulle (car $u$ est de rang $1$), la matrice de $u$ est du type **) pour un $\alpha\neq0$ et donc $\IM(u)\cap\ker(u)=\{0\}$. 
+\medskip\noindent
+2.I) facile. \medskip\noindent
+2.ii) facile si on ne s'emmele pas les p\'edales : $F$ est bien une application d'apr\`es la question pr\'ec\'edente, entre deux EV. De plus, pour $(\lambda,\mu)\in\ob C^2$ et $(A,B)\in\sc M_n(\ob C)^2$, montrons que  
+$$
+F_{\lambda A+\mu B}=\lambda F_A+\mu F_B,
+$$
+c'est \`a dire que (identit\'e fonctionnelle) 
+$$
+\forall X\in\sc M_n(\ob C), \qquad F_{\lambda A+\mu B}(X)=\lambda F_A(X)+\mu F_B(X)
+$$
+Maintenant qu'on sait ce qu'il y \`a faire, c'est \'evident..je vous le laisse. 
+\medskip
+\noindent
+iii) On a 
+$$
+F_A(E_{i,j})=\mbox{Tr}(AE_{i,j})=\mbox{Tr}\pmatrix{0&\cdots&0&a_{1, i}&0&\cdots&0\cr 0&\cdots&0&a_{2, i}&0&\cdots&0\cr \cr0&\cdots&0&a_{j, i}&0&\cdots&0\cr\cr 0&\cdots&0&a_{n, i}&0&\cdots&0\cr }=a_{j,i}
+$$
+car le seul coefficient diagonal non nul se trouve sur la $j^\ieme$ ligne et $j^\ieme$ colonne, c'est $a_{j,i}$. 
+\medskip\noindent
+La seule matrice pour laquelle l'application $F_A$ est identiquement nulle est la matrice $A=0$ d'apr\`es la question pr\'ec\'edente. D'o\`u $\ker F=\{0\}$ et donc $F$ est injective. 
+\medskip\noindent
+iv) Comme $\dim_{\ob C}\sc M_n(\ob C)=\dim_{\ob R}\sc L(\sc M_n(\ob C),\ob C)=\dim_{\ob C}\sc M_n(\ob C)^*$, et comme l'application $F$ est injective, elle est bijective. C'est un isomorphisme. 
+\medskip\noindent
+3) Facile. 
+\medskip
+i) $F$ est un isomorphisme et $f\in\sc M_n(\ob C)^*$. Il suffit de prendre $A=F^{-1}(f)$ pour avoir $F_A=f$, c'est \`a dire (identit\'e fonctionnelle) 
+$$
+\forall X\in\sc M_n(\ob C), \qquad \mbox{Tr}(AX)=F_A(X)=f(x).
+$$
+ii) $\ker\psi(f)=\ker f$ (facile). L'image de $\IM(\psi_f)=\mbox{Vect}(J)$ qui est de dimension $1$. 
+\medskip\noindent
+iii) $\psi_f$ est une forme lin\'eaire non nulle. On peut appliquer ce qu'on a appris sur ce type de fonctions dans ce devoir. Et donc : \medskip\noindent
+Soit $f(J)=0$ auquel cas, $\psi_f(J)=0$ d'o\`u $\IM(\psi_f)\subset\ker\psi_f$ et alors $$\mbox{Tr}(\psi_f)=0=f(J)=\mbox{Tr}(AJ).$$
+Soit $f(J)\neq0$ auquel cas, $\psi_f(J)=f(J)J\neq0$ et alors on est dans l'autre cas et  $$\mbox{Tr}(\psi_f)=f(J)=\mbox{Tr}(AJ).$$
+En fait, dans les deux cas, on a $\mbox{Tr}(\psi_f)=f(J)=\mbox{Tr}(AJ)$. \medskip\noindent
+iv) la condition n\'ecessaire pour \^etre diagonalisable est que $\mbox{Tr}(AJ)\neq0$.
+\bigskip
+
+\noindent{\bf Probl\`eme 2 \it(ENSAE).}
+\medskip
+\noindent $\sc M_2(\ob R)$ d\'esigne l'espace vectoriel des matrices carr\'ees de taille $2$ \`a coefficients r\'eels. \pn
+Pour $(a,b)\in\ob R^2$, on pose 
+$$
+M(a,b):=\pmatrix{a&-b\cr b&a}.
+$$
+1.a. $\sc C$ est un EV (facile) de dimension 2 et de base $\Q\{\pmatrix{1&0\cr0&1}, \pmatrix{0&1\cr1&0}\W\}$. \medskip\noindent
+1.b. facile..Recurrence sur $k\ge0$ pour $\Phi(z^k)$. Si $k<0$ et $z\neq0$, c'est verai \'egalement. 
+\medskip\noindent
+2 $\Phi$ est un isomorphisme de $\ob R$-alg\`ebre, {\bf de corps}, d'anneaux, {\bf de $\ob R$-espaces vectoriels},..je vous \'epargne les groupes, les plus importants sont en gras. 
+En fait l'application $\Phi$ identifie le corps $\ob C$ avec un corps $\sc C$ fabriqu\'e \`a partir de matrices et des op\'erations matricielles.  
+\medskip\noindent
+2. a $A(\theta)^k=A(k\theta)$..$A(\theta)$ est une matrice de rotation vectorielle d'angle $\theta$...C'est encore valable pour $k<0$ car 
+$$
+A(-\theta)=A(\theta)^{-1}.
+$$
+2.b Prendre la matrice 
+$$
+M={1\F \root p\of 2}M\Q({\pi\F p}\W).
+$$
+\medskip\noindent
+3) A l'oeil nu, on remarque que $P=1$et $P=3X+X^3$ sont solutions \'evidentes. Il n'est pas trop dur de prouver que le noyau est de dimension $2$ (cf equations diff\'erentielles, ou \'etude du degr\'e, ou r\'esolution directe) de sorte que 
+$$
+\ker f=\mbox{Vect}(1, 3X+X^3). 
+$$
+4) Les valeurs propres sont $k^2-3k$ pour $0\le k\le n$. Autrement dit $0$ de multiplicit\'e $2$, $-2$ de multiplicit\'e $2$ et $k^2-3k$ pour $4\le k\le n$ de multiplicit\'e $1$. 
+\medskip\noindent
+5) oui, on peut (diagonaliser $f_n$) car 
+$$
+\ker(f+2\hbox{Id}_E)=\mbox{Vec}(X, X^2-1).
+$$
+\medskip
+6) On peut utiliser des matrices, diagonaliser la matrice de $f_n$ et r\'esoudre l'\'equation matricielle (on peut aussi traiter la question en restant dans le monde des EV sans probl\`eme mais pour cela, il faut d'abord trouver une base de vecteurs propres de $\ob R_n[X]$, ce qui est fait dans les questions pr\'ec\'edentes). 
+ \bigskip
+\noindent{\bf Exercices ind\'ependants\it(Mines-Ponts).}\bigskip
+\noindent
+{\bf Exercice A)} 
+\noindent
+1) Pour $k\ge0$, on a $\ker f^k\subset \ker f^{k+1}$ car
+$$
+x\in\ker f^k\Rightarrow f^k(x)=0\Rightarrow f^{k+1}(x)=f(f^k(x))=0\Rightarrow x\in\ker f^{k+1}
+$$
+2) Pour $k\ge p$, prouvons la proposition
+$$
+\ker f^k=\ker f^{k+1}\leqno{(\sc P_k)}
+$$ 
+$\sc P_p$ est vraie par hypoth\`ese. Si $\sc P_kk$ est vraie pour un entier $k\ge p$, alors on dispose des \'equivalences :
+$$
+x\in\ker f^{k+2}\Leftrightarrow f(x)\in ker f^{k+1}\Leftrightarrow f(x)\in ker f^k\Leftrightarrow x\in ker f^{k+1}
+$$ 
+qui entrainent que $\sc P_{k+1}$ est vraie. Ainsi par r\'ecurrence, $\ker f^k=\ker f^{k+1}$ pour tout $k\ge p$.\medskip\noindent
+3) $d_k=\dim\ker f^k$ est une suite croissante major\'ee (par $n$) d'entiers naturels donc elle est  constante \`a partir d'un certain rang $p$ et 
+elle est  strictement croissante jusqu'\`a ce rang (par contraposition du r\'esultat pr\'ec\'edent) donc 
+$$
+\forall k\le p,\quad k\le d_k\le n.
+$$ 
+Ainsi $p\le d_p\le  n$ et en particulier $d_n=d_{n+1}$et par cons\'equent 
+$$
+\ker f^n=\ker f^{n+1}
+$$ d'apr\`es l'inclusion $\ker f^n\subset\ker f^{n+1}$ et \'egalit\'e des dimensions.
+\medskip\noindent
+4) Si $u^q=0$ alors $\ker(u^q)=0$ d'o\`u $d_q=n$. Comme la limite de $(d_k)_{k\ge0}$ est $n$ det comme cette suite est constante (au moins) \`a partir du rang $n$, on a $d_n=n$ d'o\`u $u^n=0$. 
+Au pire, on peut donc prendre $s=n$. \medskip\noindent
+
+\bigskip
+\noindent
+{\bf Exercice B)}1)  $f$ et $g$ commuttent entre eux car $g=f^2-\lambda\mbox{Id}_E$ et donc 
+$$
+f\circ g=f\circ(f^2-\lambda\mbox{Id}_E)=f^3-\lambda f=(f^2-\lambda\mbox{Id}_E)\circ f=g\circ f. 
+$$
+2) $f$ commute avec $g$ donc $\forall k\ge0, f^k$ commute avec $g$. 
+En effet, on a 
+$$
+f^k\circ g=f^{k-1}\circ g\circ f=f^{k-2}\circ g\circ f^2=\cdots=g\circ f^k.
+$$
+A fortiori, $P(f)$ commute avec $g$ car
+$$
+\eqalign{
+P(f)\circ g&=\Q(\sum_{0\le k\le n}a_kf^k\W)\circ g=\sum_{0\le k\le n}a_kf^k\circ g=\sum_{0\le k\le n}a_kg\circ f^k=g\circ \sum_{0\le k\le n}a_kf^k\cr &=g\circ P(f).}
+$$
+En r\'eappliquant cette propri\'et\'e \`a $\tilde g=P(f)$ et $\tilde f=g$ qui commuttent, on en d\'eduit que $Q(\tilde f)=Q(g)$ commutte avec $\tilde g=P(f)$. 
+\medskip\noindent
+3) Soit $x\in F_\lambda$. Alors,on a $(f-\lambda\Id_E)(x)=0$ d'o\`u 
+$$
+(f-\lambda\Id_E)\Q(g(x)\W)=(f-\lambda\Id_E)\circ (x)=g\circ (f-\lambda\Id_E)(x)=g(0)=0
+$$
+A fortiori, le vecteur $g(x)$ appartient au noyau $F_\lambda=\ker(f-\lambda\mbox{Id}_E)$. Et on a donc 
+$$
+g(F_\lambda)\subset F_\lambda. 
+$$
+\bye

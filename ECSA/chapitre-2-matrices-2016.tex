@@ -1,0 +1,535 @@
+%2multibyte Version: 5.50.0.2953 CodePage: 65001
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{Codepage=65001}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Tuesday, October 01, 2013 11:45:23}
+%TCIDATA{LastRevised=Wednesday, June 29, 2016 08:56:49}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{PageSetup=14,14,14,14,0}
+%TCIDATA{AllPages=
+%H=36
+%F=18,\PARA{038<p type="texpara" tag="Body Text" > \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Chapitre-2-\thepage }
+%}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+\begin{document}
+
+
+\subsubsection{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \protect\underline{Chapitre 2 : Calcul matriciel.%
+}}
+
+\paragraph{\protect\underline{1. D\'{e}finition d'une matrice .}}
+
+Pour une matrice de petite dimension, il suffit d'\'{e}crire les
+coefficients de cette matrice entre crochets de la fa\c{c}on suivante :
+
+- les s\'{e}parateurs des lignes sont des points virgules
+
+- les s\'{e}parateurs entre les \'{e}l\'{e}ments de chaque ligne sont soit
+des virgules soit des espaces.
+
+Exemple :La matrice $A=\left( 
+\begin{array}{ccc}
+1 & 2 & 3 \\ 
+4 & 5 & 6%
+\end{array}%
+\right) $ s'\'{e}crit en Scilab : $A=\left[ 1\text{ }2\text{ }3;4\text{ }5%
+\text{ }6\right] .$
+
+Le vecteur ligne $L=\left( 1\text{ }2\text{ }3\right) $ s'\'{e}crit en
+Scilab : $L=\left[ 1\text{ }2\text{ }3\right] .$Le vecteur colonne $C=\left( 
+\begin{array}{c}
+1 \\ 
+2 \\ 
+3%
+\end{array}%
+\right) $ s'\'{e}crit en Scilab : $C=\left[ 1;2;3\right] .$
+
+\underline{Exercice 1 : }Taper les matrices suivantes : $X=\left( 
+\begin{array}{cc}
+-1 & 8 \\ 
+3 & 5%
+\end{array}%
+\right) ,$ $Y=\left( 
+\begin{array}{cc}
+-6 & 7 \\ 
+2 & 8 \\ 
+5 & 9%
+\end{array}%
+\right) $
+
+\paragraph{\protect\underline{2. Matrices particuli\`{e}res.}}
+
+Matrice nulle : La matrice $0_{n,p\text{ }}$ de $M_{n,p}(%
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+)$ est not\'{e}e en Scilab : $M=zeros(n,p).$
+
+Matrice unit\'{e} ou identit\'{e} : La matrice unit\'{e} $I_{n}$ de $M_{n}(%
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+)$ est not\'{e}e en Scilab : $M=eye(n,n).$
+
+La matrice $M$ \`{a} n lignes et p colonnes ne poss\'{e}dant que des 1 est
+not\'{e}e : $M=ones(n,p)$
+
+Remarque :
+
+Ces commandes permettent d'initialiser les matrices avant de pouvoir faire
+des calculs de mani\`{e}re rapide.
+
+\paragraph{\protect\underline{3. Vecteurs particuliers.}}
+
+Pour introduire des vecteurs lignes dont les coefficients sont r\'{e}guli%
+\`{e}rement espac\'{e}s ( exemple : $\left( 1,3,5,7\right) $) on dispose de
+deux commandes .
+
+La premi\`{e}re commande "$L=a:h:b$ " donne un vecteur ligne $L$ contenant
+des valeurs allant de $a$ \`{a} $b$ par pas de $h.$
+
+Ainsi \ la commande "$L=1:2:7$" donne le vecteur ligne : $L=\left(
+1,3,5,7\right) .$
+
+La commande "$L=a:b$" est \'{e}quivalente \`{a} la commande "$L=a:1:b$ ", la
+longueur du pas lorsqu'elle est \'{e}gale \`{a} 1 pouvant \^{e}tre omise.
+
+La deuxi\`{e}me commande "$L=linspace(a,b,n)$ " donne un vecteur ligne de
+longueur n et d'extr\'{e}mit\'{e} $a$ et $b.$ Le pas est donc \'{e}gal \`{a} 
+$\QDOVERD( ) {b-a}{n-1}.$
+
+Ainsi la commande "$L=linspace(1,7,4)$" donne le vecteur ligne : $L=\left(
+1,3,5,7\right) .$
+
+\underline{Exercice 2 :} Ecrire le vecteur ligne $\left( 0,2,4,6,8\right) $ 
+\`{a} l'aide des deux commandes.
+
+\paragraph{\protect\underline{4. Op\'{e}rations sur les matrices.}}
+
+\underline{4.1. Op\'{e}rations alg\'{e}briques usuelles}
+
+$%
+\begin{array}{ccc}
+&  & \text{Ecriture en Scilab} \\ 
+\text{Addition} & A+B & A+B \\ 
+\text{Multiplication} & A\ast B & A\ast B \\ 
+\text{Soustraction} & A-B & A-B \\ 
+\text{Multiplication par un r\'{e}el} & \alpha \cdot A & \alpha \ast A \\ 
+\text{Puissance} & A^{n} & A\symbol{94}n \\ 
+\text{Inverse} & A^{-1} & inv(A) \\ 
+\text{Transpos\'{e}e} & ^{t}A & A^{\prime }%
+\end{array}%
+$
+
+\underline{4.2. Op\'{e}rations coefficients par coefficients.}
+
+Les op\'{e}rations point\'{e}es suivantes $\cdot \ast ,$ $\cdot /,$ $\cdot 
+\symbol{94}$ permettent d'effectuer respectivement un produit coefficient
+par coefficient, une division coefficient par coefficient et une puissance
+coefficient par coefficient.
+
+Soient $A=(a_{ij})$ et $B=(b_{ij})$ deux matrices de $M_{n,p}(%
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+).$
+
+L'instruction $"A\cdot \ast B"$ donne la matrice de $M_{n,p}(%
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+)$ de coefficients $a_{ij}\times b_{ij}.$
+
+L'instruction $"A\cdot /B"$ donne la matrice de $M_{n,p}(%
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+)$ de coefficients $a_{ij}/b_{ij}.$
+
+L'instruction $"A\cdot \symbol{94}n"$ donne la matrice de $M_{n,p}(%
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+)$ de coefficients $\left( a_{ij}\right) ^{n}.$
+
+Plus g\'{e}n\'{e}ralement , si $f$ est une fonction , la fonction $f$ appliqu%
+\'{e}e \ \`{a} la matrice $A=(a_{ij})$ donne une matrice $C$ dont les
+coefficients sont \'{e}gaux aux $f(a_{ij}).$
+
+\underline{Exercice 3 :} Soient \ $A=\left( 
+\begin{array}{ccc}
+1 & -1 & 1 \\ 
+2 & 1 & 0%
+\end{array}%
+\right) $ et $B=\left( 
+\begin{array}{ccc}
+6 & 7 & -3 \\ 
+1 & 1 & -1%
+\end{array}%
+\right) .$
+
+Taper : $A\cdot \ast B,$ $\ \ A\cdot /B,$ $\ \ \ A\cdot \symbol{94}4,$ $\
+abs(A),$ $cos(\%pi\ast B)$
+
+Remarque :
+
+Scilab permet d'additionner ou de soustraire un scalaire \`{a} une matrice
+mais c'est une facilit\'{e} de programmation.
+
+Ainsi l'instruction " $-\rightarrow A+2"$ permet d'ajouter le r\'{e}el 2 
+\`{a} tous les coefficients de $A$ donc est identique \`{a} l'instruction
+
+" $-\rightarrow A+2\ast ones(n,p)$".
+
+\underline{4.3. Fonctions matricielles.}
+
+L'instruction " $size(A)$ " donne le type de la matrice $A$ . Cette
+instruction renvoie une matrice ligne \`{a} deux coefficients correspondant
+au nombre de ligne et au nombre de colonne de $A.$
+
+Ainsi $\left[ n,p\right] =size(A)$ o\`{u} $n$ est le nombre de ligne et $p$
+le nombre de colonne.
+
+L'instruction " $rank(A)$ " donne le rang de $A.$
+
+L'instruction " $sum(A)$ " donne la somme de tous les coefficients de $A.$
+
+L'instruction " $prod(A)$ " donne le produit de tous les coefficients de $A.$
+
+L'instruction " $\min (A)$ " donne le plus petit des coefficients de $A.$
+
+L'instruction " $\max (A)$ " donne le plus grand des coefficients de $A.$
+
+\underline{Exercice 4 :}Soit $A=\left( 
+\begin{array}{ccc}
+1 & 2 & 3 \\ 
+4 & 5 & 6%
+\end{array}%
+\right) .$
+
+Appliquer les instructions $size,sum,prod,\min $ et $\max $ \`{a} la matrice 
+$A$ et comprendre les r\'{e}sultats obtenus.
+
+\paragraph{\protect\underline{5. Extraction ou modification.}}
+
+\underline{5.1. Extraction.}
+
+Pour un vecteur $u$ ligne ou colonne , la commande $"x=u(k)"$ permet
+d'extraire le k$^{i\grave{e}me}$ \'{e}l\'{e}ment de $u$ .
+
+Pour une matrice $A=(a_{ij})$ de $M_{n,p}(%
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+),$
+
+l'instruction $"x=A(i,j)"$ permet d'extraire le coefficient $a_{ij}$ de $A.$
+
+l'instruction $"L=A(i,:)"$ permet d'extraire la $i^{\grave{e}me}$ ligne de $%
+A.$
+
+l'instruction $"C=A(:,j)"$ permet d'extraire la j$^{i\grave{e}me}$ colonne
+de $A.$
+
+Remarque :
+
+L'op\'{e}rateur $":"$ sert donc \`{a} d\'{e}signer une ligne ou une colonne.
+
+\underline{Exercice 5 :} Soit \ $A=\left( 
+\begin{array}{ccc}
+1 & -1 & 1 \\ 
+2 & 1 & 0%
+\end{array}%
+\right) .$ Taper $x=A(2,3);L=A(2,:),C=A(:,2).$
+
+\underline{5.2. Modification.}
+
+Soient $u$ un vecteur ligne ou colonne et une matrice $A=(a_{ij})$ de $%
+M_{n,p}(%
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+).$Soient $b\in 
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+,L\in M_{1,p}(%
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+)$ et $C\in M_{n,1}(%
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+).$
+
+L'instruction \ $"u(k)=b"$ remplace le $k^{i\grave{e}me}$ \'{e}l\'{e}ment de 
+$u$ par $b.$
+
+L'instruction \ $"A(i,j)=b"$ remplace le coefficient $a_{ij}$ de $A$ par $b.$
+
+L'instruction \ $"A(i,:)=L"$ remplace la $i^{\grave{e}me}$ ligne de $A$ par $%
+L.$
+
+L'instruction \ $"A(:,j)=C"$ remplace la j$^{i\grave{e}me}$ colonne de $A$
+par $C.$
+
+\bigskip \underline{Exercice 6 :} Soit \ $A=\left( 
+\begin{array}{ccc}
+1 & -1 & 1 \\ 
+2 & 1 & 0%
+\end{array}%
+\right) .$ Taper :
+
+$A(2,2)=4;A(1,:)=ones(1,3),A(:,3)=ones(2,1).$
+
+\underline{5.3. Concat\'{e}nation de deux matrices.}
+
+- Si les matrices $B$ et $C$ poss\'{e}dent le m\^{e}me nombre de lignes,
+l'instruction $"A=\left[ B,C\right] "$ permet de construire une matrice $A$
+qui contient les colonnes de $B$ puis celles de $C.$
+
+- Si les matrices $B$ et $C$ poss\'{e}dent le m\^{e}me nombre de colonnes,
+l'instruction $"A=\left[ B;C\right] "$ permet de construire une matrice $A$
+qui contient les lignes de $B$ puis celles de $C.$
+
+\bigskip \underline{Exercice 7 :} Soient \ $A=\left( 
+\begin{array}{ccc}
+1 & -1 & 1 \\ 
+2 & 1 & 0%
+\end{array}%
+\right) $ et $B=\left( 
+\begin{array}{ccc}
+6 & 7 & -3 \\ 
+1 & 1 & -1%
+\end{array}%
+\right) .$
+
+Taper les instructions suivantes : $C=\left[ A,B\right] ,D=\left[ A;B\right] 
+$
+
+\paragraph{\ \ \ \ \protect\underline{6. Exercices .}}
+
+\underline{Exercice 8 :} \ Taper successivement les commandes suivantes et v%
+\'{e}rifier ce qui se passe, en comprenant les messages d'erreurs \'{e}%
+ventuels :
+
+$%
+\begin{array}{c}
+x=\left[ 2,3,-1\right] \\ 
+y=x^{\prime } \\ 
+A=y\ast x \\ 
+I=eye(3,3) \\ 
+C=A\ast I \\ 
+C=A.\ast I%
+\end{array}%
+$ \ \ \ \ \ \ \ \ \ \ puis \ \ \ \ \ \ \ \ \ \ \ \ $%
+\begin{array}{c}
+C=1:4 \\ 
+C\ast C \\ 
+C.\ast C \\ 
+C\ast C^{\prime } \\ 
+\exp (C)%
+\end{array}%
+$
+
+\underline{Exercice 9 : } \ On consid\`{e}re les matrices suivantes :
+
+$A=\left( 
+\begin{array}{ccc}
+1 & 0 & -1 \\ 
+1 & 2 & 1 \\ 
+2 & 1 & -1%
+\end{array}%
+\right) ,$ $B=\left( 
+\begin{array}{cc}
+0 & 1 \\ 
+-2 & 1 \\ 
+1 & 0%
+\end{array}%
+\right) $ ,$C=\left( 
+\begin{array}{ccc}
+-1 & 0 & 1 \\ 
+1 & 1 & 1%
+\end{array}%
+\right) $ et $D=\left( 
+\begin{array}{cc}
+1 & -2 \\ 
+1 & -2%
+\end{array}%
+\right) $
+
+Calculer les matrices suivantes si possible et v\'{e}rifier vos calculs avec
+Scilab.
+
+a) $BA$ \ \ \ \ \ \ \ \ \ \ b) $CB$ \ \ \ \ \ \ \ \ \ \ \ \ \ c) $AB$\ \ \ \
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ d) $BC-2A^{2}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ e) $%
+\left( D-I_{2}\right) \times C$\ \ \ \ \ .
+
+\ \ 
+
+\underline{Exercice 11 :} Calculer les matrices suivantes si possible et v%
+\'{e}rifier vos calculs avec Scilab.
+
+1. $\left( 
+\begin{array}{ccc}
+1 & 0 & 2 \\ 
+3 & -1 & 1%
+\end{array}%
+\right) \left( 
+\begin{array}{cc}
+2 & 1 \\ 
+0 & -3 \\ 
+-1 & 1%
+\end{array}%
+\right) $ \ \ \ \ 2. $\left( 
+\begin{array}{c}
+2 \\ 
+4 \\ 
+-3%
+\end{array}%
+\right) \times ^{\substack{ t  \\  \\ }}\left( 
+\begin{array}{c}
+2 \\ 
+4 \\ 
+-3%
+\end{array}%
+\right) $ \ \ \ \ 3. $\left( 
+\begin{array}{ccc}
+5 & -1 & 2 \\ 
+0 & 1 & 1 \\ 
+1 & 1 & 2%
+\end{array}%
+\right) \left( 
+\begin{array}{c}
+1 \\ 
+2 \\ 
+3%
+\end{array}%
+\right) $ \ \ \ \ \ 
+
+\underline{Exercice 12 :} On pose : $A=\left( 
+\begin{array}{ccc}
+1 & -1 & 7 \\ 
+-4 & 2 & 11 \\ 
+8 & 0 & 3%
+\end{array}%
+\right) $ et $B=\left( 
+\begin{array}{ccc}
+3 & -2 & -1 \\ 
+7 & 8 & 6 \\ 
+5 & 1 & 3%
+\end{array}%
+\right) .$
+
+Que font les instructions suivantes ?
+
+$3\ast A;$ $\ \ $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ puis \ \ \ $%
+exp(B);$
+
+$A.\ast B;$ $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ \ \ A(2,:)\ast B(:,3);\ $
+
+$A.\symbol{94}B;$ $\ $\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ $A(2,3)=6$
+
+$\cos (\%pi\ast A);$ \ $\ $ $\ $ \ 
+
+\underline{Exercice 13 :}Soient $A=\left( 
+\begin{array}{ccc}
+1 & 3 & 2 \\ 
+1 & 3 & 1 \\ 
+-1 & 0 & 0 \\ 
+1 & 0 & -2%
+\end{array}%
+\right) $ et \ $B=\left( 
+\begin{array}{cccc}
+1 & 1 & -1 & 1 \\ 
+0 & 1 & 0 & 3 \\ 
+1 & 2 & 1 & 2%
+\end{array}%
+\right) .$
+
+1. On note $u$ la deuxi\`{e}me colonne de $A$ et $v$ la derni\`{e}re ligne
+de $B,$ d\'{e}terminer la matrice $uv.$
+
+2. On note $C$ la matrice obtenue \`{a} partir de la matrice $A$ en rempla%
+\c{c}ant $u$ par $-u.$ Expliquer comment construire $C$ \`{a} partir de $A$
+par des instructions $Scilab.$
+
+3. Quelles sont les valeurs affich\'{e}es \`{a} l'issue de l'ex\'{e}cution
+des instructions de la ligne suivante :
+
+$x=A(3,1);y=B(2,4);$
+
+$x\ast y$
+
+$A(2,:)\ast B(:,2)$
+
+$A(:,3).\symbol{94}2$
+
+\underline{Exercice 14} :On consid\`{e}re la matrice $A=%
+\begin{pmatrix}
+0 & 1 & 1 & 1 \\ 
+1 & 0 & 1 & 1 \\ 
+1 & 1 & 0 & 1 \\ 
+1 & 1 & 1 & 0%
+\end{pmatrix}%
+\quad $
+
+1.Calculer $A^{2}$ et v\'{e}rifier vos calculs avec Scilab.
+
+2. D\'{e}terminer deux r\'{e}els $a$ et $b$ tels que $A^{2}-aA-bI=0.$ V\'{e}%
+rifier vos solutions \`{a} l'aide \ de Scilab.
+
+3. En d\'{e}duire que $A$ est inversible et d\'{e}terminer $A^{-1}.$ V\'{e}%
+rifier votre r\'{e}sultat \`{a} l'aide \ de Scilab.
+
+\end{document}

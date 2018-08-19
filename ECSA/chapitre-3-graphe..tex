@@ -1,0 +1,230 @@
+%2multibyte Version: 5.50.0.2953 CodePage: 65001
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{Codepage=65001}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, November 20, 2013 15:35:53}
+%TCIDATA{LastRevised=Wednesday, June 29, 2016 08:57:19}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{PageSetup=28,28,28,28,0}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+\begin{document}
+
+
+\subsection{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\protect\underline{Chapitre 3 : graphe en dimension deux.}}
+
+\paragraph{\protect\underline{1. Instruction plot et plot2d.}}
+
+Pour tracer la courbe repr\'{e}sentative d'une fonction $f$ de une variable,
+Scilab trace une ligne bris\'{e}e entre les points $%
+(x_{1},f(x_{1})),...,(x_{2},f(x_{2})).$
+
+Il faut donc d'une mani\`{e}re ou d'une autre fournir :
+
+- un vecteur colonne $x=[x_{1},...,x_{n}]^{\prime }$ \ ( ou un vecteur ligne 
+$x=[x_{1},...,x_{n}]$ )
+
+- un vecteur colonne $y=[f(x_{1}),...,f(x_{n})]^{\prime }$ ( ou un vecteur
+ligne $y=[f(x_{1}),...,f(x_{n})]$ )
+
+Remarque :
+
+Pour repr\'{e}senter une courbe, il est plus simple d'utiliser des vecteurs
+lignes mais dans le cas o\`{u} l'on doit repr\'{e}senter plusieurs courbes
+il est pr\'{e}f\'{e}rable de travailler avec des vecteurs colonnes.
+
+-\underline{ Pour d\'{e}clarer le vecteur $x$ des abscisses} , on a deux
+possibilit\'{e}s ( voir chapitre 2, paragraphe 3).
+
+Par exemple pour d\'{e}couper le segment [0,1] en 100 sous-segments, on
+dispose des solutions suivantes :
+
+$x=[0:0.01:1]^{\prime }$
+
+$x=linspace(0,1,101)^{\prime }.$
+
+-\underline{ Pour d\'{e}clarer le vecteur $y$ des ordonn\'{e}es} , on
+construit ce vecteur en utilisant les op\'{e}rations coefficients par
+coefficients ( voir chapitre 2, paragraphe 4.2 )
+
+- \underline{Pour tracer le graphe}, on utilise ensuite les fonctions plot
+ou plot2d.
+
+L'instruction $plot(x,y)$ ou $plot2d(x,y)$ trace donc une courbe en reliant
+les points $(x_{k},y_{k})$ entre eux.
+
+Exemple : Tracer la courbe de la fonction $f:x\mapsto x^{2}$ sur $\left[ 0;1%
+\right] $ avec un pas de $0,1.$
+
+$-\rightarrow x=[0:0.1:1]^{\prime };$
+
+$-\rightarrow y=x\cdot \symbol{94}2;$
+
+$-\rightarrow plot2d(x,y)$
+
+Exercice 1 : Tracer la courbe de la fonction $f:x\mapsto \cos (x)$ sur $%
+\left[ 0;2\pi \right] $ avec un pas de $0,01.$
+
+Exercice 2 : Tracer la courbe de la fonction $f:x\mapsto \dfrac{1}{1+x^{2}}$
+sur $\left[ -3,3\right] $ pour 11 valeurs.
+
+\paragraph{\protect\underline{2. Trac\'{e}s de plusieurs courbes sur un m%
+\^{e}me graphique.}}
+
+Par d\'{e}faut, les diff\'{e}rents trac\'{e}s viennent se superposer les uns
+par dessus les autres.
+
+Pour n'avoir qu'un seul trac\'{e}, il faut effacer le pr\'{e}c\'{e}dent avec
+la commande : $clf.$
+
+A chaque appel de $plot2d$ les valeurs maximales et minimales sont \'{e}valu%
+\'{e}es pour offrir un affichage qui permet de voir la courbe en entier.
+
+Dans le cas de plusieurs appels successifs de la commande plot2d, les
+courbes sont superpos\'{e}es mais de plus, en cas de changement de valeurs
+extr\^{e}mes, les courbes sont r\'{e}-affich\'{e}es pour permettre une
+visualisation simultan\'{e}e.
+
+Exercice 3 :
+
+Tracer la fonction $f:x\mapsto \QDOVERD( ) {x}{1+x^{3}}$ sur $\left[ 0;1%
+\right] $ et $g:x\mapsto \dfrac{x}{\exp (x)}$ sur $\left[ -1;2\right] .$
+(avec un pas de 0.01)
+
+Mais si on veut imposer les coordonn\'{e}es de la fen\^{e}tre d'affichage,
+on utilise l'instruction : $rect=[x_{\min },y_{\min },x_{\max },y_{\max }],$
+qu'on place dans l'instruction plot2d : l'appel est fait par $%
+plot2d(x,y,rect=...).$
+
+Exercice 4 :
+
+Tracer sur une m\^{e}me figure la courbe de $f:x\mapsto \dfrac{x^{2}}{2x-1}$
+et la courbe de l'asymptote d'\'{e}quation $y=\frac{1}{2}x+\frac{1}{4}$ sur $%
+\left[ 1;4\right] .$(avec un pas de 0.01)
+
+On d\'{e}finit pour fen\^{e}tre d'affichage : $x$ varie de 1 \`{a} 4 et $y$
+de 0 \`{a} 3.
+
+\bigskip
+
+L'instruction $plot2d$ permet aussi d'afficher simultan\'{e}ment plusieurs
+courbes , pour cela il suffit d'utiliser en argument des matrices \`{a} la
+place des vecteurs $x$ et $y.$
+
+L'appel est fait par $plot2d(xx,yy)$ o\`{u} $xx$et $yy$ sont deux matrices
+de m\^{e}me dimension $m\times n$ et revient \`{a} superposer sur un m\^{e}%
+me graphique $n$ courbes repr\'{e}sentant chacune des $n$ colonnes de $yy$
+en fonction de la colonne correspondante de $xx.$
+
+On a deux m\'{e}thodes possibles :
+
+- si le vecteur colonne d'abscisses est commun \`{a} l'ensemble des ordonn%
+\'{e}es : $plot2d(x,\left[ f_{1}(x),f_{2}(x),...\right] )$
+
+- s'il y a autant de vecteurs colonnes d'abscisses et d'ordonn\'{e}es : $%
+plot2d(\left[ x_{1},x_{2},...\right] ,\left[ f_{1}(x_{1}),f_{2}(x_{2}),...%
+\right] ).$
+
+Exemple :
+
+Taper les instructions :
+
+$-\rightarrow x=linspace(0,\%pi,101)^{\prime };$
+
+$-\rightarrow plot2d(x,[\sin (x),\cos (x),\sin (x).\ast \cos (x)])$
+
+Exercice 5 :
+
+1. Tracer les courbes des fonctions $x\mapsto \sin (x),x\mapsto \sin (2x)$ $%
+\ et$ $x\mapsto \sin (3x)$ sur $\left[ 0;2\pi \right] .$
+
+2. Tracer les courbes des fonctions $x\mapsto \sin (x),x\mapsto \sin (2x)$ $%
+\ et$ $x\mapsto \sin (3x)$ respectivement sur $\left[ 0;2\pi \right] ,\left[
+2\pi ;4\pi \right] $ et $\left[ 4\pi ,6\pi \right] .$
+
+\bigskip
+
+\paragraph{\protect\underline{3. Choix de la couleur et du trait.}}
+
+Pour obtenir une couleur ou un mode de trac\'{e} diff\'{e}rent, on utilise
+l'instruction $style=\left( vecteur\text{ }ligne\right) :$ l'appel est fait
+par $plot2d(\left[ x1,x2\right] ,\left[ y_{1},y_{2}\right] ,style=\left[
+n_{1},n_{2}\right] ).$
+
+La taille du vecteur ligne correspond au nombre de vecteurs des ordonn\'{e}%
+es.
+
+Ce tableau doit imp\'{e}rativement \^{e}tre en troisi\`{e}me position et on
+peut omettre d'\'{e}crire $style$.
+
+Les valeurs num\'{e}riques de ce vecteur ligne correspondent \`{a} une
+couleur ou \`{a} un symbole.
+
+Plus pr\'{e}cis\'{e}ment une valeur positive correspond \`{a} une couleur et
+une valeur n\'{e}gative ou nulle remplace l'affichage continu par un symbole.
+
+$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\begin{array}{ccccccc}
+1 & 2 & 3 & 4 & 5 & 6 & 7 \\ 
+noir & bleu & vert & cyan & rouge & magenta & jaune \\ 
+0 & -1 & -2 & -3 & -4 & -5 & -6 \\ 
+\cdot & + & \times & \oplus & \ast & \Diamond & \bigtriangleup%
+\end{array}%
+$
+
+\underline{Exercice 6 :}
+
+Tracer la courbe de la fonction $x\mapsto x^{2}$ en rouge et de $x\mapsto
+\ln (1+2x)$ en vert sur $\left[ 0;1\right] $( pas de 0.01 )
+
+\underline{Exercice 7 :} Tracer la courbe de la fonction $f$ d\'{e}finie sur 
+$I$ avec un pas de $0,01:$
+
+1. $f:x\mapsto x-\left\lfloor x\right\rfloor $ sur $I=\left[ -10;10\right] .$
+
+2. $f:x\mapsto \left\vert \ln (x+2)-1\right\vert $ sur $I=\left[ -1;1\right]
+.$
+
+3. $f:x\mapsto \ln (\sqrt{x^{4}+2})$ sur $I=\left[ 0;4\right] .$
+
+\bigskip
+
+Lors du trac\'{e} de $y=f(x)$, si le vecteur $x$ est omis, alors les points
+trac\'{e}s sont $(k,y_{k}).$
+
+\underline{Exercice 8 :} Tracer les 21 premi\`{e}res valeurs de la suite $u$
+de terme g\'{e}n\'{e}ral $u_{n}=(-2+0,2\times n)^{2}.$
+
+\end{document}

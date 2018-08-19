@@ -1,0 +1,172 @@
+\catcode`@=11\relax
+
+\input LD@Maths@TD.tex
+
+\vglue-10mm\centerline{Spé PT\hfill Aires, volumes, intégrales multiples\hfill}
+\bigskip
+
+\Concept Aire d'une surface plane 
+
+\Definition [] Soit $S$ une surface (quarrable et bornée) de~$\ob R^2$. 
+Alors, l'aire de $S$ est le nombre 
+$$
+\sc A(S):=\int_S\d x\d y. 
+$$
+
+\Concept Aire d'une surface
+
+\Definition []Soit $U$ un ouvert (borné) de $\ob R^2$ et $\vec f:U\to\ob R^3$ 
+une fonction (bornée) de classe $\sc C^1$. Alors, l'aire de la surface 
+$S:=\{f(x,y):(x,y)\in U\}$ 
+paramétrée par $f$ est l'intégrale 
+$$
+\sc A(S):=\int_U\bigg|\!\bigg|{\partial \vec f\F\partial x}(x,y)\wedge{\partial\vec f\F\partial y}(x,y)\bigg|\!\bigg|\d x\d y. 
+$$
+
+\hrule
+\centerline{Calculs d'aire}
+\hrule
+\Exercice{PTcb}
+\bigskip
+
+\Exercice{PTce}
+\bigskip
+\Exercice{PTcf}
+\bigskip
+\Exercice{PTnh}
+\bigskip
+
+\Exercice{PTnk}
+\bigskip
+\Exercice{PTnm}
+\bigskip
+\Exercice{PTnt}
+\bigskip
+
+\Exercice{PToa}
+\bigskip
+\Exercice{PTob}
+\bigskip
+\Exercice{PTol}
+\bigskip
+
+\Exercice{PTaco}
+\bigskip
+\Concept Volume
+
+\Definition []Soit $U$ un ensemble (quarrable et borné) de $\ob R^3$. Alors, le volume de $U$ est le nombre
+$$
+\sc V\mbox{ol}(U):=\int_U\d x\d y\d z. 
+$$
+
+\hrule
+\centerline{Calculs de Volume}
+\hrule
+\bigskip
+
+
+\Exercice{PTci}
+\bigskip
+
+\Exercice{PTnj}
+\bigskip
+\Exercice{PTns}
+\bigskip
+\Exercice{PToc}
+\bigskip
+\Exercice{PTod}
+\bigskip
+\Exercice{PTacm}
+\bigskip
+\Exercice{PTacn}
+
+\Concept Théorème de Fubini. 
+
+\Theoreme [Title=Théorème de Fubini]
+Soient $a< b$ et $c<d$ des nombres réels et $f:[a,b]\times[c,d]\to\ob R$ une fonction continue. 
+$$
+\int_a^b\Q(\int_c^df(x,y)\d y\W)\d x=\int\int\limits_{\llap{$\ss[a,b]\times[c,d]$}}f(x,y)\d x\d y=\int_c^d\Q(\int_a^bf(x,y)\d x\W)\d y.
+$$
+
+\Theoreme [Index=Theoreme@Théorème!de Fubini;Title=Théorème de Fubini {\it généralisé}]
+Soit $A\subset \ob R^2$ et $f:A\to\ob R$ une fonction continue. S'il~existe 
+des nombre $a< b$ et des fonctions continues $\varphi:[a,b]\to\ob R$ et $\phi:[a,b]\to\ob R$ vérifiant $\varphi\le \phi$ et 
+$$
+A=\B\{(x,y):a\le x\le b\mbox{ et }\varphi(x)\le y\le \phi(x)\B\}
+$$
+Alors, on a 
+$$
+\int\int_Af(x,y)\d x\d y=\int_a^b\Q(\int_{\varphi(x)}^{\phi(x)}f(x,y)\d y\W)\d x.
+$$
+S'il existe 
+des nombres $c<d$ et des fonctions continues $\psi:[c,d]\to\ob R$ et $\Psi:[c,d]\to\ob R$ vérifiant $\psi\le\Psi$ et 
+$$
+A=\B\{(x,y):c\le y\le d\mbox{ et }\psi(y)\le x\le \Psi(y)\B\}
+$$
+Alors, on a 
+$$
+\int\int_Af(x,y)\d x\d y=\int_c^d\Q(\int_{\psi(y)}^{\Phi(y)}f(x,y)\d x\W)\d y.
+$$
+
+
+\Concept Théorème de changement de variable. 
+
+\Definition []  Soit $f:x\mapsto\b(f_1(x),\cdots,f_p(x)\b)$ une application de $U\subset\ob R^n$ dans $\ob R^p$ 
+dont toutes les dérivées partielles sont définies en $a\in U$. 
+On appelle matrice jacobienne de $f$ en $a$ la matrice $J[f](a)\in\sc M_{p,n}(\ob R)$ 
+définie par 
+$$
+J[f](a):=\Q({\partial f\F\partial x_1}(a),\ldots,{\partial f\F\partial x_n}(a)\W)
+=\pmatrix{
+{\partial f_1\F\partial x_1}(a)&\ldots&\ldots&{\partial f_1\F\partial x_n}(a)
+\cr
+{\partial f_2\F\partial x_1}(a)&\ldots&\ldots&{\partial f_2\F\partial x_n}(a)
+\cr
+\vdots&\ldots&{\partial f_i\F\partial x_j}(a)&\vdots
+\cr
+{\partial f_p\F\partial x_1}(a)&\ldots&\ldots&{\partial f_p\F\partial x_n}(a)
+\cr
+}
+$$
+
+\Definition []  Si $n=p$, on appelle Jacobien de $f$ au point $a$ et l'on note 
+$$
+\ds{\mbox{D}(f_1,\cdots,f_n)\F\mbox{D}(x_1,\cdots,x_n)}:=\det J[f](a)
+$$ 
+le déterminant 
+de la matrice jacobienne de $f$ en $a$. 
+\bigskip
+
+\Theoreme [Title=Théorème de changement de variable] 
+Soient $U,$ et $V$ des ouverts (quarrables) de $\ob R^n$, soit 
+$f:V\to\ob R$ une fonction continue sur $V$ et son bord 
+et soit $\phi:U\mapsto V$ un difféomorphisme de classe $\sc C^1$ de $U$ dans $V$. 
+Alors, on a 
+$$
+\int_Vf(y_1,\cdots,y_n)\d y_1\cdots\d y_n
+=\int_Uf\b(\underbrace{y_1,\cdots,y_n}_{\phi(x_1,\cdots,x_n)}\b)
+\Q|{\mbox{D}(y_1,\cdots,y_n)\F\mbox{D}(x_1,\cdots,x_n)}\W|\d x_1\cdots\d x_n. 
+$$
+
+\centerline{Intégrales multiples}
+\hrule
+
+\Exercice{PTca}
+\bigskip
+
+\Exercice{PTcc}
+\bigskip
+\Exercice{PTcd}
+\bigskip
+\Exercice{PTcg}
+\bigskip
+\Exercice{PTch}
+\bigskip
+\Exercice{PTne}
+\bigskip
+\Exercice{PTni}
+\bigskip
+\Exercice{PTnl}
+\bigskip
+\bigskip
+\bye

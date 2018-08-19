@@ -23,7 +23,9 @@
 \setupheads[alternative=middle]
 %\showlayout
 \def\gah#1{\margintext{Exercice #1}}
-\centerline{\bfb DEVOIR SURVEILLE 1}
+\iffalse
+
+\centerline{\bfb DEVOIR SURVEILLE 2}
 \blank[big]
 
 %S1 suites de référence, S2 logique,S3 récurrence, produits, sommes, S4 R, suites | S5 ensembles, applications, S6 limites et C°
@@ -60,8 +62,9 @@ on pose $v_n={u_n-1\F u_n}$ et $w_n=\ln(v_n)$ pour $n∈ℕ$.
 \item Démontrer que $w$ est une suite géométrique
 \item Pour $n∈ℕ$, exprimer $w_n$ puis $v_n$ en fonction de $n$ et en déduire que
 \startformula
-u_n={1\F 1-\Q({1\F 2}\W)^{2n}}
+u_n={1\F 1-\Q({1\F 2}\W)^{2^n}}
 \stopformula
+{\it On rappelle que $a^b=\e^{\ln(a)b}$ pour $a>0$ et $b∈ℝ$.}
 \stopList
 %\item\filterpages[2015/DS1/ds2.pdf][2][width=18cm]
 %\item\filterpages[2016/DS1/DS1_2013.pdf][2][width=18cm]%Exo 3
@@ -70,7 +73,9 @@ u_n={1\F 1-\Q({1\F 2}\W)^{2n}}
 \stopList
 
 
-
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][4][a,joineup,nowhite]
 \item%Exos
 Pour $n∈ℕ$, on pose $u_n={2n\choose n}={(2n)!\F n!^2}$
 \startList\item Pour $n∈ℕ$, simplifier le quotient $u_{n+1}\F u_n$. En déduire que $u_{n+1}⩾2u_n$. 
@@ -89,23 +94,294 @@ Soit $α$ un nombre réel strictement positif. On définit la suite $u$ par $\Sy
 \item En déduire une expression de $u_n$ en fonction de $n$
 \item A quelle condition portant sur $α$, la suite $u$ est-elle convergente ?
 \stopList
-
+\goodbreak
 \item \exo{C85}
 
+\item%Exos 4 DS20142015
+On appelle $f$ et $g$ les deux fonctions sur l'intervalle $[0,+∞[$ par 
+\startsdformula
+f(x)=\ln(1+x)-x\EtQ g(x)=\ln(1+x)-x+{x^2\F 2}
+\stopsdformula
+\startList
+\item Etudier les variations de $f$ et $g$ sur $[0,+∞[$
+\item En déduire que $x-{x^2\F 2}⩽\ln(1+x)⩽x$ pour $x⩾0$.\crlf
+On se propose d'étudier la suite $u$ de nombres réels défini par : 
+\startsdformula
+u_1={3\F2}\EtQ u_{n+1}=u_n×\Q(1+{1\F 2^{n+1}}\W)
+\stopsdformula
+\item Montrer par récurrence que $u_n>0$ pour $n∈ℕ^*$.
+\item Montrer par récurrence que pour chaque entier naturel $n⩾1$ : 
+\startformula
+\ln u_n=\sum_{k=1}^n\ln\Q(1+{1\F 2^k}\W)
+\stopformula
+\item On pose $\D S_n=∑_{k=1}^n{1\F 2^k}$ et $\D T_n=∑_{k=1}^n{1\F 4^k}$. A l'aide du résultat de la question 2, 
+prouver que 
+\startformula
+S_n-{1\F 2}T_n⩽\ln u_n⩽S_n
+\stopformula
+\item Calculer $S_n$ et $T_n$ en fonction de $n$. En déduire $\D\lim_{n→+∞}S_n$ et $\D\lim_{n→+∞}T_n$.
+\item Etude de la convergence de la suite $u$
+\startList\item Montrer que la suite $u$ est strictement croissante
+\item En déduire que $u$ est convergente. Soit $ℓ$ sa limite.
+\item Montrer que ${5\F 6}⩽\ln ℓ⩽1$ et en déduire un encadrement de $ℓ$.
+\stopList
+\stopList
 \stopList%exos
+\fi
 
-
-\iffalse
+\iftrue
 \page
-\centerline{\bfb CORRECTION DU DEVOIR SURVEILLE 1}
+\centerline{\bfb CORRECTION DU DEVOIR SURVEILLE 2}
 \blank[big]
-\startList\item%\item\filterpages[2015/DS1/ds2-correction.pdf][1,2][width=18cm]
-\%item\filterpages[2016/DS1/corrige-DS1_2013.pdf][2][width=18cm]
-%\item\filterpages[2016/DS1/corrige-DS1_2015.pdf][1,2][width=18cm]
-%\item\filterpages[2016/DS1/DS1(2009-2010).pdf][6,7][width=18cm]
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][A,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][n,joineup][after=,before=,inbetween={\blank[small]}]
+
+\startList\item%Exos
+\startList\item\startList
+\item L'ensemble de définition de $f$ est $\𝓓f=\{x∈ℝ:2x-1≠0\}=ℝ\ssm\{{1\F 2}\}$ {\it (il n'est pas possible de diviser par $0$)}
+\item La fonction $f$ est dérivable sur son ensemble de définition en tant que quotient de fonctions dérivables et, de plus, 
+\startformula
+f'(x)={2x(2x-1)-2x^2\F (2x-1)^2}={2x^2-2x\F(2x-1)^2}={2x(x-1)\F (2x-1)^2}\qquad\Q(x≠{1\F 2}\W)
+\stopformula
+Comme $(2x-1)^2$ est strictement positif sur $\𝓓f$, on remarque que $f'$ est du signe de $x(x-1)$ dont on déduit le signe via un tableau de signe ou en remarquant que c'est un trinôme du second degré de racines $0$ et $1$. 
+En particulier, $f'(x)$ est  
+\startitemize[1]
+\item nul  si $x={1\F 2}$ ou $x=0$
+\item strictement positif si $x>{1\F 2}$ ou $x<0$
+\item strictement négatif sinon 
+\stopitemize
+En conclusion, $f$ est strictement croissante sur $]-∞,0[$ et sur $]1,+∞[$ et strictement décroissante sur $]0,{1\F 2}[$ et $]{1\F2}, 1[$
+\crlf{\it conseil : rédiger avec un tableau de variation.}
+\item Procédons par analyse-synthèse. 
+\crlf{\bf Analyse. }Supposons que ces trois nombres réels existent. Alors, 
+\startformula
+\lim_{x→+∞}{f(x)\F x}={1\F 2}=a\quad c=\lim_{x→{1\F 2}}(2x-1)f(x)=\lim_{x→{1\F 2}}{1\F 2^2}={1\F 4}\Et  f(0)=0=b-c=b-{1\F 4}
+\stopformula
+De sorte que nous venons de prouver que, nécéssairement $a={1\F 2}$, $b={1\F 4}$ et $c={1\F 4}$. 
+{\it $a$, $b$ et $c$ sont uniques}\crlf
+{\bf Synthèse} Montrons que ces valeurs que nous avons trouvées conviennent. Pour cela, il suffit de mettre sous le même dénominateur l'expression suivante pour remarquer que 
+\startformula
+{1\F 2}x+{1\F 4} + {1\F 4}{1\F 2x-1}={(2x-1){x\F 2}+{2x-1\F 4}+{1\F 4}\F 2x-1}={2x^2\F 2x-1}=f(x)\qquad(x∈\𝓓f)
+\stopformula
+{\it Cette démonstration a le mérite d'être rapide, efficace et d'illustrer le principe d'analyse-synthèse 
+mais n'est pas du tout la réponse attendue des étudiants car j'ai \quote{triché} au cours de l'analyse en utilisant {\bf au brouillon} des connaissances qui ne sont pas au programme en ECS 
+(la théorie de la décomposition en éléments simples) pour trouver rapidement les valeurs de $a$, $b$ et $c$.}\crlf
+
+J'imagine qu'un correcteur au concours en ECS s'attend à ce que les étudiants mettent $ax+b+{x\F 2x-1}$ 
+sous le même dénominateur et identifie le résultat avec $f(x)$ avant de résoudre un système d'inconnues $a$, $b$ et $c$.
+C'est bourrin et long mais cela marche très bien (on a existence, unicité et les valeurs attendues). \blank[small]
+On peut également faire apparaitre progressivement la forme attendue en procédant de la façon suivante
+\startformula
+\Align{
+\NC {x^2\F 2x-1}\NC ={2x{x\F 2}\F 2x-1}={(2x-1){x\F 2} + {x\F 2}\F 2x-1}={x\F 2} + {{2x\F 4}\F 2x-1}\NR
+\NC\NC={x\F 2} + {{2x\F 4}\F 2x-1}= {x\F 2} + {{2x-1\F 4}+{1\F 4}\F 2x-1}\NR
+\NC\NC={x\F 2}+{1\F 4}+{{1\F 4}\F 2x-1}
+}
+\stopformula
+Malheureusement, cette technique prouve l'existence de $a$, $b$ et $c$ et donne des valeurs qui conviennent 
+{\bf mais sans prouver leur unicité}.\blank[small]
+{\it Une question assez difficile donc, si elle ne vous plait pas, passez la ! Il y a des questions plus faciles et plus rapides à traiter ailleurs}
+\item La tangente $T$ à la courbe de $f$ au point d'abscisse $2$ est d'équation 
+\startsdformula 
+T:\quad y=f(2)+f'(2)(x-2).
+\stopsdformula
+Comme $f(2)=4/3$ et $f'(2)= {4\F 9}$ (d'après le calcul de $f'(x)$ effectué en A.2), 
+\startformula
+T:\quad y={4\F 3}+{4\F 9}(x-2)
+\stopformula
+\stopList
+\item\startList\item On sait depuis A.2 que $f$ est croissante sur $[1,+∞[$. Comme $f(1)=1$, on en déduit que $f(x)⩾f(1)=1$ pour $x⩾1$
+\item Prouvons par récurrence la propriété $\mc P_n: u_n \text{ défini et }u_n⩾1$
+\startitemize[1]\item $\mc P_0$ est vraie car0 $u_0=2$
+\item Supposons $\mc P_n$ pour un entier $n⩾0$. Comme $f$ est définie sur $[1,+∞[$ et comme $u_n⩾1$, nous remarquons que 
+$u_{n+1}=f(u_n)$ est défini et il résulte du résultat établi à la question précédente que $u_{n+1}⩾1$. De sorte que $\mc P_{n+1}$ est vraie
+\stopitemize
+En conclusion, la propriété $\mc P_n$ est vraie pour $n∈ℕ$. 
+\item Pour $x∈\𝓓f$, nous remarquons que $2x-1≠0$ et dont que  
+\startformula
+f(x)=x⟺ {x^2\F 2x-1}=x⟺x^2=x(2x-1)⟺0=x^2-x=x(x-1)⟺x∈\{0,1\}
+\stopformula
+\item Soit $n⩾0$. Comme $u_n⩾1$, nous remarquons que $2u_n-1>0$ et nous déduisons d'une identité remarquable que 
+\startformula
+u_{n+1}-u_n={(u_n)^2\F 2u_n-1}-u_n={(u_n)^2-2(u_n)^2+1\F 2u_n-1}={(u_n-1)^2\F 2u_n-1}⩾0
+\stopformula
+En particulier, la suite $u$ est croissante.
+\item\startList\item Soit $n∈ℕ$. Comme $u_n⩾1$, le quotient $v_n={u_n-1\F v_n}$ est défini et positif ou nul. 
+En fait, ce nombre ne peut pas être nul, car pour cela, il faudrait que $u_n=1$, ce qui n'est pas possible car $u_n$ est croissante et $u_0=2$. 
+{\it C'est un point un peu subtil, ils abusent un peu dans ce sujet, ils auraient pu nous demander de démontrer que $u_n>1$ à la question B2, cela aurait rendu les choses un peu plus simples}
+De sort que le logarithme $w_n=\ln(v_n)$ est lui aussi défini.
+\item {\it Stratégie : pour prouver que $w$ est géométrique, essayons d'exprimer $w_{n+1}$ en fonction de $w_n$ et d'une raison à determiner. Il est également possible de calculer ${w_{n+1}\F w_n}$ mais cela donne en général le double de calculs}
+Soit $n∈ℕ$. Alors, nous déduisons d'une identité remarquable (encore !)  
+\startformula
+\Align{
+\NC v_{n+1} \NC={u_{n+1-1}\F u_{n+1}}={f(u_n)-1\F f(u_n)}=1-{1\F f(u_n)} = 1-{2u_n-1\F (u_n)^2}\NR
+\NC\NC ={(u_n)^2-2u_n+1\F (u_n)^2}={(u_n-1)^2\F (u_n)^2}=\Q({u_n-1\F u_n}\W)^2 =(v_n)^2}
+\stopformula
+En reportant ceci dans un logarithme, il vient alors
+\startformula
+w_{n+1}=\ln(v_{n+1})=\ln\Q((v_n)^2\W)=2\ln(v_n)=2w_n
+\stopformula
+La suite $w$ est donc une suite géométrique de raison $2$. {\it Question difficile}
+\item D'après le cours, il suit $w_n=w_02^n$ pour $n⩾0$. 
+En composant la formule $w_n=\ln(v_n)$ avec une exponentielle, nous aboutissons à  
+\startformula
+v_n=\e^{w_n}=\e^{w_02^n}\qquad(n⩾0)
+\stopformula
+Comme $w_0=\ln(v_0)$ et comme $v_0=(u_0-1)/u_0={1\F 2}$, nous obtenons que $w_0=-\ln2$ puis que 
+\startformula
+v_n=\e^{w_n}=\e^{-\ln(2)2^n}=\Q({1\F 2}\W)^{2^n}\qquad(n⩾0)
+\stopformula
+comme $v_n={u_n-1\F u_n}$, nous remarquons d'abord que $v_nu_n=u_n-1$ puis que $u_n(v_n-1)=-1$, de sorte que 
+\startformula
+u_n={1\F 1-v_n}={1\F 1-\Q({1\F 2}\W)^{2^n}}
+\stopformula
+\stopList
+\stopList
+\stopList
+
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\item%Exos
+\startList\item En simplifiant les factorielles, nous obtenons que 
+\startformula
+\Align{
+\NC {u_{n+1}\F u_n}\NC ={(2n+2)!\F (n+1)!^2}×{n!^2\F (2n)!}={(2n+2)!\F (2n)!}× \Q({n!\F (n+1)!}\W)^2
+\NR
+\NC\NC =(2n+2)(2n+1)×{1\F (n+1)^2}={2(n+1)(2n+1)\F (n+1)^2}=2\underbrace{{(2n+1)\F n+1}}_{⩾1}⩾2}
+\stopformula
+En multipliant par $u_n>0$, le sens de l'inégalité ne change pas et nous obtenons que $u_{n+1}⩾2u_n$.
+\item Pour $n∈ℕ$, prouvons par récurrence la propriété $\mc P_n:u_{n+1}⩾2^n$.
+\startitemize[1]
+\item $\mc P_0$ est vraie car $u_1={2\choose 1}=2⩾1=2^0$
+\item Supposons maintenant $\mc P_n$ pour un entier $n∈ℕ$ et prouvons $\mc P_{n+1}$. \crlf
+\startformula
+u_{n+1}\ \underbrace{⩾}_{Q1}\ 2u_n\ \underbrace{⩾}_{\mc P_n}\ 2×2^n=2^{2n+1}
+\stopformula
+A fortiori $\mc P_{n+1}$ est vraie.
+\stopitemize
+En conclusion, la propriété $\mc P_n$ est vraie pour chaque entier $n∈ℕ$.
+\item Comme $\D\lim_{n→+∞}2^n=+∞$, il résulte de l'inégalité montrée à la question précédente que $\D\lim_{n→+∞}u_n=+∞$.
+\stopList
+
+\item%Exos
+\startList\item Pour $n∈ℕ$, prouvons par récurrence la propriété $\mc P_n:u_n>0$.
+\startitemize[1]\item Comme $u_0=α>0$, la propriété $\sc P_0$ est vraie
+\item Supposons maintenant $\mc P_n$ pour un entier $n∈ℕ$ et prouvons $\mc P_{n+1}$. \crlf
+\startformula
+u_{n+1}\underbrace{=}_{\text{définition}}{3\F 2}u_n^2 \underbrace{\quad>0\quad}_{\mc P_n}
+\stopformula
+A fortiori $\mc P_{n+1}$ est vraie.
+\stopitemize
+En conclusion, la propriété $\mc P_n$ est vraie pour chaque entier $n∈ℕ$.
+\item {\it Stratégie : pour prouver que la suite est arithmético géométrique, il semble logique de calculer $v_{n+1}$ et de chercher à l'exprimer sous la forme $av_n+b$}\crlf
+Par définition de la suite $v$ et de la suite $u$, nous avons
+\startformula
+v_{n+1}=\ln u_{n+1}=\ln \Q({3\F 2}u_n^2\W)=\ln{3\F 2}+2\ln u_n= \ln 3-\ln 2 + 2v_n
+\stopformula
+A fortioti, $v_n$ est arithmético-géométrique (avec $a=2$ et $b=\ln 3-\ln 2$).
+\item Cherchons d'abord l'unique suite constante $c$ vérifiant $c=ac+b$, c'est à dire
+\startformula
+c=\ln 3-\ln 2 + 2c⟺ c=\ln 2-\ln 3
+\stopformula
+En procédant à une soustraction, avec la relation $v_{n+1}=av_n+b)$, il vient 
+\startformula
+v_{n+1}-c=2(v_n-c)
+\stopformula
+En particulier la suite $v_n-c$ est géométrique de raison $2$, de sorte que 
+\startformula
+v_n-c=(v_0-c)×2^n\qquad(n∈ℕ)
+\stopformula
+Comme $v_0=\ln α$, nous obtenons alors que $v_n=\ln 2-\ln 3+(\ln α-\ln 2+\ln 3)×2^n$
+\item
+Comme $u_n=\e^{v_n}$, il suit
+\startformula
+u_n=\e^{\ln 2-\ln 3+(α-\ln 2+\ln 3)×2^n}=\e^{\ln 2}\e^{-\ln 3}\e^{(\ln α-\ln 2+\ln 3)×2^n}={2\F 3}\e^{(\ln α-\ln 2+\ln 3)×2^n}={2\F 03}\Q({3α\F 2}\W)^{2^n}
+\stopformula
+\item La suite $u$ converge \ssi $\ln α-\ln 2+\ln 3⩽0$. C'est à dire \ssi ${3α\F 2}⩽1$. Plus précisémment, 
+\startitemize[1]\item Si $\ln α-\ln 2+\ln 3<0$, $v_n$ diverge vers $-∞$ et $u_n$ converge vers $0$ par composition avec l'exponentielle
+\item  Si $\ln α-\ln 2+\ln 3=0$, $v_n$ et $u_n$ sont des suites constantes (et donc convergentes), égales respectivement à $\ln 2-\ln 3$ et ${2\F 3}$
+\item Si $\ln α-\ln 2+\ln 3>0$, $v_n$ diverge vers $+∞$ et $u_n$ diverge vers $+∞$ par composition avec l'exponentielle
+\stopitemize
+\stopList
 
 
 \item \solution{C85}
+
+\item%Exos
+\startList\item {\it Conseil  : traiter cette question en dressant un tableau de variation de $f$ et de $g$}\crlf
+Sur l'intervalle $[0,+∞[$, les fonctions polynômes $x↦-x+{x^2\F 2}$, $x↦1+x$ et $x↦-x$  sont dérivables. 
+Comme $1+x>0$ et comme le logarithme est dérivable sur $]0,+∞[$, la fonction $x↦\ln(1+x)$ est également dérivable sur $[0,+∞[$.
+A~fortiori, les fonctions $f$ et $g$ sont dérivables sur $[0,+∞[$ en tant que sommes de fonctions dérivables. De plus
+\startformula
+\Align{
+\NC f'(x)\NC ={1\F 1+x}-1={1-(1+x)\F 1+x}={-x\F 1+x}<0\NR
+\NC g'(x)\NC =x+f'(x)={x(1+x)-x\F 1+x}={x^2\F 1+x}>0\qquad(x⩾0)}
+\stopformula
+A fortioti, $f$ et $g$ sont respectivement décroissantes et croissantes sur $[0,+∞[$.
+\item Comme $f(0)=0$ et comme $f$ est décroissante sur $ℝ^+$, on a $f(x)⩽0\quad(x⩾0)$, c'est-à-dire  
+\startformula
+\ln(1+x)⩽x\qquad(x⩾0)
+\stopformula
+De même, comme $g(0)$ et $g$ est croissante sur $ℝ^+$, on a $g(x)⩾0\quad(x⩾0)$ et donc  
+\startformula
+\ln(1+x)⩾x-{x^2\F 2}\qquad(x⩾0)
+\stopformula
+\item Pour $n∈ℕ^*$, prouvons par récurrence la propriété $\mc P_n:u_n>0$
+\startitemize[1]\item  $\mc P_1$ est vraie car $u_1={3\F 2}>0$
+\item Supposons maintenant $\mc P_n$ pour un entier $n∈ℕ$ et prouvons $\mc P_{n+1}$. \crlf
+\startformula
+u_{n+1}\underbrace{⩾}_{\text{définition}}u_n×\underbrace{\Q(1+{1\F 2^{n+1}}\W)}_{>0}\quad\underbrace{>}_{\mc P_n}\quad0
+\stopformula
+A fortiori $\mc P_{n+1}$ est vraie.
+\stopitemize
+\item {\it Soupir... encore une démonstration par récurrence = des points donnés gratuitement (enfin, pour ceux qui ont pris la peine de comprendre et de maitriser le concept facile de démonstration par récurrence.
+Pour info, il y a souvent des questions qui se traitent par récurrence en ds/concours)}
+\crlf
+Pour $n∈ℕ^*$, prouvons par récurrence la propriété $\D\mc P_n:\ln u_n=∑_{k=1}^n\ln\Q(1+{1\F 2^k}\W)$
+\startitemize[1]\item  $\mc P_1$ est vraie car $\D\ln u_1=\ln\Q({3\F 2}\W)=\ln\Q(1+{1\F 2}\W)=∑_{k=1}^1\ln\Q(1+{1\F 2^k}\W)$
+\item Supposons maintenant $\mc P_n$ pour un entier $n∈ℕ$ et prouvons $\mc P_{n+1}$. \crlf
+Comme $u_n>0$ et $u_{n+1}>0$, on a 
+\startformula
+\Align{\NC\ln u_{n+1}\NC\underbrace{=}_{\text{définition}}\ln\Q(u_n×\Q(1+{1\F 2^{n+1}}\W)\W)=\ln u_n+\ln\ln\Q(1+{1\F 2^{n+1}}\W)\NR
+\NC\NC \underbrace{=}_{\mc P_n}\quad \D ∑_{k=1}^n\ln\Q(1+{1\F 2^k}\W)+ \ln\ln\Q(1+{1\F 2^{n+1}}\W)=∑_{k=1}^{n+1}\ln\Q(1+{1\F 2^k}\W)}
+\stopformula
+A fortiori $\mc P_{n+1}$ est vraie.
+\stopitemize
+\item D'après l'inégalité établie à la question 2 pour $k∈ℕ$ et $x={1\F 2^k}$, nous avons
+\startformula
+{1\F 2^k}-{1\F 2}\Q({1\F 2^k}\W)^2⩽\ln\Q(1+{1\F 2^k}\W)⩽{1\F 2^k}\qquad(k⩾0)
+\stopformula
+Soit $n⩾1$. En sommant la relation précédente pour $0⩽k⩽n$, il vient 
+\startformula
+∑_{k=0}^n\Q({1\F 2^k}-{1\F 2}\Q({1\F 2^k}\W)^2\W)⩽∑_{k=0}^n\ln\Q(1+{1\F 2^k}\W)⩽∑_{k=0}^n{1\F 2^k}
+\stopformula
+A fortiori, nous obtenons que 
+\startformula
+\underbrace{∑_{k=0}^n{1\F 2^k}}_{S_n}-{1\F2}\underbrace{∑_{k=0}^n{1\F 4^k}}_{T_n}⩽\underbrace{∑_{k=0}^n\ln\Q(1+{1\F 2^k}\W)}_{\ln u_n}⩽\underbrace{∑_{k=0}^n{1\F 2^k}}_{S_n}
+\stopformula
+\item $S_n$ est la somme des termes d'une suite géométrique de raison ${1\F2}≠1$, de sorte ~que 
+\startformula
+S_n={{1\F 2}-{1\F 2^{n+1}}\F 1-{1\F 2}}={1\F 2}×{1-{1\F 2^n}\F {1\F 2}}=1-{1\F 2^n}\qquad(n⩾1)
+\stopformula
+De même $T_n$ est la somme des termes d'une suite géométrique de raison ${1\F4}≠1$, de sorte que 
+\startformula
+T_n={{1\F 4}-{1\F 4^{n+1}}\F 1-{1\F 4}}={1\F 4}×{1-{1\F 4^n}\F {3\F 4}}={1\F 3}\Q(1-{1\F 4^n}\W)\qquad(n⩾1)
+\stopformula
+Il résulte de ces deux formules que $S_n$ converge vers $1$ et que $T_n$ converge vers ${1\F 3}$
+\item\startList\item Nous avons précédemment montré que $u_n>0$ pour $n⩾1$. Comme \startformula 
+u_{n+1}=u_n×\Q(1+{1\F 2^{n+1}}\W)>u_n×1=u_n,\stopformula
+nous concluons que la suite $u$ est strictement croissante
+\item La suite $S_n$ est majorée car elle converge. Comme $\ln u_n⩽S_n$, la suite $\ln u_n$ est majorée et nous en déduisons qu'il en est de même pour la suite $u_n$ par composition avec la fonction exponentielle, qui est croissante.
+Comme la suite $u$ est strictement croissante, elle est alors forcément convergente.
+\item Comme $\lim S_n=1$, $\lim T_n = {1\F 3}$ et $\lim u_n=ℓ$, par conservation des inégalités larges par passage à la limite, nous déduisons 
+de $S_n-{1\F 2}T_n⩽\ln(u_n)⩽S_n$ que 
+\startformula
+{5\F 6}=1-{1\F 2}×{1\F 3}⩽\ln ℓ⩽1
+\stopformula
+En composant avec l'exponentielle, il vient alors $\e^{5/6}⩽ℓ⩽\e$.
+\stopList
+\stopList
 \stopList
 \fi
 \stoptext

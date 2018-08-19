@@ -1,0 +1,97 @@
+\catcode`@=11\relax
+
+\input LD@Maths@TD.tex
+
+\vglue-10mm\rightline{PT\hfill TD 1 :  Déterminant\hfill}
+\bigskip
+\bigskip
+
+
+
+
+\centerline{Opérations élémentaires\strut}
+\hrule\medskip
+
+\Exercice{PTSIuo}
+\medskip
+\Exercice{PTSIuq}
+\medskip
+\Exercice{PTSIur}
+\medskip
+\Exercice{PTSIup}
+\medskip
+\Exercice{PTSIun}
+\medskip
+\Exercice{PTSIus}
+\medskip
+\Exercice{PTSIut}
+
+\hrule
+\centerline{Déterminant par blocs\strut}
+\hrule\medskip
+
+\overfullrule0pt
+
+\Methode [$A\in\sc M_p(\ob K)${,} $B\in\sc M_q(\ob K)${,} $C\in\sc M_{p,q}(\ob K)$]
+$$
+\det\pmatrix{A&C\cr 0& B}=\det(A)\times \det(B)
+$$
+
+\medskip
+\Exercice{PTfb}
+
+\centerline{Développement par rapport à une ligne ou une colonne\strut}
+\hrule\medskip
+
+\hrule
+\centerline{Développement par rapport à une colonne\strut}
+\hrule\medskip
+
+\Methode [$A$ matrice carrée de taille $n\ge1$]
+En développant la matrice $A=(a_{i,j})_{1\le i\le n\atop1\le j\le n}$ par rapport à la colonne $j\in\{1, \cdots n\}$, nous obtenons que 
+$$
+\det A=\sum_{1\le i\le n}(-1)^{i+j}a_{i,j}\det \tilde A_{i, j}, 
+$$
+le symbôle $\tilde A_{i, j}$ désignant la matrice $A$ privée de sa $i^\ieme$ ligne et de sa $j^\ieme$ colonne. 
+
+
+\hrule
+\centerline{Développement par rapport à une ligne\strut}
+\hrule\medskip
+
+
+\Methode [$A$ matrice carrée de taille $n\ge1$]
+En développant la matrice $A$ par rapport à la ligne $i\in\{1, \cdots n\}$, nous obtenons que 
+$$
+\det A=\sum_{1\le j\le n}(-1)^{i+j}a_{i,j}\det \tilde A_{i, j}, 
+$$
+le symbôle $\tilde A_{i, j}$ désignant la matrice $A$ privée de sa $i^\ieme$ ligne et de sa $j^\ieme$ colonne. 
+\bigskip
+
+\medskip
+\Exercice{PTfi}
+\medskip
+\Exercice{PTaiw}
+
+	\Chapter Indications, Indications.
+
+	\LD@Exo@Indication@Display
+
+	%\Chapter Notions, Notions.
+
+	%\LD@Exo@Notion@Display
+
+	\Chapter Solutions, Solutions.
+
+	\LD@Exo@Sol@Display
+
+\bye
+
+
+
+
+
+
+
+
+

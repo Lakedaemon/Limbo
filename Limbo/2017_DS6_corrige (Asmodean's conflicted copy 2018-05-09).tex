@@ -1,0 +1,767 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+
+
+\page
+\centerline{\bfb CORRECTION DEVOIR SURVEILLE 6}
+\blank[big]
+
+\setupitemgroup[List][1][n][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][i,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+\centerline{\bf EXO 1}
+
+\startList
+\item \startitemize[1]
+\item $ℝ_3[X]$ est un $ℝ$-espace vectoriel (et on a le même au départ et à l'arrivée)
+\item Pour $P∈ℝ_3[X]$, $(X-1)∈ℝ_1[X]$ et $P'∈ℝ_2[X]$ de sorte que $(X-1)P'∈ℝ_3[X]$ et par suite $(X-1)P'-P∈ℝ_3[X]$. 
+En particulier, $f$ est une application
+\item Soient $(P,Q)∈ℝ_3[X]^2$ et $(λ,μ)∈ℝ^2$. Alors, on a 
+\startformula
+\Align{
+\NC f(λP+μQ)\NC=(X-1)(λP+μQ)'-(λP+μQ)\NR
+\NC \NC=(X-1)(λP'+μQ')-(λP+μQ)\NR
+\NC \NC=λ\Q((X-1)P'-P\W)+μ\Q((X-1)Q')-Q\W)\NR
+\NC\NC=λf(P)+μf(Q)
+}
+\stopformula
+A fortiori, $f$ est $ℝ$-linéaire
+\stopitemize
+En conclusion, $f$ est un endomorphisme de $ℝ_3[X]$. 
+\item On a 
+\startformula
+\Align{
+\NC f(1)\NC =(X-1)×O-1=-1\NR
+\NC f(X) \NC=(X-1)×1-X=-1\NR
+\NC f(X²) \NC=(X-1)×2X-X²=X²-2X\NR
+\NC f(X³) \NC=(X-1)×3X²-X³=2X³-3X²\NR
+}
+\stopformula
+En particulier, on a $\mc Mat_{B}=\Matrix{
+\NC -1\NC -1\NC 0\NC 0\NR
+\NC 0\NC 0\NC -2\NC 0\NR
+\NC 0\NC 0\NC 1\NC -3\NR
+\NC 0\NC 0\NC 0\NC 2
+}$.
+Cette matrice n'est pas inversible, 
+car c'est une matrice triangulaire supérieure avec au moins un coefficient nul sur la diagonale principale, 
+l'application linéaire associée $f$ n'est donc pas bijective.
+\item Le rang de la matrice est clairement $3$ (calcul trivial). De sorte que le noyau de $f$ est de dimension au plus $1$, d'après le théorème du rang.
+Comme $f(1)=f(X)$, par linéarité, il vient $f(X-1)=0$ de sorte que $X-1∈\ker(f)$.
+A fortiori, on a $\ker(f)=\Vect (X-1)$. 
+{\it on peut également trouver le noyau de $f$ en résolvant l'équation polynomiale $f(P)=0⟺(X-1)P'-P=0$, mais c'est lourd et pénible si on si prend mal 
+(poser un polynome de degré au plus trois et système). 
+Via le terme dominant d'une solution non nulle $P$, on remarque que $P$ est forcément de degré $1$)}
+\item Déterminer une base de l'image de $f$
+\item D'après la question précédente, l'image de $f$ est de dimenson $3$ (calcul du rang). 
+Et d'après les calculs effectués lors de la recherche de la matrice de $f$, il vient
+$\IM(f)=\Vect(f(1), f(X^2), f(X^3))=\Vect (-1, X^2-2X, 2X^3-3x^2)$ 
+(cette famille génératrice est libre, car échelonnée en degré) 
+\startList\item Montrons que $\ker(f)⊂\ker(f^2)$ {\it (via la méthode MARRE)}.\crlf
+Soit $x∈\ker(f)$c {\it (et montrons que $x∈\ker (f^2)$)}. Alors $f(x)=0$, de sorte que $f^2(x)=f(f(x))=f(0)=0$ (linéarité de $f$) et donc $x∈\ker (f^2)$. CQFD
+\item Montrons que $\IM(f^2)⊂\IM(f)$ {\it via la méthode MARRE}\crlf
+Soit $y∈\IM(f^2)$ {\it (et montrons que $y∈\IM(f)$)}. Alors, il existe $x∈ℝ_3[X]$ tel que $y=f^2(x)=f∘f(x)=f(f(x))$. En posant $x'=f(x)$, 
+nous remarquons alors que  $x'∈ℝ_3[X]$ et que $y=f(x')$ de sorte que $y∈\IM(f)$. CQFD
+\item On sait que 
+\startformula
+\mc Mat_B(f^2)=\mc Mat_B(f)=\Matrix{
+\NC -1\NC -1\NC 0\NC 0\NR
+\NC 0\NC 0\NC -2\NC 0\NR
+\NC 0\NC 0\NC 1\NC -3\NR
+\NC 0\NC 0\NC 0\NC 2
+}^2=\Matrix{
+\NC 0\NC 1\NC 2\NC 0\NR
+\NC 0\NC 0\NC -2\NC 6\NR
+\NC 0\NC 0\NC 1\NC -9\NR
+\NC 0\NC 0\NC 0\NC 4
+}
+\stopformula
+On peut également déduire des calculs effectués à la question 2 que 
+\startformula
+\Align{
+\NC f²(1)\NC =f(f(1))=f(-1)=-f(1)=1\NR
+\NC f²(X) \NC=f(f(X))=f(-1)=1\NR
+\NC f²(X²) \NC=f(f(X^2))=f(X²-2X)=f(X^2)-2f(X)=X^2-2X+2\NR
+\NC f(X³) \NC=f(f(X^3))=f(2X³-3X²)=2f(X^3)-3f(X^2)=2(2X^3-3X^2)-3(X^2-2X)=4X^3-9X^2+6\NR
+}
+\stopformula
+Et on en déduit la matrice de $f^2$, par le procédé habituel.
+\item La matrice de $f^2$ est de rang $3$ (calcul, base $f^2(X)$, $f^2(X^2)$, $f^2(X^3)$ échelonnée en degré de l'image)
+Et comme $f^2(1)=f^2(X)$ nous remarquons que $f^2(X-1)=0$ et donc que $X-1∈\Ker(f^2)$ 
+de sorte que, le noyau de $f^2$, qui est de dimension au plus $1$ d'après le théorème du rang, satisfait
+\startformula
+\ker(f^2)=\Vect(X-1)
+\stopformula
+{\it Ceci dit, il est beaucoup plus malin et rapide d'utiliser le résultat des 3 et question 5a ainsi que la dimension pour écrire que 
+$\dim\ker f^2=1$ et $\Vect( X-1)=\ker f⊂\ker f^2$ donc nécéssairement $\ker(f^2)=\Vect( X-1)$}
+\stopList
+\stopList
+\blank[big]
+
+\centerline{\bf EXO 2}
+{\it On veillera à bien transformer les identités fonctionnelles en égalités avec des $x$.} 
+Pour chaque application continue $f:ℝ→ℝ$, on définit une fonction $g=Φ(f)$ via 
+\startformula
+g(x)=\System{
+\NC \displaystyle{1\F 2x}\int_{-x}^xf(t)\d t\NC \Si x≠0\NR
+\NC f(0)\NC x=0
+}
+\stopformula
+\startList
+\item 
+Pour $x∈ℝ$, nous remarquons (vrai aussi pour $x=0$) que 
+\startformula
+k(x)= \int_{-x}^xf(t)\d t=\int_0^xf(t)\d t-\int_0^{-x}f(t)\d t=F(x)-F(-x),
+\stopformula
+en posant $F(x)=\int_0^xf(t)\d t$ pour $x∈ℝ$. Comme $F$ est l'unique primitive sur $ℝ$, s'annulant en $0$, de l'application continue $f:ℝ→ℝ$.
+La fonction $F$ est de classe $\mc C^1$ sur $ℝ$ et satisfait évidemment $F'(x)=f(x)$ pour $x∈ℝ$.
+A fortiori, l' application $x↦F(-x)$ est de classe $\mc C^1$ sur $ℝ$ en tant que composée et l'application $k:x↦F(x)-F(-x)$ est de classe $\mc C^1$ sur $ℝ$ en tant que différence de fonctions de classe $\mc C^1$.
+En conclusion, la fonction $k$ est de classe $\mc C^1$ sur $ℝ$et on a 
+\startformula
+k'(x)=F'(x)-\Q(F(-x)\W)'=F'(x)+F'(-x)=f(x)+f(-x)\qquad (x∈ℝ)
+\stopformula
+A fortiori, la fonction $k$ est dérivable en $0$ et 
+A fortiori, on a $k'(0)=f(0)+f(-0)=2f(0)$.
+La fonction $k$ étant dérivable en $0$, on a 
+\startformula
+\lim_{x→0} {k(x)-k(0)\F x-0}=k'(0)
+\stopformula
+Ce qui peut s'écrire, via les développement limités {\it (on a bien insisté la dessus, hein)}
+\startformula
+{k(x)-k(0)\F x-0}=k'(0)+o_0(1)
+\stopformula
+En changeant les termes de place, il vient
+\startformula
+k(x)=k(0)+x(k'(0)+o_0(1))=k(0)+k'(0)x+o_0(x)
+\stopformula
+Et, en remarquant que $k(0)=0$ et $k'(0)=2f(0)$, il vient 
+\startformula
+k(x)=2f(0)x+o_0(x)
+\stopformula
+Autrement dit $α=0$ et $β=2f(0)$
+{\it OK, j'aurais pu/du découper cette question en 2, je la compterai sur 8 points lors de la correction. Ceci dit, la question 1 a été rajoutée (pour vous aider) par rapport au sujet original...}
+\item \startitemize1[\item ]Il résulte des calculs éffectués à la question précédente que l'application $k$ est continue sur $ℝ$.
+A fortiori, la fonction $g:x↦{k(x)\F 2x}$ est continue sur $ℝ^*$ en tant que quotient de fonctons continues dont le dénominateur ne s'annule pas sur cet intervalle.
+\item De plus, en $0$, il résulte de l'éstimation précédemment obtenue que 
+\startformula
+g(x)={k(x)\F 2x}={2f(0)x+o_0(x)\F 2x}= f(0)+ o_0(1)
+\stopformula
+De sorte que $\lim_{x→0}g(x)=f(0)=g(0)$. En particulier, la fonction $g$ est bien continue en $0$
+\stopitemize
+En conclusion, la fonction $g$ est continue sur $ℝ$
+{\it Remarque : que cela soit dans la question 1 ou dans la question 2, il faut faire intervenir le théorème permettant de dériver les intégrales du type $\int_a^xf(t)\d t$, il n'est pas raisonnable de ne pas savoir faire cela...}
+\item Pour $x∈ℝ$, nous remarquons que 
+\startformula
+g(-x)={1\F -2x}\int_x^{-x}f(t)\d t=-{1\F 2x}×\Q(-\int_{-x}^xf(t)\d t\W)={1\F 2x}\int_{-x}^xf(t)\d t=g(x)
+\stopformula
+En particulier, la fonction $g$ est paire sur $ℝ$.\crlf
+Pour $x≠0$, nous procédons au changement de variable $t=xu$ {\it il est affine, j'étais pas obligé de vous le donner, héhé}
+en remarquant que 
+\startitemize
+\item l'application $u↦xu$ est de classe $\mc C^1$ de $[-1,1]$ dans $[-x,x]$
+\item l'application $t↦f(t)$ est continue sur l'intervalle $[-x,x]$
+A fortiori, nous obtenons que 
+\startformula
+g(x)={1\F 2x}\int_{-x}^xf(t)\d t={1\F 2x}\int_{-1}^1f(xu)x\d u={1\F 2}\int_{-1}^1f(xu)\d u\qquad(x≠0)
+\stopformula
+Bon, comme $\int_{-1}^1f(0)\d u=2f(0)$ et comme $g(0)=f(0)$, la formule ci dessus est également vraie pour $x=0$. 
+De sorte que 
+\startformula
+g(x)={1\F 2}\int_{-1}^1f(xu)\d u\qquad (x∈ℝ).
+\stopformula
+\item 
+\startitemize[1]\item Lorsque $f$ est impaire, nous déduisons de la relation précédente et de la parité de $g$ que 
+\startformula
+g(x)=g(-x)={1\F 2}\int_{-1}^1f(-xu)\d u={1\F 2}\int_{-1}^1-f(xu)\d u=-{1\F 2}\int_{-1}^1f(xu)\d u=-g(x)
+\stopformula
+De sorte que $2g(x)=0$ et par suite 
+\startformula
+g(x)=0\quad(x∈ℝ).
+\stopformula
+{\it forcément, on intégre une fonction impaire sur un intervalle symétrique par rapport à 0...\crlf
+On aurait aussi pu prouver cette formule via le changement de variable standard $t=-u$ dans la définition de $g$, 
+mais la nouvelle formule obtenue pour $g$ (également par cdv) permet de l'éviter}
+\item Lorsque $f$ est paire, on déduit de la parité de $f$ et de la relation de Chasles que  
+\startformula
+\Align{
+\NC g(x)\NC ={1\F 2}\Q(\int_{-1}^1f(xu)\d u\W)={1\F 2}\Q(\int_{-1}^0f(xu)\d u+{1\F 2}\Q(\int_{0}^1f(xu)\d u\W)\W)\NR
+\NC \NC ={1\F 2}\Q(\int_0^1f(xu)\d u\W)+{1\F 2}\Q(\int_{0}^1f(xu)\d u\W)\NR
+\NC \NC =\int_0^1f(xu)\d u
+}
+\stopformula
+{\it l'intégrale du coté gauche est égale à l'intégrale du coté droit par parité, normalement, on démontre cela dans le cours 
+via le changement de variable standard $t=-u$ mais je pense que le poseur de sujet souhaite éviter ici de nouveaux changements de variable et prône la démonstration précédente}
+\item \startitemize[1]
+\item $\mc C(ℝ)$ est un $ℝ$-espace vectoriel de référence (le même au départ et à l'arrivée)
+\item Pour $f∈\mc C(ℝ)$, la fonction $Φ(f)$ est définie et continue sur $ℝ$ d'après le résultat de la question 2.
+A fortiori, $Φ(f)∈\mc C(ℝ)$ et $Φ$ est une application
+\item Soient $(f,j)∈\mc C(ℝ)²$ et $(λ,μ)∈ℝ^2$. Alors la fonction $Φ(λf+μg)$ est dans $\mc C(ℝ)$ et vérifie 
+\startformula
+\Align{
+\NC Φ(λf+μg)(0)\NC = (λf+μg)(0)=λf(0)+μg(0)\NR
+\NC\NC =λΦ(f)(0)+μΦ(g)(0)=(λΦ(f)+μΦ(g))(0)\NR
+\NC Φ(λf+μg)(x)\NC = {1\F 2x}\int_{-x}^x(λf+μg)(t)\d t={1\F 2x}\int_{-x}^x\Q(λf(t)+μg(t)\W)\d t\NR
+\NC \NC =λ⋅{1\F 2x}\int_{-x}^xf(t)\d t+μ⋅{1\F 2x}\int_{-x}^xg(t)\d t\NR
+\NC \NC =λ⋅Φ(f)(x)+μ⋅Φ(g)(x)=\Q(λ⋅Φ(f)+μ⋅Φ(g)\W)(x)\qquad (x≠0)\NR
+}
+\stopformula
+En particulier, nous obtenons l'égalité fonctionnelle $Φ(λf+μg)=λ⋅Φ(f)+μ⋅Φ(g)$.
+Et l'application $Φ$ est donc linéaire
+{\it chaud !! je mettrai cette question sur 6 (linéarité sur 4). Les EVS avec les fonctions, c'est plus dur à cause des identités fonctionnelles, qu'il faut traduire}
+\stopitemize
+En conclusion, $Φ:f↦Φ(f)$ définit un endomorphisme de l'espace $\mc C(ℝ)$.
+\item On peut déja remarquer que les fonctions continues impaires sont dans le noyau de $\ker Φ$, d'après le résultat de la question 4. 
+Soit $f∈\ker(Φ)$. Alors $g=Φ(f)$ est la fonction nulle ($g=0$), de sorte que $f(0)=0$ et  
+\startformula
+{1\F 2x}\int_{-x}^xf(t)\d t=0\qquad (x∈ℝ^*)
+\stopformula
+En multipliant par $2x$, il vient 
+\startformula
+k(x)=\int_{-x}^xf(t)\d t=0\qquad (x∈ℝ^*)
+\stopformula
+En dérivant cette intégrale par rapport à $x$ (on a montré à la question 1 comment faire), il suit
+\startformula
+0=k'(x)=f(x)+f(-x)\qquad (x∈ℝ^*)
+\stopformula
+Cette formule étant vraie aussi en $x=0$ car $f(0)=0$.
+En particulier, nous remarquons que 
+\startformula
+f(-x)=-f(x)\qquad(x∈ℝ).
+\stopformula
+La fonction $f$ est donc continue et impaire.
+A fortiori, nous avons prouvé que $\ker(Φ)⊂\{f∈\mc C(ℝ):f\text{ impaire}\}$. Comme nous avons remarqué également que 
+$\{f∈\mc C(ℝ):f\text{ impaire}\}⊂\ker(Φ)$, nous concluons que 
+\startformula
+\ker(Φ)=\{f∈\mc C(ℝ):f\text{ impaire}\}
+\stopformula
+{\it Comme nous travaillons dans un espace de fonctions de dimension infinie, tout est plus dur (et plus théorique)...}
+L'endomorphisme $Φ$ ne peut pas être surjectif car $Φ(f)$ est (toujours) une fonction paire. En particulier, on a 
+\startformula
+\mc C(ℝ)≠\IM(Φ)⊂\{f∈\mc C(ℝ):f\text{ paire}\}
+\stopformula
+{\it C'est dur mais cela peut être court et rapporter gros}
+\item Soit $λ∈ℝ^*$ et soit $f∈\mc C(ℝ)$ vérifiant $Φ(f)=λf$.
+\startList
+\item \startitemize[1]\item Comme $Φ(f)$ est une fonction paire d'après le résultat de la question 3 et comme $f={1\F λ}⋅Φ(f)$, la fonction $f$ est paire.
+\item A la question 1, nous avions montré que $k$ est de classe $\mc C^1$ sur $ℝ$, de sorte que $g=Φ(f)$ est de classe $\mc C^1$, sur $ℝ^*$ en tant que quotient de fonctions $\mc C^1$ dont le dénominateur ne s'annule pas.
+Comme $f={1\F λ}⋅Φ(f)$, la fonction $f$ est alors dérivable sur $ℝ^*$. 
+\item Pour $x≠0$, dérivons la relation $λf=Φ(f)={k(x)\F 2x}$ (toujours des dérivées d'intégrales) pour trouver que 
+\startformula
+\Align{
+\NC λf'(x)\NC =\Q({k(x)\F 2x}\W)'={k'(x)×2x-2k(x)\F 4x^2}\NR
+\NC \NC ={\big(f(x)+f(-x)\big)×2x-2k(x)\F 4x^2}\NR
+}
+\stopformula
+On déduit alors de la parité de $f$ et de la relation $k(x)=2x×g(x)=2x×Φ(f)(x)=2x×λf(x)$ 
+\startformula
+\Align{
+\NC λf'(x)\NC ={2f(x)×2x-2k(x)\F 4x^2}={4xf(x)-2k(x)\F 4x^2}\NR
+\NC \NC ={4xf(x)-2×2xλf(x)\F 4x^2}={f(x)-λf(x)\F x}=(1-λ){f(x)\F x}\NR
+}
+\stopformula
+En particulier, il vient 
+\startformula
+xλf'(x)=(1-λ)f(x)\qquad(x∈ℝ^*)
+\stopformula
+Mais comme $λf(0)=Φ(f)(0)=f(0)$ on remarquque que $(1-λ)f(0)=0$ et par suite que la relation précédente est également vérifiée pour $x=0$. 
+\item La fonction $h$ est dérivable sur $ℝ^*$ en tant que produit (et composée de fonctions dérivables sur $ℝ^*$, l'application $x↦\ln|x|$ étant de classe $\mc C^∞$ sur son ensemble de définition, de dérivée ${1\F x}$).
+En dérivant, on obtient alors pour $x∈ℝ^*$ que
+\startformula
+\Align{
+\NC h'(x)\NC =\Q(f(x)\e^{{λ-1\F λ}\ln|x|}\W)'=f'(x)\e^{{λ-1\F λ}\ln|x|}+f(x)×\Q({λ-1\F λ}\ln|x|\W)'\e^{{λ-1\F λ}\ln|x|}\NR
+\NC \NC =\Q(f'(x)+f(x){λ-1\F λ}{1\F x}\W)\e^{{λ-1\F λ}\ln|x|}
+}
+\stopformula
+Il résulte alors de la formule $xλf'(x)=(1-λ)f(x)$ que $f'(x)+f(x){λ-1\F λ}{1\F x}=0$ et par suite que $h'(x)=0$ pour $x∈ℝ^*$.
+La fonction $h$ est donc constante sur l'intervalle $ℝ_+^*$ et sur l'intervalle $ℝ_-^*$.
+Mais comme $h(1)=f(1)=h(-1)$ nous obtenons que cette constante est égale à $f(1)$ pour les deux intervalles, de sorte que 
+\startformula
+h(x)=f(1)\qquad(x∈ℝ^*)
+\stopformula
+Autrement dit, la fonction est constante sur $ℝ^*$.
+\item Lorsque $λ=0$, il résulte du résultat de la question 6 que 
+\startformula
+\ker(Φ-λ\Id)=\{f∈\mc C(ℝ):f\text{ impaire}\}
+\stopformula
+Lorsque $λ≠0$ et $f∈\ker(Φ-λ\Id)$, nous avons $0=(Φ-λ\Id)(f)=Φ(f)-λf$, de sorte que $Φ(f)=λf$.
+Il résulte alors des questions précédentes que 
+\startformula
+f(x)\e^{{λ-1\F λ}\ln|x|}=h(x)=f(1)\qquad(x∈ℝ^*)
+\stopformula
+De sorte que 
+\startformula
+f(x)=f(1)\e^{-{λ-1\F λ}\ln|x|}\qquad(x∈ℝ^*)
+\stopformula
+On a alors plusieurs cas
+\startitemize
+\item Si ${λ-1\F λ}=0$, c'est à dire si $λ=1$, la fonction $f$ est constante et on peut montrer facilement qu'une constante $c$ vérifie $c=Φ(c)$ car
+\startformula
+Φ(c)(x) ={1\F 2x}\int_{-x}^xc\d t={1\F 2x}×c2x=c\qquad(x>0)
+\stopformula
+A fortiori, dans ce cas, on a $\ker(Φ-λ\Id)=\Vect(1)$
+\item Si ${λ-1\F λ}>0$, c'est à dire si $λ>1$ ou $λ<0$, alors, en faisant tendre $x$ vers $0^+$ dans la relation précédente, 
+on obtient que l'on a nécessairement $f(1)=0$ (sinon, il n'y aurait pas de limite à dorite ce qui contredirait la continuité de $f$ en $0$) et $f(0)=0$
+\startformula
+f(0)=\lim_{x→0^+}f(x)=\lim_{x→0^+}f(1)\underbrace{\e^{-{λ-1\F λ}\overbrace{\ln|x|}^{→-∞}}}_{→+∞}
+\stopformula
+A fortiori, la fonction $f$ est identiquement nulle, ce qui prouve que $\ker(Φ-λ\Id)=\{0\}$
+\item Si ${λ-1\F λ}<0$, on remarque que 
+\startformula
+\lim_{x→0^+}\e^{-{λ-1\F λ}\overbrace{\ln|x|}^{→-∞}}=0
+\stopformula
+De sorte que la $d$ définies par 
+\startformula
+d(x)=\System{
+\NC α\e^{-{λ-1\F λ}\ln|x|}=|x|^{-{λ-1\F λ}}\NC \Si x∈ℝ^*
+\NC 0\NC \Si x=0
+}
+\stopformula
+est continues sur $ℝ$ (prolongement par continuité), paire et vérifie la relation $Φ(d)=λd$ comme on peut le vérifier en intégrant
+\startformula
+\Align{
+\NC Φ(d)(x)\NC ={1\F 2x}\int_{-x}^xd(t)\d t=\int0^1d(xu)\d u=\int0^1(xu)^{-{λ-1\F λ}}\d u\NR
+\NC \NC =x^{-{λ-1\F λ}}\int0^1u^{-{λ-1\F λ}}\d u=x^{-{λ-1\F λ}}\Q[{u^{-{λ-1\F λ}+1}\F -{λ-1\F λ}+1}\W]_0^1\NR
+\NC \NC =x^{-{λ-1\F λ}}{1\F -{λ-1\F λ}+1}=λd(x)\qquad(x>0)\NR
+}
+\stopformula
+Ouah... A fortiori, on a dans ce cas $\ker(Φ-λ\Id)=\Vect(d)$
+\stopitemize
+{\it Trouver des noyaux paramétrés par un $λ$ dans un espace de fonctions de dimension infinie, 
+il ne doit pas y avoir eu baucoup d'étudiants pour être allés au bout de cet exercice en concours... (mieux vaut la passer, hein)}
+\stopList
+\stopList
+\blank[big]
+\goodbreak
+\centerline{\bf EXO 3}
+On considère l'application $f:ℝ^3→ℝ^3$ donnée pour $(x,y,z)∈ℝ^3$ par 
+\startformula
+f(x,y,z)=(3x-11y-8z,3x-15y-12z,3x-13y-10z)
+\stopformula
+\startList
+\item \startitemize[1]\item $ℝ_3[X]$ est un $ℝ$-espace vectoriel (même au départ et à l'arrivée)
+\item Pour $(x,y,z)∈ℝ^3$, on a $3x-11y-8z∈ℝ$, $3x-15y-12z∈ℝ$ et $3x-13y-10z∈ℝ$ de sorte que $f(x,y,z)$ existe et appartient à $ℝ^3$. 
+En particulier, $f$ est une application.
+\item Soient $(x,y,z)∈ℝ³$, $(x',y',z')∈ℝ³$ et $(λ,μ)∈ℝ^2$ alors 
+\startformula
+\Align{
+\NC f\big(λ(x,y,z)+μ(x',y',z')\big)\NC =f(λx+μx',λy+μy',λz+μz')\NR
+\NC \NC =\big(3(λx+μx')-11(λy+μy')-8(λz+μz'),3(λx+μx')-15(λy+μy')-12(λz+μz'),3(λx+μx')-13(λy+μy')-10(λz+μz')\big)\NR
+\NC \NC =λ\big(3x-11y-8z,3x-15y-12z,3x-13y-10z)\big)+μ\big(3x'-11y'-8z',3x'-15y'-12z',3x'-13y'-10z')\big)\NR
+\NC \NC =λf(x,y,z)+μf(x',y',z')\NR
+}
+\stopformula
+En particulier, $f$ est linéaire
+\stopitemize
+En conclusion $f$ est un endomorphisme de $ℝ^3$. 
+\item Nous remarquons que 
+\startformula
+\Align{
+\NC f(1,0,0)\NC =(3,3,3)\NR
+\NC f(0,1,0)\NC =(-11,-15,-13)\NR
+\NC f(0,0,1)\NC =(-8,-12,-10)\NR
+}
+\stopformula
+A fortiori, la matrice de $f$ dans la base canonique $B$ de $ℝ³$ est 
+\startformula
+\mc Mat_B(f)=\Matrix{
+\NC 3\NC -11 \NC -8\NR
+\NC 3\NC -15 \NC -12\NR
+\NC 3\NC -13 \NC -10\NR
+}
+\stopformula
+\item Un calcul rapide de rang donne 
+\startformula
+\Align{
+\NC \rg(f)\NC =\rg\Matrix{
+\NC 3\NC -11 \NC -8\NR
+\NC 3\NC -15 \NC -12\NR
+\NC 3\NC -13 \NC -10\NR
+}=\rg \Matrix{
+\NC 1\NC -11 \NC -4\NR
+\NC 1\NC -15 \NC -6\NR
+\NC 1\NC -13 \NC -5\NR
+}=\rg \Matrix{
+\NC 1\NC -11 \NC -4\NR
+\NC 0\NC -4 \NC -2\NR
+\NC 0\NC -2 \NC -1\NR
+}\NR
+\NC \NC =\rg \Matrix{
+\NC 1\NC 0 \NC 0\NR
+\NC 0\NC 0 \NC -2\NR
+\NC 0\NC 0 \NC -1\NR
+}=2
+}
+\stopformula
+A fortiori, $\dim\IM(f)=2$ et il résulte du théorème du rang que $\dim\ker f=1$
+En particulier, $\IM(f)=\Vect(h(1,0,0), h(0,1,0))=\Vect\big((3,3,3),(-11,-15,-13)\big)$
+et comme $h(1,1,-1) =(3-11+8,3-15+12,3-13+10)=(0,0,0)$, 
+nous remarquons d'une part que $(1,1,-1)∈\ker h$ et d'autre part que $\ker h = \Vect ((1,1,-1))$
+\stopList
+\blank[big]
+
+\centerline{\bf EXO 4}
+On dispose d’une urne contenant quatre boules numérotées $1$, $2$, $3$ et $4$. 
+On effectue dans cette urne une succession de tirages d’une boule avec remise 
+et on suppose qu’à chaque tirage, chacune des boules a la même probabilité d’être tirée.
+On note pour tout $n$ de $ℕ^∗$, $X_n$ la variable aléatoire égale au nombre de numéros distincts 
+obtenus en $n$ tirages.
+On a donc $X_1 = 1$ et par exemple, si les premiers tirages donnent $2, 2, 1, 2, 1, 4, 3$ 
+alors on a : $X_1 = 1$, $X_2 = 1$, $X_3 = 2$, $X_4 = 2$, $X_5 = 2$, $X_6 = 3$, $X_7 = 4$.
+On pose $A=\Matrix{
+\NC {1\F 4}\NC 0\NC 0\NC 0\NR
+\NC {3\F 4}\NC {1\F 2}\NC 0\NC 0\NR
+\NC 0\NC {1\F 2}\NC {3\F 4}\NC 0\NR
+\NC 0\NC 0\NC {1\F 4}\NC 1
+}$et  $U_n=\Matrix{
+\NC P(X_n=1)\NR
+\NC P(X_n=2)\NR
+\NC P(X_n=3)\NR
+\NC P(X_n=4)}$ pour $n∈ℕ^*$.
+\startList
+\item \startList \item $X_2$ est le nombre de numéros distincts obtenus en $2$ tirage. 
+Soit on obtient deux fois le même numéro, auquel cas $X_2=1$, soit on obtient au second tour un numéro distinct de celui obtenu au premier tour, auquel cas ;$X_2=2$.
+Pour le calcul, tout dépend du second tirage : on a $1$ chance sur $4$ de retomber sur la boule précédemment tirée (équiprobabilité) de sorte que  
+$P(X_2=1)={1\F 4}$ et $P(X_2=2){3\F 3}$. 
+\item 
+\startformula
+\Align{
+\NC E(X_2)\NC =1×P(X_2=1)+2×P(X_2=2)=1×{1\F 4}+2×{3\F 4}={7\F 4}\NR
+\NC V(X_2)\NC = E(X_2^2)-E(X_2)^2=\Q(1²×P(X_2=1)+2²×P(X_2=2)\W)-\Q({7\F 4}\W)^2\NR
+\NC \NC = 1×{1\F 4}+4×{3\F 4}-{49\F 4^2}={13×4-49\F 4^2}={3\F 16}
+}
+\stopformula
+\item Trop compliqué de dactylographier une courbe, alors je la décris : 
+\startformula
+F(x)=\System{
+\NC 0\NC \Si x<1\NR
+\NC {1\F 4}\NC \Si 1⩽x<2\NR
+\NC 1\NC \Si x⩾2
+}
+\stopformula
+\stopList
+\item \startList 
+\item Comme $X_1=1$ (loi certaine), on a $U_1=\Matrix{
+\NC 1\NR
+\NC 0\NR
+\NC 0\NR
+\NC 0}$
+\item On a $X_1(Ω)=\{1\}$, $X_2(Ω)=\{1,2\}$, $X_3(Ω)=\{1,2,3\}$ et $X_n(Ω)=\{1,2,3,4\}$ pour $n⩾4$.
+\item En notant $L_k$ la ligne $k$ de la matrice $A$ et en appliquant la formule des probabilités totales au système complet d'événements $\{X_n=1, X_n=2, X_n=3, X_n=4\}$ nous obtenons que 
+\startformula
+\Align{
+\NC P(X_{n+1}=k)\NC =P_{X_n=1}(X_{n+1}=k)×P(X_n=1)+P_{X_n=2}(X_{n+1}=k)×P(X_n=2)+P_{X_n=3}(X_{n+1}=k)×P(X_n=3)+P_{X_n=4}(X_{n+1}=k)×P(X_n=4)\NR
+\NC \NC =\Matrix{\NC P_{X_n=1}(X_{n+1}=k)\NC P_{X_n=2}(X_{n+1}=k)\NC P_{X_n=3}(X_{n+1}=k)\NC P_{X_n=4}(X_{n+1}=k)}×U_n\NR
+\NC \NC = L_k×U_n}
+\stopformula
+En faisant varier $k$ dans $⟦1,4⟧$ et en regroupant les relations obtenues dans un vecteur colonne, cela nous donne la relation
+\startformula
+U_{n+1}=\Matrix{
+\NC P(X_{n+1}=1)\NC 
+\NC P(X_{n+1}=2)\NC
+\NC P(X_{n+1}=3)\NC
+\NC P(X_{n+1}=4)\NC
+}U_{n+1}=\Matrix{
+\NC L_1\NR
+\NC L_2\NR 
+\NC L_3\NR
+\NC L_4}×U_n=A×U_n
+\stopformula
+A fortiori, nous avons prouvé la relation $U_{n+1}=AU_n$ pour $n∈ℕ^*$. 
+\stopList
+\item On considère les quatres matrices
+\startformula
+V_1=\Matrix{
+\NC 1\NR
+\NC -3\NR
+\NC 3\NR
+\NC -1}
+,\qquad 
+V_2=\Matrix{
+\NC 0\NR
+\NC 1\NR
+\NC -2\NR
+\NC 1}\qquad 
+V_3=\Matrix{
+\NC 0\NR
+\NC 0\NR
+\NC 1\NR
+\NC -1},\qquad
+V_4=\Matrix{
+\NC 0\NR
+\NC 0\NR
+\NC 0\NR
+\NC 1}
+\stopformula
+\startList
+\item  Pour $n∈ℕ^*$, établissons par récurrence,la relation
+\startformula
+\mc P_n:\qquad U_n=\Q({1\F 4}\W)^{n-1}V_1+3\Q({1\F 2}\W)^{n-1}V_2+3\Q({3\F 4}\W)^{n-1}V_3+V_4
+\stopformula
+\startitemize[1]
+\item $\mc P_1$ est vraie car $U_1=\Matrix{
+\NC 1\NR
+\NC 0\NR
+\NC 0\NR
+\NC 0\NR
+}$ et 
+\startformula
+\Align{
+\NC \NC 
+\Q({1\F 4}\W)^0V_1+3\Q({1\F 2}\W)^0V_2+3\Q({3\F 4}\W)^0V_3+V_4=V_1+3V_2+3V_3+V_4\NR
+\NC =\Matrix{
+\NC 1\NR
+\NC -3\NR
+\NC 3\NR
+\NC -1}+3\Matrix{
+\NC 0\NR
+\NC 1\NR
+\NC -2\NR
+\NC 1}+3\Matrix{
+\NC 0\NR
+\NC 0\NR
+\NC 1\NR
+\NC -1}+\Matrix{
+\NC 0\NR
+\NC 0\NR
+\NC 0\NR
+\NC 1}=\Matrix{
+\NC 1+0+0+0\NR
+\NC -3+3×1+0+0\NR
+\NC 3-2×3+3×1+0\NR
+\NC -1+3×1+3×(-1)+1}=\Matrix{
+\NC 1\NR
+\NC 0\NR
+\NC 0\NR
+\NC 0}}
+\stopformula
+\item Supposons $\mc P_n$ pour un entier $n⩾1$ (et montrons $\mc P_{n+1}$).
+Il résulte de l'égalité établie à la proposition précédente et de la proposition $\mc P_n$ que 
+\startformula
+\Align{
+\NC U_{n+1}\NC =AU_n=A\Q(\Q({1\F 4}\W)^{n-1}V_1+3\Q({1\F 2}\W)^{n-1}V_2+3\Q({3\F 4}\W)^{n-1}V_3+V_4\W)\NR
+\NC \NC = \Q({1\F 4}\W)^{n-1} AV_1 +3\Q({1\F 2}\W)^{n-1} AV_2 + 3\Q({3\F 4}\W)^{n-1}AV_3+AV_4
+}
+\stopformula
+En remarquant que 
+\startformula
+\Align{
+\NC AV_1\NC =\Matrix{
+\NC {1\F 4}×1\NR
+\NC {3\F 4}×1+{1\F 2}×(-3)\NR
+\NC {1\F 2}×(-3)×+{3\F 4}×3\NR
+\NC {1\F 4}×3+1×(-1)
+}=\Matrix{
+\NC {1\F 4}\NR
+\NC {-3\F 4}\NR
+\NC {3\F 4}\NR
+\NC {-1\F 4}\NR
+}={1\F 4}V_1
+\NR
+\NC AV_2\NC =\Matrix{
+\NC {1\F 4}×0\NR
+\NC {3\F 4}×0+{1\F 2}×1\NR
+\NC {1\F 2}×1×+{3\F 4}×(-2)\NR
+\NC {1\F 4}×(-2)+1×1
+}=\Matrix{
+\NC 0\NR
+\NC {1\F 2}\NR
+\NC -1\NR
+\NC {1\F 2}\NR
+}={1\F 2}V_2
+\NR
+\NC AV_3\NC =\Matrix{
+\NC {1\F 4}×0\NR
+\NC {3\F 4}×0+{1\F 2}×0\NR
+\NC {1\F 2}×0×+{3\F 4}×1\NR
+\NC {1\F 4}×1+1×(-1)
+}=\Matrix{
+\NC 0\NR
+\NC 0\NR
+\NC {3\F 4}\NR
+\NC {-3\F 4}\NR
+}={3\F 4}V_3
+\NR
+\NC AV_4\NC =\Matrix{
+\NC {1\F 4}×0\NR
+\NC {3\F 4}×0+{1\F 2}×0\NR
+\NC {1\F 2}×0×+{3\F 4}×0\NR
+\NC {1\F 4}×0+1×1
+}=\Matrix{
+\NC 0\NR
+\NC 0\NR
+\NC 0\NR
+\NC 1\NR
+}=V_4
+}
+\stopformula
+En reportant ces égalités dans la relation précédemment obtenue, il vient alors 
+\startformula
+\Align{
+\NC U_{n+1}\NC = \Q({1\F 4}\W)^{n-1} AV_1 +3\Q({1\F 2}\W)^{n-1} AV_2 + 3\Q({3\F 4}\W)^{n-1}AV_3+AV_4\NR
+\NC\NC  = \Q({1\F 4}\W)^{n-1} {1\F 4}V_1 +3\Q({1\F 2}\W)^{n-1} {1\F 2}V_2 + 3\Q({3\F 4}\W)^{n-1}{3\F 4}V_3+V_4\NR
+\NC\NC  = \Q({1\F 4}\W)^nV_1 +3\Q({1\F 2}\W)^nV_2 + 3\Q({3\F 4}\W)^nV_3+V_4
+}
+\stopformula
+En particulier, la relation $\mc P_{n+1}$ est vrai
+\stopitemize
+La relation $\mc P_n$ est donc vraie pour $n∈ℕ^*$. 
+\item D'après la relation précédente, nous avons (qu'est ce que c'est bourrin... :/)
+\startformula
+\Align{
+\NC U_n\NC =\Q({1\F 4}\W)^{n-1}V_1+3\Q({1\F 2}\W)^{n-1}V_2+3\Q({3\F 4}\W)^{n-1}V_3+V_4\NR
+\NC\NC = \Q({1\F 4}\W)^{n-1}\Matrix{
+\NC 1\NR
+\NC -3\NR
+\NC 3\NR
+\NC -1}+3\Q({1\F 2}\W)^{n-1}\Matrix{
+\NC 0\NR
+\NC 1\NR
+\NC -2\NR
+\NC 1}+3\Q({3\F 4}\W)^{n-1}\Matrix{
+\NC 0\NR
+\NC 0\NR
+\NC 1\NR
+\NC -1}+\Matrix{
+\NC 0\NR
+\NC 0\NR
+\NC 0\NR
+\NC 1}\NR
+\NC\NC =\Matrix{
+\NC \Q({1\F 4}\W)^{n-1}\NR
+\NC -3\Q({1\F 4}\W)^{n-1}+3\Q({1\F 2}\W)^{n-1}\NR
+\NC 3\Q({1\F 4}\W)^{n-1}-2×3\Q({1\F 2}\W)^{n-1}+3\Q({3\F 4}\W)^{n-1}\NR
+\NC -\Q({1\F 4}\W)^{n-1}+3\Q({1\F 2}\W)^{n-1}-3\Q({3\F 4}\W)^{n-1}+1}
+}
+\stopformula
+En particulier, nous en déduisons la loi de $X_n$ puisque 
+\startformula
+ U_n=\Matrix{
+ \NC P(X_n=1)\NR
+ \NC P(X_n=2)\NR
+  \NC P(X_n=3)\NR
+   \NC P(X_n=4)\NR
+ }=\Matrix{
+\NC \Q({1\F 4}\W)^{n-1}\NR
+\NC -3\Q({1\F 4}\W)^{n-1}+3\Q({1\F 2}\W)^{n-1}\NR
+\NC 3\Q({1\F 4}\W)^{n-1}-2×3\Q({1\F 2}\W)^{n-1}+3\Q({3\F 4}\W)^{n-1}\NR
+\NC -\Q({1\F 4}\W)^{n-1}+3\Q({1\F 2}\W)^{n-1}-3\Q({3\F 4}\W)^{n-1}+1}
+\stopformula 
+\stopList
+\item\startList
+\item Pour $n∈ℕ^*$, Il résulte de la loi obtenue précédemment que 
+\startformula
+\Align{
+\NC E(X_n)\NC =1×P(X_n=1)+2×P(X_n=2)+3×P(X_n=3)+4×P(X_n=4)\NR
+\NC \NC = \Q({1\F 4}\W)^{n-1} + 2\Q(-3\Q({1\F 4}\W)^{n-1}+3\Q({1\F 2}\W)^{n-1}\W)
++3\Q(3\Q({1\F 4}\W)^{n-1}-2×3\Q({1\F 2}\W)^{n-1}+3\Q({3\F 4}\W)^{n-1}\W)
++4\Q(-\Q({1\F 4}\W)^{n-1}+3\Q({1\F 2}\W)^{n-1}-3\Q({3\F 4}\W)^{n-1}+1\W)
+}
+\stopformula
+\item En passant à la limite dans la relation précédente (toutes les puissances de nombre du dype $a^n$ avec $0⩽a<1$ tendent vers $0$), 
+on obtient que $\lim_{n→+∞}E(X_n)=4×1=4$. Forcémment, on peut s'attendre à obtenir $4$ chiffres différents 
+si on fait suffisamment de tirages 	avec le procédé décrit... (et si on fait une infinité de tirages, cela doit être presque sûr. Mieux encore : c'est presque surement presque sûr)
+\stopList
+\stopList
+
+\blank[big]
+\goodbreak
+\centerline{\bf EXO 5}
+
+Pour ceux qui ne le connaissent pas, on rappelle que $\e^u=1+u+{u^2\F 2!}+{u^3\F 3!}+{u^4\F 4!}+o_0(u^4)$ 
+et l'on considère la fonction définie sur $ℝ$ par 
+\startformula
+f(x)=\System{
+\NC \displaystyle{1-\e^{-x}\F x}\NC \Si x>0\NR
+\NC 1\NC\Si x=0}
+\stopformula
+{\bf PARTIE 1}\crlf
+\startList
+\item \startitemize[1]\item L'application $x↦ 1-\e^{-x}$ est continue sur $ℝ$ donc sur $ℝ_+^*$. de même que $x↦ x$. A fortiori, $f$ est continue sur $ℝ_+^*$ en tant que quotient de fonctions continues dont le dénominateur ne s'annule pas sur $ℝ^*$. 
+\item Par ailleurs, en $0$ un calcul de DL à l'ordre 1 pour $u=x$ donne que 
+\startformula
+f(x)={1-\big(1+(-x)+o_0(x)\big)\F x}={x+o_0(x)\F x}=1+o_0(1)
+\stopformula
+En particulier, on a $\lim_{x→0}f(x)=1=f(0)$ de sorte que $f$ est continue en $0$
+\stopitemize
+En conclusion, $f$ est continue sur $ℝ⁺$
+\item \startList
+\item De même, $f$ est de classe $\mc C^1$ (et donc dérivable) sur $]0,+∞[$ et de plus, on a 
+\startformula
+f'(x)={\e^{-x}x-1(1-\e^{-x})\F x^2}={-1+\e^{-x}+x\e^{-x}\F x^2}={φ(x)\F x^2}\qquad(x>0)
+\stopformula
+Avec $φ(x)=-1+\e^{-x}+x\e^{-x}$ pour $x>0$.
+\item Procédons à la	 limite du taux d'accroissement, assaisoné pour $u=-x$, d'un bon petit DL aux petits oignons d'ordre $2$ 
+\startformula
+{f(x)-f(0)\F x-0}={{1-\e^{-x}\F x}-1\F x}={1-x-\e^{-x}\F x^2}={1-x-\big(1-x+(-x)^2+o_0(x^2)\big)\F x^2}={-x^2+o_0(x^2)\F x^2}=-1+o_0(1)
+\stopformula
+En passant à la limite lorsque $x→0^+$, nous remarquons alors que $f$ est dérivable en $0$, de dérivée $f'(0)=\lim_{x→0^+}{f(x)-f(0)\F x-0}=-1$
+
+\item La fonction $φ$ est de classe $\mc C^∞$ sur $ℝ⁺$ (idem) et on a 
+\startformula
+φ'(x)=(-1+\e^{-x}+x\e^{-x})'=-\e^{-x}+\e^{-x}-x\e^{-x}=-x\e^{-x}⩽0\qquad(x∈ℝ+)
+\stopformula
+Dur dur les tableau de variation dactylographiés, donc je le décrit : $φ$ est strictement décroissante sur $ℝ^+$ avec $φ(0)=0$ et $\lim_{x→+∞}φ(x)=-1$, via le théorème de croissance comparée.
+à fortiori, $φ$ est strictement négative sur $ℝ⁺_*$ (négative sur $ℝ^+$ et $f$ est donc strictement décroissante sur $ℝ^+$ avec $f(0)=1$ et $\lim_{x→+∞}f(x)=0$
+\stopList
+\stopList
+{\bf PARTIE 2}\crlf
+{\it Ah enfin, un peu de finesse et de beauté !}
+On introduit la suite $u$ définie par $\displaystyle u_n=\int_0^n{\e^{-{u\F n}}\F 1+u}\d u$ pour $n∈ℕ^*$.
+\startList
+\item Soit $n∈ℕ^*$ et $0⩽u⩽n$. Comme $-1⩽-{u\F n}⩽0$, la croisance de l'exponentielle induisent que 
+$\e^{-1}⩽\e^{-{u\F n}}⩽\e^0=1$ et par suite que 
+\startformula
+{1\F\e}{1\F 1+u}⩽{\e^{-{u\F n}}\F 1+u}⩽{1\F 1+u}\qquad (0⩽u⩽n).
+\stopformula
+En intégrant cette relation sur l'intervalle $[0,n]$, il résulte de la croissance de l'intégrale que 
+\startformula
+{\ln(n+1)\F \e}={1\F \e}\Q[\ln(1+u)\W]_0^n=\int_0^n{1\F\e}{1\F 1+u}\d u⩽\int_0^n{\e^{-{u\F n}}\F 1+u}\d u=u_n⩽\int_0^n{1\F 1+u}\d u = \Q[\ln(1+u)\W]_0^n=\ln(n+1)\qquad (n∈ℕ^*)
+\stopformula
+En particulier, nous avons obtenu que $\displaystyle u_n⩾{1\F \e}\ln(n+1)$. Comme le terme de droite diverge vers $+∞$, il en est de même pour la suite $u$. 
+\item L'intégrale $\displaystyle\int_0^1f(x)\d x$ existe car la fonction $f$ est continue sur le segment $[0,n]$ pour $n∈ℕ^*$, puisqu'elle l'est sur $ℝ^+$ d'après le résultat de la question 1. 
+\item Commençons par remarquer que 
+\startformula
+\int_0^n{\d u\F 1+u}-u_n=\int_0^n{\d u\F 1+u}-\int_0^n{\e^{-u\F n}\F 1+u}\d u=\int_0^n{1-\e^{-u\F n}\F 1+u}\d u
+\stopformula
+
+En procédant au changement de variable $u=nx$, 
+\startitemize[1]
+\item l'application $x↦nx$ est de classe $\mc C^1$ de $[0,1]$ dans $[0,n]$
+\item l'application $u↦{1-\e^{-u\F n}\F 1+u}$ est continue sur $[0,n]$
+\stopitemize
+Il vient 
+\startformula
+\int_0^n{\d u\F 1+u}-u_n=\int_0^n{1-\e^{-u\F n}\F 1+u}\d u=\int_0^1{1-\e^{-x}\F 1+nx}n\d x
+\stopformula
+Comme $0⩽{1-\e^{-x}\F 1+nx}$ et comme ${n\F 1+nx}⩽{1\F x}$ pour $0⩽x⩽1$, il rsulte alors de la croissance de l'intégrale que 
+\startformula
+0=\int_0^10\d u⩽\int_0^n{\d u\F 1+u}-u_n⩽\int_0^1{1-\e^{-x}\F x}\d x=\int_0^1f(x)\d x
+\stopformula
+\item Comme l'inégalité précédente induit que 
+\startformula
+0=\int_0^10\d u⩽\underbrace {\Q[\ln(1+u)\W]_0^n}_{\ln(n+1)}-u_n⩽\int_0^1f(x)\d x
+\stopformula
+En divisant par $\ln(n+1)$ et en faisant tendre $n$ vers $+∞$ nous obtenons que 
+\startformula
+\lim \Q(1-{u_n\F \ln(n+1)}\W)=0
+\stopformula
+En particulier, nous prouvons que $u_n∼\ln(n+1)∼\ln(n)$ lorsque $n$ tend vers $+∞$.
+\stopList
+\stoptext
+\stopcomponent
+\endinput

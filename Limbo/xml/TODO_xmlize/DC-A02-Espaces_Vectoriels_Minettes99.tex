@@ -1,0 +1,330 @@
+\catcode`@=11\relax
+\input LD@Header.tex
+\input LD@Library.tex
+\input LD@Typesetting.tex
+\tenrm
+\def\|{\Vert}
+\vglue-10mm\rightline{PT\hfill Correction du DS 1 : (Petites Mines 99 : MPSI)\hfill \date}
+\bigskip
+\medskip
+
+\bigskip
+\def\no#1{\noindent{\bf #1.}}
+
+\noindent{\bf Premier problème}
+\medskip
+
+
+\no{1a}
+$\det(f)=\det(A)=(-u).0.u+v.2v.0+(-2).(-1).0- 0.0.0 - (-2).u.v+ 2uv=0$ via Sarrus.
+\medskip
+  
+\no{1b et 1c} N'étant pas inversible, la matrice A satisfait $\hbox{rang}(A)<3$ mais aussi $\hbox{rang}(A)\ge2$ du fait de ses 2
+deuxpremières colonnes. Comme $A$ est la matrice de $f$ dans la base canonique~de~$\ob R_2[X]$, il résulte du théorème du rang que 
+$$
+\dim(\Im m f) = \hbox{rang}(A) = 2 \qquad\hbox{et}\qquad \dim(\Ker f) = \dim(E) - \dim(\Im m f)=3-2=1.
+$$
+Par ailleurs, les relations matricielles
+$$
+A\times\pmatrix{v\cr u\cr1}=0, \qquad A\times\pmatrix{1\cr0\cr0}=\pmatrix{-u\cr-2\cr0}\qquad\hbox{et}\qquad  A\times\pmatrix{0\cr1\cr0}=\pmatrix{v\cr0\cr-1}
+$$ 
+induisent les égalités $f(v+uX+X^2)=0$, $f(1)=-u-2X$ et $f(X)=v-X^2$ et, par suite, que 
+$$
+\Ker(f)=\hbox{Vect}(v+uX+X^2)\qquad\hbox{et}\qquad \Im m(f) = \hbox{Vect}(u+2X,v-X^2).
+$$
+
+
+\no{2a} Nous procédons aux opérations élémentaires $L_2\leftarrow L_2-L_1$ et $L_3 \leftarrow L_3-3L_4$ puis nous calculons le déterminant par blocs pour obtenir que 
+$$
+\eqalign{
+\det(B)&=\left|\matrix{
+-3 & w & 0 & 0\cr
+0&-1-w&2w&0\cr
+0&-2&1+w&0\cr
+0&0&-1&3
+}\right|=\left|\matrix{
+-3 & w & 0\cr
+0&-1-w&2w\cr
+0&-2&1+w
+}\right|\times 3  \cr
+& = -3 \times \left|\matrix{
+-1-w&2w\cr
+-2&1+w
+}\right|\times 3
+=-9 (-(1+w)^2+4w)=9(1-w)^2.}
+$$
+\no{2b} Le précédent déterminant s'annule pour $w_0 = 1$. Pour cette valeur, la matrice de $g$ est 
+$$
+B = \pmatrix{
+-3 & 1 & 0 & 0\cr
+-3&-1&2&0\cr
+0&-2&1&3\cr
+0&0&-1&3
+}.
+$$
+Cette matrice est de rang $3$ (car elle n'est pas inversible et ses trois premières colonnes sont échelonnées) et satisfait $B\times ^t(1, 3, 3, 1)=0$, ce qui se traduit par l'identité $g(1+3X+3X^2+X^3)=0$. A fortiori, nous remarquons d'abord que $\dim(\Ker f)= 4-3=1$ puis que 
+$$
+\Ker f=\hbox{Vect}(1+3X+3X^2+X^3).
+$$
+
+\no{II.1a} $\varphi$ est un endomorphispme de $\ob R_n[X]$ car : 
+\item{*)} $\ob R_n[X]$ est un $\ob R$-espace vectoriel. 
+\item{**)} $\varphi$ est lin\'eaire. Pour $\lambda,\varphi)\in\ob R^2$ et $(P,Q)\in\ob R_n[X]^2$, nous avons
+$$
+\eqalign{
+\varphi(\lambda S+\mu T)&=2(\lambda S+\mu T)'Q-n(\lambda S+\mu T)Q'= \lambda(2S'Q-nSQ') +\mu(2T'Q-nTQ')\cr
+&=\lambda\varphi(S)+\mu\varphi(T).
+}
+$$
+\item{***)} Pour chaque polynôme $P$ de $\ob R_n[X]$, $\varphi(P)$ est défini et appartient à $R_n[X]$. En effet, posant $P=aX^n+R$ avec $a\in\ob R$ et $R\in\ob R_{n-1}[X]$, nous remarquons que 
+$$
+\varphi(P)=a\varphi(X^n) + \varphi(R) = a(2nX^{n-1}Q-nX^nQ') +(2R'Q-nRQ').
+$$
+Comme $Q$ est de degré exactement $2$, il existe un nombre $b\in\ob R^*$ et un polynôme $S\in\ob R_1[X]$ tel que $Q = bX^2 + S$ de sorte que 
+$$
+\eqalign{
+\varphi(P)&= a(2nX^{n-1}(bX^2+S)-nX^n(2bX+S')) +(2R'Q-nRQ')\cr
+&=2anX^{n-1}S-anX^nS' +(2R'Q-nRQ').
+}
+$$
+Comme les polynômes $R$, $R'$, $Q$ $S$ et $S'$ sont de degr\'e inf\'erieurs respectivement \`a $n-1$, $n-2$, $2$, $1$ et $0$, nous concluons que $\varphi(P)\in\ob R_n[X]$. 
+\medskip
+\no{2a} Pour $n=2 $ et $Q=X^2+uX+v$, nous obtenons que 
+$$
+\eqalign{
+\varphi(1) &= 0-2.1.(2X+u)=-4X-2u,\cr
+\varphi(X) &= 2.1.(X^2+uX+v)-2X(2X+u)=-2X^2+2v,\cr
+\varphi(X^2)&=2.2X.(X^2+uX+v)-2X^2(2X+u)=2uX^2+4Xv,
+}
+$$
+de sorte que la matrice de $\varphi$ dans la base canonique de $\ob R^2[X]$ est (on reconnait le double de la matrice étudiée en I.1.)
+$$
+M=\pmatrix{
+    -2u & 2v & 0\cr
+    -4 & 0 & 4v\cr
+    0 & -2 & 2u
+}.
+$$
+\no{2b} Le valcul du rang de la matrice donne ($C_3\leftarrow C_3+vC_1+uC_2$) 
+$$
+\hbox{rang}(M)=\hbox{rang}\pmatrix{
+    -2u & 2v & 0\cr
+    -4 & 0 & 0\cr
+    0 & -2 & 0
+} = \hbox{rang}\pmatrix{
+    0 & 0 & 0\cr
+    1 & 0 & 0\cr
+    0 & 1 & 0
+}=2
+$$
+En particulier le rang de $M$ vaut $2$. Le noyau de $\varphi$ est donc de dimension $1$ et comme  $\varphi(Q) = 0$, il suit (on peut également utiliser I.1b)
+$$
+\ker(\varphi)=\hbox{Vect}(Q).
+$$
+\no{3a} Pour $n=3$ et $Q=X^2+2X+w$, nous obtenons que 
+$$
+\eqalign{
+\varphi(1) &= 0-3.1.(2X+2)=-6X-6,\cr
+\varphi(X) &= 2.1.(X^2+2X+w)-3.X(2X+2)=-4X^2-2X+2w,\cr
+\varphi(X^2)&=2.2X.(X^2+2X+w)-3.X^2(2X+2)=-2X^3+2X^2+4wX,\cr
+\varphi(X^3)&=2.3X^2.(X^2+2X+w)-3.X^3(2X+2)=6X^3+6wX^2,
+}
+$$
+de sorte que la matrice de $\varphi$ dans la base canonique de $\ob R^2[X]$ est (le double de la matrice \'etudi\'ee en I.2) : 
+$$
+M=\pmatrix{
+    -6 & 2w & 0 & 0\cr
+    -6 & -2 & 4w & 0\cr
+    0 & -4 & 2 & 6w\cr
+    0 & 0 & -2 & 6
+}.
+$$
+\no{3b} Comme la matrice de $\varphi$ est un multiple (non nul) de la matrice de l'endomorphisme $f$ étuidié en I.3, leurs noyaux sont identiques. Ainsi
+$$
+\ker(\varphi)=\cases{
+    \{0\}& si $w\neq1$, \cr
+    \hbox{Vect}(1+3X+3X^2+X^3)= \hbox{Vect}((X+1)Q)& si $w=1$.
+}
+$$
+\no{II.B.1a} Comme $Q$ n,'a pas de racine double, $Q$ et $Q'$ n'ont pas de facteurs premiers en commun. Le Plus grand diviseur commun de $Q$ et $Q'$ est donc $1$. \medskip
+
+\no{1b} Si $P$ est un polynôme non nul appartenant au noyau de $\varphi$, alors, on a $\varphi(P)=0$ et donc 
+$$
+2P'Q=nPQ'.
+$$
+Comme $Q$ divise $PQ'$ mais ne possède aucun facteur premier en commun avec $Q'$ ($Q$ est premier avec $Q'$), lreslte dhéorème de Gauss que $Q$ divise $P$. 
+\medskip
+\no{1c} Soit $P$ un polynôme non nul dans le noyau de $\varphi$ et soit $k$ le plus grand entier strictement positif tel $Q^k$ divise $P$. Alors le polynôme $R$ implicitement défini par $P=RQ^k$  ne peut pas être divisible par $Q$ sinon cela contredirait la définition de l'entier $k$, qui existe d'après 1b. 
+\medskip
+\no{1d}
+Supposons que le noyau de $\varphi$ ne soit pas $\{0\}$. Alors il existe unpolynôme non nul $P$ dans le noyau de $\phi$. Notant $k$ et $R$ le polynôme et l'entier définies à la questin précédente, nous obtenons alors que 
+$$
+0=\varphi(P)=\varphi(Q^kR)=2(kQ^{k-1}Q'R+Q^kR')Q-nQ^kRQ'=Q^k\left((2k-n)Q'R+2QR'\right).
+$$
+En divisant par $Q^k$, nous obtenons alors que $(n-2k)Q'R = 2 QR'$. Comme $Q$ et $Q'$ sont premiers entre eux, le polynôme Q divise nécéssairement $(n-2k)R$. Comme $R$ n'est pas divisible par $Q$, nous concluons que $n=2k$, et donc que l'entier $n$ est pair. 
+\medskip
+
+\no{1e} Si $n$ est impair, $\Ker(\varphi)=\{0\}$ d'après 1d. Par ailleurs, si $n$ est pair, il resulte de l'étude précédente qu'un polynôme non nul du noyau de $\varphi$ est nécéssairement de la forme $P=RQ^k$ avec $n=2k$ et $Q$ et $R$ premiers entre eux. Par ailleurs, comme $n=2k$, le calcul précédent révèle que 
+$$
+0=\varphi(P)=Q^k\left((2k-n)Q'R+2QR'\right)=2Q^{k+1}R'.
+$$
+A fortiori, $R'=0$ et donc le polynôme $R$ est constant. de sorte qu'il existe $\alpha\in\ob R$ te lque $P=\alpha Q^{n/2}$. Réciproquement
+$$
+\varphi(Q^{n/2})= 2{n\F2}Q^{n/2-1}Q'Q-nQ^{n/2}Q'=0.
+$$
+En conclusion 
+$$
+\ker(\varphi) = \cases{
+    \{0\}& si $n$ est impair\cr
+    \hbox{Vect}(Q^{n/2})& si $n$ est pair 
+}
+$$
+\no{2a} Si $P$ est un polynôme non nul appartenant au noyau de $\varphi$, alors, on a $\varphi(P)=0$ et donc 
+$$
+2P'Q=nPQ'.
+$$
+Comme $\alpha$ est une racine double de $Q$, qui est de degré $2$, il exiiste une constante $\beta\neq0$ telle que $Q=\beta(X-\alpha)^2$. Alors, il suit
+$$
+2\beta (X-\alpha)^2P'=n\beta\alpha(X-\alpha)P.
+$$
+En simplifiant par $\beta(X-\alpha)$, il suit $2(X-\alpha)P'=n\alpha P$. Nous concluons alors que $\alpha$ est racine de $P$. 
+\medskip
+\no{2b} Soit $P$ un polynôme non nul du noyau de $\varphi$. alors $X-\alpha$ divise $P$ d'après 2a. Notant $p$ le plus grand entier $p\ge1$ tel que $(X-\alpha)^p$ divise $P$, il existe un polynôme R, dont $\alpha$ n'est pas racine, tel que $P=(X-\alpha)^pR$. En reportant dans la relation $\varphi(P)=0$, nous obtenons alors que
+$$
+0=\varphi(P) = 2\left(p(X-\alpha)^{p-1}R+(X-\alpha)^pR'\right)\beta(X-\alpha)^2-n(X-\alpha)^pR.2\beta(X-\alpha)
+$$
+En simplifiant par $(X-\alpha)^{p+1}$,nous obtenons alors que 
+$$
+0=2\beta(X-\alpha)R'+(2p-2n)\beta R
+$$
+Comme $R(\alpha)\neq0$, en substituant $\alpha$ à $X$, nous prouvons d'abord que $p=n$ puis que $R'=0$, c'est à dire que le polynôme $R$ est une contante et donc qu'il existe une constante $\gamma$ telle que $P=\gamma (X-\alpha)^n$. En conclusion, nous avons 
+$$
+\ker(\varphi) = \hbox{Vect}((X-\alpha)^n).
+$$
+
+\no{3} On prend $Q=X^2+1$. Et on applique le résultat de II.B . Comme $n$ est impair, le noyau de $\varphi$ est $\{0\}$ de sorte que $\varphi$ est injective. Comme les dimensions des espaces de départ et d'arrivée de $\varphi$ sont égales, c'est aussi une bijection (automorphisme). 
+A fortiori, pour chaque polynôme $P\in\ob R_n[X]$, il existe un unique polynôme $S\in\ob R_n[X]$ tel que 
+$$
+P=\varphi(S)=2(X^2+1)S'-n2XS.
+$$
+Ainsi, avec $R=S/2$, il existe un unique polynôme $R\in\ob R_n[X]$ tel que 
+$$
+P=(X^2+1)R'-nXR.
+$$
+L'application $\psi:P\mapsto R$ est l'application $\varphi^{-1}/2$ qui est définie et linéaire en temps que composée d'une homothétie et de la bijection réciproque d'un automorphisme. 
+\medskip
+\noindent{\bf Second problème}
+\medskip
+\no{I.1} $\varphi$ est d\'efinie sur $\sc D\varphi := ]-1,0[\cup]0,+\infty[$. 
+\medskip
+\no{I.2} $\varphi$ est de classe $\sc C^\infty$ sur $\sc D\varphi$ en tant que quotient de fonctions de classe $\sc C^\infty$, dont le dénominateur ne s'annule pas. De plus 
+$$
+\varphi'(x)= {1\F x(1+x)} -{\ln(1+x)\F x^2}={1\F x^2}\Q(1-{1\F x+1}-\ln(1+x)\W)\qquad(x\in\sc D\varphi).
+$$
+\no{I.3} Le signe de $\varphi'(x)$ est le même que celui de la fonction $\psi(x)=1-{1\F 1+x}-\ln(1+x)$ qui s'annule en $x=0$ et dont la d\'eriv\'ee
+$$
+\psi(x)={1\F(1+x)^2}-{1\F x+1}={-x\F (x+1)^2} \qquad (w>-1)
+$$
+est du signe opposé à celui de $x$. A fortiori, $\psi(x)$ est négative sur $]-1,+\infty[$ de sorte que $\varphi'(x)$ est négative sur son ensemble de définition. 
+\medskip
+
+\no{I.4} D'après le théorème de croissance comparé et le DL en 0 $\ln(1+x)=x+o_0(x)$, nous avons
+$$
+\lim_{x\to-1^+}\varphi(x)=+\infty, \qquad \lim_{x\to 0}\varphi(x)=1\qquad\hbox{et}\qquad\lim_{x\to+\infty}\varphi(x)=0.
+$$
+\no{I.5} $\varphi$ est prolongeable par continuité par $1$ en $x=0$ d'après les limites précédentes. Le prolongement est en fait de classe $\sc C^1$ d'apr\`es le prolongement $\sc C^1$ car la d\'eriv\'ee  de $\varphi$ admet des limites finies \'egales en $0$.
+$$
+\eqalign{
+\varphi'(x) &={1\F x^2}\Q(1-{1\F x+1}-\ln(1+x)\W)={1\F x^2}\Q(1-(1-x+x^2+o_0(x^2))-(x-{x^2\F 2}+o_0(x^2)))\W)\cr
+& = -{1\F 2}+o_0(1). 
+}
+$$
+goodbreak
+\no{I.6} Imaginez un beau tableau de variation. Tant qu'à faire, exercez vos pouvoirs mentaux, en visualisant une belle courbe.
+
+\goodbreak
+Vous voyez ? ça marche ! Enfin, presque...
+
+\centerline{
+\tikzpicture[domain=-0.95:10,samples=166]
+		\draw[very thin,color=gray,step={(1,1)}] (-1,0) grid (10,3);
+		\draw[->] (0,0) -- (10.2,0) node[below] {$x$};
+		\draw[->] (0,0) -- (0,3.2) node[left] {$y$};
+				\draw[color=blue,smooth] plot (\x,{ln(1+\x)/\x});
+	\endtikzpicture
+}%
+\centerline{ Graphes $y={\ln(1+x)\F x}$ sur $]-1,10]$.}
+
+\medskip
+\no{II.1} Soit $x>-1$. Comme $t\in[0,{\pi\F 2}]$, nous remarquons que $0\le \sin(t)\le 1$ et que $1+x\sin(t)>0$. L'application $f$ étant définie et  continue sur $[0,{\pi\F 2}]$, il en est de même pour $t\mapsto {f(t)\F 1+x\sin(t)}$. A fortiori, l'intégrale $g(x)$ est d\'efinie pour chaque nombre r\'eel $x>-1$. 
+\medskip
+\no{II.2} Lorsque $f(t)=\cos(t)$ et $x\neq0$, nous remarquons que 
+$$
+g(x)=\int_0^{\pi\F 2}{\cos(t)\F 1+x\sin(t)}\d t =\Q[{\ln(1+x\sin t)\F x}\W]_0^{\pi\F 2}={\ln(1+x)\F x} = \varphi(x) \qquad (x>-1)
+$$
+Lorsque $x=0$, nous remarquons que $g(x)=\int_0^{\pi\F 2}\cos(t)\d t=[\sin t]_0^{\pi\F 2}=1=\varphi(0)$. A fortiori, la relation précédente est également valable en $0$ (avec le prolongement par continuité). 
+\medskip
+\no{II.3} Lorsque $f(t)=\sin(2t)$ et $x\neq0$, nous procédons au changement de variable $u=\sin(t)$ pour obtenir que remarquons que 
+$$
+\eqalign{
+g(x)&=\int_0^{\pi\F 2}{2\sin(t)\cos(t)\F 1+x\sin(t)}\d t =\int_0^1{2u\F 1+xu}\d u={2\F x}\int_0^1{xu\F 1+xu}\d u\cr 
+&={2\F x}\Q[u-{ln(1+xu)\F x}\W]_0^1={2(x-\ln(1+x))\F x^2} \qquad (x>-1)}
+$$
+Lorsque $x=0$, nous remarquons que $g(x)=\int_0^{\pi\F 2}2\sin(t)\cos(t)\d t=[\sin(t)^2 t]_0^{\pi\F 2}=1$. 
+A fortiori, la relation précédente est également valable en $0$ via un prolongement par continuité. 
+\medskip
+\no{4} Soit $a>-1$ et soient $x$ et $y$ dans $]a,_\infty[$. Alors, on a 
+$$
+\eqalign{
+    g(x)-g(y)&=\int_0^{\pi\F 2}{f(t)\d t\F 1+ x\sin t}-\int_0^{\pi\F 2}{f(t)\d t\F 1+ y\sin t}= \int_0^{\pi\F 2}f(t)\Q({1\F 1+ x\sin t}-{1\F 1+ y\sin t}\W)\d t\cr
+    & = (y-x)\int_0^{\pi\F 2}{f(t)\sin(t)\d t\F(1+ x\sin t)( 1+ y\sin t)}.
+}
+$$
+Comme $1+x\sin t$ et  $1+y\sin t$ sont supérieur à $m:=\min\{1, 1+a\}$ lorsque $-1<a\le x$ et $0\le t\le {\pi\F 2}$, nous en déduisons de la positivité de la fonction $f$ que 
+$$
+\eqalign{
+|g(x)-g(y)|&\le |x-y|\Q|\int_0^{\pi\F 2}{f(t)\sin(t)\d t\F(1+ x\sin t)( 1+ y\sin t)}\W|\cr
+    &\le |x-y|\int_0^{\pi\F 2}{f(t)\sin(t)\F(1+ x\sin t)( 1+ y\sin t)}\d t\cr
+    &\le |x-y|{1\F m^2}\int_0^{\pi\F 2}f(t)\sin(t)\d t
+}
+$$
+Posant $K:= m^{-2}\int_0^{\pi\F 2}f(t)\sin(t)\d t$, nous avons bien prouvé que 
+$$
+|g(x)-g(y)|\le K|x-y|\qquad (-1<a\le x,y).
+$$
+La fonction $g$ est $K$-Lipschitzienne sur $[a, +\infty[$ donc est continue sur cet intervalle, ceci pour tout $a>-1$. A fortiori, $g$ est continue sur $]-1,+\infty[$. 
+\medskip
+
+\no{6a} La fonction $f$ est continue sur le segment $[0,{\pi\F 2}]$ donc elle est bornée sur ce segment d'après le théorème de compacité. 
+\medskip
+\no{6b} Soit $b\in]0, {\pi\F 2}]$. Alors, par Chasles, nous avons
+$$
+g(x) = \int_0^b{f(t)\sin t\F 1+x\sin t}\d t + \int_b^{\pi\F 2}{f(t)\sin t\F 1+x\sin t}\d t
+$$
+En utilisant que $f(t)\le M$, que ${1\F 1+x\sin t}\le 1$ pour $0\le t\le b$ et que ${1\F 1+x\sin t}\le {1\F 1+x\sin b} $ pour $b\le t\le {\pi\F 2}$, nous en d\'eduisons que  
+$$
+\eqalign{
+g(x) &\le  \int_0^b {M\F 1} \d t + \int_b^{\pi\F 2}{M\F 1+x\sin b}\d t\cr
+&\le Mb +{M\pi\F2(1+x\sin b)}\qquad (x>0).
+}
+$$
+\no{6c} En utilisant l'inégalité précédente pour $b={1\sqrt x}$, nous obtenons que 
+$$
+0\le g(x)\le {M\F \sqrt x} +{M\pi\F 2(1+x\sin{1\F\sqrt x})}.
+$$
+Comme le menmbre de droite tends vers $0$ lorsque $x$ tends vers $+\infty$, il résulte du principe des gendarmes que $\lim_{x\to\infty}g(x)=0$.
+\medskip
+
+\no{7} la fonction $t\mapsto {\cos t\F 1-\sin t}$ n'est pas int\'egrable sur $[0,{\pi\F 2}[$ car 
+$$
+\int_0{\pi\F2}{\cos t\F 1-\sin t}\d t =\lim_{x\to{\pi\F 2}}\int_0^x{\cos t\F 1-\sin t}\d t=\lim_{x\to + {\pi\F 2}}\Q[-\ln(1-\sin(t))\W]_0^x=+\infty.
+$$
+
+\no{8a} La fonction $g$ est d\'ecroissante sur $]-1,\infty[$. A fortiori, soit $g$ est majorée sur $]-1,0]$ auquel cas $\lim_{x\to-1^+}g(x)i$ existe et est finie,, soit $g$ n'est pas majorée sur $]-1,0]$ auquel cas $\lim_{x\to-1^+}g(x)=+\infty$. 
+\medskip
+
+\no{8b}  Lorsque $f(t)=cos(t)$, on a  $g(x)={\ln(1+x)\F x}$ pour $-1<x<0$ et donc $\lim_{x\to-1^+}g(x)=+\infty$, d'après le résultat de II.2. A fortiori, l'a fonction $t\mapsto {\cos t\F 1-\sin t}$ ne peut pas être intégrable sur $[0, {\pi\F 2}[$, d'après le résultat admis. 
+
+\no{9} Peanuts, c'est trop chiant à dactylographier en \TeX{} les tableaux de variation.
+
+\bye

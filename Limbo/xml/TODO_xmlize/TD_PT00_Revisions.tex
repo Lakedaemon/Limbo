@@ -1,0 +1,251 @@
+\catcode`@=11\relax
+\input LD@Header.tex
+\input LD@Library.tex
+\input LD@Typesetting.tex
+
+\input LD@Exercices.tex
+
+
+\DefineRGBcolor F0F9E3=VLGreen.
+\DefineRGBcolor E5F9D1=LGreen.
+\DefineRGBcolor DAF9BE=TGreen.
+\DefineRGBcolor 5DA93B=Green.
+\DefineRGBcolor F6DCCA=VLRed.
+\DefineRGBcolor F6D4BD=LRed.
+\DefineRGBcolor DAF9BE=TRed.
+\DefineRGBcolor B5F9A1=TTRed.
+\DefineRGBcolor F6B080=Red.
+\DefineRGBcolor F9F5E3=VLOrange.
+\DefineRGBcolor F9F5D0=LOrange.
+\DefineRGBcolor DAF9BE=TOrange.
+\DefineRGBcolor B5F9A1=TTOrange.
+\DefineRGBcolor D7A93B=Orange.
+\DefineRGBcolor EEEEEE=VLBlack.
+\DefineRGBcolor DDDDDD=LBlack.
+\DefineRGBcolor CCCCCC=TBlack.
+\DefineRGBcolor B5F9A1=TTBlack.
+\DefineRGBcolor 000000=Black.
+
+\LD@Exo@Label@Hide
+\LD@Colors@Hide
+\overfullrule=0pt\relax
+\catcode`@=11\relax
+\tenpts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%															%
+%						Revisions : 1er jour de spé						%
+%															%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vglue-10mm\rightline{PT\hfill Révision 1 :  Algèbre linéaire\hfill}
+
+\bigskip
+
+Le but de ces exercices est de faire réviser les bases et les techniques spécifiques de l'algèbre linéaire, avant d'aborder déterminant, éléments propres et réduction.
+\bigskip
+\hrule
+\centerline{Rang\strut}
+\hrule\medskip
+%\Exercice{PTSIwv}%
+
+%\Exercice{PTSIww}%
+
+%\Exercice{PTSIwx}%
+
+\Exercice{PTSIwy}%
+
+%\Exercice{PTSIxf}%
+
+\Exercice{PTSIwz}%
+
+\Methode [Pour calculer le rang d'une matrice $A$]
+Utiliser $\underline{\hbox{\bf sur les lignes et les colonnes}}$ les opérations élémentaires, $\underline{\hbox{\bf qui ne changent pas~le~rang}}$ :\pn
+a)  $L_i\leftrightarrow L_j$ : échanger la ligne $i$ avec la ligne $j$,\pn
+b)  $L_i\leftarrow \lambda L_i$ : multiplier la ligne $i$ par un scalaire non nul $\lambda$,\pn
+c)  $L_i\leftarrow Li+\sum_{j\neq i}\lambda_j L_j$ : ajouter à  la ligne $i$ une combinaison linéaire des autres lignes, \pn
+jusqu'à ce que tous les coefficients non-nuls soient isolés sur leur ligne et leur~colonne. \pn
+Le rang de la matrice de départ est alors le nombre de coefficients non-nuls restant à la fin. 
+
+\Conseil : Une bonne stratégie consiste à utiliser le pivot de Gauss pour faire apparaître des zéros, en cherchant à rendre la matrice triangulaire (cela évite de tourner en rond)...
+
+\Exercice{PTSIxe}%
+
+\Rappel : Le rang d'une famille $\{a,b,c,d\}$ de vecteurs est le rang de l'espace $\hbox{Vect}(a,b,c,d)$ qu'ils engendrent. C'est aussi le rang de la matrice $\pmatrix{a|b|c|d}$ des vecteurs mis côte à côte. 
+
+\hrule
+\centerline{Déterminant\strut}
+\hrule\medskip
+\Exercice{PTjn}%
+
+\Exercice{PTSIxa}%
+
+\Methode[Pour calculer le determinant d'une matrice $A$]
+Se ramener aux cas simples suivants : \medskip\noindent
+1) Le déterminant d'une matrice triangulaire est le produit des termes diagonaux, \pn 
+2) Le det. d'une matrice triangulaire par blocs est le produit des det. des blocs diagonaux. 
+
+\Methode[Pour simplifier le determinant d'une matrice $A$]
+Utiliser sur les lignes et/ou sur les colonnes les opérations élémentaires a,b et c, qui ont les effets suivants : \medskip\noindent
+a)  $L_i\leftrightarrow L_j$ : multiplie le determinant par $-1$,\pn
+b)  $L_i\leftarrow \lambda L_i$ : multiplie le determinant par $\lambda$. Plus simplement, si vous pouvez factoriser un nombre $\lambda$ sur une ligne, vous pouvez le sortir du determinant. \pn
+c)  $L_i\leftarrow Li+\sum_{j\neq i}\lambda_j L_j$ : ne change pas le déterminant. 
+
+\hrule
+\centerline{Inverse\strut}
+\hrule\medskip
+
+\Exercice{PTSIod}%
+
+\Exercice{PTSIxc}%
+
+
+\Methode[Pour inverser une matrice $A${,} via l'algorithme $A|I_n\to I_n|A^{-1}$]
+Ecrire $A|I_n$ puis effectuer {\bf sur les  lignes} des deux matrices les opérations élémentaires a,b et c. 
+Le but est d'obtenir la matrice $I_n$ à gauche pour récupérer la matrice $A^{-1}$ à droite.
+
+\Exercice{PTSIwu}%
+\medskip
+
+\Conseil : Retenez la technique précédente. Cela reviendra dans les exercices et c'est une fa\c con agréable et peu calculatoire de savoir si une matrice est inversible et, le cas échéant, d'en trouver un inverse. 
+\medskip
+
+
+
+\hrule
+\centerline{Sous-espace vectoriel\strut}
+\hrule\medskip
+
+\Exercice{PTaim}%
+\medskip
+
+\Exercice{PTSIwt}%
+
+
+\Methode [Pour prouver que $E$ est un $\ob K$-espace vectoriel]
+Montrer que c'est un sous-espace vectoriel d'un $\ob K$-espace vectoriel du cours : \pn
+1) Prouver que $E\neq\emptyset$, \pn
+2) Prouver que $E$ est inclus dans un $\ob K$-espace vectoriel de référence, à déterminer. \pn
+3) Prouver que $\lambda x+\mu y\in E$ pour $(\lambda,\mu)\in \ob K^2$ et $(x,y)\in E^2$. 
+
+
+\hrule
+\centerline{Familles libres, génératrices, bases\strut}
+\hrule\medskip
+
+\Exercice{PTSIxb}%
+
+\Conseil :  Lorsque vous étudiez un espace vectoriel, essayez de trouver sa dimension le plus tôt possible. Souvent, cela vous aidera pour la suite (utilisation du théorème du rang, etc...). 
+
+\Exercice{PTaip}%
+\medskip
+
+\Exercice{PTSIkq}%
+
+\Exercice{PTps}%
+
+
+\Methode [Pour prouver que deux ensembles $E$ et $F$ sont égaux]
+Procèder par double-inclusion : \pn
+1) Prouver que $E\subset F$, \qquad\qquad
+2) Prouver que $F\subset E$.
+
+\Methode [Pour prouver que deux $\ob K$-espaces vectoriels de dim finie sont égaux]
+Etablir une inclusion ainsi que l'égalité~des~dimensions : \pn
+1) Prouver que $E\subset F$ (par exemple)\qquad\qquad 2) Prouver que $\dim E=\dim F$. 
+
+\hrule
+\centerline{Technique diabolique (de résolution des exos durs sans refléchir)\strut}
+\hrule\medskip
+
+\Exercice{PTais}%
+\medskip
+\Exercice{PTaio}%
+
+\Methode [Pour prouver une équivalence {$A\Longleftrightarrow B$}]
+Procèder par double-implication : \pn
+1) Prouver que $A\Longrightarrow B$, \qquad\qquad
+2) Prouver que $A\Longleftarrow B$.
+
+\Methode [Pour prouver une implication {$A\Longrightarrow B$}]
+Supposer que $A$ est vrai et établir que~$B$ est vrai. 
+
+
+\Exercice{PTSIol}%
+
+
+\Methode [Pour écrire la matrice  de $u$ dans les bases {$\sc E=\{e_1, \cdots, e_n\}$ et $\sc F=\{f_1, \cdots, f_p\}$}]
+$$
+\vtop{\hsize 9cm\noindent 1) Dessiner la matrice vide avec ses données comme ceci : \pn 2) Completer en pla\c cant dans la $j^{\hbox{\sevenrm ième}}$ colonne, les~coefficients de la dé\-com\-po\-si\-tion de 
+l'image $u(e_j)$ du vecteur~$e_j$ par $u$ sur la base d'arrivée $\{f_1, \cdots, f_p\}$ }\quad\raise-0.3cm\hbox{$\sc Mat_{\sc E, \sc F}(u)=$}{e_1\ \cdots\ e_n\quad\atop \pmatrix{&&&&&\cr&&&&&\cr&&&&&\cr&&&&&}\matrix{f_1\cr \vdots\cr f_p}}
+$$
+
+\Exercice{PTSIvw}%
+
+
+\Methode [Pour prouver que l'application $u:E\to F$ est $\ob K$-linéaire]
+Prouver que l'image d'une combinaison linéaire est la combinaison linéaire des images : \pn
+1) Prouver que $E$ et $F$ sont des $\ob K$-espaces vectoriels,\pn
+2) Prouver que $u(\lambda x+\mu y)=\lambda u(x)+\mu u(y)$ pour $(\lambda,\mu)\in \ob K^2$ et $(x,y)\in E^2$. 
+
+
+
+\Exercice{PTain}%
+
+
+\Methode [Pour savoir si une application linéaire $f:E\to F$ est  injective]
+Regarder son noyau
+$$
+f\sbox{ injective}\ssi \Ker f=\{0\}.
+$$
+
+\Exercice{PTaiq}%
+
+
+\Methode [Pour savoir si une application {\bf linéaire} $f:E\to F$ est  surjective]
+Si $E$ et $F$ sont de même dimension {\bf finie}, se ramener à une étude d'injectivité  : \pn
+$$
+f\sbox{  injective }\ssi f\sbox{ surjective }\ssi f \sbox{ bijective.}
+$$ 
+Si $E$ est de dimension finie différente de celle de $F$, utiliser le théorème du rang et calculer la dimension du noyau de $f$
+$$
+\dim E=\dim\Ima f+\dim\Ker f.
+$$
+Si $\dim E=+\infty$, essayer de se ramener à la dimension finie ou utiliser  une autre méthode. 
+
+\Methode [Pour savoir si une application $f:E\to F$ est  injective (resp. surjective{,} bijective)] 
+Fixer $y$ dans $F$ et regarder si l'équation $y=f(x)$ a au plus (resp au moins, resp. exactement) une solution $x$ dans $E$. 
+
+
+
+
+\hrule
+\centerline{Récurrences linéaires\strut}%
+\hrule
+\medskip
+%\Exercice{PTSIoi}%
+
+\Exercice{PTaib}%
+
+\Exercice{PTSImd}%
+
+\Exercice{PTSIme}%
+
+\hrule
+\centerline{Calcul matriciel et Récurrence\strut}%
+\hrule
+\medskip
+
+\Exercice{PTSIvx}%
+
+\bye
+
+
+
+
+
+
+
+
+
+
+

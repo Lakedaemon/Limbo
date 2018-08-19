@@ -1,0 +1,478 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\%blank[big]}]
+%\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][4][1,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iftrue
+
+% Proposer à Nathan et Damien de faire le DS 6 2016-2017
+
+\page
+\centerline{\bfb CORRECTION DU DEVOIR SURVEILLE 7}
+\blank[big]
+
+\setupitemgroup[List][1][n][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][i,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+\centerline{\bf EXO 1}
+\centerline{\bf Partie A}
+\startList
+\item Pour $k∈ℕ^*$, $X_k$ suit une loi uniforme sur $⟦1, n⟧$ (équiprobabilité du tirage des $n$ boules). De sorte que $E(X_k)={n+1\F 2}$
+\item\startList
+\item Il faut au plus $n$ tirages ($n$ un) pour obtenir une somme supérieure ou égale à $n$ et au moins un tirage (un $n$), les nombres intermédiaires sont également possibles donc $T_n(Ω)=⟦1,n⟧$
+\item $P(T_n=1) = {1\F n}$ (probabilité de tirer la boule $n$ au premier tour)
+
+$P(T_n=n)=\Q({1\F n}\W)^{n-1}$ (probabilité de tirer $1$ au $n-1$ premiers tirages + indépendance mutuelle des tirages avec remise)
+\stopList
+\item Soit $n=2$. La VAR $T_2$ prend la valeur $1$ si la première boule tirée n'est pas la boule $1$ et prend la valeur $2$ sinon. D'après 2b, on a $P(T_2=2)=P(X_1=1)={1\F 2}$ et $P(T_1=1)=P(X_2=2)={1\F 2}$
+ De sorte que $T_2\hookrightarrow \mc U⟦1,2⟧$.
+ \item Soit $n=3$. D'après 2b, on a $P(T_3=1)={1\F 3}$, $P(T_3=3)={1\F3^2}$ et par complémentarité 
+ \startformula
+ P(T_3=2)=1-P(T_3=1)-P(T_3=3)=1-{1\F 3}-{1\F 9}={5\F 9}
+ \stopformula
+ {\it cela ne ressemble pas à une loi connue. }
+ En particulier, nous obtenons que 
+ \startformula
+ E(T_3)=1×P(T_3=1)+2×P(T_3=2)+3×P(T_3=3)={1\F 3}+2×{5\F 9}+3×{1\F 9}={16\F 9}
+\stopformula
+\stopList
+\centerline{\bf Partie B}
+\startList
+\item Soit $k∈ℕ^*$. Comme $S_k(Ω)$ est l'ensemble des valeurs que l'on peut obtenir en sommant $k$ entiers de l'ensemble $⟦1,n⟧$, on a
+\startformula
+S_k(Ω)=⟦k, kn⟧
+\stopformula
+\item Soit $k∈⟦1,n-1⟧$.
+\startList
+\item $S_{k+1}=∑_{i=1}^{k+1}X_i=∑_{i=1}^kX_i+X_{k+1}=S_k+X_{k+1}$
+\item Soit $i∈⟦k+1,n⟧$. La formule des probabilités totales, appliquée au système complet d'événements $\big(S_k=j)\big)_{k⩽j⩽kj}$ induit que 
+\startformula
+P(S_{k+1}=i)=∑_{j=k}^{kn}P(S_k=j∩S_{k+1}=i)
+\stopformula
+Comme l'événement $(S_k=j)∩(S_{k+1}=i)$ n'est possible que si $1⩽i-j$ et $k⩽j$ (d'ou $k⩽j⩽i-1$) et qu'il vaut dans ce cas 
+\startformula
+(S_k=j)∩(S_{k+1}=i)=(S_k=j)∩(X_{k+1}= i-j)
+\stopformula
+Nous déduisons alors de l'indépendance de $X_k=i-j$ avec $S_k=j$ que  
+\startformula
+\Align{
+\NC P(S_{k+1}=i)\NC \displaystyle=∑_{j=k}^{i-1}P(S_k=j∩X_{k+1}=i-j)\NR
+\NC\NC \displaystyle=∑_{j=k}^{i-1}P(S_k=j)\underbrace{P(X_k=i-j)}_{1/n}={1\F n}∑_{j=k}^{i-1}P(S_k=j)
+}
+\stopformula
+\stopList
+\item\startList
+\item Pour $k∈ℕ^*$ et $j∈ℕ^*$, la formule de Pascal donne 
+\startformula
+{j-1\choose k-1} + {j-1\choose k} = {j\choose k}.
+\stopformula
+\item A fortiori, pour $1⩽k⩽i-1$, en reconnaissant une somme telescopique, il vient   
+\startformula
+\Align{
+\NC \displaystyle∑_{j=k}^{i-1}{j-1\choose k-1}\NC\displaystyle 
+={k-1\choose k-1} + ∑_{j=k+1}^{i-1}{j-1\choose k-1}\NR
+\NC\NC\displaystyle ={k-1\choose k-1} + ∑_{j=k+1}^{i-1}\Q({j\choose k}-{j-1\choose k}\W)\NR
+\NC\NC\displaystyle =1 + ∑_{j=k+1}^{i-1}{j\choose k}-∑_{j'=k}^{i-2}{j'\choose k}\qquad\text{CDI $j'=j-1$}\NR
+\NC\NC\displaystyle =1+{i-1\choose k}-{k\choose k}={i-1\choose k}
+}
+\stopformula
+\item Pour $k∈⟦1,n⟧$, démontrons par récurrence la proposition $\mc H_k$
+\startitemize[1]
+\item $\mc H_1$ est vraie car $P(S_1=i)=P(B_1=i)={1\F n}={1\F n^1}{i-1\choose 0}$ pour $1⩽i⩽n$
+\item Supposons $\mc H_k$ pour un entier $k∈⟦1,n-1⟧$ {\it (récurrence finie)} et prouvons $\mc H_{k+1}$.
+D'après le résultat de la question 2a et $\mc H_k$, nous avons 
+\startformula
+\Align{
+\NC P(S_{k+1}=i)\NC =\displaystyle {1\F n}∑_{j=k}^{i-1}P(S_k=j)\NR
+\NC \NC =\displaystyle {1\F n}∑_{j=k}^{i-1}{1\F n^k}{j-1\choose k-1}\NR
+\NC \NC =\displaystyle {1\F n^{k+1}}∑_{j=k}^{i-1}{j-1\choose k-1} ={1\F n^{k+1}}{i-1\choose k}\NR
+\NC\NC =\displaystyle {1\F n^{k+1}}{i-1\choose (k+1)-1},\NR
+}
+\stopformula
+d'après le résultat de la question 3b (et car $k⩽i⩽n$ et $k⩽j⩽n-1$).
+En particulier $\mc H_{k+1}$ est vraie
+\stopitemize
+En conclusion, la proposition $\mc H_k$ est vraie pour $1⩽k⩽n$
+\stopList
+\item%4
+\startList
+\item Soit $k∈⟦1, n-1⟧$. On a trivialement $(T_n>k)=(S_k⩽n-1)$ : Si le premier rang $T_n$ pour lequel la somme des tirages est supérieur ou égal à $n$
+est au moins égale à k+1, alors nécéssairement la somme des tirages obtenues au cour des $k$ premiers tirages est strictement inférieure à $n$ (et réciproquement).
+\item  Pour $0⩽k⩽n$, Il résulte du résultat des trois questions précédentes que 
+\startformula
+\Align{
+\NC P(T_n>k)\NC\displaystyle  =P(S_k⩽n-1)=∑_{i=1}^{n-1}P(S_k=i)\NR
+\NC \NC\displaystyle  =0+∑_{i=k}^{n-1}P(S_k=i)\qquad(\text{$P(S_k=i)=0$ si $i<k$})\NR
+\NC\NC\displaystyle  = ∑_{i=k}^{n-1}{1\F n^k}{i-1\choose k-1}\qquad\text{résultat de 3c}\NR
+\NC\NC\displaystyle  ={1\F n^k} ∑_{i=k}^{n-1}{i-1\choose k-1}\NR
+\NC\NC\displaystyle  ={1\F n^k} {n-1\choose k}\qquad\text{résultat de 3b}
+}
+\stopformula
+\stopList
+\item Xomme $T_n(Ω)=⟦1,n⟧$, nous remarquons que 
+\startformula
+\Align{
+\NC E(T_n)\NC\displaystyle  =∑_{k=1}^nk×P(T_n=k)=∑_{k=1}^nk×\big(P(T_n>k-1)-P(T_n>k)\big)\NR
+\NC\NC\displaystyle  =∑_{k=1}^nkP(T_n>k-1)-∑_{k=1}^nkP(T_n>k)\qquad\text{CDI $k'=k-1$}\NR
+\NC\NC\displaystyle  =∑_{k'=0}^{n-1}(k'+1)P(T_n>k')-∑_{k=1}^nkP(T_n>k)\NR
+\NC\NC\displaystyle  =P(T_n>0)+∑_{k'=1}^{n-1}(k'+1)P(T_n>k')-∑_{k=1}^{n-1}kP(T_n>k)-\underbrace{nP(T_n>n)}_{0}\NR
+\NC\NC\displaystyle  =P(T_n>0)+∑_{k=1}^{n-1}P(T_n>k)\NR
+\NC\NC\displaystyle  =∑_{k=0}^{n-1}P(T_n>k)\NR
+\NC\NC\displaystyle  =∑_{k=0}^{n-1}{1\F n^k}{n-1\choose k}\qquad\text{Bdn $(a+b)^{n-1}$ pour $a=1$ et $b={1\F n}$}\NR
+\NC\NC\displaystyle  =\Q(1+{1\F n}\W)^{n-1}
+}
+\stopformula
+\item Via un développement limité, nous obtenons que 
+\startformula
+\Align{
+\NC E(T_n)\NC =\Q(1+{1\F n}\W)^{n-1}=\e^{(n-1)\ln\Q(1+{1\F n}\W)}=\e^{(n-1)\Q({1\F n}+o\Q({1\F n}\W)\W)}\NR
+\NC \NC = \e^{1+o(1)}
+}
+\stopformula
+De sorte que $\displaystyle\lim_{n→+∞}E(T_n)=\e$.
+\stopList
+\centerline{\bf Partie C}
+Dans cette partie, on fait varier l’entier $n$ et on étudie la suite de variable $(T_n)_{n≥1}$.
+\startList
+\item Soit $Y$ la variable aléatoire définie par $\displaystyle P(Y=k)={k-1\F k!}$ pour $k∈ℕ^*$.
+\startList
+\item%a
+Nous déduisons de la définition de $Y$ que  
+\startformula
+\Align{
+\NC ∑_{k=1}^{+∞}P(Y=k)\NC\displaystyle  =∑_{k=1}^{+∞}{k-1\F k!} \NR
+\NC \NC =∑_{k=1}^{+∞}{k-1\F k!} \NR
+\NC \NC\displaystyle  =∑_{k=1}^{+∞}{k\F k!} -∑_{k=1}^{+∞}{1\F k!} \NR
+\NC \NC\displaystyle  =∑_{k=1}^{+∞}{1\F (k-1)!} -∑_{k=0}^{+∞}{1\F k!} +1\qquad\text{ CDV $k'=k-1$"}\NR
+\NC \NC\displaystyle  =∑_{k'=0}^{+∞}{1\F k'!} -∑_{k=0}^{+∞}{1\F k!} +1=1\NR
+}
+\stopformula
+\item {\it nous allons justifier la convergence absolue de la série et donc l'existence de l'esperance en fin de calcul (nos égalités deront justifiées). }
+En cas de convergence, nous avons 
+\startformula
+\Align{
+\NC E(Y)\NC\displaystyle  =∑_{k=1}^{+∞}kP(Y=k)=∑_{k=1}^{+∞}k{k-1\F k!}\NR
+\NC\NC\displaystyle  =∑_{k=1}^{+∞}k{k-1\F k!}=∑_{k=2}^{+∞}k{k-1\F k!}\NR
+\NC\NC\displaystyle  =∑_{k=2}^{+∞}{1\F (k-2)!}\qquad{\text{CDV $k'=k-2$}}\NR
+\NC\NC\displaystyle  =∑_{k'=0}^{+∞}{1\F k'!}=\e^0=1
+}
+\stopformula
+\stopList
+\item Soit $k∈ℕ^*$. D'après la formule obtenue en 4b et d'après la formule 
+\startformula
+n^k∼(n-1)(n-2)⋯(n-k)={(n-1)!\F (n-1-k)!}
+\stopformula
+(il y a bien $k$ facteurs dans le produit de droite et $n∼n-1$, $n∼n-2$, ⋯, $n∼(n-k)$), 
+nous avons 
+\startformula
+P(T_n>k)={1\F n^k}{n-1\choose k}={1\F n^k}{(n-1)!\F (n-1-k)!k!}∼{1\F n^k}
+\stopformula
+En particulier, $\displaystyle \lim_{n→+∞}P(T_n>k)={1\F k!}$
+\item Soit $k∈ℕ^*$. Nous déduisons du résultat de la question précédente que 
+\startformula
+\Align{
+\NC\displaystyle  \lim_{n→+∞}P(T_n=k)\NC\displaystyle  =\lim_{n→+∞}\Q(P(T_n>k-1)-P(T_n>k)\W)\NR
+\NC \NC \displaystyle =\lim_{n→+∞}P(T_n>k-1)-\lim_{n→+∞}P(T_n>k)\NR
+\NC\NC \displaystyle ={1\F (k-1)!}-{1\F k!}={k-1\F k!}\NR
+\NC\NC =P(Y=k)
+}
+\stopformula
+\stopList
+
+\blank[big]
+\centerline{\bf EXO 2}
+On rappelle que $2<\e<3$ et que si les suites $(u_{2n})_{n⩾1}$ et $(u_{2n+1})_{n⩾1}$ convergent vers la même limite $ℓ$, alors la suite $(u_n)_{n⩾1}$ converge vers $ℓ$. 
+\blank[medium]
+On s'intéresse à la série de terme général $\displaystyle u_n=(-1)^n{\ln n\F n}$ pour $n⩾1$.
+\startList
+\item On note $\displaystyle w_n=∑_{k=1}^n{1\F k}-\ln(n)$ pour $n⩾1$. 
+\startList
+\item D'après le cours 
+\startformula
+\ln(1+x)=x-{x^2\F 2}+o_0(x^2)\qquad\Et\qquad {1\F 1-u}=1+u+u^2+o_0(u^2)
+\stopformula
+De sorte que pour $u=-x$,il vient
+\startformula
+{1\F 1+x}=1-x+x^2+o_0(x^2)
+\stopformula
+\item En particulier, nous obtenons que 
+\startformula
+\Align{
+\NC w_{n+1}-w_n \NC \displaystyle =∑_{k=1}^{n+1}{1\F k}-\ln(n+1)-\Q(∑_{k=1}^n{1\F k}-\ln(n)\W)\NR
+\NC\NC\displaystyle  {1\F n+1} + ∑_{k=1}^n{1\F k}-∑_{k=1}^n{1\F k}-\big(\ln(n+1)-\ln b\big)\NR
+\NC\NC\displaystyle  {1\F n+1} -\big(\ln(n+1)-\ln b\big)\NR
+\NC\NC\displaystyle  {1\F n}×{1\F 1+1/n} -\ln\Q(1+{1\F n}\W)\qquad\text{Factoriser le terme dominant}\NR
+\NC\NC\displaystyle  = {1\F n}\Q(1-{1\F n}+o\Q({1\F n}\W)\W)-\Q({1\F n}-{1\F 2n^2}+o\Q({1\F n^2}\W)\W)\NR
+\NC\NC\displaystyle  = -{1\F 2n^2}+o\Q({1\F n^2}\W)∼-{1\F 2n^2}
+}
+\stopformula
+\item La série de terme général $(w_{n+1} − w_{n})$ converge car elle a la même nature que la série de terme général ${1\F 2n^2}$ qui est une série de Riemann convergeante ($α=2>1$).
+En effet l'équivalent obtenu est de signe constant (strictement négatif au voisinage de l'infini).
+A fortioti sa suite des sommes partielles converge vers un nombre réel. Or, on a 
+\startformula
+w_1+∑_{k=1^n-1}(w_{k+1} − w_{k})=w_n\qquad(n⩾1)
+\stopformula
+A fortiori, la suite $(w_n)$, qui est égale à cette suite des sommes partielles (à une constante près), est convergeante également.
+On a donc
+\startformula
+w_n=γ+o(1)
+\stopformula
+\stopList
+\item $f$ est de classe $\mc C^1$ sur $]0,+∞[$ et de plus 
+\startformula
+f'(x)={1\F x}{1\F x}-{\ln x\F x^2}={1-\ln(x)\F x^2}\qquad(x>0).
+\stopformula
+En particulier, comme $1-\ln(x)=0⟺x=\e$ et $1-\ln(x)>0⟺x<\e$, l'application $f$ est strictement croissante sur $]0,\e]$ et strictement décroissante sur $[\e,+∞[$. 
+De plus, d'après le théorème de croissance comparée, on a $f(\e)={1\F\e}$,  
+\startformula
+\lim_{x→0^+}f(x)=-∞\qquad\Et\qquad\lim_{x→+∞}f(x)=0
+\stopformula
+\item On note $\displaystyle S_n=∑_{k=1}^nu_k$ pour $n⩾1$. 
+\startList
+\item \startitemize[1]
+\item On a $\displaystyle \lim_{n→+∞}\Q(S_{2n+1}-S_{2n}\W)=\lim_{n→+∞}u_{2n+1}=\lim_{n→+∞}-{\ln(2n+1)\F 2n+1}=0$
+\item On a 
+\startformula S_{2n+2}-S_{2n}=u_{2n+2}+u_{2n+1}={\ln(2n+2)\F 2n+2}-{\ln(2n+1)\F 2n+1}=f(2n+2)-f(2n+1)⩽0
+\stopformula car $f$ est décroissante sur $[\e,+∞[$. 
+En particulier, la suite $(S_{2n})_{n⩾2}$ est décroissante.
+\item On a 
+\startformula 
+S_{2n+3}-S_{2n+1}=u_{2n+3}+u_{2n+2}=-{\ln(2n+3)\F 2n+3}+{\ln(2n+2)\F 2n+2}=f(2n+2)-f(2n+3)⩾0
+\stopformula car $f$ est décroissante sur $[\e,+∞[$. 
+En particulier, la suite $(S_{2n+1})_{n⩾2}$ est croissante.
+\stopitemize
+En conclusion les suites $(S_{2n})_{n ⩾2}$ et $(S_{2n+1})_{n⩾2}$ sont adjacentes et convergent doncvers une même limite finie $ℓ$.
+\item Il résulte alors de la propriété rappelée dans le sujet que la suite $(S_n)_{n⩾4}$ converge.Comme il s'agit de la suite des sommes partielles de la série de terme général $u_n$, celle si converge.
+Par contre, elle ne converge pas absolument car 
+\startformula
+|u_n|={\ln n\F n}⩾{1\F n}
+\stopformula
+Et, comme la série de Riemann de temre général ${1\F n}$ diverge, la série de terme général $|u_n|$ diverge.
+\stopList
+\item%4
+ On note $\displaystyle v_n=∑_{k=1}^n{\ln(k)\F k}-{\ln(n)^2\F 2}$ pour $n⩾1$. 
+\startList
+ \item Soit  $n⩾3$. Comme la fonction $f$ est décroissante sur $[\e,+∞[$ et donc sur $[3,+∞[$ (puisque le sujet a eu la bonté de nous rappeler que $\e<3$), nous avons 
+\startformula
+{\ln(n+1)\F n+1}=f(n+1)⩽f(t)={\ln t\F t}⩽f(n)={\ln n\F n}\qquad (n⩽t⩽n+1)
+\stopformula
+En intégrant sur $[n,n+1$, il résulte alors de la croissance de l'intégale que 
+\startformula
+{\ln(n+1)\F n+1}=\int_n^{n+1}{\ln(n+1)\F n+1}\d t
+⩽\int_n^{n+1}{\ln(t)\F t}\d t⩽\int_n^{n+1}{\ln n\F n}\d t = {\ln(n)\F n}\qquad(n⩾3)
+\stopformula
+\item Pour $a>0$ et $b>0$, nous avons (la fonction $f$ étant continue sur $]0,+∞[$ et donc sur $[a,b]$)
+\startformula
+\int_a^b{\ln(t)\F t}\d t=\Q[{\ln(t)^2\F 2}\W]_a^b={\ln(b)^2-\ln(a)^2\F 2}
+\stopformula
+\item D'après le résultat des deux  questions précédentes, nous avons 
+\startformula
+\Align{
+\NC v_{n+1}-v_n\NC\displaystyle  =∑_{k=1}^{n+1}{\ln(k)\F k}-{\ln(n+1)^2\F 2}-\Q(∑_{k=1}^n{\ln(k)\F k}-{\ln(n)^2\F 2}\W)\NR
+\NC\NC\displaystyle  = {\ln(n+1)\F n+1}+{\ln(n)^2-\ln(n+1)^2\F 2}\NR
+\NC\NC\displaystyle  ={\ln(n+1)\F n+1}-\int_n^{n+1}{\ln t\F t}\d t⩽0
+}
+\stopformula
+En particulier, la suite $v$ est décroissante. Par ailleurs, nous remarquons que 
+\startformula
+\Align{
+\NC v_n=\NC\displaystyle  ∑_{k=1}^n{\ln(k)\F k}-{\ln(n)^2\F 2}\NR 
+\NC \NC\displaystyle  =∑_{k=1}^n{\ln(k)\F k}{\ln(n)^2-\ln(1)^2\F 2}\NR
+\NC \NC\displaystyle  =∑_{k=1}^n{\ln(k)\F k}-\int_1^n{\ln(t)\F t}\d t\NR
+\NC \NC\displaystyle  =∑_{k=1}^n{\ln(k)\F k}-∑_{k=1}^{n-1}\int_k^{k+1}{\ln(t)\F t}\d t\NR
+\NC \NC\displaystyle  =\underbrace{{\ln(n)\F n}}_{⩾0}+ ∑_{k=1}^{n-1}\Q(\underbrace{{\ln(k)\F k}-\int_k^{k+1}{\ln(t)\F t}\d t}_{⩾0\text{ pour $k⩾3$}}\W)\NR
+\NC \NC\displaystyle  ⩾ ∑_{k=1}^2\Q({\ln(k)\F k}-\int_k^{k+1}{\ln(t)\F t}\d t\W)=c\NR 
+}
+\stopformula
+En conclusion, la suite $(v_n)_{n⩾3}$ est décroissante et minorée. Elle est doncconvergeante ({\it trop facile, z'ont même pas cherché à noyer le poisson})
+\stopList
+\item%5
+Soit $n⩾1$. Alors, nous remarquons que 
+\startformula
+\Align{
+\NC\displaystyle  S_{2n}=∑_{k=1}^{2n}u_k\NC =∑_{1⩽k⩽2n\atop k=2ℓ}u_k+∑_{1⩽k⩽2n\atop k=2ℓ+1}u_k\NR 
+\NC \NC\displaystyle  =∑_{ℓ=1}^n u_{2ℓ}+∑_{ℓ=1}^{n-1}u_{2ℓ+1}\NR 
+\NC \NC\displaystyle  =∑_{ℓ=1}^n {\ln (2ℓ)\F 2ℓ}-∑_{ℓ=1}^{n-1}{\ln(2ℓ+1)\F 2ℓ+1} 
+}
+\stopformula
+A fortiori, nous obtenons que
+\startformula
+\Align{
+\NC\displaystyle  S_{2n}+∑_{k=1}^{2n}{\ln(k)\F k}\NC\displaystyle  =
+S_{2n}+∑_{k=1\atop k=2ℓ}^{2n}{\ln(k)\F k}+∑_{k=1\atop k=2ℓ+1}^{2n}{\ln(k)\F k}\NR
+\NC \NC\displaystyle  =
+S_{2n}+∑_{ℓ=1}^n{\ln(2ℓ)\F 2ℓ}+∑_{ℓ=1}^{n-1}{\ln(2ℓ+1)\F 2ℓ+1}\NR
+\NC\NC\displaystyle  =2∑_{ℓ=1}^n{\ln(2ℓ)\F 2ℓ}\NR
+\NC\NC\displaystyle  =2∑_{ℓ=1}^n{\ln(2)+\ln(ℓ)\F 2ℓ}\NR
+\NC\NC\displaystyle  =2∑_{ℓ=1}^n{\ln(2)\F 2ℓ}+2∑_{ℓ=1}^n{\ln(ℓ)\F 2ℓ}\NR
+\NC\NC\displaystyle  =\ln(2)∑_{ℓ=1}^n{1\F ℓ}+∑_{ℓ=1}^n{\ln(ℓ)\F ℓ}\NR
+}
+\stopformula
+En soustrayant $\displaystyle  ∑_{k=1}^{2n}{\ln(k)\F k}$ de chaque coté, il vient alors 
+\startformula
+\Align{
+\NC S_{2n}\NC\displaystyle  =\ln(2)∑_{ℓ=1}^n{1\F ℓ}+∑_{ℓ=1}^n{\ln(ℓ)\F ℓ}-∑_{k=1}^{2n}{\ln(k)\F k}\NR
+\NC \NC\displaystyle  = \ln(2)∑_{k=1}^n{1\F k} + \Q(v(n)+{\ln(n)^2\F 2}\W)-\Q(v(2n)+{\ln(2n)^2\F 2}\W)\NR 
+\NC \NC\displaystyle  = \ln(2)∑_{k=1}^n{1\F k} + v(n)-v(2n)+{\ln(n)^2\F 2}-{(\ln(2)+ln(n)^)2\F 2}\NR 
+\NC \NC\displaystyle  =\ln(2)∑_{k=1}^n{1\F k}+v_n-v_{2n}-{\ln(2)^2\F 2}-\ln(2)\ln(n)
+}
+\stopformula
+\item Il résulte de la définition de la suite $w$ et de  la relation précédente que 
+\startformula
+S_{2n}=\ln(2) w_n+v_n-v_{2n}-{\ln(2)^2\F 2}\qquad(n⩾1)
+\stopformula
+On $w_n=γ+o(1)$ et comme la suite $v$ converge vers une limite finie $ℓ$ d'après la question 4c, il en est de même pour la suite $(v_{2n})_{n⩾1}$. 
+De sorte, qu'en faisant tendre $n$ vers $+∞$ dans la relation précédente, obtenons que 
+\startformula
+∑_{n=1}^{+∞}(-1)^n{\ln(n)\F n}=\lim_{n→+∞}S_{2n}=γ\ln(2)+ℓ-ℓ-{\ln(2)^2\F 2}=γ\ln(2)-{\ln(2)^2\F 2}.
+\stopformula
+
+\stopList
+\blank[medium]
+\centerline{\bf EXO 3 extrait de EML lyon 2018}
+Soit $n⩾2$. Pour tout polynôme $P$ de $R[X]$, on pose 
+\startformula
+φ(P)={1\F n}X(1-X)P'+XP
+\stopformula
+\startList
+\item \startList
+\item \startitemize[1]
+\item $ℝ_n[X]$ et $ℝ[X]$ sont des $ℝ$-espaces vectoriels de référence
+\item Pour $P∈ℝ_n[R]$, ${1\F n}X(X-1)P'$ est un polynôme de $ℝ[X]$ (de degré $⩽n+1$), de même que $XP$. 
+De sorte que $φ(P)∈ℝ_{n+1}[X]⊂ℝ[X]$. On a donc bien une application de $ℝ_n[X]$ dans $ℝ[X]$. 
+\item Soient $(λ,μ)∈ℝ^2$ et $(P,Q)∈ℝ_n[X]^2$. On remarque que 
+\startformula
+\Align{
+\NC φ(λP+μQ)\NC\displaystyle  ={1\F n}X(X-1)(λP+μQ)'+X(λP+μQ)\NR
+\NC\NC\displaystyle  = {1\F n}X(X-1)(λP'+μQ')+X(λP+μQ)\NR
+\NC\NC\displaystyle  = λ\Q({1\F n}X(X-1)P'+XP\W)+μ\Q({1\F n}X(X-1)Q'+XQ\W)\NR
+\NC \NC = λφ(P)+μφ(Q)
+}
+\stopformula
+\stopitemize
+En conclusion, on a bien une application linéaire de $ℝ_n[X]$ dans $ℝ[X]$
+\item On a $φ(X^n)={1\F n}X(1-X)nX^{n-1}+X^{n+1}=-X^{n+1}+X^n+X^{n+1}=X^n$. 
+\item Pour cela, il suffit de prouver que $φ(ℝ_n[X])⊂ℝ_n[X]$, ce qui nous permet de restreindre l'application linéaire du a) à l'arrivée à $ℝ_n[X]$.
+Soit $P∈ℝ_n[X]$. Alors il eixte un (unique) nombe réel $λ$ et un polynôme $Q∈ℝ_{n-1}[X]$ tel que 
+\startformula
+P=λX^n+Q
+\stopformula
+Et alors $φ(P)=λφ(X^n)+φ(Q)$
+Comme $\deg Q⩽n-1$ et $\deg(Q')⩽\deg(Q)-1⩽n-2$, nous remarquons que $\deg (φ(Q))⩽n$. 
+A fortiori, $φ(P)∈ℝ_n[X]$. On a bien un endomorphisme de $ℝ_n[X]$. 
+\stopList
+\item Pour déterminer la matrice $A$ de $φ$ dans la base canonique $ℬ$ de $ℝ_n[X]$, on calcule 
+\startformula
+\Align{
+\NC φ(X^k)\NC\displaystyle  ={1\F n}X(1-X)kX^{k-1}+X^{k+1}\NR
+\NC\NC\displaystyle  ={k\F n}X^k-{k\F n}X^{k+1}+X^{k+1}\NR
+\NC \NC\displaystyle  ={k\F n}X^k+{n-k\F n}X^{k+1}\qquad(0⩽k⩽n)
+	}
+\stopformula
+A fortiori, cela donne la (grosse) matrice
+\startformula
+\Matrix{
+\NC 0 \NC 0      \NC   \NC ⋯\NC ⋯\NC 0\NR
+\NC 1 \NC {1\F n}\NC ⋱\NC   \NC \NC ⋮\NR
+\NC 0\NC {n-1\F n}\NC {2\F n}\NC ⋱\NC\NC⋮\NR
+\NC ⋮\NC ⋱\NC⋱    \NC ⋱\NC ⋱ \NC\NR
+\NC ⋮\NC \NC ⋱\NC {2\F n}\NC {n-1\F n}\NC 0\NR
+\NC 0\NC ⋯\NC ⋯\NC 0\NC {1\F n}\NC 1
+}
+\stopformula
+Cette matrice est de rang $n$ (on fait $n$ pivots successifs sur les colonnes en utilisant $C_1$ puis $C_2$ jusqu'à $C_n$)
+\item \startList
+\item L'endomorphisme $φ$ ne peut pas être injecti d'après le théorème du rang $\dim_ker(φ)=\dim(ℝ_n[X]-\rg(φ)=n+1-n=1$.
+Et donc $\ker φ≠\{0\}$. 
+\item Soit $P≠0$ un polynôme de $\ker(φ)$. Alors, on a 
+\startformula
+\Align{
+\NC P∈\ker φ\NC ⟺φ(P)=0\NR
+\NC\NC ⟺ {1\F n}X(1-X)P'+XP=0\NR
+\NC\NC ⟺P=-{1\F n}(X-1)P'
+}
+\stopformula
+Si $z$ est une racine de multiplicité $m$ de $P$, nous savons que $z$ est une racine de multiplicité $m-1$ de $P'$. 
+Il découle alors de l'identité précédente que $z$ est nécessairement égale à $1$ (sinon, $z$ ne peut pas être racine de $P$ de multiplicité $m$).
+A fortiori, la seule racine possible pour $P$ est $1$ De sorte que $P=λ(X-1)^k$. Et alors, comme 
+$0=φ(P)={1\F n}X(1-X)P'+XP={1\F n}X(X-1)λk(X-1)^{k-1}+λX(X-1)^k$, nous obtenons que 
+\startformula
+0=λX\Q(-{k\F n}+1\W)(X-1)^k
+\stopformula
+En particulier, comme $λ≠0$, nous avons ncéssairement $k=n$ de sorte que $P=λ(X-1)^n$. Réciproquement, nous remarquons que $φ\big((X-1)^n\big)=0$. 
+En conclusion $ \ker(φ)=\Vect\big((X-1)^n\big)$
+Montrer que $P$ admet $1$ comme unique racine (dans $ℂ$) et que $P$ est de degré $n$. 
+\item $(X-1)^n$ est une base de $\ker(φ)$, d'après le résultat de la proposition précédente
+\item Pour $k∈⟦0, n⟧$, on pose $P_k=X^k(1-X)^{n-k}$ et on remarque que 
+\startformula
+\Align{
+\NC φ(P_k)\NC \displaystyle ={1\F n}X(1-X)P_k'+XP_k\NR
+\NC \NC \displaystyle = {1\F n}X(1-X)(X^k(1-X)^{n-k})'+XX^k(1-X)^{n-k}\NR
+\NC \NC \displaystyle = {1\F n}X(1-X)(kX^{k-1}(1-X)^{n-k}-(n-k)X^k(1-X)^{n-k-1})+X^{k+1}(1-X)^{n-k}\NR
+\NC \NC \displaystyle = {k\F n}X^k(1-X)^{n-k+1}-{n-k\F n}X^{k+1}(1-X)^{n-k}+X^{k+1}(1-X)^{n-k}\NR
+\NC \NC \displaystyle = {k\F n}X^k(1-X)^{n-k+1}+{k\F n}X^{k+1}(1-X)^{n-k}\NR
+\NC \NC \displaystyle = {k\F n}(1-X + X )X^k(1-X)^{n-k}={k\F n}X^k(1-X)^{n-k}\NR
+\NC\NC \displaystyle = {k\F n}P_k
+}
+\stopformula
+{\it Le sujet nous a fait trouver des vecteurs propres (le polynôme $P_k$) associés à des valeurs propres (le nombre réel ${k\F n}$). C'est un grand classique ECS2}
+\item Montrons que la famille $(P_0, P_1, …, P_n)$ forme une base de $ℝ_n[X]$ {\it En ECS2, on dirait simplement que c'est une famille de vecteurs propres associés à des valeurs propres distinctes $2$ à $2$. En ECS1, il faut travailler un peu plus.}
+Soient $(λ_0, ⋯,λ_n)∈ℝ^{n+1}$ tel que 
+\startformula
+0=∑_{k=0}^nλ_kP_k=∑_{k=0}^nλ_kX^k(1-X)^{n-k}
+\stopformula
+En substituant $0$ à $X$, nous obtenons alors que $0=∑_{k=0}^nλ_k0^k=λ_0$. En reportant dans l'identité initiale, il vient 
+\startformula
+0=∑_{k=1}^nλ_kP_k=∑_1{k=0}^nλ_kX^k(1-X)^{n-k}=X∑_{k=1}^nλ_kX^{k-1}(1-X)^{n-k}
+\stopformula
+De sorte que 
+\startformula
+0=∑_{k=1}^nλ_kX^{k-1}(1-X)^{n-k}
+\stopformula
+Et on peut recommencer à substituer $0$ à $X$ pour montrer que $λ_1=0$, puis $λ_2=0$, etc...
+A la fin, on prouve (par récurrence finie) que $λ_0=⋯=λ_n=0$ de sorte que la famille $\mc C=(P_0, ⋯,P_n)$ est libre.
+Comme c'est une famille de $n+1$ vecteurs de polynômes de $ℝ_n[X]$, qui est de dimension $n+1$, c'en est une base.
+Enfin, du fait de la relation $φ(P_k)={k\F n}P_k$, la matrice de $φ$ dans cette noluvelle base est diagonale {\it c'est l'interet de la diagonalisation ECS2 que nous venons de faire à notre insu}
+\startformula
+\mc Mat_{\mc C}(φ)=\Matrix{
+\NC 0\NC 0\NC ⋯\NC 0\NR
+\NC 0\NC {1\F n}\NC ⋱\NC ⋮\NR
+\NC ⋮\NC⋱\NC ⋱\NC 0\NR
+\NC 0\NC ⋯\NC 0 \NC {n\F n}
+}
+\stopformula
+\stopList
+\stopList
+{\it Un sujet pas trop dur (comparativement aux autres qu'on a fait en DS... une difficulté due à la dimension $n+1$ en algèbre linéaire.
+	Pour les probas, il faut connaitre son binôme de Newton, ses coeffs du binôme, les sommes telescopiques, pour l'analyse les sommes, les primitives et les dls, ça aide}
+\stoptext
+\stopcomponent
+\endinput

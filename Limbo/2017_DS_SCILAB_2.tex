@@ -1,0 +1,121 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+\setupitemgroup[List][1][n,inmargin][after=,before=,left=,symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+
+\defineframedtext
+  [framedcode]
+  [strut=yes,
+   offset=2mm,
+   width=7cm,
+   align=right]
+
+\definetyping[code][numbering=line,
+                    bodyfont=small,
+                    before={\startframedcode},
+                    after={\stopframedcode}]
+\iftrue
+\page
+\centerline{\bfb DEVOIR SCILAB 1 (1 heure)}
+\blank[big]
+
+\startList
+% implémenter une dichotomie
+% ecrire un programme pour trouver le 7 eme term d'une suite
+% input
+% if
+% test if even
+
+% Analyze
+\item\startList\item Que va afficher le programme suivant : 
+\startcode
+u=0
+v=1
+for k=2:5
+   w = 2*u+v
+   u = v
+   v = w
+   disp(w)
+end
+\stopcode
+\item Que se passe t'il, sur le plan mathématique, dans ce programme ?
+\item Modifier le programme pour qu'il compte et affiche combien de fois $v=2u-1$. 
+\item Transformer le programme initial en fonction \quote{calcul} prennant un entier $n$ et retournant le nombre $v$ que l'on obtiendrait si la boucle allait jusqu'à $k=n$. 
+% completer un programme
+% deviner l'affichage
+\item Mathématiquement, exprimez en fonction de $n$ le nombre $calcul(n)$. 
+
+\stopList
+
+\item Ecrire un programme demandant à l'utilisateur le nombre de questions $n$ qu'il pense avoir fausses à ce devoir et affichant :
+\startitemize[1]
+\item \quote{pessimiste !} pour $n⩾9$
+\item \quote{optimiste !} pour $n⩽1$
+\item \quote{attentif ?} pour $1\Le n⩽4$
+\item \quote{réaliste ?} sinon
+\stopitemize
+
+% input, for 
+\item Ecrire un programme demandant des entiers $n$ et $p$ à l'utilisateur, puis affichant la valeur de la somme $∑_{k=1}^np^k$. 
+
+% while
+\item La suite récurrente définie par $u_0=0$ et $u_{n+1}={u_n^2+1\F 2}$ pour $n⩾0$ est croissante 
+et tends vers $1$. Ecrire un programme affichant le premier indice pour lequel $u_n⩾ {9\F 10}$ et la valeur $u_n$ correspondante.
+
+% function ou function & if
+\item Ecrire une fonction divise(a,b) permettant de déterminer si la division d'un entier $a$
+par un entier $b$ est un nombre entier ou non. La fonction devra renvoyer \%t (pour vrai) ou \%f (pour faux).
+
+% function & for
+\item Ecrire une fonction  \quote{sommeDesDiviseurs} calculant la somme des diviseurs d'un nombre entier 
+(le programme pourra utiliser la fonction \quote{divise} de la question précédente)
+
+% for 
+\item Deux nombres distincts $m$ et $n$ sont dits amis si la somme des diviseurs de $m$ (autres que $m$) est égale
+à $n$ et si la somme de tous les diviseurs de $n$ (autres que $n$) est égale à $m$. Par exemple 220 et 284 sont des nombres amis car 
+\startformula
+\Align{[align={left, left}]
+\NC 220 = 220×1 = 110×2 = 55×4= 20 × 11  \NC = 142 + 71 + 4 + 2 + 1\NR 
+\NC 284 = 284×1 = 142×2 = 71×4 \NC=  110 + 55 + 20 + 11 + 4 + 2 + 1\NR}
+\stopformula
+Ecrire un programme qui affiche tous les couples de nombres amis entre 1 et 1000.\crlf
+(le programme pourra utiliser la fonction \quote{sommeDesDiviseurs} de la question précédente)
+% for
+% while
+% function
+% analyze
+% modify
+% big programm
+
+\stopList
+
+\stoptext
+\stopcomponent
+\endinput

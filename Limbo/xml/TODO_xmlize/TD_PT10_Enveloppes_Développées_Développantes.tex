@@ -1,0 +1,58 @@
+\catcode`@=11\relax
+
+\input LD@Maths@TD.tex
+
+\vglue-10mm\rightline{Spé PT\hfill TD 10 :  Enveloppes, développées, dévelopantes\hfill}
+\bigskip
+
+\Section dev, Développée. 
+
+\noindent{\bf But. }soient $I$ un intervalle et $f:t\mapsto\b(\alpha(t),\beta(t)\b)$ 
+un arc plan régulier~et~$\sc C^1$~sur~$I$. Pour~$t\in I$,
+on note $\Delta_t$ la droite normale à l'arc $(I,f)$ en $f(t)$ 
+(la droite perpendiculaire à la tangente de $(I,f)$ en $f(t)$, passant par $f(t)$) 
+$$
+\underbrace{-\beta'(t)}_{a(t)}x+\underbrace{\alpha'(t)}_{b(t)}y=
+\underbrace{-\beta'(t)\alpha(t)+\alpha(t)\beta(t)}_{c(t)}.\leqno{(\Delta_t)}
+$$ 
+On cherche l'enveloppe de la famille de droite $(\Delta_t)_{t\in I}$, 
+c'est à dire un arc $\eqalign{\Gamma:I&\to\sc P\cr t&\mapsto M(t)}$ \vskip-1.2em\noindent
+tel que $\Delta_t$ soit 
+la tangente à l'arc $(I,f)$ au point $M(t)=\b(x(t),y(t)\b)$. 
+\bigskip\goodbreak
+
+La développée d'une courbe paramétrée est l'enveloppe 
+de ses droites normales. \bigskip
+
+\Theoreme [$f:t\mapsto(\alpha(t),\beta(t))$ arc plan birégulier de classe $\sc C^2$ sur $I$]
+L'arc $(I,f)$ possède au plus une développée. Si elle existe, c'est l'arc 
+$\eqalign{\Gamma:&I\to\sc P\cr t&\mapsto C(t)}$ \vskip-1em\noindent où $C(t)$~est 
+le centre de courbure de l'arc $(I,f)$ en $f(t)$. 
+$$
+C(t)=f(t)+r_c(t)\vec N(t)\qquad(t\in I). 
+$$
+
+\Subsection dev, Développante. 
+\bigskip
+
+\noindent{\bf But. }soient $I$ un intervalle et $f:I\to\sc P$ 
+un arc plan régulier~et~$\sc C^1$~sur~$I$. 
+Pour~$t\in I$, on note $\Delta_t$ la tangente à l'arc $(I,f)$ en $f(t)$. 
+On cherche un arc $\Gamma:t\mapsto M(t)$ régulier de classe $\sc C^1$ tel que, pour chaque $t\in I$, 
+la droite $\Delta_t$ soit la normale au point $M(t)$ de l'arc $\Gamma$. 
+Autrement dit, on cherche un arc $\eqalign{\Gamma:&I\to\sc P\cr t&\mapsto M(t)}$ 
+de classe $\sc C^1$ régulier tel que la développée de $(I,\Gamma)$ soit $(I,f)$. 
+\bigskip
+
+\Definition Un tel arc $(I,\Gamma)$ est appelé une développante de l'arc $(I,f)$. 
+\bigskip
+
+\Theoreme [$f:I\to\sc P$ arc plan birégulier de classe $\sc C^2$ et $O\in\sc P$] 
+Les développantes de $(I,f)$ sont de la forme $\Gamma_k:t\mapsto M(t)$ avec 
+$$
+\vec {OM(t)}=\vec{Of(t)}+(k-s(t))\vec T
+$$ 
+où $s(t)$ est l'abscisse curviligne. De plus, si $s(t)\neq k$ pour $t\in I$, 
+l'arc $\Gamma_k$ est une développante de $(I,f)$. 
+
+\bye

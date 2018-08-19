@@ -1,0 +1,238 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\%blank[big]}]
+%\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][4][1,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iftrue
+
+\page
+\centerline{\bfb DEVOIR SURVEILLE 8}
+\blank[big]
+
+\setupitemgroup[List][1][n][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][i,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+
+\centerline{\bf Exercice 1 (Edhec S)}%2004
+
+Dans tout le problème, $n$ désigne un entier de $ℕ$
+ \blank[medium]
+{\bf Partie 1} 
+On considère l'application $w$ qui à tout élément $P$ de $ℝ_n[X]$ associe 
+\startformula
+w(P)=\big(\Q(X^2-X\W)P\big)''
+\stopformula
+\startList
+\item Montrer que $w$ est un endomorphisme de $ℝ_n[X]$
+\item Pour $0⩽k⩽n$, déterminer $w(X^k)$
+\item Déterminer la matrice $A$ de l'application $w$ dans la base canonique de $ℝ_n[X]$
+\item Qu'en déduit-on ?
+\item Soit $\mc N_n=\{P∈ℝ_n[X]:P(0)=0=P(1)\}$.
+\startList
+\item Montrer que $ \mc N_n$ est un sous-espace vectoriel de $ℝ_n[X]$
+\item Pour $k∈ℕ$, on pose $Q_k=X^{k+1}(X-1)$. Montrer que $\mc C=(Q_0,⋯,Q_n)$ est une base de $\mc N_{n+2}$. 
+\item On considère l'application linéaire $v$ de $\mc N_{n+2}$ dans $ℝ_n[X]$ défini par
+\startformula
+v(P)=P''\qquad(P∈\mc N_{n+2})
+\stopformula
+Déterminer $v(Q_k)$ pour $0⩽k⩽n$ puis en déduire que $A$ est la matrice de $v$ relativement à la base $\mc C$ (départ) et à la base canonique de $ℝ_n[X]$ (arrivée).
+\stopList
+\stopList
+\blank[medium]
+{\bf Partie 2. \it Conseil : dans les EV de fonctions  bien traduire les identités fonctionnelles du style $f=g$ en égalités concrètes avec des $x$ du style $f(x)=g(x)$ pour $x∈ℝ$}\blank[small]
+On rappelle que l'ensemble des fonctions de classe $\mc C^n$ de $ℝ$ dans $ℝ$ est noté $\mc C_n(ℝ)$ et l'on pose $\mc N=\{f∈\mc C_2(ℝ):f(0)=0=f(1)\}$
+\startList
+\item Montrer qu'on définit une application linéaire injective $u:\mc N→\mc C_0(ℝ)$ en posant
+\startformula
+u(f)=f''\qquad(f∈ \mc N)
+\stopformula
+\item Soit $g∈\mc C_0(ℝ)$. Pour $x∈[0,1]$, on pose $\displaystyle G(x)={1\F 2}\int_0^1|x-t|g(t)\d t$
+\startList
+\item Justifier que $G$ est un élément de $\mc C_1(ℝ)$ et montrer que 
+\startformula
+G'(x)={1\F 2}\Q(\int_0^xg(t)\d t+\int_1^xg(t)\d t\W)\qquad(0⩽x⩽1)
+\stopformula
+\item En déduire que $G$ est un élément de $\mc C_2(ℝ)$ et que $G''=g$.
+\item Pour $0⩽x⩽1$, on pose $H(x)=G(x)+ax+b$. Déterminer les réels $a$ et $b$ (sous forme d'intégrales) pour que $H$ appartienne à $\mc N$.
+\item Déterminer $u(H)$ puis en déduire que $u$ est surjective
+\item Que peut on en conclure ?
+\stopList
+\item Vérifier alors que pour tout $g∈\mc C_0(ℝ)$
+\startformula
+u^{-1}(g)(x)={1\F 2}\int_0^1|x-t|g(t)\d t-{1\F 2}\int_0^1tg(t)\d t-{x\F 2}\int_0^1(1-2t)g(t)\d t\qquad (0⩽x⩽1)
+\stopformula
+\stopList
+
+
+\blank[big]\goodbreak
+\centerline{\bf Exercice 2 (Ecricom)}%2007
+Soit $f$ la fonction définie sur $ℝ$ par $f(x)=\System{
+\NC 2\e^{-2(x-1)}\NC (x⩾1)\NR
+\NC 0\NC \text{sinon}
+}$
+\startList\item Montrer que $f$ est bien une densité de variable aléatoire.
+On considère dorénavant une variable aléatoire $X$ de densité $f$.
+\item Déterminer la fonction de répartition de $X$.
+\item On pose $Z = X − 1$. Reconnaître la loi de $Z$.
+\item Simultation : \startList
+\item Soit $U$ une variable de loi uniforme sur $[0, 1[$. Rappeler la fonction de répartition de $U$.
+\item Déterminer la loi de la variable $V=-{1\F 2}\ln(1-U)$
+\item En déduire, à l'aide de la syntaxe {\it rand()}, un programme scilab simulant $X$
+\stopList
+\stopList
+
+\iffalse
+
+\centerline{Exercice 2 (edhec S)}%edhec 2015
+Pour $n∈ℕ^*$, on pose $I_n=\int_1^∞{\d x\F x^n(x+1)}$
+\startList
+\item Vérifier que $I_n$ est une intégrale convergente
+\item \startList
+\item Déterminer les réels $a$ et $b$ tels que 
+\startformula
+{1\F x(x+1)}={a\F x}-{b\F x+1}\qquad (x∈ℝ\ssm\{-1,0\})
+\stopformula
+\item En déduire la valeur de $I_1$. 
+\stopList
+\item\startList
+\item Pour $n⩾2$, montrer que $\displaystyle 0⩽I_n⩽{1\F 2(n-1)}$
+\item En déduire l'existence et la valeur de $\lim_{n→+∞}I_n$.
+\stopList
+\item\startList
+\item Pour $n∈ℕ^*$, calculer $I_n+I_{n+1}$
+\item Montrer que la suite $(I_n)_{n∈ℕ^*}$ est décroissante
+\item En déduire un équivalent de $I_n$ puis donner la nature de la série de terme général $I_n$
+\stopList
+\item Pour $n∈ℕ$, on pose $J_n=\int_1^∞{\d x\F x^n(x+1)^2}$.
+\startList
+\item Montrer que $J_n$ est une intégrale convergente
+\item Calculer $J_0$
+\stopList
+\item\startList
+\item Pour $k∈ℕ^*$, exprimer $J_k+J_{k-1}$ en fonction de $I_k$.
+\item Pour $n∈ℕ^*$, déterminer alors l'expression de $∑_{k=1}^n(-1)^{k-1}I_k$ en fonction de $J_n$.
+\item Pour $n⩾2$, montrer que $\displaystyle 0⩽J_n⩽{1\F 4(n-1}$. Donner la valeur de $\displaystyle\lim_{n→+∞}J_n$.
+\stopList
+\item A l'aide des questions 4a) et 6a), compléter les commandes Scilab suivantes afin qu'elles permettent le calcul de $I_n$^et $J_n$ pour une valeur de $n$, supérieure ou égale à $2$, entrée par l'utilisateur
+\starttyping
+n=input('entrez une valeur de n supérieure ou égale à 2 : ')
+I = log(2); J=1/2; J = -----
+for k=2:n
+   I=------;J=-------;
+end
+disp(I, 'La valeur de I est : ')
+disp(J, 'La valeur de J est : ')
+\stoptyping
+\stopList
+
+
+\fi
+\blank[big]
+\centerline{\bf Probleme (Escp/Hec)}
+
+Dans tout le problème
+\startSet
+\item On note $(Ω,\mc A, P)$ un espace probabilisé et $X$ une variable aléatoire définie sur $(Ω,\mc A)$, à valeurs dans $ℝ^+$.
+\item Toutes les variables aléatoires intervenant dans le problème sont définies sur le même espace $(Ω, \mc A)$, qui est sauf mention contraire, muni de la probabilité $P$. 
+\item On note $S_X$ la fonction définie sur $ℝ$ à valeurs réelles par 
+\startformula
+S_X(x)=P(X>x)\qquad(x∈ℝ)
+\stopformula
+\stopSet
+{\bf Partie I. Probabilité de surpassement et espérance}
+\startList
+\item On suppose uniquement dans cette question que $X$ suit la loi exponentielle $\Epsilon(λ)$ avec $λ>0$. 
+\startList
+\item Vérifier l'égalité $E(X)=\int_0^{+∞}S_X(x)\d x$
+\item Donner l'allure de la courbe représentative de la fonction de répartition $F$ de $X$ 
+et interpréter $E(X)$ en terme d'aire grace à la formule précédente.
+\stopList
+\item Soit $h$ la fonction définie sur $ℝ^+$ par $\displaystyle h(x)={1\F (x+1)(x+2)}$.
+\startList
+\item Justifier la convergence de l'intégrale $\displaystyle \int_0^∞h(x)\d x$
+\item Déterminer deux réels $c$ et $d$ vérifiant
+\startformula
+h(x)={c\F x+1}+ {d\F x+2}\qquad(x⩾0)
+\stopformula
+En déduire une primitive de $h$ sur $ℝ^+$. 
+\item Montrer que l'on définit une densité de probabilité en posant 
+\startformula
+f_0(x)=\System{
+\NC {1\F (x+1)(x+2)\ln 2}\NC \Si x⩾0\NR
+\NC 0\NC \text{sinon}}
+\stopformula
+\stopList
+\item On suppose dans cette question que $X$ admet pour densité la fonction $f_0$ du 2c)
+\startList
+\item La variable aléatoire $X$ admet-elle une esperance ?
+\item Pour $x∈ℝ$, calculer $S_X(x)$ et en trouver un équivalent lorsque $x→+∞$. 
+\item Etudier la convergence de l'intégrale $\displaystyle \int_0^{+∞}S_X(x)\d x$.
+\stopList
+\item \startList
+\item Justifier la monotonie de la fonction $S_X$ et en trouver la limite en $+∞$. 
+\item Montrer que $S_X$ est continue à droite. A quelle condition est-elle continue en~$0$ ?
+\stopList
+\item Dans cette question, on suppose que $X$ admet une densité $f$ nulle sur $]-∞,0]$, continue sur $]0,+∞[$ (mais non nécessairement en $0$)
+\startList
+\item Montrer que la fonction $S_X$ est continue sur $ℝ$ et de classe $\mc C^1$ sur $]0,+∞[$
+\item Justifier la convergence de l'intégrale $\displaystyle \int_0^1xf(x)\d x$
+\item Pour $A⩾0$, établir l'égalité $\displaystyle \int_0^AS_X(x)\d x=AS_X(A)+\int_0^Axf(x)\d x$
+\item En déduire que si l'intégrale $\displaystyle \int_0^{+∞}S_X(x)\d x$ est convergente,  alors $X$ admet une espérance
+\item Si $X$ admet une espérance, montrer que $\displaystyle\int_A^{∞}xf(x)\d x⩾AS_X(A)$~pour~$A⩾0$. 
+\item Déduire des résultats précédents que $X$ admet une espérance si et seulement si l'intégrale $\displaystyle \int_0^{+∞}S_X(x)\d x$ est convergente et que dans ce cas, on a 
+\startformula
+E(X)=\int_0^{+∞}S_X(x)\d x
+\stopformula
+\stopList
+\item Dans cette question, on suppose que $X$ est discrète et à valeurs dans $ℕ$
+\startList
+\item Pour $n∈ℕ$, établir que 
+\startformula
+∑_{k=0}^nS_X(k)=(n+1)P(X⩾n+1)+∑_{k=0}^nP(X=k)
+\stopformula
+\item En déduire que si la série de terme général $S_X(n)$ est convergente, alors $X$ admet une espérance. 
+\item Montrer que $X$ admet une espérance si et seulement si la série de terme général $S_X(n)$ est convergente, et que dans ce cas, 
+\startformula
+E(X)=∑_{n=0}^{+∞}S_X(n)
+\stopformula
+\item On suppose que $X$ admet une espérance
+\startList
+\item Pour $N∈ℕ$, exprimer l'intégrale $\displaystyle \int_0^NS_X(x)\d x$ à l'aide d'une somme partielle de la série de terme général $S_X(n)$
+\item En déduire que $\displaystyle E(X)=\lim_{A→+∞}\int_0^AS_X(x)\d x$. 
+\stopList
+\stopList
+\stopList
+
+
+
+\stoptext
+\stopcomponent
+\endinput

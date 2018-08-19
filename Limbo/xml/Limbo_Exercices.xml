@@ -19576,7 +19576,7 @@ déterminer le nombre de mains de 5 cartes
 <solution>
 \startList\item On remarque que $J^2=\startMatrix
 \NC 4\stopMatrix=4 J $ et que  $J^3=\startMatrix\NC 16\stopMatrix=4^2 J $. Pour $n⩾1$, on prouve alors par récurrence la propriété $\mc P_n:J^n=4^{n-1}J$.
-$\mc P_1$, $\mc P_2$ et $\mc P_3$ sont vraies. Supposons $\mc P_n$ pour un entier $n⩾1$. Alors nous remarquons que 
+$\mc P_1$, $\mc P_2$ et $\mc P_3$ sont vraies. Supposons $\sc P_n$ pour un entier $n⩾1$. Alors nous remarquons que 
 $$
 J^{n+1}=J^n×J=4^{n-1}J×J=4^{n-1}J^J2=4^{n-1}×4J=4^nJ.
 $$
@@ -20381,7 +20381,7 @@ $h$ n'est pas surjective car $x^2+4x=(x+2)^2-4⩾-4$ de sorte que $h(ℝ)⊂[-4,
 \stopformula
 Par la méthode de résolution d’équation, montrer que $g$ déﬁnit une bijection de $ℝ^+$ sur $ℝ^+$ 
 et déterminer $g^{-1}$. 
-\item Retrouver le résultat sur la bijection $g$ en utilisant le théorème de la bijection.
+\item Retrouver le résultat sur la bijection de $g$ en utilisant le théorème de la bijection.
 \stopList
 </text>
 <solution>\startList\item La fonction $f$ est définie et dérivable sur $ℝ∖\{-2\}$. Sa dérivée, qui vaut   
@@ -20396,7 +20396,7 @@ $f'(x)$,{[nc=2]$+$},$0$,{[nc=2]$-$},,{[nc=2]$-$},$0$,{[nc=2]$+$},\\
 ,,,$12$,,,,$+∞$,,,,$+∞$\\
 $f(x)$,,$↗$,,$↘$,,,,$↘$,,$↗$,\\
 ,$-∞$,,,,$-∞$,,,,$0$,,,}
-\item Il résulte du tableau de variation (et du théorème des valeurs intermediaires) que l'équation $f(x)=1$ a deux antécédents : l'un dans $]-2,0[$ et l'autre dans $]0,+∞[$. 
+\item Il résulte du tableau de varaition (et du théorème des valeurs intermediaires) que l'équation $f(x)=1$ a deux antécédents : l'un dans $]-2,0[$ et l'autre dans $]0,+∞[$. 
 A fortiori, $f$ n'est pasinjective sur $]-2,+∞[$. 
 \item De même, il résulte du tableau de variation que $f(]-2,+∞[)=ℝ^+≠ℝ$. A fortiori, $f$ n'est pas une surjection de $]-2,+∞[$ sur $ℝ^+$.
 \item Etant donné $y∈ℝ⁺$, nous remarquons d'une part que $y-\sqrt{24y+y²}\Le0$ 
@@ -21292,8 +21292,8 @@ x=(1,-1,1,1), \quad y=(0,1,1,-1), \quad u=(1,0,1,0), quad v=(1,-2,-1,2)\NR
 \NC w=(2,-1,1,1), \quad  k=(1,1,2,-1), \quad l=(1,1,0,0) \Et m=(0,0,1,1)
 \stopAlign
 \stopformula
-\startList\item Montrer que $\mc L=(x, y)$ est libre et que $\mc G= (u, v, w, k, l, m)$ est génératrice de $ℝ^4$. 
- \item Compléter $\mc L$ en base de $ℝ^4$ en puisant des vecteurs dans $\mc G$. 
+\startList\item Montrer que $\mc L=(x, y)$ est libre et que $\sc G= (u, v, w, k, l, m)$ est génératrice de $ℝ^4$. 
+ \item Compléter $\sc L$ en base de $ℝ^4$ en puisant des vecteurs dans $\mc G$. 
 \stopList
 </text>
 </exercise>
@@ -22067,8 +22067,10 @@ $[I K]$ et $[AC]$. Montrer que ces trois points sont alignés.
 </exercise>
 
 
-<exercise id="C182" m="e3" level="1" fight="1" learn="1" origin="" type="Colle">
-<field type="somme"/><text>Calculer $∑_{{0⩽j⩽n\atop j⩽i}\atop i-j⩽p}(i-j)^2$. </text>
+<exercise id="C182" level="1" fight="1" learn="1" origin="" type="Colle">
+<field type="somme"/><text>
+Calculer $ ∑_{{0⩽j⩽n\atop j⩽i}\atop i-j⩽p}(i-j)^2$. 
+</text>
 </exercise>
 
 <exercise id="C183" level="1" fight="1" learn="1" origin="" type="Colle">
@@ -22080,8 +22082,8 @@ Pour $n⩾1$ et $k⩾1$, montrer que $∑_{p=1}^n{(p-1)!\F (p+k)!}={1\F k×k!}-{
 <exercise id="C184" level="1" fight="1" learn="1" origin="" type="Colle">
 <field type="somme"/><text>
 \startList
-\item Pour $n⩾1$ et $p⩾1$, montrer que $∑_{i=0}^{n-1}{p+i\choose p}={p+n\choose p+1}$. 
-\item  En déduire $∑_{i=1}^n∏_{j=0}^{i-1}(i+j)$. 
+\item Pour $n⩾1$ et $p⩾1$, montrer que $∑_{i=0}^{n-1}{p+imadd\choose p}={p+n\choose p+1}$. 
+\item  En déduire $∑_{i=1}^n∏_{j=0}{i-1}(i+j)$. 
 \stopList
 </text>
 </exercise>
@@ -22215,7 +22217,7 @@ Montrer que $u_n ⩽ a^n u_0$ pour $n∈ℕ$.
 
 <exercise id="C201" level="1" fight="0" learn="1" origin="technicum" type="Colle">
 <field type="Matrices"/>
-<text>Résoudre dans $\mc M_2(ℝ)$ , l’équation $M² = 0$.</text>
+<text>Résoudre dans $\sc M_2(ℝ)$ , l’équation $M² = 0$.</text>
 </exercise>
 
 <exercise id="C202" level="1" fight="0" learn="1" origin="technicum" type="Colle">
@@ -22901,7 +22903,7 @@ On suppose que les probabilités des $a_i$ sont inversement proportionnelles à 
 <text>On considère l’univers $Ω = \{1, 2\}^3$ . Si $ω =(x, y, z)$ est un élément de $Ω$ , on pose $f (ω) = a(x +y + z) + b$ , où $a$ et $b$ sont deux réels fixés
 \startList
 \item ❛Déterminer une condition nécessaire et suffisante sur $a$ et $b$ 
-pour qu’il existe une probabilité $P$ sur $(Ω, \mc P (Ω))$ telle que $∀ω ∈ Ω,  P({ω}) =f (ω)$❜
+pour qu’il existe une probabilité $P$ sur $(Ω, \sc P (Ω))$ telle que $∀ω ∈ Ω,  P({ω}) =f (ω)$❜
 \item On pose $A = \{(x, y, z) ∈ Ω : x = 1\}$ et $B =\{(x, y, z) ∈ Ω : x = 2, y = 2\}$. 
 ❛Peut-on trouver $a$ et $b$ pour que, de plus, $P(A) =P(B)$❜
 \stopList</text>
@@ -22919,7 +22921,7 @@ pour qu’il existe une probabilité $P$ sur $(Ω, \mc P (Ω))$ telle que $∀ω
 
 <exercise id="Proba9" level="1" fight="0" learn="1" origin="technicum" type="Colle">
 <field type="Probabilités"/>
-<text>On considère l’espace probabilisable $\big(⟦0, 2n⟧ , \mc P(⟦0, 2n⟧)\big)$.
+<text>On considère l’espace probabilisable $\big(⟦0, 2n⟧ , \sc P(⟦0, 2n⟧)\big)$.
 \startList
 \item ❛Montrer qu’il existe un réel $λ$ et une probabilité $P$ définie sur cet espace tel que 
 $$
@@ -23851,13 +23853,13 @@ $$
 \stopList
 
 
-\item\startList\item Pour $n⩾1$, prouvons par récurrence la propriété $\mc P_n$ : $P_n$ est de degré $n$ et de coefficient dominant $1$, c'est à dire que 
-$P_n = X^n+R_n$ avec $\deg(R_n)\Le n$. Les propriétés $\mc P_k$ sont clairement vraies pour $1⩽k⩽5$ d'après les calculs précédents. Soit $n⩾1$ un entier tel que $\mc P_n$ et $\mc P_{n+1}$ soient vraies. 
+\item\startList\item Pour $n⩾1$, prouvons par récurrence la propriété $\sc P_n$ : $P_n$ est de degré $n$ et de coefficient dominant $1$, c'est à dire que 
+$P_n = X^n+R_n$ avec $\deg(R_n)\Le n$. Les propriétés $\sc P_k$ sont clairement vraies pour $1⩽k⩽5$ d'après les calculs précédents. Soit $n⩾1$ un entier tel que $\sc P_n$ et $\sc P_{n+1}$ soient vraies. 
 Alors, on a 
 $$
 P_{n+2} = XP_{n+1}-P_n=X(X^{n+1}+R_{n+1})-(X^n+R_n)=X^{n+2}+R_{n+2}
 $$
-avec $R_{n+2}=XR_{n+1}-X^n-R_n$ de degré strictement inférieur à $n+2$ d'où $\mc P_{n+2}$ est vraie.
+avec $R_{n+2}=XR_{n+1}-X^n-R_n$ de degré strictement inférieur à $n+2$ d'où $\sc P_{n+2}$ est vraie.
 \item\startList\item Pour $z≠0$, on a 
 \startformula
 \startAlign
@@ -23929,8 +23931,8 @@ Justifier que $Δ_n$ est un endomorphisme de $ℝ_n[X]$.
 \item On suppose $n=2$. 
 \startList
 \item Donner la matrice de $Δ_2$ dans la base canonique de $ℝ_2[X]$
-\item Montrer que la famille $\mc B'=\Q(1, X, {X(X-1)\over 2}\W)$ est une base de $ℝ_2[X]$, puis expliciter la matrice de passage de la base $\mc B$ vers la base $\mc B'$.
-\item Expliciter la matrice de $Δ_2$ dans la base $\mc B'$.
+\item Montrer que la famille $\sc B'=\Q(1, X, {X(X-1)\over 2}\W)$ est une base de $ℝ_2[X]$, puis expliciter la matrice de passage de la base $\sc B$ vers la base $\sc B'$.
+\item Expliciter la matrice de $Δ_2$ dans la base $\sc B'$.
 \stopList
 \stopList
 </text>
@@ -23953,16 +23955,16 @@ A fortioti, la restriction au départ et à l'arrivée de $Δ$ à $ℝ_n[X]$ est
 \item\startList
 \item Comme $Δ(1)=1-1=0$, $Δ(X)=(X+1)-X=1$ et $Δ(X^2)=(X+1)^2-X^2=2X+1$, nous obtenons que 
 $$
-\mc Mat_{\mc B} Δ_2=\startMatrix
+\sc Mat_{\sc B} Δ_2=\startMatrix
 \NC 0\NC 1\NC 1\NR
 \NC 0\NC 0\NC 2\NR
 \NC 0\NC 0\NC 0
 \stopMatrix
 $$
-\item La famille $\mc B'=\Q(1, X, {X(X-1)\over 2}\W)$ est une base de $ℝ_2[X]$ car c'est une famille de $3$ vercteurs de cet espace qui est libre (car échelonnée en degré, alternativement car son rang vaut 3). 
+\item La famille $\sc B'=\Q(1, X, {X(X-1)\over 2}\W)$ est une base de $ℝ_2[X]$ car c'est une famille de $3$ vercteurs de cet espace qui est libre (car échelonnée en degré, alternativement car son rang vaut 3). 
 \item Comme $Δ(1)=0$, $Δ(X)=1$ et $Δ((X^2-X)/2)={Δ(X^2)-Δ(X)\choose 2}=X$, nous remarquons que 
 $$
-\mc Mat_{\mc B'} Δ_2=\startMatrix
+\sc Mat_{\sc B'} Δ_2=\startMatrix
 \NC 0\NC 1\NC 0\NR
 \NC 0\NC 0\NC 1\NR
 \NC 0\NC 0\NC 0
@@ -23984,7 +23986,7 @@ $$
 $$
 \startList
 \item Déterminer, suivant la valeur du paramètre $a$, le rang de $S_a$
-\item Donner, en fonction de $a$, une base $\mc B_a$ de $V_a = \Vect(S_a)$
+\item Donner, en fonction de $a$, une base $\sc B_a$ de $V_a = \Vect(S_a)$
 \item Pour $a≠0$, montrer que $(\vec{v_1}(a), \vec{v_2}(a), \vec{v_3}(a), \vec{e_4})$ est une famille libre
 \item Montrer que $(\vec{v_1}(0), \vec{v_3}(0), \vec{e_1}, \vec{e_4})$ est une famille libre
 \item A l'aide des questions précédentes, compléter $B_a$ avec des vecteurs de la base canonique afin d'obtenir une base de $ℝ^4$. 
@@ -24031,11 +24033,11 @@ A fortiori, le rang de $S_a$ vaut $3$ si $a≠0$ et $2$ lorsque $a=0$.
 \item Lorsque $a=0$, la dimension de $V_a$ est $2$ de sorte qu'une base de $V_a$ est $\{(0,1,5,-1),(0,1,7,0) \})$.
 Lorsque $a≠0$, la dimension de $V_a$ est $3$ et l'on déduit de la relation de dépendance linéaire 
 $\vec{v_1}(a) + \vec{v_2}(a) =  \vec{v_3}(a) + \vec{v_4}(a)$ que $(\vec{v_1}(a), \vec{v_2}(a), \vec{v_3}(a))$ forme une base de $V_a$.
-Donner, en fonction de $a$, une base $\mc B_a$ de $V_a = \Vect(S_a)$
-\item Pour $a≠0$, nous notons $\mc F$ la famille $(\vec{v_1}(a), \vec{v_2}(a), \vec{v_3}(a), \vec{e_4})$ et nous remarquons que 
+Donner, en fonction de $a$, une base $\sc B_a$ de $V_a = \Vect(S_a)$
+\item Pour $a≠0$, nous notons $\sc F$ la famille $(\vec{v_1}(a), \vec{v_2}(a), \vec{v_3}(a), \vec{e_4})$ et nous remarquons que 
 $$
 \startAlign
-\NC\rg(\mc F) \NC = \rg \startMatrix
+\NC\rg(\sc F) \NC = \rg \startMatrix
 \NC a \NC 2a\NC 0\NC 0\NR
 \NC 1\NC -1\NC 1\NC 0\NR
 \NC 7\NC -7\NC 5\NC 0\NR
@@ -24067,10 +24069,10 @@ $$
 \stopMatrix=4
 \stopAlign
 $$
-A fortiori, $\mc F$ est une famille libre.
-\item Notant $\mc G$ la famille $(\vec{v_1}(0), \vec{v_3}(0), \vec{e_1}, \vec{e_4})$, nous remarquons que 
+A fortiori, $\sc F$ est une famille libre.
+\item Notant $\sc G$ la famille $(\vec{v_1}(0), \vec{v_3}(0), \vec{e_1}, \vec{e_4})$, nous remarquons que 
 $$
-\rg(\mc G) = \rg \startMatrix
+\rg(\sc G) = \rg \startMatrix
 \NC 0\NC 0\NC 1\NC 0\NR
 \NC 1\NC 1\NC 0\NC 0\NR
 \NC 7\NC 5\NC 0\NC 0\NR
@@ -24087,7 +24089,7 @@ $$
 \NC 0\NC 0\NC 0\NC 1
 \stopMatrix=4
 $$
-En particulier la famille $\mc G$ est libre
+En particulier la famille $\sc G$ est libre
 \item Si $a≠0$, $V_a= \Vect(\vec{v_1}(a), \vec{v_2}(a), \vec{v_3}(a)$ est de dimension $3$ et d'après la question précédente, il suffit d'ajouter $ \vec{v_4}$ est une base de A l'aide des questions précédentes, compléter $B_a$ avec des vecteurs de la base canonique afin d'obtenir une base de $ℝ^4$. 
 \item Pour trouver un système d'équations cartésiennes de $V_a$, une méthode possible est de considérer le système de $7$ inconnues $\vec v = λ\vec{v_1}(a)+μ\vec{v_2}(a)+τ\vec{v_3}(a)$
 et d'utiliser 3 relations pour éliminer $λ$, $μ$ et $τ$ dans la dernière équation via des pivots de Gauss
@@ -24110,15 +24112,15 @@ Les questions précédentes n'aident pas trop, je crains qu'il ne faille résoud
 <field type="Algèbre linéaire"/>
 <text>
 Partie 1. {\bf Une situation particulière}
-On note $\mc B_2$ la base canonique de $ℝ^2$ et $\mc B_3$ la base canonique de $ℝ^3$
+On note $\sc B_2$ la base canonique de $ℝ^2$ et $\sc B_3$ la base canonique de $ℝ^3$
 \startList
 \item Soit $f:ℝ^2→ℝ^3$ définie par 
 $$
 f(x,y)=(x,-x-y, 0)
 $$
 \startList
-\item Montrer que $f∈\mc L(ℝ^2, ℝ^3)$.
-\item Ecrire la matrice $A$ de $f$ dans les bases $\mc B_2$ et $\mc B_3$. 
+\item Montrer que $f∈\sc L(ℝ^2, ℝ^3)$.
+\item Ecrire la matrice $A$ de $f$ dans les bases $\sc B_2$ et $\sc B_3$. 
 \item Montrer que $\ker (f)=\{0\}$. Que peut-on en déduire de $f$ ? 
 \item Déterminer le rang de $f$ puis déterminer une base de $ℑm(f)$
 \stopList
@@ -24128,7 +24130,7 @@ g(1,0,0)=(1,-1)\qquad g(0,1,0)=(0, -1)\EtQ g(0,0,1)=(1,1)
 $$
 \startList
 \item Justifier brièvement à l'aide d'un resultat de cours l'existence et l'unicité de $g$. 
-{\it  Utiliser la matrice $\mc B$ représentant $g$ dans les bases $\mc B_3$ et $\mc B_2$}
+{\it  Utiliser la matrice $\sc B$ représentant $g$ dans les bases $\sc B_3$ et $\sc B_2$}
 \item Soit $(x,y,z)∈ℝ^3$. Exprimer $g(x,y,z)$ en fonction de $(x,y,z)∈ℝ^3$.
 \item Déterminer une base de $\ker g$. En déduire $\dim(\ker g)$
 \item Déterminer $\dim \Im(g)$. Que peut-on en déduire ? 
@@ -24136,25 +24138,25 @@ $$
 \item Montrer que $\Im(f)$ et $\ker(g)$ sont supplémentatires dans $ℝ^3$. 
 \item Soit $h=g∘f$
 \startList
-\item Justifier que $h∈\mc L(ℝ^2)$. 
-\item Ecrire la matrice $U$ de $h$ dans la base $\mc B_2$. Que peut-on en déduire sur $h$ ? 
+\item Justifier que $h∈\sc L(ℝ^2)$. 
+\item Ecrire la matrice $U$ de $h$ dans la base $\sc B_2$. Que peut-on en déduire sur $h$ ? 
 \stopList
 \item Soit $p=f∘g$
 \startList
-\item Justifier que $p∈\mc L(ℝ^3)$. 
-\item Ecrire la matrice $V$ de $p$ dans la base $\mc B_3$.
+\item Justifier que $p∈\sc L(ℝ^3)$. 
+\item Ecrire la matrice $V$ de $p$ dans la base $\sc B_3$.
 \item Déterminer le rang de $p$ à l'aide de $V$. En déduire $\dim(\ker p)$
 \stopList
 \item On se propose d'étudier $p$
 \startList
 \item Montrer que $p$ est un projecteur de $ℝ^3$
-\item Montrer que la famille $\mc B_3'=\Q((1,0,0), (0, 1, 0), (-1, 2, 1)\W)$ est une base de $ℝ^3$ puis déterminer $Q$ la matrice de passage de la base $\mc B_3'$ vers la base $\mc B_3$. 
-\item Ecrire la matrice de $p$ dans la base $\mc B_3'$. 
+\item Montrer que la famille $\sc B_3'=\Q((1,0,0), (0, 1, 0), (-1, 2, 1)\W)$ est une base de $ℝ^3$ puis déterminer $Q$ la matrice de passage de la base $\sc B_3'$ vers la base $\sc B_3$. 
+\item Ecrire la matrice de $p$ dans la base $\sc B_3'$. 
 \stopList
 
 Partie 2. {\bf Une situation générale}
 
-Soient $E$ et $F$ des $𝕂$-espaces vectoriels de dimension finie $n$ et $m$ respectivement et $f∈\mc L(E,F)$, $g∈\mc L(F,E)$.
+Soient $E$ et $F$ des $𝕂$-espaces vectoriels de dimension finie $n$ et $m$ respectivement et $f∈\sc L(E,F)$, $g∈\sc L(F,E)$.
 Hormis la toute dernière question, on suppose dans tout le problème que $g∘f=\Id_E$. 
 \item {\it Propriété de $f$}
 \startList
@@ -24185,10 +24187,10 @@ $$
 \NC \NC = λ(x, -y-x, 0) + μ(x', -y'-x', 0)=λf(X)+μf(X')
 \stopAlign
 $$
-A fortiori, $f∈\mc L(ℝ^2, ℝ^3)$. 
+A fortiori, $f∈\sc L(ℝ^2, ℝ^3)$. 
 \item Comme $f(1,0)=(1, -1, 0)$ et $f(0,1)=(0, -1, 0)$, on a 
 $$
-\mc Mat_{\mc B_2, \mc B_3}(f)=\startMatrix
+\sc Mat_{\sc B_2, \sc B_3}(f)=\startMatrix
 \NC 1\NC 0\NR
 \NC -1\NC -1\NR
 \NC 0\NC 0
@@ -24218,11 +24220,11 @@ Nous remarquons que $\ker(g)=\{(-z, z, z):z∈ℝ\}=\Vect((-1,1,1))$. Le noyau d
 \item Une base de $\Im (f)$ est $\Q((1,0,0), (0,1,0)\W)$ et une base de $\ker g$ est $\{(-1,1,1)\}$. Comme ces trois vecteurs forment une famille de rang $3$, 
 ils forment une base de $ℝ³$ et les espaces $\Im (f)$ et $\ker g$ sont supplémentaires dans $ℝ^3$. 
 \item\startList
-\item $h$ appartient à $\mc L(ℝ^2)$ car $h=g∘f$ est la composée de $f∈\mc L(ℝ^2, ℝ^3)$ et de $g ∈\mc L(ℝ^3, ℝ^2)$. 
+\item $h$ appartient à $\sc L(ℝ^2)$ car $h=g∘f$ est la composée de $f∈\sc L(ℝ^2, ℝ^3)$ et de $g ∈\sc L(ℝ^3, ℝ^2)$. 
 \item Comme $h(1,0) = g∘f(1,0)=g(1,-1,0)=(1,0)$ et $h(0,1) = g∘f(0, 1)=g(0,-1,0)=(0,1)$, on remarque que $h=\Id_{ℝ^2}$ et que $U=\I_2$. 
 \stopList
 \item \startList
-\item $p$ appartient à $\mc L(ℝ^3)$ car $p=f∘g$ est la composée de $g ∈\mc L(ℝ^3, ℝ^2)$ et de $f∈\mc L(ℝ^2, ℝ^3)$. 
+\item $p$ appartient à $\sc L(ℝ^3)$ car $p=f∘g$ est la composée de $g ∈\sc L(ℝ^3, ℝ^2)$ et de $f∈\sc L(ℝ^2, ℝ^3)$. 
 \item Comme $p(1,0,0) = f∘g(1,0,0)=f(1,-1)=(1,0,0)$, $p(0,1,0) = f∘g(0, 1,0)=f(0,-1)=(0,1,0)$ et $p(0,0,1) = f∘g(0, 0,1)=f(1,1)=(1,-2,0)$, 
 on obtient que 
 $$
@@ -24240,10 +24242,10 @@ $$
 p^2= p∘p = (f∘g)∘(f∘g)=f∘(g∘f)∘g=f∘\Id_{ℝ^2}∘g=f∘g=p
 $$
 $p$ est donc un projecteur de $ℝ^3$ 
-\item Comme le rang de $\mc B_3'$ est égal à $3$, c'est une base de $ℝ^3$. La matrice de passage $Q$ de la base $\mc B_3'$ vers $\mc B_3$ est la matrice
+\item Comme le rang de $\sc B_3'$ est égal à $3$, c'est une base de $ℝ^3$. La matrice de passage $Q$ de la base $\sc B_3'$ vers $\sc B_3$ est la matrice
 $$
 \startAlign
-\NC  Q\NC =\mc Mat_{\mc B_3, \mc B_3'}\Id_{ℝ^3}=\Q(\mc Mat_{\mc B_3', \mc B_3}\Id_{ℝ^3}\W)^{-1}=\startMatrix
+\NC  Q\NC =\sc Mat_{\sc B_3, \sc B_3'}\Id_{ℝ^3}=\Q(\sc Mat_{\sc B_3', \sc B_3}\Id_{ℝ^3}\W)^{-1}=\startMatrix
 \NC 1\NC 0\NC -1\NR
 \NC 0\NC 1\NC 2\NR
 \NC 0\NC 0\NC 1
@@ -24257,7 +24259,7 @@ $$
 $$
 \item La matrice demandée est 
 $$
-\mc Mat_{\mc B_3'}(p)=Q×V×Q^{-1}
+\sc Mat_{\sc B_3'}(p)=Q×V×Q^{-1}
 $$
 La flemme de la calculer via ce procédé. Comme $p(1,0,0) =(1,0,0)$, $p(0,1,0) =(0,1,0)$ et $p(-1,2,1) = (-1,0,0)+2(0,1,0)+(1,-2,0)=(0,0,0)$, elle vaut 
 $$
@@ -24296,7 +24298,7 @@ $(\Im f)∩(\ker g)=\{0\}$.
 Il résulte des du résultat précédent que $F=\Im f⊕\ker g$, à savoir que $\Im f$ et $\ker g$ sont supplémentaires dans $F$. 
 \stopList
 \item \startList
-\item $f∘g$ est un projecteur de $F$ car  $f∘g$ est un endomorphisme de $F$ en tant que composé de $g∈\mc L(F,E)$ et $f∈\mc L(E,F)$.
+\item $f∘g$ est un projecteur de $F$ car  $f∘g$ est un endomorphisme de $F$ en tant que composé de $g∈\sc L(F,E)$ et $f∈\sc L(E,F)$.
 et on a 
 $$
 (f∘g)∘(f∘g)=f∘(g∘f)∘g=f∘\Id_E∘g=f∘g
@@ -24633,7 +24635,7 @@ On note $X = X_2$ et $Y = X_1 + X_2$.
 
 
 
-<exercise id="ECSA2.1" m="e3" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
+<exercise id="F2.1" m="e3" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
 <field type="récurrence"/>
 <text>Soit $u$ la suite définie par $u_0=3$ et $u_{n+1}=\sqrt{u_n}$ pour $n⩾0$.
 \startList
@@ -24642,14 +24644,14 @@ On note $X = X_2$ et $Y = X_1 + X_2$.
 \stopList</text>
 </exercise>
 
-<exercise id="ECSA2.2" m="e2" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
+<exercise id="F2.2" m="e2" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
 <field type="récurrence"/>
 <text>Soit $u$ la suite définie par $u_0=1$ et $u_{n+1}={1+u_n\F 2+u_n}$ pour $n⩾0$.
 Montrer que la suite $u$ est bien définie et vérifie $0⩽u_n⩽1$ pour $n∈ℕ$.
 </text>
 </exercise>
 
-<exercise id="ECSA2.3" m="e2" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
+<exercise id="F2.3" m="e2" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
 <field type="récurrence"/>
 <text>Soit $u$ définie par
 $u_0=2$, $u_1=3$ et $u_{n+2}=3u_{n+1}-2u_n$ pour $n⩾0$.
@@ -24657,7 +24659,7 @@ Vérifier que $u_n=1+2^n$ pour $n∈ℕ$.
 </text>
 </exercise>
 
-<exercise id="ECSA2.4" m="e3" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
+<exercise id="F2.4" m="e3" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
 <field type="récurrence"/>
 <text>
 Soit $u$ définie par $u_0=2$, $u_1=4$ et $u_{n+2}={(u_{n+1})^4\F (u_n)^3}$ pour $n⩾0$.
@@ -24667,7 +24669,7 @@ Soit $u$ définie par $u_0=2$, $u_1=4$ et $u_{n+2}={(u_{n+1})^4\F (u_n)^3}$ pour
 \stopList</text>
 </exercise>
 
-<exercise id="ECSA2.6" m="e3" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
+<exercise id="F2.6" m="e3" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
 <field type="récurrence"/>
 <text>Pour $n∈ℕ$, montrer que 
 \startformula
@@ -24675,7 +24677,7 @@ Soit $u$ définie par $u_0=2$, $u_1=4$ et $u_{n+2}={(u_{n+1})^4\F (u_n)^3}$ pour
 \stopformula
 </text></exercise>
 
-<exercise id="ECSA2.7" m="e3" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
+<exercise id="F2.7" m="e3" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
 <field type="sommes"/>
 <text>Calculer les sommes suivantes:
 \startformula
@@ -24686,14 +24688,14 @@ Soit $u$ définie par $u_0=2$, $u_1=4$ et $u_{n+2}={(u_{n+1})^4\F (u_n)^3}$ pour
 \stopformula
 </text></exercise>
 
-<exercise id="ECSA2.8" m="e2" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
+<exercise id="F2.8" m="e2" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
 <field type="sommes telescopiques"/>
 <text>\startList\item Déterminer deux réels $a$ et $b$ tels que ${1\F n(n+1)}={a\F n}-{b\F n+1}$ pour $n⩾1$.
 \item En déduire la valeur de la somme $S_n=∑_{k=1}^n{3\F k(k+1)}$
 \stopList
 </text></exercise>
 
-<exercise id="ECSA2.9" m="e2" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
+<exercise id="F2.9" m="e2" level="1" fight="0" learn="1" origin="Freitag" type="Exo">
 <field type="sommes telescopiques"/>
 <text>\startList\item Déterminer des réels $a$, $b$ et $c$ tels que ${1\F n(n^2-1)}={a\F n-1}+{b\F n} + {c\F n+1}$ pour $n⩾3$.
 \item En déduire la valeur de la somme $S_n=∑_{k=3}^n{1\F k(k^2-1)}$.
@@ -25018,44 +25020,5 @@ Montrer que l’un des tiroirs contient au moins $5$ crayons.</text>
 </text>
 </exercise>
 
-<exercise id="ECSA2.14" m="e3" t="récurrence" level="1">
-<text>Démontrer que $\displaystyle ∏_{k=1}^n(n+k)=2^n∏_{k=1}^n(2k-1)\qquad(n∈ℕ^*)$</text>
-</exercise>
-
-<exercise id="ECSA2.15" m="e3" t="récurrence" level="1">
-<text>Calculer les sommes et les produits suivants : 
-\startformula
-A=∑_{k=1}^n\ln(k)\qquad B=∏_{k=1}^n\e^k\qquad C=∑_{k=p}^{2p}k^2\qquad D=∏_{k=1}^nk\e^{-2k}
-\stopformula
-</text>
-</exercise>
-
-<exercise id="ECSA3.1" m="e2" t="monotonie" level="1">
-<text>Etudier la monotonie des suites 
-\startformula
-u_n={n!\F n^n}\qquad v_n=∑_{k=0}^{2n}{(-1)^k\F k+1}\qquad w_n={\ln n\F n}\qquad(n⩾3)
-\stopformula</text></exercise>
-
-<exercise id="ECSA3.2" m="e1" t="suite arithmétique" level="1">
-<text>Soit $u$ la suite arithmétique vérifiant $u_0={2\F 3}$ et $u_{11}=0$. 
-\startList\item Exprimer $u_n$ en fonction de $n$
-\item Calculer $∑_{k=0}^{12}u_k$
-\stopList
-</text></exercise>
-
-<exercise id="ECSA3.3" m="e1" t="suite géométrique" level="1">
-<text>On considère la suite $u$ définie par $u_{n+1}=-u_n/4\qquad(n⩾0)$.
-\startList\item Exprimer $u_n$ en fonction de $u_0$ et de $n$
-\item Calculer $v_n=∑_{k=0}^nu_k$
-\stopList</text></exercise>
-
-
-<exercise id="ECSA3.4" m="e2" t="suite géométrique" level="1">
-<text>Soit $u$ la suite définie par $u_0=2$ et $2u_{n+1}=u_n+3$
-\startList\item Montrer que $u$ est minorée par $2$ et majorée par $3$.
-\item Etudier la monotonie de $u$.
-\item Exprimer $u_n$ en fonction de $n$.
-\item Calculer $v_n=∑_{k=0}^{n-3}u_k$
-\stopList</text></exercise>
 
 </exercises>

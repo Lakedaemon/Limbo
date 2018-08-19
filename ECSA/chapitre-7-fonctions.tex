@@ -1,0 +1,309 @@
+%2multibyte Version: 5.50.0.2953 CodePage: 65001
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{Codepage=65001}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Tuesday, February 25, 2014 14:29:33}
+%TCIDATA{LastRevised=Wednesday, June 29, 2016 08:59:27}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{PageSetup=28,28,28,28,0}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+\begin{document}
+
+
+\subsubsection{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \protect\underline{Chapitre 7 : les fonctions en Scilab.}}
+
+\paragraph{\protect\underline{1. Les fonctions.}}
+
+\underline{1.1. Fonctions renvoyant une seule valeur.}
+
+Scilab dispose d'un langage qui permet de d\'{e}finir de nouvelles commandes
+gr\^{a}ce \`{a} l'\'{e}criture des fonctions.
+
+Une fonction est une suite d'instructions qui, apr\`{e}s ex\'{e}cution ,
+rend une valeur.
+
+La d\'{e}claration d'une fonction renvoyant une seule valeur se pr\'{e}sente
+de la mani\`{e}re suivante :
+
+\textit{function }$y$\textit{=nom-de-la fonction(}$x_{1},x_{2},...,x_{m})$
+
+\textit{\ \ Bloc d'instructions}
+
+\textit{endfunction}
+
+Toutes les variables $y$, $x_{1},...,x_{m}$ utilis\'{e}es \`{a} l'int\'{e}%
+rieur de la fonction sont par d\'{e}faut locales. Ces variables sont des
+variables muettes et leurs noms peuvent \^{e}tre r\'{e}utilis\'{e}s dans la d%
+\'{e}finition d'autres fonctions ou dans Scilab.
+
+L'identificateur $y$ joue un r\^{o}le particulier .Lors de l'appel d'une
+fonction , le bloc d'instructions est ex\'{e}cut\'{e} et, \`{a} la fin,on
+affecte \`{a} la variable $y$ une valeur .C'est cette valeur qui sera rendue
+par la fonction, apr\`{e}s avoir affect\'{e} aux variables $x_{1},...,x_{m}$
+des expressions.
+
+\bigskip
+
+Exemple 1 :
+
+Pour d\'{e}finir la fonction $f:f(x)=\dfrac{3}{8+\exp (-x)},$ nous d\'{e}%
+finissons une fonction Scilab dans la console dont le nom est $f$, avec un
+argument
+
+$x$ et une valeur de retour $y$ ( l'image $f(x)$ ).
+
+$-\longrightarrow function$ $y=f(x)$
+
+$-\longrightarrow y=3/(8+\exp (-x));$
+
+$-\longrightarrow endfunction;$
+
+Pour appeler la fonction et calculer une valeur, il suffit par exemple de
+taper :
+
+$-\longrightarrow f(0)$
+
+$ans=$
+
+$0.3333333$
+
+\fbox{ou }
+
+d'utiliser la commande $f\func{eval}:$
+
+$-\longrightarrow f\func{eval}(0,f)$
+
+$ans=$
+
+$0.3333333$
+
+Remarque sur la fonction $f\func{eval}:$
+
+l'instruction $y=f\func{eval}(x,f)$ renvoie le vecteur $y$ d\'{e}finie par $%
+y(i)=f(x(i)).$
+
+\underline{1.2. Fonctions retournant plusieurs valeurs.}
+
+R\'{e}daction :
+
+\textit{function }$[y_{1},...,y_{p}]$\textit{=nom-de-la fonction(}$%
+x_{1},x_{2},...,x_{m})$
+
+\textit{\ \ Bloc d'instructions}
+
+\textit{endfunction}
+
+Pour r\'{e}cup\'{e}rer toutes les valeurs, on utilise les crochets " $\left[
+{}\right] $ ". Sinon on ne r\'{e}cup\`{e}re qu'une seule valeur, c'est la
+premi\`{e}re qui est retourn\'{e}e. ( la plus \`{a} gauche )
+
+Exemple 2 :
+
+$-\longrightarrow function$ $\left[ m,M\right] =\min \max (x,y)$
+
+$-\longrightarrow m=\min (x,y);M=\max (x,y);$
+
+$-\longrightarrow endfunction;$
+
+Pour appeler la fonction, on utilise l'instruction :\ 
+
+$\left[ m,M\right] =\min \max (x,y).$
+
+ou
+
+$feval([x,y],minmax)$;
+
+\underline{1.3. Charger une fonction.}
+
+Pour que la fonction soit reconnue et ex\'{e}cut\'{e}e par Scilab, il faut
+la "charger". En effet les fonctions sous Scilab ont un statut de variables
+et donc n\'{e}cessitent d'\^{e}tre initialis\'{e}es.
+
+M\^{e}me s'il est possible de d\'{e}finir les fonctions dans la console
+comme dans les deux exemples pr\'{e}c\'{e}dents, il vaut toujours mieux les 
+\'{e}crire dans Scinotes , les sauver dans un fichier et les charger ensuite
+dans Scilab.
+
+Il sera ainsi beaucoup plus facile de r\'{e}aliser des corrections ou des
+modifications.
+
+\underline{1.4. Fonction \ " $deff$ ".}
+
+La fonction $"deff"$ permet de construire simplement des fonctions math\'{e}%
+matiques. Elle prend en argument deux cha\^{\i}nes de caract\`{e}res la premi%
+\`{e}re correspondant \`{a} l'en-t\^{e}te de la fonction d\'{e}finie et la
+seconde correspondant \`{a} sa " d\'{e}finition math\'{e}matique ".
+
+Exemple 3 :
+
+Soit $f:x\rightarrow \exp (x)+\ln (x+1).$
+
+$-\rightarrow deff(^{\prime }y=f(x)^{\prime },^{\prime }y=\exp (x)+\log
+(x+1)^{\prime });$
+
+\bigskip
+
+\subsubsection{\protect\underline{2. Exercices .}}
+
+\bigskip
+
+\paragraph{\protect\underline{Exercice 1 :}}
+
+1. Cr\'{e}er une fonction factorielle ( nomm\'{e}e $fact$ ) qui prend en
+argument $n$ et qui renvoie la valeur $n!.$
+
+2. Cr\'{e}er ensuite un programme qui demande deux entiers $n$ et $p$ et qui
+affiche la valeur $\dbinom{n}{p}.$
+
+\bigskip
+
+\paragraph{\protect\underline{Exercice 2* :}}
+
+On consid\`{e}re la suite $u$ d\'{e}finie par : $\left\{ 
+\begin{array}{c}
+u_{0}=1 \\ 
+u_{n+1}=\frac{1}{2}\ln (1+2u_{n})%
+\end{array}%
+\right. .$
+
+1. Cr\'{e}er une fonction $h:x\mapsto \frac{1}{2}\ln (1+2x)$ sous scilab
+afin de calculer tout terme de rang $n$ de la suite $u$, $n$ \'{e}tant saisi
+par l'utilisateur.
+
+2. Repr\'{e}senter graphiquement les 20 premiers termes de la suite.
+Conjecturer sur le comportement de cette suite.
+
+3. \ D\'{e}terminer le rang $N$ \`{a} partir duquel $\left\vert
+u_{N}\right\vert \leq 10^{-4}.$
+
+\paragraph{\protect\underline{Exercice 3 :}}
+
+Crit\`{e}re des s\'{e}ries altern\'{e}es.
+
+Si $u$ est une suite d\'{e}croissante et convergente de limite nulle, alors
+la s\'{e}rie $S=\sum \left( -1\right) ^{n}u_{n}$ converge.
+
+De plus , si on note , pour tout entier $p\in \mathbb{N}$ $R_{p}=\underset{%
+n=p+1}{\overset{+\infty }{\sum }}\left( -1\right) ^{n}u_{n}$ le reste
+d'ordre $p$ de la s\'{e}rie $S,$ on a l'encadrement : $\left\vert
+R_{p}\right\vert \leq u_{p+1}.$
+
+1. Justifier la convergence de la s\'{e}rie de terme g\'{e}n\'{e}ral : $%
+v_{n}=\left( -1\right) ^{n}\ln (1+\exp (-n)).$
+
+2. Ecrire un programme qui donne une approximation \`{a} $10^{-6}$ pr\`{e}s
+de la somme de cette s\'{e}rie. La fonction $k:x\mapsto \ln (1+\exp (-x))$
+sera d\'{e}finie en t\^{e}te de programme.
+
+\bigskip
+
+\paragraph{\protect\underline{Exercice 4 : Tracer des graphes en Scilab.}}
+
+Objectif : Repr\'{e}senter la courbe de la fonction $g:x\mapsto x\exp (-x)$
+sur $\left[ -1;5\right] $ ( avec un pas de 0.01 ).
+
+Il faut dans un premier temps d\'{e}clarer le vecteur ligne ou colonne $x$
+des abscisses$:x=\left[ -1:0.01:5\right] ;$
+
+Nous allons maintenant voir deux m\'{e}thodes pour d\'{e}clarer le vecteur $%
+y $ des ordonn\'{e}es .
+
+1. \underline{En utilisant les op\'{e}rations point\'{e}es sur les vecteurs,}
+construire le vecteur $y$ des ordonn\'{e}es puis repr\'{e}senter la courbe
+de $g.$
+
+2. \underline{En utilisant la d\'{e}finition d'une fonction r\'{e}elle sous
+Scilab et la fonction $f\func{eval}.$}
+
+Cr\'{e}er la fonction r\'{e}elle $g$ sous $S$cilab, d\'{e}finir le vecteur $%
+y $ des ordonn\'{e}es en utilisant $f\func{eval}$ puis repr\'{e}senter la
+courbe de $g.$
+
+Remarque : une derni\`{e}re m\'{e}thode serait d'utiliser les op\'{e}rations
+point\'{e}es \`{a} l'int\'{e}rieur de la fonction et de d\'{e}finir le
+vecteur $y$ des ordonn\'{e}es par l'instruction : $y=g(x).$
+
+\paragraph{\protect\underline{Exercice 5 :}}
+
+On consid\`{e}re la fonction num\'{e}rique $f$ d\'{e}finie sur $\left[ 1,2%
+\right] $ par:
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\ f(x)=2(1-e^{-x})-x.$
+
+1.Etudier les variations de $f$ sur $\left[ 1,2\right] .$
+
+Repr\'{e}senter la courbe de la fonction $f$ sur $\left[ 1;2\right] $ ( avec
+un pas de 0.01 ).
+
+2.Montrer que l'\'{e}quation $f(x)=0$, admet une unique solution dans $\left[
+1,2\right] $ , not\'{e}e $L$.
+
+On d\'{e}finit deux suites num\'{e}riques $(a_{n})_{n\geq 0}$ et $%
+(b_{n})_{n\geq 0}$ par :$a_{0}=1$,$b_{0}=2$
+
+et pour tout entier naturel n, si \ $f(a_{n})f(\frac{a_{n}+b_{n}}{2})>0,$
+alors, $a_{n+1}=\frac{a_{n}+b_{n}}{2}$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+sinon, $a_{n+1}=a_{n}$
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ \ \ \ \ $b_{n+1}=b_{n}$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ $b_{n+1}=\frac{a_{n}+b_{n}}{2}$\ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ \ \ \ 
+
+3. On donne les valeurs de $f$ suivantes : $f(\frac{3}{2})\simeq 0,05$ et $f(%
+\frac{7}{4})\simeq -0,1.$ \ \ D\'{e}terminer les valeurs de $a_{1}$ et $%
+b_{1} $ puis de $a_{2}$ et $b_{2}.$
+
+4. Montrer , par r\'{e}currence que, pour tout entier n : $a_{n}\leq L\leq
+b_{n}.$
+
+5. Montrer que, pour tout entier $n$, $b_{n}-a_{n}=(\frac{1}{2})^{n}$ et 
+\'{e}tudier le sens de variation des suites $(a_{n})_{n\geq 0}$ et $%
+(b_{n})_{n\geq 0}$.
+
+6. En d\'{e}duire la convergence de ces deux suites,et pr\'{e}ciser leur
+limite.
+
+7.\ Ecrire un programme en Scilab, donnant une valeur approch\'{e}e de $L$ 
+\`{a} 10$^{-5}$ pr\`{e}s et indiquant le nombre d'it\'{e}rations n\'{e}%
+cessaires. La fonction $f$ sera d\'{e}finie en t\^{e}te de programme.
+
+\end{document}

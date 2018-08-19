@@ -1,0 +1,249 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iftrue
+\page
+\centerline{\bfb CORRECTION DU DEVOIR MAISON 3}
+\blank[big]
+
+\startList\item%Exos
+\startList\item\startList\item
+\conseil{Appliquons la méthode 4.39, qui nous permet d'étudier simultanément injectivité, surjectivité et bijectivité}
+\startitemize[1]\item {\bf Pour $f$.} Soient $n'∈ℕ$ et $n∈ℕ$. Alors
+\startformula
+n'=f(n)⟺ n'=2n ⟺n={n'/2}
+\stopformula
+Cette équation n'a pas de solution $n$ lorsque $n'=1$ (car sinon, $2n$ serait impair). De sorte que $f$ n'est ni surjective, ni bijective.\crlf
+Par contre, cette équation a au plus une solution dans $ℕ$ quel que soit $n'∈ℕ$ (aucune solution $n$ lorsque $n'$ est impair et une solution $n={n'\F 2}$ lorsque $n'$ est pair).
+De sorte que $f$ est injective. 
+\item {\bf Pour $g$.} Soient $n'∈ℕ$ et $n∈ℕ$. Alors
+\startformula
+\Align{
+\NC n'=g(n)\NC⟺ n'=\System{
+\NC {n\F 2}\NC \text{ si $n$ est pair}\NR
+\NC {n-1\F 2}\NC \text{ si $n$ est impair}
+}\NR
+\NC\NC⟺ 2n'=\System{
+\NC n\NC \text{ si $n$ est pair}\NR
+\NC n-1\NC \text{ si $n$ est impair}
+}}
+\stopformula
+Cette équation a au moins une solution $n=2n'∈ℕ$, quel que soit $n'∈ℕ$. De sorte que $g$ est surjective\crlf
+Par contre cette équation a deux solutions $n=0$ et $n=1$ pour $n'=0$. De sorte que $g$ n'est ni injective, ni bijective.
+\stopitemize
+\item Pour $n∈ℕ$, remarquons que l'on a 
+\startformula
+\Align{
+\NC g∘f(n)\NC =g\big(f(n)\big)=g(2n)={2n\F 2}=n\NR
+\NC f∘g(n)\NC =f(\big(g(n)\big)=2g(n)=2×\System{
+\NC {n\F 2}\NC \text{ si $n$ est pair}\NR
+\NC {n-1\F 2}\NC \text{ si $n$ est impair}
+}=\System{
+\NC n\NC \text{ si $n$ est pair}\NR
+\NC n-1\NC \text{ si $n$ est impair}
+}}
+\stopformula
+L'application $g∘f=\Id_{ℕ}$ est bijective (prorpiété du cours), alors que l'application $f∘g$ est n'est ni injective ($g∘f(0)=0=g∘f(1)$), ni surjective (comme $g∘f(n)$ est un nombre pair, l'équation $1=g∘f(n)$ n'a pas de solution), ni bijective. 
+\stopList
+\item \conseil{Lorsque c'est possible, dresser un tableau de variation est souvent un bon plan pour étudier l'injectivité, la surjectivité, la bijectivité SAUF lorsqu'une formule est demandée pour la bijection réciproque, auquel cas, la méthode précédemment utilisée permet souvent d'aboutir}
+\crlf Soient $y∈]0,+∞[$ et $x∈]a,+∞[$. Nous remarquons que 
+\startformula
+y=f(x)⟺ y= {1\F x-a}⟺{1\F y}=x-a⟺x=\underbrace{a+{1\F y}}_{∈]a,+∞[}
+\stopformula
+Pour $y∈]0,+∞[$ nous remarquons que l'équation $y=f(x)$ admet une unique solution $x=a+{1\F y}$ dans $]a,+∞[$. 
+De sorte que l'application $f$ est une bijection de $]a,+∞[$ dans $]0,+∞[$ et de plus, nous remarquons que sa bijection réciproque est la fonction $f^{-1}:]0,+∞[→]a,+∞[$ définie par 
+\startformula
+f^{-1}(y)=a+{1\F y}\qquad(y>0)
+\stopformula
+{\it La raison  pour laquelle on peut dire cela est (la definition 4.43) que \startformula
+x=a+{1\F y}⟺\important{y=f(x)⟺x=f^{-1}(y)}\stopformula}
+\stopList
+\item%Exos
+\conseil{Les questions \quote{difficiles} 1, 2, 3 et 4 de cet exercice se font automatiquement, quasiment sans réfléchir, en utilisant les connaissances du cours et {\it une méthode très particulière, que j'ai l'intention de vous présenter prochainement}. En utilisant cette présentation, la difficulté de ces questions diminue au moins d'un cran  pour devenir faciles ou (dans le pire des cas) moyenne et on écrit des démonstrations de qualité, sans effort}
+\startList\item Soit $A⊂E$. Prouvons que $A⊂f^{-1}\big(f(A)\big)$. \crlf
+Fixons $x∈A$ et montrons que $x∈f^{-1}\big(f(A)\big)$, c'est-à-dire que $f(x)∈f(A)$. 
+\crlf\conseil{Début de la reflexion (ce qui précéde a été écrit automatiquement)}\crlf
+Comme $x∈A$, on a $f(x)∈f(A)=\{f(x'):x'∈A\}$. \crlf\conseil{Fin de la reflexion.} \crlf
+C'est ce qu'il fallait démontrer (CQFD), nous avons donc bien montré que \startformula
+\text{pour $A⊂E$, $A⊂f^{-1}\big(f(A)\big)$}
+\stopformula
+\item Soit $B$, une partie de $F$. Prouvons que $f\big(f^{-1}(B))⊂B$. 
+Pour cela, fixons $y∈f\big(f^{-1}(B))$ et montrons que $y∈B$. 
+Comme $y∈f\big(f^{-1}(B))$, nous remarquons qu'il existe $x∈f^{-1}(B)$ tel que $y=f(x)$\crlf
+\conseil{Début de la reflexion (ce qui précéde a été écrit automatiquement)}
+\crlf Comme $x∈f^{-1}(B)$, on a $y=f(x)∈B$. \crlf\conseil{Fin de la reflexion.} \crlf
+CQFD, nous avons donc bien montré que pour $B$ partie de $F$, $f\big(f^{-1}(B))⊂B$.
+\item Montrons, par double implication, que $f$ est injective \ssi pour toute partie $A$ de $E$ on a $A=f^{-1}\big(f(A)\big)$
+\startitemize[1]\item Commençon par prouver que $f$ est injective implique que pour toute partie $A$ de $E$ on a $A=f^{-1}\big(f(A)\big)$
+Supposons que $A$ soit une partie de $F$ et prouvons que $A=f^{-1}\big(f(A)\big)$. \crlf
+Pour cela, nous procédons par double inclusion :
+\startitemize[2]
+\item A la question 1, il a été prouvé que $A\subset f^{-1}\big(f(A)\big)$
+\item Prouvons également que $f^{-1}\big(f(A)\big)⊂A$. 
+Fixons pour cela $x∈f^{-1}\big(f(A)\big)$ et montrons que $x∈A$. \crlf
+Comme $x∈f^{-1}\big(f(A)\big)$, nous remarquons que $f(x) ∈f(A)$. 
+\crlf\conseil{Début de la reflexion}\crlf
+Posons $y=f(x)$. Comme $y∈f(A)$ il existe nécéssairement $x'∈A$ tel que $f(x')=y=f(x)$. 
+L'application $f$ étant injective, nous avons forcément $x=x'$, ce qu'il fallait démontrer. 
+\crlf\conseil{fin de la reflexion}\crlf
+\stopitemize
+L'égalité étant démontrée, il en est de même pour l'implication
+
+\item Prouvons maintenant que si, pour toute partie $A$ de $E$ on a $A=f^{-1}\big(f(A)\big)$, alors $f$ est injective.
+Pour cela, supposons que pour toute partie $A$ de $E$ on ait $A=f^{-1}\big(f(A)\big)$ et prouvons que $f$ est injective, 
+c'est à dire que $\forall x∈E,\forall x'∈E, f(x)=f(x')⟹x=x'$.
+\crlf
+Pour cela, supposons que $x∈E$ et $x'∈E$ vérifient $f(x)=f(x')$ et montrons que $x=x'$
+\crlf\conseil{Début de la reflexion}\crlf Posant $A=\{x\}$, on obtient que $f(A)=\{f(x)\}$. Comme $f(x')=f(x)$, nous remarquons que 
+$\{x,x'\}⊂f^{-1}\Big(f\big(\{x\}\big)\Big)=f^{-1}\big(f(A)\big)$, comme $x∈E$, $A$ est une partie de $E$, de sorte que $A=f^{-1}\big(f(A)\big)$ et donc 
+\startformula
+\{x,x'\}⊂f^{-1}\big(f(A)\big)=A=\{x\}
+\stopformula
+A fortiori, nous avons nécéssairement $x=x'$. \crlf\conseil{fin de la reflexion}
+C'est ce qu'il fallait démontré. A fortiori, la seconde implication est vraie
+\stopitemize
+En conclusion, nous avons bien prouvé l'équivallence.
+
+\item Montrons, par double implication, que $f$ est surjective \ssi pour toute partie $B$ de $F$ on a $B=f\big(f^{-1}(B)\big)$
+\startitemize[1]
+\item Etablissons que  $f$ est surjective implique que  pour toute partie $B$ de $F$ on a $B=f\big(f^{-1}(B)\big)$.
+Supposons que $f$ est surjective et montrons que pour toute partie $B$ de $F$ on a $B=f\big(f^{-1}(B)\big)$.
+Pour cela, fixons une partie $B$ de $F$ et prouvons que $B=f\big(f^{-1}(B)\big)$. Pour cela, nous pouvons procéder par double inclusion.
+\startitemize[2]
+\item Il a déjà été démontré à la question 2 que $f\big(f^{-1}(B))⊂B$
+\item Montrons maintenant que $B⊂f\big(f^{-1}(B))$. Pour cela, fixons $y∈B$ et établissons que $y∈f\big(f^{-1}(B))$.
+\crlf\conseil{\it Début de la reflexion}\crlf
+Comme $f$ est surjective, il existe $x'∈E$ tel que $y=f(x')$. Comme $y∈B$, il vient alors que $x'∈f^{-1}(B)$ et enseuite que 
+$y=f(x')∈f\big(f^{-1}(B))$. Ce qu'il fallait démontrer
+\crlf\conseil{\it fin de la reflexion}
+\stopitemize
+A fortiori, l'égalité est vraie ainsi que l'implication à démontrer
+
+\item Montrons maintenant que si, pour toute partie $B$ de $F$ on a $B=f\big(f^{-1}(B)\big)$, alors $f$ est surjective.
+Pour cela, supposons que pour toute partie $B$ de $F$ on a $B=f\big(f^{-1}(B)\big)$ et prouvons que $f$ est surjective
+Pour cela, fixons $y∈F$ et établissons l'existence de $x∈E$ tel que $y=f(x)$.
+\crlf\conseil{\it Début de la reflexion}\crlf 
+Comme  $B=\{y\}$ est une partie de $F$, nous avons $\{y\}=B=f\big(f^{-1}(B)\big)$. 
+En particulier il existe un élément $x'∈ f^{-1}(B)⊂E$ tel que $y=f(x')$. Ce qu'il fallait démontrer. 
+\crlf\conseil{\it fin de la reflexion}\crlf
+L'implication à prouver est donc établie.
+\stopitemize
+En conclusion, nous avons bien prouvé l'équivalence du 4. \rare{\it Cet exercice était très difficile (à donner à des MP, pour jouer et voir combien d'entre eux arrivent à le faire). A l'aide de la méthode \quote{magique}, il devient \quote{relativement faisable}}
+
+
+\item
+En s'aidant du tableau de variation sur $[-π,π]$ de la fonction $2π$-périodique $\sin$, 
+il devient trivial que 
+\startformula
+\Align{[align={left, left, left}]\NC\sin(ℝ)=[-1,1]\NC \sin\Q([{\pi\F 2}, {\pi\F2}]\W)=[-1,1]\NR
+\NC\sin\Q([0,π]\W)=[0,1]\NC\sin^{-1}\big(\{0\}\big)=\{πk:k∈ℤ\}\NR
+\NC \sin^{-1}\Big(\sin\big(\{0\}\big)\Big) = \sin^{-1}\big(\{0\}\big)=\{πk:k∈ℤ\}\NC
+\sin\Big(\sin^{-1}\big(\{0\}\big)\Big)=\sin \big(\{πk:k∈ℤ\}\big)=\{0\}
+}
+\stopformula
+
+\item En s'aidant maintenant du tableau de variation sur $\Q[-{π\F 2}{π\F 2}\W]$ de la fonction $\sin$, il vient 
+\startformula
+\Align{
+\NC f^{-1}\Big(f\big([0, {π\F 4}]\big)\Big)=f^{-1}\Big([0,{\sqrt2\F 2})\Big)= [0, {π\F 4}]\NR
+\NC f\Big(f^{-1}\big([-1, 0]\big)\Big)=f\Big([-{π\F 2}, 0]\Big)=[-1, 0]}
+\stopformula
+
+Question aux étudiants : Morale (intention pédagogique) des questions 5 et 6 ?
+\stopList
+
+\item%Exos
+\startList\item On a $f(0,0)=(0+0,0-0,0×0)=(0,0,0)$, $f(1,2)=(1+2,1-2,1×2)=(3,-1,2)$, $g(1,-1,0)=(1-1+0,1-1)=(0,0)$ et $g(1,1,1)=(1+1+1,1+1)=(3,2)$
+\item Ils ont tous les deux des antédécents. Trouvons les en resolvant un système :
+\startformula
+\Align{
+\NC  g(x,y,z)=(0,0)\NC ⟺(x+y+z,x+y)=(0,0)⟺\System{
+\NC x+y+z = 0\NR
+x+y=0}\NR
+\NC\NC⟺\System{
+\NC z = 0\NR
+x+y=0}⟺(x,y,z)=(x,-x,0)\qquad(x∈ℝ)\NR
+\NC  g(x,y,z)=(1,2)\NC ⟺(x+y+z,x+y)=(1,2)⟺\System{
+\NC x+y+z = 1\NR
+x+y=2}\NR
+\NC\NC⟺\System{
+\NC z = -1\NR
+x+y=2}⟺(x,y,z)=(x,2-x,-1)\qquad(x∈ℝ)\NR}
+\stopformula
+\item L'application $g$ est surjective car chaque élément $(a,b)$ de $ℝ^2$ admet au moins l'antécédent $(b,0, a-b)$ car $g(b,0,a-b)=(b+0+a-b,b+0)=(a,b)$.
+Elle n'est pas injective car $g(0,0,0)=(0,0)=g(1,-1,0)$
+\item \conseil{\it Prouvons que $f$ est injective via sa définition (4.34) adaptée à notre exercice (un grand classique), cest à dire, via  \startformula
+f\text{ injective }⟺\forall (x,y)∈ℝ^2, ∀(x',y')∈ℝ^2, f(x,y)=f(x',y')⟹(x,y)=(x',y'). \stopformula
+Cela nous permettra d'illustrer une autre méthode importante. 
+Nous allons également utiliser la présentation \quote{magique} qui diminue la difficulté des exos théoriques}\crlf
+Prouvons que $f$ est injective. Supposons que $(x,y)∈ℝ^2$ et $(x',y')∈ℝ^2$ vérifient $f(x,y)=f(x',y')$ 
+et montrons que $(x,y)=(x',y')$.
+Comme $f(x,y)=f(x',y')$, nous remarquons que 
+\startformula
+(x+y, x-y, xy)=f(x, y)=f(x', y')=(x'+y', x'-y', x'y')
+\stopformula
+En particulier, nous avons $x+y=x'+y'$ et $(x-y=x'-y'$ {\it (nous n'aurons pas besoin du reste). }
+Alors, il vient
+\startformula
+\Align{
+\NC x={(x+y)+(x-y)\F 2}={(x'+y')+(x'-y')\F 2}=y'\NR
+\NC y={(x+y)-(x-y)\F 2}={(x'+y')-(x'-y')\F 2}=y'}
+\stopformula
+Ce qu'il fallait démontrer. En particulier, la fonction $f$ est injective.
+\item Prouvons par l'absurde que $(1,1,2)$ n'a pas d'antécédant par $f$. 
+\conseil{\it (pour illustrer une autre méthode du cours)}
+Supposons que $(1,1,2)$ ait un antécédent par $f$, c'est-à-dire qu'il existe $(x,y,z)∈ℝ^3$ tel que $f(x,y,z)=(1,1,2)$. 
+Alors, nous remarquons que 
+\startformula
+\System{\NC x+y = 1\NR
+\NC x-y=1\NR
+\NC xy=2}\stopformula
+et donc \startformula
+\important{2=}xy={(x+y) + (x-y)\F 2}×{(x+y) - (x-y)\F 2}={1+ 1\F 2}×{1 -1\F 2}=1×0=\important{0}
+\stopformula
+Il est évident que $2=0$ est une proposition logique fausse (une contradiction, une absurdité). 
+Nous avons donc bien prouvé par l'absurde que $(1,1,2)$ n'a pas d'antécédent par $f$ et donc que $f$ n'est pas surjective.
+\item Nous avons 
+\startformula
+\Align{
+\NC f∘g(x,y,z)\NC=f\big(fg(x,y,z)\big)=f(x+y+z,x+y)\NR
+\NC\NC =(x+y+z+x+y,x+y+z-(x+y),(x+y+z)(x+y))\NR
+\NC\NC=(2x+2y+z,z,(x+y+z)(x+y))\qquad\Big((x,y,z)∈ℝ^3\Big)\NR
+\NC g∘f(x,y)\NC=g\big(f(x,y)\big)=g(x+y,x-y,xy)\NR
+\NC\NC=(x+y+x-y+xy, x+y+x-y)=(2x+xy,2x)\qquad\big((x,y)∈ℝ^2\big)
+} 
+\stopformula
+\stopList
+\stopList
+\fi
+\stoptext
+\stopcomponent
+\endinput

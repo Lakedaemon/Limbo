@@ -1,0 +1,209 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\%blank[big]}]
+%\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][4][1,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iftrue
+\page
+\centerline{\bfb DEVOIR SURVEILLE 6}
+\blank[big]
+
+\setupitemgroup[List][1][n][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][i,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+\centerline{\bf EXO 1}
+On considère l'application $f$ qui à tout élément de $ℝ_3[X]$ associe le polynôme 
+\startformula
+f(P)=(X-1)P'-P
+\stopformula
+\startList
+\item Montrer que $f$ définit un endomorphisme de $ℝ_3[X]$
+\item Ecrire la matrice de $f$ dans la base canonique $B$ de $ℝ_3[X]$. $f$ est il bijectif ?
+\item Déterminer le noyau de $f$. En déduire le rang de $f$
+\item Déterminer une base de l'image de $f$
+\item On considère l'application $f^2=f∘f$. 
+\startList\item Montrer que $\ker(f)⊂\ker(f^2)$
+\item Montrer que $\IM(f^2)⊂\IM(f)$
+\item Ecrire la matrice de $f^2$ dans la base $B$
+\item Déterminer le noyau de $f^2$
+\stopList
+\stopList
+\blank[big]
+
+\centerline{\bf EXO 2}
+{\it On veillera à bien transformer les identités fonctionnelles en égalités avec des $x$.} 
+Pour chaque application continue $f:ℝ→ℝ$, on définit une fonction $g=Φ(f)$ via 
+\startformula
+g(x)=\System{
+\NC \displaystyle{1\F 2x}\int_{-x}^xf(t)\d t\NC \Si x≠0\NR
+\NC f(0)\NC x=0
+}
+\stopformula
+\startList
+\item Montrer que l'application $k:x↦2xg(x)$ est dérivable en $0$.
+En déduire qu'il existe deux nombres réels $α$ et $β$ (que l'on determinera) tels que 
+\startformula
+k(x)=α+βx+o_0(x)
+\stopformula
+\item En déduire que l'application $g$ est continue sur $ℝ$.
+\item Montrer que $g$ est paire et que 
+\startformula
+g(x)={1\F 2}\int_{-1}^1f(xu)\d u\qquad (x∈ℝ).
+\stopformula
+\item Donner une expression simple de $g$ dans le cas où $f$ est impaire et dans le cas où $f$ est paire.
+\item Montrer que $Φ:f↦Φ(f)$ définit un endomorphisme de l'espace $\mc C(ℝ)$ des fonctions continues sur $ℝ$.
+\item Déterminer $\ker Φ$. L'endomorphisme $Φ$ est il surjectif ?
+\item Soit $λ∈ℝ^*$ et soit $f∈\mc C(ℝ)$ vérifiant $Φ(f)=λf$.
+\startList
+\item Montrer que $f$ est paire, dérivable sur $ℝ^*$ telle que 
+\startformula
+λxf'(x)=(1-λ)f(x)\qquad(x∈ℝ).
+\stopformula
+\item Montrer que la fonction $h(x)=f(x)\e^{{λ-1\F λ}\ln|x|}$ est constante sur $ℝ^*$
+\item En déduire $\ker(Φ-λ\Id)$ en fonction de $λ∈ℝ$. 
+\stopList
+\stopList
+\blank[big]
+\goodbreak
+\centerline{\bf EXO 3}
+On considère l'application $f:ℝ^3→ℝ^3$ donnée pour $(x,y,z)∈ℝ^3$ par 
+\startformula
+f(x,y,z)=(3x-11y-8z,3x-15y-12z,3x-13y-10z)
+\stopformula
+\startList
+\item Montrer que $f$ est une application linéaire
+\item Donner la matrice de $f$ dans la base canonique de $ℝ^3$.
+\item Déterminer le noyau et l'image de $f$
+\stopList
+\blank[big]
+
+\centerline{\bf EXO 4}
+On dispose d’une urne contenant quatre boules numérotées $1$, $2$, $3$ et $4$. 
+On effectue dans cette urne une succession de tirages d’une boule avec remise 
+et on suppose qu’à chaque tirage, chacune des boules a la même probabilité d’être tirée.
+On note pour tout $n$ de $ℕ^∗$, $X_n$ la variable aléatoire égale au nombre de numéros distincts 
+obtenus en $n$ tirages.
+On a donc $X_1 = 1$ et par exemple, si les premiers tirages donnent $2, 2, 1, 2, 1, 4, 3$ 
+alors on a : $X_1 = 1$, $X_2 = 1$, $X_3 = 2$, $X_4 = 2$, $X_5 = 2$, $X_6 = 3$, $X_7 = 4$.
+On pose $A=\Matrix{
+\NC {1\F 4}\NC 0\NC 0\NC 0\NR
+\NC {3\F 4}\NC {1\F 2}\NC 0\NC 0\NR
+\NC 0\NC {1\F 2}\NC {3\F 4}\NC 0\NR
+\NC 0\NC 0\NC {1\F 4}\NC 1
+}$et  $U_n=\Matrix{
+\NC P(X_n=1)\NR
+\NC P(X_n=2)\NR
+\NC P(X_n=3)\NR
+\NC P(X_n=4)}$ pour $n∈ℕ^*$.
+\startList
+\item \startList \item Déterminer la loi de la variable aléatoire $X_2$. 
+\item Calculer $E(X_2)$ et $V(X_2)$.
+\item Tracer la courbe représentative de la fonction $F$ de répartition de $X_2$.
+\stopList
+\item \startList 
+\item Déterminer $U_1$
+\item Préciser l'ensemble des valeurs prises par $X_n$
+\item Etablir pour $n∈ℕ^*$ la relation $U_{n+1}=AU_n$. 
+\stopList
+\item On considère les quatres matrices
+\startformula
+V_1=\Matrix{
+\NC 1\NR
+\NC -3\NR
+\NC 3\NR
+\NC -1}
+,\qquad 
+V_2=\Matrix{
+\NC 0\NR
+\NC 1\NR
+\NC -2\NR
+\NC 1}\qquad 
+V_3=\Matrix{
+\NC 0\NR
+\NC 0\NR
+\NC 1\NR
+\NC -1},\qquad
+V_4=\Matrix{
+\NC 0\NR
+\NC 0\NR
+\NC 0\NR
+\NC 1}
+\stopformula
+\startList
+\item Etablir par récurrence, pour $n∈ℕ^*$ la relation
+\startformula
+U_n=\Q({1\F 4}\W)^{n-1}V_1+3\Q({1\F 2}\W)^{n-1}V_2+3\Q({3\F 4}\W)^{n-1}V_3+V_4
+\stopformula
+\item Déterminer la loi de la variable aléatoire $X_n$. 
+\stopList
+\item\startList
+\item Calculer la valeur de $E(X_n)$ pour $n∈ℕ^*$
+\item Calculer $\lim_{n→+∞}E(X_n)$. Commenter.
+\stopList
+\stopList
+
+\blank[big]
+\goodbreak
+\centerline{\bf EXO 5}
+
+Pour ceux qui ne le connaissent pas, on rappelle que $\e^u=1+u+{u^2\F 2!}+{u^3\F 3!}+{u^4\F 4!}+o_0(u^4)$ 
+et l'on considère la fonction définie sur $ℝ^+$ par 
+\startformula
+f(x)=\System{
+\NC \displaystyle{1-\e^{-x}\F x}\NC \Si x>0\NR
+\NC 1\NC\Si x=0}
+\stopformula
+{\bf PARTIE 1}\crlf
+\startList
+\item Montrer que $f$ est continue en $[0,+∞[$
+\item \startList
+\item Justifier que $f$ est dérivable sur $]0,+∞[$ puis déterminer une fonction $φ$ telle~que
+\startformula
+f'(x)={φ(x)\F x^2}\qquad(x>0)
+\stopformula
+\item Montrer que $f$ est dérivable en $0$ et donner la valeur de $f'(0)$.
+\item Etudier les variations de $φ$. En déduire le tableau de variation de $f$ qui sera complété par sa limite en $+∞$. 
+\stopList
+\stopList
+{\bf PARTIE 2}\crlf
+On introduit la suite $u$ définie par $\displaystyle u_n=\int_0^n{\e^{-{u\F n}}\F 1+u}\d u$ pour $n∈ℕ^*$.
+\startList
+\item Pour $n∈ℕ^*$, démontrer que $\displaystyle u_n⩾{1\F \e}\ln(n+1)$. Donner la limite de la suite $u$.
+\item Justifier l'existence de l'intégrale $\displaystyle\int_0^1f(x)\d x$. 
+\item A l'aide du changement de variable $u=nx$, établir que 
+\startformula
+0⩽\int_0^n{\d u\F 1+u}-u_n⩽\int_0^1f(x)\d x\qquad(n∈ℕ^*)
+\stopformula
+\item Donner alors un équivalent simple de $u_n$ lorsque $n$ tend vers $+∞$.
+\stopList
+\stoptext
+\stopcomponent
+\endinput

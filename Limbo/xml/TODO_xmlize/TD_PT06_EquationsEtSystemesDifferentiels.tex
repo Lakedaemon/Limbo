@@ -1,0 +1,92 @@
+\catcode`@=11\relax
+\def\Api{Mathematicon@Api}%
+
+\input LD@Header.tex
+\input LD.tex
+\input LD@Exercices.tex
+
+\catcode`@=11\relax
+\font\LD@Font@Arial="Arial" at 10pt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%															%
+%						Primitives : prérequis pour les équas diffs				%
+%															%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcount\LD@Count@Temp
+\def\LD@Exercice@Display@Code{}%%\LD@Option@@Label\qquad\eightpts}%
+\def\LD@Exercice@Display@Code@Post{%
+	\ifcsname LD@Exo@@Solution\endcsname
+		\unless\ifx\LD@Exo@@Solution\LD@Empty
+			\pn{\eightpts Solution : \eightpts \LD@Exo@@Solution}%
+		\fi
+	\fi
+}%
+\def\LD@Display#1{%
+	\LD@Count@Temp=#1\relax
+	\ifcase\LD@Count@Temp
+	\or
+	Math. Sup.
+	\or
+	Math. Sp\'e
+	\else
+	\fi
+}%
+\newcount\LD@Exo@Total\LD@Exo@Total=0\relax
+\def\LD@Exo@Theme@Display#1#2#3{%
+	{\LD@Loop@For\LD@Theme=#2\WithSeparator\Do{%
+		\goodbreak\bigskip
+		\centerline{\LD@Font@Arial \LD@Theme}%
+		\medskip
+		{\LD@Loop@For\LD@Exo@Type=#3\WithSeparator ,\Do{%
+			\ifcsname LD@Exo@Theme@@#1@@\LD@Theme @@\LD@Exo@Type\endcsname
+			%	\medskip\noindent$\underline{\hbox{\LD@Font@Arial\LD@Exo@Type}}$\medskip\noindent
+				\EA\let\EA\LD@Exo@List\CS LD@Exo@Theme@@#1@@\LD@Theme @@\LD@Exo@Type\EC
+				{\LD@Loop@For\LD@Exo@Label=\LD@Exo@List\WithSeparator ,\Do{%
+					\llap{\LD@Exo@Label\qquad}\EA\Exercice\EA{\LD@Exo@Label}\medskip\noindent
+					\global\advance\LD@Exo@Total by1\relax
+				}}%
+			\fi
+		}}%
+	}}%
+
+}%
+%%% TD 6.
+\vglue-10mm\rightline{Sp\'e PT\hfill TD 6 : Equations et syst\`emes diff\'erentiels\hfill}%\date}
+\bigskip
+
+\centerline{$\underline{\hbox{\fourteenbf Changement de fonction inconnue}}$}%
+\bigskip
+
+\Exercice{PTSIfp}%
+\bigskip
+
+\Exercice{PTyw}%
+\bigskip
+
+\medskip
+\centerline{$\underline{\hbox{\fourteenbf Changement de variable}}$}%
+\bigskip
+
+\Exercice{PTSIfn}%
+\bigskip
+
+\Exercice{PTyr}%
+\bigskip
+
+\Exercice{PTzm}%
+\bigskip
+
+\centerline{$\underline{\hbox{\fourteenbf Syst\`emes diff\'erentiels}}$}%
+\bigskip
+
+\Exercice{PTaoq}%
+\bigskip
+\Exercice{PTaor}%
+\vfill
+\bye
+
+\LD@Exo@Theme@Display1{\LD@Empty\EquationsDifférentiellesLinéairesDuPremierOrdre}{\Cours ,\TravauxDirigés ,\Exercices,\Colles}%
+\LD@Exo@Theme@Display2{\LD@Empty\EquationsDifférentiellesLinéairesDuSecondOrdre}{\Cours ,\TravauxDirigés ,\Exercices,\Colles}%
+\LD@Exo@Theme@Display2{\LD@Empty\SystèmesDifférentiels}{\Cours ,\TravauxDirigés ,\Exercices,\Colles}%
+\vfill\null
+\bye

@@ -1,0 +1,448 @@
+\documentclass[10pt,a4paper]{article}
+\setlength{\textwidth}{17cm}
+\setlength{\marginparwidth}{0cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\textheight}{26cm}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\headheight}{0.5cm}
+\setlength{\headsep}{0.5cm}
+\setlength{\hoffset}{-0.5cm}
+\setlength{\voffset}{0cm}
+
+\usepackage[francais]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[latin1]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{fancybox}
+\usepackage{graphicx}
+%\usepackage{pstricks,pst-plot}
+
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\K}{\ensuremath{\mathbb{K}}}
+\newcommand{\ch}{\ensuremath{\text{ch\,}}}
+\newcommand{\sh}{\ensuremath{\text{sh\,}}}
+\newcommand{\tnh}{\ensuremath{\text{th\,}}}
+\newcommand{\ach}{\ensuremath{\text{argch\,}}}
+\newcommand{\ash}{\ensuremath{\text{argsh\,}}}
+\newcommand{\ath}{\ensuremath{\text{argth\,}}}
+\newcommand{\re}{\ensuremath{\text{Re\,}}}
+\newcommand{\Id}{\ensuremath{\text{Id}}}
+\newcommand{\im}{\ensuremath{\text{Im\,}}}
+\newcommand{\Ker}{\ensuremath{\text{Ker\,}}}
+\newcommand{\Vect}{\ensuremath{\text{Vect}}}
+\newcommand{\Card}{\ensuremath{\text{Card}}}
+\newcommand{\rg}{\ensuremath{\text{rg}}}
+
+\begin{document}
+
+\lhead{Correction du DS n°1}
+\rhead{Page \thepage{} sur \pageref{LastPage}}
+\cfoot{isabelle.chauvin@free.fr}
+\lfoot{PTSI, Lycée Newton, Clichy}
+\rfoot{Année 2011-2012}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\pagestyle{fancy}
+
+\begin{center}
+	\shadowbox{\Large{\textbf{CORRECTION DU DS n°1}}}
+\end{center}
+
+\begin{center}
+	\fbox{\large{\textbf{Exercice I}}}
+\end{center}
+
+	\begin{enumerate}		\item Soit $n$ un entier naturel.
+			\begin{enumerate}				\item Montrons que ($n$ est multiple de 2) $ \not \Rightarrow$ 
+					($n$ est multiple de 4 ou $n$ est multiple de 6)\\
+					En effet, $n = 10$ est multiple 
+					de 2 car $10 = 2 \times 5$, mais 10 n'est ni multiple de 4, 
+					ni multiple de 6.\\
+					Donc \fbox{pour $n \in \N$, ($n$ est multiple de 2) $\not \Rightarrow$ 
+					($n$ est multiple de 4 ou $n$ est multiple de 6)}.
+				\item Montrons que ($n$ est multiple de 4 ou $n$ est multiple de 6) 
+					$\Rightarrow$ ($n$ est multiple de 2)\\
+					Pour $n \in \N$, on suppose que $n$ est multiple de 4 ou $n$ est 
+					multiple de 6.\\
+					Alors $n = 4p$ avec $p \in \N$, ou $n = 6 q$ avec $q \in \N$, 
+					donc $n = 2 \times (2p)$ ou $n = 2 \times (3q)$ avec 
+					$2p \in \N$ et $3q \in \N$ : on reconnaît que $n$ est un multiple de 2, 
+					et on a montré que :\\
+					\fbox{pour $n \in \N$, ($n$ est multiple de 4 ou $n$ est multiple de 6) 
+					$\Rightarrow$ ($n$ est multiple de 2)}.			\end{enumerate}
+		\item Soit $x$ un réel.
+			\begin{enumerate}				\item Montrons que $x-3 = x^2 + 2x \Rightarrow (x-3)^2 = (x^2 + 2x)^2$\\
+					Soit $x$ réel, tel que $x-3 = x^2 + 2x$ ; 
+					alors par propriété de la fonction carrée, 
+					$(x-3)^2 = (x^2 + 2x)^2$\\
+					On a donc prouvé que 
+					\fbox{pour $x \in \R, \quad 
+					x-3 = x^2 + 2x \Rightarrow (x-3)^2 = (x^2 + 2x)^2$}.
+				\item Montrons que $(x-3)^2 = (x^2 + 2x)^2 \not \Rightarrow x-3 = x^2 + 2x$\\
+					Commençons par résoudre dans $\R$ l'équation $(x-3)^2 = (x^2 + 2x)^2$\\
+					$(x-3)^2 = (x^2 + 2x)^2
+					\iff 
+					x-3 = \pm (x^2 + 2x)
+					\iff 
+					(x^2 + x + 3 = 0$ ou $x^2 + 3x - 3 = 0)$\\
+					La première équation a un discriminant strictement négatif, 
+					donc pas de solutions réelles ; la seconde a pour discriminant 
+					$\Delta = 21$, et pour racines $\frac{-3 \pm \sqrt{21}}{2}$.\\
+					Choisissons $x = \frac{-3 + \sqrt{21}}{2}$ ; 
+					on vient de voir que $(x-3)^2 = (x^2 + 2x)^2$  \\
+					mais $x^2 + 2x - (x-3) = x^2 + x + 3 \ne 0$ car $x \in \R$, 
+					donc $x-3 \ne x^2 + 2x$\\
+					On a donc prouvé que 
+					\fbox{$(x-3)^2 = (x^2 + 2x)^2 \not \Rightarrow x-3 = x^2 + 2x$}.			\end{enumerate}
+		\item 
+			\begin{enumerate}				\item Montrons que $z \in \C \not \Rightarrow \exists r \in \R_+^*,\; 
+					\exists \theta \in \R,\; z = r e^{i \theta}$\\
+					En effet, si $z = 0$, alors $z$ n'admet pas d'écriture de la forme 
+					$z = r e^{i \theta}$ avec $r \in \R_+^*$ et $\theta \in \R$.\\
+					On a montré que 
+					\fbox{$z \in \C \not \Rightarrow \exists r \in \R_+^*,\; 
+					\exists \theta \in \R,\; z = r e^{i \theta}$}.
+				\item Montrons que $\exists r \in \R_+^*,\; \exists \theta \in \R,\; 
+					z = r e^{i \theta} \Rightarrow z \in \C$\\
+					Supposons qu'il existe $r$ dans $\R_+^*$ et $\theta$ dans $\R$ 
+					avec $z = r e^{i \theta}$\\
+					Par définition, $e^{i \theta} = \cos \theta + i \sin \theta$, 
+					donc $z = r \cos \theta + i r \sin \theta$, 
+					avec $r \cos \theta \in \R$ et $r \sin \theta \in \R$ : \\
+					on reconnaît l'écriture algébrique d'un complexe, et $z \in \C$.\\
+					On a montré que 
+					\fbox{$\exists r \in \R_+^*,\; \exists \theta \in \R,\; 
+					z = r e^{i \theta} \Rightarrow z \in \C$}.			\end{enumerate}	\end{enumerate}
+					
+					
+\begin{center}
+	\fbox{\large{\textbf{Exercice II}}}
+\end{center}
+
+	\noindent
+	Montrons par récurrence sur $n$ que 
+	$\forall n \geqslant 2,\; \sum \limits_{k=1}^n \frac{1}{k^2} > \frac{3n}{2n+1}$
+	\begin{enumerate}		\item Initialisons la récurrence pour $n = 2$\\
+			Quand $n = 2$, 
+			$\sum \limits_{k=1}^n \frac{1}{k^2} = 1 + \frac{1}{4} = \frac{5}{4}$
+			et $\frac{3n}{2n+1} = \frac{6}{5}$ ; 
+			or $\frac{5}{4} - \frac{6}{5} = \frac{1}{20} > 0$, 
+			donc $\frac{5}{4} > \frac{6}{5}$ et la récurrence est initialisée pour $n = 2$
+		\item Hérédité\\
+			On suppose que pour un $n \geqslant 2, \; 
+			\sum \limits_{k=1}^n \frac{1}{k^2} > \frac{3n}{2n+1}$ ; 
+			montrons que $\sum \limits_{k=1}^{n+1} \frac{1}{k^2} > \frac{3(n+1)}{2(n+1)+1}
+			= \frac{3n+3}{2n+3}$\\
+			On évalue $\sum \limits_{k=1}^{n+1} \frac{1}{k^2} - \frac{3n+3}{2n+3}
+			= \sum \limits_{k=1}^n \frac{1}{k^2} + \frac{1}{(n+1)^2} - \frac{3n+3}{2n+3}
+			> \frac{3n}{2n+1} + \frac{1}{(n+1)^2} - \frac{3n+3}{2n+3}$ 
+			par hypothèse de récurrence\\
+			Alors 
+			$\sum \limits_{k=1}^{n+1} \frac{1}{k^2} - \frac{3n+3}{2n+3}
+			> \frac{3n(2n+3)(n+1)^2 + (2n+1)(2n+3) - (3n+3)(2n+1)(n+1)^2}
+			{(2n+1)(2n+3)(n+1)^2}
+			= \frac{n^2 + 2n}{(2n+1)(2n+3)(n+1)^2}$ après calculs\\
+			Or $n \geqslant 2$, donc $\frac{n^2 + 2n}{(2n+1)(2n+3)(n+1)^2} > 0$, 
+			et $\sum \limits_{k=1}^{n+1} \frac{1}{k^2} > \frac{3n+3}{2n+3}$\\	\end{enumerate}
+	On a donc prouvé par récurrence sur $n$ que 
+	\fbox{$\forall n \geqslant 2,\; \sum \limits_{k=1}^n \frac{1}{k^2} > \frac{3n}{2n+1}$}.
+	
+\newpage
+
+\begin{center}
+	\fbox{\large{\textbf{Exercice III}}}
+\end{center}
+
+	\begin{enumerate}		\item Soit $x \in \R$ ; on remarque que 
+			$\cos x - \sqrt 3 \sin x 
+			= 2 (\frac{1}{2} \cos x - \frac{\sqrt 3}{2} \sin x)
+			= 2 (\cos \frac{\pi}{3} \cos x - \sin \frac{\pi}{3} \sin x)$\\
+			donc $\cos x - \sqrt 3 \sin x = 2 \cos (x+\frac{\pi}{3})$, et on peut résoudre 
+			l'équation proposée.\\
+			$\cos x - \sqrt 3 \sin x = 1
+			\iff 
+			2 \cos (x+\frac{\pi}{3}) = 1
+			\iff 
+			\cos (x+\frac{\pi}{3}) = \cos \frac{\pi}{3}
+			\iff 
+			x + \frac{\pi}{3} = \pm \frac{\pi}{3} + 2k\pi$, avec $k \in \Z\\
+			\iff 
+			x = 2k \pi$ ou $x = -\frac{2\pi}{3} + 2k\pi$, avec $k \in \Z$\\
+			Finalement, \fbox{les solutions de l'équation $(E_1)$ sont les réels de la forme 
+			$2 k \pi$ ou $-\frac{2\pi}{3} + 2k\pi$, avec $k \in \Z$}.
+		\item Soit $x \in \R$ ; résolvons l'équation par équivalences.\\
+			$\sin(5x) = \frac{1}{2}
+			\iff
+			\sin(5x) = \sin \frac{\pi}{6}
+			\iff 
+			5x = \frac{\pi}{6} + 2k\pi$ ou $5x = \pi - \frac{\pi}{6} + 2k \pi$, 
+			avec $k \in \Z$\\
+			$\iff 
+			x = \frac{\pi}{30} + \frac{2 k \pi}{5}$ 
+			ou $x = \frac{\pi}{6} + \frac{2 k \pi}{5}$ avec $k \in \Z$\\
+			\fbox{les solutions de l'équation $(E_2)$ sont les réels de la forme 
+			$\frac{\pi}{30} + \frac{2 k \pi}{5}$ 
+			ou $\frac{\pi}{6} + \frac{2 k \pi}{5}$ avec $k \in \Z$}.
+		\item Soit $x \in \R$ ; on transforme l'expression \\
+			$\cos x + \sin x + 2 \sqrt 2 \sin x \cos x
+			= \sqrt 2 (\frac{\sqrt 2}{2} \cos x + \frac{\sqrt 2}{2} \sin x) 
+			+ \sqrt 2 \sin(2x)\\
+			= \sqrt 2 (\sin \frac{\pi}{4} \cos x + \cos \frac{\pi}{4} \sin x)
+			+ \sqrt 2 \sin(2x)
+			= \sqrt 2 \left( \sin(x+\frac{\pi}{4}) + \sin(2x) \right)
+			= \sqrt 2 \times 2 \sin \left( \frac{x+\frac{\pi}{4}+2x}{2} \right) 
+			\cos \left( \frac{x+\frac{\pi}{4}-2x}{2} \right)$\\
+			On peut maintenant résoudre l'équation $(E_3)$ :\\
+			$(E_3) 
+			\iff 
+			\sqrt 2 \times 2 \sin \left( \frac{3x}{2} + \frac{\pi}{8} \right) 
+			\cos \left( \frac{\pi}{8} - \frac{x}{2} \right) = 0
+			\iff 
+			\sin \left( \frac{3x}{2} + \frac{\pi}{8} \right) = 0$ ou  
+			$\cos \left( \frac{\pi}{8} - \frac{x}{2} \right) = 0\\
+			\iff 
+			\frac{3x}{2} + \frac{\pi}{8} = k \pi$ ou 
+			$\frac{\pi}{8} - \frac{x}{2} = \frac{\pi}{2} + k \pi$, avec $k \in \Z
+			\iff 
+			x = - \frac{\pi}{12} + \frac{2k\pi}{3}$ 
+			ou $x = -\frac{3\pi}{4} + 2k \pi$, avec $k \in \Z$\\
+			et \fbox{les solutions de $(E_3)$ sont les réels de la forme 
+			$- \frac{\pi}{12} + \frac{2k\pi}{3}$ 
+			ou $-\frac{3\pi}{4} + 2k \pi$, avec $k \in \Z$}.
+		\item Soit $x \in \R$ ; résolvons $(I_1)$ par équivalences.\\
+			$\cos x > \frac{\sqrt 2}{2}
+			\iff 
+			\cos x > \cos \frac{\pi}{4}
+			\iff 
+			- \frac{\pi}{4} + 2k \pi < x < \frac{\pi}{4} + 2k \pi$ avec $k \in \Z$\\
+			et \fbox{l'ensemble des solutions de $(I_1)$ est 
+			$\bigcup \limits_{k \in \Z} 
+			\left] - \frac{\pi}{4} + 2k \pi, \frac{\pi}{4} + 2k \pi \right[$}.
+		\item Soit $x \in \R$ ; résolvons $(I_2)$ par équivalences.\\
+			$\sin x \leqslant \frac{1}{2}
+			\iff 
+			\sin x \leqslant \sin \frac{\pi}{6}
+			\iff 
+			-\frac{7\pi}{6} + 2 k \pi \leqslant x \leqslant \frac{\pi}{6} + 2 k \pi$ 
+			avec $k \in \Z$\\
+			et \fbox{l'ensemble des solutions de $(I_2)$ est 
+			$\bigcup \limits_{k \in \Z} 
+			\left] - \frac{7\pi}{6} + 2k \pi, \frac{\pi}{6} + 2k \pi \right[$}.
+		\item Soit $x \in \R$. Par les formules d'Euler, \\
+			$A = \cos^3 x \sin^2 x 
+			= \left( \frac{e^{ix}+e^{-ix}}{2} \right)^3 
+			\left( \frac{e^{ix} - e^{-ix}}{2i} \right)^2
+			= \frac{e^{3ix} + 3e^{ix} + 3e^{-ix} + e^{-3ix}}{8}
+			\frac{e^{2ix} - 2 + e^{-2ix}}{-4}$ par la formule du binôme\\
+			On continue : 
+			$A = \frac{e^{5ix}-2e^{3ix}+e^{ix} +3e^{3ix}-6e^{ix}+3e^{-ix} 
+			+3e^{ix}-6e^{-ix}+3e^{-3ix} +e^{-ix}- 2e^{-3ix}+e^{-5ix}}{-32}$ \\
+			et après simplifications, 
+			$A = \frac{e^{5ix}+e^{-5ix} +e^{3ix}+e^{-3ix} -2e^{ix}-2e^{-ix}}{-32}
+			= \frac{2 \cos(5x) + 2 \cos(3x) - 4 \cos(x)}{-32}$ par Euler\\
+			Finalement, \fbox{$\forall x \in \R,\; 
+			A = \cos^3 x \sin^2 x 
+			= \frac{1}{8} \cos x - \frac{1}{16} \cos(3x) - \frac{1}{16} \cos(5x)$}.
+		\item Le trinôme du second degré $z^2 + iz +1-3i$ 
+			a pour discriminant $\Delta = i^2 - 4(1-3i) = -5 + 12i$.\\
+			Cherchons les racines carrées complexes de $\Delta$, c'est-à-dire 
+			$a$ et $b$ réels tels que $\Delta = (a+ib)^2 = a^2 - b^2 + 2iab$\\
+			On identifie les parties réelles et imaginaires, ce qui donne le système :
+			$\left\{ \begin{array}{l}
+			a^2 - b^2 = -5\\
+			2ab = 12
+			\end{array} \right.$
+			auquel on adjoint l'équation 
+			$|\Delta| = |(a+ib)^2|$, c'est-à-dire : $a^2 + b^2 = \sqrt{(-5)^2+12^2} = 13$\\
+			$\left\{ \begin{array}{l}
+			a^2 - b^2 = -5\\
+			a^2 + b^2 = 13\\
+			2ab = 12
+			\end{array} \right.
+			\iff 
+			\left\{ \begin{array}{l}
+			a^2 = 4\\
+			b^2 = 9\\
+			ab = 6
+			\end{array} \right.
+			\iff 
+			\left\{ \begin{array}{l}
+			a = \pm 2\\
+			b = \pm 3\\
+			ab = 6
+			\end{array} \right.
+			\iff 
+			(a,b) = (2,3)$ ou $(a,b) = (-2,-3)$\\
+			On a donc montré que $\Delta = -5 + 12i = (2+3i)^2$, 
+			et les racines de l'équation $(E_4)$ sont 
+			$\frac{-i \pm (2+3i)}{2}$.\\
+			Après simplifications, 
+			\fbox{les solutions de $(E_4)$ sont $1+i$ et $-1-2i$}	\end{enumerate}
+
+\newpage			
+			
+\begin{center}
+	\fbox{\large{\textbf{Exercice IV}}}
+\end{center}
+
+	\begin{enumerate}
+		\item Soit $\theta \in \R$ ; alors 
+			$C_1(\theta) = \cos \theta \cdot \cos \theta = \cos^2 \theta 
+			\geqslant 0$ \quad donc 
+			\fbox{$\forall \theta \in \R, \quad C_1(\theta) \geqslant 0$}.\\
+			De plus, $C_2(\theta) = \cos \theta \cdot \cos \theta 
+			+ \cos^2 \theta \cdot \cos(2\theta) 
+			= \cos^2 \theta \cdot (1 + \cos (2\theta))$ \\
+			or $\forall \theta \in \R, \quad \cos(2\theta) \geqslant -1$, 
+			donc \fbox{$\forall \theta \in \R, \quad C_2(\theta) \geqslant 0$}.
+		\item 
+			\begin{enumerate}
+				\item Montrons par récurrence sur $p$ que 
+					$\forall p \in \N, \quad \cos(p\pi) = (-1)^p$
+					\begin{itemize}
+						\item [\textbullet] Amorce pour $p = 0$ :\\
+							$\cos (0.\pi) = \cos 0 = 1$, et $(-1)^0 = 1$, 
+							donc la récurrence est amorcée pour $p = 0$.
+						\item [\textbullet] On suppose que pour un $p \in \N, 
+							\quad \cos(p\pi) = (-1)^p$ ; montrons que 
+							$\cos((p+1)\pi) = (-1)^{p+1}$\\
+							$\cos((p+1)\pi) = \cos(p\pi + \pi) 
+							= - \cos(p\pi) = -(-1)^p$ par hypothèse de 
+							récurrence.\\
+							Donc $\cos((p+1)\pi) = (-1)^{p+1}$
+					\end{itemize}
+					On a montré par récurrence sur $p$ que 
+					$\forall p \in \N, \quad \cos(p\pi) = (-1)^p$.\\
+					De plus, cos est une fonction paire, donc 
+					on a montré que \fbox{$\forall p \in \Z, \quad 
+					\cos(p\pi) = (-1)^p$}.
+				\item Soient $n \in \N^*$ et $\theta \in \R$. 
+					On suppose que $\theta = p \pi$ 
+					avec $p \in \Z$.\\
+					Alors $C_n(\theta) = \sum \limits_{k=1}^n (\cos(p\pi))^k 
+					\cdot \cos (kp\pi)
+					= \sum \limits_{k=1}^n ((-1)^p)^k 
+					\cdot (-1)^{kp}$ par 2.(a)\\
+					donc $C_n(\theta) = \sum \limits_{k=1}^n (-1)^{kp} 
+					\cdot (-1)^{kp} 
+					= \sum \limits_{k=1}^n 1 = n$
+					Alors \fbox{$\forall n \in \N^*, \quad C_n(\theta) = n$ 
+					\quad si $\theta = p\pi$ avec $p \in \Z$}.
+			\end{enumerate}
+		\item 
+			\begin{enumerate}
+				\item Soit $\theta$ un réel. Alors par la formule d'Euler :\\
+					$1 - (\cos \theta) e^{i\theta} 
+					= 1 - \frac{e^{i\theta}+ e^{-i\theta}}{2} e^{i\theta}
+					= 1 - \frac{e^{2i\theta} + 1}{2}
+					= \frac{1 - e^{2i\theta}}{2}
+					= e^{i\theta} \cdot \frac{e^{-i\theta}-e^{i\theta}}{2}
+					= e^{i\theta} \cdot \frac{-2i \sin \theta}{2}$\\
+					Donc \fbox{$\forall \theta \in \R, \quad 
+					1 - (\cos \theta) e^{i\theta} 
+					= - i (\sin \theta) e^{i\theta}$}.
+				\item Soient $\theta$ un réel, et $n$ un entier strictement positif.\\
+					$C_n(\theta) + i S_n(\theta) 
+					= \sum \limits_{k=1}^n (\cos \theta)^k 
+					\left[ \cos(k\theta) + i \sin (k \theta) \right]
+					= \sum \limits_{k=1}^n (\cos \theta)^k e^{ik\theta}
+					= \sum \limits_{k=1}^n \left( \cos \theta \cdot e^{i\theta} 
+					\right)^k$ donc :\\
+					\fbox{$C_n(\theta) + i S_n(\theta)$ est la somme de termes 
+					consécutifs d'une suite géométrique 
+					\begin{tabular}[t]{l} 
+					de raison $\cos \theta \cdot e^{i\theta}$\\
+					de premier terme $\cos \theta \cdot e^{i\theta}$
+					\end{tabular}}
+				\item Soient $\theta$ un réel, et $n$ un entier strictement positif.\\
+					Quand $\theta$ n'est pas un multiple de $\pi$, alors 
+					$\cos \theta \cdot e^{i\theta} \ne 1$, donc :\\
+					$C_n(\theta) + i S_n (\theta) 
+					= \cos \theta \cdot e^{i\theta} \cdot 
+					\frac{1 - (\cos \theta \cdot e^{i\theta})^n}
+					{1 - \cos \theta \cdot e^{i\theta}}
+					= \cos \theta \cdot e^{i\theta} \cdot 
+					\frac{1 - (\cos \theta \cdot e^{i\theta})^n}
+					{- i (\sin \theta) e^{i\theta}}$ par 3.(a)\\
+					Donc $C_n(\theta) + i S_n (\theta) = i \cos \theta \cdot 
+					\frac{1 - (\cos \theta)^n \cdot e^{in\theta}}
+					{\sin \theta}
+					= \frac{\cos \theta}{\sin \theta} \cdot \left[ 
+					i - i \cos^n \theta (\cos(n\theta) + i \sin(n\theta)) 
+					\right]$. \\
+					Or $C_n(\theta) = \text{Re} \left( C_n(\theta) 
+					+ i S_n (\theta) \right)$, 
+					donc $C_n(\theta) = \frac{\cos \theta}{\sin \theta} \cdot 
+					\cos^n \theta \cdot \sin(n\theta)$.\\
+					On a montré que \fbox{si $\theta$ n'est pas multiple de 
+					$\pi$, alors $\forall n \in \N^*, \quad C_n(\theta) 
+					= \frac{(\cos \theta)^{n+1} \cdot 
+					\sin (n \theta)}{\sin \theta}$}.
+			\end{enumerate}
+		\item Soit $\theta \in \R$.\\
+			Si $\theta$ est un multiple de $\pi$, alors par 2.(b), 
+			$C_3(\theta) = 3$.\\
+			Sinon, par 3.(c), on a montré que 
+			$C_3(\theta) = \frac{(\cos \theta)^4 \cdot 
+			\sin (3 \theta)}{\sin \theta}$ du signe de 
+			$\frac{\sin (3 \theta)}{\sin \theta}$. \\
+			Comme $C_3$ est $2\pi$-périodique, il suffit de trouver le signe de 
+			$C_3(\theta)$ pour $\theta \in [0,2\pi]$ :\\
+			$\begin{array}{l|ccccccccccccccccc}
+			\theta & 0 & & \frac{\pi}{3} & & \frac{\pi}{2} & & \frac{2\pi}{3} 
+				& & \pi & & \frac{4\pi}{3} & & \frac{3\pi}{2} & & 
+				\frac{5\pi}{3} & & 2\pi \\ \hline
+			\sin(3\theta) & 0 & + & 0 & - & | & - & 0 & + & 0 & - & 0 & + & 
+				| & + & 0 & - & 0 \\ \hline
+			\sin \theta & 0 & + & | & + & | & + & | & + & 0 & - & | & - & | & 
+				- & | & - & 0 \\ \hline
+			C_3(\theta) & (3) & + & 0 & - & 0 & - & 0 & + & (3) & + & 0 & - & 0 
+				& - & 0 & + & (3)
+			\end{array}$
+		\item 
+			\begin{enumerate}
+				\item Soient $n \in \N^*$ et $\theta \in \R$ avec $\theta$ 
+					non multiple de $\pi$ ; d'après 3.(c), 
+					$|C_n(\theta)| = \frac{|\cos \theta|^{n+1} \cdot 
+					|\sin(n\theta)|}{|\sin \theta|}$\\
+					Or $|\sin(n\theta)| \leqslant 1$, 
+					donc \fbox{$\forall n \in \N^*, \quad 
+					\forall \theta \in \R \setminus \pi \Z, \quad 
+					|C_n(\theta)| \leqslant \frac{|\cos \theta|^{n+1}}
+					{|\sin \theta|}$}.
+				\item 
+					\begin{itemize}
+						\item [\textbullet] Cas où $\theta \in \R \setminus 
+							\pi \Z$ :\\
+							Alors $-1 < \cos \theta < 1$, 
+							donc $\lim \limits_{n \to +\infty} 
+							|\cos \theta|^{n+1} = 0$ ; de plus, 
+							$\sin \theta \ne 0$, donc 
+							$\lim \limits_{n \to +\infty} 
+							\frac{|\cos \theta|^{n+1}}{|\sin \theta|} = 0$, 
+							et par 5.(a), $\lim \limits_{n \to +\infty} 
+							C_n(\theta) = 0$.
+						\item [\textbullet] Cas où $\theta = p \pi$, 
+							avec $p \in \Z$ :\\
+							On a vu au 2.(b) que dans ce cas, 
+							$C_n(\theta) = n$, 
+							donc $\lim \limits_{n \to +\infty} C_n(\theta) 
+							= +\infty$.
+					\end{itemize}
+					Bilan : \fbox{\begin{tabular}[t]{ll}
+					si $\theta$ n'est pas mutiple de $\pi$, &  
+					alors $\lim \limits_{n \to +\infty} C_n(\theta) = 0$ \\
+					si $\theta$ est multiple de $\pi$, & 
+					alors $\lim \limits_{n \to +\infty} C_n(\theta) = +\infty$
+					\end{tabular}}.
+			\end{enumerate}
+	\end{enumerate}
+
+			
+\end{document}

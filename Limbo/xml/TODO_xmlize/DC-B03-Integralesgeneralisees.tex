@@ -1,0 +1,151 @@
+\catcode`@=11\relax
+\input LD@Header.tex
+\input LD@Library.tex
+\catcode`@=11\relax
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%															%
+%						Corrigé du Probleme 01 : Diagonalisation				%
+%															%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vglue-10mm\rightline{Sp\'e PT\hfill Corrig\'e du DL 3 : ENSAE 2001.\hfill}%
+\bigskip
+
+\noindent
+1a) l'application $t\mapsto {\root 3\of t}$ est continue sur $\ob R^*$ car elle est impaire et satisfait
+$$
+{\root 3\of t}=\e^{\ln(t)/3}\qquad(t>0)
+$$
+A fortiori, l'application $f:t\mapsto {t\F{\root 3\of{ t^3-1}}}$ est continue sur $\ob R\ssm\{1\}$ et l'on remarque de plus que
+$$
+f(t)={t\F{\root 3\of{ t^3-1}}}={t\F\root 3\of{(t^2+t+1)(t-1)}}\mathop{\sim}\limits_{1} {1\F\root 3\of{3}\root 3\of {t-1}}.\eqdef{eqi}
+$$
+Comme ${\root 3\of{ t-1}}=-(1-t)^{1/3}<0$ pour $t<1$, l'int\'egrale $\int_0^1f(t)\d t$ est de m\^eme nature que l'int\'egrale de Riemann convergente $\int_0^1(1-t)^{-1/3}\d t$. A fortiori, l'int\'egrale $I=\int_0^1f(t)\d t$ converge.
+Comme $f$ satisfait
+$$
+f(t)={t\F{\root 3\of{ t^3-1}}}={t\F t{\root 3\of{ 1-t^{-3}}}}\mathop{\sim}\limits_{\pm\infty} 1, 
+$$
+les int\'egrales  $\int_2^{+\infty}f(t)\d t$ et $\int_{-\infty}^0f(t)\d t$ sont toutes deux divergentes. De plus, comme $f$ est positive sur $]-\infty,0]$ et sur $[2,+\infty[$, nous remarquons que
+$$
+J'=\int_{-\infty}^0f(t)\d t=+\infty\qquad\mbox{ et }J=\int_2^{+\infty}f(t)\d t=+\infty.\eqdef{lim}
+$$
+\medskip\noindent
+1b+1c) Lorsque $x<0$, le nombre $F(x)$ est d\'efini en tant qu'int\'egrale de la fonction continue  $f$ sur les segments $[x,1/x]$ si $x<-1$ et $[1/x,x]$ si $-1\le x<0$. \medskip
+\noindent
+Pour $x>0$, $F(x)$ est d\'efini en tant que somme des deux int\'egrales $\int_{1/x}^1f(t)\d t$ et $\int_1^{1/x}f(t)\d t$, qui convergent d'apr\`es l'\'etude me\'ee en a) : \pn 
+$f$ est continue sur $\ob R\ssm\{1\}$ et ces int\'egrales sont de m\^eme nature qu'une int\'egrale convergeante d'apr\`es l'\'equivalent \eqref{eqi}, qui reste de signe constant en $1^-$ et en $1^+$. Ainsi, nous obtenons que
+$$
+F(x)=\int_{1/x}^1f(t)\d t+\int_1^{1/x}f(t)\d t\qquad(x>0)
+$$
+et nous remarquons que la d'efinition des int\'egrales g\'en\'eralis\'ees  convergentes ainsi que les conventions habituelles sur les int\'egrales (Chasles) induisent que 
+$$
+F(1)=\int_1^1f(t)\d t=0.
+$$
+2a) Lorsque $x<0$, nous remarquons que  
+$$
+F(x)=\int_0^xf(t)\d t-\int_0^{1/x}f(t)\d t
+$$
+et aussi qu'il r\'esulte de la d\'efinition des int\'egrales g\'en\'eralis\'ees que 
+$$
+\eqalign{
+\lim_{x\to-\infty}\int_0^xf(t)\d t&=\int_0^{-\infty}f(t)\d t=-J'=-\infty
+\cr
+\lim_{x\to-\infty}\int_0^{1/x}f(t)\d t&=\lim_{u\to 0^-}\int_0^{u}f(t)\d t=\int_0^{-1}f(t)\d t+\lim_{u\to 0^-}\int_{-1}^uf(t)\d t\cr&=\int_0^{-1}f(t)\d t+\int_{-1}^0f(t)\d t=0.
+}
+$$
+
+En particulier, nous observons que $\lim\limits_{x\to-\infty}F(x)=-\infty$ et en proc'edant de m\^eme, il suit
+$$
+\eqalign{
+\lim_{x\to0^-}F(x)&=\int_{-\infty}^0f(t)d t=+\infty\cr
+\lim_{x\to0^+}F(x)&=\int_{+\infty}^0f(t)d t=-\infty\cr
+\lim_{x\to+\infty}F(x)&=\int_0^{+\infty}f(t)d t=+\infty\cr
+}
+$$
+2b) Pour $x<0$, Nous d\'eduisons de Chasles, de $x=\int_0^x\d t$ et de $\root 3\of{ t^3-1}=t(1-t^{-3})^{1/3}\ (t<0)$ que 
+$$
+F(x)-x=\int_{1/x}^0f(t)d t +\int_0^xf(t)d t-\int_0^x\d t= \int_{1/x}^0 f(t)d t +\int_{1/x}^0 g(t)d t.\eqdef{gah}
+$$
+2c) Comme la fonction $g$ est continue sur $]-\infty,0]$ , les int'egrales $\int_{-\infty}^{-1}g(t)d t$ et $\int_{-\infty}^{-1}g(t)\d t$ sont de m\^eme nature (Chasles). Comme $g$ satisfait
+$$
+\eqalign{
+g(t)&=(1-t^{-3})^{-1/3}-1=1+{1\F3t^3}-1+o_{-\infty}\Q({1\F3t^3}\W)={1\F3t^3}+o_{-\infty}\Q({1\F3t^3}\W)
+\cr
+&\mathop{\sim}\limits_{-\infty} {1\F3t^3}<0, 
+}
+$$
+l'int\'egrale $c=\int_{-\infty}^0g(t)d t$ existe car elle est de m\^eme nature que $\int_{-\infty}^{-1}{1\F3t^3}\d t $, int\'egrale de  Riemann convergeante .
+\medskip
+Pour l'allure de courbe, utilisez votre imagination et dites vous que j'ai fait un super schema (c'est chaud à dactylographier un dessin).  Il faut surtout conclure du calcul pr\'ec\'edent et de  \eqref{gah} qu'en $-\infty$, on a une asymptote oblique d'\'equation $y=x+c$.
+\medskip\noindent
+2d) En $+\infty$, c'est pareil, on une asymptote oblique d'\'equation  $y=x+d$, avec $d=\int_0^1f(t)\d t-1+\int_1^{+\infty}g(t)\d t $ sauf que le cr\'eateur du sujet est un p'tit malin : entre $0$ et $1$, il faut faire attention en simplifiant la racine cubique : on ne peut pas utiliser $g(t)$ (c'est pour voir si vous \^etes rigoureux), d'o\`u l'expression zarbie de $d$.
+\medskip
+3a) Pour justifier rigoureusement cela (c'est un peu subtil), on va utiliser le th\'eor\`eme fondamental de sup qui dit que la fonction $G$ d\'efinie par
+$$
+G(x)=\cases{
+	\int_2^xf(t)d t& si $x>1$\cr 
+	\cr
+	\int_2^0f(t)d t+ \int_0^xf(t)d t& si $x<1$
+}
+$$
+est une primitive de la fonction continue $f$ sur chacun des intervales $]-\infty,1[$ et $]1,+\infty[$.
+Autrement dit, l'application $G$ est de classe $\sc C^1$ sur $\ob R\ssm\{1\}$ et v\'erifie
+$$
+\forall x\neq1,\qquad G'(x)=f(x).
+$$
+
+Alors, en utilisant Chasles pour obtenir que
+$$
+F(x)= G(x)-G(1/x)\qquad(x\in\ob R\ssm\{0,1\}),
+$$
+nous remarquons que l'application $F$ est la somme de la fonction $G$, de classe $\sc C^1$ sur 
+$\ob R\ssm\{1\}$ et de la compos\'ee $x\mapsto G(1/x)$,  de classe $\sc C^1$ sur 
+$\ob R\ssm\{0,1\}$. A fortiori, la fonction $F$ est de classe $\sc C^1$ sur $\ob R\ssm\{0,1\}$ et de plus, on a
+
+$$
+\eqalign{
+F'(x)&= G'(x)+{G'(1/x)\F x^2}=f(x)+{f(1/x)\F x^2}={x\F{\root 3\of{ x^3-1}}}+{1/x^3\F{\root 3\of{ x^{-3}-1}}}\cr
+&={x\F{\root 3\of{ x^3-1}}}+{1/x^2\F{\root 3\of{ 1-x^3}}}={1\F x^2}{x^3-1\F{\root 3\of{x^3-1}}}={|x^3-1|^{2/3}\F x^2}
+}
+$$
+En particulier, la d\'eriv\'ee de la fonction $F$ est toujours strictement positive sur $\ob R\ssm\{0,1\}$. C'est une fonction strictement croissante sur chacun des intervalles $]-\infty,0[$, $]0,1[$ et $]1,+\infty[$.
+\medskip\noindent
+4b) Grand classique, on applique le th'eor\`eme (sup) de prolongement $\sc C1$ (sert souvent): \pn
+*) La fonction $F$ est de classe $\sc C^1$ sur $]0,1[\cup]1,2[$, d'apr\`es 3a).\pn
+*) la fonction $F$ est continue en $1$ car
+$$
+F(1)=0=\int_2^1f(t)\d t-\int_2^1f(t)\d t=\lim_{x\to 1\atop x\neq1}\Q(\int_2^xf(t)\d t-\int_2^{1/x}f(t)\d t\W)=\lim_{x\to 1\atop x\neq1}F(x).
+$$
+*) la fonction $F'(x)$ admet une limite (finie) en $1$ car
+$$
+\lim_{x\to1\atop x\neq1}F'(x)=\lim_{x\to1\atop x\neq1}{|x^3-1|^{2/3}\F x^2}=0.
+$$
+A fortiori, $F$ est de classe $\sc C^1$ sur $]0,2[$, d'apr\`es le th'eor\`eme de prolongement $\sc C^1$, et $F'(1)=0$.
+\medskip
+Bon, d'apr\`es l'expression obtenue pour $F'$, l'application $F$ est de classe $\sc C^\infty$ sur $\ob R\ssm\{0,1\}$. Lorsque $x>1$, on a 
+$$
+\eqalign{
+F''(x)&=\Q({(x^3-1)^{2/3}\F x^2}\W)'=-2{(x^3-1)^{2/3}\F x^3} +{2/3}*{3x^2(x^3-1)^{-1/3}\F x^2}=-2{(x^3-1)-x^3\F x^3(x^3-1)^{1/3}}
+\cr
+&={2\F x^3(x^3-1)^{1/3}}.
+}
+$$
+Lorsque $x<1$, on a 
+$$
+\eqalign{
+F''(x)&=\Q({(1-x^3)^{2/3}\F x^2}\W)'=-2{(1-x^3)^{2/3}\F x^3} -{2/3}*{3x^2(1-x^3)^{-1/3}\F x^2}=-2{|x^3-1|+1\F (1-x^3)^{1/3}}\cr
+&={-2\F x^3(x^3-1)^{1/3}}.
+}
+$$
+La d'eriv\'ee seconde $F''(x)$ est donc positive sur $]0,1[\cup]1,+\infty[$ et n\'egative sur $]-\infty,0[$.
+\medskip\noindent
+d+4) Bon, j'entends l'appel du lit au loin, c'est toujours aussi chaud de faire des dessins en TeX et m\^eme Satyricon n'arrive plus \`a me maintenir \'eveill\'e... Evil Prevails !
+
+
+
+
+
+\vfill
+\bye

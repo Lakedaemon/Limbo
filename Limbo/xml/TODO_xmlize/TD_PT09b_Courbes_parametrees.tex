@@ -1,0 +1,85 @@
+\catcode`@=11\relax
+
+\input LD@Maths@TD.tex
+
+\vglue-10mm\rightline{Spé PT\hfill TD 14 :  Courbes paramétrées\hfill}
+\bigskip
+
+\overfullrule0pt
+\Methode [Courbe paramétrée cartésienne {$\vec {OM}(t) = x(t)\vec i+y(t)\vec j$}]
+\medskip\noindent
+1) Recherche de l'ensemble de définition, de dérivabilité de $x$ et $y$. \PAR\noindent
+2) Etude de la périodicité et de la parité (symétries de la courbe). \PAR\noindent 
+3) Etudier le signe des dérivées $x'(t)$ et $y'(t)$ pour dresser un tableau de variation. \PAR\noindent
+4) Compléter le tableau de variation en faisant apparaitre points singuliers, tangentes, asymptotes,
+branches paraboliques, points doubles...\PAR\noindent
+5) Tracer la courbe.
+
+\Exercice{PTSIet}
+\def\LD@Maths@Solution@Text{%
+%	{\bf Corrigé de l'exercice \refn{labelexo\LD@Maths@Label@Internal}.}\PAR
+}%
+\Solution{PTSIet}
+
+\Exercice{PTSIey}
+\Solution{PTSIey}
+
+
+\Methode [Branche infinie en $t_0$ d'une courbe  paramétrée cartésienne {$\vec {OM} (t)= x(t)\vec i+y(t)\vec j$}]
+\medskip\noindent'
+1) $\ds\lim_{t\to t_0}x(t)=\pm\infty$ et $\ds\lim_{t\to t_0}y(t)=a\in\ob R$ : asymptote horizontale~$y=a$. 
+\PAR\noindent
+2) $\ds\lim_{t\to t_0}x(t)=a\in\ob R$ et $\ds\lim_{t\to t_0}y(t)=\pm\infty$ : asymptote verticale~$x=a$. 
+\PAR\noindent
+\smallskip\noindent\hrule\smallskip
+\centerline{$\ds\lim_{t\to t_0}x(t)=\pm\infty$ et $\ds\lim_{t\to t_0}y(t)=\pm\infty$}
+\PAR\noindent\hrule\smallskip\noindent
+3a) $\ds \lim_{t\to t_0}{y(t)\F x(t)}=0$, branche parabolique de direction $(Ox)$. 
+\PAR\noindent
+3b) $\ds \lim_{t\to t_0}{y(t)\F x(t)}=\pm\infty$ : branche parabolique de direction $(Oy)$.
+\PAR\noindent
+3c) $\ds \lim_{t\to t_0}{y(t)\F x(t)}=a\neq0$ et $\ds\lim_{t\to t_0}\b(y(t)-ax(t)\b)=b\in\ob R$ : asymptote d'équation $y=ax+b$. 
+\PAR\noindent
+3d) $\ds \lim_{t\to t_0}{y(t)\F x(t)}=a\neq0$ et $\ds\lim_{t\to t_0}\b(y(t)-ax(t)\b)=\pm\infty$, : branche  parabolique de direction $y=ax$. 
+\medskip
+
+\Exercice{PTSIeu}
+\Solution{PTSIeu}
+
+\Methode [Courbe paramétrée polaire {$\vec {OM}(\theta) = \rho(\theta)\vec u$}]
+\medskip\noindent
+1) Recherche de l'ensemble de définition, de dérivabilité de $\rho$. \PAR\noindent 
+2) Etude de la périodicité et de la parité de $\rho$ (symétries de la courbe). \PAR\noindent 
+3) Résoudre l'équation $\rho(\theta)=0$ (passage au pôle).\PAR\noindent 
+4) Etudier le signe des dérivées pour dresser un tableau de variation. \PAR\noindent 
+5) Compléter le tableau de variation en faisant apparaitre  tangentes, points singuliers, asymptotes,
+branches paraboliques (utiliser le repère polaire), points doubles.\PAR\noindent 
+6) Tracer la courbe polaire.
+
+\Methode [Branche infinie en $\theta_0$ d'une courbe polaire {$\vec {OM}(\theta) = \rho(\theta)\vec u$}]
+\PAR\noindent
+1) $\theta_0=\pm\infty$ et $\ds\lim_{\theta\to\theta_0}\rho(\theta)=\pm\infty$ : branche spirale.
+\PAR\noindent
+2) $\theta_0=\pm\infty$ et $\ds\lim_{\theta\to\theta_0}\rho(\theta)=a\in\ob R$ : 
+cercle asymptote de centre $0$ et de rayon $|a|$. 
+\smallskip\noindent\hrule\smallskip
+\centerline{$\theta_0\in\ob R$ et $\ds\lim_{\theta\to\theta_0}\rho(\theta)=\pm\infty$ :}
+\PAR\noindent\hrule\smallskip\noindent
+3a) $\ds\lim_{\theta\to\theta_0}\rho(\theta)\sin(\theta-\theta_0)=\pm\infty$ :  branche parabolique de direction $\vec u(\theta_0)$. 
+\PAR\noindent
+3b) $\ds\lim_{\theta\to\theta_0}\rho(\theta)\sin(\theta-\theta_0)=a\in\ob R$ : asymptote dirigée par $\vec u(\theta_0)$ et passant par $P$ avec $\vec{OP}=a\vec v(\theta_0)$. 
+
+\Exercice{PTabm}
+\Solution{PTabm}
+
+\Exercice{PTabo}
+\Solution{PTabo}
+
+\Exercice{PTabp}
+
+%\Solution{PTabp}% bad solution
+
+%\Solution{PTSIfa}
+%\Solution{PTSIfb}
+%\Solution{PTSIez}
+\bye

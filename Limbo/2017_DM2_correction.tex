@@ -1,0 +1,180 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iftrue
+\page
+\centerline{\bfb CORRECTION DU DEVOIR MAISON 2}
+\blank[big]
+
+\startList\item%Exos
+\startList\item Prouvons par récurrence sur $n∈ℕ$ la propriété \startformula
+\mc P_n:a_n⩽c_n⩽b_n \Et b_n-a_ n={b-a\F 2^n}
+\stopformula
+\startitemize[1]
+\item Nous avons $a⩽b$ {\it (c'est un \quote{oubli} du sujet)} car $f:[a,b]→ℝ$ est continue {\it (sinon, cela n'a aucun sens)}.
+A fortiori, $a_0=a⩽{a+b\F2=c_0}⩽b_0=b$ et $b_0-a_0=b-a={b-a\F 2^0}$.
+En particulier, la proposition $\mc P_0$ est vraie
+\item Supposons que $\mc P_n$ soit vraie pour un entier $n∈ℕ$. Alors, 
+\startitemize[2]\item soit $f(a_n)f(c_n)⩽0$, auquel cas il résulte de $\mc P_n$ que 
+\startformula
+\Align{[align={right, left}]
+\NC 
+a_{n+1}\NC\D =a_n⩽{a_n+c_n\F2}=c_{n+1}⩽c_n=b_{n+1} \Et \NR
+\NC b_{n+1}-a_{n+1}\NC \D=c_n-a_n={a_n+b_n\F 2}-a_n={b_n-a_n\F 2}⩽{1\F 2}{b-a\F 2^n}={b-a\F2^{n+1}}}
+\stopformula
+En particulier, la proposition $\mc P_{n+1}$ est vraie
+\item Soit $f(a_n)f(c_n)>0$, auquel cas il résulte de $\mc P_n$ que 
+\startformula
+\Align{[align={right, left}]
+\NC a_{n+1}\NC\D =c_n⩽{c_n+b_n\F2}=c_{n+1}⩽b_n=b_{n+1} \Et \NR
+\NC b_{n+1}-a_{n+1}\NC\D =b_n-c_n=b_n-{a_n+b_n\F 2} = {b_n-a_n\F 2}⩽{1\F 2}{b-a\F 2^n}={b-a\F2^{n+1}}
+}
+\stopformula
+En particulier, la proposition $\mc P_{n+1}$ est vraie
+\stopitemize
+Dans les deux cas, nous remarquons que la proposition $\mc P_{n+1}$ est vraie
+\stopitemize
+Par récurrence, nous obtenons alors que $\mc P_n$ est vraie pour $n∈ℕ$. Il en résulte alors que 
+\startitemize[1]\item la suite $(b_n-a_n)$ converge vers $0$ d'après la propriété des gendarmes et l'inégalité $0⩽b_n-a_n⩽{b-a\F 2^n}\qquad(n∈ℕ)$
+\item La suite $(a_n)$ est croissante car 
+\startformula
+\Align{
+\NC a_{n+1}-a_n\NC =\System{[align={left, left}]
+\NC a_n-a_n=0\NC \Si f(a_n)f(c_n)⩽0\NR \NC c_n-a_n⩾0\NC\Si f(a_n)f(c_n)>0}\NR
+\NC\NC ⩾0}
+\stopformula
+\item La suite $(b_n)$ est décroissante car 
+\startformula
+\Align{
+\NC b_{n+1}-b_n\NC =\System{[align={left, left}]
+\NC c_n-b_n⩽0\NC \Si f(a_n)f(c_n)⩽0\NR \NC b_n-b_n=0\NC\Si f(a_n)f(c_n)>0}\NR
+\NC\NC ⩽0}
+\stopformula
+\stopitemize
+A fortiori, les suite $(a_n)$ et $(b_n)$ sont adjacentes et convergent donc vers la même limite $ℓ$.
+\item Nous avons $ℓ=\lim a_n=\lim b_n$. Comme $f$ est continue en $ℓ$ nous remarquons alors que l'on a forcément
+$f(ℓ)=\lim f(a_n)=\lim f(b_n)$
+\crlf
+Pour $n∈ℕ$, prouvons par récurrence la proposition $\mc Q_n:f(a_n)f(b_n)⩽0$. 
+\startitemize[1]
+\item Comme $a_0=a$, $b_0=b$ et $f(a)f(b)⩽0$, la proposition $\mc Q_0$ est vraie
+\item Supposons la propriété $\mc Q_n$ pour un entier $n∈ℕ$. Alors, 
+\startitemize[2]
+\item soit $f(a_n)f(c_n)⩽0$. Dans ce cas, $a_{n+1}=a_n$ et $b_{n+1}=c_n$ de sorte que 
+\startformula 
+f(a_{n+1})f(b_{n+1})=f(a_n)f(c_n)⩽0
+\stopformula
+\item soit $f(a_n)f(c_n)>0$. Dans ce cas, $a_{n+1}=c_n$ et $b_{n+1}=b_n$ de sorte que  $f(a_n)$ et $f(c_n)$ 
+sont non nuls, de même signe, opposé à celui de $f(b_n)$, d'après $\mc Q_n$, et par suite  
+\startformula
+f(a_{n+1})f(b_{n+1})=f(c_n)f(b_n)⩽0
+\stopformula
+\stopitemize
+Dans tous les cas, nous avons $\mc Q_{n+1}$
+\stopitemize
+En conclusion, la propriété $\mc Q_n$ est vraie pour $n∈ℕ$.
+Comme $f(a_n)f(b_n)⩽0$ pour $n∈ℕ$, en passant à la limite, nous déduisons de la conservation des inégalités larges par passage à la limite que 
+\startformula
+f(ℓ)^2=\lim_{n→+∞} f(a_n)f(b_n)⩽0
+\stopformula
+A fortiori, nous avons nécéssairement $f(ℓ)=0$ {\it  Un exercice assez difficile, qui aurait été découpé en plusieurs questions s'il avait été donné en ds.. mais en DM, avec temps illilité, cela fait réfléchir...\crlf
+Notons également qu'il aurait été plus malin d'inclure la proposition $\mc Q_n$ dans la proposition $\mc P_n$ pour ne faire qu'une seule récurrence}
+\stopList
+
+
+
+\item%Exos
+La fonction $g$ définie par $g(x)=f(x)-x$ est continue sur $[a,b]$ et vérifie $g(a)=f(a)-a⩾0$ et $g(b)=f(b)-b⩽0$ car $f$ est à valeurs dans $[a,b]$. 
+Alors, 
+\startitemize[1]\item soit $g(a)=0$ et on a prouvé que $f(a)=a$
+\item soit $g(b)=0$ et on a prouvé que $f(b)=b$
+\item soit $g(a>0$, $g(b<0$ et le théorème des valeurs intermédiaires assure qu'il exists $x∈]a,b[$ tel que $g(x)=0$, autrement dir $f(x)=x$. 
+\stopitemize
+Dans tous les cas, il existe $x∈[a,b]$ vérifiant $f(x)=x$ (un point fixe de $f$)
+
+
+\item%Exos
+\startList\item Il y a $A_{10}^3$ tirages possibles, c'est le nombre de $3$-listes sans répétition d'éléments de l'ensemble des boules en jeu (il y en a $10$).
+\item Pour tirer trois boules de la même couleur, peut tirer soit trois boules noires ($A_5^3$ choix possibles) soit trois boules vertes ($A_3^3=1$ choix possible).
+\crlf Au total, il y a $A_5^3+A_3^3$ tirages possibles
+\item Il y a , $A_6^3$ tirages possibles avec des numéros strictement plus petits que $3$. 
+C'est le nombre de $3$-listes sans répétition d'éléments de l'ensemble des boules 
+\startformula
+\{N1,N2,V1,V2,B1,B2\}
+\stopformula
+\item Pour tirer trois boules avec un numéro apparaissant deux fois exactement, on commence par choisir la position des boules dont le numéro est répété, puis le chiffre que l'on répéte deux fois ($1$, $2$ ou $3$), puis on constitue une $2$-liste parmi les boules portant ce numéro (parmi $3$ boules pour $2×1$ et $×2$ mais parmi $2$ boules seulement pour $2×3$) 
+enfin on complete avec une boule qui n'a pas ce numéro (parmi $7$ boules pour $2×1$ et $2×2$ et parmi $8$ boules pour $2×3$). 
+{\it C'est assez simple à expliquer avec un arbre mais ça l'est un peu moins quand on dactylographie}
+Le nombre de tirage recherché est  
+\startformula
+\underbrace{{3\choose 2}}_{\text{position de la paire}}×\underbrace{\Q(\underbrace{2×A_3^2×{7\choose 1}}_{2×1\Ou 2×2}+\underbrace{2×A_2^2×{8\choose 1}}_{2×3}\W)}_{\text{choix d'une paire de boules ordonnée et d'une autre boule}}
+\stopformula
+\item Pour constituer un tirage avec une boule de chaque couleur, on peut choisir une noire parmi 5 noires, une verte parmi les vertes et une blanche parmi les blanches, puis les faire permutter (ou alors il faut s'amuser à choisir des positioins, ce qui revient au même).
+En tout, il y en a 
+\startformula
+{5\choose 1}{3\choose 1}{1\choose 2}×3!= 180
+\stopformula
+\item On refait la même chose mais en simultané (il n'y a plus d'ordre dans la résultat) : on compte les ensembles de trois boules tirées
+Au total, il y a ${10\choose 3}$ tirages possibles
+\item Il y a ${5\choose 3}+{3\choose 3}$ tirages possibles avec une seule couleur
+\item Il y a ${6\choose 3}$ tirages avec des boules de numéros strictement plus petits que $3$
+\item On a plus besoin de se préoccuper des positions et de l'ordre du tirage, il y en a 
+\startformula
+\Q(\underbrace{2×{3\choose 2}×{7\choose 1}}_{2×1\Ou 2×2}+\underbrace{2×{2\choose 2}×{8\choose 1}}_{2×3}\W)
+\stopformula
+\item Il y a ${5\choose 1}{3\choose 1}{1\choose 2}$ tirages possibles
+\stopList
+
+\item%Exos
+\startList\item $P_n$ est une fonction (polynôme) continue sur $[0,1]$. \crlf
+Comme $P_n(0)=1>0$ et $P(1)=2-n<0$ il résulte du théorème 
+des valeurs intermédiaires que $P_n$ admet une racine $x_n$ dans $]0,1[$. 
+Comme $P_n$ est dérivable, on déduit sa stricte décroissance sur $]0,1[$ de l'inégalité
+\startformula
+P_n'(x)=nx^{n-1}-n=n\underbrace{(x^{n-1}-1)}_{<0}<0\qquad(0<x<1)
+\stopformula
+Cette racine $x_n$ est donc nécéssairement unique {\it (et la suite $x_n$ est bien définie)}
+\stopList
+\item Comme $0⩽x_n⩽1$, nous déduisons de la relation $0=P_n(x_n)=x_n^n-nx_n+1$ que 
+\startformula
+0⩽x_n={1+x_n^n\F n}⩽{2\F n}\qquad(n⩾2).
+\stopformula
+En particulier, il résulte du principe des gendarmes que la suite $x_n$ converge vers $0$
+\item A fortiori, on a $\D \lim_{n→+∞} x_n^n=0$ et en reportant dans la relation $x_n^n-nx_n+1=0\ (n⩾2)$, 
+on conclut que $\D \lim_{n→+∞} nx_n=1$
+
+\stopList
+\fi
+
+\conseil{Méditation pour etudiants :  Si ce devoir avait été donné en DS, quelles auraient été les questions (ou les exercices) rapportant le plus de points en le moins de temps}
+\stoptext
+\stopcomponent
+\endinput

@@ -1,0 +1,114 @@
+\catcode`@=11\relax
+\def\Api{Mathematicon@Api}%
+\input LD@Header.tex
+\input LD@Library.tex
+\input LD@Exercices.tex
+
+\DefineRGBcolor F0F9E3=VLGreen.
+\DefineRGBcolor E5F9D1=LGreen.
+\DefineRGBcolor DAF9BE=TGreen.
+\DefineRGBcolor 5DA93B=Green.
+\DefineRGBcolor F6DCCA=VLRed.
+\DefineRGBcolor F6D4BD=LRed.
+\DefineRGBcolor DAF9BE=TRed.
+\DefineRGBcolor B5F9A1=TTRed.
+\DefineRGBcolor F6B080=Red.
+\DefineRGBcolor F9F5E3=VLOrange.
+\DefineRGBcolor F9F5D0=LOrange.
+\DefineRGBcolor DAF9BE=TOrange.
+\DefineRGBcolor B5F9A1=TTOrange.
+\DefineRGBcolor D7A93B=Orange.
+\DefineRGBcolor EEEEEE=VLBlack.
+\DefineRGBcolor DDDDDD=LBlack.
+\DefineRGBcolor CCCCCC=TBlack.
+\DefineRGBcolor B5F9A1=TTBlack.
+\DefineRGBcolor 000000=Black.
+
+%\DefineRGBcolor 000000=Green.
+%\definecolor{ColorVLGreen}{rgb}{1,1,1}%
+%\definecolor{ColorLGreen}{rgb}{1,1,1}%
+%\definecolor{ColorTGreen}{rgb}{1,1,1}%
+%\expandafter\definecolor\temp
+%\DefineRGBcolor 000000=Red.
+%\definecolor{ColorVLRed}{rgb}{1,1,1}%
+%\definecolor{ColorLRed}{rgb}{1,1,1}%
+%\definecolor{ColorTRed}{rgb}{1,1,1}%
+%\input Exercices.tex
+\catcode`@=11\relax
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%															%
+%						Revisions : Determinant, Polynome caracteristique			%
+%															%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vglue-10mm\rightline{PT\hfill R\'evision 1 :  Determinant, polyn\^ome caract\'eristique\hfill}
+\bigskip
+\bigskip
+
+
+\centerline{Determinant\strut}
+\hrule\medskip
+\Exercice{PTSIur}%
+\medskip
+\Exercice{PTSIuq}%
+\medskip
+\Exercice{PTfh}%
+
+
+%\Exercice{PTSIwv}%
+\hrule
+\centerline{Polyn\^ome caract\'eristique\strut}
+\hrule\medskip
+Le polyn\^ome caract\'eristique $P$ d'une matrice carr\'ee $A=(a_{i,j})$ est l'unique polyn\^ome v\'erifiant
+$$
+\forall \lambda\in\ob C, \qquad P(\lambda)=\det(A-\lambda\hbox{I}_n).
+$$
+
+\noindent$\underline{{\bf Exercice}}${ \bf 4.}  Calculer et factoriser le plolyn\^ome caract\'eristique de $A:=\pmatrix{2&0&1\cr1&1&1\cr-2&0&-1\cr}$. 
+\bigskip
+
+\noindent$\underline{{\bf Exercice}}${ \bf 5.}  Calculer et factoriser le plolyn\^ome caract\'eristique de $A:=\pmatrix{
+-7&3&1&-6
+\cr
+-6&2&1&-6
+\cr
+0&0&2&0
+\cr
+6&-3&-1&5
+\cr}
+$. 
+\bigskip
+
+\noindent$\underline{{\bf Exercice}}${ \bf 6.}  Calculer le polyn\^ome caract\'eristique $P_A$ de $A:=\pmatrix{0&1&&\ob O\cr
+&\ddots&\ddots&\cr
+\ob O&&0&1\cr
+a_0&a_1&\ldots&a_{n-1}
+\cr
+}$ \pn \vskip-2em \noindent pour $(a_0,\cdots,a_{n-1})\in\ob C^n$. 
+\bigskip
+
+\def\addots{\setbox\olbox=\hbox{$\cdot$}%
+\raise-0.10em\copy\olbox\kern0.1em\raise0.20em\copy\olbox\kern0.1em\raise0.50em\box\olbox}
+\noindent$\underline{{\bf Exercice}}${ \bf 7.}   Diagonaliser la matrice $A:=\pmatrix{\ob O&&&1\cr
+&&\addots&\cr
+&\addots&&\cr
+1&&&\ob O\cr}$. 
+\medskip
+\LD@Exo@Count=7\relax
+\Exercice{PTfc}%
+
+
+
+
+\bye
+
+
+
+
+
+
+
+
+

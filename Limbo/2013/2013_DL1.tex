@@ -1,0 +1,95 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+\centerline{\bfb DEVOIR LIBRE 2}
+\vskip-2em
+%\blank[big]
+%\item\exo{C1}
+%\item\exo{C2}
+%\item\exo{C3}
+%{\it \hint{C3}}
+ \filterpages[xml/2013/S3_DM_sommes_doubles.pdf][1][height=18cm]
+
+%\item\exo{C6}
+%\sym{Problème}\exo{C5}
+
+\iftrue
+\page
+\centerline{\bfb CORRECTION DU DEVOIR LIBRE 2}
+\blank[big]
+\startList%\item\solution{C1}
+%\item\solution{C2}
+%\item\solution{C3}
+\item\startList\item En remarquant que nous avons affait à une somme géomètrique de raison $2$, nous obtenons que 
+\startformula 
+ ∑_{k=p}^q2^k={2^{q+1}-2^p\F 2-1}= 2^{q+1}-2^p
+\stopformula
+\item A fortiori, nous en déduisons que 
+\startformula 
+\Align{
+\NC u_n\NC = ∑_{j=0}^n ∑_{k=j}^n2^k= ∑_{j=0}^n\Q(2^{n+1}-2^j\W)= ∑_{j=0}^n2^{n+1}- ∑_{j=0}^n2^j\NR
+\NC \NC =(n+1)2^{n+1}-{2^{n+1}-1\F 2-1}=n2^{n+1}+1.\NR
+}
+\stopformula
+\stopList
+\item Il résulte alors du théorème de Fubini que 
+\startformula 
+u_n= ∑_{j=0}^n ∑_{k=j}^n2^k=u_n= ∑_{k=0}^n ∑_{j=0}^k2^k= ∑_{k=0}^n(k+1)2^k.
+\stopformula
+En procédant au changement d'indice $ℓ=k+1$, il suit
+\startformula 
+u_n= ∑_{k=1}^{n+1}ℓ2^{ℓ-1}.
+\stopformula
+De sorte que 
+\startformula 
+∑_{k=0}^nℓ2^{ℓ-1}=u_n-0-(n+1)2^n=n2^{n+1} + 1 -(n+1)2^n=(n-1)2^n+1.
+\stopformula
+\item Nous obtenons alors que 
+\startformula 
+\Align{
+\NC ∑_{i=0}^n ∑_{k=0}^i(k+1)2^k\NC =∑_{i=0}^nu_i=∑_{i=0}^n\Q(i2^{i+1}+1\W)=4∑_{i=0}^ni2^{i-1}+∑_{i=0}^n1\NR
+\NC \NC=4\Q((n-1)2^n+1\W)+n+1\NR
+}
+\stopformula
+\item Il résulte alors du théorème de Fubini que 
+$$
+\Align{
+\NC  4\Q((n-1)2^n+1\W)+n+1 \NC = ∑_{i=0}^n ∑_{k=0}^i(k+1)2^k = ∑_{k=0}^n ∑_{i=k}^n(k+1)2^k\NR 
+\NC \NC = ∑_{k=0}^n (n+1-k)(k+1)2^k \NR
+\NC\NC = (n+1)∑_{k=0}^n (k+1)2^k -  ∑_{k=0}^n k(k+1)2^k\NR
+\NC\NC =(n+1)u_n- ∑_{k=0}^n k(k+1)2^k\NR
+}
+$$
+En conclusion, nous avons trouvé que 
+$$
+\Align{
+\NC A_n\NC =∑_{k=0}^n k(k+1)2^k= (n+1)u_n-\Q(4(n-1)2^n+1)+n+1\W)\NR
+\NC\NC =(n+1)(n2^{n+1}+1)-\Q(4(n-1)2^n+1)+n+1\W)\NR}
+$$
+La flemme de simplifier....
+\item Enfin, nous remarquons que 
+$$
+∑_{k=0}^n k^22^k=∑_{k=0}^n k(k+1)2^k-∑_{k=0}^n k2^k=A_n-2((n-1)2^n+1)
+$$
+%\sym{Problème}\solution{C5}
+\stopList
+\fi
+\stoptext
+\stopcomponent
+\endinput

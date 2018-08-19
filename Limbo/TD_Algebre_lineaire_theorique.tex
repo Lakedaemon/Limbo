@@ -1,0 +1,66 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },inbetween={\blank[medium]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][1,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+
+\centerline{TD espaces vectoriels et...}
+\centerline{{\bf M}éthode {\bf A}utomatique de {\bf r}ésolution et de {\bf r}édaction {\bf E}fficaces des exos théoriques}
+\blank[big]
+
+\tfx
+
+\startList
+\item \exo{Aly}%ker et Im
+\item\exo{Atx}% espaces stables
+\item\exo{Aty}% inverse 
+\item\exo{Boh}% egalité d'applications linéaires
+\item\exo{Bnc}%projecteur
+
+\item \exo{Bog}% endomorphismes nilpotents
+\item \exo{Bmz}
+\item \exo{Akp}%projecteurs p+q
+%\item \exo{Akr}
+
+\item\exo{Ali}
+\item\exo{Amc}
+\item\exo{Akq}%homotheties
+
+\item\exo{Ale}
+
+
+
+
+
+
+\item\exo{Beq}
+\stopList
+\stoptext
+\stopcomponent
+\endinput

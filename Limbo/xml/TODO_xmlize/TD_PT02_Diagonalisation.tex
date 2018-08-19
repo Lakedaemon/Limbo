@@ -1,0 +1,198 @@
+\catcode`@=11\relax
+\def\Api{Mathematicon@Api}%
+\input LD@Header.tex
+\input LD@Library.tex
+\input LD@Typesetting.tex
+\input LD@Exercices.tex
+\DefineRGBcolor F0F9E3=VLGreen.
+\DefineRGBcolor E5F9D1=LGreen.
+\DefineRGBcolor DAF9BE=TGreen.
+\DefineRGBcolor 5DA93B=Green.
+\DefineRGBcolor F6DCCA=VLRed.
+\DefineRGBcolor F6D4BD=LRed.
+\DefineRGBcolor DAF9BE=TRed.
+\DefineRGBcolor B5F9A1=TTRed.
+\DefineRGBcolor F6B080=Red.
+\DefineRGBcolor F9F5E3=VLOrange.
+\DefineRGBcolor F9F5D0=LOrange.
+\DefineRGBcolor DAF9BE=TOrange.
+\DefineRGBcolor B5F9A1=TTOrange.
+\DefineRGBcolor D7A93B=Orange.
+\DefineRGBcolor EEEEEE=VLBlack.
+\DefineRGBcolor DDDDDD=LBlack.
+\DefineRGBcolor CCCCCC=TBlack.
+\DefineRGBcolor B5F9A1=TTBlack.
+\DefineRGBcolor 000000=Black.
+
+%\DefineRGBcolor 000000=Green.
+%\definecolor{ColorVLGreen}{rgb}{1,1,1}%
+%\definecolor{ColorLGreen}{rgb}{1,1,1}%
+%\definecolor{ColorTGreen}{rgb}{1,1,1}%
+%\expandafter\definecolor\temp
+%\DefineRGBcolor 000000=Red.
+%\definecolor{ColorVLRed}{rgb}{1,1,1}%
+%\definecolor{ColorLRed}{rgb}{1,1,1}%
+%\definecolor{ColorTRed}{rgb}{1,1,1}%
+
+\catcode`@=11\relax
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%															%
+%						TD 02 : Diagonalisation						%
+%															%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vglue-10mm\rightline{PT\hfill TD 2 :  Diagonalisation\hfill}
+\bigskip
+\bigskip
+
+%\tikzstyle{object}=[inner sep=0.5em,text depth=-0.2em,fill=white!20]
+\tikzstyle{operator}=[rectangle,rounded corners, draw,text height=1em,text depth=0.2em,inner sep=0.4em,fill=white!20]
+%\tikzstyle{fork}=[diamond, draw,text height=1.2em,text depth=0.2em,fill=white!20]
+%\tikzstyle{line}=[draw,line width=0.5ex]
+%\tikzstyle{thinline}=[draw,line width=0.2ex]
+
+\noindent
+\centerline{\font\SvgText=cmr8\relax
+\tikzstyle{every node}=[inner sep=2pt]
+\tikzpicture
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\node [object] (a) {Matrice $A$} ;
+\node [operator,right of=a, node distance=2.7cm] (b) {\eightpts$\det(A-\lambda I_n)$} ;
+\draw [line] (a)--(b) ; 
+\node[object, right of=b,node distance=3cm] (c) {\eightpts Polynome $P_A$} ;
+\draw[line,->] (b) -- (c) ;
+\node[fork,node distance=2cm,below of=c] (m) {\eightpts$\forall i:m_i=n_i$} ;
+\node[below of=m,node distance=2.2cm] (prep) {};
+\path (m)-- node[midway] (mo) {oui} (prep) ;
+\draw [line] (m)--(mo) ; \draw [line,->] (mo)--(prep);
+\node[below of=prep,node distance=0.2cm] (p) {$=$} ;
+\node[right of=p] (q) {$P$} ;
+\node[above of=q,node distance=0.3cm] (abq) {};
+\node[right of=q] (r) {$D$} ;
+\node[above of=r,node distance=0.3cm] (abr) {};
+\node[operator,node distance=1cm,font=\texttt,below of=r] (t) {\eightpts Inversion} ;
+\node[right of=r] (s) {$P^{-1}$} ;
+\node[left of=p,label=180:{\qquad}] (pp) {$A$} ;
+\node[node distance=0.3cm,left of=pp] (ppp) {} ;
+%\draw[->,thinline,draw=red] (a)  .. controls +(down:4cm) and +(left:2cm) .. (ppp.west) ;
+\node[node distance=0.03cm,above of=q] (qq) {} ;
+\node[node distance=0.02cm,above of=s] (ss) {} ;
+\draw[<-,thinline,red] (ss.south east) .. controls +(315:1cm) and +(right:1cm) .. (t);
+\draw[->,thinline,red] (qq.south west) .. controls +(225:1cm) and +(left:1cm) .. (t);
+\node[node distance=4cm,snake=saw,thinline,left of=m, text width=2cm] (n) {\eightpts Trigonaliser $A$} ;
+\path (m)-- node[midway] (mn) {\eightpts non } (n) ;
+\draw [line] (m)--(mn) ; \draw [line,->] (mn)--(n);
+\node[operator,node distance=2.8cm,right of=c] (d) {\eightpts Factorisation} ;
+\draw [line](c)--(d) ;
+\node[object,node distance=3cm,right of=d] (f) {\eightpts multiplicit\'e $m_i$ } ;
+\draw[->,line] (d) -- (f) ;
+%\draw[->,thinline,draw=red] (f.south)  -- (abr.north east) ;
+\node[object,node distance=1cm,below of=f] (g) {\eightpts Valeur propre $\lambda_i$} ;
+\draw[->,line] (d) -- (g) ;
+%\draw[->,thinline, draw=red] (g.south)  -- (abr.north east) ;
+\node[object,node distance=2.8cm,right of=m] (k) {\eightpts Dimension $n_i$} ;
+\node[operator,node distance=3cm,right of=k,text width=2.4cm,text height=1.8em] (h) {\eightpts\quad R\'esolution de\pn$(A-\lambda_iI_n)X=0$} ;
+\node[object,node distance=1.2cm,below of=h] (j) {$\!\!\!$\eightpts Espace propre $E_i\!\!\!$} ;
+\draw[->,line] (h) -- (j) ;
+\draw [line] (g) -- (h) ;
+\draw[->,thinline] (h) -- (k) ;
+\draw [line] (k) -- (m) ;
+\node[object,node distance=3.5cm,left of=j] (l) {\eightpts Base $B_i$} ;
+\draw[->,thinline] (h) -- (l) ;
+\draw[->,line] (j) -- (l) ;
+\draw[->,line] (l) -- (k) ;
+\draw[->,thinline,draw=red] (l.south west) -- (abq.north east) ;
+\pgfonlayer{background}
+%	\draw [snake=saw,line] (pp.south west) rectangle (s.north east);
+	\node [forbidden sign,line width=0.5ex, draw=red,fill=white] at  (mn) {\eightpts \qquad\quad} ;
+\endpgfonlayer
+\endtikzpicture
+}%
+\medskip
+\centerline{Pour Diagonaliser une matrice diagonalisable}
+\medskip
+
+\noindent
+{\bf Etape 1 : }Ecrire la relation $P(\lambda)=\det(A-\lambda\hbox{I}_n)$, en dessinant la matrice. \medskip\noindent
+{\it Au besoin, chercher des racines \'evidentes $\lambda$ de $P$ (m\'ethode standard) et trouver des relations de d\'ependance lin\'eaire entre les colonnes (m\'ethode Olus), pour ces valeurs de $\lambda$. }
+\medskip
+\noindent
+{\bf Etape 2 : }Calculer et factoriser $P$. En d\'eduire les valeurs propres $\lambda$ et leur multiplicit\'e~$m_\lambda$.\medskip\noindent
+{\it M\'ethode Olus : ajouter \`a une colonne une combinaison lin\'eaire des autres colonnes, conform\'ement aux relations de d\'ependances lin\'eaires pr\'ec\'edemment trouv\'ees, pour factoriser plus rapidement. }
+\medskip
+\noindent
+{\bf Etape 3 : }Pour chaque valeur propre $\lambda$, r\'esoudre le syst\`eme $(A-\lambda\hbox{I}_n)X=0$. En d\'eduire une base~$\sc B_\lambda$ (comportant $m_\lambda$ vecteurs) de l'espace vectoriel des solutions. \medskip\noindent
+{\it M\'ethode Olus, A chaque relation de d\'ependance entre colonnes pr\'ec\'edemment trouv\'ee, correspond une solution (un vecteur propre non nul)}
+\medskip
+\noindent
+{\bf Etape 4 : } Ecrire la relation $A=PDP^{-1}$ ainsi que la matrice diagonale $D$ dont les coefficients sont les valeurs propres trouv\'ees. \medskip\noindent
+{\it Si vous avez des valeurs propres $\lambda$, $\mu$ et $\gamma$ de multiplicit\'e respective $3$, $1$ et $2$, votre matrice $D$ sera }
+$$
+D=\pmatrix{\lambda&&&&&\cr
+&\lambda&&&&\cr
+&&\lambda&&&\cr
+&&&\mu&&\cr
+&&&&\gamma&\cr
+&&&&&\gamma}
+$$
+Ecrire la matrice $P$ dont les colonnes sont les vecteurs des bases $\sc B_ \lambda$, en respectant les contraintes : \pn
+{\bf a) chaque vecteur n'apparait qu'une fois dans la matrice $P$. \pn b) Sur une m\^eme colonne de $P$ et de $D$ se trouvent un vecteur propre et sa valeur propre correspondante. }\medskip\noindent
+{\it Reprenant l'exemple pr\'ec\'edant, Si vous obtenez $\sc B_\lambda=\{u_1,u_2,u_3\}$, $\sc B_\mu=\{v\}$ et $\sc B_\gamma=\{w_1,v_2\}$, votre matrice $P$ sera la matrice dont les colonnes sont }
+$$
+P=\pmatrix{u_1,u_2,u_3,v,w_1,w_2}\qquad\hbox{\rm ou \'egalement par exemple }\qquad P=\pmatrix{u_3,u_1,u_2,v,w_2,w_1}
+$$
+{\bf Etape 5 : }Au besoin, inverser la matrice $P$ pour obtenir la matrice $P^{-1}$. \pn
+{\it on \'evitera cette \'etape lorsque cela est possible car elle est lourde en calculs}. 
+\goodbreak
+\def\LD@Exercice@Display@Code{}%
+%\def\LD@Exercice@Display@Code@Post{}%
+\LD@Inferno@Master@false
+%\Exercice{PTamt}%2007
+\Exercice{PTfa}%2008
+\bigskip
+\Exercice{PTams}%2008
+\bigskip
+%\Exercice{PTamr}%2007
+\Exercice{PTlq}%2008
+\bigskip
+\Exercice{PTfk}%2008
+%\Exercice{PTajc}%2007
+\bigskip
+\Exercice{PTajd}%
+
+\bigskip
+\Exercice{PTbt}%
+\bigskip
+
+
+\Exercice{PTaja}%
+\bigskip
+\Exercice{PTajb}%
+\unless\ifLD@Inferno@Master@
+	\eject
+	\Chapter Indications, Indications.
+
+	\LD@Exo@Indication@Display
+
+	\Chapter Notions, Notions.
+
+	\LD@Exo@Notion@Display
+
+	\Chapter Solutions, Solutions.
+
+	\LD@Exo@Sol@Display
+\fi
+\bye
+
+
+
+
+
+
+
+
+
+

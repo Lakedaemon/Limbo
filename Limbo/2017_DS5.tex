@@ -1,0 +1,287 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+\let\ds\displaystyle
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][i,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+\def\tr{\text{tr}}
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iftrue
+\page
+\centerline{\bfb DEVOIR SURVEILLE 5}
+\blank[big]
+
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][3][a,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+
+
+
+\startList
+
+
+
+
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+\setupitemgroup[List][4][i,joineup,nowhite]
+
+
+\item%
+On considère la suite $(T_n)_{n∈ℕ}$ de polynômes de $ℝ[X]$ définie par 
+\startformula
+T_0=1,\qquad T_1=2X\qquad\Et\qquad T_n=2XT_{n-1}-T_{n-2}\qquad(n⩾2)
+\stopformula
+On pourra confondre polynôme et fonction polynomiale. Ainsi, pour $n⩾2$, on a 
+\startformula
+T_n(x)=2xT_{n-1}(x)-T_{n-2}(x)\qquad(x∈ℝ)
+\stopformula
+\startList
+\item Calculer $T_2$ et $T_3$
+\item\startList
+\item Pour $n∈ℕ$, démontrer que $T_n$ est un polynôme de degré $n$, dont on déterminera le coefficient du terme de degré $n$.
+\item Etablir que si $n$ est un entier pair (resp. impair), alors $T_n$ est un polynôme pair (resp. impair).
+\stopList
+\item Pour $n∈ℕ$, calculer $T_n(1)$ en fonction de $n$.
+\item\startList
+\item Pour $n∈ℕ$ et $ϑ∈]0,π[$, établir que $\ds
+T_n(\cos ϑ)={\sin\big((n+1)ϑ\big)\F\sin ϑ}$.
+\item Pour $n∈ℕ^*$, en déduire que $T_n$ admet $n$ racines dans $]-1,1[$, à expliciter.
+\item Pour $n∈ℕ^*$, établir que 
+$\ds 
+T_n=2^n∏_{k=1}^n\Q(X-\cos{kπ\F n+1}\W)$
+\item Pour $n∈ℕ^*$, en déduire la valeur de $\ds ∏_{k=1}^n\sin{kπ\F 2(n+1)}$ en fonction de $n$
+\stopList
+\item\startList
+\item Pour $n∈ℕ$, démontrer que 
+\startformula
+\sin^2(ϑ)T_n''(\cos ϑ)-3\cos(ϑ)T_n'(\cos ϑ)+(n^2+2n)T_n(\cos ϑ)=0\qquad(0<ϑ<π)
+\stopformula
+{\it Indication :} On pourra dériver deux fois la fonction (nulle) définie par 
+\startformula
+g(ϑ)=\sin(ϑ)T_n(\cos ϑ)-\sin\big((n+1)ϑ\big)\qquad(ϑ∈ℝ)
+\stopformula
+\item Pour $n∈ℕ$, en déduire que 
+\startformula
+(X^2-1)T_n''+3XT_n'-(n^2+2n)T_n=0
+\stopformula
+\stopList
+\stopList
+
+\item%Edhec S 2013
+{\bf Extrait EDHEC S}. Pour $n∈ℕ$, on pose $\ds u_n=\int_0^{π\F 2}(\sin t)^n\d t$
+\startList
+\item \startList
+\item Calculer $u_0$ et $u_1$.
+\item Montrer que la suite $u=(u_n)_{n∈ℕ}$ est décroissante
+\item Montrer que la suite $u$ est convergente
+\stopList
+\item\startList
+\item En remarquant que $(\sin t)^{n+2}=(\sin t)^n-\cos(t)×\cos(t)(\sin t)^n$ 
+et en procédant à une intégration par partie, montrer que
+\startformula
+(n+2)u_{n+2}=(n+1)u_n\qquad(n∈ℕ)
+\stopformula
+\item En déduire que $\ds u_{2n}={(2n)!\F (2^nn!)^2}{π\F 2}$ pour $n∈ℕ$.
+\item Pour $n∈ℕ$, montrer que $(n+1)u_{n+1}u_n={π\F 2}$.
+\item En déduire la valeur de $u_{2n+1}$ en fonction de $n$.
+\stopList
+\item\startList
+\item Calculer la limite de ${u_{n+2}\F u_n}$ lorsque $n$ tend vers $+∞$.
+\item En remarquant que $u_n⩽u_{n+1}⩽u_{n+2}$, en déduire que $\ds \lim_{n→+∞}{u_{n+1}\F u_n}=1$.
+\item Enfin, montrer que l'on a $u_n∼\sqrt{π\F 2n}$
+\stopList
+\stopList
+
+
+\setupitemgroup[List][2][I,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][n,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+\item%Exo matrices
+On dit qu’une matrice $M∈\mc M_3(ℝ)$ est semi-magique \ssi on obtient la même somme des coefficients sur chaque ligne et sur chaque colonne de $M$.\crlf
+Par exemple, comme la somme des coefficients sur chaque ligne et sur chaque colonne est $-1$ pour $\ds W=\Matrix{
+\NC -1\NC -1\NC 1\NR
+\NC 1\NC 1\NC -3\NR
+\NC -1\NC -1\NC 1
+}$, la matrice $W$ est semi-magique\crlf
+On note $\mc SM_3(ℝ)$ l'ensemble des matrices semi-magiques de $\mc M_3(ℝ)$ et on admet que 
+\startformula
+\mc SM_3(ℝ)=\{M∈\mc M_3(ℝ):JM=MJ\}\quad\text{avec}\quad J=\Matrix{
+\NC 1\NC 1\NC 1\NR
+\NC 1\NC 1\NC 1\NR
+\NC 1\NC 1\NC 1
+}
+\stopformula
+
+On pose $G=\Vect(E_1,E_2,E_3,E_4)$ avec $E_1=\Matrix{
+\NC 0\NC -1\NC 1\NR
+\NC 1\NC 0\NC -1\NR
+\NC -1\NC 1\NC 0\NR
+}$, $E_2=\Matrix{
+\NC 1\NC 0\NC 1\NR
+\NC 0\NC 0\NC 2\NR
+\NC 1\NC 2\NC -1\NR
+}$, $E_3=\Matrix{
+\NC 0\NC 1\NC 1\NR
+\NC 1\NC 0\NC 1\NR
+\NC 1\NC 1\NC 0\NR
+}$ et $E_4=\Matrix{
+\NC 0\NC 0\NC 2\NR
+\NC 0\NC 1\NC 1\NR
+\NC 2\NC 1\NC -1\NR
+}$.
+
+\startList
+\item{\bf ETUDE de $\mc SM_3(ℝ)$}
+\startList
+\item\startList
+\item Prouver que $\mc SM_3(ℝ)$ est un sous-espace vectoriel de $E$ contenant $J$.
+\item Pour $M∈SM_3(ℝ)$, montrer que $\strut^{t}M∈SM_3(ℝ)$.
+\stopList
+\item\startList
+\item Montrer que $E_1∈\mc SM_3(ℝ)$. On admet qu'on montrerait de même que $E_2$, $E_3$ et $E_4$ appartiennent à $\mc SM_3(ℝ)$.
+En déduire que $G$ est un sous-espace vectoriel de $\mc SM_3(ℝ)$ dont on précisera la dimension
+\item Montrer que si $M∈G$, alors $\tr(M)=0$. On admet pour la suite que 
+\startformula
+G=\{M∈\mc SM_3(ℝ):\tr(M)=0\}
+\stopformula
+\item Montrer que $G∩\Vect(J)=\{0\}$. 
+\stopList
+\item Soit $M∈\mc SM_3(ℝ)$. Justifier que la matrice $N=M-{\tr(M)\F 3}J$ appartient à $\mc SM_3(ℝ)$ et calculer $\tr(N)$.
+\item\startList
+ \item Montrer que $\mc SM_3(ℝ)=G⊕\Vect(J)$. 
+\item En déduire que $\dim(\mc SM_3(ℝ))=5$ et que $(E_1,E_2,E_3,E_4,J)$ forme une base de $\mc SM_3(ℝ)$.
+\stopList
+
+\stopList
+\item {\bf Etude d'un sous-espace vectoriel de $\mc SM_3(ℝ)$}\crlf
+Pour $M=(m_{i,j})_{1⩽i⩽3\atop1⩽j⩽3}∈\mc SM_3(ℝ)$, on pose
+\startformula
+φ(M)=m_{1,1}+m_{1,2}+m_{1,3}\quad\Et\quad ψ(M)=m_{3,1}+m_{2,2}+m_{1,3}
+\stopformula
+On admet que $H=\{M∈\mc SM_3(ℝ):φ(M)=ψ(M)=\tr(M)\}$ est un sous espace vectoriel de $\mc SM_3(ℝ)$ de dimension $3$.
+\startList
+\item On pose $D=\Matrix{
+\NC -1\NC 2\NC λ\NR
+\NC 0\NC 0\NC 0\NR
+\NC 1\NC -2\NC 1
+}$
+\startList
+\item Déterminer $λ∈ℝ$ pour que l'on ait $D∈H$
+\item Justifier que $\strut^{t}D∈H$
+\item Montrer que $(J,D, \strut^{t}D)$ forme une base de $H$
+\stopList
+\iffalse
+\item On désigne par $\mc S_3(ℝ)$ l'ensemble des matrices $3×3$ symétriques et par $\mc A_3(ℝ)$ celui des matrices $3×3$ anti-symétriques et on pose 
+\startformula 
+G_A=Q∩\mc A_3(ℝ)\quad\Et\quad G_S=G∩\mc S_3(ℝ).
+\stopformula
+\startList
+\item Soit $M∈G$. On pose $N_1={1\F 2}\Q(M+\strut^tM\W)$ et $N_2={1\F 2}\Q(M-\strut^tM\W)$. Montrer que $N_1∈G_S$ et que $N_2∈G_A$.
+\item En déduire que $G=G_S⊕G_A$ 
+\stopList
+\fi
+\iffalse
+\item\startList
+\item Soit $M$ une matrice anti-symétrique avec $M=\Matrix{
+\NC 0\NC α\NC β\NR
+\NC -α\NC 0\NC γ\NR
+\NC -β\NC -γ\NC 0}$ où $(α, β, γ)∈ℝ^3$
+Montrer que si $M∈G_A$, alors $M∈\Vect(E_1)$
+\item En déduire une base de $G_A$
+\stopList
+\item Déterminer une base de $G_S$
+\fi
+\stopList
+\stopList
+
+
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+\setupitemgroup[List][4][i,joineup,nowhite]
+\item%Edhec 2000
+{\bf Extrait EDHEC E}. On lance $n$ fois, de façon indépendante, une pièce donnant pile avec la probabilité $p∈]0,1[$ et face avec la probabilité $q=1-p$. \crlf 
+Pour $k⩾2$, on dit que le $k\high{ième}$ lancer est un {\it changement} s'il amène un résultat différent du $(k-1)\high{ième}$~lancer.
+Pour $n⩾2$, on note $X_n$ la variable égale au nombre de changements survenus durant les $n$ premiers lancers\crlf
+On note $P_k$ l'événement \quote{on obtient pile au $k\high{ième}$ lancer}. 
+\startList
+\item \startList
+\item Donner la loi de $X_2$
+\item Donner la loi de $X_3$ et calculer son espérance et sa variance
+\stopList
+\item Dans cette question, $n$ désigne un entier supérieur ou égal à $2$.
+\startList
+\item \startList
+\item Que vaut $X_n(Ω)$ ?
+\item Exprimer $P(X_n=0)$ en fonction de $p$, $q$ et $n$.
+\item En décomposant l'événement $(X_n=1)$ en une réunion d'événements incompatibles, montrer que 
+\startformula
+P(X_n=1)={2pq\F q-p}\Q(q^{n-1}-p^{n-1}\W)
+\stopformula
+\item En distinguant les cas $n$ pair et $n$ impair, exprimer $P(X_n=n-1)$ en fonction de $p$ et $q$
+\item Grace aux questions précédentes, démontrer que 
+\startformula
+P(X_4=1)=P(X_4=2)=2pq(1-pq)
+\stopformula
+et préciser la loi de $X_4$. Calculer l'espérance de $X_4$. 
+\stopList
+\item Pour $2⩽k⩽n$, on note $Z_k$ la variable aléatoire qui vaut $1$ si le $k\high{ième}$ lancer est un changement et $0$ sinon, de sorte que $Z_k$ est une variable de Bernoulli.
+Exprimer $X_n$ à l'aide des variables $Z_k$ et en déduire $E(X_n)$.
+\stopList
+\item Dans cette question, on suppose que $p=q={1\F 2}$.
+\startList
+\item Vérifier en utilisant les résultats des questions précédentes que $X_3$ et $X_4$ suivent chacune une loi binomiale.
+\item Soit $n⩾2$. 
+\startList
+\item Pour $1⩽k⩽n$, justifier que 
+\startformula
+\Align{
+\NC P\big((X_n=k)∩P_n∩P_{n+1}\big)={1\F 2}P\big((X_n=k)∩P_n\big)\NR
+\NC P\big((X_n=k)∩\overline{P_n}∩\overline{P_{n+1}}\big)={1\F 2}P\big((X_n=k)∩\overline{P_n}\big)
+}
+\stopformula
+et en déduire que 
+\startformula
+P\big((X_n=k)∩(X_{n+1}=k)\big)={1\F 2}P(X_n=k)
+\stopformula
+On admettra que l'on démontrerait de même que
+\startformula
+P\big((X_n=k-1)∩(X_{n+1}=k)\big)={1\F 2}P(X_n=k-1)
+\stopformula
+\item Démontrer par récurrence que la variable $X_n$ suit la loi $\mc B(n-1,{1\F 2})$
+\stopList
+\stopList
+\stopList
+\stopList
+
+
+
+
+
+\stoptext
+\stopcomponent
+\endinput

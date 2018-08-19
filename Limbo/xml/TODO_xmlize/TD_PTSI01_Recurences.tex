@@ -1,0 +1,119 @@
+\catcode`@=11\relax
+
+\input LD@Maths@TD.tex
+\vglue-10mm\rightline{PTSI/PT\hfill Td : Récurrences\hfill}
+\bigskip
+\vfill
+\centerline{\fourteenbf Principe du raisonnement par récurrence}
+Le raisonnement par récurrence consiste à démontrer une suite de propositions logiques $\{\sc P_0, \sc P_1, \sc P_2, \sc P_3, \cdots\}$ En procédant en deux étapes : 
+\medskip
+\noindent{\bf L'initialisation}. On établit la propriété au(x) premier(s) rang(s), de sorte à enclencher le méchanisme de transmission. 
+\medskip
+\noindent{\bf La transmission}. On prouve que la propriété se transmet du (des) rang(s) précédent(s) au rang suivant. 
+\medskip
+\noindent
+Le raisonnement par récurrence s'appuie donc sur le schéma (très simple) suivant : 
+\medskip
+$$\Q\{
+\eqalign{
+&\sc P_0\cr
+\sc P_n&\Rightarrow\sc P_{n+1}}\W.
+\qquad\Longrightarrow \Q\{\eqalign{\sc P_0\cr
+\sc P_1\cr
+\sc P_2\cr
+\sc P_3\cr
+\vdots}\W.\leqno{\hbox{Recurence forte}}
+$$
+
+\centerline{\fourteenbf Démonstration type recommandée \rm (cas simple)}
+\medskip
+\noindent
+Pour $n\in\ob N$,\footnote1{quantification de l'entier $n$ : les entiers $n$ pour lesquels vous voulez prouver $\sc P_n$.} prouvons par récurrence la propriété $\sc P_n$\footnote2{vous annoncez ce que vous voulez dérmontrer}:
+{\bf énoncé au rang n.}\footnote3{il faut absolument énoncer clairement la propriété au rang $n$}\medskip\noindent
+$\LuciferStar$ La propriété $\sc P_0$ est vraie\footnote4{initialisation} car {\bf justifications...}\medskip\noindent
+$\LuciferStar$ Soit $n\ge0$ un entier tel que $\sc P_n$  soit vraie,\footnote5{vous supposez que $\sc P_n$ est vraie} 
+établissons la propriété $\sc P_{n+1}$.$^{(4)}$ \smallskip\noindent
+{\bf Raisonnement...d'après $\sc P_n$...raisonnement} donc la propriété $\sc P_{n+1}$ est vérifiée\footnote6{vous achevez ici la démonstration de l'implication $\sc P_n\Longrightarrow\sc P_{n+1}$}
+\medskip\noindent
+Comme $\sc P_0$ est vraie et comme $\sc P_n\Longrightarrow\sc P_{n+1}$ pour chaque $n\ge0$\footnote7{facultatif, mais apprécié par le correcteur}, 
+par récurrence, nous concluons que  
+la propriété $\sc P_n$ est vérifiée\footnote8{La récurrence est enfin démontrée} pour $n\in\ob N^{(1)}$. 
+\bigskip
+
+\centerline{\fourteenbf Remarques}
+
+\Remarque{ \it 1.} Faire une démonstration par récurrence est en général très facile, sauf lorsque l'enoncé ne donne pas la propriété de récurrence. 
+Auquel cas, il faut d'abord l'intuiter (il y a des techniques pour cela)  puis la prouver.   
+\medskip 
+
+\Remarque{ \it 2.} Il existe d'autres shemas de démonstration (les variations sont infinies). C'est pourquoi il est essentiel d'en comprendre le principe de récurrence pour l'adapter à des cas plus compliqués.  
+$$\Q\{
+\eqalign{
+&\sc P_0\cr
+\sc P_0\hbox{ et }\sc P_1 \hbox{et }\cdots\hbox{et }\sc P_n&\Rightarrow\sc P_{n+1}}\W.
+\qquad\Longrightarrow \Q\{\eqalign{\sc P_0\cr
+\sc P_1\cr
+\sc P_2\cr
+\sc P_3\cr
+\vdots}\W.\leqno{\hbox{Récurrence faible}}
+$$
+$$\Q\{
+\eqalign{
+&\sc P_0, \sc P_1\cr
+\sc P_{n-1}\hbox{ et }\sc P_n&\Rightarrow\sc P_{n+1}}\W.
+\qquad\Longrightarrow \Q\{\eqalign{\sc P_0\cr
+\sc P_1\cr
+\sc P_2\cr
+\sc P_3\cr
+\vdots}\W.\leqno{\hbox{Recurrence à plusieurs pas}}
+$$
+$$\Q\{
+\eqalign{
+&\sc P_1\cr
+\hbox{Pour $1\le n< k$, }\sc P_n&\Rightarrow\sc P_{n+1}}\W.
+\qquad\Longrightarrow \Q\{\eqalign{\sc P_1\cr
+\sc P_2\cr
+\vdots\cr
+\sc P_{k-1}\cr
+\sc P_k}\W.\leqno{\hbox{Recurrence finie commençant au rang 1}}
+$$
+On peut même démontrer plusieurs propriétés (éventuellement inter-dépendantes) par récurence à la fois... 
+\bigskip 
+
+\Remarque{ \it 3.} Pour énoncer la propriété de récurrence, il est recomandé d'utiliser les signes sommes $\sum_a^b$ et produits $\prod_a^b$ ainsi que les factorielles plut\^ot que des points de suspension. 
+On rappelle que le symbole 
+$$
+\sum_{n=a}^bf(n)=\sum_{a\le n\le b}f(n)
+$$
+vaut 
+$$
+f(a)+f(a+1)+\cdots+f(b-1)+f(b)
+$$
+si $a\le b$ et vaut $0$ si $a> b$ (c'est une convention).
+De même, le symbole 
+$$
+\prod_{n=a}^bf(n)=\prod_{a\le n\le b}f(n)
+$$
+vaut 
+$$
+f(a)f(a+1)\cdots f(b-1)f(b)
+$$
+si $a\le b$ et vaut $1$ si $a> b$ (c'est une convention).\goodbreak
+\vfill
+\Exercice{PTSIcs}
+\vfill
+\Exercice{PTSIct}
+\vfill
+\Exercice{PTij}
+\vfill
+\Exercice{PTSIcv}
+\vfill
+\Exercice{PTSIpx}
+\vfill
+\Exercice{PTSIcu}
+\vfill
+\Exercice{PTik}
+\vfill\noindent
+
+
+\bye

@@ -1,0 +1,243 @@
+%\def\Variables{MathsVariables}% 
+\catcode`@=11\relax
+\def\Api{Mathematicon@Api}%
+\let\LD@Par\par
+%%%% Newif  
+%\def\@firstofone#1{#1}
+\long\def\IGNORE#1\IGNORE{}%
+\newif\ifexonumber
+%%%% Switches
+\exonumberfalse
+\catcode`@=11\relax
+\input LD@Header.tex
+\input LD@Library.tex
+\input LD@Typesetting.tex
+
+%%%% Newif
+
+\newif\ifexonumber
+
+%%%% Switches
+\exonumberfalse
+
+%\input Preprocessing.tex
+
+%\transparent
+%\nomorecolors
+
+
+\noindent
+P1.a. La relartion $t^n\e^{-t^2}=o_{\pm\infty}\Q({1\F t^2}\W)$ est une cons\'equence triviale de la limite
+$$
+\lim_{t\to\pm\infty}{t^n\e^{-t^2}\F 1/t^2}=\lim_{t\to\pm\infty}\Q(t^{n+2}\e^{-t^2}\W)=0. 
+$$
+P.1b. Soit $n\in\ob N$. L'application $t\mapsto t^n\e^{-t^2}$ est continue sur $\ob R$. Comme $t^n\e^{-t^2}=o_{\pm\infty}\Q({1\F t^2}\W)$ et comme les int\'egrales de Riemann $\int_1^\infty{\d t\F t^2}\d t$ et $\int_{-\infty}^{-1}{\d t\F t^2}$ convergent, nous en d\'eduisont que les int\'egrales $\int_1^\infty t^n\e^{-t^2}\d t$ et $\int_{-\infty}^{-1}t^n\e^{-t^2}\d t$ convergent. A fortiori, l'int\'egrale $\int_{-\infty}^{+\infty}t^n\e^{-t^2}\d t$ converge. 
+\bigskip\noindent
+Remarque : il aurait \'et\'e plus malin de comparer \`a $\int_{-\infty}^{+\infty}{\d t\F 1+t^2}$ pour regler les deux problemes d'un coup. 
+\bigskip\noindent
+P.2. Soit $P\in\ob R[X]$. Alors, il existe $N\in\ob N$ et des coefficients r\'eels $a_0, \cdots, a_N$ tels que 
+$$
+P=\sum_{n=0}^Na_nX^n
+$$
+et alors $\int_{-\infty}^{+\infty}P(t)\e^{-t^2}\d t$ existe en tant que somme d'int\'egrales convergentes (d'apr\`es P.1b) et l'on a  
+$$
+\int_{-\infty}^{+\infty}P(t)\e^{-t^2}\d t=\sum_{n=0}^N a_n\int_{-\infty}^{+\infty}t^n\e^{-t^2}\d t. 
+$$
+P.3a. Soit $N\in\ob N$. En int\'egrant par parties les fonctions $t\mapsto t^{n+1}$ et $t\mapsto -\e^{-t^2}/2$, qui sont de classe $\sc C^1$ sur $\ob R$, 
+on obtient que 
+$$
+\eqalign{
+	I_{n+2} &
+	=\int_{-\infty}^{+\infty} t^{n+1}\times t\e^{-t^2}\d t=\Q[t^{n+1}{\e^{-t^2}\F -2}\W]_{-\infty}^{+\infty}+\int{-\infty}^{+\infty}(n+1)t^n{\e^{-t^2}\F -2}\d t
+	\cr
+	& = {n+1\F 2}I_n
+}
+$$
+P3b. Comme l'int\'egrale $I_1:=\int_{-\infty}^{+\infty} t\e^{-t^2}\d t$ converge et comme la fonction $t\mapsto t\e^{-t^2}$ est impaire, on a $I_1=0$. 
+(on le montre en proc\'edant au changement de variable $t=-u$ qui donne $I_1=-I_1$). On prouve alors facilement par r\'ecurrence que 
+$$
+I_{2p+1}=0\qquad(p\in\ob N)
+$$
+a l'aide de la relation prouv\'ee en P.3a. 
+\medskip\noindent
+P.3c. Comme pr\'ec\'edemment, on prouve par r\'ecurrence que 
+$$
+I_{2p}={(2p)!\F 2^{2p}p!}\sqrt\pi\qquad(p\in\ob N)
+$$
+\`a l'aide de la relation prouv\'ee en P.3a et de l'\'egalit\'e admise $I_0 = \sqrt\pi$. 
+\medskip\noindent
+I.1. Pour chaque couple $(x,y)\in\ob R^2$, nous d\'eduisons de la convergence des int\'egrales $I_0$, $I_1$, $I_2$, $I_3$ et $I_4$ que l'int\'egrale $F(x,y)$ existe en tant que somme d'int\'egrales convergentes. En effet, il r\'esulte de l'identit\'e  
+$$
+(t-x)^2(t-y)^2=(t^2-(x+y)t+xy)^2=t^4-2 (x+y)t^3+ \Q((x+y)^2+2xy\W)t^2-2(x+y)xyt+x^2y^2\qquad (t\in \ob R)
+$$
+que l'on a 
+$$
+F(x,y)={I_4-2 (x+y)I_3+ \Q((x+y)^2+2xy\W)I_2-2(x+y)xyI_1+x^2y^2I_0\F\sqrt\pi}\qquad \Q((x,y)\in\ob R^2\W)
+$$
+Alors, les \'egalit\'es d\'emontr\'es en P.3b et P.3c induisent d'une part que $I_1=I_3=0$ et d'autre part que $I_0=\sqrt\pi$, que $I_2={\sqrt\pi\F 2}$, que $I_4={3\F 4}\sqrt\pi$ et par cons\'equent que 
+$$
+F(x,y)={3\F 4} + {(x+y)^2+2xy\F 2}+x^2y^2={3\F 4} + {x^2+y^2+4xy\F 2}+x^2y^2\qquad \Q((x,y)\in\ob R^2\W).
+$$
+La fonction $F$ est de classe $\sc C^\infty$ sur $\ob R^2$ en tant que polyn\^ome de deux variables. \medskip
+\noindent
+2. Les d\'eriv\'ees partielles de $F$ sont 
+$$
+\Q\{\eqalign{
+	{\partial F\F \partial x}& = x+2y+2xy^2,\cr
+	{\partial F\F \partial y}& = y+2x+2yx^2.
+}\W.
+$$
+Les points critiques $(x,y)$ de $F$ sont donc les solutions du syst\`eme
+$$
+\eqalign{
+\Q\{\eqalign{
+	0& = x+2y+2xy^2\cr
+	0& = y+2x+2yx^2
+}\W.
+&\Longleftrightarrow\Q\{\eqalign{
+	0& = x+2y+2xy^2\cr
+	0& = (y-x)+2(x-y)+2(yx^2-xy^2)
+	}\W.
+\Longleftrightarrow\Q\{\eqalign{
+	0& = x+2y+2xy^2\cr
+	0& = (x-y)(1+2yx)
+}\W.\cr
+&\Longleftrightarrow
+\Q\{\eqalign{
+	&0 = 3x+2x^3\cr
+	&x=y
+	}\W.\hbox{ ou }\Q\{\eqalign{
+	&x+2y-y=0\cr
+	&2xy=-1
+	}\W.\cr
+	&
+	\Longleftrightarrow
+\Q\{\eqalign{
+	&0 = x\underbrace{(3+2x^2)}_{\neq 0}\cr
+	&x=y
+	}\W.\hbox{ ou }
+	\hbox{$x$ et $y$  sont les racines du trin\^ome } X^2-{1\F2}
+}
+$$
+A fortiori, les points critiques de $F$ sont 
+$$
+(0,0),\qquad  \Q({1\F\sqrt2}, -{1\F\sqrt2}\W)\quad\hbox{et}\quad 
+\Q(-{1\F\sqrt 2}, {1\F\sqrt2}\W). 
+$$
+3. Le calcul des d\'eriv\'ees secondes de $F$ donne que 
+$$
+\Q\{\eqalign{
+	r:={\partial^2 F\F \partial x^2}& = 1+2y^2,\cr
+	s:={\partial^2 F\F \partial x\partial y}& = 2+4yx,\cr
+	t:={\partial^2 F\F \partial y^2}& = 1+2x^2.
+}\W.
+$$
+Au point critique $(0,0)$, nous obtenons que $r=1$, $s=2$, $t=1$ et nous d\'eduisons de l'in\'egalit\'e $rt-s^2=<0$ (et du th\'eor\`eme du cours) qu'il n'y a pas d'extremum local en $(0,0)$. \medskip\noindent
+Au point critique $\Q({1\F\sqrt2}, -{1\F\sqrt2}\W)$, nous obtenons que $r=2$, $s=0$, $t=2$ et nous d\'eduisons des in\'egalit\'es $rt-s^2=4>0$ et $r>0$ (et du th\'eor\`eme du cours) qu'il y a un minimum local en $\Q({1\F\sqrt2}, -{1\F\sqrt2}\W)$. \medskip\noindent
+La fonction $F$ \'etant sym\'etrique, il y a aussi un minimum local en $-\Q({1\F\sqrt2}, {1\F\sqrt2}\W)$.
+\medskip
+noindent
+Soit $x\in\ob R$. L' application $t\mapsto\sin(xt)\e^{-t^2}$ est continue sur $\ob R$ et satisfait 
+$$
+\Q|\sin(xt)\e^{-t^2}\W| \le \e^{-t^2}\qquad t\in\ob R. 
+$$
+Comme nous avons montr\'e plus haut que l'int\'egrale $I_0=\int_{-\infty}^{+\infty}\e^{-t^2}\d t$ converge, nous en d\'eduisons que l'int\'egrale $\int_0^{+\infty}\sin(xt)\e^{-t^2}\d t$ converge (absolument).
+\medskip\noindent
+ L' application $t\mapsto t\cos(xt)\e^{-t^2}$ est continue sur $\ob R^+$ et  
+$$
+\Q|t \cos(xt)\e^{-t^2}\W| \le t\e^{-t^2}\qquad t\in\ob R^+, 
+$$
+Comme nous avons montr\'e plus haut que l'int\'egrale $\int_0^{+\infty}t\e^{-t^2}\d t$ converge, nous en d\'eduisons que 
+l'int\'egrale $\int_{-\infty}^{+\infty}t\cos(xt)\e^{-t^2}\d t$ converge (absolument).
+\medskip\noindent
+Les applications $C$ et $S$ sont donc d\'efinies sur $\ob R$, bien sur la question suivante permet de retrouver ce r\'esultat. 
+\medskip\noindent
+2. Nous appliquons le th\'eor\`eme de d\'erivation des int\'egrales \`a un param\`etre \`a l'application $S$. \par\noindent
+Pour $t\in_ob R^+$ fix\'e, l'application $x\mapsto \sin(xt)\e^{-t^2}$ est de classe $\sc C^1$ sur $\ob R$. \par \`noindent
+Pour $x\in\ob R$ fix\'e, les applications $t\mapsto \sin(xt)\e^{-t^2}$ et $t\mapsto {\partial\F\partial x}\Q(\sin(xt)\e^{-t^2}\W)=t\cos(xt)\e^{-t^2}$ sont continues sur $\ob R^+$ et int\'egrables (leur int\'egrale sur $\ob R^+$ converge absolument) d'apr\`es ce qui a \'et\'e fait \`a la question pr\'ec\'edente. Enfin, nous avons 
+$$
+\Q|t \cos(xt)\e^{-t^2}\W| \le t\e^{-t^2}\qquad (t\in\ob R,x\in \ob R), 
+$$
+avec $\int_0^{+\infty}t\e^{-t^2}\d t$ qui converge (hypoth\`es se domination). A fortiori, la fonction $S$ est de classe $C^1$ sur $\ob R$ et nous avons 
+$$
+\forall x\in\ob R, \qquad S'(x)=\int_0^{\infty}{\partial\F\partial x}\Q(\sin(xt)\e^{-t^2}\W)\d t=C(x).
+$$
+3. Soit $x\in\ob R$. En int\'egrant par parties $t\mapsto \cos(xt)$ et $t\mapsto -\e^{-t^2}/2$, qui sont de classe $\sc C^1$ sur $\ob R^+$, on obtient que 
+$$
+C(x)=\int_0^{+\infty}t\cos(xt)\e^{-t^2}\d t=\Q[\cos(xt){\e^{-t^2}\F -2}\W]_0^{+\infty}-\int_0^{+\infty}(-x)\sin(xt){\e^{-t^2}\F -2}\d t= {1\F 2}+{x\F 2}S(x).
+$$
+4a. Nous remarquons que que $S(0)=\int_0^\infty\sin(0)\e^{-t^2}\d t=0$ et nous d\'eduisons de II.2 et II.3, l'application $S$ est de classe $C^1$ et satisfait l'\'equation diff\'erentielle 
+$$
+S'(x)+{x\F 2}S(x)={1\F 2}\qquad (x\in\ob R). 
+$$
+Or l'application $G:x\mapsto {\e^{-x^2\F 4}\F 2}\int_0^x\e^{t^2\F 4}\d t$ est de classe $\sc C^1$ sur $\ob R$ et satisfait \'egalement le probl\`eme de Cauchy 
+$$
+\Q\{
+	\eqalign{
+		&S'(x)+{x\F 2}S(x)={1\F 2}\qquad (x\in\ob R)\cr
+		&S(0)=0.
+	}	
+\W.
+$$
+Comme l'application $x\mapsto\int_0^x\e^{t^2\F 4}\d t$ est la primitive de $x\mapsto\e^{x^2\F 4}$ sur $\ob R$ s'annulant en $0$, nous avons en effet $G(0)=0$ et 
+$$
+G'(x)+{x\F 2}G(x)= -x{\e^{-x^2\F 4}\F 2}\int_0^x\e^{t^2\F 4}\d t+ {\e^{-x^2\F 4}\F 2}\e^{x^2\F 4}+{x\F 2} {\e^{-x^2\F 4}\F 2}\int_0^x\e^{t^2\F 4}\d t={1\F 2}\qquad (x\in\ob R).
+$$
+La solution d'un tel probl\`eme de Cauchy \'etant unique, nous en d\'eduisons que $S=G$. En reportant dans l'identit\'e obtenue en III.3, il suit 
+$$
+\forall x\in\ob R, \qquad S(x)={\e^{-x^2\F 4}\F 2}\int_0^x\e^{t^2\F 4}\d t\quad\hbox{et}\quad C(x)={1\F2}-x{\e^{-x^2\F 4}\F 4}\int_0^x\e^{t^2\F 4}\d t.
+$$
+
+
+e probl\`eme de Cauchy sur $\ob R$
+$$
+\Q\{
+	\eqalign{
+		&S'(x)+{x\F 2}S(x)={1\F 2}\qquad (x\in\ob R)\cr
+		&S(0)=0.
+	}	
+\W.
+$$
+III.1. Pour $x\in\ob R$, l'application $t\mapsto{1\F 1+x^2t^2}\e^{-t^2}$ est continue sur $\ob R$ en tant que quotient de fonctions continues dont le d\'enominateur ne s'annule jamais (il est toujours sup\'erieur \`a $1$). Par ailleurs, nous avons 
+$$
+0\le {1\F 1+x^2t^2}\e^{-t^2}\le \e^{-t^2}\qquad (t\in\ob R),
+$$
+et comme l'int\'egrale $I_0=\int_{-\infty}^{\infty}\e^{-t^2}\d t$ converge, l'int\'egrale $\int_{-\infty}^{\infty}{1\F 1+x^2t^2}\e^{-t^2}\d t$ converge.
+\medskip\noindent
+III.2a Nous obtenons cette in\'egalit\'e facilement en remarquant que  
+$$
+0\le 1-u+u^2-{1\F 1+u}={u^3\F 1+u}\le u^3\qquad (u\ge0). 
+$$
+III.2b. Il r\'esulte de l'identit\'e pr\'ec\'edente pour $u=x^2t^2$ que 
+$$
+0\le 1-x^2t^2+x^4t^4-{1\F 1+x^2t^2}\le x^6t^6\qquad (x\in\ob R,t\in\ob R). 
+$$
+et par suite que 
+$$
+0\le \Q(1-x^2t^2+x^4t^4-{1\F 1+x^2t^2}\W)\e^{-t^2}\le x^6t^6\e^{-t^2}\qquad (x\in\ob R,t\in\ob R). 
+$$
+En int\'egrant cette in\'egalit\'e sur $\ob R$, il s'ensuit que (croissance de l'int\'egrale)
+$$
+0\le\int_{-\infty}^{+\infty}\Q(1-x^2t^2+x^4t^4-{1\F 1+x^2t^2}\W)\e^{-t^2}\d t \le \int_{-\infty}^{+\infty}x^6t^6\e^{-t^2}\d t\qquad(x\in\ob R).
+$$
+Nous d\'eduisons alors de la d\'efinition de $g(x)$ et de la relation $I_6={6!\F 2^63!}\sqrt\pi={15\F 8}\sqrt\pi$ que  
+$$
+0\le\int_{-\infty}^{+\infty}\Q(1-x^2t^2+x^4t^4\W)\e^{-t^2}\d t-g(x)\le x^6I_6={15x^6\F 8}\sqrt\pi\qquad(x\in\ob R).
+$$
+Posant $H(x)=\int_{-\infty}^{+\infty}\Q(1-x^2t^2+x^4t^4\W)\e^{-t^2}\d t-g(x)$, nous remarquons que 
+$$
+\eqalign{
+g(x)&=\int_{-\infty}^{+\infty}\Q(1-x^2t^2+x^4t^4\W)\e^{-t^2}\d t-H(x)
+\cr
+&=I_0-I_2x^2+I_4x^4-H(x)\qquad(x\in\ob R)
+}
+$$
+et d'aute part que 
+$$
+0\le \Q|{H(x)\F x^5}\W|\le {15\F 8}\sqrt\pi|x|\to 0\qquad (x\to 0).
+$$
+A fortiori, $\lim_{x\to 0} {H(x)\F x^5}=0$, c'est \`a dire $H(x)=o_0(x^5)$. Comme  $I_0=\sqrt\pi$, que $I_2={\sqrt\pi\F 2}$, que $I_4={3\F 4}\sqrt\pi$, nous concluons que 
+$$
+g(x)=\sqrt\pi-{\sqrt\pi\F 2}x^2+{3\F 4}\sqrt\pi x^4+o_0(x^5).
+$$
+\bye

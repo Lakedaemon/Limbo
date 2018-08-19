@@ -1,0 +1,565 @@
+%%%%%     Banque de solutions  PTSI 2005 (commencée le 25/08/2005)
+%
+\sol PTSIa. 
+Le cercle trigonom\'etrique \'etant sym\'etrique par rapport \`a l'axe des ordonn\'ees, nous observons que 
+$\cos(\pi-\theta)=-\cos(\theta)$ pour $\theta\in\ob R$ et nous remarquons d'une part que 
+$$
+A=\cos\Q({\pi\F10}\W)+\cos\Q({4\pi\F10}\W)+\underbrace{\cos\Q({6\pi\F10}\W)}_{-\cos\Q({4\pi\F10}\W)}
++\underbrace{\cos\Q({9\pi\F10}\W)}_{-\cos\Q({\pi\F10}\W)}=0
+$$
+et d'autre part que  
+$$
+B=\cos^2\Q({\pi\F10}\W)+\cos^2\Q({4\pi\F10}\W)+\underbrace{\cos^2\Q({6\pi\F10}\W)}_{\cos^2\Q({4\pi\F10}\W)}
++\underbrace{\cos^2\Q({9\pi\F10}\W)}_{\cos^2\Q({\pi\F10}\W)}=2\cos^2\Q({\pi\F10}\W)+2\cos^2\Q({4\pi\F10}\W).
+$$
+Comme $2\cos^2(\theta)=1+\cos(2\theta)$ pour $\theta\in\ob R$ (formule de duplication), 
+en~proc\'edant  comme pr\'ec\'edemment, nous obtenons alors que 
+$$
+B=1+\cos\Q({2\pi\F10}\W)+1+\underbrace{\cos\Q({8\pi\F10}\W)}_{-\cos\Q({2\pi\F10}\W)}=2.
+$$
+
+\sol PTSIb. 
+Commen\c cons par d\'eterminer les nombres r\'eels $x$ pour lesquels l'\'equation \eqref{Eqexob} a un sens. \pn
+La premi\`ere tangente est d\'efinie si, et seulement si 
+$$
+2x-{3\pi\F2}\not\equiv{\pi\F 2}\quad[\pi]\ssi 2x\not\equiv2\pi\quad[\pi]\ssi x\not\equiv\pi\quad\Q[{\pi\F2}\W]\ssi x\not\equiv0\quad\Q[{\pi\F2}\W]
+$$
+La seconde tangente existe si, et seulement si 
+$$
+{\pi\F4}-x\not\equiv{\pi\F 2}\quad[\pi]\ssi {\pi\F4}-{\pi\F 2}\not\equiv x\quad[\pi]\ssi x\not\equiv-{\pi\F2}\quad[\pi]
+$$
+En particulier, l'ensemble des nombres r\'eels pour lesquels les deux tangentes sont simultan\'ement d\'efinies  est 
+l'ensemble 
+$$
+E:=\ob R\ssm{\pi\F2}\ob Z.
+$$ 
+Rappelons que la tangente est une fonction $\pi$-p\'eriodique et que sa restriction $\tan:]-{\pi\F2},{\pi\F2}[\to\ob R$ est une bijection. 
+En particulier, les deux tangentes sont \'egales si, et seulement si leurs angles sont \'egaux modulo $\pi$, c'est \`a dire si
+$$
+2x-{3\pi\F2}\equiv{\pi\F4}-x\quad[\pi]\ssi3x\equiv{7\pi\F4}\quad[\pi]\ssi x\equiv{7\pi\F12}\quad\Q[{\pi\F3}\W].
+$$ 
+Enfin, comme les nombres ${3\pi\F12}$, ${7\pi\F12}$, ${11\pi\F12}$, ${15\pi\F12}$, ${19\pi\F12}$ et ${23\pi\F12}$ appartiennent tous \`a l'ensemble~$E$, 
+l'ensemble des solutions de l'\'equation \eqref{Eqexob} est  
+$$
+S:=\Q\{{7\pi\F12}+{\pi\F3}k:k\in\ob Z\W\}={7\pi\F12}+{\pi\F3}\ob Z.
+$$
+\Remarque : \'etant donn\'e un nombre $x\in\sc E$, une variante consiste \`a proc\'eder de la fa\c con suivante :   
+$$
+\eqalign{
+\eqref{Eqexob}&\ssi{\sin\Q(2x-{3\pi\F4}\W)\F\cos\Q(2x-{3\pi\F4}\W)}-{\sin\Q({\pi\F4}-x\W)\F\cos\Q({\pi\F4}-x\W)}=0\cr
+&\ssi\underbrace{\sin\Q(2x-{3\pi\F4}\W)\cos\Q({\pi\F4}-x\W)-\cos\Q(2x-{3\pi\F4}\W)\sin\Q({\pi\F4}-x\W)}_{\sin\Q[2x-{3\pi\F4}-({\pi\F4}-x)\W]}=0\cr
+&\ssi 2x-{3\pi\F4}\equiv{\pi\F4}-x\quad[\pi].
+}
+$$
+
+\sol PTSIc. 
+Soit $x$ un nombre r\'eel. Comme $\sin(\theta)=\cos\Q(\theta-{\pi\F2}\W)$ pour $\theta\in\ob R$, nous remarquons que 
+$$
+\eqref{Eqexoc}\ssi\cos\Q(x+{\pi\F4}-{\pi\F2}\W)=\cos\Q(2x-{\pi\F3}\W)\ssi \cos\Q(x-{\pi\F4}\W)=\cos\Q(2x-{\pi\F3}\W). 
+$$
+Comme deux cosinus sont \'egaux si, et seulement si leurs angles sont \'egaux ou oppos\'es modulo $2\pi$, il suit
+$$
+\eqref{Eqexoc}\ssi x-{\pi\F 4}=\pm\Q(2x-{\pi\F3}\W)\quad[2\pi]\ssi \Q\{
+\eqalign{
+&x={\pi\F3}-{\pi\F4}\quad[2\pi]\cr
+&\hbox{ou}\cr
+&3x={\pi\F3}+{\pi\F4}\quad[2\pi]\cr}\W.
+$$
+En conclusion, l'ensemble des solutions de l'\'equation \eqref{Eqexoc} est 
+$$
+S:=\Q\{x\in\ob R:x\equiv{\pi\F12}\quad[2\pi]\ \hbox{ou}\ x\equiv{7\pi\F 36}\quad\Q[{2\pi\F 3}\W]\W\}
+$$
+
+\sol PTSIxk. 
+\noindent
+1a. L'application $f$ est d\'erivable sur $I$, de d\'eriv\'ee
+$$
+\forall x\in\Q]0,{1\F\sqrt6}\W[, \qquad f'(x)=1-6x^2>1-6\times\Q({1\F\sqrt6}\W)^2=0.
+$$
+En particulier, $f'$ est strictement positive sur $I$ et, par suite, la fonction $f $est strictement croissante sur $I$. 
+Comme $f(0^+)=0$ et comme 
+$$
+f\Q({1\F\sqrt6}^-\W)={1\F\sqrt6}-2\times\Q({1\F 6}\W)^3={1\F\sqrt6}\times\Q(1-{2\F 6}\W)={2\F 3\sqrt6}<{1\F\sqrt6},
+$$
+nous en d\'eduisons que $f(I)=\Q]0,{2\F3\sqrt6}\W[\subset I$. \medskip\noindent
+1b. Pour $n\ge1$, prouvons par r\'ecurrence la proposition 
+$$
+u_n\in I.\leqno{(\sc P_n)}
+$$
+i) $\sc P_1$ est vraie car $u_1:={1\F 10}\in I$. \pn
+ii) Soit $n\ge1$ tel que $\sc P_n$ soit vraie. Alors $u_n\in I$, et nous d\'eduisons du r\'esultat de la question pr\'ec\'edente que $u_{n+1}=f(u_n)\in I$. En particulier, $\sc P_{n+1}$ est vraie.\pn
+Nous avons montr\'e par r\'ecurrence que $u_n\in I$ et \`a fortiori que $u_n>0$ pour $n\ge1$. En remarquant que 
+$$
+u_{n+1}-u_n=-2u_n^3<0\qquad (n\ge1), 
+$$
+nous en d\'eduisons que la suite $u$ est d\'ecroissante. \medskip\noindent
+1c. Comme la suite $u$ est monotonne et minor\'ee par $0$, elle converge vers un nombre r\'eel $\ell\ge0$. En passant \`a la limite dans l'identit\'e 
+$$
+u_{n+1}=u_n-2u_n^3\qquad(n\ge1), 
+$$
+nous obtenons alors que $\ell=\ell-2\ell^3$. A fortiori, il suit  $-2\ell^3=0$ et $\ell=0$.\pn
+En conclusion, la suite $u$ converge vers $0$. 
+\medskip\noindent
+2a. D'apr\`es la d\'efinition des limites du cours, 
+$$
+\lim v_n=\ell\ssi\forall\epsilon>0,\exists N\ge0:\forall n\ge N, |v_n-\ell|<\epsilon
+$$ 
+2b. Soient $p$ et $n$ des entiers tels que $1\le p\le n$. Nous remarquons que
+$$ 
+M_n-\ell={1\F n}\sum_{1\le k\le n}v_k-\ell={1\F n}\Q(\sum_{1\le k\le n}v_k-n\ell\W)={1\F n}\sum_{1\le k\le n}(v_k-\ell)
+$$
+et nous d\'eduisons de la premi\`ere in\'egalit\'e triangulaire que 
+$$
+\eqalign{
+|M_n-\ell|&=\Q|{1\F n}\sum_{1\le k\le n}(v_k-\ell)\W|={1\F n}\Q|\sum_{1\le k\le n}(v_k-\ell)\W|
+\cr
+&\le {1\F n}\sum_{1\le k\le n}|v_k-\ell|={1\F n}\sum_{1\le k\le p}|v_k-\ell|+ {1\F n}\sum_{p< k\le n}|v_k-\ell|.
+}
+$$ 
+En remarquant que $|v_k-\ell|\le\max_{p<m\le n}|v_m-\ell|$ lorsque $p<k\le n$, nous en d\'eduisons que 
+$$
+|M_n-\ell|\le {1\F n}\sum_{1\le k\le p}|v_k-\ell|+ {1\F n}\sum_{p< k\le n}\max_{p<m\le n}|v_m-\ell|.
+$$
+Comme il y a exactement $n-p$ entier dans l'intervalle $]p,n]$ et comme $0<(n-p)/n\le 1$, il suit 
+$$
+|M_n-\ell|\le {1\F n}\sum_{1\le k\le p}|v_k-\ell|+{n-p\F n}\max_{p<m\le n}|v_m-\ell|\le  {1\F n}\sum_{1\le k\le p}|v_k-\ell|+\max_{p<m\le n}|v_m-\ell|.
+$$
+2c. Supposons que la suite $v$ converge vers $\ell$ et montrons que la suite $M$ converge vers $\ell$. \pn
+Fixons $\epsilon>0$ et utilisons la d\'efinition de la convergence de la suite $v$ pour $\epsilon'=\epsilon/2$ : 
+comme la suite $v$ converge vers $0$, il existe un entier $N\ge1$ tel que 
+$$
+\forall n\ge N, \qquad |v_n-\ell|<\epsilon'={\epsilon\F2}.
+$$
+Nous prenons $p=N$ et nous remarquons alors que
+$$
+|M_n-\ell|\le  {1\F n}\sum_{1\le k\le p}|v_k-\ell|+{\epsilon\F2}\qquad (n\ge p).
+$$
+Le nombre $p$ \'etant fix\'e, la quantit\'e $c:=1+\sum_{1\le k\le p}|v_k-\ell|$ est un nombre r\'eel strictement positif. 
+Lorsque ${c\F n}<{\epsilon\F 2}$, c'est-\`a-dire lorsque $n>{2c\F\epsilon}$, nous obtenons alors que 
+$$
+\forall n>{2c\F\epsilon}, \qquad {1\F n}\sum_{1\le k\le p}|v_k-\ell|={c\F n}<{\epsilon\F 2}
+$$
+et posant $N':=N+{2c\F\epsilon}\ge0$, nous remarquons que la condition $n\ge N'$ induit d'une part que $n\ge N$ mais aussi que $n>{2c\F\epsilon}$ et nous concluons que 
+$$
+\eqalign{
+|M_n-\ell|&\le {1\F n}\sum_{1\le k\le p}|v_k-\ell|+{\epsilon\F2}\cr
+&\le{\epsilon\F 2}+{\epsilon\F2}=\epsilon\qquad (n\ge N').
+}
+$$
+En particulier, si la suite $v$ converge vers $\ell$, nous avons montr\'e que 
+$$
+\forall\epsilon>0, \exists N'\ge0:\forall n\ge N', |M_n-\ell|<\epsilon, 
+$$
+c'est-\`a-dire que la suite $M$ converge vers $\ell$. \medskip\noindent
+3a. Commen\c cons par poser
+$$
+g(x):={1\F(x-2x^3)^2}-{1\F x^2}={1\F x^2}\Q({1\F(1-2x^2)^2}-1\W).
+$$
+Comme $1/(1-u)=1+u+o_0(u)$, un petit calcul de d\'eveloppement limit\'e 
+(l'arme absolue) donne :
+$$
+g(x)={1\F x^2}\Q(\b(1+2x^2+o_0(x^2)\b)^2-1\W)={1\F x^2}\Q(1+4x^2+o_0(x^2)-1\W)=4+o_0(1).
+$$
+En particuilier, nous obtenons que 
+$$
+\lim_{x\to 0\atop x\neq0}\Q({1\F(x-2x^3)^2}-{1\F x^2}\W)=\lim_{x\to 0\atop x\neq0}g(x)=4. 
+$$
+Pour chaque $n\ge1$, la relation $u_{n+1}=u_n-2u_n^3$  induit que 
+$$
+v_n:=v_n:={1\F u_{n+1}^2}-{1\F u_n^2}={1\F (u_n-2u_n^3)^2}-{1\F u_n^2}=g(u_n).
+$$
+Comme $u$ converge vers $0$ (sans jamais \^etre \'egale \`a $0$) et comme $g$ converge vers $4$ en $0$, une composition de limite donne alors que  
+$$
+\lim_{n\to\infty}v_n=4. 
+$$
+3b. Comme la suite $v$ converge vers $4$, il r\'esulte du th\'eor\`eme de Ces\`aro que la suite $M$ d\'efinie par la relation 
+$$
+M_n:={1\F n}\sum_{1\le k\le n}v_k
+$$
+converge \'egalement vers $4$. En utilisant l'identit\'e $v_n={1\F u_{n+1}^2}-{1\F u_n^2}$ ainsi que le principe des sommes telescopiques, nous obtenons alors que   
+$$
+4\sim M_n={1\F n}\sum_{1\le k\le n}\Q({1\F u_{k+1}^2}-{1\F u_k^2}\W)={1\F n}\Q({1\F u_{n+1}^2}-{1\F u_1^2}\W).
+$$
+Comme $u_{n+1}$ converge vers $0$, le terme $u_1$ est n\'egligeable. De sorte que 
+$$
+4\sim {1\F nu_{n+1}^2}\sim {1\F(n+1)u_{n+1}^2}.
+$$
+En passant \`a l'inverse, il vient alors  $(n+1)u_{n+1}^2\sim{1\F4}$ et un d\'ecalage d'indices induit alors que la suite $nu_n^2$ converge vers $1/4$. Comme $u_n>0$ pour $n\ge1$, nous prenons la racine pour en d\'eduire que la suite $u_n\sqrt n$ converge vers ${1/2}$ et nous concluons que  
+$$
+u_n\sim{1\F 2\sqrt n}.
+$$
+4a. En substituant, nous obtenons que 
+$$
+\eqalign{
+f(1)&=X(1-1)=0\cr
+f(X)&=X\big(X-(X-1)\big)=X\cr
+f(X^2)&=X\big(X^2-(X-1)^2\big)=X(2X-1)=2X^2-X.
+}
+$$
+4b. Soit $P\in\ob R_n[X]$ de degr\'e $n$. Alors, il existe des coefficients $(a_k)_{0\le k\le n}$ r\'eels tels que $a_n\neq0$ et 
+$$
+P=\sum_{0\le k\le n}a_kX^k.
+$$
+Alors, nous d\'eduisons du bin\^ome de Newton que 
+$$
+\eqalign{
+P(X-1)&=\sum_{0\le k\le n}a_k(X-1)^k=a_n(X-1)^n+\sum_{0\le k<n}a_k(X-1)^k
+\cr
+&=a_nX^n+a_n\sum_{0\le k<n}\Q({n\atop k}\W)(-1)^{n-k}X^k+\sum_{0\le k<n}a_k(X-1)^k
+}
+$$
+En particulier, nous remarquons que $P=a_nX^n+Q+R$ avec
+$$
+\eqalign{
+Q&:=a_n\sum_{0\le k<n}\Q({n\atop k}\W)(-1)^{n-k}\underbrace{X^k}_{\deg<n},\cr
+R&:=\sum_{0\le k<n}a_k\underbrace{(X-1)^k}_{\deg<n},
+}
+$$ 
+qui sont deux polyn\^omes de $\ob R_{n-1}[X]$. A fortiori, le terme de plus haut degr\'e de $P(X-1)$ est $a_nX^n$. \medskip\noindent
+4c. Soit $P\in\ob R_n[X]$ tel que $P(X)=P(X-1)$ et soit $Q:=P-P(0)$. Pour $n\ge0$, \'etablissons par r\'ecurrence la propri\'et\'e 
+$$
+Q(n)=0.\leqno{(\sc P_n)}
+$$
+i) la propri\'et\'e $\sc P_0$ est vraie car $Q(0)=P(0)-P(0)=0$. \pn
+ii) Soit $n\in\ob N$ tel que $\sc P_n$ soit vraie. Alors $Q(n)=0$. En substituant $n+1$ \`a $X$ dans l'\'identit\'e $P(X)=P(X-1)$, nous obtenons alors que $P(n)=P(n+1)$ et nous en d\'eduisons que 
+$$
+Q(n+1)=P(n+1)-P(0)=P(n)-P(0)=Q(n)=0. 
+$$
+A fortiori, la proposition $\sc P_{n+1}$ est vraie. Nous avons prouv\'e par r\'ecurrence que tous les nombres entiers sont racines du polyn\^ome $Q$. Comme le seul polyn\^ome admettant plus de racine que son degr\'e est le polyn\^ome nul, nous en d\'eduisons que $P-P(0)=Q=0$ et que $P$ est le polyn\^ome constant $P(0)$. 
+\medskip\noindent
+5. i) Soit $P\in\ob R_n[X]$. Comme $\ob R[X]$  est stable par substitution, combinaison lin\'eaire et multiplication, nous remarquons que $f(P)$ est un polyn\^ome de $\ob R[X]$ (l'application $f$ est donc bien d\'efinie). Par ailleurs, d'apr\`es le r\'esultat de la question 4b, le polyn\^ome $P(X-1)$ est de terme principal $a_nX^n$. Comme c'est le m\^eme terme principal que $P$, ils se simplifient dans le polyn\^ome $P(X)-P(X-1)$ qui appartient de ce fait \`a $\ob R_{n-1}[X]$.
+A fortiori, le polyn\^ome $f(P)$ appartient \`a l'espace $\ob R_n[X]$ et l'on peut donc restreindre l'application $f$ \`a l'arriv\'ee \`a l'espace $\ob R_n[X]$. \pn
+ii) $\ob R_n[X]$ est un $\ob R$-espace vectoriel, d'apr\`es le cours. \pn
+iii) $f$ est lin\'eaire car, \'etant donn\'es $P$ et $Q$ dans $\ob R_n[X]$ et $\lambda$ et $\mu$ dans $\ob R$, nous avons 
+$$
+\eqalign{
+f(\lambda P+\mu Q)&=X\big(\lambda P+\mu Q-(\lambda P+\mu Q)(X-1)\big)=X\big(\lambda P+\mu Q-\lambda P(X-1)-\mu Q(X-1)\big)\cr
+&=\lambda X\big(P-P(X-1)\big)+\mu\big(Q-Q(X-1)\big)=\lambda f(P)+\mu f(Q).
+}
+$$ 
+En conclusion, $f:\ob R_n[X]\to\ob R_n[X]$ est une application lin\'eaire, c'est un endomorphisme de $\ob R_n[X]$. 
+\medskip\noindent
+6. Nous d\'eduisons du r\'esultat de la question 4c que  
+$$
+\eqalign{
+P\in\ker P&\ssi f(P)=0\ssi X\big(P(X)-P(X-1)\big)=0\ssi P(X)=P(X-1)\cr
+&\ssi P \hbox{ est un polyn\^ome constant}\ssi P\in\ob R_0[X].}
+$$
+A fortiori, le noyau de $f$ est $\ker f=\ob R_0[X]$, qui est de dimension $1$. En appliquant le th\'eor\`eme du rang, nous obtenons alors que 
+$$
+\dim\IM f=\dim\ob R_n[X]-\dim\Ker f=n+1-1=n.
+$$
+Remarque : il n'est pas tr\`es difficile d'en d\'eduire que $\IM f=X\ob R_{n-1}[X]$. \medskip\noindent
+7a. La base canonique de $\ob R_2[X]$ est $\sc B:=\{1, X, X^2\}$ et la matrice de $f$ dans cette base est 
+$$
+A:=\hbox{\sc M\rm at}_{\hbox{\sc B}}f=
+\pmatrix{
+0&0&0\cr
+0&1&-1\cr
+0&0&2\cr}
+$$
+7b. L'endomorphisme est diagonalisable car ses valeurs propres 0, 1 et 2 (que l'on peut lire sur la diagonale puisque c'est une matrice triangulaire sup\'erieure) sont distinctes deux \`a deux. \medskip\noindent
+8a. Comme le polyn\^ome $\sc P_k$ est de degr\'e $k$ pour $0\le k\le n$, la famille de polyn\^ome $(P_0, P_1, \cdots, P_n)$ est \'echelonn\'es en degr\'e. C'est donc une famille libre. Comme elle comporte $n+1$ \'el\'ements de $\ob R_n[X]$,  qui est un espace vectoriel de dimension $n+1$, c'est aussi une base de $\ob R_n[X]$. \medskip\noindent
+8b. Soit $k\ge2$. Alors, en proc\'edant au changement d'indice $\ell+1=m$, nous obtenons que 
+$$
+\eqalign{
+f(P_k)&=X\big(P(X)-P(X-1)\big)=X\prod_{0\le\ell<k}(\ell-X)-X\prod_{0\le\ell<k}\big(\ell-(X-1)\big)
+\cr
+&=X\prod_{0\le\ell<k}(\ell-X)-X\prod_{0\le\ell<k}\big(\ell+1-X)\big)=X\prod_{0\le\ell<k}(\ell-X)-X\prod_{1\le\ell\le k}(m-X)
+\cr}
+$$
+En factorisant ce qui peut l'\^etre, il vient  
+$$
+\eqalign{
+f(P_k)&=X\prod_{1\le\ell<k}(\ell-X)\times \big(-X-(k-X)\big)=-kX\prod_{1\le\ell<k}(\ell-X)=k\prod_{0\le\ell<k}(\ell-X)\cr
+&=kP_k
+}
+$$
+Comme $f(1)=0=0.1$ et comme $f(X)=X=1.X$, nous concluons que 
+$$
+\forall k\in\ob N, \qquad f(P_k)=kP_k. 
+$$
+8c. les valeurs propres de $f$ sont les entiers $0, 1, \cdots, n$ d'apr\`es le r\'esultat de la question pr\'ec\'edente. 
+Elles sont distinctes deux \`a deux, donc $f$ est diagonalisable (on a diagonalis\'e $f$ en trouvant une base de vecteurs propres de $f$, les polyn\^omes $P_0, \cdots, P_n$).
+\medskip\noindent
+9. Sur $]0, \infty[$, l'\'equation diff\'erentielle $(E)$ est \'equivalente (on divise par $|x|=x$) \`a 
+$$
+y'(x)+\Q(1-{1\F x}\W)y(x)=x.
+$$
+La fonction $f_p:x\mapsto x$ est trivialement solution particuli\`ere de cette \'equation diff\'erentielle lin\'eaire du premier ordre avec second membre (dont le coefficient de y' vaut $1$, \`a coefficients continus sur $]0,\infty[$, car 
+$$
+\forall x>0, \qquad f_p'(x)+\Q(1-{1\F x}\W)f_p(x)=1+\Q(1-{1\F x}\W)x=x. 
+$$
+Par ailleurs, la fonction $g_p:x\mapsto x\e^{-x}$ est une solution, ne s'annulant pas, de l'\'equation diff\'erentielle homog\`ene associ\'ee sur $]0,+\infty[$ car 
+$$
+\forall x>0, \qquad g_p'(x)+\Q(1-{1\F x}\W)g_p(x)=\e^{-x}-x\e^{-x}+\Q(1-{1\F x}\W)x\e^{-x}=0. 
+$$
+D'apr\`es le cours, $f$ est solutions de l'\'equation $(E)$ sur $]0,+\infty[$ si et seulement s'il existe $\lambda\in\ob R$ tel que 
+$$
+\forall x>0, \qquad f(x)=x+\lambda x\e^{-x}. 
+$$
+9b. Supposons qu'il existe une solution $f$ de $E$ sur $\ob R$. Comme $f$ est solution de $(E)$ sur $]0,+\infty[$, il existe une constante $\lambda\in\ob R$  telle que 
+$$
+\forall x>0, \qquad f(x)=x+\lambda x\e^{-x}. 
+$$ 
+Comme $f$ est solution de $(E)$ sur $]-\infty,0[$, il existe une constante $\beta\in\ob R$  telle que 
+$$
+\forall x<0, \qquad f(x)=x+2+{2\F x}+\beta{\e^x\F x}. 
+$$ 
+Comme $f $est de classe $\sc C^1$ sur $\ob R$ et donc en $0$, on doit forc\'ement avoir $f(0^-)=f(0^+)$ et $f'(0^-)=f'(0^+)$. Plus subtilement, $f$ doit admettre un d\'eveloppement limit\'e  $f(x)=f(0)+f'(0)x+o_0(x)$ \`a l'ordre $1$. Deux petits calculs de d\'eveloppement limit\'e donnent  
+$$
+\eqalign{
+f(x)&=(1+\lambda)x+o_{0^+}(x)\cr
+f(x)&=x+2+{2+\beta\big(1+x+x^2/2+o_0(x)\big)\F x}={2+\beta\F x}+2+\beta+\Q(1+{\beta\F 2}\W)x+o_{0^-}(x)
+}
+$$
+Comme ces deux d\'eveloppements limit\'es doivent \^etre \'egaux \`a $f(0)+f'(0)x+o_0(x)$, nous remarquons d'abord que $\beta=-2$ (sinon la limite $f(0^-)$ n'existe pas) et ensuite que $\lambda=-1$ (sinon $f'(0^-)=0\neq f'(0^+)$). A fortiori, la fonction $f$ est n\'ecessairement l'application d\'efinie par
+$$
+f(x)=\Q\{\eqalign{
+&x-x\e^{-x}\qquad \hbox{ si }x>0\cr
+&0\qquad \hbox{ si }x=0 \hbox{ (valeur obtenue par continuit\'e)}\cr
+& x+2+{2\F x}-{2\e^x\F x}\qquad \hbox{ si }x<0
+}\W.\leqno{(*)}
+$$ 
+R\'eciproquement, cette fonction est trivialement solution de $(E)$ sur $\ob R^*$. Comme elle satisfait le d\'evelopement limit\'e $f(x)=o(x)$, elle est continue et d\'erivable en $0$. De plus, d'apr\`es le th\'eor\`eme de prolongement $\sc C^1$, $f$ est de classe $\sc C^1$ sur $\ob R$ et, comme $f(0)=0$, l'\'equation $(E)$ est v\'erifi\'ee en $x=0$ et donc sur $\ob R$.\pn
+En conclusion, il existe une unique solution de $E$ sur $\ob R$, c'est la fonction $f$ d\'efinie par $(*)$. 
+
+
+
+
+
+\sol PTano. 
+\noindent
+1. Les valeurs propres de $A$ sont $1$, $0$ et $-4$ et leurs espaces propres respectivement associ\'es sont 
+$$
+E_1=\hbox{Vect}\Q(\pmatrix{1\cr2\cr1}\W), \qquad  E_0=\hbox{Vect}\Q(\pmatrix{1\cr-1\cr0}\W)
+\quad\hbox{et}\quad E_{-4}=\hbox{Vect}\Q(\pmatrix{1\cr1\cr-1}\W).  
+$$
+En effet, nous remarquons que 
+$$
+\eqalign{
+&A\pmatrix{1\cr2\cr1}=\pmatrix{5+2*5-14\cr 6+2*6-16\cr5+2*5-14}=1.\pmatrix{1\cr2\cr1}.
+\cr
+&A\pmatrix{1\cr-1\cr0}=\pmatrix{5-5\cr5-6+0\cr5-5+0}=0.\pmatrix{1\cr-1\cr0}, 
+\cr
+&A\pmatrix{1\cr1\cr-1}=\pmatrix{5+5-14\cr 6+6-16\cr5+5-14}=-4\pmatrix{1\cr1\cr1},
+}
+$$
+En particulier, comme la matrice $A$ admet trois valeurs propres distinctes deux \`a deux, elle est diagonalisable.  
+\medskip\noindent
+2. Nous remarquons que les matrices des vecteurs $\vec I$, $\vec J$ et $\vec K$ dans la base canonique $\sc B$ sont les vecteurs propres pr\'ec\'edemment trouv\'es
+$$
+\sc M\hbox{at}_{\sc B}(\vec I)=\pmatrix{1\cr2\cr1}, \qquad \sc M\hbox{at}_{\sc B}(\vec J)=\pmatrix{1\cr-1\cr0}\quad\hbox{et}\quad\sc M\hbox{at}_{\sc B}(\vec K)=\pmatrix{1\cr1\cr1}.  
+$$
+Comme ces vecteurs propres sont associ\'es \`a des valeurs propres distinctes deux \`a deux, ils forment une famille 
+libre. A fortiori, les trois vecteurs $\vec I$, $\vec J$ et $\vec K$ forment une famille libre de trois \'el\'ements de $\ob R^3$, et par cons\'equent une base $\sc C$ de $\ob R^3$. 
+\medskip
+\noindent
+3. La matrice de passage de la base canonique $\sc B$ \`a la base $\sc C:=\{\vec I,\vec J,\vec K\}$ est la matrice
+$$
+P:=\sc M\hbox{at}_{\sc C,\sc B}(\hbox{Id}_{\ob R^3})=\pmatrix{1&1&1\cr2&-1&1\cr1&0&1}.
+$$
+Nous remarquons que 
+$$
+P\times\pmatrix{1&1&-2\cr1&0&-1\cr-1&-1&3}=\pmatrix{1+1-1&1+0-1&-2-1+3\cr2-1-1&2+0-1&1+0-1\cr-1-2+3&-1+1+0&-1-1+3}=\hbox{I}_3.
+$$
+A fortiori, la matrice $P$ est inversible et son inverse est la matrice 
+$$
+P^{-1}=\pmatrix{1&1&-2\cr1&0&-1\cr-1&-1&3}.
+$$
+4. Comme les colonnes de la matrice $P$ sont des vecteurs propres de la matrice $A$ pour les valeurs propres respectives $1$, $0$ et $-4$, il r\'esulte du cours de diagonalisation que 
+$$
+A=P\pmatrix{1&0&0\cr0&0&0\cr0&0&-4}P^{-1}.
+$$
+En particulier, nous remarquons que $D$ est la matrice diagonale 
+$$
+D=P^{-1}AP=\pmatrix{1&0&0\cr0&0&0\cr0&0&-4}.
+$$
+5a. En multipliant \`a gauche par $P$ et \`a droite par $P^{-1}$, nous d\'eduisons des relations $N=P^{-1}MP$ et $D=P^{-1}AP$ que $PNP^{-1}=M$ et $PDP^{-1}=A$. A fortiori, nous remarquons que 
+$$
+\eqalign{
+AM=MA&\ssi (PDP^{-1})(PNP^{-1})=(PNP^{-1})(PDP^{-1})
+\cr
+&\ssi PDNP^{-1}=PNDP^{-1}
+\cr
+&\ssi DN=ND\qquad \hbox{en multipliant \`a gauche par $P^{-1}$ et \`a droite par $P$}
+}
+$$
+\bigskip\noindent
+5b. Soit $N:=(a_{i,j})_{1\le i\le 3\atop1\le j\le 3}$ une matrice r\'eelle d'ordre $3$. Alors, on a 
+$$
+DN=ND\ssi\pmatrix{a_{1,1}&a_{1,2}&a_{1,3}\cr 0&0&0\cr -4a_{3,1}&-4a_{3,2}&-4a_{3,3}}=\pmatrix{a_{1,1}&0&-4a_{1,3}\cr a_{2,1}&0&-4a_{2,3}\cr a_{3,1}&0&-4a_{3,3}}
+\ssi\smash{\Q\{\eqalign{
+a_{1,2}&=0\cr
+a_{1,3}&=0\cr
+a_{2,1}&=0\cr
+a_{2,3}&=0\cr
+a_{3,1}&=0\cr
+a_{3,2}&=0\cr
+a_{1,1}&\in\ob R\cr
+a_{2,2}&\in\ob R\cr
+a_{3,3}&\in\ob R.
+}\W.}
+$$ 
+En particulier, les matrices $N$ v\'erifiant $ND=DN$ sont les matrices 
+$$
+N=\pmatrix{a&0&0\cr0&b&0\cr0&0&c}\qquad (a,b,c)\in\ob R^3. 
+$$
+Comme $AM=MA\ssi DN=ND$ avec $M=PNP^{-1}$, nous d\'eduisons du r\'esultat de la question pr\'ec\'edente que les matrices $M$ r\'eelles d'ordre $3$ v\'erifiant $AM=MA$ sont les matrices 
+$$
+M=P\pmatrix{a&0&0\cr0&b&0\cr0&0&c}P^{-1}\qquad (a,b,c)\in\ob R^3,  
+$$
+c'est-\`a-dire les matrices
+$$
+M=\pmatrix{a&b&c\cr2a&-b&c\cr a&0&c}P^{-1}=\pmatrix{a+b-c&a-c&-2a-b+3c\cr2a-b-c&2a-c&-2a+b+3c\cr a-c&a-c&-2a-3c}\qquad (a,b,c)\in\ob R^3.  
+$$
+6. Prouvons par l'absurde qu'il n'existe pas de matrices $Q$ r\'eelle d'ordre $3$ v\'erifiant $Q^2=A$. \pn
+Supposons qu'il existe une telle matrice $Q$. Alors, $QA=Q*Q^2=Q^3=Q^2*Q=AQ$. En particulier, la matrice $Q$ est une matrice r\'eelle d'ordre $3$ v\'erifiant la relation $AM=MA$. Il r\'esulte alors du r\'esultat de la question 5b qu'il existe des nombres r\'eels $a$, $b$ et $c$ tels que 
+$$
+Q=P\pmatrix{a&0&0\cr0&b&0\cr0&0&c}P^{-1}. 
+$$
+Mais alors, nous remarquons que 
+$$
+A=Q^2=P\pmatrix{a^2&0&0\cr0&b^2&0\cr0&0&c^2}P^{-1}
+$$
+et par cons\'equent que la matrice $A$, qui est semblable avec la matrice $\pmatrix{a^2&0&0\cr0&b^2&0\cr0&0&c^2}$, 
+admet les nombres r\'eels positifs ou nuls $a^2$, $b^2$ et $c^2$ comme valeurs propres, ce qui est impossible car $-4$ est valeur propre de $A$. Notre supposition de d\'epart est donc absurde. 
+A fortiori, nous avons prouv\'e qu'il n'existe pas de matrice  $Q$ r\'eelle d'ordre $3$ v\'erifiant $Q^2=A$.
+\medskip\noindent
+7a. Un calcul bourrin donne 
+$$
+\eqalign{
+D_1=P^{-1}BP&=\pmatrix{8+0-8&4+4-8&-16-8+24\cr8+0-4&4+0-4&-16+12\cr-8+12&-4-4+12&16+8-36}P\cr
+&=
+\pmatrix{0&0&0\cr4&0&-4\cr 4& 4&-12}P=\pmatrix{0&0&0\cr0&4&0\cr0&0&-4}
+}
+$$ 
+7b. Un calcul bourrin donne 
+$$
+\eqalign{
+Y_0&=P^{-1}X_0=\pmatrix{1&1&-2\cr1&0&-1\cr-1&-1&3}\pmatrix{1\cr0\cr1}=\pmatrix{-1\cr0\cr2}, 
+\cr
+Y_1&=P^{-1}X_1=\pmatrix{1&1&-2\cr1&0&-1\cr-1&-1&3}\pmatrix{0\cr-1\cr1}=\pmatrix{-3\cr-1\cr4}. 
+}
+$$
+7c. Pour $n\ge0$, nous multiplions la relation $X_{n+2}=AX_{n+1}+BX_n$ \`a gauche par $P^{-1}$ et nous d\'eduisons des identit\'es $Y_n=P^{-1}X_n$, $A=PDP^{-1}$ et $B=PD_1P^{-1}$ que 
+$$
+\eqalign{
+\forall n\ge0, \qquad Y_{n+2}&=P^{-1}X_{n+2}=P^{-1}AX_{n+1}+P^{-1}BX_n=DP^{-1}X_{n+1}+D_1P^{-1}X_n
+\cr
+&=DY_{n+1}+D_1Y_n. }
+$$
+7d. Comme $Y_n=\pmatrix{u_n\cr v_n\cr w_n}$ pour $n\ge0$, il r\'esulte de la relation pr\'ec\'edente que 
+$$
+\pmatrix{u_{n+2}\cr v_{n+2}\cr w_{n+2}}=\pmatrix{1&0&0\cr0&0&0\cr0&0&-4}\pmatrix{u_{n+1}\cr v_{n+1}\cr w_{n+1}}+\pmatrix{0&0&0\cr0&4&0\cr0&0&-4}\pmatrix{u_n\cr v_n\cr w_n}=\pmatrix{u_{n+1}\cr4v_n\cr-4w_{n+1-4w_n}}.
+$$
+En particulier, nous obtenons le syst\`eme 
+$$
+\Q\{
+\eqalign{
+u_{n+2}&=u_{n+1}\cr
+v_{n+2}&=4v_n\cr
+w_{n+2}&=-4w_{n+1}-4w_n}
+\W.\qquad (n\ge0).
+$$
+Nous remarquons alors que la suite $(u_n)_{n\ge0}$ est constante \`a partir du rang $1$, i.e. que 
+$$
+u_0=-1\quad \hbox{et}\quad u_n=u_1=-3 \qquad (n\ge1).
+$$
+Nous remarquons que les suites $(v_{2n})_{n\ge0}$ et $(v_{2n+1})_{n\ge0}$ des termes de rang pairs et impairs de la suite $v$ sont g\'eom\'etriques de raison $4$ et de terme initial $v_0$ et $v_1$. A fortiori, nous avons
+$$
+v_{2n}=4^nv_0=0\quad \hbox{et}\quad v_{2n+1}=4^nv_1=-4^n\qquad (n\ge0). 
+$$
+Enfin, la suite $w$ satisfait la r\'ecurence lin\'eaire $w_{n+2}=-4w_{n+1}-4w_n$, de polyn\^ome caract\'eristique $P=X^2+4X+4=(X+2)^2$ admettant $-2$ comme racine de multiplicit\'e $2$. A fortiori, il existe un unique couple de nombres r\'eels $(\lambda,\mu)$ tel que 
+$$
+w_n=\lambda (-2)^2+\mu n(-2)^n\qquad (n\ge0).
+$$
+Nous d\'eduisons alors des conditions initiales $w_0=2$ et $w_1=4$ que $\lambda=2$ et $\mu=-4$, i.e. que 
+$$
+w_n=2(-2)^2-4n(-2)^n=(2-4n)(-2)^n\qquad (n\ge0).
+$$
+e. Comme $X_n=PY_n$, nous d\'eduisons du r\'esultat de la question pr\'ec\'edente que 
+$$
+X_n=\pmatrix{1&1&1\cr2&-1&1\cr1&0&1}\pmatrix{u_n\cr v_n\cr w_n}=\pmatrix{u_n+v_n+w_n\cr2u_n-v_n+w_n\cr u_n+w_n}
+$$
+Pour me simplifier un peu la vie, je d\'eduis des formules $v_{2n}=0$ et $v_{2n+1}=-4^n$ que 
+$$
+v_n={(-1)^n-1\F 4}2^n\qquad (n\ge0)
+$$
+et j'obtiens alors que 
+$$
+\forall n\ge2, \quad X_n=\pmatrix{
+-3+{(-1)^n-1\F 4}2^n+(2-4n)(-2)^n
+\cr
+-6-{(-1)^n-1\F 4}2^n+(2-4n)(-2)^n
+\cr
+-3+(2-4n)(-2)^n
+}
+=\pmatrix{
+-3-2^{n-2}+9(-2)^{n-2}-4n(-2)^n
+\cr
+-6+2^{n-2}+7(-2)^{n-2}-4n(-2)^n
+\cr
+-3+(2-4n)(-2)^n
+}
+$$
+8a. Comme $\{\vec I,\vec J,\vec K\}$ est une base de $\ob R^3$, pour chaque $t\in\ob R$, il existe un unique triplet de nombres r\'eels $\big(x(t),y(t),z(t)\big)$  tel que 
+$$
+\big(u(t),v(t),w(t)\big)=x(t)\vec I+y(t)\vec J+y(t)\vec K.
+$$
+8b. En \'ecrivant la matrice du vecteur $U(t):=\big(u(t),v(t),w(t)\big)$ dans la base canonique $\sc B$ nous obtenons alors que 
+$$
+U(t)=\pmatrix{u(t)\cr v(t)\cr w(t)}=x(t)\pmatrix{1\cr2\cr1}+y(t)\pmatrix{1\cr-1\cr0}+z(t)\pmatrix{1\cr1\cr1}.  
+$$
+Nous posons $X(t):=\pmatrix{x(t)\cr y(t)\cr z(t)}$ et nous en d\'eduisons le syst\`eme matriciel 
+$$
+U(t)=\pmatrix{1&1&1\cr2&-1&1\cr1&0&1}\pmatrix{x(t)\cr y(t)\cr z(t)}=PX(t)\qquad (t\in\ob R).
+$$
+En inversant ce syst\`eme (la matrice $P$ \'etant inversible), nous obtenons alors que 
+$$
+\pmatrix{x(t)\cr y(t)\cr z(t)}=X(t)=P^{-1}U(t)=\pmatrix{u(t)+v(t)-2w(t)\cr u(t)-w(t)\cr-u(t)-v(t)+3w(t)}\qquad (t\in\ob R).
+$$
+Les fonctions $x$, $y$ et $z$ sont d\'erivables sur $\ob R$ car elles sont combinaisons lin\'eaires des fonctions d\'erivables $u$, $v$ et $w$. 
+\medskip\noindent
+c. En d\'erivant la relation $U(t)=PX(t)$, nous obtenons que $U'(t)=P'X(t)+PX'(t)=0X(t)+PX'(t)=PX'(t)$ pour $t\in\ob R$. A fortiori, nous d\'eduisons de la relation $B=PD_1P^{-1}$ que 
+$$
+\eqalign{
+(1)&\ssi U'(t)=BU(t)\qquad (t\in\ob R),
+\cr
+&\ssi PX'(t)=PD_1P^{-1}U(t)\qquad (\in\ob R),
+\cr
+&\ssi X'(t)=D_1P^{-1}U(t)\qquad (t\in\ob R),
+\cr
+&\ssi X'(t)=D_1X(t)\qquad (t\in\ob R)\ssi (2).
+}
+$$
+d. En reportant $u(0)=1$ et $v(0)=w(0)=0$ pour $t=0$ dans la relation $X(t)=P^{-1}U(t)$, nous obtenons que 
+$$
+\pmatrix{x(0)\cr y(0)\cr z(0)}=X(0)=P^{-1}U(0)=\pmatrix{1&1&-2\cr1&0&-1\cr-1&-1&3}\pmatrix{1\cr 0\cr 0}=\pmatrix{1\cr1\cr -1}.
+$$
+A fortiori, nous avons $x(0)=1$, $y(0)=1$ et $z(0)=-1$. 
+\medskip\noindent
+e. Le syst\`eme $(2)$ avec les conditions initiales $x(0)=1$, $y(0)=1$ et $z(0)=-1$ est un probl\`eme de Cauchy dont l'unique solution est 
+$$
+\Q\{
+\eqalign{
+x(t)&=1\cr
+y(t)&=\e^{4t}\cr
+z(t)&=-\e^{-4t}
+}
+\W.
+\qquad (t\in\ob R).
+$$
+f. Comme $U(t)=PX(t)$, nous en d\'eduisons que le syst\`eme $(1)$ avec les conditions initiales $u(0)=1$ et $v(0)=w(0)=0$ est un probl\`eme de Cauchy dont l'unique solution est 
+$$
+\Q\{
+\eqalign{
+u(t)&=1+\e^{4t}-\e^{4t}\cr
+v(t)&=2-\e^{4t}+\e^{-4t}\cr
+w(t)&=1+\e^{-4t}
+}
+\W.
+\qquad (t\in\ob R).
+$$
+
+\endinput

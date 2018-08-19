@@ -1,0 +1,543 @@
+startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iftrue
+\centerline{\bfb CORRECTION DU DEVOIR MAISON 9}
+\blank[big]
+
+
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+
+
+\startList%Exos
+
+\item\startList%Exo A
+\item Un simple calcul de primitive donne
+\startformula
+I_0=\int_0^1(1-x)^0\e^{-2x}\d x=\int_0^1\e^{-2x}\d x=\Q[-{1\F 2}\e^{-2x}\W]_0^1={1-\e^{-2}\F 2}
+\stopformula
+Par ailleurs, en procédant à une intégration par partie, les fonctions $x↦1-x$ et $x↦\e^{-2x}$ étant de classe $\mc C^1$ sur $[0,1]$, nous obtenons que
+\startformula
+\Align{
+\NC I_1\NC \D=\int_0^1(1-x)\e^{-2x}\d x=\Q[(1-x){\e^{-2x}\F -2}\W]_0^1-\int_0^1(-1){\e^{-2x}\F -2}\d x\NR
+\NC \NC \D={1\F 2}-{1\F 2}\int_0^1\e^{-2x}\d x\NR
+\NC\NC \D= {1\F 2}-{1\F 2}\Q[{\e^{-2x}\F -2}\W]_0^1\NR
+\NC\NC \D= {1\F 2}-{1\F 4}-{1\F 4}\e^{-2}
+}
+\stopformula
+\item Pour $n⩾0$, nous déduisons de la linéarité et de la positivité de l'intégrale que 
+\startformula
+\Align{
+\NC I_{n+1}-I_n\NC =\D\int_0^1(1-x)^{n+1}\e^{-2x}\d x-\int_0^1(1-x)^n\e^{-2x}\d x\NR
+\NC \NC =\D\int_0^1\Q((1-x)^{n+1}-(1-x)^n\W)\e^{-2x}\d x\NR
+\NC \NC =\D\int_0^1(1-x)^n\underbrace{\Q((1-x)-1\W)}_{-x⩽0}\e^{-2x}\d x⩽0. 
+}
+\stopformula
+En effet, l'application $x↦-(1-x)^nx\e^{-2x}$ est négative (et continue) sur l'intervalle $[0,1]$. 
+En particulier, la suite $(I_n)_{n⩾0}$ est décroissante. 
+\item Soit $n∈ℕ$. Comme $x↦(1-x)^n\e^{-2x}$ est une fonction positive (et continue), 
+il résulte de la positivité de l'intégrale que  
+\startformula
+I_n=\int_0^1(1-x)^nx\e^{-2x}\d x⩾0
+\stopformula
+\item Comme la suite $(I_n)_{n⩾0}$ est décroissante et minorée par $0$, elle admet une limite~$ℓ$, qui vérifie nécéssairement $ℓ⩾0$.
+\item Soit $n∈ℕ$. Pour $0⩽x⩽1$, nous déduisons de l'inégalité $0⩽\e^{-2x}⩽1$ que 
+\startformula
+0⩽(1-x)^n\e^{-2x}⩽(1-x)^n\qquad(0⩽x⩽1)
+\stopformula
+A fortiori, il résulte de la croissance de l'intégrale que
+\startformula
+0=\int_0^10\d x⩽I_n=\int_0^1(1-x)^nx\e^{-2x}\d x⩽\int_0^1(1-x)^n\d x=\Q[-{(1-x)^{n+1}\F n+1}\W]_0^1={1\F n+1}
+\stopformula
+\item Comme $\lim_{n→+∞}{1\F n+1}=0=\lim_{n→+∞}$, il résulte de l'inégalité précédente 
+et du principe des gendarmes que $\lim_{n→+∞}I_n=0$. 
+\item Fixons $n∈ℕ$ et procédons à une intégration par partie. Comme les applications $x↦-{(1-x)^{n+1}\F n+1}$ et $x↦{\e^{-2x}\F -2}$ 
+sont de classe $\mc C^1$ sur $[0,1]$, nous obtenons que 
+\startformula
+\Align{
+\NC I_n\NC \D=\int_0^1(1-x)^n\e^{-2x}\d x = \Q[-{(1-x)^{n+1}\F n+1}\e^{-2x}\W]_0^1-\int_0^1-{(1-x)^{n+1}\F n+1}(-2)\e^{-2x}\d x\NR
+\NC \NC \D= {1\F n+1}-{2\F n+1}\int_0^1(1-x)^{n+1}\e^{-2x}\d x\NR 
+\NC \NC \D= {1\F n+1}-{2\F n+1}I_{n+1}
+}
+\stopformula
+En multipliant par $n+1$, nous obtenons alors que $2I_{n+1}=1-(n+1)I_n-1$.
+\item Il résulte de l'égalité obtenue précément que $u_n=(n+1)I_n=1-2I_{n+1}$. 
+Comme il a été établi à la question 5) que la suite $I_n$ converge vers $0$, 
+nous remarquons d'une part que $\lim_{n→+∞}I_{n+1}=0$ et d'autre part que 
+$\lim_{n→+∞}u_n=1$
+\item De même, nous remarquons que 
+\startformula
+v_n=(n+2)(1-(n+1)I_n)=(n+2)×2I_{n+1}=2 (n+2)I_{n+1}=2u_{n+1}
+\stopformula
+Or, d'après le résultat de la question précédente, la suite $u$ converge vers $1$ de sorte que 
+$\lim_{n→+∞}u_{n+1}=1$ et par suite $\lim_{n→+∞}v_n=2$. 
+\stopList%ExoA
+
+\item\startList%Exo B
+\item Pour $x∈ℝ$, l'application $t↦\e^{-t^2}$ est continue sur $ℝ$ et donc sur le segment d'extrémités $x$ et $2x$.
+A fortiori, l'intégrale $g(x)=\int_x^{2x}\e^{-t^2}\d t$ (et donc $g(x)$) est bien définie. En conclusion, $\mc Dg=ℝ$.
+\item Soit $x∈ℝ$. En procédant au changement de variable $t=-u$, appliqué 
+\startitemize[1]\item à la fonction $u↦-u$, qui est de classe $\mc C^1$ du segment d'extrémités $x$ et $2x$ dans lui même
+\item à la fonction $t↦\e^{-t^2}$, qui est continue sur le segment d'extrémités $x$ et $2x$
+\stopitemize
+Nous obtenons que 
+\startformula
+g(-x)=\int_{-x}^{-2x}\e^{-t^2}\d t=\int_x^{2x}\e^{-u^2}(-1)\d u=-\int_x^{2x}\e^{-u^2}\d u=-g(x)
+\stopformula
+En particulier, la fonction $g$ est impaire. 
+\item L'application $F$ dédinie par $F(x)=\int_0^x\e^{-t^2}\d t$ est l'unique primitive sur $ℝ$, s'annulant en $0$, de la fonction $f:t↦\e^{-t^2}$. 
+Or, la relation de Chasles induit que 
+\startformula
+\Align{
+\NC g(x)\NC =\D\int_x^{2x}\e^{-t^2}\d t=\int_0^{2x}\e^{-t^2}\d t+\int_x^0\e^{-t^2}\d t\NR
+\NC \NC =\D\int_0^{2x}\e^{-t^2}\d t-\int_0^x\e^{-t^2}\d t=F(2x)-F(x)
+}
+\stopformula
+Comme les applications $F$ et $x↦2x$ sont de classe $\mc C^1$ sur $ℝ$, leur composée $x↦F(2x)$ l'est également
+et la somme $x↦F(2x)-F(x)=g(x)$ l'est aussi. A fortiori, l'application $g$ est de classe $\mc C^1$ sur $ℝ$ et nous remarquons que 
+\startformula
+g'(x)=\big(F(2x)-F(x)\big)'=2F'(2x)-F'(x)=2f(2x)-f(x)=2\e^{-(2x)^2}-\e^{-x^2}\qquad(x∈ℝ)
+\stopformula
+\item\startList
+\item Soit $x>1$. Par composition avec l'exponentielle, croissante sur $ℝ$, et l'application $t↦-t^2$ 
+décroissante sur $[1,+∞[$), l'application $t↦\e^{-t^2}$ est décroissante sur $[1,+∞[$ et donc sur $[x,2x]$ pour $x>1$. De sorte que 
+\startformula
+\e^{-(2x)^2}⩽\e^{-t^2}⩽\e^{-x^2}\qquad(x⩽t⩽2x).
+\stopformula
+En intégrant cette inégalité sur l'intervalle $[x,2x]$, il résulte alors de la croissance de l'intégrale que 
+\startformula
+x\e^{-4x^2}=\int_x^{2x}\e^{-(2x)^2}\d t⩽\int_x^{2x}\e^{-t^2}\d t⩽\int_x^{2x}\e^{-x^2}\d t=x\e^{-x^2}\qquad(x⩽t⩽2x).
+\stopformula
+{\it On peut accelerer le calcul en se rappelant que $\int_a^bc\d t=(b-a)c$ : l'intégrale d'une constante sur un segment est égale à la constante multiplié par la longueur (orientée) du segment}
+\item D'après le théorème de croissance comparée, on a 
+\startformula
+\Align{
+\NC \D\lim_{x→+∞}x\e^{-4x^2}\NC \D=\lim_{x→+∞}{-4x^2\e^{-4x^2}\F -4x}=0\NR
+\NC \D\lim_{x→+∞}x\e^{-x^2}\NC \D=\lim_{x→+∞}{-x^2\e^{-x^2}\F -x}=0
+}
+\stopformula
+Il résulte alors du principe des gendarmes et de l'inégalité prouvée à la question précédente que $\lim_{x→+∞}g(x)=0$
+\item D'après la question 3), La fonction $g$ est de classe $\mc C^1$ sur $ℝ$ et sa dérivée vaut 
+\startformula
+g'(x)=2\e^{-(2x)^2}-\e^{-x^2}=\e^{-x^2}×\Q(2\e^{-x^2}-1\W)\qquad(x∈ℝ)
+\stopformula
+En particulier, $g'(x)$ s'annule ssi $2=\e^{x^2}$, c'est à dire ssi $x=\pm\sqrt{\ln(2)}$.
+On remarque également que $g'(x)<0$ ssi $-\sqrt{\ln(2)}<x<\sqrt{\ln(2)}$
+C'est compliqué de dactylographier un tableau de variation donc je ne le fais pas, mais je vais décrire le résultat attendu.
+Posons $a=-\sqrt{\ln(2)}$ et $b=\sqrt{\ln(2)}$
+\startitemize[1]
+\item Sur l'intervalle $]-∞, a]$, la fonction $g$ est strictement croissante 
+\item Sur l'intervalle $[a, b]$, la fonction $g$ est strictement décroissante
+\item Sur l'intervalle $[b,+∞[$, la fonction $g$ est strictement croissante  
+\item Comme $\lim_{x→+∞}g(x)=0$, on a $g(0)=0$, et $\lim_{x→+∞}g(x)=0$ par imparité.
+\stopitemize
+En $a$ et en $b$, on n'a pas réellement de valeurs simples pour $g(a)$ et $g(b)$, donc on les laisse comme cela.
+\stopList
+\stopList%Exo B
+
+\item%Exo C
+\startList
+\item Pour $(a,b,c)∈ℝ^3$, on a 
+\startformula
+(a+2b,2a+2b+2c,2a+b+3c,a+b+c)=a (1,2,2,1)+b(2,2,1,1)+c(0,2,3,1)
+\stopformula
+De sorte que, la définition de $V$ se traduit par  $V=\Vect\big((1,2,2,1), (2,2,1,1),(0,2,3,1)\big)$
+En particulier, $V$ est un sous-espace vectoriel de $ℝ^4$. Et la famille $\big((1,2,2,1), (2,2,1,1),(0,2,3,1)\big)$ 
+est génératrice de $V$. Malheureusement, elle n'est pas libre (son rang vaut $2$) car 
+\startformula
+(0,2,3,1)=2(1,2,2,1)-(2,2,1,1)
+\stopformula
+Donc ce n'est pas une base de $V$ mais grace à l'identité précédente, on remarque d'une part que 
+$V=\Vect\big((1,2,2,1), (2,2,1,1)\big)$ (le vecteur $(0,2,3,1)$ pouvant être obtenu à partir des deux autres)
+et donc que la famille $\big((1,2,2,1), (2,2,1,1)\big)$ est génératrice de $V$ et d'autre part que c'est une famille libre 
+(son rang vaut $2$), en tant que famille de deux vecteurs non-colinéaires.
+En conclusion la famille $\big((1,2,2,1), (2,2,1,1)\big)$ est une base de $V$. 
+\item Commençon par remarquer que 
+\startformula
+\Align{[align={left, left}]
+\NC (x,y,z,t)∈W\NC ⟺ \System{
+\NC \framed{x}\NC+y\NC -2z\NC+t\NC =0\NR
+\NC              \NC 2y\NC -3z\NC+2t\NC =0\NR
+\NC 3x         \NC -y\NC       \NC -t\NC =0
+}
+\NR
+\NC\NC ⟺ \System{
+\NC \framed{x}\NC+y\NC -2z\NC+t\NC =0\NR
+\NC              \NC \framed{2y}\NC -3z\NC+2t\NC =0\NR
+\NC              \NC -4y\NC+6z\NC -4t\NC =0
+}
+\NR\NC\NC ⟺ \System{
+\NC \framed{2x}\NC \NC -z\NC \NC =0\NR
+\NC              \NC \framed{2y}\NC -3z\NC+2t\NC =0\NR
+}
+\NR\NC\NC ⟺ \System{
+\NC 2x =z\NR
+\NC 2y = 3z-2t\NR
+}
+\NR
+\NC\NC ⟺ (x,y,z,t)=({z\F 2}, {3z-2t\F 2}, z, t)\NR
+\NC\NC ⟺(x,y,z,t)=z ({1\F 2}, {3\F 2}, 1,0) + t(0,-1,0,1)\NR
+\NC\NC ⟺(x,y,z,t)∈\Vect\big(({1\F 2}, {3\F 2}, 1,0), (0,-1,0,1)\big)\NR
+\NC\NC ⟺(x,y,z,t)∈\Vect\big((1, 3, 2,0), (0,-1,0,1)\big)
+}
+\stopformula
+En particulier, nous obtenons que $W=\Vect\big((1, 3, 2,0), (0,-1,0,1)\big)$ est un sous-espace vectoriel de $ℝ^4$, 
+dont une base est $\big((1, 3, 2,0), (0,-1,0,1)\big)$, car c'est une famille génératrice de $W$, libre car son rang vaut $2$ (ou alors parce que ce sont deux vecteurs non colinéaires). 
+
+\item D'après les calculs effectués dans les deux questions précédentes, nous avons obtenus 
+$\vec v_1=(1,2,2,1)$, $\vec v_2=(2,2,1,1)$, $\vec w_3=(1, 3, 2,0)$ et $\vec w_4=(0,-1,0,1)$.
+La famille $\mc F=(\vec v_1, \vec v_2, \vec w_3,\vec w_4)$ est libre \ssi $\rg(\mc F)=4$ (car elle comporte $4$ vecteurs) 
+et elle est génértrice de $ℝ^4$ \ssi $\rg(\mc F)=4$ (car il y a $4$ vecteurs dans la base $\vec e_1,\vec e_2, \vec e_3, \vec e_4)$ de $ℝ^4$
+\startformula
+\Align{[align={left, left}]
+\NC \rg(\mc F)\NC =\rg(\vec v_1, \vec v_2, \vec w_3,\vec w_4)=\rg\Matrix{
+\NC 1\NC 2\NC 1\NC 0\NR
+\NC 2\NC 2\NC 3\NC -1\NR
+\NC 2\NC 1\NC 2\NC 0\NR
+\NC 1\NC 1\NC 0\NC \framed{1}
+}\qquad\System{
+\NC L_2\leftarrow L_2-L_4
+}\NR
+\NC \NC =\rg\Matrix{
+\NC 1\NC 2\NC 1\NC 0\NR
+\NC 3\NC 3\NC 3\NC 0\NR
+\NC 2\NC 1\NC 2\NC 0\NR
+\NC 1\NC 1\NC 0\NC \framed{1}
+}\qquad\System{
+\NC C_1\leftarrow C_1-C_4\NR
+\NC C_2\leftarrow C_2-C_4\NR
+}\NR\NC\NC
+=\rg\Matrix{
+\NC \framed{1}\NC 2\NC 1\NC 0\NR
+\NC 3                 \NC 3\NC 3\NC 0\NR
+\NC 2                 \NC 1\NC 2\NC 0\NR
+\NC 0                 \NC 0\NC 0\NC \framed{1}
+}\qquad\System{
+\NC C_2\leftarrow C_2-2C_1\NR
+\NC C_3\leftarrow C_3-C_1
+}\NR\NC\NC
+=\rg\Matrix{
+\NC \framed{1}\NC 0\NC 0\NC 0\NR
+\NC 2                 \NC -4\NC 0\NC 0\NR
+\NC 2                 \NC -3\NC 0\NC 0\NR
+\NC 0                 \NC 0\NC 0\NC \framed{1}
+}\qquad\System{
+\NC L_2\leftarrow L_2-2L_1\NR
+\NC L_3\leftarrow L_3-2L_1
+}\NR\NC\NC
+=\rg\Matrix{
+\NC \framed{1}\NC 0\NC 0\NC 0\NR
+\NC 0                 \NC \framed{-4}\NC 0\NC 0\NR
+\NC 0                 \NC -3\NC 0\NC 0\NR
+\NC 0                 \NC 0\NC 0\NC \framed{1}
+}\qquad\System{
+\NC L_3\leftarrow L_3-{4\F 3}L_2
+}\NR\NC\NC
+=\rg\Matrix{
+\NC \framed{1}\NC 0\NC 0\NC 0\NR
+\NC 0                 \NC -4\NC 0\NC 0\NR
+\NC 0                 \NC 0\NC 0\NC 0\NR
+\NC 0                 \NC 0\NC 0\NC \framed{1}
+}=3
+}
+\stopformula
+A fortiori, la famille $\mc F$ est ni libre, ni génératrice de $ℝ^4$.
+{\it Remarque : La plupart des étudiants auront trouvé d'aures vecteurs  $(\vec v_1, \vec v_2, \vec w_3,\vec w_4)$ que ceux de ce corrigé mais leurs calculs se dérouleront de manière identique
+et les conclusions seront les mêmes}
+\item Il résulte de la question précédente que la famille $(\vec v_1, \vec v_2, \vec w_3,\vec w_4)$ n'est pas libre. 
+En particulier, l'un de ces quatres vecteurs (au moins) n'est pas utile. Un autre calcul de rang donne 
+
+\startformula
+\Align{[align={left, left}]
+\NC \rg(\mc F)\NC=\rg(\vec v_1, \vec v_2,\vec w_4)=\rg\Matrix{
+\NC 1\NC 2\NC 0\NR
+\NC 2\NC 2\NC -1\NR
+\NC 2\NC 1\NC 0\NR
+\NC 1\NC 1\NC \framed{1}
+}\qquad\System{
+\NC L_2\leftarrow L_2-L_4
+}\NR\NC\NC
+=\rg\Matrix{
+\NC 1\NC 2\NC 0\NR
+\NC 3\NC 3\NC 0\NR
+\NC 2\NC 1\NC 0\NR
+\NC 1\NC 1\NC \framed{1}
+}\qquad\System{
+\NC C_1\leftarrow C_1-C_4\NR
+\NC C_2\leftarrow C_2-C_4\NR
+}\NR\NC\NC
+=\rg\Matrix{
+\NC \framed{1}\NC 2\NC 0\NR
+\NC 3                 \NC 3\NC 0\NR
+\NC 2                 \NC 1\NC 0\NR
+\NC 0                 \NC 0\NC \framed{1}
+}=⋯=3
+}
+\stopformula
+En particulier, la famille $(\vec v_1, \vec v_2,\vec w_4)$ est libre. Comme La famille  $(\vec v_1, \vec v_2,\vec w_3, \vec w_4)$ est liée, 
+nous en déduisons l'éxistence de $(a,b,c,d)∈ℝ^4\ssm\{(0,0,0,0)\}$ tel que 
+\startformula
+a\vec v_1+b\vec v_2+c\vec w_3+d\vec w_4=\vec 0
+\stopformula
+Et comme la famille $(\vec v_1, \vec v_2,\vec w_4)$ est libre, il est nécessaire que $c≠0$ de sorte que 
+\startformula
+\vec w_3={-1\F c}(a\vec v_1+b\vec v_2+d\vec w_4)
+\stopformula
+En particulier, $\vec w_3$ peut être obtenu comme combinaison linéaire des autres vecteurs. 
+A fortiori, on a 
+\startformula
+F=\Vect(\vec v_1, \vec v_2, \vec w_3, \vec w_4)=\Vect(\vec v_1, \vec v_2, \vec w_4)
+\stopformula
+En conclusion, la famille $(\vec v_1, \vec v_2, \vec w_4)$ est génératrice de $F$. Et comme elle est libre, 
+c'est une base de $F$.
+\item Commençons par établir que $\vec f_1∈F$, $\vec f_2∈F$ et $\vec f_3∈F$, d'après les relations 
+\startformula
+\Align{
+\NC \vec f_2=\vec w_4∈F\NR
+\NC \vec f_1=\vec v_2-\vec v_1∈F\NR
+\NC \vec f_3= \vec v_1+\vec v_2+\vec w_4∈F
+}
+\stopformula
+En suite, un calcul de rang donne $\rg(\vec f_1, \vec f_2, \vec f_3)=3$. Comme $3$ est le nombre de vecteurs de cette famille, elle est libre.
+Comme $3$ est le nombre de vecteurs dans la base $(\vec v_1, \vec v_2, \vec w_4)$ de $F$, trouvée précédemment, elle est aussi génératrice de $F$.
+En particulier, $(\vec f_1, \vec f_2, \vec f_3)$ est une base de $F$.
+\item Pour montrer que $\mc B$ est une base de $ℝ^4$, il suffit de faire un calcul de rang et de montrer que $\rg(\mc B)=4$. 
+\item On remarque que 
+\startformula
+\Align{[align={left, left}]
+\NC \vec e_4=\vec e_4\NR
+\NC \vec e_2 = \vec e_4-\vec f_2\NR
+\NC \vec e_3={1\F 2 } \big({\red (0,0,2,2)}-(0,0,0,2)\big)={1\F 2}({\red \vec f_3-\vec f_1+\vec f_2}-2\vec e_4)\NR
+\NC \vec e_1=\vec f_1+\vec e_3={1\F 2}\Q(\vec f_1+\vec f_2+\vec f_3-2\vec e_4\W)
+}
+\stopformula
+A fortiori, nous remarquons que $\D \mc Mat_{\mc B}(\mc C)={1\F 2}\Matrix{
+\NC 1\NC 0\NC -1\NC 0\NR
+\NC 1\NC -2\NC 1\NC 0\NR
+\NC 1\NC 0\NC 1\NC 0\NR
+\NC -2\NC 2\NC -2\NC 2
+}$
+\stopList
+
+
+\item%Exo D
+\startList\item Soit $(s,t)∈ℝ^2$. En effectuant le produit matriciel, nous obtenons que 
+\startformula
+\Align{[align={left, left}]
+\NC A(s)A(t)\NC =\Matrix{
+\NC 1-s\NC -s\NC 0\NR
+\NC -s\NC 1-s\NC 0\NR
+\NC -s\NC s\NC 1-2s
+}×\Matrix{
+\NC 1-t\NC -t\NC 0\NR
+\NC -t\NC 1-t\NC 0\NR
+\NC -t\NC t\NC 1-2t
+}\NR 
+\NC \NC =\Matrix{
+\NC (1-s)(1-t)+st\NC -t(1-s)-s(1-t)\NC 0\NR
+\NC -s(1-t)-t(1-s)\NC st+(1-t)(1-s)\NC 0\NR
+\NC -s(1-t)-st-t(1-2s)\NC st+s(1-t)+(1-2s)t\NC (1-2s)(1-2t)
+}\NR
+\NC\NC=\Matrix{
+\NC 1-s-t+2st\NC -t-s+2st\NC 0\NR
+\NC -s-t+2st\NC 2st-t-s\NC 0\NR
+\NC -s-t+2st\NC s+t -2st\NC 1-2s-2t+4st
+}=A(\underbrace{s+t-2st}_u)
+}
+\stopformula
+En particulier, nous avons établi la relation très importante pour toute la suite
+\startformula
+A(s)A(t)=A(s+t-2st)\qquad (s∈ℝ, t∈ℝ)
+\stopformula
+\item%Q2
+\startList
+\item La troisième colonne de la matrice $Q=Q({1\F 2})$ étant nulle, cette matrice ne peut être inversible (son rang étant inférieur à $2$, il est différent de $3$, sa taille) 
+\item Comme $I_3=A(0)$, la matrice $I_3$ appartient à l'ensemble $\mc M=\{A(t):t∈ℝ\}$ 
+\item Soit $t∈ℝ\ssm\{{1\F 2}\}$ et soit $s={t\F 2t-1}$ l'unique solution de l'équation $s+t-2ts = 0$ (elle existe car $2t-1≠0$). Alors, il résulte de la relation fondamentale trouvée à la question 1 que 
+\startformula
+A(t)A(s)=A(s+t-2s)=A(0)=I_3
+\stopformula
+Cette identité matricielle induit que la matrice $A(t)$ est inversible et que son inverse est la matrice $A(s)=A\Q({t\F 2t-1}\W)∈\mc M$
+\stopList
+\item Soit $S=A(t)$ une matrice de $\mc M$. A l'aide de la relation trouvée à la question 1, nous remarquons que
+\startformula
+\Align{
+\NC S^2 = A\Q({-3\F 2}\W)\NC ⟺ A(t)^2 = A\Q({-3\F 2}\W) ⟺ A(2t-2t^2)= A\Q({-3\F 2}\W)\NR
+\NC\NC⟺ 2t-2t^2={-3\F 2}⟺t^2-t-{3\F 4}=0⟺\Q(t-{1\F 2}\W)^2-1=0 \NR
+\NC\NC ⟺\Q((t-{3\F 2}\W)\Q(t+{1\F 2}\W)=0⟺t = {3\F 2} \Ou t = -{1\F 2}
+	}
+\stopformula
+Les solutions de cette équation sont donc les matrices $A\Q({3\F 2}\W)$ et $A\Q(-{1\F 2}\W)$
+\item Pour $n∈ℕ$, prouvons par récurrence la proposition
+\startformula
+(\mc P_n):\exists!t_n∈ℝ:J^n=A(t_n)
+\stopformula
+\startitemize[1]
+\item $\mc P_0$ est vraie car $J^0=I_3$ et $A(t)=I_3⟺ t=0$ De sorte qu'il existe un unique nombre réel $t_0$ tel que $J^0=A(t_0)$ (et nous remarquons de plus que $t_0=0$ cela servira plus tard)
+\item Supposons la proposition $\mc P_n$ pour un entier $n∈ℕ$ et prouvons $\mc P_{n+1}$. Nous déduisons de $\mc P_n$ et des relations $J=A(-1)$ et $A(s)A(t)=A(s+t-2ts)$ que 
+\startformula
+J^{n+1}=J×J^n=J×Q(t_n)=A(-1)A(t_n)=A(-1+t_n-2(-1)t_n)=A(3t_n-1)
+\stopformula
+Comme $A(t)=A(u)⟺ t=u$ nous remarquons qu'il existe un unique nombre réel $t_{n+1}$ tel que $J^{n+1}=A(t_{n+1})$ de sorte que $\mc P_{n+1}$ est vraie (et nous remarquons de plus que $t_{n+1}=3t_n-1$, cela servira plus tard) 
+\stopitemize
+En conclusion ,la proposition $\mc P_n$ est vraie pour tout entier $n∈ℕ$. De sorte qu'il existe  une unique suite $(t_n)_{n∈ℕ}$ de nombres réels tels que 
+$J^n=A(t_n)$ pour $n∈ℕ$. 
+\item Il résulte des calculs effectués (et de l'unicité obtenue) dans la question précédente que
+\startformula
+t_0=0\qquad\Et\qquad t_{n+1}=3t_n-1\qquad (n∈ℕ)
+\stopformula
+\item La suite $t$ est clairement arithmético-géométrique. Comme l'unique solution de l'équation caractéristique $x=3x-1$ est $x=x={1\F 2}$ 
+et comme $t_{n+1}-c = 3(t_n-c)$ (par soustraction), la suite $t_n-c$ est géométrique, de raison $3$ 
+de premier terme $t_0-c=-c=-{1\F 2}$. En particulier, nous obtenons que 
+\startformula
+t_n-{1\F 2}=t_n-c=3^n(t_0-c)=-{3^n\F 2}\qquad (n∈ℕ)
+\stopformula
+Et par suite que 
+\startformula
+J^n=A(t_n)=A({1\F 2}-{3^n\F 2})={1\F 2}\Matrix{
+\NC 1+3^n\NC 3^n-1\NC 0\NR
+\NC 3^n-1\NC 1+3^n\NC 0\NR
+\NC 3^n-1\NC 1+3^n\NC 1-2×3^n
+}
+\stopformula
+\stopList
+
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][A,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][n,joineup,nowhite,after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][n,joineup,nowhite,after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][5][a,joineup,nowhite,after=,before=,inbetween={\blank[small]}]
+
+\item%ExoE
+\startList
+\item%PartieA
+\startList
+\item On a $X_1=1$, de sorte que la variable aléatoire $X_1$ suit la loi certaine (égale à $1$) : 
+on est obligé de tirer la boule $1$ au premier tout car il n'y a que la boule $1$ dans l'urne.
+A fortiori, on a $E(X_1)=1$ et $V(X_1)=0$. 
+\item On a $P(X_1)={1\F 2}$ et $P(X_1=2={1\F 2}$ car on a autant de chance de tirer la boule 1 au premier tout (pour obtenir $X_1=1$) que de chance de tirer la boule $2$ au premier tout (puis la boule 1 au second tour, pour obtenir $X_2=2$).
+De sorte que $X_2\hookrightarrow\mc U(⟦1,2⟧)$ Et on a $E(X_2)={1+2\F 2}={3\F 2}$ et $V(X_2)={2^2-1\F 12}={1\F 4}$
+\item On a $P(X_3=1)={1\F 3}$, $P(X_3=3)=P(B_3)×P_{B_3}(B_2)×P_{B_3∩B_2}(B_1)={1\F 3}×{1\F 2}={1\F 6}$ d'après la formule des probabilités composées, 
+de sorte que $P(X_3=2)=1-{1\F 3}-{1\F 6}={1\F 2}$. Comme $X_3(Ω)=⟦1,3⟧$, la VAR $X_3$ ne peut pas suivre une loi connue du cours (certaine, bernouilli, binomiale, uniforme) mais on trouve que 
+\startformula
+\Align{[align={left, left}]
+\NC E(X_3)\NC=1×{1\F 3}+2×{1\F 2}+3×{1\F 6}={2+6+3\F 6}={11\F 6}\NR
+\NC E(X_3^2)\NC=1^2×{1\F 3}+2^2×{1\F 2}+3^2×{1\F 6}={2+12+9\F 6}={23\F 6}\NR
+\NC V(X_3)\NC=E(X_3^2)-E(X_3)^2 = {23\F 6}-\Q({11\F 6}\W)^2={138-121\F 36}={17\F 36}
+}
+\stopformula
+\stopList
+\item%PartieB
+\startList
+\item%Q1
+La variable $N_1$ suit la loi uniforme sur $⟦1,n⟧$ (on tire une boule parmi $n$ boules numlérotées de $1$ à $n$, elles ont toutes autant de chance d'être choisies).
+On a donc, d'après le cours
+\startformula
+E(N_1)={n+1\F 2}\qquad\Et\qquad V(N_1)={n^2-1\F 12}
+\stopformula
+\item $X_n$ peut prendre toutes les valeurs entre $1$ (si on tire la boule $1$ en premier, avec la probabilité $P(X_n=1)={1\F n}$) et $n$ (si on tire la boule $n$ puis la $n-1$, etc..., pour finir par la boule $1$).
+Pour obtenir la valeur $k$, on peut par exemple commencer par tirer les boules en partant de la fin, puis au $k\high{ième}$ tirage, on choisit la boule $1$.
+A fortiori, $X_n(Ω)=⟦1,n⟧$. 
+\item D'après la formule des probabilités composées, on a 
+\startformula
+\Align{[align={left, left}]
+\NC P(X_n=n)\NC =P(B_n)×P_{B_n}(B_{n-1})×⋯×P(B_n∩B_{n-1}∩⋯∩B_2)(B_1)\NR
+\NC \NC = {1\F n}×{1\F n-1}×⋯×{1\F 2}×{1\F 1}={1\F n!}
+}
+\stopformula
+\stopList
+\item \startList
+\item Sachant que $N_1=1$, la variable $X_n$ vaut $1$ (on a tiré la boule $1$ en premier)
+\item Si $N_1=j⩾2$, au tirage suivant toutes les boules avec un numéro supérieur ou égal à $j$ sont retirées et ne peuvent plus être obtenues.
+De sorte qu'on epeut faire au plus j-1 tirages après le premier (et donc $j$ au maximum).
+A fortiori, il est impossible que $X_n>j$ de sorte que 
+\startformula
+P_{N_1=j}(X_n=k)=0\qquad(k>j)
+\stopformula
+Etant donné un nombre $k∈⟦2,j⟧$, il est encore possible d'obtenir $X_n=k$ et la probabilité de l'obtenir $P_{N_1=j}(X_n=k)$ est la même 
+que la probabilité $P(X_{j-1}=k-1)$ d'obtenir $k-1$ par le même procédé en utilisant uniquement $j-1$ boule (vu que la boule $j$ obtenue en premier ajoute une boule et donne, une fois retirée, un procédé identique... un peu moisie comme explication de la \quote{magie} des probabilités conditionnelles)
+De sorte que 
+\startformula
+P_{N_1=j}(X_n=k)=P(X_{j-1}=k-1)\qquad (2⩽k⩽j)
+\stopformula
+\item Lorsque $k⩾2$, il résulte de la formule des probabilités totales appliquée au système complet d'événements $(N_1=j)_{1⩽j⩽n}$ que 
+\startformula
+\Align{[align={left, left}]
+\NC P(X_n=k)\NC =\D∑_{j=1}^nP(N_1=j)×P_{N_1=j}(X_n=k)\NR
+\NC\NC =\D{1\F n}×∑_{j=0}^{k-1}P(N_1=j)×\underbrace{P_{N_1=j}(X_n=k)}_{=0 \text{(impossible)}}+∑_{j=k}^nP(N_1=j)×P_{N_1=j}(X_n=k)\NR
+\NC\NC =\D∑_{j=k}^n{1\F n}×P_{N_1=j}(X_n=k)\NR
+\NC\NC=\D{1\F n}∑_{j=k}^n×P(X_{j-1}=k-1)
+}
+\stopformula
+En procédant au changement d'indice $j'=j-1$, il vient alors
+\startformula
+P(X_n=k)={1\F n}∑_{j'=k-1}^{n-1}×P(X_{j'}=k-1)
+\stopformula
+\item D'après la formule précédente, on a 
+\startformula
+P(X_n=2)={1\F n}∑_{j=1}^{n-1}×P(X_j=1)={1\F n}∑_{j=1}^{n-1}{1\F j}
+\stopformula
+\item\startList
+\item D'après la relation (1) pour $n'=n+1$ et $k'=n$, on déduit du résultat de la question B1c) que  
+\startformula
+\Align{[align={left, left}]
+\NC v_{n+1}\NC =(n+1)!P(X_{n+1}=n)=(n+1)!{1\F n+1}∑_{j=n-1}^nP(X_j=n-1)\NR
+\NC \NC =n!\Q(P(X_{n-1}=n-1)+P(X_n=n-1)\W)\NR
+\NC\NC=n!\Q({1\F (n-1)!+P(X_n=n-1)}\W)=n+v_n\qquad(n⩾2)
+}
+\stopformula
+\item D'après la question précédente, on a 
+\startformula
+v_2=2!P(X_2=1)=2 ×{1\F 2}=1 \qquad \Et\qquad   v_{n+1}=v_n+n\qquad (n⩾2)
+\stopformula
+A l'aide du principe des sommes telecopiques, il vient 
+\startformula
+v_n=v_2+\sum_{k=2}^{n-1}(v_{k+1}-v_k)=1+\sum_{k=2}^{n-1}k\qquad(n⩾2)
+\stopformula
+En reconnaissant une somme arithmétique, nous concluons alors que 
+\startformula
+v_n=1+{n+1\F 2}(n-2)= {n^2-n-2+2\F 2}={n(n-1)\F 2}\qquad(n⩾2)
+\stopformula
+
+\stopList
+
+\stopList
+
+\stopList
+
+\stopList%Exos
+
+\stoptext
+\stopcomponent
+\endinput

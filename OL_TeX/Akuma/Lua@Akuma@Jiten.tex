@@ -1,0 +1,577 @@
+\catcode`@=11\relax
+\input LD@Header.tex
+\input qhsort.tex
+\catcode`@=11\relax
+\global\let\LD@meaning@Saved\meaning
+\input LD@Library.tex
+\input LD@Typesetting.tex
+\input LD@Akuma@Japanese.tex
+\catcode`@=11\relax
+\input LD@Luatex.tex
+\catcode`@=11\relax
+\input LD@Lua@Akuma@Japanese.tex
+
+
+\catcode`@=11\relax
+\LD@Time@Start{Processing the Document...}%
+
+
+\lccode"2019="0027\relax% to get hyphen with words with apostrophes
+
+%%
+%% Fontes utilisées
+%%
+
+\def\FontCSName #1 #2\EndFontCSName{\expandafter\def\csname #1\endcsname##1{%
+\expandafter\ifx\csname #1##1\endcsname\relax\expandafter\font\csname #1##1\endcsname="#2" at ##1pt\fi\csname #1##1\endcsname}}%
+\def\FontCSDef #1.{%
+\for\OLFont:=#1\do{\expandafter\FontCSName \OLFont\EndFontCSName}}
+
+\FontCSDef Arial Arial,ArialB Arial Bold,ArialIT Arial Italic,ArialBIT Arial Bold Italic,Kaisho HGSeikaishotaiPRO,Mincho MS PMincho.%%% Automated but might bring Errors
+
+%\def\FontDef #1.{%
+%\def\FontName ##1=##2@##3\EndFontName{\expandafter\font\csname ##1\endcsname="##2" at ##3pt}%
+%\for\OLFont:=#1\do{\expandafter\FontName \OLFont\EndFontName}}
+
+%\FontDef Romaji=Arial@5,Grade=Arial@4.
+
+
+\newcount\FontNumber\global\FontNumber=0
+\def\Sens{%
+\global\advance\FontNumber by 1
+\ifnum\FontNumber>3\FontNumber=0\fi
+\ifcase\FontNumber \Arial7\or\ArialIT7\or\Arial7\or\ArialIT7\fi}%
+\def\ResetFont{\global\FontNumber=0\Arial7}%
+
+\long\def\Ignore #1\Ignore{}%
+\Ignore
+\font\TangoBig="HGSeikaishotaiPRO" at 28pt\TangoBig
+\font\Tango="HGSeikaishotaiPRO" at 16pt\Tango%
+\font\TangoAlt="HGSeikaishotaiPRO:color=FF0F0F" at 16pt
+\font\TangoRubi="HGSeikaishotaiPRO" at 6pt
+\font\TangoRubiAlt="HGSeikaishotaiPRO:color=FF0F0F" at 8pt
+\font\TangoKana="HGSeikaishotaiPRO" at 12pt%
+\font\TangoKanaAlt="HGSeikaishotaiPRO:color=FF0F0F" at 12pt
+\font\TangoGrade="Arial" at 4pt
+\font\TangoGradeAlt="Arial:color=FF0F0F" at 4pt
+\Ignore
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%                                                                                                            Fontes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% -> Dingbats
+\font\LD@Dingbats@Japan={C:/Windows/Fonts/JAPANAPU.ttf} at 12pt%      r=rice bowl,   t=bentou,    v=temple,     w=zen gate,     z=japan
+\font\LD@Dingbats@X={C:/Windows/Fonts/Geisha.ttf} at 12pt
+\font\LD@Dingbats@MartialArts={C:/Windows/Fonts/Karate.TTF} at 12pt
+% -> Kanji Book
+\font\LD@Font@BigKanji={C:/Windows/Fonts/HGRSKP.ttf} at 66pt
+% -> Jiten
+% -> Common
+%\font\LD@Dingbats@X="Comix Cuties" at 10pt
+%\font\LD@Dingbats@MartialArts="Azudings 1" at 24pt
+
+
+
+%abcd
+%
+%efghij 
+%
+%klmn 
+%
+%opqrstu 
+%
+%vwxyz 
+%
+%ABCDEFG 
+%
+%HIJKLM 
+%
+%NOPQRS 
+%
+%TUVWX
+%
+%YZ123456
+%
+%7890\bye
+
+
+\font\LD@Font@Kana={C:/Windows/Fonts/HGRSKP.ttf} at 10pt %{HGSeikaishotaiPRO} at 10pt
+\font\LD@Font@IndexNumber={C:/Windows/Fonts/ARIAL.ttf} at 6pt
+\font\LD@Font@Nihongo={C:/Windows/Fonts/HGRSKP.ttf} at 28pt
+\font\LD@Font@KanaTitle={C:/Windows/Fonts/HGRSKP.ttf} at 24pt
+\font\LD@Font@KanaSubtitle={C:/Windows/Fonts/HGRSKP.ttf} at 10pt
+\font\LD@Font@BushuArray={C:/Windows/Fonts/HGRSKP.ttf} at 10pt
+\font\LD@Font@BushuMeaningsArray={C:/Windows/Fonts/ARIAL.ttf} at 6pt
+\font\LD@Font@Mincho={C:/Windows/Fonts/LDPMincho.ttf} at 18pt
+\font\LD@Font@Word={C:/Windows/Fonts/HGRSKP.ttf} at 16pt
+\font\LD@Font@WordKana={C:/Windows/Fonts/HGRSKP.ttf} at 14pt
+\font\LD@Font@Kana={C:/Windows/Fonts/HGRSKP.ttf} at 8pt
+\font\LD@Font@Bushu={C:/Windows/Fonts/HGRSKP.ttf} at 10pt
+\font\LD@Font@TinyKaisho={C:/Windows/Fonts/HGRSKP.ttf} at 6pt
+\font\LD@Font@TinyArial={C:/Windows/Fonts/ARIAL.ttf} at 4pt
+\font\LD@Font@Meanings={C:/Windows/Fonts/ARIAL.ttf} at 8pt
+\font\LD@Font@BushuMeanings={C:/Windows/Fonts/ARIAL.ttf} at 6pt
+\font\LD@Font@Numbers={C:/Windows/Fonts/ARIAL.ttf} at 4pt
+\font\LD@Font@Index={C:/Windows/Fonts/ARIAL.ttf} at 5pt
+\font\LD@Font@IndexItalic={C:/Windows/Fonts/ARIALI.ttf} at 5pt
+\font\LD@Font@One={C:/Windows/Fonts/ARIAL.ttf} at 8pt
+\font\LD@Font@Two={C:/Windows/Fonts/ARIALI.ttf} at 8pt
+\newcount\LD@Font@Number\global\LD@Font@Number=0\relax
+\def\LD@Font@Set{% 
+	\global\advance\LD@Font@Number by 1\relax
+	\ifcase\LD@Font@Number
+	\or
+		\global\let\LD@Font@Sens\LD@Font@One
+	\else
+		\global\let\LD@Font@Sens\LD@Font@Two
+		\global\LD@Font@Number=0\relax
+	\fi
+}%
+\def\LD@Font@Reset{%
+	\global\LD@Font@Number=0\relax
+	\LD@Font@Set
+}%
+\LD@Font@Kana
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Language choice					%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\LD@Akuma@Language{fre}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Loading Kanjidic					%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\LD@Kanjidic@Load
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Kanjidic Preprocessing				%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\LD@Yomigana@Kanji@Preprocessing
+\LD@Yomigana@Preprocessing@Default
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%				Load JMdict for AkumaJiten					%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcount\LD@Trace\global\LD@Trace=0\relax
+\def\LD@XML@SlashENTRY{%
+	\global\advance\LD@XML@EntryCount by1\relax
+	\global\advance\LD@Entry@Counter@Progress by1\relax
+	\ifnum\LD@Entry@Counter@Progress>9999\relax
+		\LD@Time@Benchmark{Total Entries : \LD@Entry@Number\LD@Space OK : \the\LD@Entry@Count\LD@Space Quirks : \the\LD@Entry@Quirks}%
+		\global\LD@Entry@Counter@Progress=0\relax
+	\fi
+	\LD@For\LD@Member@Kana:=\LD@Entry@REle\With |\Do{%
+		\LD@Assign\LD@Member@Kana\LD@Kana@Reading\LD@Kana@Info
+		\unless\ifx\LD@Entry@KEle\LD@Empty
+			% Test for No Kanji
+			\edef\LD@Temp{\LD@Kana@Info NoKanji}%
+			\LD@Split\LD@Temp{NoKanji}\LD@Trash\LD@Temp
+			\ifx\LD@Temp\LD@Empty
+				% Kanji
+				% Test for Kanji restriction
+				\xdef\LD@Entry@Restr{}%
+				\edef\LD@Tail{\LD@Kana@Info ,Restr=}%
+				\loop
+					\LD@Split\LD@Tail{Restr=}\LD@Trash\LD@Tail
+				\unless\ifx\LD@Tail\LD@Empty
+					\LD@Split\LD@Tail ,\LD@Head\LD@Tail
+					\xdef\LD@Entry@Restr{\LD@Entry@Restr\LD@Head ,}%
+				\repeat
+				% Test for irregular Kana usage
+				\edef\LD@Test{\LD@Kana@Info ,Inf=ik}%
+				\LD@Split\LD@Test{Inf=ik}\LD@Trash\LD@Test
+				\ifx\LD@Test\LD@Empty
+					\def\LD@Entry@Kana@Ir{0}%
+				\else
+					\def\LD@Entry@Kana@Ir{1}%
+				\fi
+				\LD@ForOne\LD@Member@Kanji:=\LD@Entry@KEle\With |\Do{%
+					\LD@Assign\LD@Member@Kanji\LD@Kanji@Reading\LD@Kanji@Info
+					% Tests for restriction
+					\def\LD@Temp{Y}%
+					\unless\ifx\LD@Entry@Restr\LD@Empty
+						\edef\LD@Temp{,\LD@Entry@Restr\LD@Kanji@Reading,}%
+						\EA\LD@Split\EA\LD@Temp\EA{\EA,\LD@Kanji@Reading,}\LD@Trash\LD@Temp
+					\fi
+					\unless\ifx\LD@Temp\LD@Empty% if it is empty, it isn't in the restriction list
+						% Test for irregular Kana usage
+						\edef\LD@Test{\LD@Kanji@Info ,Inf=iK}%
+						\LD@Split\LD@Test{Inf=iK}\LD@Trash\LD@Test
+						\ifx\LD@Test\LD@Empty
+							\def\LD@Entry@Kanji@Ir{0}%
+						\else
+							\def\LD@Entry@Kanji@Ir{1}%
+						\fi
+						% Test for irregular okurigana usage
+						\edef\LD@Test{\LD@Kanji@Info ,Inf=io}%
+						\LD@Split\LD@Test{Inf=io}\LD@Trash\LD@Test
+						\ifx\LD@Test\LD@Empty
+							\def\LD@Entry@Kanji@Ir{0}%
+						\else
+							\def\LD@Entry@Kanji@Ir{1}%
+						\fi
+						\LD@XML@Entry@Kanji@Do
+					\fi
+				}%
+			\else
+				% Kana only
+				\unless\ifx\LD@Entry@Sense\LD@Empty
+					\LD@XML@Entry@Kana@Do
+				\fi
+			\fi
+		\else
+			% Kana only
+			\unless\ifx\LD@Entry@Sense\LD@Empty
+				\LD@XML@Entry@Kana@Do
+			\fi
+		\fi
+	}%
+	\LD@XML@Parse
+}%
+
+
+
+\def\LD@XML@SlashENTRY{%
+	\global\advance\LD@XML@EntryCount by1\relax
+	\global\advance\LD@Entry@Counter@Progress by1\relax
+	\ifnum\LD@Entry@Counter@Progress>9999\relax
+		\LD@Time@Benchmark{Total Entries : \LD@Entry@Number\LD@Space OK : \the\LD@Entry@Count\LD@Space Quirks : \the\LD@Entry@Quirks}%
+		\global\LD@Entry@Counter@Progress=0\relax
+	\fi
+}%
+
+
+
+\newcount\LD@Entry@Count\global\LD@Entry@Count=0\relax
+\def\LD@JMdict@Load@Jiten{%
+	\def\LD@XML@Entry@Kana@Do{%
+		\global\advance\LD@Entry@Count by1\relax
+		\directlua1{%
+			DataE["\the\LD@Entry@Count"]="Entry={\the\LD@XML@EntryCount} Kana={\LD@Kana@Reading} KanaInfo={\LD@Kana@Info} Kanji={} KanjiInfo={} Furigana={}"% Sense={\luaescapestring\LD@Entry@Sense}"
+		}%
+%		\EA\xdef\CS DataE\the\LD@Entry@Count\EC{Entry={\the\LD@XML@EntryCount} Kana={\LD@Kana@Reading} KanaInfo={\LD@Kana@Info} Kanji={} KanjiInfo={} Furigana={} Sense={\LD@Entry@Sense}}%	
+	}%
+	\def\LD@XML@Entry@Kanji@Do{%	
+		%\LD@Validate\LD@Kanji@Reading\LD@Kana@Reading{}%
+		\unless\ifx\LD@Entry@Sense\LD@Empty
+			\LD@Yomigana\LD@Kanji@Reading\LD@Kana@Reading
+			\ifnum\LD@Yomigana@Quirks@G@Level>0\relax
+				\global\advance\LD@Entry@Quirks by1\relax
+			\fi
+			\global\advance\LD@Entry@Count by1\relax
+			\directlua1{
+				DataE["\the\LD@Entry@Count"]="Entry={\the\LD@XML@EntryCount} Kana={\LD@Kana@Reading} KanaInfo={\LD@Kana@Info} Kanji={\LD@Kanji@Reading} KanjiInfo={\LD@Kanji@Info} Furigana={\LD@Yomigana@GlobalFurigana}" %Sense={\luaescapestring\LD@Entry@Sense}"
+			}%
+%			\EA\xdef\CS DataE\the\LD@Entry@Count\EC{Entry={\the\LD@XML@EntryCount} Kana={\LD@Kana@Reading} KanaInfo={\LD@Kana@Info} Kanji={\LD@Kanji@Reading} KanjiInfo={\LD@Kanji@Info} Furigana={\LD@Yomigana@GlobalFurigana} Sense={\LD@Entry@Sense}}%
+		\fi
+	}%
+	\input LD@Akuma@JMdictParser.tex
+	\LD@XML@Parser{JMdict.xml}%
+}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Loading JMdict					%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\LD@JMdict@Load@Jiten
+\gdef\LD@Entry@Number{}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Compute the Tango Data				%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\bye
+\LD@Time@Benchmark{Computing the data...}%
+\global\LD@One=0\relax
+\LD@Font@Kana
+\loop
+	\global\advance\LD@One by1\relax
+	\LD@Data@Set{Kana}{E\the\LD@One}\LD@Kana
+	{\LD@Romanize\LD@Kana}
+	{\LD@LowerCase\LD@Kana}
+	\EA\xdef\CS\the\LD@One\EC{\LD@Kana}%
+\ifnum\LD@One<\LD@Entry@Count\relax
+\repeat
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Sort the Tango Entries				%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\LD@Time@Benchmark{Sorting the data...}%
+\def\xchol#1#2{%#1, #2 counter variables
+	\EA\let\EA\auxone\CS\the#1\EC
+	\EA\let\EA\auxtwo\CS\the#2\EC
+	\EA\global\EA\let\CS\the#2\EC\auxone
+	\EA\global\EA\let\CS\the#1\EC\auxtwo
+	\EA\let\EA\auxone\CS DataE\the#1\EC
+	\EA\let\EA\auxtwo\CS DataE\the#2\EC
+	\EA\global\EA\let\CS DataE\the#2\EC\auxone
+	\EA\global\EA\let\CS DataE\the#1\EC\auxtwo
+}%
+\let\cmp\cmpaw
+\let\xch\xchol
+\n=\LD@Entry@Count\relax
+\prooffalse
+\heapsort
+\LD@Time@Benchmark{Composing the Document...}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Typographic choices					%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hfuzz0pt
+\headline={}
+\def\footnote{}
+%\XeTeXlinebreaklocale "fr"
+\overfullrule=0pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Title Page						%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\LD@Akuma@Title@en{%
+	\null\vfill
+	\centerline{%
+		$\mathop{\hbox{\LD@Font@Nihongo 湖悪魔}}\limits^{\hbox{\LD@Font@One Lakedaemon's}}_{\hbox{\LD@Font@KanaSubtitle こあくま}}$%
+	}%
+	\bigskip
+	\bigskip
+	\centerline{%
+		\hbox{\LD@Font@KanaTitle の}%
+	}%
+	\bigskip\bigskip
+	\centerline{%
+		$\LD@Font@Nihongo\mathop{\hbox{日本語}}\limits^{\hbox{\LD@Font@One Japanese}}\hbox{\LD@Font@Nihongo-}%
+		\mathop{\hbox{\LD@Font@Nihongo 英語}}\limits^{\hbox{\LD@Font@One English}}\hbox{\LD@Font@Nihongo -}\mathop{\hbox{\LD@Font@Nihongo 辞典}}\limits^{\hbox{\LD@Font@One dictionnary}}$%
+	}%
+	\vfill\null
+	\eject
+}%
+\def\LD@Akuma@Title@fr{%
+	\null\vfill
+	\centerline{%
+		$\mathop{\hbox{\LD@Font@Nihongo 湖悪魔}}\limits^{\hbox{\LD@Font@One Lakedaemon}}_{\hbox{\LD@Font@KanaSubtitle こあくま}}$%
+	}%
+	\bigskip
+	\bigskip
+	\bigskip
+	\centerline{%
+		\hbox{\LD@Font@KanaTitle の}%
+	}%
+	\bigskip
+	\bigskip
+	\bigskip
+	\centerline{%
+		$\mathop{\hbox{\LD@Font@Nihongo 日本語-フランス語 辞典}}\limits^{\hbox{\LD@Font@One Dictionnaire Japonais-Français}}$%
+	}%
+	\vfill\null
+	\eject
+}%
+\CS LD@Akuma@Title@\LD@Akuma@Language\EC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Jiten							%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\LInsert{}%
+\def\RInsert{}%
+\def\CInsert{\vrule}%
+\def\BInsert{}%
+\def\TInsert{}%
+\gutter=1pc
+\twocolumns
+
+
+
+\newdimen\Tangowidth
+
+
+%% Process the words
+
+\edef\JapaneseLBrace{\hskip-3.5pt plus 1pt \JapaneseLBrace}
+\edef\JapaneseRBrace{\JapaneseRBrace\hskip-3.5pt plus 2pt}
+
+
+\def\LD@Key@Pri{Pri}%
+
+\newdimen\OLTangoDim
+\newdimen\OLTangoTakasa
+\newdimen\OLTangoHSize
+\newdimen\OLun
+\newdimen\OLdeux
+
+\def\LeftMargin{0pt}
+\OLTangoHSize=\hsize
+\advance\OLTangoHSize by-\LeftMargin
+
+\parskip=3pt plus 1pt minus 0.2pt
+\parindent=0pt
+\baselineskip=6pt plus 0.2pt
+\def\LD@Space{\hskip3pt plus 1pt minus 1pt}
+\def\Bye{\CS bye\EC}
+\global\LD@One=0\relax
+\loop
+	\global\advance\LD@One by1\relax
+	\let\LD@JLPT\LD@Empty
+	\let\LD@nf\LD@Empty
+	\LD@Data@Set{KanjiInfo}{E\the\LD@One}\LD@Kanji@Info
+	\LD@Akuma@Option@Process\LD@Kanji@Info
+	\LD@Data@Set{Furigana}{E\the\LD@One}\LD@Furigana
+	\ifx\LD@Furigana\LD@Empty
+		\LD@Data@Set{Kana}{E\the\LD@One}\LD@Tango
+		\ForEach\LD@Token:=\LD@Tango\do{% Making Furigana for Kana string %%% this could be bettered
+			\ifx\LD@Furigana\LD@Empty
+				\edef\LD@Furigana{\LD@Furigana\LD@Token}%
+			\else
+				\edef\LD@Furigana{|\LD@Furigana\LD@Token}%
+			\fi
+		}%
+		\def\LD@Test{N}%
+	\else
+		\LD@Data@Set{Kanji}{E\the\LD@One}\LD@Tango
+		\def\LD@Test{Y}%
+	\fi
+	\LD@Tango@Format\LD@Tango\LD@Furigana\LD@JLPT\LD@nf\LD@Tango@Kanji\LD@Tango@Kana
+	\LD@Meaning@Format
+	\setbox45=\hbox{%
+		\LD@Tango@Kanji\hskip5pt%
+	}%
+	\Tangowidth=\hsize\relax%<- underfull come from here
+	\advance\Tangowidth by-\wd45\relax
+	\if N\LD@Test
+%
+%  Kana Format
+%
+	%\noindent\parshape=2 0pt \hsize 16pt \hsize\OLBox\ResetFont\hskip6pt plus 1pt\argfour\hfil\null\PAR\goodbreak
+		\setbox46=\vbox{%
+			\hsize=\Tangowidth\relax
+			\noindent
+			\parshape=1 \wd45 \Tangowidth
+			\LD@Meaning
+			\hfil\null\vfill
+		}%
+		\setbox47=\hbox{%
+			\LD@Font@One
+			(Dummy) Box !%
+		}%
+		\global\OLTangoTakasa=\ht45\relax
+		\global\advance\OLTangoDim by\dp45\relax
+		\global\OLTangoDim=\ht46\relax
+		\advance\OLTangoDim by-\OLTangoTakasa\relax
+		\ifdim\OLTangoDim<0pt%
+			\divide\OLTangoDim by2\relax
+			\nobreak\vskip-\OLTangoDim\relax
+			\noindent
+			\parshape=1 \wd45 \Tangowidth
+			\OLun=\ht45\relax
+			\advance\OLun by-\ht47\relax
+			\advance\OLun by\OLTangoDim\relax
+			\smash{%
+				\raise-\OLun\hbox{%
+					\hskip-\wd45\box45\relax
+				}%
+			}%
+			\LD@Meaning
+			\hfil\null\nobreak
+			\vskip-\OLTangoDim\relax
+			\PAR%\vskip 1pt plus 0.2pt minus 0.2pt\PAR\goodbreak
+		\else
+			\noindent
+			\parshape=3 \wd45 \Tangowidth \wd45 \Tangowidth \LeftMargin \OLTangoHSize
+			\OLun=\ht45\relax
+			\advance\OLun by-\ht47\relax
+			\advance\OLun by2pt%
+			\smash{%
+				\raise-\OLun\hbox{%
+					\hskip-\wd45\box45\relax
+				}%
+			}%
+			\LD@Meaning
+			\hfil\null\PAR
+			\goodbreak
+		\fi
+%
+%      Kanji Format
+%
+	\else
+		\setbox46=\vbox{%
+			\hsize=\Tangowidth\relax
+			\noindent
+			\parshape=1 \wd45 \Tangowidth%
+			\smash{%
+				{\LD@Font@Kana\JapaneseLBrace}\LD@Tango@Kana{\LD@Font@Kana\JapaneseRBrace}%
+			}%
+			\LD@Space\LD@Meaning\hfil\null\vfill
+		}%
+		\setbox47=\hbox{%
+			\noindent
+			{\LD@Font@Kana\JapaneseLBrace}\LD@Tango@Kana{\LD@Font@Kana\JapaneseRBrace}%
+		}%
+		\global\OLTangoTakasa=\ht45\relax
+		\global\advance\OLTangoDim by\dp45\relax
+		\global\OLTangoDim=\ht46\relax
+		\advance\OLTangoDim by-\OLTangoTakasa\relax
+		\ifdim\OLTangoDim<0pt%
+			\divide\OLTangoDim by2\relax
+			\nobreak\vskip-\OLTangoDim\relax
+			\noindent
+			\parshape=1 \wd45 \Tangowidth
+			\OLun=\ht45\relax
+			\advance\OLun by-\ht47\relax
+			\advance\OLun by\OLTangoDim\relax
+			\smash{%
+				\raise-\OLun\hbox{%
+					\hskip-\wd45\box45\relax
+				}%
+			}%
+			\smash{%
+				{\LD@Font@Kana\JapaneseLBrace}\LD@Tango@Kana{\LD@Font@Kana\JapaneseRBrace}%
+			}
+			\LD@Space\LD@Meaning
+			\hfil\null\nobreak
+			\vskip-\OLTangoDim\relax
+			\PAR%\vskip 1pt plus 0.2pt minus 0.2pt\PAR\goodbreak
+		\else
+			\noindent
+			\parshape=3 \wd45 \Tangowidth \wd45 \Tangowidth \LeftMargin \OLTangoHSize
+			\OLun=\ht45\relax
+			\advance\OLun by-\ht47\relax
+			\smash{%
+				\raise-\OLun\hbox{%
+					\hskip-\wd45\box45\relax
+				}%
+			}%
+			\smash{%
+				{\LD@Font@Kana\JapaneseLBrace}\LD@Tango@Kana{\LD@Font@Kana\JapaneseRBrace}%
+			}%
+			\LD@Space\LD@Meaning
+			\hfil\null\PAR
+			\goodbreak
+		\fi
+	\fi
+\ifnum\LD@One<\LD@Entry@Count\relax   %\LD@Entries@Count\relax
+\repeat
+
+\singlecolumn
+
+\LD@Time@Benchmark{End.}%
+\write16{\the\LD@Entry@Count Entries}%
+\bye

@@ -1,0 +1,65 @@
+\catcode`@=11\relax
+
+\input LD@Maths@TD.tex
+
+\vglue-10mm\rightline{Spé PT\hfill TD : Séries de Fourier\hfill}
+\bigskip
+\vfill
+
+\Concept Coefficients de Fourier $a_n$ et $b_n$. 
+
+\Definition [$T>0$, $f:\ob R\to\ob R$ continue par morceaux et $T$-périodique] 
+$$
+\eqalign{
+a_0(f)&:={1\F T}\int_0^Tf(x)\d x
+\cr
+a_n(f)&:={2\F T}\int_0^Tf(x)\cos(n\omega x)\d x\qquad(n\in\ob N^*)
+\cr
+b_n(f)&:={2\F T}\int_0^Tf(x)\sin(n\omega x)\d x\qquad(n\in\ob N^*)
+}
+$$
+
+\Concept Théorème de Parseval
+
+\Theoreme [$f:\ob R\to\ob R$ fonction $T$ périodique et continue par morceaux] 
+Les séries $\sum_{n=1}^\infty\b|a_n(f)\b|^2$ et $\sum_{n=1}^\infty\b|b_n(f)\b|^2$ convergent et l'on a 
+$$
+{1\F T}\int_0^T\b|f(x)\b|^2\d x=\b|a_0(f)\b|^2+{1\F 2}\sum_{n=1}^\infty\b|a_n(f)\b|^2
++{1\F 2}\sum_{n=1}^\infty\b|b_n(f)\b|^2. 
+$$
+
+\Concept Théorème de Dirichlet
+
+\Theoreme [$T>0$, $f:\ob R\to\ob R$ fonction $T$-périodique de classe $\sc C^1$ par morceaux]
+Pour chaque nombre réel $x$, la série numérique $S[f](x)$ converge et l'on a 
+\Equation [\bf Dirichlet]
+$$
+\underbrace{f(x^-)+f(x^+)\F2}_{\tilde f(x)}=\underbrace{a_0+\sum_{n=1}^\infty\B(a_n(f)\cos(n\omega x)+b_n(f)\sin(n\omega x)\B)}
+_{S[f](x)}
+$$
+
+\Concept Théorème de convergence normale des séries de Fourier
+
+\Theoreme [$f:\ob R\to\ob R$ fonction $T$-périodique, {\bf continue} et de classe $\sc C^1$ par morceaux] 
+Pour chaque nombre réel $x$, la série numérique $S[f](x)$ converge et 
+$$
+f(x)=\underbrace{a_0+\sum_{n=1}^\infty\B(a_n(f)\cos(n\omega x)+b_n(f)\sin(n\omega x)\B)}
+_{S[f](x)}.
+$$
+On peut intégrer terme à terme $S$ sur chaque segment. \PAR\noindent
+Enfin, les séries numériques $\ds\sum_{n=0}^\infty\b|a_n(f)\b|$ 
+et $\ds\sum_{n=1}^\infty\b|b_n(f)\b|$ convergent. 
+
+\goodbreak
+\Exercice{PTaou}
+\vfill
+\Exercice{PTtf}
+\vfill
+\Exercice{PTsv}
+\vfill
+\Exercice{PTtg}
+\vfill
+\Exercice{PTtd}
+\vfill
+\Exercice{PTte}
+\bye

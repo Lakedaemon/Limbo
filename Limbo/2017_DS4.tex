@@ -1,0 +1,196 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iftrue
+\page
+\centerline{\bfb DEVOIR SURVEILLE 4}
+\blank[big]
+
+
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+
+\startList
+
+
+\item%Exo intégrales (suites)
+{\bf (extrait ECRICOM)}\crlf
+On considère l'intégrale $\D I_n=\int_0^1(1-x)^n\e^{-2x}\d x$ pour $n∈ℕ$.
+\vskip-1.5em
+\startList
+\item Calculer $I_0$ et $I_1$
+\item Etudier la monotonie de la suite $(I_n)_{n∈ℕ}$.
+\item Déterminer le signe de $I_n$ pour $n∈ℕ$
+\item Qu'en déduit-on pour la suite $(I_n)_{n∈ℕ}$ ?
+\item Prouver que $0⩽I_n⩽{1\F n+1}$ pour $n∈ℕ$
+\item Déterminer la limite de la suite $(I_n)_{n∈ℕ}$.
+\item Prouver que $2I_{n+1}=1-(n+1)I_n$ pour $n∈ℕ$.
+\item Déterminer la limite de la suite $u$ définie par $u_n=(n+1)I_n$ pour $n∈ℕ$.
+\item En déduire la limite de la suite $v$ définie par $v_n=(n+2)\big(1-(n+1)I_n\big)\quad (n∈ℕ)$ 
+\stopList
+
+\item % Exo intégrales (fonctions)
+On considère la fonction $g$ définie par $\D g(x)=\int_x^{2x}\e^{-t^2}\d t$.
+\startList
+\item Justifier que $g$ est bien définie sur $ℝ$.
+\item Déterminer la parité de la fonction $g$.
+\item Montrer que $g$ est de classe $\mc C^1$, puis calculer $g'(x)$ pour $x∈ℝ$.
+\item
+\startList
+\item Pour $x>1$, établir que $x\e^{-4x^2}⩽g(x)⩽x\e^{-x^2}$. 
+\item En déduire l'existence de la limite de $g$ en $+∞$ ainsi que sa valeur.
+\item Dresser le tableau de variation de $g$. On précisera $g(0)$ ainsi que les limites de $g$ en $+ ∞$ et $-∞$.
+\stopList
+\stopList
+
+\item%exos EV
+On note $\mc C=(\vec e_1, \vec e_2, \vec e_3, \vec e_4)$ la base canonique de $ℝ^4$. 
+\vskip-0.5em
+\startList
+\item {\it (6 points)} Montrer que $\D V=\big\{(a+2b, 2a+2b+2c, 2a+b+3c, a+b+c):(a,b,c)∈ℝ^3\big\}$ est un sous-espace vectoriel de $ℝ^4$ et en déterminer une base $(\vec v_1,\vec v_2)$.
+\item Soit $W=\big\{(x,y,z,t)∈ℝ^4:x+y-2z+t=0,2y-3z+2t=0 \Et 3x-y-t=0\big\}$. {\it (6 points)}  Montrer que $W$  est un sous-espace vectoriel de $ℝ^4$ et en déterminer une base $(\vec w_3,\vec w_4)$.  
+\item La famille $(\vec v_1,\vec v_2,\vec w_3,\vec w_4)$ est-elle libre ? Est-elle génératrice de $ℝ^4$ ?
+\item Déterminer une base de $F=\Vect(\vec v_1, \vec v_2, \vec w_3, \vec w_4)$.
+\item On considère les vecteurs $\vec f_1=(1,0,-1,0)$, $\vec f_2=(0,-1,0,1)$ et $\vec f_3=(1,1,1,1)$. Montrer que la famille $(\vec f_1,\vec f_2, \vec f_3)$ constitue une base de $F$ 
+\item Montrer que la famille $\mc B=(\vec f_1,\vec f_2, \vec f_3,\vec e_4)$ est une base de $ℝ^4$.
+\item Déterminer la matrice des coordonnées de la famille $\mc C$ dans la base $\mc B$.
+%\item Pour $\vec u∈ℝ^4$, montrer qu'il existe un unique couple $(\vec f,τ)∈F×$ tel que $\vec u=\vec f+τ\vec e_4$
+\stopList
+
+
+
+
+
+
+
+
+
+\goodbreak
+\item%exo matrices
+{\bf (d'après ESCP)} 
+Pour $t∈ℝ$, on pose $\D A(t)=\Matrix{
+\NC 1-t\NC -t\NC 0\NR
+\NC -t\NC 1-t\NC 0\NR
+\NC -t\NC t\NC 1-2t
+}$.
+\vskip-1em
+\startList
+\item {\it Votre succès en dépend !} Pour $(s,t)∈ℝ^2$, montrer que $A(s)A(t)=A(u)$ avec $u$ nombre réel dont on déterminera une expression en fonction de $s$ et $t$.
+\item On s'interesse aux matrices inversibles de l'ensemble $\mc M=\{A(t):t∈ℝ\}$
+\startList
+\item La matrice $Q=A\Q({1\F 2}\W)$ est-elle inversible ? (justifier soigneusement) 
+\item Montrer que la matrice $I_3$ appartient à $\mc M$.
+\item Pour $t≠{1\F 2}$, montrer que la matrice $A(t)$ est inversible, donner son inverse et vérifier qu'il appartient à $\mc M$.
+\stopList
+\item Déterminer les matrices $S$ de $\mc M$ solutions de l'équation $S^2=A\Q({-3\F 2}\W)$.
+\item On rappelle que $J^0=I_3$ par convention et l'on pose $J=A(-1)$.
+\startList
+\item Montrer qu'il existe une unique suite $(t_n)_{n∈ℕ}$ de nombres réels telle que
+\startsdformula
+A(t_n)=J^n\qquad(n∈ℕ)
+\stopsdformula
+\item Déterminer une relation de récurrence entre $t_{n+1}$ et $t_n$ pour $n∈ℕ$. 
+\item Pour $n∈ℕ$, déterminer la matrice $J^n$ en la représentant avec ses coefficients. 
+\stopList
+\stopList
+
+
+
+
+
+
+
+
+
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][A,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][n,joineup,nowhite,after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][n,joineup,nowhite,after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][5][a,joineup,nowhite,after=,before=,inbetween={\blank[small]}]
+
+
+\item% exo VAR
+{\bf (d'après ESCP)} 
+Une urne contient $n∈ℕ^*$ boules numérotées de $1$ à $n$. 
+On tire au hasard une boule. Si le numéro $k$ de la boule tirée est $1$, on arrête les tirages, 
+sinon, on enlève de l’urne toutes les boules dont le numéro est supérieur ou égal à $k$ 
+et on effectue un nouveau tirage.
+On répète ces tirages jusqu’à l’obtention de la boule $1$ et on note $X_n$ 
+la variable aléatoire égale au nombre de tirages effectués jusqu’à l’obtention de la boule $1$.
+\vskip-0.5em
+\startList
+\item {\bf Premiers exemples }
+\startList
+\item Déterminer la loi de $X_1$, son espérance et sa variance. 
+\item Déterminer la loi de $X_2$, son espérance et sa variance.
+\item Déterminer la loi de $X_3$, son espérance et sa variance.
+\stopList
+\item {\bf Cas général}
+Soit $N_1$ la variable égale au numéro de la première boule tirée.
+\startList
+\item\startList
+\item Quelle est la loi de $N_1$ ? Rappeler son espérance et sa variance.
+\item Déterminer $X_n(Ω)$ et $P(X_n=1)$.
+\item Déterminer $P(X_n=n)$.
+\stopList
+\item\startList
+\item Sachant que $N_1=1$, que vaut $X_n$ ? 
+\item Pour $2⩽k⩽n$ et $2⩽j⩽n$, justifier que 
+\startformula
+P_{N_1=j}(X_n=k)=\System{
+\NC 0\NC \text{si $k>j$}\NR
+\NC P(X_{j-1}=k-1)\NC \text{si $k⩽j$}}
+\stopformula
+\item Montrer alors, à l'aide de la formule des probabilités totales, que
+\placeformula[*]
+\startformula
+P(X_n=k)={1\F n}∑_{j=k-1}^{n-1}P(X_j=k-1)\qquad (2⩽k⩽n)
+\stopformula
+\item Expliciter $P(X_n=2)$ sans chercher à calculer la somme obtenue.
+\item On pose $v_n=n!P(X_n=n-1)$ pour $n⩾2$. 
+\startList
+\item A l'aide de la relation (\in[*]), montrer que $v_{n+1}=v_n+n$ pour $n⩾2$.
+\item En déduire une expression explicite de $v_n$ puis de $P(X_n=n-1)$.
+\stopList
+\stopList
+\stopList
+
+\stopList
+
+
+
+\stopList%Exos
+
+\stoptext
+\stopcomponent
+\endinput

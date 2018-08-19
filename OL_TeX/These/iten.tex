@@ -1,0 +1,934 @@
+% MISE EN PAGE
+
+
+
+%\magnification 1100
+
+%
+% Definitions pour les notes en bas de page
+% [Format : \note{texte de la note} avec numerotation automatique]
+%
+\let\footnotea=\footnote
+\catcode`@=11
+\message{output routines,}
+\newinsert\footins
+\def\footnote#1{\let\@sf\empty % parameter #2 (the text) is read later
+  \ifhmode\edef\@sf{\spacefactor\the\spacefactor}\/\fi
+\hbox{$^{(#1)}$}\@sf\vfootnote{#1.}}
+\def\vfootnote#1{\insert\footins\bgroup
+  \interlinepenalty\interfootnotelinepenalty
+  \splittopskip\ht\strutbox % top baseline for broken footnotes
+  \splitmaxdepth\dp\strutbox \floatingpenalty\@MM
+  \leftskip\z@skip \rightskip\z@skip \spaceskip\z@skip \xspaceskip\z@skip
+  \textindent{#1}\footstrut\futurelet\next\fo@t}
+\def\fo@t{\ifcat\bgroup\noexpand\next \let\next\f@@t
+  \else\let\next\f@t\fi \next}
+\def\f@@t{\bgroup\aftergroup\@foot\let\next}
+\def\f@t#1{#1\@foot}
+\def\@foot{\strut\egroup}
+\def\footstrut{\vbox to\splittopskip{}}
+\skip\footins=\bigskipamount % space added when footnote is present
+\count\footins=800 % footnote magnification factor (1 to 1)
+\dimen\footins=8in % maximum footnotes per page
+
+%
+%\anote=\footnote de plain (2 arguments)
+%
+\def\anote#1#2{\footnotea{\hbox{$^{#1}$}}{\eightpoint#2}}
+\catcode`@=12 % at signs are no longer letters
+
+%reference de note
+ \def\defrefnote#1{\definexref{#1}{{\the\footnotenumber}}{refnotes}}
+ \def\refnote#1{\ref{#1}}
+
+%
+% Fin notes
+%
+
+
+%\def\eqlgno#1{$$\leqalignno{#1}$$}
+
+
+ % choix numerotation gauche ou droite: defaut=gauche, \numadroite{oui} -> a droite
+ \def\testd{oui}
+ \def\choixlat{\ifx\numadroite\testd \let\leqno=\eqno\let\leqalignno=\eqalignno
+          \else\let\eqno=\leqno\let\eqalignno=\leqalignno \fi}
+  \choixlat
+  \input eplaingt
+
+
+\interfootnoteskip=0pt
+\let\note=\numberedfootnote
+\everyfootnote={\eightpoint\leftskip=5truemm\rightskip5truemm}
+
+\hsize150truemm\vsize 240truemm\hoffset=5truemm\voffset=-3truemm
+\def\dimstand{\hsize 150truemm\vsize 240truemm\hoffset=5truemm\voffset=0truemm}
+\def\dimart{\hsize126truemm\vsize186truemm\hoffset16truemm\voffset=24truemm}
+\pretolerance=500\tolerance=1000\brokenpenalty=5000
+\parindent3mm
+
+\countdef\temps=170
+\temps=\time
+\countdef\nminutes=171{\nminutes = \time}
+\countdef\nheure=172
+\def\heure{\begingroup                     % heure a la francaise
+   \temps = \time \divide\temps by 60
+   \nheure = \temps                      % l'heure, de 0 \`a 23
+   \nminutes = \time
+   \multiply\temps by 60
+   \advance\nminutes by -\temps            % Les minutes, de 0 a 59.
+   \ifnum\nminutes<10 \toks1 = {0}%
+   \else\toks1 = {}%
+   \fi
+   \number\nheure h\the\toks1 \number\nminutes
+\endgroup}%
+
+
+\newcount\chstart
+\chstart=\pageno
+ \headline={\ifnum\pageno=\chstart {\hfill} \else {\hss \tenrm --\ \folio\ --\hss}\fi}
+\footline={\hfill}
+\normalbaselines
+\frenchspacing
+  \def\dater{\vglue-10mm\rightline{(\the\day/\the\month/\the\year)}}
+\def\dateheure{\vglue-10mm\rightline{(\the\day/\the\month/\the\year,\ \heure)}}
+
+\newif\ifpagetitre \pagetitretrue
+\newtoks\hautpagetitre \hautpagetitre={\hfill}
+\newtoks\baspagetitre \baspagetitre={\hfill}
+\newtoks\auteurcourant \auteurcourant={\hfill}
+\newtoks\titrecourant \titrecourant={\hfill}
+\newtoks\hautpagegauche
+\newtoks\hautpagedroite
+\newtoks\hautpagemilieu
+\hautpagemilieu={\tenrm\hfil -- \folio\ -- \hfil}
+\hautpagegauche={\ifx\midfolio\oui\the\hautpagemilieu\else\tenrm\folio\hfil\the\auteurcourant\hfil\fi}
+\hautpagedroite={\ifx\midfolio\oui\the\hautpagemilieu\else\hfil\the\titrecourant\hfil\tenrm\folio\fi}
+\newtoks\baspagegauche \baspagegauche={\hfil}
+\newtoks\baspagedroite \baspagedroite={\hfil}
+\headline={\ifpagetitre\the\hautpagetitre
+\else\ifodd\pageno\the\hautpagedroite\else\the\hautpagegauche\fi\fi }
+\footline={\ifpagetitre\the\baspagetitre
+\else\ifodd\pageno\the\baspagedroite
+\else\the\baspagegauche\fi\fi \global\pagetitrefalse}
+
+\def\nopagenumber{\headline={\hfill}\footline={\hfill}}
+%\def\numpgsuiv{ \chstart=\pageno\pageno=\chstart}
+
+\def\pageblanche{\vfill\eject\pagetitretrue
+\null\vfill\eject
+\pagetitretrue
+}
+
+
+\def\hautspages#1#2{\auteurcourant={\ninepcap#1}\titrecourant={\nineit#2}}
+
+\ifnum\chstart=\pageno \pagetitretrue\fi
+%\ifnum\pageno=\chstart \pagetitretrue \fi
+
+%pour eviter les rectangles noirs:
+%\overfullrule=Opt
+% pour que les @ soient des lettres
+\def\signeat{\catcode`@=11}
+
+
+%% pour aller a la ligne dans un \proclaim:
+\def\PAR{\par}
+
+%% Note en marge gauche
+\def\leftnote#1{\vadjust{\setbox1=\vtop{\hsize 20mm\parindent=0pt\eightpoint
+\baselineskip=9pt\rightskip=4mm plus 4mm\vskip-4.7mm#1}\hbox{\kern-2cm\smash{\box1}}}}
+\def\OK{\leftnote{\bf OK ?}}
+
+%% Pour couper automatiquement un titre trop long
+
+\def\raggedcenter{\leftskip=20pt plus 10em  % reglages initial 4em
+     \rightskip=\leftskip
+      \parfillskip=0pt
+       \spaceskip=.3333em \xspaceskip=.5em
+        \pretolerance=9999 \tolerance=9999
+         \hyphenpenalty=9999 \exhyphenpenalty=9999 }
+
+\def\titrecentre#1{{\parindent0mm\raggedcenter\tit#1\par}}
+
+
+%%%%%% D\'ebut num\'erotation automatique des paragraphes et/ou des enonces
+
+
+\def\oui{oui}
+
+ \def\fontetitreun{\ifx\paradouze\oui\douzepts\gpdouze\twelvebf\else
+\quatorzepts\gpquatorze\fourteenbf\fi}
+ \def\fontetitredeux{\ifx\paradouze\oui\onzepts\textfont1=\eleveni\scriptfont1=\ninei\elevenit\else
+                      \douzepts\twelveit\fi}
+
+ \def\fontetitredeuxb{\ifx\paradouze\oui\onzepts\eleventi\gponze\textfont1=\elevenib\scriptfont1=\nineib
+                       \else\douzepts\twelveti\scriptfont1=\twelveib\scriptfont1=\tenib\gpdouze\fi}
+
+\def\fontetitretrois{\textfont0=\elevenrm\scriptfont0=\eightrm\textfont1=\eleveni
+                    \scriptfont1=\eighti\scriptscriptfont1=\sixi\elevenit}
+
+\newcount\titreun\titreun=0
+\newcount\titredeux\titredeux=0
+\newcount\titretrois\titretrois=0
+\newcount\enonce\enonce=0
+
+\def\incr#1{\global\advance#1 by 1 {\the #1}}
+\def\avance#1{\global\advance#1 by 1}
+\def\init#1{\global#1=0}
+
+\long\def\Indentation#1#2{\setbox10=\hbox{\fontetitreun#1}
+                          \ifdim\wd10 < 4mm
+                       \setbox10=\hbox to 4mm{\box10\hfill}
+                     \else\ifdim\wd10 < 6mm
+                       \setbox10=\hbox to 6mm{\box10\hfill}
+                          \else\ifdim\wd10 < 8mm
+                       \setbox10=\hbox to 8mm{\box10\hfill}
+                     \else\ifdim\wd10 < 12mm
+                       \setbox10=\hbox to 12mm{\box10\hfill}
+                     \fi\fi\fi\fi
+                     \dimen10=\hsize
+                     \advance \dimen10 by -\wd10
+                     \noindent \box10 %\ignorespaces
+                     \hbox{\vtop{\hsize=\dimen10\raggedright\noindent\fontetitreun#2}}}
+
+\long\def\paraun#1{\removelastskip\par\bigskip\bigskip\goodbreak\vskip0pt plus.01\vsize\penalty-100
+              \vskip0pt plus-.01\vsize
+                    \init{\titredeux}\ifnum\optionparag=1{\init\eqnumber\init\enonce}\else{}\fi
+                \goodbreak{\fontetitreun
+                      \Indentation{\incr{\titreun}.\ }{\fontetitreun #1\par}}\nobreak\medskip}
+
+ %
+ % titres de paragraphes centres
+ %
+ \long\def\paraunc#1{\removelastskip\bigskip\goodbreak\vskip0pt plus.01\vsize\penalty-100
+              \vskip0pt plus-.01\vsize
+                    \init{\titredeux}
+               \ifnum\optionparag=1{\init{\eqnumber}\init\enonce}\else{}\fi
+                \goodbreak
+                      {\parindent0mm\raggedcenter\fontetitreun\incr{\titreun}.\
+                   \fontetitreun #1\par}\nobreak\medskip}
+
+\long\def\paradeux#1{\init{\titretrois}\vskip0pt plus.01\vsize\penalty-10
+              \vskip0pt plus-.01\vsize{
+               \Indentation{\fontetitredeux\the\titreun.\incr{\titredeux}.\ }
+                            {\fontetitredeux#1}}\nobreak\smallskip}
+
+\long\def\paradeuxb#1{\init{\titretrois}\vskip0pt plus.001\vsize\penalty-10
+              \vskip0pt plus-.01\vsize{
+                \Indentation
+{\fontetitredeuxb\the\titreun.\incr{\titredeux}.}{ \fontetitredeuxb#1}}\nobreak\smallskip
+\par}
+
+
+\long\def\paratrois#1{\ifdim\lastskip<\smallskipamount
+              \removelastskip\smallskip\fi
+               \vskip0pt plus.01\vsize\penalty-10
+                \vskip0pt
+plus-.01\vsize{\Indentation{\fontetitretrois\the\titreun.\the\titredeux.\incr{\titretrois}.\ }
+{\hskip0mm\fontetitretrois#1}\smallskip\nobreak\par}}
+
+% Pour memoriser le no de section d'un titre de paragraphe
+\def\drefun#1{\definexref{§#1}{{\the\titreun}}{}}
+\def\drefdeux#1{\definexref{§#1}{{\the\titreun}.{\the\titredeux}}{}}
+\def\dreftrois#1{\definexref{§#1}{{\the\titreun}.{\the\titredeux}.{\the\titretrois}}{}}
+% Dans le cas de \drefun, coder \paraun{Titre}\drefun{label} dans le cas de \drefdeux, on peut coder
+%                                \paradeux{Sous-titre\drefdeux{label}}
+% pour appeler la reference "label", taper \refn{§label}
+
+
+%% num\'erotation des \'enonc\'es
+%%Exemples
+%%\propt{leb}{ (Lebesgue)}{ L'espace $L^1$ est complet.}
+%%\par
+%%Ca marche, comme le dit le \ref{sleb}.
+%%\Propt{leb2}{L'espace $L^1$ est vraiment complet.}\par
+%%Ce \ref{leb2} est moins bien que les Th\'eor\`emes \ref{sleb} et \ref{sleb2}.
+
+
+\long\def\propdeux#1#2#3#4{\avance{\enonce}{\definexref{#2}{#1~{\the\titreun.\the\enonce}}{}}
+{\definexref{s#2}{{\the\titreun.\the\enonce}}{}}
+ \medbreak
+   \noindent{\bf#1\ {\bf\the\titreun.\the\enonce{#3}.}\enspace}{\sl#4\par}%
+   \ifdim\lastskip<\medskipamount \removelastskip\penalty55\medskip\fi
+}
+
+\long\def\propun#1#2#3#4{\avance{\enonce}{\definexref{#2}{#1~{\the\enonce}}{}}
+{\definexref{s#2}{{\the\enonce}}{}}
+ \medbreak
+   \noindent{\bf#1\ {\bf\the\enonce{#3}.}\enspace}{\sl#4\par}%
+   \ifdim\lastskip<\medskipamount \removelastskip\penalty55\medskip\fi
+}
+
+\long\def\prop#1#2#3#4{\ifnum\optionparag=1
+                        \propdeux{#1}{#2}{#3}{#4} \else\propun{#1}{#2}{#3}{#4}\fi}
+
+
+\long\def\propt#1#2#3{\ifx\tpf\oui \prop{Th\'eo\-r\`eme}{#1}{#2}{#3}\par
+                     \else\prop{Theorem}{#1}{#2}{#3}\par\fi}
+\long\def\Propt#1#2{\propt{#1}{}{#2}}
+\long\def\propl#1#2#3{\ifx\tpf\oui\prop{Lem\-me}{#1}{#2}{#3}\par
+                       \else\prop{Lemma}{#1}{#2}{#3}\par\fi}
+\long\def\Propl#1#2{\propl{#1}{}{#2}}
+\long\def\propc#1#2#3{\ifx\tpf\oui\prop{Corol\-laire}{#1}{#2}{#3}\par
+                       \else\prop{Corollary}{#1}{#2}{#3}\par\fi}
+\long\def\Propc#1#2{\propc{#1}{}{#2}}
+\long\def\propp#1#2#3{\prop{Pro\-po\-si\-tion}{#1}{#2}{#3}\par}
+\long\def\Propp#1#2{\propp{#1}{}{#2}}
+\long\def\propd#1#2#3{\ifx\tpf\oui\prop{D\'efi\-nition}{#1}{#2}{#3}\par
+                     \else\prop{Definition}{#1}{#2}{#3}\par\fi}
+\long\def\Propd#1#2{\propd{#1}{}{#2}}
+
+% Pour une numerotation des enonces et des formules avec un seul nombre
+% coder \optionparag=2
+
+% Choisir numerotation manuelle ou automatique des paragraphes:
+% utiliser \section au lieu de \paraun et choisir \optionparag=2
+% Cela induit aussi une num\'erotation des formules avec un seul nombre
+
+\newcount\optionparag\optionparag=1
+
+\long\def\section#1#2{\ifnum\optionparag=1 \paraun{#2}
+                      \else\goodbreak{\fontetitreun
+                      \Indentation{#1.\ }{#2}}\nobreak\smallskip\fi}
+
+
+\long\def\sectionl{\section}
+
+\def\numauto{\optionparag=1}  % numerotation automatique (par defaut)
+\def\nummanu{\optionparag=2}  % numerotation manuelle
+\def\eqconstruct#1{\ifnum\optionparag=1{\the\titreun\hbox{$\cdot$}#1}\else{#1}\fi}
+
+
+
+%%%%%%% Fin num\'erotation automatique des paragraphes
+
+%% num\'erotation bibliographie
+
+\def\numref{oui}  % numeroter la biblio par defaut avec bibtem
+
+\newcount\mesref\mesref=0
+\def\defbib#1{\ifx\numref\oui\global\advance\mesref by 1 \definexref{#1}{{\the
+               \mesref}}{}\else\definexref{#1}{#1}{}\fi}
+\def\bibtem#1{\defbib{#1}\item{\citer{#1}}}
+\def\citer#1{[\ref{#1}]}
+
+
+
+% FONTES & FAMILLES
+
+\font\seventeenmsa=msam10 at 17pt    % symboles d'AMSTEX
+\font\fourteenmsa=msam10 at 14pt
+\font\twelvemsa=msam10 at 12pt
+\font\tenmsa=msam10
+\font\ninemsa=msam10 at 9pt
+\font\eightmsa=msam10 at 8pt
+\font\sevenmsa=msam7
+\font\sixmsa=msam10 at 6pt
+\font\fivemsa=msam5
+\newfam\msafam\textfont\msafam=\tenmsa\scriptfont\msafam=\sevenmsa\scriptscriptfont\msafam=\fivemsa
+
+\font\seventeenbb=msbm10 at 17pt     % Lettres evidees pour titres
+\font\fourteenbb=msbm10 at 14pt
+\font\twelvebb=msbm10 at 12pt
+\font\tenbb=msbm10                   %Lettres evidees
+\font\ninebb=msbm10 at 9pt
+\font\eightbb=msbm10 at 8pt
+\font\sevenbb=msbm7
+\font\sixbb=msbm10 at 6pt
+\font\fivebb=msbm5
+\newfam\bbfam\textfont\bbfam=\tenbb\scriptfont\bbfam=\sevenbb\scriptscriptfont\bbfam=\fivebb
+\def\bb{\fam\bbfam\tenbb}%
+
+
+\font\seventeenscaln=eusm10 at 17pt   % Lettres de ronde
+\font\twelvescaln=eusm10 at 12pt
+\font\tenscaln=eusm10
+\font\ninescaln=eusm10 scaled 900
+\font\eightscaln=eusm10 scaled 800
+\font\sevenscaln=eusm10 scaled 700
+\font\sixscaln=eusm10 scaled 600
+\font\fivescaln=eusm5
+\newfam\scalnfam\textfont\scalnfam=\tenscaln\scriptfont\scalnfam=\sevenscaln
+\def\scaln{\fam\scalnfam\tenscaln}%
+\def\scal{\scaln}
+
+\font\tenscalb=eusb10                % Lettres de ronde grasses
+\font\ninescalb=eusb10 scaled 900
+\font\eightscalb=eusb10 scaled 800
+\font\sevenscalb=eusb10 scaled 700
+\font\sixscalb=eusb10 scaled 600
+\font\fivescalb=eusb5
+\newfam\scalbfam\textfont\scalbfam=\tenscalb\scriptfont\scalbfam=\sevenscalb
+\def\scalb{\fam\scalbfam\tenscalb}%
+
+%
+% Romain
+%
+\font\fourteenrm=cmr12 scaled 1200
+\font\elevenrm=cmr10 at 11pt
+\font\twelverm=cmr12
+\font\ninerm=cmr9
+\font\eightrm=cmr8
+\font\sevenrm=cmr7
+\font\sixrm=cmr6
+
+
+
+\font\seventeenpcap=cmcsc10 at 17pt
+\font\tenpcap=cmcsc10                        % Petites capitales
+\font\ninepcap=cmcsc9
+\font\eightpcap=cmcsc8
+\font\sevenpcap=cmcsc10 scaled 700
+\font\sixpcap=cmcsc10 scaled 600
+\newfam\pcapfam\textfont\pcapfam=\tenpcap\scriptfont\pcapfam=\sevenpcap
+\def\pcap{\fam\pcapfam\tenpcap}
+
+\font\gras=cmbx10 scaled 1100             % Gras romain (boldface)
+\font\TIT=cmbx12 scaled 1600              % Titres
+\font\seventeenrm=cmbx12 scaled 1400
+\font\chiffre=cmbx10 scaled 1600
+\font\titre=cmbx12 scaled 1200
+\font\pti=cmbx12 scaled 1200
+\font\fourteenbf=cmbx10 scaled 1400
+\font\thirteenbf=cmbx10 at 13pt
+\font\twelvebf=cmbx12
+\font\elevenbf=cmbx10 at 11pt
+\font\ninebf=cmbx9
+\font\eightbf=cmbx8
+\font\sixbf=cmbx6
+
+\font\tengot=eufm10                           % Lettres gothiques
+\font\ninegot=eufm10 at 9pt
+\font\eightgot=eufm10 at 8truept
+\font\sevengot=eufm7
+\font\sixgot=eufm10 at 6 truept
+\font\fivegot=eufm5
+\newfam\gotfam
+\textfont\gotfam=\tengot\scriptfont\gotfam=\sevengot
+\def\got{\fam\gotfam\tengot}%
+
+
+%% Pour les titres (168pt)
+
+\def\tit{%
+\textfont0=\seventeenrm\scriptfont0=\tenrm\def\rm{\fam0\seventeenrm}%
+\textfont1=\seventeenib\scriptfont1=\twelveib%
+\textfont2=\seventeensy\scriptfont2=\twelvesy\scriptscriptfont2=\ninesy
+\textfont3=\seventeenex
+\textfont\itfam=\seventeenti
+\def\it{\fam\itfam\seventeenti}%
+\textfont\bbfam=\seventeenbb \scriptfont\bbfam=\twelvebb
+\def\bb{\fam\bbfam\seventeenbb}%
+\textfont\msafam=\seventeenmsa\scriptfont\msafam=\twelvemsa
+\textfont\scalnfam=\seventeenscaln
+\def\pcap{\fam\pcapfam\seventeenpcap}
+\normalbaselineskip=25pt\normalbaselines\rm}
+
+
+% italiques grasses pour titres
+\font\seventeenti=cmbxti10 scaled 1680
+\font\fourteenti=cmbxti10 at 14pt
+\font\thirteenti=cmbxti10 at 13pt
+\font\twelveti=cmbxti10 scaled 1200
+\font\eleventi=cmbxti10 at 11pt
+\font\tenti=cmbxti10
+\font\nineti=cmbxti10 at 9pt
+
+%
+% italiques
+%
+\font\twelveit=cmti12
+\font\elevenit=cmti10 scaled 1100
+\font\nineit=cmti9
+\font\eightit=cmti8
+\font\sevenit=cmti7
+\font\sixit=cmti10 scaled 600
+\font\fiveit=cmti10 scaled 500
+
+%
+% italique mathematique gras pour titres
+%
+\font\seventeenib=cmmib10 scaled 1680
+\font\fourteenib=cmmib10 scaled 1400
+\font\twelveib=cmmib10 scaled 1200
+\font\elevenib=cmmib10 scaled 1100
+\font\tenib=cmmib10
+\font\nineib=cmmib10 scaled 900
+
+
+%
+% italique mathematique
+%
+\font\twelvei=cmmi10 scaled 1200
+\font\eleveni=cmmi10 scaled 1100
+\font\ninei=cmmi9
+\font\eighti=cmmi8
+\font\seveni=cmmi7
+\font\sixi=cmmi6
+
+\font\ninesl=cmsl9                  % slanted
+\font\eightsl=cmsl8
+\font\sevensl=cmsl10 at 7pt
+\font\sixsl=cmsl10 at 6pt
+\font\fivesl=cmsl10 at 5pt
+
+\font\ninett=cmtt9                    % typewriter
+\font\eighttt=cmtt8
+\font\seventt=cmtt10 scaled 700
+\font\sixtt=cmtt10 scaled 550
+\font\fivett=cmtt10 scaled 500
+
+\font\seventeensy=cmsy10 scaled 1680    % symboles pour titres
+\font\fourteensy=cmsy10 scaled 1400
+\font\twelvesy=cmsy10 scaled 1176
+\font\ninesy=cmsy9                      % symboles
+\font\eightsy=cmsy8
+\font\sixsy=cmsy6
+\font\seventeenex=cmex10 at 17pt
+\font\fourteenex=cmex10 at 14pt
+\font\twelveex=cmex10 at 12pt
+\font\nineex=cmex10 at 9pt
+\font\eightex=cmex10 at 8pt
+\font\sevenex=cmex10 at 7pt
+\font\sixex=cmex10 at 6pt
+\font\fiveex=cmex10 at 5pt
+
+ %% Lettres grecques plombees              %% Lettres grecques plombees
+
+\font\fourteengp=cmmi10 at 14pt
+\font\thirteengp=cmmib10 at 13pt
+\font\twelvegp=cmmib10 at 12pt
+\font\elevengp=cmmib10 at 11pt
+\font\tengp=cmmib10
+\font\ninegp=cmmib10 at 9pt
+\font\eightgp=cmmib8
+\font\sevengp=cmmib7
+\font\sixgp=cmmib6
+\font\fivegp=cmmib5
+
+ \def\gphuit{\textfont0=\eightbf\scriptfont0=\sixbf\scriptscriptfont0=\fivebf
+         \textfont1=\eightgp\scriptfont1=\sixgp\scriptscriptfont1=\fivegp}
+ \def\gp{\textfont0=\tenbf\scriptfont0=\sevenbf\scriptscriptfont0=\fivebf
+         \textfont1=\tengp\scriptfont1=\sevengp\scriptscriptfont1=\fivegp}
+\def\gponze{\textfont0=\elevenbf\scriptfont0=\eightbf\scriptscriptfont0=\sixbf
+         \textfont1=\elevengp\scriptfont1=\eightgp\scriptscriptfont1=\sixgp}
+\def\gpdouze{\textfont0=\twelvebf\scriptfont0=\tenbf\scriptscriptfont0=\ninebf
+         \textfont1=\twelvegp\scriptfont1=\tengp\scriptscriptfont1=\ninegp}
+\def\gptreize{\textfont0=\thirteenbf\scriptfont0=\elevenbf\scriptscriptfont0=\tenbf
+         \textfont1=\thirteengp\scriptfont1=\elevengp\scriptscriptfont1=\tengp}
+ \def\gpquatorze{\textfont0=\fourteenbf\scriptfont0=\twelvebf\scriptscriptfont0=\elevenbf
+         \textfont1=\fourteengp\scriptfont1=\twelvegp\scriptscriptfont1=\elevengp}
+
+
+% CARACTERES SPECIAUX
+
+\expandafter\chardef\csname pre amssym.def at\endcsname=\the\catcode`\@
+\catcode`\@=11
+\def\undefine#1{\let#1\undefined}
+\def\newsymbol#1#2#3#4#5{\let\next@\relax
+ \ifnum#2=\@ne\let\next@\msafam@\else
+ \ifnum#2=\tw@\let\next@\bbfam@\fi\fi
+ \mathchardef#1="#3\next@#4#5}
+\def\mathhexbox@#1#2#3{\relax
+ \ifmmode\mathpalette{}{\m@th\mathchar"#1#2#3}%
+ \else\leavevmode\hbox{$\m@th\mathchar"#1#2#3$}\fi}
+\def\hexnumber@#1{\ifcase#1 0\or 1\or 2\or 3\or 4\or 5\or 6\or 7\or 8\or
+ 9\or A\or B\or C\or D\or E\or F\fi}
+
+\def\setboxz@h{\setbox\z@\hbox}
+\def\wdz@{\wd\z@}
+\def\boxz@{\box\z@}
+
+\edef\msafam@{\hexnumber@\msafam}
+\mathchardef\dabar@"0\msafam@39
+
+\edef\bbfam@{\hexnumber@\bbfam}
+\def\widehat#1{\setboxz@h{$\m@th#1$}%
+ \ifdim\wdz@>\tw@ em\mathaccent"0\bbfam@5B{#1}%
+ \else\mathaccent"0362{#1}\fi}
+\def\widetilde#1{\setboxz@h{$\m@th#1$}%
+ \ifdim\wdz@>\tw@ em\mathaccent"0\bbfam@5D{#1}%
+ \else\mathaccent"0365{#1}\fi}
+\newsymbol\leqq 1335          % superieur ou egal(=)
+\newsymbol\leqslant 1336
+\newsymbol\lessgtr 1337       % superieur ou inferieur
+\newsymbol\backprime 1038     % apostrophe de gauche a droite
+\newsymbol\risingdotseq 133A  % egal entre points (bas puis haut)
+\newsymbol\fallingdotseq 133B % egal entre points (haut puis bas)
+\newsymbol\succcurlyeq 133C   % superieur ou egal tordu
+\newsymbol\geqq 133D          % inferieur ou egal(=)
+\newsymbol\geqslant 133E
+\newsymbol\nmid 232D
+\newsymbol\nexists 2040
+\newsymbol\smallsetminus 2272
+\newsymbol\varnothing 203F
+
+\catcode`\@=\active
+
+% typographie francaise ou anglaise
+
+\catcode`\@=11
+
+\newcount\typofr\typofr=1
+
+\catcode`\;=\active
+\def;{\ifnum\typofr=1\relax\ifhmode\ifdim\lastskip>\z@\unskip\fi
+   \kern.2em\fi\string;\else\string;\fi}
+
+\catcode`\:=\active
+\def:{\ifnum\typofr=1\relax\ifhmode\ifdim\lastskip>\z@\unskip\fi
+\penalty\@M\ \fi\string:\else\string:\fi}
+
+\catcode`\!=\active
+\def!{\ifnum\typofr=1\relax\ifhmode\ifdim\lastskip>\z@\unskip\fi
+   \kern.2em\fi\string!\else\string!\fi}
+
+\catcode`\?=\active
+\def?{\ifnum\typofr=1\relax\ifhmode\ifdim\lastskip>\z@\unskip\fi
+   \kern.2em\fi\string?\else\string?\fi}
+
+
+\def\francais{\typofr=1\def\tpf{oui}}
+\def\anglais{\typofr=2\def\tpf{non}}
+\def\oui{oui}
+\francais
+
+\catcode`\@=12
+%\catcode`\@=\active
+
+
+
+% FIN CARACTERES SPECIAUX
+
+
+% MACROS DIVERSES
+
+\def\og{\leavevmode\raise.24ex\hbox{$\scriptscriptstyle\langle\!\langle\>$}}    % guillemets ouvrants
+\def\fg{\leavevmode\raise.24ex\hbox{$\scriptscriptstyle\>\rangle\!\rangle$}}    % guillemets fermants
+\def\chv#1{\left\langle#1\right\rangle}
+\def\d{\,{\rm d}}
+\def\dt{\d t}
+\def\du{\d u}
+\def\dx{\d x}
+\def\dy{\d y}
+\def\z{{\bb Z}}
+\def\r{{\bb R}}
+\def\CC{{\bb C}}
+\def\N{{\bb N}}
+\def\Q{{\bb Q}}
+\def\F{{\bb F}}
+\def\PP{{\bb P}}
+\def\TT{{\bb T}}
+\def\UU{{\bb U}}
+
+\def\A{{\cal A}}
+\def\B{{\cal B}}
+\def\C{{\scaln C}}
+\def\D{{\cal D}}
+\def\E{{\cal E}}
+\def\G{{\cal G}}
+\def\HH{{\cal H}}
+\def\I{{\cal I}}
+\def\J{{\cal J}}
+\def\K{{\cal K}}
+\let\LL=\L
+\def\L{{\cal L}}
+\def\M{{\cal M}}
+\def\n{{\cal N}}
+\def\O{{\cal O}}
+\def\P{{\scaln P}}
+\def\QQ{{\scaln Q}}
+\def\R{{\cal R}}
+\def\s{{\cal S}}
+\def\T{{\cal T}}
+\def\V{{\cal V}}
+\def\W{{\cal W}}
+\def\X{{\cal X}}
+\def\Y{{\cal Y}}
+\def\Z{{\cal Z}}
+\def\f{{\cal F}}
+\def\frac#1#2{{#1\over #2}}
+\def\di#1#2{\sct#1\atop{\sct#2}}
+\def\tri#1#2#3{{\sct#1\atop\sct#2}\atop\sct#3}
+\def\page#1{\rm p.\thinspace#1}
+\def\chapitre#1{\rm chap.\thinspace#1}
+\def\qedbox{$\rlap{$\sqcap$}\sqcup$}           % carr\'e blanc fin de d\'emo
+\def\qed{\nobreak\hfill\penalty250 \hbox{}\nobreak\hfill\qedbox\par\medskip}
+\def\Ssi{si, et seulement si, }
+\def\CN{condition n\'ecessaire}
+\def\cn{\CN}
+\def\CS{condition suffisante}
+\def\CNS{condition n\'ecessaire et suffisante}
+\def\cns{\CNS}
+\def\HR{hypoth\`ese de Riemann}
+\def\sD{s\'erie de Dirichlet}
+\def\sDS{s\'eries de Dirichlet}
+\def\tnp{th\'eo\-r\`eme des nombres premiers}
+\def\TNP{\tnp}
+\def\tan{th\'eorie analytique des nombres}
+\def\TL{transform\'ee de Laplace}
+\def\TF{transform\'ee de Fourier}
+\def\TFs{transform\'ees de Fourier}
+\def\plaf#1{\left\lceil#1\right\rceil}
+\def\planch#1{\left\lfloor#1\right\rfloor}
+\def\§{\S\thinspace}
+
+%SYMBOLES MATHS
+
+\def\e{{\rm e}}
+\def\mod{\mathop{\rm mod}\nolimits}
+\def\md#1#2{\equiv#1\,({\rm mod\,}#2)}
+\def\no#1{\Vert#1\Vert}
+\def\NO#1{\left\Vert#1\right\Vert}
+\def\ddp#1#2{\dsp{\partial#1\over\partial #2}}
+\def\ent#1{\left[#1\right]}
+\def\tdv{\rightarrow}
+\def\ssi{\Leftrightarrow}
+\def\tvi{\tdv +\infty}
+%\def\v{\varepsilon}
+\def\ep{\varepsilon}
+\def\epsilon{\varepsilon}
+\def\om{\omega}
+\def\Om{\Omega}
+%\def\phi{\varphi}           %ol
+\def\theta{\vartheta}
+\def\rho{\varrho}
+\def\dm{{\textstyle{1\over 2}}}
+\def\txt{\textstyle}
+\def\dsp{\displaystyle}
+\def\sct{\scriptstyle}
+\def\nid{\par\noindent{\it D\'emonstration. }}
+\def\pf{\noi{\it Proof. }}
+\def\noi{\noindent}
+\def\rem{\noi{\it Remarque.}\ }
+\def\re{{\Re e\,}}
+\def\im{{\Im m\,}}
+\def\ov{\overline}
+\def\un{\underline}
+\def\sset{\smallsetminus}
+\def\setminus{\sset}
+\def\emptyset{{\varnothing}}
+\def\pl{\partial}
+\def\pp{{\rm pp}}
+\def\det{\mathop{\hbox{\rm d\'et}}\nolimits}
+\def\meas{\mathop{\rm meas}\nolimits}
+\def\dim{\mathop{\rm dim}\nolimits}
+\def\1{{\bf 1}}
+\def\|{\Vert}
+\let\vieuxle=\le
+\let\vieuxge=\ge
+\def\le{\leqslant}\def\leq{\leqslant}
+\def\ge{\geqslant}\def\geq{\geqslant}
+\def\wh{\widehat}
+\def\cf{{cf.}}
+\def\ie{{i.e.\ }}
+\def\eg{{e.g.}}
+
+%% operateurs
+
+\def\card{\mathop{\rm card}\nolimits}
+\def\sh{\mathop{\rm sh}\nolimits}
+\def\th{\mathop{\rm th}\nolimits}
+\def\tg{\mathop{\rm tg}\nolimits}
+\def\arctg{\mathop{\rm Arctg}\nolimits}
+\def\arcsin{\mathop{\rm Arcsin}\nolimits}
+\def\arccos{\mathop{\rm Arccos}\nolimits}
+\def\ch{\mathop{\rm ch}\nolimits}
+\def\li{\mathop{\rm li}\nolimits}
+\def\sgn{\mathop{\rm sgn}\nolimits}
+\def\supp{\mathop{\rm supp}\nolimits}
+\def\grad{\mathop{\rm grad}\nolimits}
+\def\log{\mathop{\rm log}\nolimits}
+\def\ft#1#2{{\txt{#1\over #2}}}
+\def\fs#1#2{\scriptstyle{#1\over #2}}
+%% Grande asterisque operateur
+\font\gm=cmbx10 scaled 2000
+\def\bst{\smash{\atop\hbox{\gm *}}}
+\def\gast#1#2{\mathop{\bst}_{\phantom A \atop{\sct #1}}#2}
+%% Grande asterisque sur la ligne
+\def\glast#1#2{\mathop{\bst}_{\atop\sct #1}#2}
+
+
+
+%fleches
+
+\def\gradv{\mathop{\overrightarrow{\rm grad}}\nolimits}
+\def\vec{\overrightarrow}
+
+
+%% Lettres plombees 'pauvres'
+\def\pmb#1{\setbox0=\hbox{#1}%
+\kern-.025em\copy0\kern-\wd0\kern.05em\copy0\kern-\wd0\kern-.025em\raise .0433em\box0 }
+\def\pd{\pmb{$\delta$}}
+
+
+% NOTES EN BAS DE PAGE
+
+% Pour que les accents se placent correctement en mode math en corps 8 et 6
+\skewchar\eighti='177 \skewchar\sixi='177
+\skewchar\eightsy='60 \skewchar\sixsy='60
+
+\def\eightpoint{%
+\textfont0=\eightrm\scriptfont0=\sixrm\scriptscriptfont0=\fiverm
+\def\rm{\fam0\eightrm}%
+\textfont1=\eighti\scriptfont1=\sixi
+\scriptscriptfont1=\fivei\def\oldstyle{\fam1\seveni}%
+\textfont2=\eightsy\scriptfont2=\sixsy\scriptscriptfont2=\fivesy
+\textfont3=\eightex\scriptfont3=\sixex
+\textfont\itfam=\eightit
+\def\it{\fam\itfam\eightit}%
+\textfont\slfam=\eightsl
+\def\sl{\fam\slfam\eightsl}%
+\textfont\bbfam=\eightbb \scriptfont\bbfam=\sixbb\scriptscriptfont\bbfam=\fivebb
+\def\bb{\fam\bbfam\eightbb}%
+\textfont\msafam=\eightmsa\scriptfont\msafam=\sixmsa
+\textfont\scalnfam=\eightscaln
+\def\scaln{\fam\scalnfam\eightscaln}
+\textfont\ttfam=\eighttt
+\def\tt{\fam\ttfam\eighttt}%
+\textfont\bffam=\eightbf\scriptfont\bffam=\sixbf\scriptscriptfont\bffam=\fivebf
+\def\bf{\fam\bffam\eightbf}%
+\textfont\pcapfam=\eightpcap
+\def\pcap{\fam\pcapfam\eightpcap}
+\abovedisplayskip=2pt plus2pt minus 2pt
+\belowdisplayskip=2pt plus1pt minus 2pt
+\abovedisplayshortskip= 1pt plus 2pt minus 1pt
+\belowdisplayshortskip= 1pt plus 2pt minus 1pt
+\smallskipamount=2pt plus 1pt minus 2pt
+\medskipamount=3pt plus 2pt minus 2pt
+\bigskipamount=7pt plus 3pt minus 3pt
+\setbox\strutbox=\hbox{\vrule height 5pt depth 2pt width 0pt}%
+\normalbaselineskip=9pt\normalbaselines\rm}
+
+
+%\def\note#1#2{\footnote{#1}{\noi\eightpoint #2\vskip-10pt\par}}
+%\def\note#1#2{\hbox{$^{(#1)}$}\footnote{}{\eightpoint$#1.$#2\vskip-10pt\par}}
+\def\pclm#1#2{\noi\bf#1\sl\ #2}
+
+\def\({\left(}
+\def\){\right)}
+
+\def\footnoterule{\kern -2pt\hrule width 7truecm\kern 2.4pt}
+
+%reference croisee a des numeros de notes
+\def\xnotedef#1{\definexref{#1}{\noexpand\number\footnotenumber}{Note}}%
+\def\noteref{\ref}
+
+%Fin des definitions pour les notes en bas de page
+
+% PARAGRAPHES EN NEUF POINTS
+
+\def\ninepoint{%
+\textfont0=\ninerm\scriptfont0=\sixrm\scriptscriptfont0=\fiverm
+\def\rm{\fam0\ninerm}%
+\textfont1=\ninei\scriptfont1=\sixi
+\scriptscriptfont1=\fivei\def\oldstyle{\fam1\ninei}%
+\textfont2=\ninesy\scriptfont2=\sixsy\scriptscriptfont2=\fivesy
+\textfont3=\nineex\scriptfont3=\sixex
+\textfont\itfam=\nineit
+\def\it{\fam\itfam\nineit}%
+\textfont\slfam=\ninesl
+\def\sl{\fam\slfam\ninesl}%
+\textfont\bbfam=\ninebb\scriptfont\bbfam=\sixbb\scriptscriptfont\bbfam=\fivebb
+\def\bb{\fam\bbfam\ninebb}%
+\textfont\msafam=\ninemsa\scriptfont\msafam=\sixmsa\scriptscriptfont\msafam=\fivemsa
+\textfont\scalnfam=\ninescaln
+\def\scaln{\fam\scalnfam\ninescaln}
+\textfont\ttfam=\ninett
+\def\tt{\fam\ttfam\ninett}%
+\textfont\bffam=\ninebf\scriptfont\bffam=\sixbf\scriptscriptfont\bffam=\fivebf
+\def\bf{\fam\bffam\ninebf}%
+\abovedisplayskip=3pt plus2pt minus 2pt
+\belowdisplayskip=3pt plus1pt minus 2pt
+\abovedisplayshortskip= 2pt plus 2pt minus 1pt
+\belowdisplayshortskip= 2pt plus 2pt minus 1pt
+\smallskipamount=2pt plus 1pt minus 2pt
+\medskipamount=3pt plus 2pt minus 2pt
+\bigskipamount=7pt plus 3pt minus 3pt
+\setbox\strutbox=\hbox{\vrule height 5pt depth 2pt width 0pt}%
+\normalbaselineskip=10.5pt plus.3pt minus.3pt\normalbaselines\rm}
+
+\def\neufpts#1{{\ninepoint#1}\par}
+
+\def\sevenpoint{%
+\textfont0=\sevenrm\scriptfont0=\sixrm\scriptscriptfont0=\fiverm
+\def\rm{\fam0\sevenrm}%
+\textfont1=\seveni\scriptfont1=\sixi
+\scriptscriptfont1=\fivei\def\oldstyle{\fam1\seveni}%
+\textfont2=\sevensy\scriptfont2=\sixsy\scriptscriptfont2=\fivesy
+\textfont3=\sevenex\scriptfont3=\fiveex
+\textfont\itfam=\sevenit
+\def\it{\fam\itfam\sevenit}%
+\textfont\slfam=\sevensl
+\def\sl{\fam\slfam\sevensl}%
+\textfont\bbfam=\sevenbb \scriptfont\bbfam=\sixbb\scriptscriptfont\bbfam=\fivebb
+\def\bb{\fam\bbfam\sevenbb}%
+\textfont\msafam=\sevenmsa\scriptfont\msafam=\sixmsa
+\textfont\scalnfam=\sevenscaln
+\def\scaln{\fam\scalnfam\sevenscaln}
+\textfont\bffam=\sevenbf\scriptfont\bffam=\sixbf\scriptscriptfont\bffam=\fivebf
+\def\bf{\fam\bffam\sevenbf}%
+\textfont\ttfam=\seventt
+\abovedisplayskip=2pt plus2pt minus 2pt
+\belowdisplayskip=2pt plus1pt minus 2pt
+\abovedisplayshortskip= 1pt plus 2pt minus 1pt
+\belowdisplayshortskip= 1pt plus 2pt minus 1pt
+\smallskipamount=2pt plus 1pt minus 2pt
+\medskipamount=3pt plus 2pt minus 2pt
+\bigskipamount=7pt plus 3pt minus 3pt
+\setbox\strutbox=\hbox{\vrule height 5pt depth 2pt width 0pt}%
+\normalbaselineskip=9pt\normalbaselines\rm}
+
+ \def\onzepts{%
+ \textfont0=\elevenrm\scriptfont0=\ninerm
+ \textfont1=\elevenib\scriptfont1=\ninei}
+
+\def\douzepts{%
+\textfont0=\twelverm\scriptfont0=\tenrm\def\rm{\fam0\twelverm}%
+\textfont1=\twelveib\scriptfont1=\teni%
+\textfont2=\twelvesy\scriptfont2=\tensy\scriptscriptfont2=\eightsy
+\textfont3=\twelveex
+\textfont\itfam=\twelveti
+\def\it{\fam\itfam\twelveti}%
+\textfont\bffam=\twelvebf\scriptfont\bffam=\tenbf\scriptscriptfont\bffam=\eightbf
+\def\bf{\fam\bffam\twelvebf}%
+\textfont\bbfam=\twelvebb \scriptfont\bbfam=\tenbb
+\def\bb{\fam\bbfam\twelvebb}%
+\textfont\msafam=\twelvemsa\scriptfont\msafam=\tenmsa
+\textfont\scalnfam=\twelvescaln
+\normalbaselineskip=15pt\normalbaselines\rm}
+
+\def\quatorzepts{%
+\textfont0=\fourteenrm\scriptfont0=\twelverm\def\rm{\fam0\fourteenrm}%
+\textfont1=\fourteenib\scriptfont1=\twelveib%
+\textfont2=\fourteensy\scriptfont2=\twelvesy\scriptscriptfont2=\tensy
+\textfont3=\fourteenex
+\textfont\itfam=\fourteenti
+\def\it{\fam\itfam\fourteenti}%
+\textfont\bffam=\fourteenbf\scriptfont\bffam=\twelvebf\scriptscriptfont\bffam=\tenbf
+\def\bf{\fam\bffam\fourteenbf}%
+\textfont\bbfam=\fourteenbb \scriptfont\bbfam=\twelvebb
+\def\bb{\fam\bbfam\fourteenbb}%
+\textfont\msafam=\fourteenmsa\scriptfont\msafam=\twelvemsa
+\textfont\scalnfam=\twelvescaln
+\normalbaselineskip=18pt\normalbaselines\rm}
+
+
+% Bibliographies, journaux
+
+\def\AA{{\it Acta Arith.}}
+\def\BSMF{{\it Bull. Soc. Math. France}}
+\def\Crelle{{\it J. reine angew. Math.}}
+\def\JLMS{{\it J. London Math. Soc.}}
+\def\JNT{{\it J. number theory}}
+\def\PAMS{{\it Proc. Amer. Math. Soc.}}
+\def\PLMS{{\it Proc. London Math. Soc.}}
+\def\TAMS{{\it Trans. Amer. Math. Soc.}}
+
+
+%Insertion de figures et illustrations
+\def\picture #1 by #2 (#3){\leavevmode\vbox to #2{
+   \hrule width #1 height 0pt depth 0pt
+    \vfill
+     \special{picture #3}}}

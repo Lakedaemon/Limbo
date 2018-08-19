@@ -1,0 +1,450 @@
+%\def\Variables{MathsVariables}% 
+\catcode`@=11\relax
+\def\Api{Mathematicon@Api}%
+\let\LD@Par\par
+%%%% Newif  
+%\def\@firstofone#1{#1}
+\long\def\IGNORE#1\IGNORE{}%
+\newif\ifexonumber
+%%%% Switches
+\exonumberfalse
+\catcode`@=11\relax
+\input LD@Header.tex
+\input LD@Library.tex
+\input LD@Typesetting.tex
+
+%%%% Newif
+
+\newif\ifexonumber
+
+%%%% Switches
+\exonumberfalse
+
+%\input Preprocessing.tex
+
+%\transparent
+%\nomorecolors
+
+\vglue-10mm\rightline{PT\hfill Correction du DS 1 \hfill \date}
+\bigskip
+\medskip
+
+\bigskip
+
+\noindent{\bf Probl\`eme 1 \it(Mines D'Albi, Al\`es, Douai, Nantes 98).}
+\medskip
+\noindent
+
+
+
+
+
+
+{\bf 1-} 
+$\det(S)=4\neq0$. Donc $S$ est inversible, et alors $s$ est un 
+automorphisme de ${\ob R}^3$.
+  
+{\bf 2-}
+
+{\bf a-}
+
+Le d\'eterminant de $(e'_1,e'_2,e'_3)$ dans la base canonique est \'egale \`a $6\neq0$.
+Donc $(e'_1,e'_2,e'_3)$ est une base de ${\ob R}^3$.
+
+{\bf b-}
+On v\'erifie que $\cases{
+   s(e'_1)=e'_1     &     \cr
+    s(e'_2)=2e'_2     &     \cr
+    s(e'_3)=2e'_3    &     \cr}$
+donc $S'=\pmatrix{
+    1    & 0   & 0     \cr
+     0   &   2 &   0     \cr
+        0&    0&    2    \cr}$
+Si $P_1$ est la matrice de passage de la base canonique \`a la base $(e'_1,e'_2,e'_3)$
+ on a $S'=(P_1)^{-1}SP_1$ 
+
+{\bf c-}
+Par r\'ecurrence on a:$$\forall n \in{\ob N} \qquad (S')^n=\pmatrix{
+    1    & 0   & 0     \cr
+     0   &   2^n &   0     \cr
+        0&    0&    2^n    \cr}$$ et on a aussi $S^n=P_1(S'^n)(P_1)^{-1}$ 
+
+
+{\bf 3-} 
+
+{\bf a-} La matrice $S$ n'est pas scalaire donc $(I_3,S)$ est libre.
+
+
+{\bf b-}  On trouve (par calcul) $S^2=-2I_3+3S$.
+
+
+
+{\bf c-} 
+On fait une r\'ecurrence sur $n$:
+
+$\bullet$ $S^0=I_3=a_0I_3+b_0S $ avec $(a_0=1,b_0=0)$
+
+$\bullet$ Hypoth\`ese de r\'ecurrence : $\exists(a_n,b_n)\in {\ob R}^2, S^n=a_nI_3+b_nS$
+
+Alors $S^{n+1}=S^nS=a_nS+b_nS^2=-2b_nI_3+(a_n+3b_n)S$; la propri\'et\'e est donc v\'erifi\'ee
+au rang $n+1$ en posant 
+$\cases{
+     a_{n+1}=-2b_n     &     \cr
+   b_{n+1}=a_n+3b_n    &     \cr}$
+
+
+{\bf d-}
+On a bien les r\'esultats voulus avec
+$(a_0=1,b_0=0)$ et $\cases{
+     a_{n+1}=-2b_n     &     \cr
+   b_{n+1}=a_n+3b_n    &     \cr}$ et alors $(a_1=0,b_1=1)$
+
+
+{\bf e-}
+$ \forall n\in{\ob N}, a_{n+1}+ b_{n+1}=-2b_n+a_n+3b_n= a_n+b_n$ donc la suite
+$( a_n+b_n)_n $ est constante.
+Et comme  $a_0+b_0=1$ on a $ \forall n\in{\ob N}, a_n+b_n=1$.
+
+De m\^eme 
+$ \forall n\in{\ob N}, b_{n+1}+1=a_n+3b_n+1= a_n+b_n+2b_n+1=2(b_n+1)$.
+
+La suite $ (b_n+1)_n$ est alors g\'eom\'etrique de raison $2$ et de premier terme $b_0+1=1$
+d'o\`u $ \forall n\in{\ob N},  b_n+1=2^n$.
+
+
+{\bf f-}
+D'apr\`es les questions pr\'ec\'edentes on a:
+$ \forall n\in{\ob N} \cases{
+     a_n=2-2^n     &     \cr
+   b_n=2^n-1    &     \cr}$ 
+
+{\bf 4-}
+
+{\bf a-} 
+On a $B=-{1\F3}\pmatrix{
+    1    & 1   & 1     \cr
+     1   &   1 &   1     \cr
+        1&    1&    1    \cr}$
+D'o\`u $B^2=-B$  et alors $ \forall n\in{\ob N}^*$   $ B^n=(-1)^{n+1}B$ avec $B^0=I_3$
+
+{\bf b-}
+On a d'apr\`es le bin\^ome de Newton (comme $2I_3$ et $B$ commutent):
+$S^n=(2I_3+B)^n=\sum_{k=0}^nC_n^kB^k(2I_3)^{n-k}
+=2^nI_3+(\sum_{k=1}^nC_n^k2^{n-k}(-1)^{k+1} )B
+=2^nI_3+(2^n-\sum_{k=1}^nC_n^k2^{n-k}(-1)^{k} )B=2^nI_3+(2^n-(2-1)^n)B$
+
+D'o\`u $S^n=2^nI_3+(2^n-1)B$.
+
+{\bf c-} 
+On remplace $B$ par $S-2I_3$: $S^n=(2^n-1)S+(2-2^n)I_3$.
+
+{\bf 5-} 
+
+$S$ est inversible. Et de $S^2=-2I_3+3S$ on sort l'inverse de $S$:
+ 
+$$S^{-1}={3\F2}I_3-{1\F2}S.$$
+Par r\'ecurrence on a : $ \forall n\in{\ob Z} $,  $ S^n=(2^n-1)S+(2-2^n)I_3$.
+
+
+
+$\underline{\hbox{Seconde partie}}$
+
+
+{\bf 1-}
+On a: $$U=\pmatrix{
+    0    & 0   & 1     \cr
+     1   &   0 &   0     \cr
+        0&    1&    0    \cr}$$
+$U$ est une matrice orthogonale de d\'eterminant \'egal \`a $1$ , 
+donc $u$ est une rotation vectorielle; $u\circ s=f\circ s^{-1}\circ s=f$
+et de $SU=A$ on d\'eduit $s\circ u=f$.
+
+
+
+{\bf 2-}
+
+{\bf a-}
+Comme la base $(e'_1,e'_2,e'_3)$ est une base directe 
+(Det, dans la base can, est positif) on a la base $(e''_1,e''_2,e''_3)$ 
+est directe.
+De plus les vecteurs sont unitaires et deux \`a deux orthogonaux.
+
+
+{\bf b-}
+On a $\cases{
+   u(e''_1)=e''_1     &     \cr
+    u(e''_2)={1\F2}(-e''_2+\sqrt{3}e''_3)     &     \cr
+    u(e''_3)=-{1\F2}(\sqrt{3}e''_2+e''_3)   &     \cr}$
+d'o\`u  $U'=\pmatrix{
+    1    &   0   & 0     \cr
+     0   &   -{1\F2} &   -{\sqrt{3}\F2}      \cr
+     0   & {\sqrt{3}\F2}   &    -{1\F2}    \cr}$
+
+$u$ est la rotation vectorielle d'axe dirig\'e et orient\'e par $e''_1$ et 
+d'angle
+de mesure ${2\pi\F3}$.
+
+
+{\bf 3-}
+
+
+{\bf a-}
+Les vecteurs $e'_1$, $e'_2$ et $e'_3)$ sont colin\'eaires respectivement \`a
+ $e''_1$, $e''_2$ et $e''_3)$.
+Donc la matrice de $s$ dans la base  $(e''_1,e''_2,e''_3)$  est $S'$.
+
+{\bf b-}
+La matrice de $f$ dans la base $(e''_1,e''_2,e''_3)$ est, ($U'S'=S'U'$),
+$\pmatrix{
+    1    &   0   & 0     \cr
+     0   &   -1 &   -\sqrt{3}      \cr
+     0   & \sqrt{3}   &    -1    \cr}$
+
+
+{\bf 4-}
+
+
+{\bf a-}
+Le vecteur $xe''_1+ye''_2+ze''_3)$ est invariant par $f$ SSI $y=z=0$.
+
+
+L'ensemble des vecteurs invariants par $f$ est ${\ob R} e''_1$.
+
+
+{\bf b-}
+i) $(f(e''_2),f(e''_3))\in (Vect(e''_2,e''_3))^2$ donc $f(P)\subset P$.
+Comme $f$ est inversible, on a $dim(f(P))=dim(P)$ d'o\`u $f(P)= P$.
+
+ii) $g$ a pour matrice dans la base $(e''_2,e''_3)$ :  
+$\pmatrix{
+    -1    &  -\sqrt{3}       \cr
+     \sqrt{3}   &   -1 &         \cr}=2\pmatrix{
+    -1/2    &  -\sqrt{3}/2       \cr
+     \sqrt{3}/2   &   -1/2 &         \cr}$
+
+Ainsi $g$ est la compos\'ee de l'homoth\'etie de rapport $2$ et de la rotation
+d'angle de mesure ${2\pi\F3}$.
+
+
+{\bf 5-}
+
+
+{\bf a-}
+${\cal C}(f) \subset {\cal L}({\ob R}^3)$ est une sous-alg\`ebre (v\'erification directe).
+
+{\bf b-}
+i) On a: $f(g(e''_1))=(f\circ g)(e''_1))=(g\circ f)(e''_1))=g( f(e''_1))=g( e''_1)$
+car $e''_1$ est invariant par $f$ et par suite on a : $g( e''_1)$ est invariant par $f$.
+D'apr\`es 4)a)  $g( e''_1)$ est colin\'eaire \`a $ e''_1$.
+
+ii) $g$ commute avec $f$, ($M$ commute avec $A'$, donc commute avec $(A')^3=(S')^3$).
+$M$ commute avec $(S')^3$.
+
+iii) $M$ est de la forme  
+$$\pmatrix{
+    m_{1,1}    &  m_{1,2}   &  m_{1,3}    \cr
+     0   &  m_{2,2} &   m_{2,3}      \cr
+     0   & m_{3,2}   &    m_{3,3}    \cr}$$  d'apr\`es (i).
+
+Alors $$M(S')^3=\pmatrix{
+    m_{1,1}    &  8m_{1,2}   & 8 m_{1,3}    \cr
+     0   &  8m_{2,2} &   8m_{2,3}      \cr
+     0   & 8m_{3,2}   &    8m_{3,3}    \cr}$$
+
+et 
+$$(S')^3M=\pmatrix{
+    m_{1,1}    &  m_{1,2}   &  m_{1,3}    \cr
+     0   &  8m_{2,2} &   8m_{2,3}      \cr
+     0   & 8m_{3,2}   &    8m_{3,3}    \cr}$$
+
+donc , pour que $M$ et $A'$ commutent, il faut $m_{1,2}  =  m_{1,3}=0$.
+
+R\'eciproquement si $$M=\pmatrix{
+    m_{1,1}    &  0   &  0    \cr
+     0   &  m_{2,2} &   m_{2,3}      \cr
+     0   & m_{3,2}   &    m_{3,3}    \cr}$$
+
+on bien $MA'=A'M$
+
+$g$ commute avec $f$ SSI sa matrice dans la base  $(e''_1,e''_2,e''_3)$ est de la forme
+ $$\pmatrix{
+    a    &  0   &  0    \cr
+     0   &  b &   -g      \cr
+     0   & g  &    b   \cr}$$
+
+avec $(a,b,g)\in{\ob R}^3$.
+
+{\bf c-}
+${\cal C}(f)$ est de dimension trois engendr\'ee par :
+$$\pmatrix{
+    1    &  0   &  0    \cr
+     0   &  0 &   0      \cr
+     0   & 0  &    0   \cr},
+\pmatrix{
+    0    &  0   &  0    \cr
+     0   &  1 &   0      \cr
+     0   & 0  &   1  \cr},
+\pmatrix{
+    0    &  0   &  0    \cr
+     0   &  0 &   -1      \cr
+     0   & 1  &    0   \cr}.$$
+
+
+\bigskip
+
+
+
+
+
+
+\noindent{\bf Probl\`eme 2 \it(ENSAE).}
+\medskip
+\noindent $\sc M_2(\ob R)$ d\'esigne l'espace vectoriel des matrices carr\'ees de taille $2$ \`a coefficients r\'eels. \pn
+Pour $(a,b)\in\ob R^2$, on pose 
+$$
+M(a,b):=\pmatrix{a&-b\cr b&a}.
+$$
+1.a. $\sc C$ est un EV (facile) de dimension 2 et de base $\Q\{\pmatrix{1&0\cr0&1}, \pmatrix{0&1\cr1&0}\W\}$. \medskip\noindent
+1.b. facile..Recurrence sur $k\ge0$ pour $\Phi(z^k)$. Si $k<0$ et $z\neq0$, c'est verai \'egalement. 
+\medskip\noindent
+2 $\Phi$ est un isomorphisme de $\ob R$-alg\`ebre, {\bf de corps}, d'anneaux, {\bf de $\ob R$-espaces vectoriels},..je vous \'epargne les groupes, les plus importants sont en gras. 
+En fait l'application $\Phi$ identifie le corps $\ob C$ avec un corps $\sc C$ fabriqu\'e \`a partir de matrices et des op\'erations matricielles.  
+\medskip\noindent
+2. a $A(\theta)^k=A(k\theta)$..$A(\theta)$ est une matrice de rotation vectorielle d'angle $\theta$...C'est encore valable pour $k<0$ car 
+$$
+A(-\theta)=A(\theta)^{-1}.
+$$
+2.b Prendre la matrice 
+$$
+M={1\F \root p\of 2}M\Q({\pi\F p}\W).
+$$
+\medskip\noindent
+3) A l'oeil nu, on remarque que $P=1$et $P=3X+X^3$ sont solutions \'evidentes. Il n'est pas trop dur de prouver que le noyau est de dimension $2$ (cf equations diff\'erentielles, ou \'etude du degr\'e, ou r\'esolution directe) de sorte que 
+$$
+\ker f=\mbox{Vect}(1, 3X+X^3). 
+$$
+4) Les valeurs propres sont $k^2-3k$ pour $0\le k\le n$. Autrement dit $0$ de multiplicit\'e $2$, $-2$ de multiplicit\'e $2$ et $k^2-3k$ pour $4\le k\le n$ de multiplicit\'e $1$. 
+\medskip\noindent
+5) oui, on peut (diagonaliser $f_n$) car 
+$$
+\ker(f+2\hbox{Id}_E)=\mbox{Vec}(X, X^2-1).
+$$
+\medskip
+6) On peut utiliser des matrices, diagonaliser la matrice de $f_n$ et r\'esoudre l'\'equation matricielle (on peut aussi traiter la question en restant dans le monde des EV sans probl\`eme mais pour cela, il faut d'abord trouver une base de vecteurs propres de $\ob R_n[X]$, ce qui est fait dans les questions pr\'ec\'edentes). 
+ \bigskip
+\noindent{\bf Exercices ind\'ependants\it(Mines-Ponts).}\bigskip
+\noindent
+{\bf Exercice A)} 
+\noindent
+1) Pour $k\ge0$, on a $\ker f^k\subset \ker f^{k+1}$ car
+$$
+x\in\ker f^k\Rightarrow f^k(x)=0\Rightarrow f^{k+1}(x)=f(f^k(x))=0\Rightarrow x\in\ker f^{k+1}
+$$
+2) Pour $k\ge p$, prouvons la proposition
+$$
+\ker f^k=\ker f^{k+1}\leqno{(\sc P_k)}
+$$ 
+$\sc P_p$ est vraie par hypoth\`ese. Si $\sc P_kk$ est vraie pour un entier $k\ge p$, alors on dispose des \'equivalences :
+$$
+x\in\ker f^{k+2}\Leftrightarrow f(x)\in ker f^{k+1}\Leftrightarrow f(x)\in ker f^k\Leftrightarrow x\in ker f^{k+1}
+$$ 
+qui entrainent que $\sc P_{k+1}$ est vraie. Ainsi par r\'ecurrence, $\ker f^k=\ker f^{k+1}$ pour tout $k\ge p$.\medskip\noindent
+3) $d_k=\dim\ker f^k$ est une suite croissante major\'ee (par $n$) d'entiers naturels donc elle est  constante \`a partir d'un certain rang $p$ et 
+elle est  strictement croissante jusqu'\`a ce rang (par contraposition du r\'esultat pr\'ec\'edent) donc 
+$$
+\forall k\le p,\quad k\le d_k\le n.
+$$ 
+Ainsi $p\le d_p\le  n$ et en particulier $d_n=d_{n+1}$et par cons\'equent 
+$$
+\ker f^n=\ker f^{n+1}
+$$ d'apr\`es l'inclusion $\ker f^n\subset\ker f^{n+1}$ et \'egalit\'e des dimensions.
+\medskip\noindent
+4) Si $u^q=0$ alors $\ker(u^q)=0$ d'o\`u $d_q=n$. Comme la limite de $(d_k)_{k\ge0}$ est $n$ det comme cette suite est constante (au moins) \`a partir du rang $n$, on a $d_n=n$ d'o\`u $u^n=0$. 
+Au pire, on peut donc prendre $s=n$. \medskip\noindent
+
+\bigskip
+\noindent
+{\bf Exercice B)}1)  $f$ et $g$ commuttent entre eux car $g=f^2-\lambda\mbox{Id}_E$ et donc 
+$$
+f\circ g=f\circ(f^2-\lambda\mbox{Id}_E)=f^3-\lambda f=(f^2-\lambda\mbox{Id}_E)\circ f=g\circ f. 
+$$
+2) $f$ commute avec $g$ donc $\forall k\ge0, f^k$ commute avec $g$. 
+En effet, on a 
+$$
+f^k\circ g=f^{k-1}\circ g\circ f=f^{k-2}\circ g\circ f^2=\cdots=g\circ f^k.
+$$
+A fortiori, $P(f)$ commute avec $g$ car
+$$
+\eqalign{
+P(f)\circ g&=\Q(\sum_{0\le k\le n}a_kf^k\W)\circ g=\sum_{0\le k\le n}a_kf^k\circ g=\sum_{0\le k\le n}a_kg\circ f^k=g\circ \sum_{0\le k\le n}a_kf^k\cr &=g\circ P(f).}
+$$
+En r\'eappliquant cette propri\'et\'e \`a $\tilde g=P(f)$ et $\tilde f=g$ qui commuttent, on en d\'eduit que $Q(\tilde f)=Q(g)$ commutte avec $\tilde g=P(f)$. 
+\medskip\noindent
+3) Soit $x\in F_\lambda$. Alors,on a $(f-\lambda\Id_E)(x)=0$ d'o\`u 
+$$
+(f-\lambda\Id_E)\Q(g(x)\W)=(f-\lambda\Id_E)\circ (x)=g\circ (f-\lambda\Id_E)(x)=g(0)=0
+$$
+A fortiori, le vecteur $g(x)$ appartient au noyau $F_\lambda=\ker(f-\lambda\mbox{Id}_E)$. Et on a donc 
+$$
+g(F_\lambda)\subset F_\lambda. 
+$$
+\bye
+
+
+1.  i) Comme $0\le \dim(\IM(u)\cap\ker(u))\le \dim\IM(u)=\mbox{rang}(u)=1$, les deux seules possibilit\'es sont  :\pn
+soit $\dim(\IM(u)\cap\ker(u))=1$ ce qui implique que $ \IM(u)\cap\ker(u)=\IM(u)$ et par suite que $\IM(u)\subset\ker(u)$. \pn
+soit $\dim(\IM(u)\cap\ker(u))=0$ auquel cas $\IM(u)\cap\ker(u)=\{0\}$. 
+\medskip
+ii) A l'aide du th\'eor\`eme de la base incompl\`ete, on compl\`ete la famille libre $\{e\}$ \`a l'aide de vecteurs de la famille $\{x\}_{x\in E}$, qui est g\'en\'eratrice, pour former une base de $E$ dont le premier vecteur est $e$. \medskip\noindent
+Dans le cas o\`u $\IM(u)\subset\ker(u)$, la matrice de $u$ est de la forme
+$$
+\pmatrix{0 &\alpha_2&\cdots&\alpha_n\cr 0&0&\cdots&0\cr
+\cr 0&0&\cdots&0 }\leqno{*)}
+$$
+La trace de cette matrice est nulle. 
+\medskip\noindent
+iii) Si $\IM(u)\cap\ker(u)=\{0\}$, la matrice de $u$ dans la base $B$ constitu\'e du vecteur $e$ compl\'et\'e par une base de $\ker u$  est de la forme
+$$
+\pmatrix{\alpha&0&\cdots&0\cr 0&0&\cdots&0\cr
+\cr 0&0&\cdots&0 }\leqno{**)}
+$$
+avec $u(e)=\alpha e$. Autrement dit, elle est diagonale. Comme $e\neq0$ et $\IM(u)\cap\ker(u)=\{0\}$, on a $u(e)\neq0$ d'o\`u $\mbox{Tr}(u)=\alpha \neq0$. \medskip
+Si $\mbox{Tr}(u)\neq0$, on est forc\'ement dans le cas $\IM(u)\cap\ker(u)=\{0\}$ et du coup la matrice est diagonale. 
+Enfin, si la matrice de $u$ est diagonale...comme elle ne peut \^etre que de la forme *) ou **) et que la matrice de $u$ ne peut pas \^etre nulle (car $u$ est de rang $1$), la matrice de $u$ est du type **) pour un $\alpha\neq0$ et donc $\IM(u)\cap\ker(u)=\{0\}$. 
+\medskip\noindent
+2.I) facile. \medskip\noindent
+2.ii) facile si on ne s'emmele pas les p\'edales : $F$ est bien une application d'apr\`es la question pr\'ec\'edente, entre deux EV. De plus, pour $(\lambda,\mu)\in\ob C^2$ et $(A,B)\in\sc M_n(\ob C)^2$, montrons que  
+$$
+F_{\lambda A+\mu B}=\lambda F_A+\mu F_B,
+$$
+c'est \`a dire que (identit\'e fonctionnelle) 
+$$
+\forall X\in\sc M_n(\ob C), \qquad F_{\lambda A+\mu B}(X)=\lambda F_A(X)+\mu F_B(X)
+$$
+Maintenant qu'on sait ce qu'il y \`a faire, c'est \'evident..je vous le laisse. 
+\medskip
+\noindent
+iii) On a 
+$$
+F_A(E_{i,j})=\mbox{Tr}(AE_{i,j})=\mbox{Tr}\pmatrix{0&\cdots&0&a_{1, i}&0&\cdots&0\cr 0&\cdots&0&a_{2, i}&0&\cdots&0\cr \cr0&\cdots&0&a_{j, i}&0&\cdots&0\cr\cr 0&\cdots&0&a_{n, i}&0&\cdots&0\cr }=a_{j,i}
+$$
+car le seul coefficient diagonal non nul se trouve sur la $j^\ieme$ ligne et $j^\ieme$ colonne, c'est $a_{j,i}$. 
+\medskip\noindent
+La seule matrice pour laquelle l'application $F_A$ est identiquement nulle est la matrice $A=0$ d'apr\`es la question pr\'ec\'edente. D'o\`u $\ker F=\{0\}$ et donc $F$ est injective. 
+\medskip\noindent
+iv) Comme $\dim_{\ob C}\sc M_n(\ob C)=\dim_{\ob R}\sc L(\sc M_n(\ob C),\ob C)=\dim_{\ob C}\sc M_n(\ob C)^*$, et comme l'application $F$ est injective, elle est bijective. C'est un isomorphisme. 
+\medskip\noindent
+3) Facile. 
+\medskip
+i) $F$ est un isomorphisme et $f\in\sc M_n(\ob C)^*$. Il suffit de prendre $A=F^{-1}(f)$ pour avoir $F_A=f$, c'est \`a dire (identit\'e fonctionnelle) 
+$$
+\forall X\in\sc M_n(\ob C), \qquad \mbox{Tr}(AX)=F_A(X)=f(x).
+$$
+ii) $\ker\psi(f)=\ker f$ (facile). L'image de $\IM(\psi_f)=\mbox{Vect}(J)$ qui est de dimension $1$. 
+\medskip\noindent
+iii) $\psi_f$ est une forme lin\'eaire non nulle. On peut appliquer ce qu'on a appris sur ce type de fonctions dans ce devoir. Et donc : \medskip\noindent
+Soit $f(J)=0$ auquel cas, $\psi_f(J)=0$ d'o\`u $\IM(\psi_f)\subset\ker\psi_f$ et alors $$\mbox{Tr}(\psi_f)=0=f(J)=\mbox{Tr}(AJ).$$
+Soit $f(J)\neq0$ auquel cas, $\psi_f(J)=f(J)J\neq0$ et alors on est dans l'autre cas et  $$\mbox{Tr}(\psi_f)=f(J)=\mbox{Tr}(AJ).$$
+En fait, dans les deux cas, on a $\mbox{Tr}(\psi_f)=f(J)=\mbox{Tr}(AJ)$. \medskip\noindent
+iv) la condition n\'ecessaire pour \^etre diagonalisable est que $\mbox{Tr}(AJ)\neq0$.
+\bigski

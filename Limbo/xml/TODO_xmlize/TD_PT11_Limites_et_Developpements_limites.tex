@@ -1,0 +1,196 @@
+%\def\Variables{MathsVariables}%
+\catcode`@=11\relax
+\def\Api{Mathematicon@Api}%
+%%%% Newif
+%\def\@firstofone#1{#1}
+
+\newif\ifexonumber
+%%%% Switches
+\exonumberfalse
+\catcode`@=11\relax
+\input LD@Anki.tex
+\input LD@Library.tex
+\input LD@Typesetting.tex
+\input LD@Exercices.tex
+\def\LD@Exercice@Display@Code{\eightpts}%
+% debug tikz
+\let\@firstofone\pgfutil@firstofone
+\let\@ifnextchar\pgfutil@ifnextchar
+
+\olspept
+\DefineRGBcolor F0F9E3=VLGreen.
+\DefineRGBcolor E5F9D1=LGreen.
+\DefineRGBcolor DAF9BE=TGreen.
+\DefineRGBcolor 5DA93B=Green.
+\DefineRGBcolor F6DCCA=VLRed.
+\DefineRGBcolor F6D4BD=LRed.
+\DefineRGBcolor DAF9BE=TRed.
+\DefineRGBcolor B5F9A1=TTRed.
+\DefineRGBcolor F6B080=Red.
+\DefineRGBcolor F9F5E3=VLOrange.
+\DefineRGBcolor F9F5D0=LOrange.
+\DefineRGBcolor DAF9BE=TOrange.
+\DefineRGBcolor B5F9A1=TTOrange.
+\DefineRGBcolor D7A93B=Orange.
+\DefineRGBcolor EEEEEE=VLBlack.
+\DefineRGBcolor DDDDDD=LBlack.
+\DefineRGBcolor CCCCCC=TBlack.
+\DefineRGBcolor B5F9A1=TTBlack.
+\DefineRGBcolor 000000=Black.
+
+\def\transparent{%
+	\CS long\EC\def\Demonstration##1\CQFD{}%
+}%
+%\transparent
+\def\Students{%
+	\DefineRGBcolor FFFFFF=VLGreen.
+	\DefineRGBcolor FFFFFF=LGreen.
+	\DefineRGBcolor FFFFFF=TGreen.
+	\DefineRGBcolor 000000=Green.
+	\DefineRGBcolor FFFFFF=VLRed.
+	\DefineRGBcolor FFFFFF=LRed.
+	\DefineRGBcolor FFFFFF=TRed.
+	\DefineRGBcolor FFFFFF=TTRed.
+	\DefineRGBcolor 000000=Red.
+	\DefineRGBcolor FFFFFF=VLOrange.
+	\DefineRGBcolor FFFFFF=LOrange.
+	\DefineRGBcolor FFFFFF=TOrange.
+	\DefineRGBcolor FFFFFF=TTOrange.
+	\DefineRGBcolor 000000=Orange.
+	\DefineRGBcolor FFFFFFF=VLBlack.
+	\DefineRGBcolor FFFFFF=LBlack.
+	\DefineRGBcolor FFFFFF=TBlack.
+	\DefineRGBcolor FFFFFF=TTBlack.
+	\DefineRGBcolor 000000=Black.
+}
+\Students
+\def\red{}
+\def\blue{}
+\def\Red#1{#1}%%%% Fix this !
+\def\Blue#1{#1}%
+\def\Font #1@#2pt{\font\olbi=cmr10\olbi}
+\font\SvgText=cmr10\relax
+%
+%
+%\catcode`@=11\relax
+%\def\Api{Mathematicon@Api}%
+%
+%\input LD@Header.tex
+%\input LD.tex
+%\input LD@Exercices.tex
+%\input LD@Typesetting.tex
+%
+%\catcode`@=11\relax
+\font\LD@Font@Arial="Arial" at 10pt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%															%
+%						Métrique des courbes							%
+%															%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcount\LD@Count@Temp
+\def\LD@Exercice@Display@Code{}%%\LD@Option@@Label\qquad\eightpts}%
+\def\LD@Exercice@Display@Code@Post{%
+	\ifcsname LD@Exo@@Solution\endcsname
+		\unless\ifx\LD@Exo@@Solution\LD@Empty
+			\pn{\eightpts Solution : \eightpts \LD@Exo@@Solution}%
+		\fi
+	\fi
+}%
+\def\LD@Display#1{%
+	\LD@Count@Temp=#1\relax
+	\ifcase\LD@Count@Temp
+	\or
+	Math. Sup.
+	\or
+	Math. Sp\'e
+	\else
+	\fi
+}%
+\newcount\LD@Exo@Total\LD@Exo@Total=0\relax
+
+
+%%% TD 11.
+\centerline{Rappels utiles sur limites, DL, \'equivalents, fonctions n\'egligeables}
+\hrule
+\medskip
+$$
+\eqalign{
+ f&=o_a\big(g(x)\big)\ssi   \mbox{$f$ est n\'egligeable devant $g$ en $a$}\ssi \lim_{x\to a}{f(x)\F g(x)}=0.\cr
+ f&\mathop{\sim}_ag(x)\ssi   \mbox{$f$ est \'equivalente \`a $g(x)$ en $a$}\ssi f(x)=g(x)+o_a\big(g(x)\big)
+}
+$$
+Propri\'et\'e utile faisant le lien dans un cas simple (limites finies) entre les notions de limites, de DL, d'\'equivalents et de fonctions n\'egligeables : 
+$$
+\eqalign{
+&\mbox{si $\ell\neq0$}\qquad \lim_{x\to a}f(x)=\ell\ \Longleftrightarrow\   f(x)=\ell+o_a(1)\ \Longleftrightarrow\   \mbox{$f$ est \'equivalente \`a $\ell$ en $a$}\cr
+&\mbox{si $\ell=0$}\qquad \lim_{x\to a}f(x)=0\ \Longleftrightarrow\  f(x)=o_a(1)\ \Longleftrightarrow\  \mbox{$f$ est n\'egligeable devant $1$ en $a$}
+}
+$$
+{\it Remarquer la subtile diff\'erence entre les cas $\ell\neq0$ et $\ell=0$} \qquad(danger !  boulettes ! ) \medskip
+\medskip
+\centerline{Op\'erations l\'egales}
+\hrule
+\medskip
+{\it Remarquer qu'on ne peut pas faire grand chose avec les \'equivalents. 
+On les utilisera surtout pour obtenir une approximation grossi\`ere ou pour avoir un ordre de grandeur d'une fonction (g\'en\'eralement en fin de raisonnement, apr\`es avoir utilis\'e limites et DL). }
+\medskip
+{\offinterlineskip
+\tabskip=0pt
+\halign{
+\vrule\quad\hfil#\hfil\quad&\vrule\quad \hfil#\hfil\quad&\vrule\quad \hfil#\hfil\quad&\vrule\quad \hfil#\hfil\quad\vrule\cr
+\noalign{\hrule}\cr
+Op\'erations & Limites & DL ou D\'evelopement asymptotique& \'Equivalents\cr
+\noalign{\hrule}\cr
+$f(x)+g(x)$\vbox to 0.5cm{} & oui & oui & NON !!!!\cr
+\noalign{\hrule}\cr
+$f(x)-g(x)$ \vbox to 0.5cm{}& oui & oui & NON !!!!\cr\noalign{\hrule}\cr
+$f\circ g(x)$\vbox to 0.5cm{} & oui & DL de $g$ en $a$ et de $f$ en $g(a)$ & NON !!!!\cr\noalign{\hrule}\cr
+$\lambda f(x)$ \vbox to 0.5cm{}& oui & oui & oui\cr\noalign{\hrule}\cr
+$f(x)*g(x)$ \vbox to 0.5cm{}& oui & oui & oui\cr\noalign{\hrule}\cr
+$ {f(x)\F g(x)}$ \vbox to 0.5cm{}& Si $\ds\lim\limits_{x\to a}g(x)\neq 0$& Via le DL de $\ds{1\F 1-u}$& oui\cr\noalign{\hrule}\cr
+}}
+
+
+$$\hbox{A connaitre}
+\Q\{\eqalign{
+{1\F 1-x}&=1+x+x^2+\cdots+x^n+o_0(x^n)
+\cr
+\ln(1+x)&=x-{x^2\F 2}+\cdots+(-1)^{n+1}{x^n\F n}+o_0(x^n)
+\cr
+\e^x&=1+x+{x^2\F 2}+\cdots+{x^n\F n!}+o_0(x^n)
+\cr
+\sin(x)&=x-{x^3\F 6}+\cdots+(-1)^n{x^{2n+1}\F(2n+1)!}+o_0(x^{2n+1})
+\cr
+\cos(x)&=1-{x^2\F 2}+\cdots+(-1)^n{x^{2n}\F(2n)!}+o_0(x^{2n})
+\cr
+(1+x)^\alpha&=1+\alpha x+o_0(x).
+}\W.
+$$
+\medskip
+\centerline{Th\'eor\`eme de Taylor-Lagrange {\it(\`a utiliser en dernier recours seulement)}}
+\hrule
+\medskip
+Si $f$ est de classe $\sc C^n$ sur un intervalle contenant $a$,  $f$ admet un DL \`a l'ordre $n$ en $a$  et 
+$$\eqalign {
+f(x)=&f(a)+f'(a)(x-a)+{f''(a)\F 2!}(x-a)^2+\cdots+{f^{(n)}(a)\F n!}(x-a)^n+o_a\Big((x-a)^n\Big)\cr &
+=\sum_{0\le k\le n}{f^{(n)}(a)\F n!}(x-a)^n+o_a\Big((x-a)^n\Big)\qquad\qquad\hbox{{\bf (Taylor Lagrange)}}}
+$$
+\eject\pagetitretrue
+\vglue-10mm\rightline{Sp\'e PT\hfill TD 4: D\'eveloppements limit\'es}%\hfill \date}
+\bigskip
+\bigskip\noindent
+0) Calculer un d\'eveloppement \`a l'ordre $2$ des fonctions suivantes en $x={\pi\F 4}$ : 
+$$
+f(x)=\sin(x), \qquad g(x)=\e^x, \qquad h(x)=\ln(x), \qquad k(x)={1\F x}.
+$$\bigskip
+\Exercice{PThj}
+\bigskip
+\Exercice{PThk}
+\bigskip
+\Exercice{PTia}
+\bigskip
+\Exercice{PThz}
+\vfill\null
+
+
+\bye

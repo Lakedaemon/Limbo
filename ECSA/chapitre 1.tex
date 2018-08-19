@@ -1,0 +1,331 @@
+%2multibyte Version: 5.50.0.2953 CodePage: 65001
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{Codepage=65001}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Sunday, September 29, 2013 14:47:20}
+%TCIDATA{LastRevised=Wednesday, June 29, 2016 08:56:29}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{PageSetup=28,28,28,28,0}
+%TCIDATA{AllPages=
+%H=36
+%F=36
+%}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+\begin{document}
+
+
+\subsubsection{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \protect\underline{Chapitre 1 : Utilisation de la console.}}
+
+\paragraph{\protect\underline{1. Introduction.}}
+
+A l'ouverture de Scilab, une fen\^{e}tre de commande ou console s'ouvre et
+une invite de commande $\ $\frame{$-\rightarrow $} indique que le logiciel
+attend les instructions.
+
+Cette premi\`{e}re fen\^{e}tre fonctionne comme une calculatrice. On valide
+les instructions en tapant sur "entr\'{e}e"
+
+Si l'instruction se termine par un point virgule, l'instruction est effectu%
+\'{e}e mais n'est pas affich\'{e}e.
+
+Pour effacer la console , on peut taper "clc" ( clear console") ou aller
+dans le menu "edition" puis "effacer console".
+
+Remarques :
+
+- Les signes \frame{//} indiquent \`{a} Scilab que tout ce qui est \`{a}
+droite de ces signes ne doit pas \^{e}tre lu. On l'utilisera donc pour \'{e}%
+crire des commentaires.
+
+- On a possibilit\'{e} d'\'{e}crire plusieurs instructions sur une m\^{e}me
+ligne en les s\'{e}parant par des "," ou des ";".
+
+Le point virgule bloque l'affichage du r\'{e}sultat le pr\'{e}c\'{e}dant.
+
+\paragraph{\protect\underline{2. Variables, affectations, constantes,}}
+
+\underline{2.1. Variables et affectations.}
+
+Les variables correspondent \`{a} un espace de stockage.
+
+Elles sont cr\'{e}\'{e}es d\`{e}s qu'elles sont introduites par
+l'instruction d'affectation \frame{"="} et ces variables prennent le type de
+l'expression.
+
+\frame{Affectation : \ Nom \ = \ expression .}
+
+L'expression peut-\^{e}tre du type num\'{e}rique ( r\'{e}el ou complexe ),
+bool\'{e}en, matriciel ou de type cha\^{\i}ne de caract\`{e}re.
+
+Si un calcul n'est pas affect\'{e} \`{a} une variable, Scilab place
+automatiquement le r\'{e}sultat dans une variable nomm\'{e}e \fbox{"ans"}. \
+Le type de cette variable est celui de l'expression calcul\'{e}e.
+
+\underline{2.2. Constantes}
+
+Scilab conna\^{\i}t deux constantes r\'{e}elles pr\'{e}d\'{e}finies $\pi $
+et $e$ not\'{e}es $\%pi$ et $\%e.$
+
+Le nombre imaginaire $i$ est not\'{e} $\%i$.
+
+Scilab conna\^{\i}t aussi deux constantes bool\'{e}ennes pr\'{e}d\'{e}finies 
+$vrai$ et $faux$ not\'{e}es $\%t$ et $\%f.$
+
+\underline{2.3 Cha\^{\i}nes de caract\`{e}res }
+
+Une cha\^{\i}ne de caract\`{e}res est une suite de caract\`{e}res \'{e}crits
+entre apostrophes ( ') ou guillemets droits doubles \ ( " " ).
+
+\underline{2.4. Variable logique.}
+
+Une variable logique ou bool\'{e}enne correspond \`{a} une expression
+logique. Elle peut prendre deux valeurs : vraie ( $\%t$ ) ou fausse ( $\%f$
+).
+
+\paragraph{\protect\underline{3. Les op\'{e}rateurs en Scilab.}}
+
+\underline{3.1. Op\'{e}rateurs arithm\'{e}tiques .}
+
+$%
+\begin{array}{ccccc}
++ & - & \ast & / & \symbol{94} \\ 
+\text{addition} & \text{soustraction} & \text{multiplication} & \text{%
+division} & \text{puissance}%
+\end{array}%
+$
+
+Exercice 1 : Taper :
+
+$-\rightarrow x=5;y=2;$
+
+$-\rightarrow x+y,$ $\ z=x-y$
+
+$-\rightarrow x\ast z,$ $x/y,$ $\ x\symbol{94}y$
+
+\underline{3.2. Op\'{e}rateurs relationnels et logiques.}
+
+Logiques : $%
+\begin{array}{ccc}
+\& & | & \symbol{126} \\ 
+et & ou\text{ } & non%
+\end{array}%
+$
+
+Comparaisons et tests : $%
+\begin{array}{cccccc}
+== & < & > & >= & <= & <> \\ 
+\text{{\small \'{e}galit\'{e}}} & \text{{\small inf\'{e}rieur strict}} & 
+\text{{\small sup\'{e}rieur strict}} & \text{{\small sup\'{e}rieur ou \'{e}%
+gal}} & \text{{\small inf\'{e}rieur ou \'{e}gal}} & \text{{\small diff\'{e}%
+rent}}%
+\end{array}%
+$
+
+Exercice 2 :
+
+Taper :
+
+$-\rightarrow a=2>3,b=2<3,c=\%t;$
+
+$-\rightarrow a\&b,\ \ a|b$
+
+$-\rightarrow d=\symbol{126}a\&c,d\&b$
+
+\underline{3.3. Les fonctions usuelles pr\'{e}d\'{e}finies.}
+
+$%
+\begin{array}{ccccccc}
+\log & \exp & floor & abs & sqrt & \sin & \cos \\ 
+\text{logarithme} & \text{exponentielle} & \text{partie enti\`{e}re} & \text{%
+valeur absolue} & \text{ }\sqrt{} & \text{sinus} & \text{cosinus}%
+\end{array}%
+$
+
+\bigskip
+
+\paragraph{\protect\underline{4. Instructions d'entr\'{e}e et de sortie.}}
+
+\underline{4.1. Instruction d'entr\'{e}e.}
+
+L'entr\'{e}e par l'utilisateur d'une variable num\'{e}rique ou d'une matrice
+se fait par la commande \frame{$input$}$.$
+
+L'instruction $x=input(^{\prime }$ Donner une valeur \`{a} x : $^{\prime })$
+affiche le texte entre apostrophe puis Scilab attend une r\'{e}ponse.
+
+Si elle est correcte, la r\'{e}ponse est affect\'{e}e \`{a} la variable x.
+
+Cette instruction permet donc de demander avec une phrase la valeur \`{a}
+attribuer \`{a} une variable.
+
+Exemple :
+
+Taper :
+
+$-\rightarrow e=input("$ somme en euros : $");$
+
+\underline{4.2. Instruction de sortie.}
+
+L'instruction \frame{$disp(x)$} affiche le contenu de la variable $x.$
+
+L'instruction $disp(^{\prime }texte")$ la cha\^{\i}ne de caract\`{e}res
+entre apostrophes.
+
+Exemple :
+
+Taper
+
+$-\rightarrow a=5;$
+
+$-\rightarrow $disp( ' la variable $a$ est \'{e}gale \`{a} :',$a$)
+
+$-\rightarrow $disp( $a$, ' la variable $a$ est \'{e}gale \`{a} : ')
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\paragraph{ \ \protect\underline{\ 5. Exercices.}\ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+
+\underline{Exercice 1 : }Taper successivement les commandes suivantes et v%
+\'{e}rifier ce qui se passe :
+
+$%
+\begin{array}{c}
+16/(2\symbol{94}3) \\ 
+2+3\ast 4 \\ 
+2+3\ast \%i \\ 
+pi%
+\end{array}%
+$ \ \ \ \ puis \ \ \ $%
+\begin{array}{c}
+\%pi \\ 
+sqrt(2) \\ 
+SQRT(2) \\ 
+sqrt(2);%
+\end{array}%
+.$
+
+\underline{Exercice 2 :} Taper successivement les commandes suivantes et v%
+\'{e}rifier ce qui se passe :
+
+$%
+\begin{array}{c}
+x=5 \\ 
+x=7; \\ 
+8x \\ 
+8\ast x \\ 
+3\ast 5 \\ 
+x+12 \\ 
+disp(x)%
+\end{array}%
+$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ puis \ \ \ \ \ $%
+\begin{array}{c}
+x=x+7 \\ 
+disp(^{\prime }x^{\prime }) \\ 
+y=\sin (x\symbol{94}3) \\ 
+disp(y,^{\prime }valeur\text{ }de\text{ }y\text{'}) \\ 
+a=input(^{\prime }entrer\text{ }un\text{ }entier\text{ }naturel\text{ }non%
+\text{ }nul^{\prime }) \\ 
+\cos (1+\log (a)\symbol{94}2)%
+\end{array}%
+$
+
+\bigskip
+
+\underline{Exercice 3 :}
+
+Caculer les valeurs suivantes : \ 1. $a=(2e^{\pi }-5)^{2}$ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ \ \ \ 2. $b=\dfrac{\sqrt{3}-2\sqrt[3]{8}+3\ln 5}{6}$ \ \ 
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ 3. \ $c=\sqrt{\left\vert \ln (\cos \QDOVERD( ) {\pi
+}{5})\right\vert }$ \ \ \ \ \ \ \ \ \ \ \ 4. $d=(5+2i)(3-4i)$
+
+\underline{Exercice 4 :}
+
+On consid\`{e}re le script suivant :
+
+$x=input(^{\prime }Entrer$ $x:^{\prime })$
+
+$y=input(^{\prime }Entrer$ $y:^{\prime })$
+
+$z=x+y;$
+
+$x=x\ast z;$
+
+$y=x-z;$
+
+$disp(z,y,x)$
+
+On suppose qu'on entre les valeurs 3 et 7 au clavier. Quelles sont alors les
+valeurs affich\'{e}es \`{a} l'issue de l'ex\'{e}cution de la commande " $%
+disp(z,y,x)"$ ?
+
+\underline{Exercice 5 :}
+
+Quelles sont les valeurs affich\'{e}es \`{a} l'issue de l'ex\'{e}cution des
+instructions de la ligne suivante :
+
+$-->x=1;$ $\ $ $\ $
+
+$-->y=\%pi;$
+
+$-->floor(y)$
+
+$-->y=ans-x;$
+
+$-->x=ans\symbol{94}y$
+
+$-->y-6+x$
+
+$-->y=ans-y$
+
+\underline{Exercice 6 :}Calculer le prix TTC d'un article \`{a} partir de
+son prix HT, avec un taux de TVA \`{a} 20\%.
+
+\underline{Exercice 7 :} Convertir un temps donn\'{e} en secondes, en
+heures, minutes et secondes.
+
+( On utilisera la fonction partie enti\`{e}re "floor" )
+
+\end{document}

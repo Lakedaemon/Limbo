@@ -1,0 +1,253 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iffalse
+\page
+\centerline{\bfb DEVOIR MAISON 4}
+\blank[big]
+
+\startList\item%Exos
+Résoudre, en discutant suivant la valeur du paramètre $m∈ℝ$, le système
+\startformula
+\System{
+\NC x\NC-my\NC+m^2z\NC =2m\NR
+\NC mx\NC-m^2y\NC+mz\NC = 2m\NR
+\NC mx\NC + y\NC-m^2z\NC = 1-m
+}
+\stopformula
+
+\item\startList
+\item Montrer que, pour $0⩽p⩽n$, on a
+\startformula
+∑_{k=p}^n{k\choose p}={n+1\choose p+1}
+\stopformula
+\item En déduire l’expression de la somme $E_1 (n) = 1 + 2 +⋯ + n$ où $n∈ℕ$.\crlf
+{\it Une démonstration n’utilisant pas le résultat précédent n'est pas recevable !}
+\item\startList\item Déterminer des nombres réels $a$ et $b$ tels que 
+\startformula
+k^2= a{k\choose 2}+b{k\choose 1}\qquad(k⩾2)
+\stopformula
+\item Retrouver l’expression de la somme $E_2 (n) = 1^2 + 2^2 +⋯+ n^2$  où $n∈ℕ$.\crlf
+{\it La encore, vous ne devez utiliser que les résultats précédents}
+\stopList
+\stopList
+
+
+\item%Exos
+Jojo le glacier propose $g$ variétés de glaces, $s$ variétés de sorbets et 4 variétés d’accompagnements : chantilly, nappage chocolat, nappage caramel, éclats d’amandes.
+Le client choisit un certain nombre de boules de glace ou de sorbet 
+(avec éventuellement plusieurs fois le même parfum) et, s’il le désire, un ou plusieurs accompagnement(s). 
+Les éventuels accompagnements sont toujours disposés dans l’ordre suivant : chantilly, nappage, éclats d’amandes
+(mais on n’est pas obligé de mettre les trois). 
+On ne peut pas choisir deux fois le même accompagnement ni choisir simultanément les deux nappages. La commande est servie dans un cornet 
+ou une coupelle, en gauffre.
+
+\startList\item Dans toute cette question, le client choisit d’être servi dans un cornet. Par conséquent, 
+on tient compte de l’ordre dans lequel les boules sont disposées dans le cornet. Ainsi, le cornet 
+fraise-fraise-chocolat n’est pas le même que le cornet fraise-chocolat-fraise.
+\startList\item Combien Jojo peut-il servir de cornets différents avec $b$ boules, de parfums distincts 
+ou non (glace ou sorbet), sans accompagnement ?
+\item Même question dans le cas où le cornet est surmonté d’un (unique) accompagnement.
+\stopList
+\item\startList\item Combien Jojo peut-il servir de cornets différents avec $b$ boules, de parfums distincts 
+(glace ou sorbet), sans accompagnement ?
+\item Même question dans le cas où le cornet est surmonté de deux accompagnements.
+\stopList
+\item\startList\item
+Combien Jojo peut-il servir de cornets avec 4 boules (de parfums distincts ou non, sans accompagnement) dont au moins une est un sorbet ?
+\item Combien Jojo peut-il servir de cornets avec 4 boules (de parfums distincts ou non,
+sans accompagnement) dont au moins 3 sont des glaces ?
+\stopList
+\item A partir de maintenant, le client choisit d’être servi dans une coupelle. On ne tient donc plus
+compte de l’ordre dans lequel les boules sont disposées dans la coupelle. Ainsi, la coupelle
+vanille-passion est identique à la coupelle passion-vanille.
+\startList
+\item Combien Jojo peut-il servir de coupelles différentes avec b boules de parfums distincts,
+sans accompagnement ?
+\item Combien Jojo peut-il servir de coupelles différentes avec 2 boules de glace de parfums
+distincts, 1 boule de sorbet et 3 accompagnements.
+\item Chaque boule vaut 2 € et chaque accompagnement vaut 1 €. Évéanne veut acheter une
+coupelle à 5 € dont tous les parfums sont distincts. Combien de coupelles différentes
+peut lui proposer Jojo ?
+\item Les glaces et sorbets de Jojo sont répartis en $c$ catégories contenant chacune 4 parfums. Il
+y a les  classiques  : vanille, chocolat, café et pistache ; les  fruitées  : fraise, framboise,
+citron et banane ; les  exotiques  : rhum-raison, noix de coco, passion et mangue ; les
+ américaines  : noix de pécan, cookies, noix de macadamia et caramel-brownie ; les
+ italiennes  : amaretto, amarena, straciatella et tiramisu ; etc
+Valentine veut une coupelle  méga-five  : 5 boules, de parfums distincts, dont deux
+choisies dans une première catégorie, deux d’une autre catégorie et une dernière d’une
+troisième catégorie. Le tout agrémenté de trois accompagnements, cela va de soi ! Combien existe-t-il de coupelles  méga-five  différentes ?
+\item Combien Jojo peut-il servir de coupelles différentes avec b boules, de parfums distincts
+ou non, sans accompagnement ? Indication : on pourra se servir de gauffrettes pour
+séparer les parfums...
+\stopList
+\stopList
+
+
+\else
+\page
+\centerline{\bfb CORRECTION DU DEVOIR MAISON 4}
+\blank[big]
+
+\startList\item%Exos
+En procédant aux opérations $L_2\leftarrow L_2-mL_1$ et $L_3\leftarrow L_3-mL_1$, nous obtenons que 
+\startformula(S)\quad
+\System{
+\NC x\NC-my\NC+m^2z\NC =2m\NR
+\NC mx\NC-m^2y\NC+mz\NC = 2m\NR
+\NC mx\NC + y\NC-m^2z\NC = 1-m
+}⟺
+\System{[align={center, center, center, left}]
+\NC x\NC-my\NC+m^2z\NC =2m\NR
+\NC \NC \NC(m-m^3)z \NC= 2m-2m²\NR
+\NC \NC (1+m²)y\NC-(m^2+m^3)z\NC = 1-m-2m²
+}
+\stopformula
+Comme $m-m^3=m(1-m^2)=m(1-m)(1+m)$ et comme $2m-2m²=2m(1-m)$,  
+il résulte de la deuxième ligne que 
+\startitemize[1]\item lorsque $m\not\in\{-1,0,1\}$, le système admet une unique solution donnée par 
+\startformula
+\System{
+\NC z={2m-2m²\F m-m^3}={2\F 1+m}\NR
+\NC y={1-m-2m²+(m^2+m^3)z\F 1+m^2}={1-m-2m²+2m^2\F 1+m^2}={1-m\F 1+m^2}\NR
+\NC x=2m+my-m^2z=2m+m{1-m\F 1+m^2}-{2m^2\F 1+m}
+}
+\stopformula
+\item Le système $S$ n'a pas de solution lorsque $m=-1$ (sur la ligne 2, on obient $0=-4$. 
+\item Lorsque $m=0$
+\startformula(S)\quad
+\System{
+\NC x\NC-my\NC+m^2z\NC =2m\NR
+\NC mx\NC-m^2y\NC+mz\NC = 2m\NR
+\NC mx\NC + y\NC-m^2z\NC = 1-m
+}⟺
+\System{
+\NC x\NC\NC\NC =0\NR
+\NC \NC y\NC\NC = 1
+}
+\stopformula
+A fortiori, $(S)$ possède une infinité de solution de la forme $(0,1,z)\quad (z∈ℝ)$
+\item Lorsque $m=1$, 
+\startformula(S)\quad
+\System{
+\NC x\NC-my\NC+m^2z\NC =2m\NR
+\NC mx\NC-m^2y\NC+mz\NC = 2m\NR
+\NC mx\NC + y\NC-m^2z\NC = 1-m
+}⟺
+\System{
+\NC x\NC-y\NC+z\NC =2\NR
+\NC \NC 2y\NC-2z\NC =-2
+}⟺\System{
+\NC 2x\NC\NC\NC =2\NR
+\NC \NC 2y\NC-2z\NC =-2
+}
+\stopformula
+En particulier, $(S)$ possède une infinité de solution de la forme $(1,z-1,z)\ (z∈ℝ)$
+\stopitemize
+
+\item\startList\item Fixons $p⩾0$. \crlf Pour $n⩾p$, prouvons par récurrence la proposition $\D\sc P_n:∑_{k=p}^n{k\choose p}={n+1\choose p+1}$ 
+\item\startitemize[1]\item La proposition $\mc P_p$ est vraie car 
+\startformula
+∑_{k=p}^p{k\choose p}= {p\choose p} = 1 = {p+1\choose p+1}
+\stopformula
+\item Supposons $\mc P_n$ pour un entier $n⩾p$ et prouvons $\mc P_{n+1}$.\crlf
+Il résulte de $\mc P_n$ et de la formule de Pascal que 
+\startformula
+\Align{
+\NC \D ∑_{k=p}^{n+1}{k\choose p}\NC \D=∑_{k=p}^n{k\choose p} + {n+1\choose p}\qquad \text{\it D'abord, on se ramène au rang précédent}\NR
+\NC\NC \D={n+1\choose p}+{n+1\choose p+1}\qquad\text{ d'après $\mc P_n$}\NR
+ \NC\NC={n+2\choose p+1}\quad\text{d'après la formule de Pascal}}
+\stopformula
+En particulier, la proposition $\mc P_{n+1}$ est vraie
+\stopitemize
+En conclusion, la proposition $\mc P_n$ est vraie pour $n⩾p$.
+
+\item Comme ${k\choose 1}={k!\F (k-1)!1!}=k\quad(k⩾1$, Le résultat précédent pour $p=1$ induit que 
+\startformula
+E_1(n)=∑_{k=1}^nk= ∑_{k=1}^n{k\choose 1 }= {n+1\choose 2}={(n+1)!\F (n-1)!2!}={n(n+1)\F 2}
+\stopformula
+En particulier, on retrouve le résultat que l'on aurait trouvé en utilisant la somme des termes d'une suite arithmétique.
+
+\item\startList\item Pour $k⩾2$, on remarque que ${k\choose 2}= {k(k-1)\F 2}$ et ${k\choose 1}= k$. A fortiori, pour $a=2$ et $b=1$, nous obtenons que 
+\startformula
+a{k\choose 2}+b{k\choose 1}=2×{k(k-1)\F 2}+1×k=k^2\qquad(k⩾2)
+\stopformula
+\item En procédant comme précédemment, nous remarquons que 
+\startformula
+\Align{
+\NC E_2 (n) \NC = \D ∑_{k=1}^nk^2=1+∑_{k=2}^nk^2\NR 
+\NC\NC \D ={\red 1}+∑_{k=2}^n\Q(2×{k\choose 2}+{\red 1×{k\choose 1}}\W)\NR
+\NC\NC \D =2 ∑_{k=2}^n{k\choose 2}  + \red{1+∑_{k=2}^n{k\choose 1}}\NR
+\NC\NC \D =2{n+1\choose 3} + \red{∑_{k=1}^n{k\choose 1}}\NR
+ \NC\NC \D =2{n+1\choose 3} + {\red {n+1\choose 2}}\NR
+\NC\NC \D = 2×{(n-1)n(n+1)\F 6} + {\red {n(n+1)\F 2}}\NR
+\NC\NC \D = {n(n+1)\F 6}×\big(2(n-1) + 3\big)={n(n+1)(2n+1)\F 6}
+}
+\stopformula
+\stopList
+
+\item%Exo
+\startList\item 
+\startList\item Constituer un cornet à $b$ boules, sans accompagnement, revient à constituer une $b$-liste (avec répétitions possibles) dont les éléments sont choisis parmi les $s+g$ parfums.
+Il y en a ${s+g\choose 1}^b=(s+g)^b$. 
+\item Si l'on ajoute un unique accompagnement, il faut choisir un accompagnement parmi les quatre accompagnements possibles, il y en a 
+$(s+g)^b×{4\choose 1}=4(s+g)^b$
+\stopList
+\item\startList\item Constituer un cornet à $b$ boules de parfums distincts revient à constituer une $b$-liste sans répétition  dont les éléments sont choisis parmi les $s+g$ parfums. 
+Il y en a $A_{s+g}^b$. 
+\item Pour choisir deux accompagnements, on en choisit $2$ parmi les $4$ possibles et on enlève le cas particulier napage chocolat et napage café (cela fait ${4\choose 2}-1={4×3\F 2}-1=5$ possibilités. 
+	La réponse est donc $5A_{s+g}^b$
+\stopList
+\item\startList\item Pour compter ces cornets, on prend tous les cornets et on enlève ceux qui ne contiennent pas de sorbet. Il y en a donc 
+$(s+g)^4-g^4$
+\item Pour compter ces cornets, on prend les cornets avec $4$ boules de glaces (il y en a $g^4$) et on ajoute les cornets avec $3$ boules de glace et $1$ boule de sorbet (il y en a ${4\choose 1}g^3s$ car il faut choisir la position d'apparition du sorbet).
+En tout, il y en a $g^4+4sg^3$.
+\stopList
+\item \startList
+\item Il peut en servir ${s+g\choose b}$ : On choisit $b$ parfums parmi les $s+g$ possibles pour constituer une coupelle
+\item Il peut en servir ${g\choose 2}×{s\choose 1}×2$. On choisit $2$ parfums de glace parmi $g$ possibles, puis $1$ parfum de sorbet parmi $s$ possibles. Enfin, il n'y a que 2 façons possibles de choisir $3$ accompagnements (tout sauf napage café ou tout sauf nappage chocolat)
+\item Il peut lui servir une coupelle avec $2$ boules et un accompagnement (il y en a ${s+g\choose 2}×{4\choose 1}$) ou une coupelle avec une boule et 3 accompagnements (il y en a ${s+g\choose 1}×2$). En tout, il y en a
+${s+g\choose 2}×{4\choose 1}+{s+g\choose 1}×2$
+\item Il y en a $A_c^3×{4\choose 2}×{4\choose 2}×{4\choose 1}×2$. On commence par choisir la première catégorie, la seconde catégorie et la troisième catégorie ($A_c^3$ choix possibles) puis on choisit les parfums dans chaque catégorie dans l'ordre, puis les accompagnements 
+\item Il y a autant de coupelles possibles que de façon d'écrire un mot de $g+s+b-1$ lettres avec $b$ points et $g+s-1$ barres : les points entre les barres representent le nombre de boules choisies
+pour le parfum correspondant. Il suffit de choisir la position des $b$ boules parmi ces $g+s+b-1$ cases. 
+En tout, il y en a ${b+g+s-1\choose b}$
+\stopList
+
+\stopList
+
+
+
+
+\fi
+\stoptext
+\stopcomponent
+\endinput

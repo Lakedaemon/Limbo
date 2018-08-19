@@ -1,0 +1,106 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][1][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][1,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+
+\centerline{\bf TD Bases et coordonnées, famille libres et génératrices}
+\blank[big]
+
+Soit $\mc B=\{e_1,⋯,e_n\}$ une base d'un espace vectoriel $E$. \crlf 
+Pour $x$ vecteur de $E$, nous rappelons que 
+\startformula
+x=∑_{k=1}^nx_ke_k⟺\underbrace{X = \text{$\mc Mat$}_{\mc B}(x)=\Matrix{\NC x_1\NR\NC ⋮\NR\NC x_n}}_{\text{coordonnées de $x$ dans $\mc B$}}
+\stopformula
+Si les vecteurs $v_1, ⋯, v_k$ admettent dans $\mc B$ les matrices de coordonnées $V_1, ⋯,V_k$, nous notons la famille $\mc F$ la famille $(v_1, ⋯, v_k)$ et nous rappelons que 
+\startformula
+0⩽ \text{rg}(\mc F) =\text{rg}(v_1, ⋯, v_k) = \underbrace{\text{rg}(V_1, ⋯, V_k)}_{\text{rang de la matrice dont les colonnes sont $V_1,⋯,V_k$}}⩽\max(k,n) 
+\stopformula
+Enfin, pour déterminer si la famille $\mc F$ est libre ou génératrice, nous allons dorénavant utiliser (quand c'est possible) la propriété fondamentale suivante 
+\startformula
+\Align{
+\NC \text{rg}(\mc F)  = \underbrace{k}_{Card(\mc F)} \NC ⟺ \NC \text{$\mc F$ est libre}\NR 
+\NC \text{rg}(\mc F) = \underbrace{n}_{\magenta Dim(E)} \NC ⟺ \NC \text{$\mc F$ est génératrice de $E$}}
+\stopformula
+Ceci est la manière la plus simple, concrète, rapide (et fun) de procéder.\crlf
+{\it Pour info, ce faisant, nous continuons à prendre de l'avance sur les autres étudiants en ECS, 
+qui ne feront cela qu'après avoir vu la théorie de la dimension, au deuxième semestre ($n$ est la dimension de $E$).} 
+\blank[medium]
+\startList
+\item {\bf Familles dans $ℝ^3$...} 
+Les familles suivantes sont-elles libres, génératrices ?
+\startList
+\item $u_1=(1,1,0)$, $u_2=(0,1,1)$
+\item $u_1=(0,0,1)$, $u_2=(0,1,1)$, $u_3=(1,1,1)$
+\item $u_1=(1,-1,0)$, $u_2=(0,1,-1)$, $u_3=(1,-1,0)$
+\item $u_1=(1,1,-1)$, $u_2=(1,-1,1)$, $u_3=(-1,1,1)$, $u_4=(4,3,-1)$
+\item $u_1=(1,0,-2)$, $u_2=(2,3,1)$, $u_3=(4,-2,1)$
+\stopList
+\item {\bf Déterminer  une base...}
+Déterminer une base des espaces-vectoriels suivants et déterminer si la famille donnée est libre, génératrice de $E$.
+\startList
+\item $E=\{(x,y,z,t)∈ℝ^4,2x+3y-4z=0\}$ et $\mc F=\big((2,0,1,0), (0,4,1,0)\big)$
+\item $E=\{(x,y,z,t)∈ℝ^4:x=z,y=2t\}$ et $\mc F=\big((1,2,1,1), (3,0,3,0), (5, 4, 5, 2)\big)$
+
+\stopList
+{\it On pourra au besoin :
+\startitemize[1]
+\item résoudre le système des contraintes, 
+\item expliciter les $n$-uplets solutions (les écrire)
+\item sortir les scalaires pour faire apparaitre un \quote{vect} et une famille génératrice
+\item En déduire une base de $E$
+\stopitemize}
+
+\item {\bf Base = Vecteurs théoriques $\leftrightarrow$ Coordonnées concrètes} \crlf Soit E un $𝕂$ espace vectoriel de base $(\vec i , \vec j , \vec k )$. \crlf
+On pose $\vec u = −\vec i + \vec j + \vec k$ , $\vec v =\vec i − \vec j + \vec k$, $\vec w = \vec i + \vec j − \vec k$ 
+et $\vec T = 2\vec i − 3\vec j + \vec k$ .
+Montrer que $(\vec u, \vec v, \vec w)$ est une base de E. 
+Donner les coordonnées de $\vec T$ dans cette base.
+\item {\bf des vecteurs qui sont des matrices...}
+\startitemize[1]
+\item Déterminer une base de l'espace $\mc S$ des matrices carrées symétriques de taille $3$
+\item La famille $\Matrix{\NC 1\NC 1\NC 1\NR\NC 1\NC 1\NC 1\NR \NC 1\NC 1\NC 1}$, $I_3$, 
+$\Matrix{\NC 1\NC 1\NC 0\NR\NC 1\NC 1\NC 1\NR \NC 0\NC 1\NC 1}$ est elle libre, génératrice dans $\mc S$ ? 
+\item Déterminer une base de l'espace $\mc A$ des matrices carrées anti-symétriques de taille $3$
+\item La famille $\Matrix{\NC 0\NC 1\NC 1\NR\NC -1\NC 0\NC 1\NR \NC -1\NC -1\NC 0}$, $\Matrix{\NC 0\NC 4\NC 2\NR\NC -4\NC 0\NC 3\NR \NC -2\NC -3\NC 0}$, 
+$\Matrix{\NC 0\NC 1\NC 0\NR\NC -1\NC 0\NC 0\NR \NC 0\NC 0\NC 0}$  est elle libre, génératrice dans $\mc A$ ?
+\stopitemize
+
+\item {\bf Des vecteurs qui sont des fonctions polynômes...}\crlf
+Posons $E_n=\Vect(x↦1,x↦x,x↦x^2,⋯,x↦x^n)$. \crlf
+{\it Rappel : nous avons montré que $x↦1,x↦x,x↦x^2,⋯,x↦x^n$ forme une famille libre de $\mc F(ℝ,ℝ)$ dans un exercice précédent.}
+\startitemize[1]
+\item Dans $E_2$, la famille $(x↦(x-1)^2,x↦x^2, x↦(x+1)^2)$ est-elle libre, génératrice? 
+\item Dans $E_2$, la famille $(x↦1+x+x^2,x↦1+2x+4x^2, x↦1+3x+9x^2)$ est-elle libre, génératrice ?
+\item Dans $E_4$,  $(x↦x^4,x↦x^3(x-1), x↦x^2(x-1)^2,x↦x(x-1)^3),x↦(x-1)^4)$ est-elle une famille libre, génératrice ?
+\stopitemize
+\stopList
+\stoptext
+\stopcomponent
+\endinput

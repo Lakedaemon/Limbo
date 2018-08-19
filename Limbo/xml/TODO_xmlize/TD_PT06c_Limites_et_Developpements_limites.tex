@@ -1,0 +1,107 @@
+\catcode`@=11\relax
+
+\input LD@Maths@TD.tex
+%%% TD 11.
+\vglue-10mm\centerline{Rappels utiles sur limites, DL, équivalents, fonctions négligeables}
+\bigskip
+\medskip
+{\offinterlineskip
+\tabskip=0pt
+\halign{
+\vrule\quad\hfil#\hfil\quad&\vrule\quad \hfil#\hfil\quad&\vrule\quad \hfil#\hfil\quad&\vrule\quad \hfil#\hfil\quad\vrule\cr
+\noalign{\hrule}\cr
+Opérations\strut &DL ou Dévelopement asymptotique & Limites & équivalents\cr
+\noalign{\hrule}\cr
+$f(x)+g(x)$\vbox to 0.5cm{} & oui & oui & NON !\cr
+\noalign{\hrule}\cr
+$f(x)-g(x)$ \vbox to 0.5cm{}& oui & oui & NON !\cr\noalign{\hrule}\cr
+$f\circ g(x)$\vbox to 0.5cm{} &  via les DL de $f$ en $g(a)$ et de $g$ en $a$ & oui & NON !\cr\noalign{\hrule}\cr
+$\lambda f(x)$ \vbox to 0.5cm{}& oui & oui & oui\cr\noalign{\hrule}\cr
+$f(x)*g(x)$ \vbox to 0.5cm{}& oui & oui & oui\cr\noalign{\hrule}\cr
+$ \ds{f(x)\F g(x)}$ \vbox to 0.5cm{}&  Via le DL de $\ds{1\F 1-u}$& Si $\ds\lim\limits_{x\to a}g(x)\neq 0$ & oui\cr\noalign{\hrule}\cr
+}}
+\medskip
+$$
+\eqalign{
+ f(x)=o_a\big(g(x)\big)&\ssi   \mbox{$f$ est négligeable devant $g$ en $a$}\ssi \lim_{x\to a}{f(x)\F g(x)}=0.\cr
+ f(x)\mathop{\sim}_ag(x)&\ssi f(x)=g(x)+o_a\big(g(x)\big)\cr
+ &\ssi   \mbox{$f$ est équivalente à $g$ en $a$}\ssi \lim_{x\to a}{f(x)\F g(x)}=1
+}
+$$
+\hrule
+$$
+\hbox{Limites finies}\Q\{
+\eqalign{
+&\lim_{x\to a}f(x)=0 \ssi \mbox{$f$ est négligeable devant $1$ en $a$} \ssi f(x)=o_a\big(1\big)\cr
+&\lim_{x\to a}f(x)=\ell\neq0 \ssi \mbox{$f$ est équivalente à $\ell$ en $a$} \ssi f(x)\mathop{\sim}_a\ell
+}\W.
+$$
+\hrule
+$$
+\hbox{Retenir}\Q\{
+	\eqalign{
+		&\hbox{Le DL c'est l'arme absolue : on en déduit équivalent, limite, ordre de grandeur,...}\cr
+		&\hbox{Avec les équivalents, on peut seulement multiplier et diviser.}\cr
+		&\hbox{Si la limite est non nulle, c'est l'équivalent.}\cr	
+	}\W.
+$$
+\hrule
+$$\hbox{A connaitre}
+\Q\{\eqalign{
+{1\F 1-x}&=1+x+x^2+\cdots+x^n+o_0(x^n)
+\cr
+\ln(1+x)&=x-{x^2\F 2}+\cdots+(-1)^{n+1}{x^n\F n}+o_0(x^n)
+\cr
+\e^x&=1+x+{x^2\F 2}+\cdots+{x^n\F n!}+o_0(x^n)
+\cr
+\sin(x)&=x-{x^3\F 6}+\cdots+(-1)^n{x^{2n+1}\F(2n+1)!}+o_0(x^{2n+1})
+\cr
+\cos(x)&=1-{x^2\F 2}+\cdots+(-1)^n{x^{2n}\F(2n)!}+o_0(x^{2n})
+\cr
+(1+x)^\alpha&=1+\alpha x+{\alpha(\alpha-1)\F2}x^2+ \cdots + {\alpha(\alpha-1)\cdots(\alpha-n+1)\F n!}x^n + o_0(x^n).
+}\W.
+$$
+\hrule
+\medskip
+Si $f$ est de classe $\sc C^n$ sur un intervalle contenant $a$, alors $f$ admet un DL à l'ordre $n$ en $a$ et 
+$$
+f(x)=\sum_{0\le k\le n}{f^{(k)}(a)\F k!}(x-a)^k+o_a\Big((x-a)^n\Big)\qquad\eqalign{\hbox{\bf (Théorème de Taylor Lagrange)}&\cr\hbox{\it(à utiliser en dernier recours seulement)}&}
+$$
+\hrule
+
+$$
+\hbox{Horreur}\Q\{
+	\eqalign{
+		&\hbox{Ecrire qu'une fonction est équivalente à $0$}\cr
+		&\hbox{utiliser un DL la où il n'est pas valable ou pour établir une propriété globale}\cr
+	}\W.
+$$
+\eject\pagetitretrue
+\vglue-10mm\rightline{Spé PT\hfill TD Développements limités}%\hfill \date}
+\bigskip
+%\bigskip\noindent
+%
+%Faire dans l'ordre les exercices \ref{labelexoPTaqs}, \ref{labelexoPThj}, \ref{labelexoPThk}, \ref{labelexoPTia}, \ref{labelexoPThz}
+%
+\input LD@Inferno@Macros.tex
+\def\LD@List{\DéveloppementsLimités,\Equivalents,\Limites}
+\def\LD@Font@Arial{}
+\LD@Exo@Theme@Display{1}\LD@List{%
+	\TravauxDirigés%,\Exercices,\Colles%,\Problèmes,\Others,\Mathematica,\Maple,\LD@Empty
+}%
+
+
+% 
+% \Chapter Indications, Indications.
+% 
+% \LD@Exo@Indication@Display
+% 
+% \Chapter Notions, Notions.
+% 
+% \LD@Exo@Notion@Display
+\eject
+\Chapter Solutions, Solutions.
+
+\LD@Exo@Sol@Display
+
+\bye

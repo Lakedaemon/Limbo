@@ -1,0 +1,25 @@
+\startproduct Malebolge
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\starttext
+\completecontent%[criterium=all]
+\stoptext
+\setuphead[part][
+    incrementnumber=yes, % keep an internal title counter+list
+    number=no] 
+\setuphead[chapter][command=\Myheader]
+\setupheadtext[chapter=TD]
+\def\Myheader#1#2{\headtext{chapter} #1. \blank[small]#2}
+
+\defineitemgroup[List][levels=3]
+%\setupitemgroup[List][1][R,joinedup,nowhite]
+\setupitemgroup[List][1][n][inbetween={\blank[big]},before={\blank[big]}]
+\setupitemgroup[List][2][a,joineup,nowhite]
+\setupitemgroup[List][3][1,joineup,nowhite]
+
+
+\xmlprocessfile{malebolge}{xml/2013_TD.xml}{}
+
+\stopproduct

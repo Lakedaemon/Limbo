@@ -1,0 +1,196 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][1][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iffalse
+\page
+\centerline{\bfb DEVOIR MAISON 6}
+\blank[big]
+
+%\startList
+%\item%Exo1
+A chaque journée de cours, Mademoiselle J. mange soit à la cantine de son lycée soit 
+n’a pas le temps de manger en raison d’un temps d’attente trop long devant cette cantine. Précisément, 
+quand le professeur lui permet de sortir de classe avant la sonnerie, 
+elle parvient à manger avec probabilité $2/5$. Lorsque le professeur lui impose de sortir à la sonnerie, 
+elle n’a alors qu’une chance sur cinq de manger. Malgré son programme fort chargé, 
+le professeur compatit au pauvre sort de Mademoiselle J. et la laisse donc sortir en avance avec probabilité $2/3$. 
+On suppose que, d’un jour à l’autre, 
+les décisions du professeur de laisser ou non sortir Mademoiselle J. en avance sont indépendantes. On introduit les événements suivants :
+\startitemize[1]\item Pour $n∈ℕ^*$, on note $M_n$ : \quote{Mademoiselle J. parvient à manger au $n\high{ème}$ jour de cours}
+\item Pour $n∈ℕ^*$, on note $E_n$ : \quote{Le professeur laisse sortir Mademoiselle J. en avance au $n\high{ème}$  jour de cours}
+\item Pour $n∈ℕ^*$, on note $A_n$ : \quote{Mademoiselle elle n’a pas mangé deux fois de suite pour la première fois 
+aux $(n − 1)\high{ème}$ et $n\high{ème}$ jours de cours}
+\stopitemize
+\startList\item%1
+Dans cette question, on considère un jour de cours $n∈ℕ^∗$ quelconque.
+\startList\item Montrer que $P(M_n)={1\F 3}$
+\item On constate que Mademoiselle J. n’a pas mangé, 
+quelle est la probabilité que l’enseignant ne l’ait pas laissé sortir à l’avance.
+\stopList
+\item%2
+Pour tout $n∈ℕ^*$, on pose $u_n=P(A_n)$. 
+\startList
+\item Calculer $u_2$ et $u_3$.
+\item A l’aide de la formule des probabilités totales établir 
+\startformula ∀n∈ℕ^*, u_{n+2}={1\F 3}u_{n+1}+{2\F 9}u_n\stopformula
+{\it On utilisera le système complet d'événements $\{M1, \overline{M_1}∩M_2, \overline{M_1}∩\overline{M_2}\}$. \red (Question difficile et subtile)}
+\item En déduire l'expression de $u_n$ en fonction de $n$.
+\stopList
+\item%3.
+Pour tout entier naturel $n$ non nul, on note $S_n=∑_{k=1}^nu_k$. 
+\startList
+\item Montrer que $S_n$ représente la probabilité d'un certain événement, dont on donnera un libellé explicite.
+\item Montrer que la suite $(S_n)_{n∈ℕ^*}$ converge, déterminer sa limite et interpréter le résultat.
+\stopList
+
+\stopList
+
+%\stopList%Exo
+
+
+\else
+\page
+\centerline{\bfb CORRECTION DU DEVOIR MAISON 6}
+\blank[big]
+
+
+\startList
+
+\item%Exo2
+\startList\item%1
+Soit $n∈ℕ^∗$.
+\startList\item 
+Il résulte de la formule des probabilités totales appliquée au système complet d'événement $\{E_n,\overline{E_n}\}$ que 
+\startformula
+P(M_n)=P(E_n)×P_{E_n}(M_n)+P(\overline{E_n})×P_{\overline{E_n}}(M_n)={2\F 3}×{2\F 5}+{1\F 3}×{1\F 5}={4+1\F 3×5}={1\F 3}
+\stopformula
+\item D'après la formule de Bayes (appliqué au système  complet d'événement $\{E_n,\overline{E_n}\}$), on a 
+\startformula
+P_{\overline{M_n}}(\overline{E_n})={P(\overline{E_n}∩\overline{M_n})\F P(\overline{M_n}}={P(\overline{E_n})×P_{\overline{E_n}}(\overline{M_n})\F P(\overline{M_n})}={{1\F 3}×{4\F 5}\F {2\F 3}}={2\F 5}
+\stopformula
+\stopList
+\item%2
+Pour tout $n∈ℕ^*$, on pose $u_n=P(A_n)$. 
+\startList
+\item Il résulte de l'indépendance mutuelle des événements $M_1$, $M_2$ et $M_3$ que 
+\startformula
+\Align{
+\NC u_2=P(\overline{M_1}∩\overline{M_2})=P(\overline{M_1})×P(\overline{M_2})=\Q({2\F 3}\W)^2\NR
+\NC u_3=P(M_1∩\overline{M_2}∩\overline{M_3})=P(M_1)×P(\overline{M_2})×P(\overline{M_3})={1\F 3}×\Q({2\F 3}\W)^2
+}
+\stopformula
+\item Soit $n⩾2$. D'après la formule des probabilités totales appliquée au système complet d'événements $\{M_1,\overline{M_1}∩M_2, \overline{M_1}∩\overline{M_2}\}$, on déduit de l'égalité $\overline{M_1}∩M_2∩A_{n+2}=\emptyset$ que 
+\startformula
+\Align{
+\NC P(A_{n+2})\NC =P(A_{n+2}∩M_1)+P(A_{n+2}∩\overline{M_1}∩M_2)+P(A_{n+2}∩\overline{M_1}∩\overline{M_2})\NR
+\NC \NC =P(M_1)×P_{M_1}(A_{n+2})+P(\overline{M_1}∩M_2)×P_{\overline{M_1}∩M_2}(A_{n+2})+P(\emptyset)
+}
+\stopformula
+Il résulte alors de l'indépendance des événements $M_1$ et $M_2$ et de $P(M_n)=1/3\quad(n⩾1)$ que 
+\startformula
+\Align{
+\NC P(A_{n+2})\NC = P(M_1)×P_{M_1}(A_{n+2})+P(\overline{M_1})×P(M_2)×P_{\overline{M_1}∩M_2}(A_{n+2})+0\NR
+\NC \NC = {1\F 3}×P_{M_1}(A_{n+2})+{2\F 3}×{1\F 3}×P_{\overline{M_1}∩M_2}(A_{n+2})
+}
+\stopformula
+Ensuite, nous remarquons que 
+\crlf {\it ici, agit la fameuse magie des probas conditionnelles : Elles nous \quote{permettent} de dire que deux probabilités complétement différentes sont intuitivement égales. 
+C'est extrémement dur à justifier et globalement, si vous faites correctement ce raisonnement au concours, on ne vous en tiendra pas rigueur, au contraire (c'est le raisonnement attendu et c'est un abus généralempent toléré... et de toute façon, il n'y a pas réellement moyen de faire simplement ou autrement sans faire des calculs horribles et monstrueux)}
+\startformula
+\Align{[align=left]
+\NC P_{M_1}(A_{n+2})=P(A_{n+1}) = a_{n+1}\NR
+\NC P_{\overline{M_1}∩M_2}(A_{n+2}) = P(A_n) = a_n
+}
+\stopformula
+En particulier, nous concluons que 
+\startformula
+u_{n+2}=P(A_{n+2})= {1\F 3}×P_{A_{n+1}}+{2\F 9}×P(A_n)={1\F 3}u_{n+1}+{2\F 9}u_n\qquad (n⩾2)
+\stopformula
+\item La suite $u$ satisfait une récurrence linéaire homogène d'ordre $2$ dont l'équation caractéristique est 
+\startformula
+\Align{
+\NC 0\NC =x^2-{1\F 3}x-{2\F 9}=(x-{1\F 6})^2-{1\F 6^2}-{2\F 9}=(x-{1\F 6})^2-{9\F 6^2}\NR
+\NC\NC =\Q(x-{1\F 6}-{3\F 6}\W)\Q(x-{1\F 6}+{3\F 6}\W)=\Q(x-{2\F 3}\W)\Q(x+{1\F 3}\W)
+}
+\stopformula
+Comme les racines de ce trinôme sont $-{1\F 3}$ et ${2\F 3}$, nous remarquons qu'il existe deux réels $λ$ et $μ$ tels que 
+\startformula
+u_n=λ\Q(-{1\F 3}\W)^n+μ\Q({2\F 3}\W)^n\qquad(n⩾2)
+\stopformula
+Comme $u_2={4\F 3^2}$ et comme $u_3={4\F 3^3}$, il vient 
+\startformula
+\Align{[align={left, left}]
+\NC \NC \System{[align=left]
+\NC u_2={4\F 3^2}=λ\Q(-{1\F 3}\W)^2+μ\Q({2\F 3}\W)^2\NR
+\NC u_3={4\F 3^3}=λ\Q(-{1\F 3}\W)^3+μ\Q({2\F 3}\W)^3
+}\mathop{⟺}\L^{L_1\leftarrow L_1+3L_2}\System{[align=left]
+\NC {8\F 9}=μ{12\F 9}\NR
+\NC u_3={4\F 3^3}=λ\Q(-{1\F 3}\W)^3+μ\Q({2\F 3}\W)^3
+}\NR
+\NC⟺\NC \System{[align=left]
+\NC μ={2\F 3}\NR
+\NC λ=\Q({4\F 3^3}-{2\F 3}\Q({2\F 3}\W)^3\W)×(-3)^3=-\Q(4-{2\F 3}×8\W)={4\F 3}
+}
+}
+\stopformula
+En conclusion, on a 
+\startformula
+u_n= {4\F 3}\Q(-{1\F 3}\W)^n+{2\F 3}\Q({2\F 3}\W)^n\qquad(n⩾2)
+\stopformula
+\stopList
+\item%3. 
+\startList
+\item Nous remarquons que 
+\startformula
+\Align{
+\NC S_n\NC =∑_{k=1}^nu_k=∑_{k=1}^nP(A_k)=P(⋃_{k=1}^nA_k)\NR
+\NC \NC =P(\text{\quote{J. n'a pas mangé deux fois de suite entre le premier jour et le $n\high{ième}$ jour}})}
+\stopformula
+\item Il résulte de la formule que nous avons trouvé pour $u_n$ (et des formules bien connues pour les sommes des termes de suites géométriques de raison différente de $1$) que 
+\startformula
+\Align{
+\NC S_n\NC =∑_{k=1}^nu_k=∑_{k=1}^nu_k\Q({4\F 3}\Q(-{1\F 3}\W)^n+{2\F 3}\Q({2\F 3}\W)^n\W)\NR
+\NC \NC ={4\F 3}∑_{k=1}^n\Q(-{1\F 3}\W)^n + {2\F 3}∑_{k=1}^n\Q({2\F 3}\W)^n\NR
+\NC\NC {4\F 3}{-{1\F 3}-\Q(-{1\F 3}\W)^{n+1}\F 1+{1\F 3}}+ {2\F 3}{{2\F 3}-\Q({2\F 3}\W)^{n+1}\F 1-{2\F 3}}
+}
+\stopformula
+Et il n'est pas trop difficile, au vu de cette dernière formule, de voir que 
+\startformula
+\lim_{n→+∞}S_n={4\F 3}{-{1\F 3}\F 1+{1\F 3}}+ {2\F 3}{{2\F 3}\F 1-{2\F 3}}=-{1\F 3}+{4\F 3}= 1
+\stopformula
+En particulier, si $n$ est un grand nombre, il est presque sûr que mademoizelle J. Va rater un repas deux jours consécutifs..
+\stopList
+
+\stopList
+\fi
+\stoptext
+\stopcomponent
+\endinput

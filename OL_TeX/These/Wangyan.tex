@@ -1,0 +1,2689 @@
+%%%%%%%%%%%%% 2eme article 1/08/1998-6/11/1998 
+%\magnification 1100
+\input eplaingt
+\input Macrols
+
+
+\SecLabelEqtrue           % le numero de section prefixe le label des equations
+\NumReftrue                   % les references bibliographiques sont numerotees automatiquement
+\global\SectNum=0
+\global\SectiNum=0
+\global\SectioNum=0
+
+
+\def\ps#1\ps{\left\langle\!\left\langle #1\right\rangle\!\right\rangle }
+\def\pss#1\pss{\left[\!\left[#1\right]\!\right]}
+\def\bps#1\ps{\big[\!\!\big[#1\big]\!\!\big]}
+\def\Bps#1\ps{\Big[\!\Big[#1\Big]\!\Big]}
+\def\bgps#1\ps{\bigg[\!\!\bigg[#1\bigg]\!\!\bigg]}
+\def\Bgs#1\ps{\Bigg[\!\!\Bigg[#1\Bigg]\!\!\Bigg]}
+\def\olsum{\mathop{\overline{\sum}}}
+
+\hautspages{O. Binda}{Deux \'equations diff\'erentielles retard\'ees  adjointes}
+\pagetitretrue
+
+
+\titrecentre{\seventeenbf Deux \'equations diff\'erentielles retard\'ees  adjointes} 
+\bigskip
+\bigskip
+
+\centerline{Olivier Binda}
+\bigskip
+\bigskip
+
+\noindent
+{\qquad\quad \bf Sommaire}
+\smallskip
+{\eightpts\leftskip.6cm\rightskip.8cm
+\readtocfile}
+
+
+\Sect Intro, Introduction.
+
+
+L'objet de cet article est l'\'etude sur $]0,\infty[$ de l'\'equation diff\'erentielle
+lin\'eaire retard\'ee
+$$
+f'(x)+pf(x-\tau)+qf\b([x-\theta]\b)=0, \eqdef{eqf}
+$$
+o\`u $[t]$ d\'esigne la partie enti\`ere du nombre r\'eel $t$ et o\`u les
+nombres $\theta,\tau,p,q$ v\'erifient 
+$$
+\theta>0,\qquad \tau>0,\qquad p\in\ob C^*\qquad\hbox{et}\qquad q\in\ob C^*.\eqdef{donnees}
+$$
+Nous cherchons notamment \`a en d\'eterminer une \'equation caract\'eristique, i.e. une \'equation permettant 
+de caract\'eriser les solutions de l'\'equation diff\'erentielle \eqref{eqf}.  
+\bigskip
+
+
+Commen\c{c}ons par pr\'eciser la notion de solution pour l'\'equation \eqref{eqf}. Par~d\'efinition, 
+une~solution de l'\'equation diff\'erentielle retard\'ee \eqref{eqf} est une fonction continue $f:\ob R\to\ob R$, 
+d\'erivable sur l'ouvert $\sc O:=\{x>0:x\not\equiv\theta\ [1]\}$ et v\'erifiant   
+$$
+f'(x)+pf(x-\tau)+qf\b([x-\theta]\b)=0\qquad(x\in\sc O). \eqdef{eqf1}
+$$
+D'apr\`es le th\'eor\`eme classique suivant, ces solutions sont uniquement d\'etermin\'ees par leur restriction \`a l'intervalle $]-\infty,0]$ et cro\^\i ssent plus lentement qu'une exponentielle. 
+\bigskip
+
+\theo Teum. Soient $\theta,\tau,p,q$ des nombres v\'erifiant \eqref{donnees}. Pour chaque $\varphi\in\sc C\b(]-\infty,0]\b)$, il existe une
+unique solution $f$ de~l'\'equation diff\'erentielle~\eqref{eqf} 
+v\'erifiant
+$$
+f(x)=\varphi(x)\qquad(x\le 0).
+$$
+De plus, il existe un nombre r\'eel $r$ tel que 
+$$
+f(x)\ll\e^{rx}\qquad(x\ge0).\eqdef{majf}
+$$
+\par
+\bigskip
+
+Il est alors naturel de s'interroger sur le comportement asymptotique des solutions de l'\'equation \eqref{eqf} et de chercher dans un premier temps \`a d\'eterminer si elles oscillent :  
+une~telle solution \'etant dite oscillante lorsqu''elle s'annule dans chaque voisinage de~$+\infty$ 
+et non-oscillante dans le cas contraire. Par~extension, l'\'equation~diff\'erentielle~\eqref{eqf} oscille~si, et~seulement~si, toutes ses solutions r\'eelles sont oscillantes. 
+\bigskip
+
+
+Lorsque $p=0$ et $\theta\in\ob N$, l'\'equation diff\'erentielle \eqref{eqf} se r\'eduit \`a l'\'equation plus simple 
+$$
+f'(x)+qf\b([x]-\theta\b)=0, 
+$$
+qui oscille si, et seulement si, son \'equation caract\'eristique 
+$$
+z-1+qz^{-\theta}=0\eqdef{eqc2}
+$$
+n'admet aucune racine dans l'intervalle $]0,1]$. %, voir par exemple [5]. 
+De m\^eme, lorsque $q=0$, l'\'equation 
+\eqref{eqf} se~r\'eduit \`a l'\'equation diff\'erentielle retard\'ee 
+$$
+f'(x)+pf(x-\tau)=0\eqdef{eqfs}
+$$
+qui oscille si, et seulement si, son \'equation caract\'eristique  
+$$
+z+p\e^{-\tau z}=0
+\eqdef{eqc1}
+$$
+n'admet aucune racine r\'eelle. %, voir par exemple [6]. 
+\bigskip
+
+
+En 1989, K. Gopalsamy, I. Gy{\"o}ri et G. Ladas \CitRef{GopalsamyGyoriLadas} obtiennent une condition
+suffisante d'oscillation de l'\'equation diff\'erentielle \eqref{eqf} pour des coefficients $\theta,\tau,p,q$ v\'erifiant 
+$$
+\theta\in\ob N, \qquad \tau>0,\qquad p>0 \qquad \hbox{et}\qquad q>0. 
+$$
+\'Etant donn\'es l'unique solution $\lambda_0\in[-1/\tau,0]$ de~l'\'equation caract\'eristique \eqref{eqc1} et les~nombres $A$ et $B$ d\'efinis, lorsque $\e p\tau<1$, par 
+$$
+A:=\lambda_0(1+\tau\lambda_0)\qquad\hbox{et}\qquad 
+B:=q\e^{-\theta\lambda_0}(1-\e^{-\lambda_0}), 
+$$ 
+ils prouvent ainsi que l'\'equation diff\'erentielle \eqref{eqf} oscille si l'une des trois conditions suivantes est
+satisfaite :
+\medskip 
+
+\noindent(i)$\;\;$\qquad ($q=1$ et $\theta=0$)\quad ou \quad 
+$q>\theta^\theta(\theta+1)^{-\theta-1}$, 
+\medskip
+
+\noindent(ii)$\;$
+\qquad $\e p\tau\ge1$,
+\medskip
+
+\noindent(iii)\qquad$\e p\tau<1$, \quad $pq\neq0$, \quad ($A\neq B$ ou $\theta\neq0$) 
+\quad et\quad  $A(\lambda-1)+B\lambda^{-k}\neq0\quad(0<\lambda\le 1)$. 
+\bigskip
+
+
+
+Au vu des pr\'ec\'edentes conditions d'oscillation de l'\'equation diff\'erentielle \eqref{eqf}, qui s'appliquent pour des coefficients $\tau,\theta,p,q$ particuliers, 
+il est naturel de chercher s'il existe une telle condition s'appliquant aux coefficients \eqref{donnees}. En 1991, I. Gy{\"o}ri et G. Ladas~\CitRef{GyoriLadas} posent le probl\`eme suivant : 
+trouver une \'equation caract\'eristique de l'\'equation~\eqref{eqf} se~r\'eduisant \`a l'\'equation caract\'eristique \eqref{eqc2} lorsque $p=0$ et $\theta\in\ob N$ et 
+se~r\'eduisant \`a l'\'equation caract\'eristique \eqref{eqc1} lorsque $q=0$. 
+\bigskip
+
+
+En 1998, Y. Wang et J. Yan \CitRef{WangYan} r\'epondent partiellement \`a ce probl\`eme. \'Etant~donn\'es 
+$$
+\theta\in\ob N, \qquad \tau\in\ob N,\qquad p\in\ob R\qquad \hbox{et}\qquad q\in\ob R, \eqdef{brigitte}
+$$
+ils prouvent que l'\'equation 
+$$
+z\exp\b(pz^{-\tau}\b)-1+{q\F z^\theta}\int_0^1\exp\b(pz^{-\tau}t\b)\d t=0
+\eqdef{eqW}
+$$
+est une \'equation caract\'eristique de l'\'equation diff\'erentielle \eqref{eqf}. Notant $\langle x\rangle$ 
+la partie fractionnaire de~$x$, 
+ils~montrent en particulier que \eqref{eqW} est une condition n\'ecessaire et
+suffisante pour que l'application 
+$$
+x\mapsto {z^{[x]}\F\exp\b(pz^{-\tau}\langle x\rangle\b)} \Q(1-{q\F z^\theta}
+\int_0^{\langle x\rangle}\exp\b(pz^{-\tau}t\b)\d t\W)
+$$
+soit une solution de \eqref{eqf}. 
+Wang et Yan en d\'eduisent que l'\'equation diff\'erentielle \eqref{eqf} oscille~si, 
+et~seulement si, l'\'equation caract\'eristique \eqref{eqW} 
+ne poss\`ede aucune racine strictement positive. 
+Pour~des nombres $\theta,\tau,p,q$ v\'erifiant 
+$$
+\theta\in\ob N,\qquad\tau>0, \qquad p>0\qquad\hbox{et}\qquad q>0, 
+$$
+ils prouvent par ailleurs l'\'equation diff\'erentielle \eqref{eqf} oscille sous la condition  
+$$
+z\exp\B(pz^{-[\tau]}\B)-1+{q\F z^\theta}
+\int_0^1\exp\B(pz^{-[\tau]}t\B)\d t\neq0\qquad\b(z>0).
+$$
+
+
+Pour toute la suite, les symboles $p,q,\theta$ et $\tau$ d\'esignent des nombres v\'erifiant~\eqref{donnees}
+et le~symbole $\phi$ d\'esigne la fonction associ\'ee \`a l'\'equation caract\'eristique \eqref{eqc1}, i.e. v\'erifiant   
+$$
+\phi(z)=z+p\e^{-\tau z}\qquad(z\in\ob C).\eqdef{defphi}
+$$
+De plus, afin de simplifier les notations, pour chaque suite $\{u_n\}_{n\in\ob Z}$ 
+de nombres complexes pour laquelle la~limite de droite existe, nous~posons 
+$$
+\ol{\sum_{n\in\ob Z}}u_n:=\lim_{N\to\infty}\sum_{-N\le n\le N}u_n. 
+$$
+
+Dans cet article, nous exhibons une famille de solutions de l'\'equation diff\'erentielle~\eqref{eqf}, 
+que~nous utilisons pour d\'eterminer un d\'eveloppement asymptotique de ses solutions, et~nous proposons une autre r\'eponse partielle au probl\`eme pos\'e par I. Gy{\"o}ri et G. Ladas :  
+nous justifions au paragraphe \CitSec{Resultats} que l'\'equation 
+$$
+1+q\sum_{n\in\ob Z}\ {1-\e^{-z}\F z+2\pi in}\ {\e^{-\theta(z+2\pi in)}\F\phi(z+2\pi in)}=0.
+\eqdef{ec3}
+$$
+est une \'equation caract\'eristique de l'\'equation diff\'erentielle \eqref{eqf} pour les nombres~\eqref{donnees}. 
+De plus, notant $\sc C$ le sous-ensemble ouvert du plan $\ob C$ d\'efini par 
+$$
+\sc C:=\b\{z\in\ob C:\phi(z+2\pi in)\neq0\ \,(n\in\ob Z)\b\} 
+\eqdef{DeathC}
+$$
+et posant  
+$$
+P(z):=1+q\sum_{n\in\ob Z}\ {1-\e^{-z}\F z+2\pi in}\ {\e^{-\theta(z+2\pi in)}\F\phi(z+2\pi in)}
+\qquad(z\in\sc C),
+\eqdef{DeathP}
+$$
+nous remarquons que l'\'equation 
+$$
+\phi(z)P(z)=0
+$$
+se~r\'eduit \`a l'\'equation caract\'eristique  \eqref{eqc1} lorsque $q=0$
+et que l'\'equation 
+$$
+\Q(\e^{\phi(s)}-1\W)P(s)=0
+$$
+se r\'eduit pour $z=\e^s$ d'une part \`a l'\'equation caract\'eristique \eqref{eqc2}  lorsque $p=0$ et $\theta\in\ob N$ 
+et d'autre part \`a l'\'equation caract\'eristique \eqref{eqW} lorsque $p,q,\theta,\tau$ v\'erifient \eqref{brigitte}. 
+
+
+\Sect Resultats, R\'esultats. 
+
+\Secti Eqadj, \'Equation adjointe et op\'erateurs associ\'es.  
+
+Dans cet article, nous \'etudions non seulement l'\'equation diff\'erentielle \eqref{eqf} mais aussi son \'equation diff\'erentielle adjointe g\'en\'eralis\'ee
+$$
+-g'(y)+pg(y+\tau)+q\sum_{n\in\ob Z}\int_{n+\theta}^{n+\theta+1}g(t)\d t\
+\delta_n(y)=0,  
+\eqdef{eqg} 
+$$ 
+pour laquelle le symbole $\delta_n$ d\'esigne pour chaque entier $n$ la masse de Dirac au point $n$. 
+\bigskip
+
+Avant d'expliquer en quoi l'\'equation \eqref{eqg} est adjointe \`a l'\'equation diff\'erentielle \eqref{eqf}, pr\'ecisons la nature de ses solutions. 
+Soit $\sc H$ l'espace des fonctions $g:\ob R\to\ob C$, continues~sur~$\ob R\ssm\ob Z$ et 
+admettant en chaque entier $n$ des limites \`a droite et \`a gauche v\'erifiant 
+$$
+g(n)={g(n^+)+g(n^-)\F2}. \eqdef{CondDirichlet}
+$$
+Par d\'efinition, une solution de l'\'equation diff\'erentielle \eqref{eqg} est une fonction~$g\in\sc H$ 
+satisfaisant la~condition de raccord
+$$
+g(n^+)-g(n^-)=q\int_{n+\theta}^{n+\theta+1}g(t)\d t
+\qquad(n\le0)
+\eqdef{condra}
+$$
+et admettant une d\'eriv\'ee sur l'ouvert $\sc O^*:=\b\{y<0:y\not\equiv0\ [1]\hbox{ et }y\not\equiv-\tau\ [1]\b\}$ v\'erifiant 
+$$
+-g'(y)+pg(y+\tau)=0
+\qquad(y\in\sc O^*).
+\eqdef{eqgs}
+$$
+D'apr\`es le th\'eor\`eme classique suivant, ces solutions sont uniquement d\'etermin\'ees par leur restriction \`a l'intervalle $]0,+\infty[$ et cro\^\i ssent plus lentement qu'une exponentielle. 
+\bigskip
+
+\theo Teum*. Soit $\varphi:[0,\infty[\to\ob C$ une fonction continue sur l'ouvert $[0,\infty[\ssm\ob N$ et admettant en chaque entier $n>0$ une 
+limite \`a droite et \`a gauche v\'erifiant  la condition~\eqref{CondDirichlet}. 
+Alors, il~existe une unique solution $g$ de~l'\'equation diff\'erentielle \eqref{eqg} v\'erifiant  
+$$
+g(y)=\varphi(y)\qquad(y\ge0).
+$$
+De plus, il existe un nombre r\'eel $r$ pour lequel 
+$$
+g(y)\ll \e^{-ry}\qquad(y<0).
+\eqdef{majg}
+$$
+\par
+\bigskip
+
+Expliquons maintenant en quoi les \'equations diff\'erentielles \eqref{eqf} et \eqref{eqg} sont adjointes. 
+Pour chaque nombre r\'eel $a$ et chaque fonction $f:\ob R\to\ob R$, nous posons 
+$$
+T_a f(x):=
+f(x-a)\qquad(x\in\ob R),\eqdef{trans}
+$$
+et nous remarquons que l'\'equation diff\'erentielle \eqref{eqf} est canoniquement associ\'ee \`a~l'op\'e\-ra\-teur~$\sc T:\sc C(\ob R)\to\sc D'(\ob R)$ d\'efini par 
+$$
+\sc Tf:=f'+pT_\tau f+q\sum_{n\in\ob Z}f(n)\1_{[n+\theta,n+\theta+1[}\qquad\b(f\in\sc C(\ob R)\b)
+\eqdef{defT}
+$$ 
+et que l'\'equation \eqref{eqg} est de fa\c{c}on similaire associ\'ee \`a  l'op\'erateur $\sc T^*:\sc L^1_{\hbox{\sevenrm loc}}(\ob R)\to\sc D'(\ob R)$ 
+d\'efini par 
+$$
+\sc T^*g:=-g'+pT_{-\tau}g+q\sum_{n\in\ob
+Z}\int_{n+\theta}^{n+\theta+1}g(t)
+\d t\ \delta_n\qquad\b(g\in\sc L_{\hbox{\sevenrm loc}}^1(\ob R)\b).  \eqdef{defT*}
+$$ 
+Les \'equations diff\'erentielles \eqref{eqf} et \eqref{eqg} peuvent alors \^etre consid\'er\'ees comme adjointes dans la mesure ou les op\'erateurs $\sc T$ et $\sc T^*$ satisfont la relation 
+$$
+\langle \sc Tf,g\rangle=\langle\sc T^*g,f\rangle\qquad\b(f\in\sc D(\ob R),g\in \sc D(\ob R)\b). \eqdef{relfg}
+$$
+
+\Secti Solfond, \'Equation caract\'eristique.
+
+Commen\c{c}ons par justifier que \eqref{ec3} est une \'equation caract\'eristique de l'\'equation~\eqref{eqf}. 
+Nous prouvons au paragraphe \CitSec{Demons} que la famille de fonctions $\{x\mapsto F(x,z)\}_{z\in\sc C}$ d\'efinie par 
+$$
+F(x,z):=\sum_{n\in\ob Z}\ {(1-\e^{-z})\F(z+2\pi in)}\ {\e^{(x-\theta)(z+2\pi in)}\F\phi(z+2\pi in)}
+\qquad(x\in\ob R,z\in\sc C)
+\eqdef{DeathF} 
+$$
+satisfait l'identit\'e 
+$$
+\sc T\b(x\mapsto F(x,z)\b)=P(z)\ \sum_{n\in\ob Z}\ \e^{nz}\1_{[n+\theta,n+\theta+1[}
+\qquad(z\in\sc C).\eqdef{Rel1}
+$$
+Ainsi, $x\mapsto F(x,z)$ est une solution au sens des distribution de l'\'equation $\sc Tf=0$, canoniquement associ\'ee \`a \eqref{eqf} si, et seulement si, le nombre $z$ est un z\'ero de la fonction~$P$, 
+i.e. une racine de l'\'equation \eqref{ec3}. En particulier, l'\'equation \eqref{ec3} permet de d\'eterminer les solutions de l'\'equation diff\'erentielle \eqref{eqf} parmi une famille infinie de candidats. 
+\bigskip
+
+L'\'equation \eqref{ec3} est \'egalement une \'equation caract\'eristique de l'\'equation adjointe~\eqref{eqg}.
+Nous prouvons au paragraphe \CitSec{Demons} que la famille de fonctions $\{x\mapsto G(y,z)\}_{z\in\sc C}$ d\'efinie par 
+$$
+G(y,z):=\olsum_{n\in\ob Z}\ {\e^{-y(z+2\pi in)}\F\phi(z+2\pi in)}
+\qquad\ (y\in\ob R, z\in\sc C)
+\eqdef{DeathG} 
+$$
+satisfait l'identit\'e  
+$$
+\sc T^*\b(y\mapsto G(y,z)\b)=P(z)\ \sum_{n\in\ob Z}\ \e^{-nz}\delta_n
+\qquad\qquad\qquad(z\in\sc C).\eqdef{Rel2}
+$$
+Ainsi, $y\mapsto G(y,z)$ est une solution au sens des distribution de l'\'equation $\sc T^*g=0$, canoniquement associ\'ee \`a \eqref{eqg} si, et seulement si, le nombre $z$ est un z\'ero de la fonction~$P$, 
+i.e. une racine de l'\'equation \eqref{ec3}. En particulier, l'\'equation \eqref{ec3} permet de d\'eterminer les solutions de l'\'equation diff\'erentielle \eqref{eqg} parmi une famille infinie de candidats. 
+\bigskip
+
+Les paragraphes pr\'ec\'edents soulignent les similitudes entre les \'equations \eqref{eqf} et \eqref{eqg} et justifient leur \'etude conjointe. Signalons au passage les identit\'es remarquables 
+$$
+\eqalignno{
+\sc T\b(x\mapsto\e^{xz}\b)&=\phi(z)\e^{xz}+q\sum_{n\in\ob Z}\ \e^{nz}\1_{[n+\theta,n+\theta+1[}
+\qquad(z\in\sc C),
+&
+\eqdef{Rel3}
+\cr
+\sc T^*\b(y\mapsto\e^{-yz}\b)&=\phi(z)\e^{-yz}+q\sum_{n\in\ob Z}\ {1-\e^{-z}\F z\e^{\theta z}}\e^{-nz}\delta_n
+\qquad(z\in\sc C),
+&
+\eqdef{Rel4}
+}
+$$
+qui ressemblent aux relations \eqref{Rel1} et \eqref{Rel2} et qui vont nous permettre de construire plus loin des solutions particuli\`eres des \'equations diff\'erentielles \eqref{eqf}~et~\eqref{eqg}, 
+associ\'ees \`a certaines racines $z$ de la fonction enti\`ere $\phi$. Notamment \`a celles qui v\'erifient $z\equiv 0\ [2\pi]$ ou \`a celles pour lesquelles l'ensemble 
+$$
+E_z:=\{s\in z+2\pi i\ob Z:\phi(s)=0\}
+$$
+contient exactement deux \'el\'ements. En ce sens, la fonction $\phi$ joue un r\^ole qui n'est pas sans rappeler celui d'une fonction caract\'eristique. 
+\bigskip
+
+\Secti Solutions, Famille de solutions fondamentales. 
+
+Pour chaque nombre complexe $z$, nous notons $v_z$ la valuation au point $z$ de la fonction~$P$, nous posons 
+$$
+n_z:=v_z+\Q\{\eqalign{
+&0\quad\hbox{ si  }|E_z|=0,\cr
+&2\quad\hbox{ si  }|E_z|=2 \hbox{ et }z\not\equiv0\ [2\pi i],\cr
+&1\quad\hbox{ dans les autres cas}\cr
+}\W.\eqdef{nzz}
+$$
+et nous observons que $n_z=0$ pour tous les $z\in\sc C$ qui ne v\'erifient pas l'\'equation~\eqref{ec3}. 
+Dans les paragraphes suivants, nous associons \`a chaque nombre complexe $z$ (modulo $2\pi i$) 
+une famille $F_{z,1},\cdots,F_{z,n_z}$ de solutions fondamentales de l'\'equation diff\'erentielle \eqref{eqf} 
+et une famille $G_{z,1},\cdots,G_{z,n_z}$ de solutions fondamentales de l'\'equation diff\'erentielle \eqref{eqg}. 
+\bigskip
+
+
+Soit $\sc A:=\ol{\sc C\cup 2\pi i\ob Z}$ le compl\'ementaire dans $\ob C$ de l'ensemble $\sc C\cup 2\pi i\ob Z$. 
+Pour chaque~$z\in\ob C$, nous notons $\{c_{z,n}\}_{n\in\ob N}$ la suite de coefficients d\'efinie par  
+$$
+-{q\F P(s)}=\sum_{n=0}^\infty c_{z,n}(s-z)^{n-v_z}\qquad(s\hbox{ au voisinage de }z),\eqdef{Deathczn}
+$$
+et nous notons $\{f_{z,n}\}_{n=1}^\infty$ la famille d'applications uniquement d\'etermin\'ee par 
+$$
+F(x,s)=\sum_{n\ge1}f_{z,n}(x)(s-z)^{n-1-\1_{\sc A}(z)}\qquad(x\in\ob R,s\hbox{ au voisinage de }z) \eqdef{DeathFF}
+$$
+D'apr\`es le th\'eor\`eme suivant, que nous d\'emontrons au paragraphe \CitSec{Demons}, les fonctions d\'efinies respectivement par  
+$$
+F_{z,k}(x):=f_{z,k}(x)\qquad(1\le k<n_z,x\in\ob R)\eqdef{Fzk}
+$$
+et par 
+$$
+F_{z,n_z}(x):=\Q\{\eqalign{f_{z,n_z}(x)\hfill&\qquad\hbox{si }E_z=\emptyset
+\cr
+{\e^{xs}\F c_{z,0}}+f_{z,n_z}(x)&\qquad\hbox{si }E_z=\{s\}%\eqdef{Sol0}
+\cr
+\e^{xs}-\e^{x\ol s}&\qquad\hbox{si }E_z=\{s,\ol s\}\hbox{ et }n_z=1%\eqdef{Sol1}
+\cr
+{\e^{x s}+\e^{x\ol s}\F2\ \!c_{z,0}}+f_{z,n_z}(x)&\qquad\hbox{ si }E_z=\{s,\ol s\}\hbox{ et }n_z\ge2%\eqdef{Sol3}
+\cr
+}\W.\qquad(x\in\ob R)\eqdef{Solar}
+$$
+sont des solutions de l'\'equation diff\'erentielle \eqref{eqf}. 
+
+
+\theo sol1. Pour chaque nombre $z\in\ob C$ et chaque entier $k$ v\'erifiant $1\le k\le n_z$, la~fonction $F_{z,k}$ est une solution de l'\'equation diff\'erentielle~\eqref{eqf}. 
+\par
+\bigskip
+
+Soit $\sc B:=\ol{\sc C}$ le compl\'ementaire dans $\ob C$ de l'ensemble $\sc C$. De m\^eme, pour chaque~$z\in\ob C$, 
+nous notons $\{g_{z,n}\}_{n=1}^\infty$ la famille d'applications uniquement d\'etermin\'ee par 
+$$
+G(y,s)=\sum_{n\ge1}g_{z,n}(y)(s-z)^{n-1-\1_{\sc B}(z)}\qquad(y\in\ob R,s\hbox{ au voisinage de }z) \eqdef{DeathGG}
+$$
+et nous posons 
+$$
+\gamma_z:=\Q\{
+\eqalign{
+&\e^{-z}\qquad\ \ \hbox{ si }z\equiv 0\ [2\pi i],
+\cr 
+&1-\e^{-z}\quad\hbox{ sinon.}
+}\W.
+\eqdef{Glab}
+$$
+D'apr\`es le th\'eor\`eme suivant, que nous d\'emontrons au paragraphe \CitSec{Demons}, les fonctions d\'efinies respectivement par  
+$$
+G_{z,1}(y):=\Q\{\eqalign{&\sum_{m+n=n_z-1}c_{z,m}\ g_{z,n+1}(y)
+\quad\hbox{si } |E_z|\le1
+\cr
+&{s\e^{(\theta-y)s}-\ol s\e^{(\theta-y)\ol s}\F s\phi'(s)+\ol s\phi'(\ol s)}\qquad\hbox{si }E_z=\{s,\ol s\} \hbox{ et }n_z=1\quad\qquad(y\in\ob R).% \eqdef{Sol2}
+\cr
+&{s\e^{(\theta-y)s}+\ol s\e^{(\theta-y)\ol s^{\strut}}\F 2\gamma_z}+\sum_{1\le n\le n_z}c_{z,n_z-n}\ g_{z,n}(y)
+\quad\hbox{si }E_z=\{s,\ol s\}\hbox{ et }n_z\ge2%\eqdef{Sol4}
+}\W. \eqdef{Planetar}
+$$
+et par
+$$
+G_{z,k}(y):=\sum_{m+n=n_z-k}c_{z,m}\ g_{z,n+1}(y)
+\qquad(1<k\le n_z,y\in\ob R)
+\eqdef{Gzk}
+$$
+sont des solutions de l'\'equation diff\'erentielle adjointe \eqref{eqf}. 
+
+\theo sol1*. Pour chaque nombre $z\in\ob C$ et chaque entier $k$ v\'erifiant $1\le k\le n_z$, la~fonction $G_{z,k}$ est une solution de l'\'equation diff\'erentielle adjointe~\eqref{eqg}. 
+\par
+\bigskip
+
+%%\theo P2. Soient $z\in\sc C$ et $k\ge0$ un entier. Alors, l'application $F_{z,k}$ est une solution de l'\'equation diff\'erentielle \eqref{eqf}~si, 
+%%et~seulement~si, l'entier $k$ est strictement inf\'erieur \`a 
+%%la multiplicit\'e de~$z$ en tant que racine de l'\'equation caract\'eristique \eqref{ec3}. 
+%%\par
+%%\bigskip
+%\theo P2*. Soient $z\in\sc C$ et $k\ge0$ un entier. Alors, l'application
+%%$$
+%%x\mapsto {G_x^{(k)}(x)\F k!}
+%%$$
+%%est une solution de l'\'equation diff\'erentielle~\eqref{eqg} si, et~seulement~si, 
+%%l'entier $k$ est strictement inf\'erieur \`a la multiplicit\'e de $z$ 
+%%en tant que racine de l'\'equation caract\'eristique \eqref{ec3}.
+%%\par
+%%\bigskip
+
+
+\Secti Formeb, Forme bilin\'eaire et d\'eveloppements asymptotiques.
+
+Nous notons $\sc E$ et $\sc E^*$ les espaces de solutions des \'equations diff\'erentielles \eqref{eqf}~et~\eqref{eqg} 
+et nous d\'efinissons une forme bilin\'eaire sur l'espace produit $\sc E\times\sc E^*$ en posant  
+$$
+\ps f,g\ps:=f(0)g(0^-)
+-p\!\int_0^\tau\!\!\! f(t-\tau)g(t)\d t-q\!\int_0^\theta\!\!\! f\b([t-\theta]\b)g(t)\d t\quad(f\in\sc E,g\in\sc E^*).\!\!\!\!\!\!
+\eqdef{deffb}
+$$
+D'apr\`es le th\'eor\`eme suivant, que nous prouvons au paragraphe \CitSec{Demons}, chaque fonction~\hbox{$f\in\sc E$} admet un d\'eveloppement asymptotique  
+selon la famille $\{F_{z,k}\}_{1\le k\le n_z}$ des~solutions fondamentales  de l'\'equation diff\'erentielle \eqref{eqf}, dont les coefficients sont des ``produits'' de~$f$ 
+contre la famille $\{G_{z,k}\}_{1\le k\le n_z}$ des solutions fondamentales de l'\'equation adjointe \eqref{eqg}. 
+\bigskip
+
+
+\theo TDA. Soit $f$ une solution de l'\'equation diff\'erentielle \eqref{eqf}, soit $\sigma$ un nombre r\'eel et soit  $\sc P(\sigma)$ le pav\'e d\'efini par
+$$
+\sc P(\sigma):=\{z\in\ob C:\re z\ge\sigma\hbox{ et }-\pi<\im z\le \pi\}.\eqdef{Pave}
+$$
+Alors, l'application~$R_{f,\sigma}$ implicitement d\'efinie par 
+$$
+f(x)=\sum_{\ss z\in\sc P(\sigma)\atop\ss0\le n<m_z}
+\ps f,G_{z,n}\ps F_{z,n}(x)+R_{f,\sigma}(x)\qquad(x>0)\eqdef{Loudblast}
+$$
+satisfait la majoration 
+$$
+R_{f,\sigma}(x)\ll\e^{\sigma x}\qquad(x>0). \eqdef{oiseau}
+$$
+\par
+
+D'apr\`es le th\'eor\`eme suivant, que nous prouvons au paragraphe \CitSec{Demons}, chaque fonction~\hbox{$g\in\sc E^*$} admet de m\^eme un d\'eveloppement asymptotique 
+selon la famille  $\{G_{z,k}\}_{1\le k\le n_z}$ des~solutions fondamentales  de l'\'equation diff\'erentielle adjointe \eqref{eqg}, dont les coefficients sont des ``produits'' de~$g$ 
+contre la famille $\{F_{z,k}\}_{1\le k\le n_z}$ des solutions fondamentales de~\eqref{eqg}. 
+\bigskip
+
+
+\theo TDA*. Soit $g$ une solution de l'\'equation diff\'erentielle \eqref{eqg}, soit $\sigma$ un nombre r\'eel et soit  $\sc P(\sigma)$ le pav\'e d\'efini par \eqref{Pave}. Alors, 
+l'application~$S_{g,\sigma}$ implicitement d\'efinie par 
+$$
+g(y)=\sum_{\ss z\in\sc P(\sigma)\atop\ss0\le n<m_z}
+\ps F_{z,k},g\ps G_{z,k}(y)+S_{g,\sigma}(y)\qquad(y<0)\eqdef{Loud}
+$$
+satisfait la majoration 
+$$
+S_{g,\sigma}(y)\ll\e^{-\sigma y}\qquad(y<0).\eqdef{serpent}
+$$
+\par
+
+Enfin, pour certaines constantes $p,q, \tau,\theta$ particuli\`eres, nous observons qu'il est possible d'\'etablir que chaque couple $(f,g)\in\sc E\times\sc E^*$ satisfait les estimations
+$$
+\lim_{\sigma\to-\infty}R_{f,\sigma}(x)=0\qquad(x>0)\qquad\hbox{et}\qquad\lim_{\sigma\to-\infty}S_{\sigma}(y)=0\qquad(y<0), 
+$$
+c'est-\`a-dire que les solutions des \'equations diff\'erentielles \eqref{eqf} et \eqref{eqg} sont d\'ecomposables en s\'erie de solutions fondamentales de ces m\^emes \'equations. 
+
+
+\Sect Lemmes, Lemmes et autres r\'esultats auxiliaires.
+
+
+\lemm Tech. La suite de fonctions $\{\beta_k\}_{k=0}^\infty$ d\'efinie par 
+$$
+\beta_k(x):=-\sum_{1\le n\le k}{\sin(2\pi nx)\F\pi n}
+\qquad(k\ge0,x\in\ob R)
+\eqdef{Sk}
+$$
+est uniform\'ement born\'ee et converge simplement vers l'unique application~$\beta\in\sc H$, de~p\'eriode $1$, v\'erifiant l'identit\'e  
+$$
+\beta(x)=x-{1\F2}\qquad(0<x<1). \eqdef{beta}
+$$
+\par
+
+
+\dem. Commen\c{c}ons par \'etablir l'identit\'e 
+$$
+\beta(x)=-\sum_{n\ge1}{\sin(2\pi nx)\F\pi n}\qquad(x\in\ob R). 
+\eqdef{atrocity}
+$$
+Comme la fonction $1$-p\'eriodique $\beta$ est impaire, son $n^{\hbox{\sevenrm i\`eme}}$ coefficient de
+Fourier vaut
+$$
+\int_0^1(x-1/2)\e^{-2\pi inx}\d x=\Q[{1/2-x\F2\pi in}\e^{-2\pi inx}\W]_0^1
++\int_0^1{\e^{-2\pi inx}\F2\pi in}\d x=-{1\F2\pi in}
+$$ 
+si $n\neq0$ et vaut $0$ sinon. 
+La fonction $\beta$ \'etant normalis\'ee et de classe $\sc C^1$
+par morceaux, le~th\'eor\`eme de Dirichlet implique alors 
+que 
+$$
+\beta(x)=-\lim_{N\to\infty}\sum_{0<|n|\le N}{\e^{2\pi inx}\F2\pi
+in}\qquad(x\in\ob R).
+$$
+Nous en d\'eduisons d'une part l'estimation \eqref{atrocity} et d'autre part que la suite $\{\beta_k\}_{k\ge1}$ 
+converge simplement vers la fonction $\beta$ sur l'intervalle $\ob R$.
+\bigskip
+
+Pour prouver que la suite $\{\beta_k\}_{k=0}^\infty$ est uniform\'ement born\'ee, nous \'etablissons que 
+$$
+\sup_{x\in\ob R}\b|\beta_k(x)\b|\le 3
+\qquad(k\ge2). 
+\eqdef{Linux}
+$$
+Soit $k\ge2$ un entier. En d\'erivant terme \`a terme \eqref{Sk}, nous obtenons que 
+$$
+\beta_k'(t)=-2\sum_{1\le n\le k}\cos(2\pi nt)\qquad(t\in\ob R)
+\eqdef{setri}
+$$
+et nous observons que la d\'eriv\'ee $\beta_k'(t)$ est la somme d'une progression g\'eom\'etrique 
+$$
+\beta_k'(t)=1-\sum_{-k\le n\le k}\e^{2\pi int}=1-{\sin\b((2k+1)\pi t\b)\F\sin(\pi t)}
+\qquad(t\notin\ob Z).
+\eqdef{cetrou}
+$$
+Comme \eqref{Sk} implique que $\beta_k$ est ind\'efiniment d\'erivable sur $\ob R$ et
+satisfait $\beta_k(0)=0$, nous~remarquons que  
+$$
+\beta_k(x)=\int_0^x\beta_k'(t)\d t\qquad(x\in\ob R).
+$$ 
+En observant que la majoration $\b|\beta_k'(t)\b|\le 2k\ \,(t\in\ob R)$ est une cons\'equence triviale de~\eqref{setri}, 
+nous~en d\'eduisons d'une part que 
+$$
+\b|\beta_k(x)\b|\le 2\qquad\Q(0\le x\le{1\F k}\W) \eqdef{etbein}
+$$
+et d'autre part que 
+$$
+\b|\beta_k(x)\b|\le 2+\bg|\int_{1/k}^x\beta_k'(t)\d t\bg|\qquad\Q({1\F k}\le x\le{1\F2}\W).
+$$
+En particulier, il r\'esulte de \eqref{cetrou} que 
+$$
+\b|\beta_k(x)\b|\le 2+{1\F 2}+\bg|\int_{1/k}^x{\sin\b((2k+1)\pi t\b)\F\sin(\pi t)}
+\d t\bg|\qquad\Q({1\F k}\le x\le{1\F2}\W).\eqdef{beinoui}
+$$
+En appliquant la seconde formule de la moyenne \`a la fonction $t\mapsto 1/\sin(\pi t)$, qui est d\'ecroissante 
+sur $[1/k,x]$, nous prouvons qu'il existe un nombre r\'eel $\xi\in[1/k,x]$ v\'erifiant  
+$$
+\int_{1/k}^x{\sin\b((2k+1)\pi t\b)\F\sin(\pi t)}\d t={1\F\sin(\pi/k)}\int_{1/k}^\xi\sin\b((2k+1)\pi t\b)\d t.
+$$
+En majorant l'int\'egrale du sinus par $2/(2k\pi+\pi)$ et en minorant le sinus au d\'enominateur 
+\`a l'aide de l'estimation classique $\sin u\ge 2/u\ \,(0\le u\le \pi/2)$, nous obtenons alors  que 
+$$
+\bg|\int_{1/k}^x{\sin\b((2k+1)\pi
+t\b)\F\sin(\pi
+t)}\d t\bg|\le {1\F\sin(\pi/k)}\times{2\F (2k+1)}\le{1\F2}
+\qquad\Q({1\F2}\le x\le{1\F2}\W).
+$$
+A fortiori, les majorations \eqref{etbein} et \eqref{beinoui} impliquent que 
+$$
+\b|\beta_k(x)\b|\le 3\qquad\Q(0\le x\le{1\F2}\W).
+$$
+Enfin, la fonction $\beta_k$ \'etant impaire et $1$-p\'eriodique d'apr\`es la d\'efinition \eqref{Sk}, 
+nous~concluons que l'estimation \eqref{Linux} est satisfaite. \hfill\qed
+\bigskip
+
+\lemm Tech3.  Sur chaque compact $\sc K$ de $\ob R\times\sc C$, la suite de fonctions $\{\sc G_k\}_{k\ge0}$ d\'efinie par  
+$$
+\sc G_k(x,z):=\sum_{-k\le n\le k}{\e^{-x(z+2\pi in)}\F\phi(z+2\pi in)}\qquad(k\ge0,x\in\ob R,z\in\sc C)
+\eqdef{scGk}
+$$
+est uniform\'ement born\'ee et converge simplement  vers la fonction~$G$, d\'efinie par \eqref{DeathG}.  
+\par
+\bigskip
+
+\dem. Nous notons $g_0$ l'application d\'efinie par 
+$$
+g_0(x,z):={\e^{-xz}\F\phi(z)}%=\sc G_0(x,z)
+\qquad(x\in\ob R,z\in\sc C),
+\eqdef{g0}
+$$
+nous notons  $\{g_n\}_{n=1}^\infty$ la suite de fonctions implicitement d\'efinie par 
+$$
+{\e^{-x(z+2\pi in)}\F\phi(z+2\pi in)}+{\e^{-x(z-2\pi in)}\F\phi(z-2\pi in)}=-{\sin(2\pi nx)\F \pi n}\e^{-xz}+g_n(x,z)
+\qquad\b(x\in\ob R,z\in\sc C,n\ge1\b)
+\eqdef{gn}
+$$
+et nous d\'eduisons de la d\'efinition \eqref{Sk} que 
+$$
+\sc G_k(x,z)=\beta_k(x,z)\e^{-xz}+\sum_{0\le n\le k}g_n(x,z)\qquad(k\ge0,x\in\ob R,z\in\sc C).
+\eqdef{ident}
+$$
+D'apr\`es le lemme~\eqrefn{Tech}, la suite $\{\beta_k\}_{k=0}^\infty$ est uniform\'ement born\'ee et converge simplement. 
+Pour~\'etablir que la suite de fonctions $\{\sc G_k\}_{k=0}^\infty$ converge simplement sur $\ob R\times\sc C$ 
+et qu'elle~est uniform\'ement born\'ee sur chaque compact $\sc K\subset\ob R\times\sc C$, il suffit alors d'\'etablir que  
+$$
+g_n(x,z)\ll{1\F n^2+1}\qquad\b(n\ge0,(x,z)\in\sc K\b).\eqdef{convnor}
+$$
+pour chaque compact $\sc K$ de l'ouvert $\ob R\times\sc C$, ce que nous faisons maintenant. 
+\bigskip
+
+
+\'Etant donn\'e un compact $\sc K$ de l'ouvert $\ob R\times\sc C$, \'etablissons la majoration \eqref{convnor}. 
+Soit~$\sc K':=\{z\in\sc C:\exists x\in\ob R,(x,z)\in\sc K\}$ le~compact obtenu par projection de $\sc K$ sur~$\ob C$. 
+Pour chaque entier $n$, nous d\'eduisons de la d\'efinition \eqref{DeathC} de l'ouvert $\sc C$ 
+d'une part que la fonction continue $z\mapsto\b|\phi(z+2\pi in)\b|$ 
+ne s'annule pas sur $\sc K'$ et d'autre part que 
+$$
+\inf_{z\in\sc K'}\b|\phi(z+2\pi in)\b|>0\qquad(n\in\ob Z). \eqdef{minos}
+$$
+A fortiori, nous d\'eduisons de \eqref{g0} que la majoration \eqref{convnor} est satisfaite pour $n=0$. 
+Comme~l'ensemble $\sc K'$ est compact, il~r\'esulte de \eqref{defphi} que 
+$$
+\phi(z+2\pi in)=2\pi in+O(1)\qquad(z\in\sc K',n\in\ob Z)\eqdef{Arch}
+$$ 
+et nous en d\'eduisons qu'il existe un entier positif $N$ pour lequel
+$$
+{1\F\phi(z+2\pi in)}={1\F2\pi in}+O\Q({1\F n^2+1}\W)\qquad(z\in\sc K',|n|>N).
+$$ 
+Cette estimation \'etant v\'erifi\'ee par les entiers $n$ v\'erifiant $0<|n|\le N$, d'apr\`es~\eqref{minos}, il~suit 
+$$
+{1\F\phi(z+2\pi in)}={1\F2\pi in}+O\Q({1\F n^2+1}\W)\qquad(z\in\sc K',n\in\ob Z^*). 
+\eqdef{morningstar}
+$$ 
+En multipliant de chaque cot\'e par $\e^{-x(z+2\pi in)}$, nous obtenons alors d'une part que 
+$$
+{\e^{-x(z+2\pi in)}\F\phi(z+2\pi in)}={\e^{-x(z+2\pi in)}\F2\pi in}+O\Q({1\F n^2+1}\W)\qquad\b((x,z)\in\sc K,n\in\ob Z^*\b)
+$$
+et d'autre part que 
+$$
+{\e^{-x(z+2\pi in)}\F\phi(z+2\pi in)}+{\e^{-x(z-2\pi in)}\F\phi(z-2\pi in)}=-{\sin(2\pi nx)\F \pi n}\e^{-xz}+O\Q({1\F n^2+1}\W)
+\qquad\b((x,z)\in\sc K,n\ge1\b). \eqdef{Hack2}
+$$
+En reportant dans \eqref{gn}, nous en d\'eduisons la majoration \eqref{convnor}. 
+\hfill\qed\null
+\bigskip 
+
+
+\lemm Tech4. Pour chaque $z\in\sc C$, la fonction $x\mapsto G(x,z)$ appartient \`a l'espace~$\sc H$. 
+De~plus, pour~chaque nombre r\'eel $x$, l'application $z\mapsto G(x,z)$ est holomorphe sur l'ouvert $\sc C$.  
+Enfin, la~fonction $G$ est uniform\'ement born\'ee sur chaque compact $\sc K$ de $\ob R\times\sc C$. 
+\par
+\bigskip
+
+\dem. Nous adoptons les notations de la preuve du lemme \eqrefn{Tech3}. 
+En faisant tendre l'entier $k$ vers $+\infty$ dans \eqref{ident}, nous d\'eduisons de \eqref{DeathG} et du lemme \eqrefn{Tech} que  
+$$
+G(x,z)=\beta(x)\e^{-xz}+\sum_{n\ge0}g_n(x,z)\qquad(x\in\ob R,z\in\sc C). \eqdef{identite}
+$$ 
+Comme l'application $(x,z)\mapsto g_n(x,z)$ est continue sur $\ob R\times\sc C$ pour chaque entier $n\ge0$ et 
+comme $S:(x,z)\mapsto\sum_{n\ge0}g_n(x,z)$ converge normalement sur chaque compact $\sc K\subset\ob R\times\sc C$, d'apr\`es la majoration \eqref{convnor}  
+nous~remarquons que la s\'erie $S$ est continue sur $\ob R\times\sc C$. Pour~$z\in\sc C$, 
+nous d\'eduisons alors de \eqref{identite} que $x\mapsto G(x,z)$ est un \'el\'ement de l'espace $\sc H$.    
+\bigskip
+
+
+
+Nous fixons $x\in\ob R$ et nous remarquons que la s\'erie $z\mapsto S(x,z)$ converge uniform\'ement 
+sur chaque compact $\sc K'\subset \sc C$. La fonction $z\mapsto g_n(x,z)$ \'etant
+ holomorphe sur $\sc C$ pour $n\ge0$, nous d\'eduisons du th\'eor\`eme de Weierstrass que la s\'erie $z\mapsto S(x,z)$ est holomorphe sur~$\sc C$. 
+{\it A~fortiori}, il r\'esulte de \eqref{identite} que la fonction $z\mapsto G(x,z)$ est holomorphe sur l'ouvert $\sc C$. 
+\bigskip
+
+Comme la s\'erie de terme g\'en\'eral $\{g_n\}$ converge normalement sur chaque compact~$\sc K$ de~l'ouvert $\ob R\times\sc C$ 
+et comme la fonction $1$-p\'eriodique $\beta$ est born\'ee sur $\ob R$, d'apr\`es~\eqref{beta}, 
+nous~d\'eduisons de \eqref{identite} que l'application $G$ est uniform\'ement born\'ee sur chaque~compact~$\sc K$ de l'ouvert $\ob R\times \sc C$. 
+\hfill\qed\null
+\bigskip
+
+
+\lemm Tech5. Soient $a<b$ deux nombres r\'eels, soit $U\subset\ob C$ un ouvert, soit $f:[a,b]\times U\to\ob C$ telle~que, pour chaque $z\in U$, l'application $x\mapsto f(x,z)$ soit int\'egrable sur le segment $[a,b]$. 
+et soit $F:U\to\ob C$ l'application d\'efinie par 
+$$
+F(z):=\int_a^bf(x,z)\d x\qquad(z\in U).
+\eqdef{car} 
+$$
+Si la fonction $f$ est uniform\'ement born\'ee sur chaque compact $\sc K$ inclus dans  $[a,b]\times U$ 
+et si~l'application $z\mapsto f(x,z)$ est holomorphe sur l'ouvert $U$ pour chaque nombre $x\in[a,b]$, alors la~fonction~$F$ est holomorphe sur $U$ et satisfait
+$$
+F'(z):=\int_a^b\partial_zf(x,z)\d x\qquad(z\in U).
+$$
+\par
+\bigskip
+
+\dem. Comme l'application $x\mapsto f(x,z)$ appartient \`a l'espace $\sc L^1\b([a,b]\b)$ pour chaque nombre complexe $z\in U$, 
+la fonction $F$ est bien d\'efinie sur $U$ par \eqref{car}. 
+\bigskip
+
+Pour prouver que la fonction $F$ est holomorphe sur l'ouvert $U$, il suffit d'\'etablir qu'elle admet une d\'eriv\'ee complexe 
+en tout point $z\in U$. Nous fixons un  nombre complexe $z\in U$, nous remarquons qu'il existe un nombre $\epsilon>0$ tel que le disque $D:=\{s\in\ob C:|s-z|\le \epsilon\}$  soit inclus dans l'ouvert $U$ et nous d\'eduisons de \eqref{car} que 
+$$
+{F(s)-F(z)\F s-z}=\int_a^b{f(x,s)-f(x,z)\F s-z}\d x\qquad\b(0<|s-z|<\epsilon\b). \eqdef{gahhh}
+$$
+Comme la fonction $s\mapsto f(x,s)$ est holomorphe sur l'ouvert $U$ pour chaque	~$x\in[a,b]$, nous~observons que 
+la formule de Cauchy implique d'une part que 
+$$
+f(x,s)={1\F2\pi i}\oint\limits_{|s-z|=\epsilon}{f(x,s)\F s-z}\d s\qquad(a\le x\le b,|s-z|<\epsilon) 
+$$ 
+et d'autre part que 
+$$
+{f(x,s)-f(x,z)\F s-z}={1\F2\pi i}\oint\limits_{|u-z|=\epsilon}{f(x,u)\F(u-s)(u-z)}\d u\qquad\b(a\le x\le b,0<|s-z|<\epsilon\b).
+\eqdef{go}
+$$
+Nous fixons $x\in[a,b]$ et, la fonction $f$ \'etant uniform\'ement born\'ee sur le compact $[a,b]\times D$, nous~remarquons que 
+$$
+{f(x,u)\F(u-s)(u-z)}\ll1\qquad\b(|u-z|=\epsilon,|s-z|\le\epsilon/2\b). 
+$$
+Comme le terme de gauche de la majoration pr\'ec\'edente converge vers $f(x,u)/(u-z)^2$ quand~$s\to z$, 
+le th\'eor\`eme de Lebesgue appliqu\'e \`a l'int\'egrale \eqref{go} induit alors que 
+$$
+\lim_{s\to z}{f(x,s)-f(x,z)\F s-z}={1\F2\pi i}\oint\limits_{|u-z|=\epsilon}{f(x,u)\F(u-z)^2}\d u
+\qquad\b(a\le x\le b\b).
+$$
+De m\^eme, la fonction $f$ \'etant uniform\'ement born\'ee sur le compact $[a,b]\times D$, il r\'esulte de l'identit\'e \eqref{go} que 
+$$
+{f(x,s)-f(x,z)\F s-z}\ll1\qquad\b(a\le x\le b,0<|s-z|\le\epsilon/2\b)
+$$
+et le th\'eor\`eme de Lebesgue, appliqu\'e \`a \eqref{gahhh} lorsque $s\to z$, 
+induit l'existence de la limite 
+$$
+F'(z)=\lim_{s\to z}{F(s)-F(z)\F s-z}
+$$
+En conclusion, la fonction~$F$ admet une d\'eriv\'ee complexe en chaque point $z\in U$. \hfill\qed\null
+\bigskip
+
+
+\lemm Tech9.  Soient $U$ un ouvert et $f:\ob R\times U\to\ob C$ une application localement born\'ee telle que  
+la~fonction $x\mapsto f(x,z)$ soit localement int\'egrable sur $\ob R$ pour chaque nombre~$z\in U$ et telle que 
+l'application  $z\mapsto f(x,z)$ soit holomorphe sur l'ouvert $U$ pour chaque~$x\in\ob R$. Alors, 
+notant $\sc D$ 
+l'op\'erateur (agissant sur $x$) de d\'erivation au sens des distributions, 
+l'application $F:U\to\sc D'(\ob R)$ d\'efinie par 
+$$
+F(z):=\sc D\b(x\mapsto f(x,z)\b)\qquad(z\in U)
+$$ 
+admet en chaque nombre complexe $z\in U$ une d\'eriv\'ee $F'(z)$ v\'erifiant
+$$
+F'(z)=\sc D\b(x\mapsto \partial_z f(x,z)\b)\qquad(z\in U). \eqdef{AtTheGates}
+$$
+De plus, l'application $(x,z)\mapsto \partial_zf(x,z)$ satisfait les m\^emes hypoth\`eses que la fonction $f$. 
+\par
+\bigskip
+
+
+\dem. La preuve du lemme \eqrefn{Tech9} est essentiellement identique \`a celle du lemme \eqrefn{Tech5}. 
+Nous~fixons~$z$ dans l'ouvert $U$ et nous observons 
+qu'il existe $\epsilon>0$ tel que 
+$$
+\{s\in\ob C:|s-z|\le 2\epsilon\}\subset U.
+$$
+La fonction $x\mapsto f(x,z)$ \'etant holomorphe sur $U$ pour chaque $x\in\ob R$, nous observons que 
+$$
+\lim_{s\to z}{f(x,s)-f(x,z)\F s-z}=\partial_z f(x,z)\qquad(x\in\ob R)
+$$
+et nous d\'eduisons du th\'eor\`eme des r\'esidus que  
+$$
+{f(x,s)-f(x,z)\F s-z}={1\F 2\pi i}\oint\limits_{|w-z|=2\epsilon}{f(x,w)\d w\F(w-s)(w-z)}\qquad\b(x\in\ob R,0<|s-z|\le\epsilon\b). 
+\eqdef{PA}
+$$
+Pour chaque intervalle r\'eel compact $I$, nous rappelons que l'application $(x,w)\mapsto F(w,x)$ 
+est born\'ee sur le compact $I\times\{w\in\ob C:|w-z|\le 2\epsilon\}$ et nous en d\'eduisons que 
+$$
+{f(x,s)-f(x,z)\F s-z}\ll1\qquad\b(x\in I,0<|s-z|\le\epsilon\b).
+$$
+Ainsi, lorsque $s$ tends vers $z$, la suite de fonctions $x\mapsto \b(f(x,s)-f(x,z)\b)/(s-z)$ est born\'ee 
+sur chaque intervalle compact r\'eel $I$ et converge simplement sur $\ob R$ vers l'application 
+$$
+x\mapsto\partial_zf(x,z).
+$$ 
+Il en r\'esulte la convergence de cette suite de fonctions au sens des distributions sur~$\ob R$. 
+L'op\'erateur $\sc D$ \'etant lin\'eaire, il r\'esulte des d\'efinitions de 
+$F$ et $x\mapsto f(x,z)$ d'une part que 
+$$
+{F(s)-F(z)\F s-z}=\sc D\Q(x\mapsto{f(x,s)-f(x,z)\F s-z}\W)\qquad(s\in U,s\neq z)
+$$ 
+et d'autre part que la fonction $F$ admet une d\'eriv\'ee complexe au point $z$ v\'erifiant~\eqref{AtTheGates}. 
+Enfin, l'application $z\mapsto f(x,z)$ \'etant holomorphe sur l'ouvert $U$ pour chaque~$x\in\ob R$, 
+il~en~est de m\^eme pour sa d\'eriv\'ee $z\mapsto\partial_zf(x,z)$. Pour $x\in\ob R$, l'application~$x\mapsto\partial_zf(x,z)$ 
+est mesurable car la fonction $x\mapsto f(x,z)$ est localement int\'egrable. Par passage \`a la limite dans l'identit\'e~\eqref{PA}, 
+nous obtenons que 
+$$
+\partial_zf(x,s)={1\F 2\pi i}\oint\limits_{|w-z|=2\epsilon}{f(x,w)\d w\F(w-s)^2}\qquad\b(x\in\ob R,|s-w|\le\epsilon\b). 
+$$
+Pour chaque intervalle compact r\'eel $I$, nous rappelons que la fonction $(x,w)\mapsto f(x,w)$ est born\'ee 
+sur le compact $I\times \{w\in\ob C:|w-z|\le \epsilon$ et nous en d\'eduisons que 
+$$
+\partial_zf(x,s)\ll1\qquad(x\in I,|s-z|\le\epsilon).
+$$
+Par compacit\'e, pour chaque compact $K$ de l'ouvert $U$, nous obtenons alors que  
+$$
+\partial_zf(x,s)\ll1\qquad(x\in I,s\in K)
+$$
+et nous concluons que $(x,z)\mapsto f(x,z)$ est born\'ee sur chaque compact de $\ob R\times U$. 
+\hfill\qed\null
+\bigskip
+
+\lemm Tech6.  La suite de fonctions $\{\sc F_N\}_{N=0}^\infty$, d\'efinie par 
+$$
+\sc F_N(x,z):=\sum_{-N\le n\le N}{1-\e^{-z}\F z+2\pi in}{\e^{(x-\theta)(z+2\pi in)}\F\phi(z+2\pi in)}
+\qquad(N\in\ob N,x\in\ob R,z\in\sc C)
+\eqdef{FNxz}
+$$
+converge uniform\'ement sur chaque compact $\sc K\subset\ob R\times\sc C$ vers~la fonction $F$ d\'efinie~par~\eqref{DeathF},  
+qui est uniform\'ement born\'ee sur $\sc K$.  
+\par
+\bigskip
+
+
+
+\dem. \'Etant donn\'e un compact $\sc K\subset\ob R\times\sc C$, il suffit de prouver que 
+la~s\'erie~\eqref{DeathF} converge normalement sur $\sc K$ vers~la fonction $(x,z)\mapsto F(x,z)$ et {\it a fortiori} 
+d'\'etablir que
+$$
+{\e^{-z}-1\F(z+2\pi in)}\ {\e^{(x-\theta)(z+2\pi in)}\F\phi(z+2\pi in)}
+\ll {1\F n^2+1}\qquad\b((x,z)\in\sc K,n\in\ob Z\b).
+\eqdef{maju}
+$$
+Nous notons $\sc K':=\{z\in\sc C:\exists x\in\ob R,(x,z)\in\sc K\}$ le~compact obtenu en projetant $\sc K$ sur~$\ob C$  
+et~nous d\'eduisons des relations \eqref{minos} et \eqref{morningstar} que 
+$$
+{1\F\phi(z+2\pi in)}\ll {1\F\sqrt{n^2+1}}\qquad(z\in\sc K',n\in\ob Z). \eqdef{lucifer}
+$$
+Comme la quantit\'e $\e^{-z}-1$ est born\'ee sur le compact $\sc K'$, il suit 
+$$
+{\e^{-z}-1\F\phi(z+2\pi in)}\ll {1\F\sqrt{n^2+1}}\qquad(z\in\sc K',n\in\ob Z).\eqdef{lalalala}
+$$
+Comme~l'ensemble $\sc K'$ est compact, nous remarquons que 
+$$
+z+2\pi in=2\pi in+O(1)\qquad(z\in\sc K',n\in\ob Z)
+$$ 
+et nous observons qu'il existe un entier positif $N$ pour lequel 
+$$
+|z+2\pi in|\gg \sqrt{n^2+1}\qquad(z\in\sc K',|n|>N). \eqdef{Enemy}
+$$ 
+Pour $-N\le n\le N$, nous d\'eduisons de la d\'efinition \eqref{DeathC} de l'ouvert $\sc C$ 
+d'une part que la~fonction continue $z\mapsto\b|z+2\pi in\b|$ 
+ne s'annule pas sur $\sc K'$ et d'autre part que 
+$$
+\inf_{z\in\sc K'}\b|z+2\pi in
+\b|>0\qquad(-N\le n\le N). 
+$$
+Il r\'esulte alors des deux minorations pr\'ec\'edentes que 
+$$
+|z+2\pi in|\gg \sqrt{n^2+1}\qquad(z\in\sc K',n\in\ob Z). \eqdef{Rahlala}
+$$ 
+Comme la quantit\'e $\e^{(x-\theta)(z+2\pi in)}$ est born\'ee quand $(x,z)$ varie dans le compact $\sc K$, il suit 
+$$
+{\e^{(x-\theta)(z+2\pi in)}\F\phi(z+2\pi in)}\ll{1\F\sqrt{n^2+1}}\qquad\b((x,z)\in\sc K,n\in\ob Z\b). \eqdef{Hack}
+$$
+Enfin, nous d\'eduisons \eqref{maju} de l'estimation \eqref{lucifer} et nous concluons 
+que la s\'erie \eqref{DeathF} converge normalement sur le compact $\sc K$ vers l'application $(x,z)\mapsto F(x,z)$. 
+\hfill\qed\null\bigskip
+
+\lemm Tech7. Pour chaque $x\ni\ob R$, l'application $z\mapsto F(x,z)$ est holomorphe sur l'ouvert $\sc C$.  
+De~plus, l'application $(x,z)\mapsto F(x,z)$ est continue sur l'ouvert $\ob R\times \sc C$.
+\par
+\bigskip
+
+
+\dem. Soit $x\in\ob R$. Pour chaque nombre entier $n$, nous remarquons que la fonction  
+$$
+z\mapsto {\e^{-z}-1\F z+2\pi in}
+$$
+est enti\`ere et nous en d\'eduisons que l'application
+$$
+f_n:z\mapsto{\e^{-z}-1\F(z+2\pi in)}\ {\e^{(x-\theta)(z+2\pi in)}\F\phi(z+2\pi in)}
+$$
+est holomorphe sur l'ouvert $\{z\in\ob C:\phi(z+2\pi in)\neq 0\}$.  D'apr\`es la d\'efinition \eqref{DeathC}, elle~est~{\it a~fortiori} holomorphe sur~$\sc C$. 
+Comme le lemme \eqrefn{Tech6} induit la convergence normale 
+de  la s\'erie $\sum_{n\in\ob Z}f_n$ vers la fonction~$z\mapsto F(x,z)$ sur chaque compact $K'$ de l'ouvert~$\sc C$, 
+il~r\'esulte du th\'eor\`eme de Weierstrass que l'application $z\mapsto F(x,z)$ est holomorphe sur $\sc C$. 
+\bigskip
+
+Comme la s\'erie \eqref{DeathF} converge normalement vers la fonction $(x,z)\mapsto F(x,z)$ 
+sur chaque compact~$\sc K$ de l'ouvert $\ob R\times\sc C$, d'apr\`es le lemme \eqrefn{Tech6}, et comme l'application
+$$
+(x,z)\mapsto{\e^{-z}-1\F(z+2\pi in)}\ {\e^{(x-\theta)(z+2\pi in)}\F\phi(z+2\pi in)}
+$$
+est continue sur $\ob R\times\sc C$, nous concluons que $(x,z)\mapsto F(x,z)$ est continue sur $\ob R\times\sc C$. 
+\hfill\qed\null
+\bigskip
+
+\lemm Tech2. Soient $p\in\ob C^*$ et $\tau>0$. Alors, chaque racine de la fonction $\phi:z\mapsto z+p\e^{-\tau z}$ 
+est simple \`a~l'exception, lorsque $\tau p\e=1$s, du~nombre r\'eel $-p\e$ qui est une racine double. De plus, nous avons 
+$$
+\Q\{\eqalign{
+&\phi(z+2\pi in)=0
+\cr
+&\phi(z)=0
+}\W.
+\Longleftrightarrow
+\Q\{\eqalign{
+&z=-\pi n\cot(\pi n\tau)-i\pi n 
+\cr
+&p=z\e^{\tau z}
+}\W.
+\qquad(z\in\ob C,n\in\ob Z^*).
+$$
+\par
+
+\dem. Pour $p\in\ob C^*$ et $\tau>0$, la d\'eriv\'ee $\phi''(z)=p\tau^2\e^{-\tau z}$ ne s'annule pas sur~$\ob C$. 
+En particulier, chaque racine de la fonction enti\`ere $\phi$ est simple ou double. Nous d\'eduisons alors la premi\`ere assertion de la cha\^{\i}ne d'\'equivalences 
+$$
+\Q\{\eqalign{
+&\phi(z)=0
+\cr
+&\phi'(z)=0
+}\W.\Leftrightarrow
+\Q\{\eqalign{
+&z+p\e^{-\tau z}=0\cr
+&1-\tau p\e^{-\tau z}=0
+}\W.\Leftrightarrow
+\Q\{\eqalign{
+&z+p\e^{-\tau z}=0
+\cr
+&1+\tau z=0
+}\W.
+\Leftrightarrow
+\Q\{\eqalign{
+&z+p\e=0
+\cr
+&1+\tau z=0
+}\W.
+\Leftrightarrow
+\Q\{\eqalign{
+&z=-p\e,
+\cr
+&\tau p\e=1.
+}\W.
+$$
+\smallskip
+
+Soient $z\in\ob C$ et $n\in\ob Z^*$ deux nombres v\'erifiant le syst\`eme 
+$$
+\Q\{\eqalign{
+&\phi(z+2\pi in)=0,
+\cr
+&\phi(z)=0.
+}\W.\eqdef{Bill}
+$$ 
+Alors, la d\'efinition \eqref{defphi} implique que $p=z\e^{\tau z}$ mais aussi que 
+$$
+0=\phi(z+2\pi in)-\e^{-2\pi in\tau}\phi(z)=z(1-\e^{-2\pi in\tau })+2\pi in. \eqdef{Linus}
+$$
+Comme $n\neq0$, nous en d\'eduisons alors d'une part que $n\tau\notin\ob Z$ et d'autre part que 
+$$
+z={-2\pi in\F1-\e^{-2\pi in\tau}}=-\pi  n\cot(\pi n\tau)-i\pi n. \eqdef{Torvalds}
+$$
+A fortiori, les nombres $z$ et $n$ satisfont le syst\`eme 
+$$
+\Q\{\eqalign{
+&z=-\pi n\cot(\pi n\tau)-i\pi n, 
+\cr
+&p=z\e^{\tau z}.
+}\W.\eqdef{Gates}
+$$
+R\'eciproquement, \'etant donn\'e un entier $n\neq0$ et un nombre complexe $z$ v\'erifiant~\eqref{Gates}, 
+nous observons que $n\tau\notin\ob Z$ et nous d\'eduisons  des relations \eqref{defphi}~et~$p=z\e^{\tau z}$ que~$\phi(z)=0$. La~relation \eqref{Torvalds} 
+\'etant une cons\'equence de l'\'egalit\'e $z=-\pi n\cot(\pi n\tau)-i\pi n$, 
+nous~d\'eduisons~\eqref{Linus} de la d\'efinition~\eqref{defphi}. Enfin, comme $\phi(z)=0$, il r\'esulte de \eqref{Linus} d'une part que $\phi(z+2\pi in)=0$ et d'autre part que le syst\`eme \eqref{Bill} est v\'erifi\'e par les~nombres $z$ et $n$. 
+\hfill\qed\null
+\bigskip
+
+
+\prop P1. Une fonction continue $f:\ob R\to\ob C$ est une solution de l'\'equation~\eqref{eqf} si, et~seulement~si, 
+la distribution $\sc Tf$ est nulle sur l'intervalle $]0,\infty[$. 
+\par
+\bigskip
+
+
+\proof. 
+Soit $f\in\sc C(\ob R)$ une fonction pour laquelle $\sc Tf$ est nulle sur l'intervalle $]0,\infty[$. 
+La~translat\'ee $f_\tau$ \'etant continue sur $]0,\infty[$, nous d\'eduisons de \eqref{defT} 
+que la d\'eriv\'ee $f'$, au~sens des distributions, est continue~sur l'ouvert~$\sc O$. 
+A~fortiori, la distribution associ\'ee \`a~la~fonction $f$ est de~classe~$\sc C^1$ sur~$\sc O$. 
+Plus pr\'ecis\'ement, il~existe $\tilde f\in\sc C^1(\sc O)$ telle que
+$$
+f(x)=\tilde f(x)\qquad(x\in\sc O,\hbox{pp}).
+$$
+Comme $f$ est continue sur $\ob R$, nous en d\'eduisons d'une part que $f(x)=\tilde f(x)\ \,(x\in\sc O)$, par densit\'e, et d'autre part 
+que $f\in\sc C^1(\sc O)$. La distribution $\sc Tf$ \'etant nulle sur l'intervalle~$]0,\infty[$, il~r\'esulte alors des d\'efinitions \eqref{trans} et \eqref{defT} que 
+$$
+f'(x)+pf(x-\tau)+qf\b([x-\theta]\b)=0\qquad(x\in\sc O,\hbox{pp}). 
+$$
+Comme le membre de gauche est continu sur l'ouvert $\sc O$, nous en d\'eduisons \eqref{eqf1}, par~densit\'e,  
+et nous concluons que la fonction $f$ est une solution de l'\'equation diff\'erentielle~\eqref{eqf}. 
+La~r\'eciproque est triviale. 
+\hfill\qed
+\bigskip
+
+
+
+\prop P1*. Une fonction $g\in\sc H$ est une solution de l'\'equation diff\'erentielle \eqref{eqg} si, et~seulement~si,
+la distribution $\sc T^*g$ est nulle sur l'intervalle $]-\infty,0[$ et  si
+$$
+g(0^+)-g(0^-)=q\int_\theta^{\theta+1}g(t)\d t.
+\eqdef{condd}
+$$
+\par
+\bigskip
+
+
+\proof.  
+Soit $g\in\sc H$ une fonction v\'erifiant \eqref{condd} telle que $\sc T^*g$ soit nulle sur $]-\infty,0[$. 
+Alors, nous d\'eduisons de \eqref{defT*} que l'\'egalit\'e 
+$$
+-g'+pT_{-\tau}g=0
+$$
+est satisfaite sur $\sc O^*$ au sens des distribution.  La translat\'ee $T_{-\tau}g$ \'etant continue sur
+$\sc O^*$, en~proc\'edant comme dans la preuve de la propri\'et\'e~\eqrefn{P1}, 
+nous montrons que la fonction~$g$ admet sur~l'ouvert $\sc O^*$ une d\'eriv\'ee continue $g'$ v\'erifiant l'identit\'e \eqref{eqgs}.  
+Comme $g\in\sc H$, nous d\'eduisons de \eqref{eqgs} que la fonction $g$ est de classe $\sc C^1$ par
+morceaux sur $]-\infty,0]$ et~nous remarquons que sa d\'eriv\'ee au sens des distributions sur 
+$]-\infty,0[$ est 
+$$
+g'+\sum_{n<0}\B(g\b(n^+\b)-g\b(n^-\b)\B)\delta_n. 
+$$ 
+La distribution $\sc T^*g$ \'etant nulle sur $]-\infty,0[$, nous d\'eduisons de \eqref{defT*} et de \eqref{eqgs} que 
+$$
+\sum_{n<0}\bg(g(n^+)-g(n^-)-q\sum_{n<0}\int_{n+\theta}^{n+\theta+1}g(t)\d
+t\bg)\delta_n=0. 
+$$
+A fortiori, il r\'esulte de \eqref{condd} que l'identit\'e \eqref{condra} est satisfaite et nous concluons que $g$
+est une solution de l'\'equation diff\'erentielle \eqref{eqg}.
+La r\'eciproque est triviale. 
+\hfill\qed
+\bigskip
+
+
+\prop TL. Soit $\pss\cdot,\cdot\pss$ la forme bilin\'eaire d\'efinie pour $(f,g)\in\sc C(\ob R)\times\sc H$ par 
+$$
+\pss f,g\pss:=f(0)\bg(\!g(0)-{q\F2}\int_\theta^{\theta+1}\!\!\!g(t)\d t\!\bg)
+-p\int_0^\tau\!\!\! f(t-\tau)g(t)\d t-q\int_0^\theta\!\!\! f\b([t-\theta]\b)g(t)\d t.\!\!\!\!\!
+\eqdef{deffb2}
+$$
+Alors, chaque solution $f$ de l'\'equation \eqref{eqf} admet une
+transform\'ee de Laplace~$\sc Lf$, m\'eromorphiquement prolongeable   
+sur l'ouvert $\sc C$ et v\'erifiant 
+$$
+\sc Lf(z)={\pss f,t\mapsto\e^{-tz}\pss\F\phi(z)}
+-q\int_\theta^{\theta+1}{\e^{-tz}\F \phi(z)}\d t\ 
+{\pss f,t\mapsto G_t(z)\pss\F P(z)}
+\qquad(z\in\sc C).
+\eqdef{Lf}
+$$
+De plus, la transform\'ee de Laplace $\sc Lf$ est holomorphe sur l'ouvert 
+$$
+\sc U:=\{z\in\sc C:P(z)\neq0\}. \eqdef{defU}
+$$
+\par
+
+
+\dem. Soit $f$ une solution de l'\'equation diff\'erentielle 
+\eqref{eqf}. D'apr\`es le th\'eor\`eme~\eqrefn{Teum}, il existe alors un~nombre $r\ge|p|$ v\'erifiant la majoration \eqref{majf}
+et  nous en d\'eduisons d'une part que la s\'erie  
+$$
+a(z):={f(0)\F2}+\sum_{n\ge1}f(n)\e^{-nz}\qquad(\re z>r)
+\eqdef{az}
+$$
+converge et d'autre part que~$f$ 
+admet une transform\'ee de Laplace $\sc Lf$, d\'efinie par 
+$$
+\sc Lf(z):=\int_0^\infty f(x)\e^{-xz}\d x
+\qquad(\re z>r). 
+\eqdef{defLf}
+$$
+\medskip
+
+Prouvons dans un premier temps que la transform\'ee de Laplace $\sc Lf$ satisfait l'identit\'e 
+$$
+\phi(z)\sc Lf(z)=\pss f,x\mapsto\e^{-xz}\pss-q\int_\theta^{\theta+1}\e^{-xz}\d x\ a(z)
+\qquad(\re z>r).
+\eqdef{TL0}
+$$
+Soit $z$ un nombre complexe v\'erifiant $\re z>r$. Comme la fonction $f$ est d\'erivable sur~$\sc O$ et satisfait l'identit\'e~\eqref{eqf1}, nous 
+d\'eduisons de la majoration \eqref{majf} que 
+$$
+f'(x)\ll\e^{rx}\qquad(x\in\sc O). \eqdef{majfp}
+$$
+En particulier, l'\'equation \eqref{eqf1} admet une transform\'ee de Laplace au point $z$ v\'erifiant   
+$$
+\int_0^\infty f'(t)\e^{-tz}\d t
++p\int_0^\infty f(t-\tau)\e^{-tz}\d t
++q\int_0^\infty f\b([t-\theta]\b)\e^{-tz}\d t=0.
+$$
+En int\'egrant par partie, nous montrons que la premi\`ere int\'egrale vaut   
+$$
+\int_0^\infty f'(t)\e^{-tz}\d t=-f(0)+z\sc Lf(z).
+$$
+En proc\'edant au changement de variable $t=x+\tau$, la seconde int\'egrale devient  
+$$
+p\int_0^\infty f(t-\tau)\e^{-tz}\d t=p\int_0^\tau f(x-\tau)\e^{-xz}\d x
++p\e^{-\tau z}\sc Lf(z). 
+$$
+De m\^eme, en proc\'edant au changement de variable $t=x+\theta$,  la troisi\`eme int\'egrale devient  
+$$
+q\int_0^\infty f\b([t-\theta]\b)\e^{-tz}\d t
+=q\int_0^\theta f\b([x-\theta]\b)\e^{-xz}\d x
++q\int_0^\infty f\b([x]\b)\e^{-(x+\theta)z}\d x.
+$$
+Sommant les contributions de ces trois int\'egrales, nous d\'eduisons de \eqref{defphi} que 
+$$
+\phi(z)\sc Lf(z)=f(0)-p\int_0^\tau \!\!\!f(x-\tau)\e^{-xz}\d x-
+q\int_0^\theta\!\!\! f\b([x-\theta]\b)\e^{-xz}\d x-q\int_0^\infty\!\!\! f\b([x]\b)\e^{-(x+\theta)z}\d x.
+$$
+En remarquant que la d\'efinition \eqref{az} implique que  
+$$
+\int_0^\infty f\b([x]\b)\e^{-(x+\theta)z}\d x
+={f(0)\F2}\int_\theta^{\theta+1}\e^{-xz}d x+\int_\theta^{\theta+1}\e^{-xz}d x\ a(z)\qquad(\re z>r), 
+$$
+nous d\'eduisons alors de \eqref{deffb2} que la transform\'ee de Laplace $\sc Lf$ satisfait \eqref{TL0}. 
+\bigskip
+
+
+Prouvons dans un second temps que 
+$$
+a(z)=\lim_{N\to\infty}\sum_{|n|\le N}\sc Lf(z+2\pi in)
+\qquad(\re z>r).
+\eqdef{id3}
+$$
+Nous fixons un nombre complexe $z$ v\'erifiant $\re z>r$ et nous posons  
+$$
+A_z(x):=\sum_{m\ge0}f(m+x)\e^{-(m+x)z}
+\qquad(0\le x\le1).
+\eqdef{defAz}
+$$
+Comme $f$ est une solution de l'\'equation diff\'erentielle \eqref{eqf}, elle est continue sur $\ob R$, 
+d\'erivable sur $\sc O$, et satisfait l'identit\'e \eqref{eqf1}. A fortiori, l'application $x\mapsto f(m+x)$ est de classe $\sc C^1$ 
+sur $[0,\langle\theta\rangle]$ et $[\langle\theta\rangle,1]$ pour chaque $m\ge0$. 
+Comme \eqref{majf} et \eqref{majfp} induisent la~convergence normale sur ces intervalles 
+de la s\'erie \eqref{defAz} et de la~s\'erie de ses d\'eriv\'ees
+$$
+\sum_{m\ge0}\b(f'(m+x)-zf(m+x)\b)\e^{-(m+x)z},
+$$
+nous remarquons que l'application $A_z$ est d\'efinie, de classe $\sc C^1$ par morceaux sur $[0,1]$, et~nous d\'eduisons de \eqref{az} que 
+$$
+a(z)={A_z(0^+)+A_z(1^-)\F2}.
+$$
+Notant $\tilde A_z$ l'unique application $1$-p\'eriodique co\"\i ncidant avec la fonction $A_z$ sur $[0,1[$, nous~	remarquons d'une part que 
+$$
+a(z)={\tilde A_z(0^+)+\tilde A_z(0^-)\F2}
+$$
+et d'autre part que l'application $\tilde A_z$ est de classe $\sc C^1$ par morceaux. Il alors r\'esulte du~th\'eor\`eme de Dirichlet que  
+$$
+a(z)=\lim_{N\to\infty}\sum_{|n|\le N}\int_0^1\tilde A_z(x)\e^{-2\pi inx}\d x.
+\eqdef{estaz}
+$$
+Comme le s\'erie de fonctions \eqref{defAz} converge normalement vers l'application
+ $\tilde A_z$ sur~$[0,1[$, 
+le th\'eor\`eme d'int\'egration terme \`a terme induit que 
+$$
+\int_0^1\tilde A_z(x)\e^{-2\pi inx}\d
+x=\sum_{m\ge0}\int_0^1f(m+x)\e^{-(m+x)z}\e^{-2\pi inx}\d x
+\qquad(n\in\ob Z). 
+$$
+En proc\'edant au changement de variable $t=m+x$, nous obtenons alors que 
+$$
+\int_0^1\tilde A_z(x)\e^{-2\pi inx}\d x=\sum_{m\ge0}\int_m^{m+1}f(t)\e^{-t(z+2\pi
+in)}\d t\qquad(n\in\ob Z) 
+$$
+et nous remarquons que la d\'efinition \eqref{defLf} implique que 
+$$
+\int_0^1\tilde A_z(x)\e^{-2\pi inx}\d x=\sc Lf(z+2\pi in)\qquad(n\in\ob Z).  
+$$
+Enfin, en reportant l'identit\'e pr\'ec\'edente dans \eqref{estaz}, nous obtenons l'identit\'e \eqref{id3}. 
+\bigskip
+
+
+Prouvons maintenant que 
+$$
+P(z)a(z)=\pss f,x\mapsto G(x,z)\strut\pss
+\qquad(\re z>r). \eqdef{id4}
+$$
+Pour chaque nombre complexe $z$ v\'erifiant $\re z>r$, les in\'egalit\'es 
+$r\ge|p|$ et $\tau\ge0$ impliquent d'une part que $|z|>|p|$ et d'autre part que $|p\e^{-\tau z}|\le |p|$. {\it A~fortiori}, la~d\'efinition \eqref{defphi} implique que 
+$$
+\phi(z)\neq0\qquad(\re z>r)
+$$
+et il r\'esulte alors de l'identit\'e \eqref{TL0} que 
+$$
+\sc Lf(z)+q\int_\theta^{\theta+1}{\e^{-tz}\F\phi(z)}\d
+t\ a(z)={\pss f,t\mapsto\e^{-tz}\pss\F\phi(z)}\qquad(\re z>r).
+$$
+La fonction $a$ \'etant $2\pi i$-p\'eriodique d'apr\`es la d\'efinition \eqref{az}, en substituant $z+2\pi in$~\`a~$z$, nous obtenons que 
+$$
+\sc Lf(z+2\pi in)+q\int_\theta^{\theta+1}{\e^{-x(z+2\pi in)}\F\phi(z+2\pi
+in)}\d x\ a(z)={\pss f,x\mapsto\e^{-x(z+2\pi in)}\pss\F\phi(z+2\pi in)}
+\quad\ \ (\re z>r,n\in\ob Z).
+$$
+En remarquant que la d\'efinition \eqref{DeathP} implique l'identit\'e 
+$$
+P(z)-1=\lim_{N\to\infty}\sum_{|n|\le N}q\int_\theta^{\theta+1}{\e^{-(z+2\pi in)t}\F\phi(z+2\pi in)}\d t
+\qquad(\re z>r), 
+$$
+nous d\'eduisons alors de la relation \eqref{id3} que 
+$$
+P(z)a(z)=\lim_{N\to\infty}\sum_{|n|\le N}{\pss f,x\mapsto\e^{-x(z+2\pi in)}\pss\F\phi(z+2\pi in)}\qquad(\re z>r). 
+$$
+Pour la suite de fonctions $\{\sc G_k\}_{k=0}^\infty$ d\'efinie par \eqref{scGk}, il suit 
+$$
+P(z)a(z)=\lim_{N\to\infty}\pss f,x\mapsto\sc G_k(x,z)\pss
+\qquad(\re z>r). 
+$$
+\'Etant donn\'e un nombre complexe $z$ v\'erifiant $\re z>r$, 
+nous d\'eduisons du lemme \eqrefn{Tech} d'une part que 
+la suite $\{x\mapsto\sc G_k(x,z)\}$ est uniform\'ement  born\'ee sur chaque compact~de~$\ob R$ et d'autre part 
+qu'elle converge simplement sur $\ob R$. 
+{\it A~fortiori}, il r\'esulte de \eqref{deffb2} et du~th\'eor\`eme de Lebesgue  que
+$$
+P(z)a(z)=\pss f,x\mapsto\lim_{N\to\infty}\sc G_k(x,z)\pss
+\qquad(\re z>r). 
+$$
+Comme la fonction $x\mapsto G(x,z)$ est la limite de la suite $\{x\mapsto\sc G_k(x,z)\}_{n=0}^\infty$, 
+d'apr\`es	~\eqref{DeathG}, nous concluons que la relation \eqref{id4} est satisfaite. 
+\bigskip
+
+
+Prouvons enfin que la transform\'ee de Laplace $\sc Lf$ peut \^etre prolong\'ee sur l'ouvert $\sc C$ en~une fonction m\'eromorphe 
+ v\'erifiant \eqref{Lf}. Nous remarquons que le lemme \eqrefn{Tech4} implique d'une part que $z\mapsto G_0(z)$ 
+est holomorphe sur $\sc C$ et d'autre part que l'application~$(x,z)\mapsto G(x,z)$ satisfait 
+les hypoth\`eses du lemme \eqrefn{Tech5} pour $U=\sc C$ et pour chaque couple $(a,b)$~v\'erifiant~$a<b$. 
+La fonction $f$ \'etant continue sur $\ob R$, nous d\'eduisons alors de \eqref{deffb2} et du lemme \eqrefn{Tech5} 
+que l'ap\-pli\-cation $z\mapsto\pss f,x\mapsto G(x,z)\pss$ est holomorphe sur $\sc C$. Comme \eqref{DeathF} et \eqref{DeathP} induisent~que
+$$
+P(z)=1+q F_0(z)\qquad(z\in\sc C), 
+$$ 
+il r\'esulte du lemme \eqrefn{Tech7} que la fonction $P$ est holomorphe sur $\sc C$. 
+La s\'erie \eqref{az} convergeant normalement sur le demi-plan $D:=\{z\in\ob C:\re z>r\}$, d'apr\`es~la~majoration~\eqref{majf}, 
+nous~d\'eduisons du th\'eor\`eme de Weierstrass que la fonction $a$ est holomorphe sur~$D$ et nous d\'eduisons de \eqref{id4} 
+qu'elle peut \^etre prolong\'ee holomorphiquement \`a $\sc U$ et~m\'e\-ro\-mor\-phi\-que\-ment \`a $\sc C$ en posant 
+$$
+a(z)={\pss f,x\mapsto G(x,z)\pss\F P(z)}\qquad(z\in\sc C). \eqdef{idaz}
+$$
+D'apr\`es la d\'efinition \eqref{defphi}, les fonctions $\phi$ et $z\mapsto q\int_\theta^{\theta+1}\e^{-xz}\d x$ 
+sont enti\`eres. De m\^eme, le lemme \eqrefn{Tech5} et des relations \eqref{deffb2} et $f\in\sc C(\ob R)$  
+impliquent que la fonction $z\mapsto\pss f,x\mapsto\e^{-xz}\pss$ est enti\`ere.  
+{\it A fortiori}, il r\'esulte de \eqref{TL0} 
+que la transform\'ee de Laplace~$\sc Lf$ peut \^etre  prolong\'ee 
+holomorphiquement \`a $\sc U$ et m\'eromorphiquement \`a $\sc C$ en posant \eqref{Lf}. 
+\hfill\qed\null
+\bigskip
+
+
+\prop TL*. Soit $\pss\cdot,\cdot\pss$ la forme bilin\'eaire d\'efinie pour $(f,g)\in\sc C(\ob R)\times\sc H$ par \eqref{deffb}. 
+Alors, chaque solution $g$ de l'\'equation diff\'erentielle \eqref{eqg} admet une
+transform\'ee de Laplace $\sc Lg$, m\'eromorphiquement prolongeable   
+sur l'ouvert $\sc C$ et v\'erifiant 
+$$
+\sc Lg(z)={\pss x\mapsto \e^{xz},g\pss\F\phi(z)}
+-q{\pss x\mapsto F(x,z),g\pss\F\phi(z)P(z)}
+\qquad(z\in\sc C).
+\eqdef{Lg}
+$$
+De plus, la transform\'ee de Laplace $\sc Lg$ est holomorphe sur l'ouvert $\sc U$ d\'efini par \eqref{defU}. 
+\par
+
+
+\dem.  Soit $g$ une solution de l'\'equation \eqref{eqg}. Alors, il existe un~nombre~$r\ge|p|$ v\'erifiant \eqref{majg}, d'apr\`es le Th\'eor\`eme~\eqrefn{Teum*}. 
+Nous en d\'eduisons d'une part que l'int\'egrale   
+$$
+b(z):=\int_{-\infty}^0g(x)\e^{[x-\theta]z}\d x\qquad(\re z>r)
+\eqdef{Deathb}
+$$
+converge et d'autre part que~$g$ 
+admet une transform\'ee de Laplace $\sc Lg$, d\'efinie par 
+$$
+\sc Lg(z):=\int_{-\infty}^0g(x)\e^{xz}\d x
+\qquad(\re z>r). 
+\eqdef{defLg}
+$$
+\medskip
+
+
+
+Prouvons dans un premier temps que la transform\'ee de Laplace $\sc Lg$ satisfait l'identit\'e 
+$$
+\phi(z)\sc Lg(z)+\pss x\mapsto\e^{xz},g\pss+qb(z)=0
+\qquad(\re z>r).
+\eqdef{TL0*}
+$$
+Soit $z$ un nombre complexe v\'erifiant $\re z>r$. Comme $g$ est de classe $\sc C^1$ sur l'ouvert~$\sc O^*$ 
+et satisfait~l'identit\'e\eqref{eqgs}, nous d\'eduisons de la majoration 
+\eqref{majg} que 
+$$
+g'(x)\ll\e^{-rx}\qquad(x\in\sc O^*). 
+\eqdef{majgp}
+$$
+En particulier, l'\'equation \eqref{eqgs} admet une transform\'ee de Laplace au point $z$ v\'erifiant 
+$$
+-\int_{-\infty}^0 g'(x)\e^{xz}\d x
++p\int_{-\infty}^0g(x+\tau)\e^{xz}\d x=0.
+$$
+Comme $g$ est continue sur $]-\infty,0[\ssm\ob Z$ 
+et admet en chaque entier une limite \`a gauche et \`a droite, 
+nous int\'egrons la premi\`ere int\'egrale par parties et nous d\'eduisons de \eqref{defLg} que 
+$$
+-g\b(0^-\b)+\sum_{n<0}\B(g\b(n^+\b)-g\b(n^-\b)\B)\e^{nz}+z\sc Lg(z)+p\int_{-\infty}^0g(x+\tau)\e^{xz}\d x=0. 
+$$
+De m\^eme, en proc\'edant au changement de variable $t=x+\tau$, il r\'esulte de \eqref{defLg}~que  
+$$
+-g\b(0^-\b)+\sum_{n<0}\B(g\b(n^+\b)-g\b(n^-\b)\B)\e^{nz}+z\sc Lg(z)+p\e^{-\tau z}\sc Lg(z)+p\int_0^\tau
+g(t)\e^{(t-\tau)z}\d t=0. 
+$$
+Comme la condition de raccord \eqref{condra} implique que 
+$$
+\sum_{n<0}\Q(g\b(n^+\b)-g\b(n^-\b)\W)\e^{nz}=q\sum_{n<0}\int_n^{n+1}g(x+\theta)\d
+x\ \e^{nz}=q\int_{-\infty}^0g(x+\theta)\e^{[x]z}\d x, 
+$$
+nous proc\'edons au changement de variable  $t=x+\theta$ et nous d\'eduisons de  \eqref{Deathb} d'une part que 
+$$
+\sum_{n<0}\B(g\b(n^+\b)-g\b(n^-\b)\B)\e^{nz}=q\int_0^\theta
+g(t)\e^{[t-\theta]z}\d t+qb(z)
+$$
+et d'autre part que 
+$$
+\b(z+p\e^{-\tau z}\b)\sc Lg(z)-g\b(0^-\b)+q\int_0^\theta g(t)\e^{[t-\theta]z}\d t+ p\int_0^\tau g(t)\e^{(t-\tau)z}\d t+qb(z)=0. 
+$$
+En particulier, il r\'esulte des d\'efinitions \eqref{defphi} et \eqref{deffb} que l'estimation \eqref{TL0*} est satisfaite. 
+\bigskip
+
+
+
+Prouvons dans un second temps que 
+$$
+P(z)b(z)=-\pss x\mapsto F(x,z),g\pss\qquad(\re z>r). 
+\eqdef{Sabbat}
+$$ 
+Nous fixons un nombre complexe $z$ v\'erifiant $\re z>r$ et nous d\'eduisons de~\eqref{Deathb} et 
+du~d\'eveloppement en s\'erie de Fourier \eqref{Fourier} pour $u=x-\theta$ que la fonction $b$ v\'erifie 
+$$
+b(z):=\int_{-\infty}^0g(x)\e^{z(x-\theta)
+}\Q(\ol{\sum_{n\in\ob Z}}\ {1-\e^{-z}\F(z+2\pi in)}\e^{2\pi in(x-\theta)}\W)\d x.
+$$
+Comme les sommes partielles de cette s\'erie sont uniform\'ement born\'ees sur $\ob R$ et comme la fonction~$g$ satisfait la majoration \eqref{majg}, 
+nous intervertissons sommation et int\'egration \`a l'aide du th\'eor\`eme de~Lebesgue et nous d\'eduisons de \eqref{defLg} que 
+$$
+b(z)=\ol{\sum_{n\in\ob Z}}\ {1-\e^{-z}\F z+2\pi in}\sc Lg(z+2\pi in)
+\e^{-(z+2\pi in)\theta}\qquad(\re z>r). 
+$$
+La fonction $\phi$ ne s'annulant pas sur le demi-plan $\re z>r$, il r\'esulte alors de \eqref{TL0*} que 
+$$ 
+b(z)=-\ol{\sum_{n\in\ob Z}}\ 
+{1-\e^{-z}\F z+2\pi in}\Q({\pss x\mapsto\e^{x(z+2\pi in)},g\pss\F\phi(z+2\pi
+in)}+{qb(z+2\pi in)\F\phi(z+2\pi in)}\W)\e^{-(z+2\pi in)\theta}
+\quad\ \ (\re z>r).
+$$
+En remarquant que  la fonction $b$ est $2\pi i$-p\'eriodique d'apr\`es la d\'efinition \eqref{Deathb}, 
+nous~d\'e\-dui\-sons de l'identit\'e \eqref{DeathP} que  
+$$
+P(z)b(z)=-\ol{\sum_{n\in\ob Z}}{1-\e^{-z}\F z+2\pi in}
+{\pss x\mapsto\e^{x(z+2\pi in)},g\pss\F\phi(z+2\pi in)}
+\e^{-(z+2\pi in)\theta}\qquad(\re z>r).
+$$ 
+La lin\'earit\'e \`a gauche de la forme $\pss\cdot,\cdot\pss$ et la d\'efinition \eqref{FNxz} impliquent alors que 
+$$
+P(z)b(z)=-\lim_{N\to\infty}\pss x\mapsto \sc F_N(x,z)^{\strut},g\pss\qquad(\re z>r).
+$$ 
+D'apr\`es le lemme \eqrefn{Tech6},  la suite de fonctions continues $\{x\mapsto\sc F_k(x,z)\}$ 
+converge uniform\'ement  sur chaque compact r\'eel vers l'application $x\mapsto F(x,z)$ . 
+A fortiori, il r\'esulte de \eqref{deffb2} et du th\'eor\`eme de Lebesgue que l'identit\'e \eqref{Sabbat} est satisfaite. 
+\bigskip
+
+
+
+
+
+Prouvons enfin que la transform\'ee de Laplace $\sc Lg$ peut \^etre prolong\'ee en une fonction m\'eromorphe 
+sur $\sc C$ v\'erifiant l'identit\'e \eqref{Lg}. Nous remarquons que le lemme \eqrefn{Tech4} implique d'une~part que la fonction $z\mapsto F(0,z)$ 
+est holomorphe sur $\sc C$ et d'autre part que l'application $(x,z)\mapsto F(x,z)$ satisfait 
+les hypoth\`eses du th\'eor\`eme \eqrefn{Tech5} pour $U=\sc C$ et pour des nombres r\'eels $(a,b)$ v\'erifiant $a<b$. 
+Comme $g$ appartient \`a l'espace $\sc H$, nous d\'eduisons alors de la d\'efinition \eqref{deffb2} et du lemme \eqrefn{Tech5} 
+que la fonction $z\mapsto\pss x\mapsto F(x,z),g\pss$ est holomorphe sur l'ouvert $\sc C$. Nous rappelons que la fonction $P$ est 
+holomorphe sur $\sc C$ et ne s'annule pas sur l'ouvert $\sc U\subset\sc C$. {\it A~fortiori}, il r\'esulte de 	\eqref{Sabbat} 
+que l'on prolonge
+ la~fonction $b$ en une fonction m\'eromorphe sur $\sc C$ et holomorphe sur $\sc U$ en posant 
+$$
+b(z)=-{\pss x\mapsto F(x,z),g\pss\F P(z)}\qquad(z\in\sc C). 
+$$
+La fonction $\phi$ \'etant enti\`ere et ne s'annulant pas sur $\sc U$, nous d\'eduisons de l'identit\'e \eqref{deffb2} et du~lemme \eqrefn{Tech5} 
+que l'application $z\mapsto\pss x\mapsto\e^{xz},g\pss$ est holomorphe sur $\ob C$. Il r\'esulte alors de \eqref{TL0*} 
+que la transform\'ee de Laplace~$\sc Lg$ peut \^etre  prolong\'ee holomorphiquement \`a $\sc U$ 
+et m\'eromorphiquement \`a $\sc C$ en posant \eqref{Lg}. 
+\hfill\qed\null
+\bigskip
+
+
+\prop Tech8. Pour $(x,y)\in\ob R^2$, nous notons $\Delta_{x,y}$ la fonction m\'eromorphe d\'efinie par 
+$$
+\Delta_{x,y}(s):=G(y-x,s)-q{G(y,s)F(x,s)\F P(s)}\qquad(s\in\ob C).
+\eqdef{DeathD}
+$$
+Pour chaque nombre complexe $z$, nous avons 
+$$
+\hbox{Res}_z\b(\Delta_{x,y}\b)=\sum_{1\le k\le n_z}F_{z,k}(x)G_{z,k}(y)\qquad(x\in\ob R,y\in\ob R). 
+\eqdef{DeathR}
+$$
+\par
+\bigskip
+
+\dem. Commen\c{c}ons par \'etudier le cas selon lequel $|E_z|=1$ et $v_z\le-1$. 
+Nous~d\'eduisons de la relation $|E_z|=1$ qu'il existe un entier $k$ v\'erifiant $\phi(z+2\pi ik)=0$ et 
+$$
+\phi(z+2\pi ik+2\pi in)\neq0\qquad(n\in\ob Z^*).
+$$
+Nous fixons $(x,y)\in\ob R^2$, nous observons que $P$, $s\mapsto F(x,s)$, $s\mapsto G(y-x,s)$ et $s\mapsto G(y,s)$ 
+sont des~fonctions $2\pi i$-p\'eriodiques et nous d\'eduisons de \eqref{DeathD} qu'il en est de m\^eme pour~l'application~$\Delta_{x,y}$, 
+qui satisfait a fortiori l'\'egalit\'e
+$$
+\hbox{Res}_z\b(\Delta_{x,y}\b)=\hbox{Res}_{z+2\pi ik}\b(\Delta_{x,y}\b). \eqdef{Hack5}
+$$
+D'apr\`es l'identit\'e \eqref{DeathP}, %et le lemme..., 
+nous avons 
+$$
+P(s)={1-\e^{-s}\F s}{\e^{-\theta s}\F\phi(s)}+O(1)={1-\e^{-s}\F s}{\e^{-\theta s}\F\phi(s)}\B(1+O\b(\phi(s)\b)\B)\qquad(s\to z+2\pi ik).
+$$
+De m\^eme, il r\'esulte de l'identit\'e \eqref{DeathF} d'une part que 
+$$
+F(x,s)={1-\e^{-s}\F s}{\e^{(x-\theta)s}\F\phi(s)}+O(1)={1-\e^{-s}\F s}{\e^{(x-\theta)s}\F\phi(s)}\B(1+O\b(\phi(s)\b)\B)\qquad(s\to z+2\pi ik)
+$$
+et d'autre part que 
+$$
+{F(x,s)\F P(s)}=\e^{xs}+O\b(\phi(s)\b)\qquad(s\to z+2\pi ik). 
+$$
+Comme l'identit\'e \eqref{DeathG} implique que  
+$$
+G(y,s)={\e^{-ys}\F\phi(s)}+O(1)\qquad\hbox{et}\qquad
+G(y-x,s)={\e^{(x-y)s}\F\phi(s)}+O(1)\qquad(s\to z+2\pi ik),
+$$
+nous d\'eduisons de la d\'efinition \eqref{DeathD} que 
+$$
+\Delta_{x,y}(s)=O(1)\qquad(s\to z+2\pi k).
+$$
+Pour $(x,y)\in\ob R^2$, le r\'esidu de la fonction $\Delta_{x,y}$ est {a~fortiori} nul aux points~$z+2\pi ik$~et~$z$, d'apr\`es~l'identit\'e \eqref{Hack5}, et 
+nous d\'eduisons alors des conditions $|E_z|=1$ et $v_z\le-1$ d'une~part que $n_z:=v_z+1\le 0$ 
+et d'autre part que l'estimation \eqref{DeathR} est satisfaite. 
+\bigskip
+
+Nous supposons d\'esormais que  $|E_z|\neq 1$ ou que $v_z\ge0$, nous fixons un couple~$(x,y)\in\ob R^2$ 
+et~nous d\'eduisons de \eqref{DeathD} que 
+$$
+\hbox{Res}_z\b(\Delta_{x,y}\b)=\hbox{Res}_z\b(w\mapsto G(y-x,w)\b)-q\hbox{Res}_z\Q(w\mapsto {G(y,w)F(x,w)\F P(w)}\W). \eqdef{Hack3}
+$$
+Comme~$v_z$ est la valuation en $z$ de la fonction m\'eromorphe $P$, l'application  
+$$
+Q:w\mapsto P(w)(w-z)^{-v_z}\eqdef{DeathQ}
+$$ 
+est holomorphe et ne s'annule pas au voisinage du point $z$. La condition $|E_z|\neq 1$ ou $v_z\ge0$ excluant le cas particulier 
+o\`u $E_z=\{-p\e\}$ avec $-p\e$ z\'ero double de la fonction $\phi$, le lemme~\eqrefn{Tech2} implique 
+d'une part que les z\'eros de la fonction $\phi$ appartenant \`a~l'ensemble $\{z+2\pi in\}_{n\in\ob Z}$ sont simples 
+et d'autre part que l'ensemble $E_z$ poss\`ede au plus deux \'el\'ements, qui sont n\'ecessairement conjugu\'es. 
+Pour chaque entier $n$, les applications 
+$$
+w\mapsto{1-\e^{-z}\F z+2\pi in}{\e^{-y(w+2\pi in)}\F\phi(w+2\pi in)}(w-z)^{\1_{\sc A}(z)}
+\qquad\hbox{et}\qquad 
+w\mapsto{\e^{-y(w+2\pi in)}\F\phi(w+2\pi in)}(w-z)^{\1_{\sc B}(z)}
+$$
+sont holomorphes sur un m\^eme disque $D$ centr\'e en $z$ de rayon strictement positif. En~proc\'edant comme lors des preuves des lemmes \eqrefn{Tech4}~et~\eqrefn{Tech6}, nous d\'eduisons de \eqref{Hack2}~et~\eqref{Hack} 
+que les fonctions $R$ et $S$ d\'efinies par 
+$$
+\eqalign{
+R(w)&:=\ol{\sum_{n\in\ob Z}}\ {\e^{-y(w+2\pi in)}\F\phi(w+2\pi in)}(w-z)^{\1_{\sc B}(z)}
+\qquad\b(w\in\sc C\cup\{z\}\b)
+\cr
+S(w)&:=\sum_{n\in\ob Z}\ {1-\e^{-z}\F z+2\pi in}\ {\e^{(x-\theta)(z+2\pi in)}\F\phi(z+2\pi in)}(w-z)^{\1_{\sc A}(z)}
+\qquad\b(w\in\sc C\cup\{z\}\b)
+}
+$$
+sont limites uniformes sur le disque $D$  d'une suite de fonctions holomorphes. 
+Il~r\'esulte alors du~th\'eor\`eme de Weierstrass qu'elles sont holomorphes au voisinage du point $z$ 
+et nous~d\'eduisons des d\'efinitions \eqref{DeathF} et \eqref{DeathG} que 
+$$
+R(w)=F(x,w)(w-z)^{\1_{\sc A}(z)}\quad\ \ \hbox{et}\quad\ \  S(w)=G(y,w)(w-z)^{\1_{\sc B}(z)}\quad\ \ (w\in\sc C).\!\!\!\!\!\!\!\!\! \eqdef{DeathRS}
+$$
+Comme $|E_z|\neq 1$ ou $v_z\ge0$, la d\'efinition de $n_z$ implique que $n_z=v_z+\1_{\sc A}(z)+\1_{\sc B}(z)\ge0$. 
+En~reportant les identit\'e pr\'ec\'edentes dans \eqref{Hack3}, nous obtenons alors que 
+$$
+\hbox{Res}_z\Q(\Delta_{x,y}\W)=\hbox{Res}_z\B(w\mapsto G(y-x,w)\B)-q\hbox{Res}_z\Q(w\mapsto {1\F (w-z)^{n_z}}{R(w)S(w)\F Q(w)}\W). 
+$$
+Comme $Q(z)\neq0$, nous observons que la fonction $RS/Q$ est holomorphe au voisinage~de~$z$. 
+Dans le cas o\`u $n_z\le 0$, nous remarquons d'une part que $|E_z|=0$ et d'autre part que~$z\in\sc C$.  
+L'application $w\mapsto G(x-y,w)$ \'etant holomorphe sur $\sc C$, nous en d\'eduisons alors que le r\'esidu de l'application $\Delta_{x,y}$ 
+est nul au point $z$ 
+et, par suite, que l'estimation~\eqref{DeathR} est satisfaite. Nous~supposons dor\'enavant que $n_z\ge1$ et nous remarquons que 
+$$
+\hbox{Res}_z\Q(\Delta_{x,y}\W)=\hbox{Res}_z\B(G(y-x,w)\B)-{q\F (n_z-1)!}\Q({RS\F Q}\W)^{(n_z-1)}(z). 
+$$
+D'apr\`es la formule de Leibniz, il suit 
+$$
+\hbox{Res}_z\Q(\Delta_{x,y}\W)=\hbox{Res}_z\B(G(y-x,w)\B)+\sum_{m+n+k=n_z-1}{(-q/Q)^{(m)}(z)\F m!}{R^{(k)}(z)\F k!}\ {S^{(n)}(z)\F n!}
+$$
+Comme l'identit\'e \eqref{Deathczn} et la d\'efinition \eqref{DeathQ} impliquent que 
+$$
+{-q\F Q(w)}=\sum_{m=0}^\infty c_{z,m}(w-z)^m\qquad(w\hbox{ au voisinage de }z), 
+$$
+nous en d\'eduisons que 
+$$
+\hbox{Res}_z\Q(\Delta_{x,y}\W)=\hbox{Res}_z\B(G(y-x,w)\B)+\sum_{m+n+k=n_z-1}c_{z,m}{R^{(k)}(z)\F k!}\ {S^{(n)}(z)\F n!}. 
+$$
+De m\^eme, comme les identit\'es \eqref{DeathFF}, \eqref{DeathGG} et \eqref{DeathRS} impliquent que 
+$$
+\eqalignno{
+R(w)&=\sum_{k=0}^\infty f_{z,k+1}(x)(w-z)^k\qquad(w\hbox{ au voisinage de }z),&\eqdef{Kingd}
+\cr
+S(w)&=\sum_{n=0}^\infty g_{z,n+1}(y)(w-z)^n\qquad(w\hbox{ au voisinage de }z),&\eqdef{Kinga}
+}
+$$
+nous remarquons que 
+$$
+\hbox{Res}_z\Q(\Delta_{x,y}\W)=\hbox{Res}_z\B(G(y-x,w)\B)+\sum_{m+n+k=n_z-1}c_{z,m}\ f_{z,k+1}(x)\ g_{z,n+1}(y). 
+$$
+Il r\'esulte alors du changement d'indice $k'=k+1$ que 
+$$
+\hbox{Res}_z\Q(\Delta_{x,y}\W)=\hbox{Res}_z\B(G(y-x,w)\B)+\sum_{1\le k\le n_z}f_{z,k}(x)\sum_{m+n=n_z-k}c_{z,m}\ g_{z,n+1}(y). 
+\eqdef{Deathpard}
+$$ 
+Trois cas sont possibles d'apr\`es le lemme \eqrefn{Tech2}. Dans le cas o\`u $|E_z|=0$, nous avons 
+d\'ej\`a montr\'e d'une part que $z\in\sc C$ 
+et d'autre part que la fonction $w\mapsto G(y-x,w)$ est holomorphe au~voisinage du nombre $z$. A fortiori, nous avons 
+$$
+\hbox{Res}_z\Q(\Delta_{x,y}\W)=\sum_{1\le k\le n_z}f_{z,k}(x)\sum_{m+n=n_z-k}c_{z,m}\ g_{z,n+1}(y)
+$$ 
+et nous d\'eduisons des relations \eqref{Fzk} et \eqref{Gzk} que l'identit\'e \eqref{DeathR} est bien satisfaite. 
+Dans le cas o\`u $|E_z|=1$, l'unique \'el\'ement $s$ de $E_z$ satisfait $s\equiv z\ [2\pi i]$, $\phi(s)=0$ et 
+$$
+\phi(s+2\pi in)\neq0\qquad(n\in\ob Z^*).
+\eqdef{blahh}
+$$
+La fonction $w\mapsto G(y-x,w)$ \'etant $2\pi i$-p\'eriodique, ses  r\'esidus en $z$ et en $s$ sont \'egaux. 
+Comme $s$ est un z\'ero simple de $\phi$, sous la condition suppl\'ementaire $v_z\ge0$, il r\'esulte de la~relation \eqref{DeathG} que 
+$$
+\hbox{Res}_z\B(G(y-x,w)\B)=\hbox{Res}_s\B(G(y-x,w)\B)={\e^{(x-y)s}\F\phi'(s)}.
+$$
+En reportant dans l'identit\'e \eqref{Deathpard}, nous d\'eduisons de la d\'efinition \eqref{Fzk} pour $1\le k\le n_z$ et de la~d\'efinition 
+\eqref{Gzk} pour $1\le k<n_z$ que 
+$$
+\hbox{Res}_z\Q(\Delta_{x,y}\W)={\e^{(x-y)s}\F\phi'(s)}+\sum_{1\le k< n_z}F_{z,k}(x)G_{z,k}(y)+c_{z,0}f_{z,n_z}(x)G_{z,n_z}(y). \eqdef{Kingb}
+$$
+Comme la relation $|E_z|=1$ implique que le nombre complexe $z$ n'appartient pas \`a $\sc C$, c'est-\`a-dire que $z\in\sc B$, nous d\'eduisons 
+de \eqref{DeathRS} et de \eqref{Kinga} que 
+$$
+(w-z)G(y,w)=\sum_{n=0}^\infty g_{z,n+1}(y)(w-z)^n\qquad(w\hbox{ au voisinage de }z). \eqdef{Arch1}
+$$
+A fortiori, nous d\'eduisons de \eqref{Gzk} pour $k=n_z$ que  
+$$
+G_{z,n_z}(y)=c_{z,0}g_{z,1}(y)=c_{z,0}\lim_{w\to z}(w-z)G(y,w).
+$$
+Comme $s\equiv z\ [2\pi i]$ est un z\'ero de la fonction $\phi$ et satisfait \eqref{blahh}, il r\'esulte de~\eqref{DeathG} 
+d'une part que l'application $w\mapsto G(y,w)$ est $2\pi i$ p\'eriodique et d'autre part que 
+$$
+G_{z,n_z}(y)=c_{z,0}\lim_{w\to s}(w-s)G(y,w)=c_{z,0}{\e^{-ys}\F\phi'(s)}. 
+$$
+En reportant dans \eqref{Kingb}, nous obtenons alors que 
+$$
+\hbox{Res}_z\Q(\Delta_{x,y}\W)=\Q({\e^{xs}\F c_{z,0}}+f_{z,n_z}(x)\W)G_{z,n_z}(y)+\sum_{1\le k< n_z}F_{z,k}(x)G_{z,k}(y) 
+$$
+et nous d\'eduisons de la d\'efinition \eqref{Fzk} pour $k=n_z$ que l'identit\'e \eqref{DeathR} est satisfaite. 
+Enfin, dans le cas o\`u $|E_z|=2$,  il existe deux entiers distincts $k$ et $k'$ tels que les deux \'el\'ements de $E_z$, 
+qui sont n\'ecessairement conjugu\'es, soient $s=z+2\pi ik$ et $\ol s=z+2\pi ik'$. De plus, ces nombres $s$ et $\ol s$ sont des z\'eros simples de la fonction $\phi$ et nous observons que  
+$$
+\phi(z+2\pi in)\neq 0\qquad\b(n\in\ob Z\ssm\{k,k'\}\b).
+$$ 
+{\it A fortiori}, il r\'esulte de l'identit\'e \eqref{DeathG} que 
+$$
+\hbox{Res}_z\B(G(y-x,w)\B)=\hbox{Res}_z\Q({\e^{(x-y)(w+2\pi ik)}\F\phi(w+2\pi ik)}+{\e^{(x-y)(w+2\pi ik')}\F\phi(w+2\pi ik')}\W)
+={\e^{(x-y)s}\F\phi'(s)}+{\e^{(x-y)\ol s}\F\phi'(\ol s)}.
+$$
+En reportant dans \eqref{Deathpard}, nous obtenons que 
+$$
+\hbox{Res}_z\Q(\Delta_{x,y}\W)={\e^{(x-y)s}\F\phi'(s)}+{\e^{(x-y)\ol s}\F\phi'(\ol s)}+\sum_{1\le k\le n_z}f_{z,k}(x)\sum_{m+n=n_z-k}c_{z,m}\ g_{z,n+1}(y). 
+\eqdef{Kingc}
+$$
+Dans le sous-cas o\`u $|E_z|=2$ et $n_z=1$, nous obtenons alors que 
+$$
+\hbox{Res}_z\Q(\Delta_{x,y}\W)={\e^{(x-y)s}\F\phi'(s)}+{\e^{(x-y)\ol s}\F\phi'(\ol s)}+c_{z,0}\ f_{z,1}(x)g_{z,1}(y) \eqdef{Kinge} 
+$$
+Comme $|E_z|\neq0$, le nombre $z$ n'appartient pas \`a l'ouvert $\sc C$ de sorte que $z\in\sc B$. 
+En~particulier, il r\'esulte de \eqref{DeathRS} et \eqref{Kinga} que 
+$$
+g_{z,1}(y)=\lim_{w\to z}(w-z)G(y,w). 
+$$
+Comme les seuls z\'eros de la fonction $\phi$ congrus \`a $z$ modulo $2\pi i$  sont les z\'eros simples $s=z+2\pi ik$ et $\ol s=z+2\pi ik'$, 
+nous d\'eduisons alors de l'identit\'e \eqref{DeathG} que 
+$$
+g_{z,1}(y)=\lim_{w\to z}(w-z)\Q({\e^{-y(w+2\pi ik)}\F\phi(w+2\pi ik)}+{\e^{-y(w+2\pi ik')}\F\phi(w+2\pi ik')}\W)={\e^{-ys}\F\phi'(s)}+{\e^{-y
+\ol s}\F\phi'(\ol s)}. \eqdef{Kingf}
+$$
+En proc\'edant comme pr\'ec\'edemment, nous d\'eduisons alors de l'identit\'e \eqref{DeathF} que 
+$$
+f_{z,1}(x)=\lim_{w\to z}(w-z)^{\1_{\sc A}(z)}\Q({1-\e^{-w}\F w+2\pi ik}{\e^{(x-\theta)(w+2\pi ik)}\F\phi(w+2\pi ik)}+{1-\e^{-w}\F w+2\pi ik'}{\e^{(x-\theta)(w+2\pi ik')}\F\phi(w+2\pi ik')}\W)
+$$
+et nous d\'eduisons de la d\'efinition \eqref{Glab} que 
+$$
+f_{z,1}(x)=\gamma_z\Q({\e^{(x-\theta)s}\F s\phi'(s)}+{\e^{(x-\theta)\ol s}\F\ol s\phi'(\ol s)}\W). 
+\eqdef{Kingg}
+$$
+Comme les conditions $|E_z|=2$ et $n_z=1$ impliquent soit que $z\in\sc B\ssm2\pi i\ob Z$ et $v_z=-1$, soit~
+que $z\in\sc B\cap2\pi i\ob Z$ et $v_z=0$, nous observons que $v_z=-\1_{\sc A}(z)$. A fortiori, il r\'esulte de l'identit\'e \eqref{Deathczn} que 
+$$
+c_{z,0}={-q\F\lim\limits_{w\to z} (w-z)^{\1_{\sc A}(z)}P(w)}\neq 0. 
+$$
+Nous d\'eduisons alors de l'identit\'e \eqref{DeathP} que 
+$$
+c_{z,0}=-q/\lim_{w\to z}(w-z)\Q(q{1-\e^{-w}\F w+2\pi ik}{\e^{-\theta(w+2\pi ik)}\F\phi(w+2\pi ik)}+q{1-\e^{-w}\F w+2\pi ik'}{\e^{-\theta(w+2\pi ik')}\F\phi(w+2\pi ik')}\W)
+$$
+et de la d\'efinition \eqref{Glab} que 
+$$
+c_{z,0}=-{1\F\gamma_z}\Q({\e^{-\theta s}\F s\phi'(s)}+{\e^{-\theta\ol s}\F\ol s\phi'(\ol s)}\W)^{-1}.\eqdef{Gaga}
+$$
+En reportant dans \eqref{Kinge}, nous d\'eduisons des \'egalit\'es \eqref{Kingf} et \eqref{Kingg} d'une part que 
+$$
+\hbox{Res}_z\Q(\Delta_{x,y}\W)=
+c_{z,0}\gamma_z\Q({\e^{(x-\theta)s}\F s\phi'(s)}+{\e^{(x-\theta)\ol s}\F\ol s\phi'(\ol s)}\W)\Q({\e^{-ys}\F\phi'(s)}+{\e^{-y
+\ol s}\F\phi'(\ol s)}\W)+\Q({\e^{(x-y)s}\F\phi'(s)}+{\e^{(x-y)\ol s}\F\phi'(\ol s)}\W) 
+$$
+et d'autre part que le nombre $\hbox{Res}_z\Q(\Delta_{x,y}\W)/ c_{z,0}\gamma_z$ vaut 
+%%%%%%%%%%%%%%%% on peut r\'eduire
+$$
+\Q({\e^{(x-\theta)s}\F s\phi'(s)}+{\e^{(x-\theta)\ol s}\F\ol s\phi'(\ol s)}\W)\Q({\e^{-ys}\F\phi'(s)}+{\e^{-y
+\ol s}\F\phi'(\ol s)}\W)-\Q({\e^{(x-y)s}\F\phi'(s)}+{\e^{(x-y)\ol s}\F\phi'(\ol s)}\W)\Q({\e^{-\theta s}\F s\phi(s)}+{\e^{-\theta\ol s}\F\ol s\phi(\ol s)}\W). 
+$$
+Nous d\'eveloppons dans un premier temps pour obtenir que 
+$$
+\hbox{Res}_z\Q(\Delta_{x,y}\W)={c_{z,0}\gamma_z\F\phi'(s)\phi'(\ol s)}\Q({\e^{(x-\theta)s-y\ol s}\F s}+{\e^{(x-\theta)\ol s-ys}\F\ol s}
+-{\e^{(x-y)s-\theta\ol s}\F \ol s}-{\e^{(x-y)\ol s-\theta s}\F s}\W)
+$$
+%%%%%%%%%%%%%%%%%%\`u et simplifier
+puis nous factorisons pour en d\'eduire que 
+$$
+\hbox{Res}_z\Q(\Delta_{x,y}\W)={c_{z,0}\gamma_z\F\phi'(s)\phi'(\ol s)}\Q({\e^{-\theta s-y\ol s}\F s}-{\e^{-\theta\ol s-ys}\F \ol s}\W)\b(\e^{xs}-\e^{x\ol s}\b). 
+$$
+En multipliant num\'erateur et d\'enominateur par $s\ol s\e^{\theta s+\theta\ol s}\neq0$, il r\'esulte de \eqref{Gaga} que 
+$$
+\hbox{Res}_z\Q(\Delta_{x,y}\W)={s\e^{(\theta-y)s}-\ol s\e^{(\theta-y)\ol s}\F
+\ol s\e^{\theta\ol s}\phi'(\ol s)+s\e^{\theta s}
+\phi'(s)}\b(\e^{xs}-\e^{x\ol s}\b). 
+$$
+En particulier, nous d\'eduisons l'identit\'e \eqref{DeathR} des d\'efinitions \eqref{Solar} et \eqref{Planetar}. 
+Enfin, dans~le sous-cas o\`u  $|E_z|=2$ et $n_z\ge2$, 
+nous d\'eduisons de \eqref{Solar} et \eqref{Gzk} que 
+$$
+F_{z,n_z}(x)G_{z,n_z}(y)=\Q({\e^{xs}+\e^{x\ol s}\F2}\W)g_{z,1}(y)+f_{z,n_z}(x)c_{z,0}\ g_{z,1}(y). 
+$$
+En particulier, il r\'esulte de l'identit\'e \eqref{Kingf} d'une part que
+$$
+F_{z,n_z}(x)G_{z,n_z}(y)=\Q({\e^{xs}+\e^{x\ol s}\F2}\W)\Q({\e^{-ys}\F\phi'(s)}+{\e^{-y\ol s}\F\phi'(\ol s)}\W)+f_{z,n_z}(x)c_{z,0}\ g_{z,1}(y)
+$$
+et d'autre part que 
+$$
+F_{z,n_z}(x)G_{z,n_z}(y)={\e^{(x-y)s}\F2\phi'(s)}+{\e^{(x-y)\ol s}\F2\phi'(\ol s)}+\re {\e^{xs-y\ol s}\F\phi'(\ol s)}+f_{z,n_z}(x)c_{z,0}\ g_{z,1}(y). 
+\eqdef{Sup1}
+$$
+De m\^eme, nous d\'eduisons des d\'efinitions \eqref{Fzk} et \eqref{Planetar} que 
+$$
+F_{z,1}(x)G_{z,1}(y)=f_{z,1}(x){s\e^{(\theta-y)s}+\ol s\e^{(\theta-y)\ol s
+}\F 2\gamma_z}+f_{z,1}(x)\sum_{1\le n\le n_z}c_{z,n_z-n}\ g_{z,n}(y). 
+$$
+En particulier, il r\'esulte de \eqref{Kingg} que le nombre $F_{z,1}(x)G_{z,1}(y)$ est d'une part \'egal \`a 
+$$
+\Q({\e^{(x-\theta)s}\F s\phi'(s)}+{\e^{(x-\theta)\ol s}\F\ol s\phi'(\ol s)}\W){s\e^{(\theta-y)s}+\ol s\e^{(\theta-y)\ol s
+}\F 2}+f_{z,1}(x)\sum_{1\le n\le n_z}c_{z,n_z-n}\ g_{z,n}(y)
+$$
+et d'autre part \'egal \`a 
+$$
+{\e^{(x-y)s}\F2\phi'(s)}+{\e^{(x-y)\ol s}\F2\phi'(\ol s)}+\re{\ol s\e^{(x-\theta)s+(\theta-y)\ol s}\F s\phi'(s)}
++f_{z,1}(x)\!\!\!\!\!\sum_{1\le n\le n_z}\!\!\!c_{z,n_z-n}\ g_{z,n}(y).
+\eqdef{omc}
+$$
+D'apr\`es la relation $n_z\ge2$, le nombre complexe $z$ et la valuation $v_z$ de la fonction $P$ en~$z$ satisfont 
+soit $z\notin2\pi i\ob Z^*$ et  $v_z\ge0$ soit $z\in2\pi i\ob Z^*$ et $v_z\ge1$. Dans la premi\`ere situation, 
+nous~d\'eduisons des identit\'es \eqref{DeathP} et \eqref{Glab} que   
+$$
+0=\hbox{Res}_z(P)=\hbox{Res}_z\Q({1-\e^{-w}\F w+2\pi ik}{\e^{-\theta(w+2\pi ik)}\F\phi(z+2\pi ik)}
++{1-\e^{-w}\F w+2\pi ik'}{\e^{-\theta(w+2\pi ik')}\F\phi(z+2\pi ik')}\W)
+$$
+et par suite que 
+$$
+0=\gamma_z\Q({\e^{-\theta s}\F s\phi'(s)}
++{\e^{-\theta\ol s}\F\ol s\phi'(\ol s)}\W)
+$$
+Dans la deuxi\`eme situation, nous remarquons que cette identit\'e est \'egalement v\'erifi\'ee puisque $P(0)=0$ et puisque les identit\'es \eqref{DeathP} et \eqref{Glab} impliquent que 
+$$
+0=P(0)=\lim_{w\to z}\Q({1-\e^{-w}\F w+2\pi ik}{\e^{-\theta(w+2\pi ik)}\F\phi(z+2\pi ik)}
++{1-\e^{-w}\F w+2\pi ik'}{\e^{-\theta(w+2\pi ik')}\F\phi(z+2\pi ik')}\W). 
+$$
+Comme le nombre $\gamma_z$ n'est jamais nul, dans chacune des situations, nous obtenons que 
+$$
+{\e^{-\theta s}\F s\phi'(s)}
++{\e^{-\theta\ol s}\F\ol s\phi'(\ol s)}=0.
+$$
+A fortiori, il r\'esulte le nombre \eqref{omc} est \'egal \`a  
+$$
+F_{z,1}(x)G_{z,1}(y)={\e^{(x-y)s}\F2\phi'(s)}+{\e^{(x-y)\ol s}\F2\phi'(\ol s)}-\re{\e^{xs-y\ol s}\F\phi'(\ol s)}+f_{z,1}(x)\sum_{1\le n\le n_z}c_{z,n_z-n}\ g_{z,n}(y).
+$$
+Comme les identit\'es \eqref{Fzk} et \eqref{Gzk} impliquent que 
+$$
+\sum_{1<k<n_z}F_{z,k}(x)G_{z,k}(y)=\sum_{1<k<n_z}f_{z,k}(x)\sum_{m+n=n_z-k}c_{z,m}g_{z,n+1}(y), 
+$$
+nous d\'eduisons de l'identit\'e \eqref{Sup1} que 
+$$
+\sum_{1\le k\le n_z}F_{z,k}(x)G_{z,k}(y)={\e^{(x-y)s}\F\phi'(s)}+{\e^{(x-y)\ol s}\F\phi'(\ol s)}
++\sum_{1\le k\le n_z}f_{z,k}(x)\sum_{m+n=n_z-k}c_{z,m}g_{z,n+1}(y). 
+$$
+En reportant dans \eqref{Kingc}, nous concluons finalement que l'identit\'e \eqref{DeathR} est satisfaite. 
+\hfill\qed\null
+\bigskip
+
+\Sect Demons, D\'emonstrations.
+
+\proof{ de l'identit\'e \eqref{Rel1}}. Pour $z\in\sc C$, la fonction $f:x\mapsto F(x,z)$ est d\'efinie et continue, 
+d'apr\`es le lemme \eqrefn{Tech7}. Par ailleurs, il r\'esulte du lemme \eqrefn{Tech6} que  la s\'erie~\eqref{DeathF} converge vers $f$ 
+uniform\'ement sur tout compact r\'eel et donc au sens des distributions sur~$\ob R$. En particulier, 
+la d\'eriv\'ee de la fonction $f$ au sens des distributions  est 
+$$
+f'(x)={\d\hfill\F\d x}\ \ol{\sum_{n\in\ob Z}}\ 
+{1-\e^{-z}\F z+2\pi in}{\e^{(x-\theta)(z+2\pi in)}\F\phi(z+2\pi in)}=\ \ol{\sum_{n\in\ob Z}}\ 
+{1-\e^{-z}\F\phi(z+2\pi in)}\ \e^{(x-\theta)(z+2\pi in)}
+$$
+et nous d\'eduisons de la d\'efinition \eqref{defT} de l'op\'erateur $\sc T$ que  
+$$
+\sc Tf(x)=\ \ol{\sum_{n\in\ob Z}}\ 
+{1-\e^{-z}\F\phi(z+2\pi in)}\e^{(x-\theta)(z+2\pi in)}
++p\ \ol{\sum_{n\in\ob Z}}\ {1-\e^{-z}\F z+2\pi in}\ {\e^{(x-\theta-\tau)(z+2\pi
+in)}\F\phi(z+2\pi in)}+qF\b([x-\theta],z\b).
+$$
+D'apr\`es l'identit\'e \eqref{defphi}, il suit 
+$$
+\sc Tf(x)=\e^{z(x-\theta)}\ \ol{\sum_{n\in\ob Z}}\ {1-\e^{-z}\F(z+2\pi in)}
+\e^{2\pi in(x-\theta)}+qf\b([x-\theta]\b).
+$$
+En remarquant que $(1-\e^{-z})/(z+2\pi in)$ 
+est le $n^{\hbox{\sevenrm i\`eme}}$ coefficient de Fourier 
+de la fonction $1$-p\'eriodique $u\mapsto\e^{z[u]-zu}$, nous d\'eduisons du  th\'eor\`eme de Dirichlet d'une part que 
+$$
+\ol{\sum_{n\in\ob Z}}\ {1-\e^{-z}\F(z+2\pi in)}\e^{2\pi inu}=\e^{z[u]-zu}
+\qquad(u\in\ob R\ssm\ob Z)\eqdef{Fourier}
+$$
+et d'autre part, l'identit\'e pr\'ec\'edente \'etant satisfaite au sens des distributions sur $\ob R$, que  
+$$
+\sc Tf(x)=\e^{z[x-\theta]}+qf\b([x-\theta]\b).
+$$
+Comme la fonction $f:x\mapsto F(x,z)$ v\'erifie 
+$$
+\sc Tf(x)=\sum_{n\in\ob Z}\e^{nz}\1_{[n+\theta,n+\theta+1[}(x)+q\sum_{n\in\ob Z}F(n,z)\1_{[n+\theta,n+\theta+1[}(x).
+$$
+et comme  les identit\'es \eqref{DeathP} et \eqref{DeathF} induisent que
+$$
+\e^{nz}+q F(n,z)=P(z)\e^{nz}\qquad(z\in\sc C,n\in\ob Z),\eqdef{relP}
+$$ 
+nous concluons enfin que l'identit\'e \eqref{Rel1} est satisfaite. 
+\hfill\qed\null
+\bigskip
+
+\proof{ de l'identit\'e \eqref{Rel2}}. Pour $z\in\sc C$, la fonction $g:y\mapsto G(y,z)$ est d\'efinie et appartient \`a l'espace $\sc H$, 
+d'apr\`es le lemme \eqrefn{Tech4}. Par ailleurs, il r\'esulte du lemme \eqrefn{Tech6} que  la s\'erie~\eqref{DeathG} converge vers la fonction $g$ 
+dans l'espace $\sc L^1_{\hbox{\sevenrm loc}}(\ob R)$ et a fortiori dans l'espace~$\sc D'(\ob R)$. 
+En~particulier, 
+la d\'eriv\'ee de la fonction $g$ au sens des distributions  est 
+$$
+g'(y)={\d\hfill\F\d y}\ \ol{\sum_{n\in\ob Z}}\ 
+{\e^{-y(z+2\pi in)}\F\phi(z+2\pi in)}=-\ol{\sum_{n\in\ob Z}}\ 
+{z+2\pi in\F\phi(z+2\pi in)}\ 
+\e^{-y(z+2\pi in)}
+$$
+et nous d\'eduisons de la d\'efinition \eqref{defT*} de l'op\'erateur $\sc T^*$ que  
+$$
+\sc T^*g(y)=\ol{\sum_{n\in\ob Z}}\ 
+{z+2\pi in\F\phi(z+2\pi in)}\ 
+\e^{-y(z+2\pi in)}
++p\ \ol{\sum_{n\in\ob Z}}\ {\e^{(\tau-y)(z+2\pi
+in)}\F\phi(z+2\pi in)}+q\sum_{n\in\ob
+Z}\int_{n+\theta}^{n+\theta+1}g(t)
+\d t\ \delta_n(y).
+$$
+D'apr\`es l'identit\'e \eqref{defphi}, il suit 
+$$
+\sc T^*g(y)=\ol{\sum_{n\in\ob Z}}\ \e^{-y(z+2\pi in)}
++q\sum_{k\in\ob Z}\int_{n+\theta}^{n+\theta+1}g(t)\d t\ \delta_n(y).
+$$
+Comme l'identit\'e de poisson induit l'\'egalit\'e au sens des distributions 
+$$
+\e^{-yz}\ol{\sum_{n\in\ob Z}}\ \e^{-2\pi iny}=\e^{-yz}\sum_{n\in\ob Z}\delta_n(y)=\sum_{n\in\ob Z}\e^{-nz}\delta_n(y), 
+$$
+nous en d\'eduisons que 
+$$
+\sc T^*g(y)=\sum_{n\in\ob Z}\e^{-nz}\delta_n(y)+q\sum_{n\in\ob Z}\int_{n+\theta}^{n+\theta+1}g(t)\d t\ \delta_n(y). 
+$$
+Comme la suite \eqref{DeathG} converge vers $g$ dans l'espace $\sc L^1_{\hbox{\sevenrm loc}}(\ob R)$, 
+il r\'esulte de \eqref{DeathP} que 
+$$
+q\int_{n+\theta}^{n+\theta+1}g(t)\d t=q\ol{\sum_{k\in\ob Z}}\int_{n+\theta}^{n+\theta+1}{\e^{-t(z+2\pi ik)}\F\phi(z+2\pi ik)}\d t
+=\b(P(z)-1\b)\e^{-nz}\qquad(n\in\ob Z). 
+$$
+En particulier, nous remarquons que l'application $g:y\mapsto G(y,z)$ v\'erifie 
+$$
+\sc T^*g(y)=P(z)\sum_{n\in\ob Z}\e^{-nz}\delta_n(y) 
+$$
+et nous concluons que la relation \eqref{Rel2} est satisfaite. 
+\hfill\qed\null
+\bigskip
+
+
+\dem{ des th\'eor\`emes \eqrefn{Teum} et \eqrefn{Teum*}}. Ces preuves \'etant similaires \`a la d\'emonstration du  th\'eor\`eme 1.2.1 dans~\CitRef{GyoriLadas}, nous les omettons. 
+\hfill\qed
+\bigskip
+
+
+\dem{ du th\'eor\`eme \eqrefn{sol1}}. Nous fixons un nombre complexe $z\in\ob C$ v\'erifiant $n_z\ge1$ et nous remarquons que les applications $\tilde F$ et $\tilde P$ 
+d\'efinies par 
+$$
+\eqalignno{
+\tilde F(x,w)&:=F(x,w)(w-z)^{\1_{\sc A}(z)}\qquad\b(x\in\ob R,w\in\sc C\b),& \eqdef{bou}
+\cr
+\tilde P(w)&:=P(w)(w-z)^{\1_{\sc A}(z)}\qquad\b(w\in\sc C\b).&\eqdef{bou2}
+\cr
+}
+$$ 
+sont prolongeables par continuit\'e en $w=z$. Prouvons qu'il existe $\epsilon>0$ tel que  
+$$
+\sc T\b[x\mapsto\tilde F(x,w)\b]=\tilde P(w)\sum_{n\in\ob Z}\e^{nw}\1_{[n+\theta,n+\theta+1[}(x)\qquad\b(|w-z|\le \epsilon\b).
+\eqdef{idedepart}
+$$
+Comme le compl\'ementaire de l'ouvert $\sc C$ est d\'enombrable et donc isol\'e, il existe $\epsilon>0$ tel que la couronne 
+$\{w\in\ob C:0<|w-z|\le \epsilon\}$ soit incluse dans $\sc C$. En multipliant \eqref{Rel1} par le mon\^ome $(w-z)^{\1_{\sc A}(z)}$, 
+nous obtenons alors que 
+$$
+\sc T\b[x\mapsto\tilde F(x,w)\b]=\tilde P(w)\sum_{n\in\ob Z}\e^{nw}\1_{[n+\theta,n+\theta+1[}(x)\qquad\b(0<|w-z|\le\epsilon\b).\eqdef{idefin}
+$$
+Comme la fonction $P$ est holomorphe sur $\sc C$ et comme l'hypoth\`ese $n_z\ge1$ implique qu'elle ne poss\`ede pas de p\^ole multiple en $z$, 
+nous remarquons que la fonction $\tilde P$ est holomorphe en $z$ 
+et nous en d\'eduisons que  
+$$
+\lim_{w\to z}\sc T\b[x\mapsto\tilde F(x,w)\b]=\tilde P(z)\sum_{n\in\ob Z}\e^{nz}\1_{[n+\theta,n+\theta+1[}(x). 
+$$
+En proc\'edant comme dans les lemmes \eqrefn{Tech6} et \eqrefn{Tech7}, nous montrons que $(x,w)\mapsto\tilde F(x,w)$ 
+est~continue sur $\ob R\times\{w\in\ob C:|w-z|\le\epsilon\}$ et nous remarquons que la fonction $x\mapsto\tilde F(x,w)$ 
+converge~vers l'application $x\mapsto\tilde F(x,z)$ au sens des distributions lorsque $w$ tends vers $z$. 
+{\it A~fortiori}, nous d\'eduisons de la d\'efinition \eqref{defT} de l'op\'erateur $\sc T$ d'une part que 
+$$
+\sc T\b[x\mapsto\tilde F(x,z)\b]=\lim_{w\to z}\sc T\b[x\mapsto\tilde F(x,w)\b]
+$$
+et d'autre part que
+$$
+\sc T\b[x\mapsto\tilde F(x,z)\b]=\tilde P(z)\sum_{n\in\ob Z}\e^{nz}\1_{[n+\theta,n+\theta+1[}(x).
+$$
+En particulier, il r\'esulte de \eqref{idefin} que l'identit\'e \eqref{idedepart} est satisfaite. 
+\bigskip
+
+\'Etablissons maintenant l'identit\'e 
+$$
+\sc T\Q[x\mapsto \partial_z^k\tilde F(x,z)\W]=\partial_z^k\sc T\Q[x\mapsto\tilde F(x,z)\W]\qquad(k\in\ob N).
+\eqdef{Opeth}
+$$
+Comme la fonction $z\mapsto \tilde F(x,z)$ est holomorphe sur le disque $U:=\{w\in\ob C:|w-z|<\epsilon\}$ pour~
+chaque $x\in\ob R$ et comme l'application $(x,z)\mapsto \tilde F(x,z)$ est continue sur $\ob R\times D$, 
+nous~observons que  la fonction $(x,z)\mapsto \tilde F(x,z)$ satisfait les hypoth\`eses du lemme \eqrefn{Tech9}.  
+Pour~chaque entier $k\ge0$, nous en d\'eduisons alors d'une part que ces hypoth\`eses sont v\'erifi\'ees 
+par~la fonction $(x,z)\mapsto\partial_z^k\tilde F(x,z)$ et d'autre part que 
+$$
+\partial_s^k\sc D\Q(x\mapsto\tilde F(x,s)\W)=\sc D\Q(x\mapsto\partial_s^k\tilde F(x,s)\W)\qquad\b(|s-z|<\epsilon\b). 
+$$
+Ainsi, l'op\'erateur $\sc D$ de d\'erivation au sens des distributions commute avec 
+l'op\'erateur  de d\'erivation partielle $\partial_z^k$ pour l'application $(x,s)\mapsto F(x,s)$. 
+Comme cela est \'egalement vrai pour l'op\'erateur $\sc T$, d'apr\`es la d\'efinition 
+\eqref{defT}, nous en d\'eduisons d'une part que 
+$$
+\partial_s^k\sc T\Q(x\mapsto\tilde F(x,s)\W)=\sc T\Q(x\mapsto\partial_s^k\tilde F(x,s)\W)\qquad\b(|s-z|<\epsilon\b). 
+$$
+et d'autre part  que l'identit\'e \eqref{Opeth} est satisfaite. 
+\bigskip
+
+
+Pour chaque nombre complexe $z$, prouvons maintenant que 
+$$
+\sc T[f_{z,k}]=\Q\{\eqalign{&0
+\qquad\qquad\qquad\qquad\qquad\qquad(0\le k<v_z+\1_{\sc A}(z)),
+\cr
+&-{q\F c_{z,0}}\sum_{n\in\ob Z}\e^{nz}\1_{[n+\theta,n+\theta+1[}
+\qquad\,\ (k=v_z+\1_{\sc A}(z)).}\W.
+\eqdef{Windir}
+$$ 
+\'Etant donn\'e un nombre complexe $z$, il r\'esulte des identit\'es \eqref{DeathFF} et \eqref{bou} que 
+$$
+f_{z,k}(x)=\partial_z^k\tilde F(x,z)\qquad(k\in\ob N,x\in\ob R). \eqdef{Arntor}
+$$
+A fortiori, nous d\'eduisons de \eqref{Opeth} que 
+$$
+\sc T[f_{z,k}]=\partial_z^k\sc T\Q[x\mapsto\tilde F(x,z)\W]\qquad(k\in\ob N)  
+$$
+et de l'identit\'e \eqref{idedepart} que 
+$$
+\sc T[f_{z,k}]=\bg(\tilde P(z)\sum_{n\in\ob Z}\e^{nz}\1_{[n+\theta,n+\theta+1[}\bg)^{(k)}(z)\qquad(k\in\ob N). 
+$$
+D'apr\`es la formule de Leibniz, nous obtenons alors que 
+$$
+\sc T[f_{z,k}]=\sum_{a+b=k}{k!\F a!b!}\tilde P^{(a)}(z)\sum_{n\in\ob Z}n^b\e^{nz}\1_{[n+\theta,n+\theta+1[}\qquad(k\in\ob N). 
+$$
+Comme les identit\'es \eqref{Deathczn} et \eqref{bou2} induisent que 
+$$
+{\tilde P^{(a)}(z)\F a!}=\Q\{\eqalign{
+&0\ \qquad\qquad(0\le a<v_z+\1_{\sc A}(z)),
+\cr
+&-{q\F c_{z_0}}\qquad\qquad(a=v_z+\1_{\sc A}(z)),
+}
+\W. 
+$$ 
+nous concluons que l'identit\'e \eqref{Windir} est satisfaite. 
+\bigskip
+
+Pour chaque nombre complexe $z$, prouvons maintenant que les fonction $F_{z,1},\cdots,F_{z,n_z}$ sont des solutions de l'\'equation diff\'erentielle \eqref{eqf}. 
+\'Etant donn\'e un nombre complexe $z$, nous rappelons qu'il existe un  nombre r\'eel $\epsilon>0$ tel que 
+l'application $z\mapsto \tilde F(x,s)$ soit holomorphe au voisinage du disque $\{s\in\ob C:|s-z|\le \epsilon\}\subset U$ 
+et nous d\'eduisons de \eqref{Arntor} et de la formule de Cauchy que 
+$$
+f_{z, k}(x)={1\F2\pi i}\oint\limits_{|s-z|=\epsilon}{1\F k!}{\tilde F(x,s)\d s\F(s-z)^{k+1}}\qquad(k\in\ob R,x\in\ob R).
+$$
+Comme l'application $(x,s)\mapsto F(x,s)$ est continue sur $\ob R\times U$, 
+il r\'esulte du th\'eor\`eme de Lebesgue que la fonction $f_{z,k}$ est continue sur l'intervalle $\ob R$ pour chaque entier $k\ge0$. 
+A fortiori, il en est de m\^eme pour les applications $F_{z,1},\cdots F_{z,n_z}$. 
+\bigskip
+
+Pour chaque $z\in\ob C$ v\'erifiant $E_z=\emptyset$, la d\'efinition \eqref{nzz} implique que $n_z=v_z+\1_{\sc A}(z)$. 
+En particulier, il r\'esulte des identit\'es \eqref{Fzk} et \eqref{Windir} et que 
+$$
+\sc T[F_{z,k}]=0\qquad(1\le k\le n_z).
+$$ 
+Nous d\'eduisons alors de la propri\'et\'e \eqrefn{P1} que les fonctions $F_{z,1},\cdots, F_{z,n_z}$ sont des solutions 
+de l'\'equation diff\'erentielle \eqref{eqf}. 
+\bigskip
+
+Pour chaque nombre complexe $z$ v\'erifiant $\hbox{Card }E_z=1$, nous observons que l'unique \'el\'ement $s$ de l'ensemble $E_z$ 
+satisfait la relation 
+$$
+\phi(s)=0.
+$$
+Dans le cas o\`u $v_z=-1$, le nombre $n_z$ vaut $0$ et l'ensemble des fonctions $F_{z,1},\cdots, F_{z,n_z}$ est vide. 
+Lorsque $v_z\ge0$, nous avons n\'ecessairement $z\in2\pi i\ob Z^*$, d'apr\`es l'identit\'e~\eqref{DeathP}. 
+La~d\'efinition \eqref{nzz} implique alors que $n_z=v_z+1+\1_{\sc A}(z)$. Pour $1\le k<n_z$, nous~proc\'edons comme pr\'ec\'edemment pour d\'eduire de la relation \eqref{Fzk} 
+que $F_{z,k}$ est une solution de l'\'equation~\eqref{eqf}. De plus, en appliquant l'op\'erateur $\sc T$ \`a la fonction $F_{z,n_z}$ 
+d\'efinie par \eqref{Solar}, nous d\'eduisons des~identit\'es~\eqref{Rel3} et \eqref{Windir} que 
+$$
+\sc [F_{z,n_z}]={\sc T[\e^{xs}]\F c_{z,0}}+\sc T[f_{z,n_z}]={\phi(s)\e^{xs}\F c_{z,0}}=0.
+$$
+A fortiori, il r\'esulte de la propri\'et\'e \eqrefn{P1} que $F_{z,n_z}$ est une solution de l'\'equation \eqref{eqf}.  
+\bigskip
+
+
+Pour chaque nombre complexe $z$ v\'erifiant $|E_z|=2$, nous observons que les \'el\'ements n\'ecessairement conjugu\'es $s$ et $\ol s$ 
+de l'ensemble $E_z$ satisfont 
+$$
+z\equiv s\equiv \ol s\quad [2\pi i], \qquad \phi(s)=0\qquad\hbox{et}\qquad\phi(\ol s)=0.
+$$
+Comme \eqref{nzz} implique que $n_z=v_z+\1_{\sc A}(z)+1$, nous montrons comme pr\'ec\'edemment que la fonction $F_{z,k}$ 
+est une solution de l'\'equation diff\'erentielle \eqref{eqf} pour $1\le k<n_z$. Lorsque $n_z=1$, nous d\'eduisons de la relation \eqref{Rel3} que 
+$$
+\sc T[F_{z,n_z}]=\sc T[\e^{xs}]-\sc T[\e^{x\ol s}]=\phi(s)\e^{xs}-\phi(\ol s)\e^{x\ol s}+q\sum_{n\in\ob Z}(\e^{nz}-\e^{n\ol z})\1_{[n+\theta,n+\theta+1[}=0. 
+$$
+De m\^eme, lorsque $n_z>1$, nous d\'eduisons de \eqref{Rel3} et \eqref{Windir} que 
+$$
+\eqalign{
+\sc T[F_{z,n_z}]&={\sc T[\e^{xs}]+\sc T[\e^{x\ol s}]\F 2c_{z,0}}+\sc T[f_{z,n_z}]
+\cr
+&={\phi(z)\e^{xs}+\phi(\ol s)\e^{x\ol s}\F 2 c_{z,0}}
++q\sum_{n\in\ob Z}\Q({\e^{ns}+\e^{n\ol s}\F2}-\e^{nz}\W)\1_{[n+\theta,n+\theta+1[}=0. 
+}
+$$ 
+{\it A fortiori}, il r\'esulte de la propri\'et\'e \eqrefn{P1} que $F_{z,n_z}$ est une solution de l'\'equation \eqref{eqf}. 
+\hfill\qed\null
+\bigskip
+
+
+\dem{ du th\'eor\`eme \eqrefn{sol1*}}. Nous fixons un nombre complexe $z\in\ob C$ v\'erifiant $n_z\ge1$ et nous remarquons que les applications $\check P$ et $\tilde G$  
+d\'efinies par \eqref{bou2} et par 
+$$
+\eqalignno{
+\tilde G(y,w)&:=G(y,w)(w-z)^{\1_{\sc B}(z)}\qquad\b(y\in\ob R,w\in\sc C\b), &\eqdef{bou3}
+\cr
+\check P(w)&:=(w-z)^{\1_{\sc B}(z)}P(w)\qquad\b(y\in\ob R,w\in\sc C\b), &\eqdef{bou4}
+}
+$$ 
+sont prolongeables par continuit\'e en $w=z$. Prouvons qu'il existe $\epsilon>0$ tel que 
+$$
+\sc T^*\b[y\mapsto\tilde G(y,w)\b]=\check P(w)\sum_{n\in\ob Z}\e^{-nw}\delta_n\qquad\b(|w-z|\le \epsilon\b).
+\eqdef{idedepart*}
+$$
+Comme le compl\'ementaire de l'ouvert $\sc C$ est isol\'e, il existe un nombre $\epsilon>0$ tel que la couronne 
+$\{w\in\ob C:0<|w-z|\le \epsilon\}$ soit incluse dans $\sc C$. En multipliant l'identit\'e \eqref{Rel2} par le mon\^ome $(w-z)^{\1_{\sc B}(z)}$, 
+nous obtenons alors que 
+$$
+\sc T^*\b[y\mapsto\tilde G(y,w)\b]=\check P(w)\sum_{n\in\ob Z}\e^{-nw}\delta_n\qquad\b(0<|w-z|\le\epsilon\b).\eqdef{idefin*}
+$$
+Comme la fonction $P$ est holomorphe sur $\sc C$ et comme l'hypoth\`ese $n_z\ge1$ implique qu'elle ne poss\`ede pas de p\^ole multiple en $z$, 
+nous remarquons que la fonction $\check P$ est holomorphe en $z$ 
+et nous en d\'eduisons que  
+$$
+\lim_{w\to z}\sc T^*\b[y\mapsto\tilde G(y,w)\b]=\check P(z)\sum_{n\in\ob Z}\e^{-nz}\delta_n. 
+$$
+En proc\'edant comme dans les lemmes \eqrefn{Tech3} et \eqrefn{Tech4}, nous montrons que $(y,w)\mapsto\tilde G(y,w)$ 
+est~une application mesurable, localement born\'ee sur $\ob R\times\{w\in\ob C:|w-z|\le\epsilon\}$ et que la fonction $y\mapsto\tilde G(y,w)$ 
+converge simplement vers l'application $y\mapsto G(y,z)$ lorsque $w$ tends~vers~$z$. En~particulier, cette convergence est \'egalement valable 
+au sens des distributions et nous~d\'e\-dui\-sons de la d\'efinition \eqref{defT*} de l'op\'erateur $\sc T^*$ d'une part que 
+$$
+\sc T^*\b[y\mapsto\tilde G(y,z)\b]=\lim_{w\to z}\sc T^*\b[y\mapsto\tilde G(y,w)\b]
+$$
+et d'autre part que
+$$
+\sc T^*\b[y\mapsto\tilde G(y,z)\b]=\tilde P(z)\sum_{n\in\ob Z}\e^{-nz}\delta_n.
+$$
+En particulier, il r\'esulte de \eqref{idefin*} que l'identit\'e \eqref{idedepart*} est satisfaite. 
+\bigskip
+
+\'Etablissons maintenant l'identit\'e 
+$$
+\sc T^*\Q[y\mapsto \partial_z^k\tilde G(y,z)\W]=\partial_z^k\sc T^*\Q[y\mapsto\tilde G(y,z)\W]\qquad(k\in\ob N).
+\eqdef{Opeth*}
+$$
+Nous remarquons que la fonction $(y,w)\mapsto \tilde G(y,w)$ satisfait  les hypoth\`eses du lemme \eqrefn{Tech9} . 
+Pour chaque entier $k\ge0$, nous en d\'eduisons alors que 
+$$
+\partial_s^k\sc D\Q(y\mapsto\tilde G(y,s)\W)=\sc D\Q(y\mapsto\partial_s^k\tilde G(y,s)\W)\qquad\b(|s-z|<\epsilon\b). 
+$$
+En particulier, l'op\'erateur $\sc D$ de d\'erivation au sens des distributions commute avec 
+l'op\'erateur  de d\'erivation partielle $\partial_z^k$ pour la fonction $(x,s)\mapsto F(x,s)$. 
+Comme  \eqref{defT*} implique que cela est vrai aussi pour l'op\'erateur $\sc T^*$, nous en d\'eduisons d'une part que 
+$$
+\partial_s^k\sc T\Q(y\mapsto\tilde G(y,s)\W)=\sc T\Q(y\mapsto\partial_s^k\tilde G(y,s)\W)\qquad\b(|s-z|<\epsilon\b) 
+$$
+et d'autre part  que l'identit\'e \eqref{Opeth*} est satisfaite. 
+\bigskip
+
+Pour chaque nombre complexe $z$, prouvons maintenant que 
+$$
+\sc T^*[g_{z,k}]=\Q\{\eqalign{&0
+\!\qquad\qquad\qquad\qquad\qquad\b(1\le k\le v_z+\1_{\sc B}(z)\b),
+\cr
+&-{q\F c_{z,0}}\sum_{n\in\ob Z}\e^{-nz}\delta_n
+\qquad\,\ (k=v_z+\1_{\sc B}(z)+1).}\W.
+\eqdef{Windir*}
+$$
+\'Etant donn\'e un nombre complexe $z$, il r\'esulte des identit\'es \eqref{DeathGG} et \eqref{bou3} que 
+$$
+g_{z,k}(x)=\partial_z^{k-1}\tilde G(x,z)\qquad(k\ge1,x\in\ob R). \eqdef{Arntor*}
+$$
+A fortiori, nous d\'eduisons de \eqref{Opeth*} que 
+$$
+\sc T^*[g_{z,k}]=\partial_z^{k-1}\sc T^*\Q[x\mapsto\tilde G(x,z)\W]\qquad(k\ge1)  
+$$
+et de l'identit\'e \eqref{idedepart*} que 
+$$
+\sc T^*[g_{z,k}]=\bg(w\mapsto \check P(w)\sum_{n\in\ob Z}\e^{-nw}\delta_n\bg)^{(k-1)}(z)\qquad(k\ge1). 
+$$
+D'apr\`es la formule de Feigniez, nous obtenons alors que 
+$$
+\sc T^*[g_{z,k}]=\sum_{a+b=k-1}{k!\F a!b!}\check P^{(a)}(z)\sum_{n\in\ob Z}(-n)^b\e^{-nz}\delta_n\qquad(k\ge1). 
+$$
+Comme les identit\'es \eqref{Deathczn} et \eqref{bou3} induisent que 
+$$
+{\check P^{(a)}(z)\F a!}=\Q\{\eqalign{
+&0\ \qquad\qquad(0\le a<v_z+\1_{\sc B}(z)),
+\cr
+&-{q\F c_{z_0}}\qquad\qquad(a=v_z+\1_{\sc B}(z)),
+}
+\W. 
+$$
+nous concluons que l'identit\'e \eqref{Windir*} est satisfaite. 
+\bigskip
+
+
+Pour chaque nombre complexe $z$, prouvons maintenant que les fonction $G_{z,1},\cdots,G_{z,n_z}$ sont des solutions de l'\'equation diff\'erentielle \eqref{eqg}. \'Etant donn\'e un nombre complexe $z$, nous rappelons qu'il existe un  nombre r\'eel $\epsilon>0$ tel que 
+l'application $z\mapsto \tilde G(x,s)$ soit holomorphe au voisinage du disque $\{s\in\ob C:|s-z|\le \epsilon\}\subset U$ 
+et nous d\'eduisons de \eqref{Arntor*} et de la formule de Cauchy que 
+$$
+g_{z, k}(x)={k!\F2\pi i}\oint\limits_{|s-z|=\epsilon}{\tilde G(x,s)\d s\F(s-z)^k}\qquad(k\ge1,x\in\ob R).
+$$
+Comme la fonction $(x,s)\mapsto G(x,s)$ est uniform\'ement born\'ee sur tout compact de $\ob R\times U$ et comme l'application $x\mapsto \tilde G(x,s)$ appartient \`a l'espace $\sc H$ pour chaque nombre $s\in U$, 
+il~r\'esulte du th\'eor\`eme de Lebesgue que la fonction $g_{z,k}$ appartient \`a $\sc H$ pour $k\ge1$. 
+{\it A~fortiori}, il en est de m\^eme pour les applications $G_{z,1},\cdots G_{z,n_z}$. 
+\bigskip
+
+Pour chaque $z\in\ob C$ v\'erifiant $|E_z|\le 1$, la d\'efinition \eqref{nzz} implique que $n_z=v_z+\1_{\sc B}(z)$. 
+En particulier, il r\'esulte des identit\'es \eqref{Gzk} et \eqref{Windir*} et que 
+$$
+\sc T^*[G_{z,k}]=0\qquad(1\le k\le n_z)
+$$ 
+Comme \eqref{condd} r\'esulte de cette identit\'e, 
+nous d\'eduisons alors de la propri\'et\'e \eqrefn{P1*} que les~fonctions $G_{z,1},\cdots, G_{z,n_z}$ sont des solutions 
+de l'\'equation diff\'erentielle \eqref{eqg}. 
+\bigskip
+
+Pour chaque nombre complexe $z$ v\'erifiant $\hbox{Card }E_z=2$, nous observons que les \'el\'ements n\'ecessairement conjugu\'es $s$ et $\ol s$ 
+de l'ensemble $E_z$ satisfont 
+$$
+z\equiv s\equiv \ol s\quad [2\pi i], \qquad \phi(s)=0\qquad\hbox{et}\qquad\phi(\ol s)=0. \eqdef{blaga}
+$$
+Lorsque $n_z=1$, 
+%%%nous remarquons que l'on a n\'ec\'essairement 
+%%%$$
+%%%%s\phi'(s)+\ol s\phi'(\ol s)=s(1+\tau s)+\ol s(1\tau \ol s)
+%%%%$$
+nous d\'eduisons de la relation \eqref{Rel4} que 
+$$
+\sc T^*[G_{z,1}]={s\e^{\theta s}\sc T^*[y\mapsto \e^{-ys}]-\ol s\e^{\theta\ol s}\sc T^*[y\mapsto \e^{-y\ol s}]\F s\phi'(s)+\ol s\phi'(\ol s)}
+=q(1-\e^{-z})\sum_{n\in\ob Z}{\e^{-ns}-\e^{-n\ol s}\F s\phi'(s)+\ol s\phi'(\ol s)}\delta_n=0. 
+$$
+Lorsque $n_z>1$, la lin\'earit\'e \`a droite de la forme \eqref{deffb2} implique que 
+$$
+\sc T^*\Q[y\mapsto {s\e^{\theta s}\e^{-ys}+\ol s\e^{\theta\ol s}\e^{-y\ol s}\F 2\gamma_z}\W]
+={s\e^{\theta s}\sc T^*[y\mapsto \e^{-ys}]+\ol s\e^{\theta\ol s}\sc T^*[y\mapsto \e^{-y\ol s}]\F 2\gamma_z}. 
+$$
+Comme la relation \eqref{Rel4} induit que le terme de droite vaut  
+$$
+{s\e^{\theta s}\phi(s)\e^{-ys}+\ol s\e^{\theta\ol s}\phi(\ol s)\e^{-y\ol s}\F 2\gamma_z}+
+q{1-\e^{-z}\F\gamma_z}\sum_{n\in\ob Z}{\e^{-ns}+\e^{-n\ol s}\F2}\delta_n
+$$
+et comme $s$ et $\ol s$ sont des racines de la fonction enti\`ere $\phi$, 
+nous d\'eduisons de \eqref{blaga} que 
+$$
+\sc T^*\Q[y\mapsto {s\e^{\theta s}\e^{-ys}+\ol s\e^{\theta\ol s}\e^{-y\ol s}\F 2\gamma_z}\W]
+=q{1-\e^{-z}\F\gamma_z}\sum_{n\in\ob Z}\e^{-nz}\delta_n. 
+$$
+Deux situations se pr\'esentent 
+Comme le nombre $1-\e^{-z}$ vaut $\gamma_z$ si $z\notin\ob Z$ et $0$ sinon, il~r\'esulte de l'identit\'e \eqref{Windir*} que  
+$$
+\sc T^*\Q[y\mapsto {s\e^{(\theta-y)s}+\ol s\e^{(\theta-y)\ol s^{\strut}
+}\F 2\gamma_z}+\sum_{1\le n\le n_z}c_{z,n_z-n}\ g_{z,n}(y)\W]=0
+$$ 
+En remarquant que la d\'efinition \eqref{nzz} implique que 
+$$
+n_z=\Q\{\eqalign{v_z+\1_{\sc B}(z)\quad\hbox{si }\e^{-z}-1=0,
+\cr
+v_z+\1_{\sc B}(z)+1\hbox{si }\e^{-z}-1\neq0,}
+\W.
+$$
+nous d\'eduisons de \eqref{Planetar} et de la relation \eqref{Windir*} que l'application $G_{z,1}$ satisfait 
+$$
+\sc T^*[G_{z,1}]=
+\sc T^*\Q[{s\e^{(\theta-y)s}+\ol s\e^{(\theta-y)\ol s^{\strut}
+}\F 2\gamma_z}+\sum_{1\le n\le n_z}c_{z,n_z-n}\ g_{z,n}(y)\W]=0. 
+$$
+En particulier, il r\'esulte de la propri\'et\'e \eqrefn{P1*} que $G_{z,1}$ est une solution de l'\'equation \eqref{eqf}. 
+De m\^eme, en remarquant que $n_z\ge v_z+\1_{\sc B}(z)$, nous d\'eduisons de l'identit\'e \eqref{Windir*} que 
+$$
+\sc T^*[G_{z,k}]=\sum_{m+n=n_z-k}c_{z,m}\ g_{z,n+1}(y)=0\qquad(2\le k\le n_z) 
+$$
+et nous d\'eduisons de la propri\'et\'e \eqrefn{P1*} que l'application $G_{z,k}$ est une solution de l'\'equation diff\'erentielle \eqref{eqg} 
+pour $2\le k\le n_z$. 
+\hfill\qed\null
+\bigskip
+
+
+\proof{ du th\'eor\`eme \eqrefn{TDA}}. \'Etant donn\'ee une solution $f$ de l'\'equation diff\'erentielle \eqref{eqf}, 
+le~th\'eor\`eme \eqrefn{Teum} implique l'existence d'un nombre $r>|p|$ v\'erifiant la majoration \eqref{majf} et donc 
+que la fonction $f$ admet sur le demi-plan
+$$
+\sc P:=\{z\in\ob C:\re z>r\}\eqdef{dpp}
+$$
+une~transform\'ee de Laplace $\sc Lf$ d\'efinie par 
+$$
+\sc Lf(z):=\int_0^\infty f(x)\e^{-xz}\d x
+\qquad(z\in\sc P).
+$$
+D'apr\`es la propri\'et\'e~\eqrefn{TL}, cette transform\'ee de Laplace peut \^etre prolong\'ee en une fonction, 
+m\'eromorphe sur l'ouvert $\sc C$ et holomorphe sur l'ouvert $\sc U:=\{z\in\sc C:P(z)\neq0\}$, v\'erifiant~l'identit\'e \eqref{Lf}. 
+\medskip
+
+
+Pour chaque nombre complexe $\kappa\in\sc P$ v\'erifiant 
+$$ 
+\kappa+i\ob R\subset\sc U\qquad\hbox{et}\qquad\ob R+\kappa+2\pi in\subset\sc U
+\qquad(n\in\ob Z),
+\eqdef{condidi}
+$$
+prouvons maintenant que $f$ et que la forme bilin\'eaire $\pss\cdot,\cdot\pss$ d\'efinie par \eqref{deffb2} satisfont
+$$
+f(x)={1\F2\pi i}\int_{\kappa}^{\kappa+2\pi i}\Q[\!\!\Q[f,t\mapsto G(t-x,z)-q{G(t,z)\F P(z)}F(x,z)\W]\!\!\W]\d z
+\qquad(x>0). \eqdef{lapin1}
+$$
+Comme les z\'eros de la fonction enti\`ere $\phi$ sont isol\'es, l'ensemble 
+$$
+\{z\in\ob C:\exists n\in\ob Z,\phi(z+2\pi in)=0\}
+$$ 
+est discret et invariant par la translation $z\mapsto z+2\pi i$. 
+La fonction $P$ \'etant $2\pi i$-p\'eriodique et holomorphe sur $\sc C$, 
+il en est de m\^eme pour l'ensemble $\{z\in\sc C:P(z)=0\}$ de~ses~z\'eros.  
+Alors, nous~d\'eduisons de \eqref{DeathP} d'une part que $\sc U$ 
+est invariant par la translation $z\mapsto z+2\pi i$ et~d'autre part que 
+son~compl\'ementaire~$\ol{\sc U}$ dans $\ob C$ est discret et a fortiori d\'enombrable. 
+En~particulier, il existe une infinit\'e de nombre complexes $\kappa\in\sc P$ v\'erifiant \eqref{condidi}. Nous fixons un tel nombre complexe $\kappa$ 
+et nous d\'eduisons du th\'eor\`eme de Laplace inverse que 
+$$
+f(x)={1\F2\pi i}\int_{\kappa-i\infty}^{\kappa+i\infty}\sc Lf(s)\e^{xs}\d s
+\qquad(x>0). 
+$$
+En proc\'edant au changement de variable affine $s=z+2\pi in$, nous obtenons que 
+$$
+\int_{\kappa+2\pi in}^{\kappa+2\pi in+2\pi i}\sc Lf(s)\e^{xs}\d s=\int_\kappa^{\kappa+2\pi i}\sc Lf(z+2\pi in)\e^{x(z+2\pi in)}\d z
+\qquad(x>0,n\in\ob Z)
+$$
+et nous remarquons alors que 
+$$
+f(x)={1\F2\pi i}\ \lim_{N\to\infty}\ \int_{\kappa}^{\kappa+2\pi i}\Bg(\sum_{-N\le n\le N}\sc Lf(z+2\pi in)\e^{x(z+2\pi in)}\Bg)\d z
+\qquad(x>0). \eqdef{lapinv}
+$$
+Comme la relation \eqref{Lf} et l'identit\'e entre fonctions enti\`eres 
+%%%%le segment $S$ d'extr\'emit\'es $\kappa$ et $\kappa+2\pi i$ \'etant inclus dans l'ouvert $\sc U$
+$$
+\int_\theta^{\theta+1}\e^{-tz}\d t={1-\e^{-z}\F z}\e^{-\theta z}
+\qquad(z\in\ob C)
+$$
+impliquent que la transform\'ee de Laplace $\sc Lf$ satisfait 
+$$
+\sc Lf(z)={\pss f,t\mapsto\e^{-tz}\pss\F\phi(z)}-q{\pss f,t\mapsto G(t,z)\pss\F P(z)}{1-\e^{-z}\F z}{\e^{-\theta z}\F\phi(z)}
+\qquad(z\in\sc U), 
+$$
+il r\'esulte alors de la bilin\'earit\'e de la forme $\pss\cdot,\cdot\pss$ que 
+$$
+\sc Lf(z)\e^{xz}=\Q[\!\!\Q[f,t\mapsto{\e^{(x-t)z}\F\phi(z)}-q{G(t,z)\F P(z)}{1-\e^{-z}\F z}{\e^{(x-\theta)z}\F\phi(z)}\W]\!\!\W]
+\qquad(x>0,z\in\sc U). 
+$$ 
+Les fonctions  $P$, $y\mapsto G(y,z)$ et $z\mapsto\e^{-z}$ \'etant $2\pi i$-p\'eriodiques, pour chaque $N\ge0$ et chaque $z\in\sc U$,  
+nous~d\'eduisons de \eqref{scGk}, \eqref{FNxz} et de la bilin\'earit\'e de la forme $\pss\cdot,\cdot\pss$ que 
+$$
+\sum_{-N\le n\le N}\!\!\!\!\!\!\sc Lf(z+2\pi in)\e^{x(z+2\pi in)}=\Q[\!\!\Q[f,t\mapsto \sc G_N(t-x,z)-q{G(t,z)\F P(z)}\sc F_N(x,z)\W]\!\!\W]\!
+\quad(x>0). 
+$$
+En particulier, l'identit\'e \eqref{lapinv} implique que 
+$$
+f(x)={1\F2\pi i}\ \lim_{N\to\infty}\ \int_{\kappa}^{\kappa+2\pi i}\Q[\!\!\Q[f,t\mapsto \sc G_N(t-x,z)-q{G(t,z)\F P(z)}\sc F_N(x,z)\W]\!\!\W]\d z
+\qquad(x>0). \eqdef{lapin2}
+$$
+Nous fixons $x>0$ et nous d\'eduisons de \eqref{condidi} que le segment $S$ d'extr\'emit\'es $\kappa$ et $\kappa+2\pi i$ 
+est inclus dans l'ouvert $\sc U$. Comme la fonction $P$ est holomorphe et ne s'annule pas sur $\sc U$, 
+il r\'esulte du lemme \eqrefn{Tech4} que l'application 
+$$
+(t,z)\mapsto q{G(t,z)\F P(z)}
+$$ 
+est uniform\'ement born\'ee sur le compact $[0,\theta+\tau]\times S$. Nous d\'eduisons du lemme \eqrefn{Tech6}~que~la~suite 
+de~fonctions  $\{z\mapsto \sc F_N(x,z)\}_{N=0}^\infty$ converge vers l'application $z\mapsto F(x,z)$ et qu'elle est uniform\'ement born\'ee 
+sur~le compact $S$. 
+De m\^eme, nous d\'eduisons du lemme~\eqrefn{Tech3} que la suite de fonctions $\{(t,z)\mapsto \sc G_N(t-x,z)\}_{N=0}^\infty$ 
+est uniform\'ement born\'ee et converge vers $(t,z)\mapsto G_{t-x}(z)$ sur le compact $[0,\theta+\tau]\times S$. 
+En particulier, la suite de fonctions 
+$$
+(t,z)\mapsto \sc G_N(t-x,z)-q{G(t,z)\F P(z)}\sc F_N(x,z)\qquad(N\ge0)
+$$
+est uniform\'ement born\'ee et converge simplement sur le compact $[0,\theta+\tau]\times S$. 
+Alors, nous~d\'eduisons du th\'eor\`eme de Lebesgue et des relations $f\in\sc C(\ob R)$ et \eqref{deffb2} que la suite  
+$$
+z\mapsto \Q[\!\!\Q[f,t\mapsto \sc G_N(t-x,z)-q{G(t,z)\F P(z)}\sc F_N(x,z)\W]\!\!\W]\qquad(N\ge0)
+$$
+est uniform\'ement born\'ee sur $S$ et qu'elle converge simplement vers l'application 
+$$
+\Delta_x:z\mapsto \Q[\!\!\Q[f,t\mapsto G_{t-x}(z)-q{G(t,z)\F P(z)}F(x,z)\W]\!\!\W]\eqdef{Delta}
+$$
+En appliquant le th\'eor\`eme de convergence domin\'ee \`a l'int\'egrale \eqref{lapin2}, 
+nous en d\'eduisons que l'identit\'e \eqref{lapin1} est satisfaite. 
+\bigskip
+
+
+Pour chaque nombre r\'eel $\sigma<r$ v\'erifiant $\sigma+i\ob R\subset \sc U$,  nous notons $\sc R(\sigma,\kappa)$ le pav\'e ouvert de sommets oppos\'es $\sigma+i\im\kappa$ et $\kappa+2\pi i$,  
+nous posons 
+$$
+r_\sigma(x):={1\F2\pi i}\int_{\sigma}^{\sigma+2\pi i}\Q[\!\!\Q[f,t\mapsto G(t-x,z)-q{G(t,z)\F P(z)}F(x,z)\W]\!\!\W]\d z
+\qquad(x>0) \eqdef{Rsigma}
+$$ 
+et~nous~prouvons~que 
+$$
+f(x)=\sum_{z\in\sc R(\sigma,\kappa)}\hbox{Res}(\Delta_x,z)+r_\sigma(x)\qquad(x>0). \eqdef{idest}
+$$
+Par bilin\'earit\'e de la forme $\pss\cdot,\cdot\pss$, nous d\'eduisons de \eqref{Delta} d'une part que
+$$
+r_\sigma(x):={1\F2\pi i}\int_{\sigma}^{\sigma+2\pi i}\Delta_x(z)\d z
+\qquad(x>0), \eqdef{Rsigma2}
+$$ 
+et d'autre part que  
+$$
+\Delta_x(z)={\pss f,t\mapsto G(t-x,z)\pss P(z)-q\pss f,t\mapsto G(t,z)\pss F(x,z)\F P(z)}\qquad(z\in \sc U). \eqdef{deadeyes}
+$$
+Comme $P$, $z\mapsto F(x,z)$, $z\mapsto\pss f,t\mapsto G(t-x,z)\pss$ et $\pss f,t\mapsto G(t,z)\pss$ sont des fonctions holomorphes sur l'ouvert $\sc U$ 
+et comme la fonction $P$ ne s'annule pas sur $\sc U$, nous remarquons que la fonction $\Delta_x$ est holomorphe sur $\sc U$. 
+D'apr\`es les relations \eqref{condidi}~et~$\sigma+i\ob R\subset\sc U$, la~fronti\`ere rectangulaire $\partial\sc R(\sigma,\kappa)$ du pav\'e ouvert $\sc R(\sigma,\kappa)$ est incluse dans l'ensemble~$\sc U$. 
+Le~compl\'ementaire $\ol\sc U$ de~l'ouvert~$\sc U$ dans~$\ob C$ \'etant discret, 
+il~r\'esulte alors du th\'eor\`eme des r\'esidus que  
+$$
+{1\F2\pi i}\oint_{\partial \sc R(\sigma,\kappa)}\Delta_x(z)\d z=\sum_{z\in\sc R(\sigma,\kappa)}
+\hbox{Res}_z(\Delta_x). 
+$$
+Comme $P$, $z\mapsto F(x,z)$, $z\mapsto G_u(z)$ sont $2\pi i$-p\'eriodiques d'apr\`es \eqref{DeathP}, \eqref{DeathF}~et ~\eqref{DeathG}, 
+il en est de m\^eme pour la fonction $\Delta_x$. A fortiori, 
+nous remarquons que 
+$$
+\int\limits_{\kappa+2\pi i}^{\sigma+i\im\kappa+2\pi i}\Delta_x(z)\d z
++\int\limits_{\sigma+i\im\kappa}^\kappa\Delta_x(z)\d z=0 
+$$
+et nous en d\'eduisons que  
+$$
+\int\limits_{\kappa}^{\kappa+2\pi i}\Delta_x(z)\d z
++\int\limits_{\sigma+i\im\kappa+2\pi i}^{\sigma+i\im\kappa}\Delta_x(z)\d z=\sum_{z\in\sc R_\sigma}
+\hbox{Res}_z(\Delta_x). 
+$$
+L'int\'egrale de la fonction $2\pi i$-p\'eriodique $\Delta_x$ sur le segment d'extr\'emit\'es $\sigma$ et $\sigma+2\pi i$ 
+\'etant \'egale \`a son int\'egrale sur le segment d'extr\'emit\'es $\sigma+i\im\kappa$ et $\sigma+i\im\kappa i+2\pi i$, il suit 
+$$
+\int\limits_{\kappa}^{\kappa+2\pi i}\Delta_x(z)\d z
+-\int\limits_\sigma^{\sigma+2\pi i}\Delta_x(z)\d z=\sum_{z\in\sc R_\sigma}
+\hbox{Res}_z(\Delta_x). 
+$$
+Nous d\'eduisons alors de \eqref{lapin1} et \eqref{Rsigma2} que l'identit\'e \eqref{idest} est satisfaite. 
+\bigskip
+
+Pour chaque nombre r\'eel $\sigma<r$ v\'erifiant $\sigma+i\ob R\subset \sc U$,  prouvons que 
+$$
+R_{f,\sigma}(x)=r_\sigma(x)\qquad(x>0). \eqdef{Sublime}
+$$
+Soient $\sigma<r$ et $z\in\ob C$ tels que $\sigma+i\ob R\subset\sc U$.  
+Nous remarquons qu'il existe $\epsilon>0$ tel~que la couronne 
+$\{w\in\ob C:0<|w-z|\le\epsilon\}$ soit incluse dans l'ouvert $\sc C$ et nous en d\'eduisons que 
+$$
+\hbox{Res}_z(\Delta_x)={1\F2\pi i}\oint\limits_{|w-z|=\epsilon}{\Delta_x(w)\F w-z}\d w\qquad(x>0).
+$$  
+Notant $\Delta_{x,y}$ l'application d\'efinie par \eqref{DeathD} pour chaque couple $(x,y)$ de nombres r\'eels, 
+nous~observons que 
+$$
+\Delta_x(w)=\pss  f, y\mapsto \Delta_{x,y}(w)\pss\qquad(x>0,w\in\sc C). 
+$$
+En particulier, il r\'esulte de la bilin\'earit\'e de la forme $\pss\cdot,\cdot\pss$ que 
+$$
+\hbox{Res}_z(\Delta_x)={1\F2\pi i}\oint\limits_{|w-z|=\epsilon}\pss f, y\mapsto {\Delta_{x,y}(w)\F w-z}\pss\d w\qquad(x>0).
+$$
+Comme $(w,y)\mapsto \Delta_{x,y}(w)/(w-z)$ est continue sur l'ensemble $\{w\in\ob C:|w-z|=\epsilon\}\times \ob R$, 
+nous d\'eduisons du th\'eor\`eme de Fubini et de l'identit\'e \eqref{deffb2} que 
+$$
+\hbox{Res}_z(\Delta_x)=\bgps f,y\mapsto{1\F2\pi i}\oint\limits_{|w-z|=\epsilon}{\Delta_{x,y}\F w-z}\d w\ps=
+\bps f,y\mapsto \hbox{Res}_z(\Delta_{x,y})\ps\qquad(x>0).
+$$
+A  fortiori, la propri\'et\'e \eqrefn{Tech8} induit que 
+$$
+\hbox{Res}_z(\Delta_x)=\bgps f,y\mapsto \sum_{1\le k\le n_z}F_{z,k}(x)G_{z,k}(y)\ps\qquad(x>0,z\in\ob C).
+$$
+Par bilin\'earit\'e de la forme $\pss\cdot,\cdot\pss$, il suit 
+$$
+\hbox{Res}_z(\Delta_x)= \sum_{1\le k\le n_z}\pss f,G_{z,k}\pss F_{z,k}(x)\qquad(x>0,z\in\ob C). 
+$$
+En reportant dans \eqref{idest}, nous concluons enfin que 
+$$
+f(x)=\sum_{z\in\sc R(\sigma,\kappa)}\sum_{1\le k\le n_z}\pss f,G_{z,k}\pss F_{z,k}(x)+r_\sigma(x)\qquad(x>0). 
+$$
+En faisant tendre le nombre r\'eel $\kappa$ vers $+\infty$, nous obtenons alors que 
+$$
+f(x)=\sum_{\ss\im \kappa<\im z<\im\kappa+2\pi\atop\ss \re z>\sigma}\ \sum_{1\le k\le n_z}\pss f,G_{z,k}\pss F_{z,k}(x)+r_\sigma(x)\qquad(x>0). 
+$$
+Comme $n_z=0$ pour les nombres complexes $z$ v\'erifiant $\re z=\sigma$ ou $\im z=\im\kappa+2\pi$, nous observons que 
+$$
+f(x)=\sum_{\ss\im \kappa<\im z\le\im\kappa+2\pi\atop\ss \re z\ge\sigma}\ \sum_{1\le k\le n_z}\pss f,G_{z,k}\pss F_{z,k}(x)+r_\sigma(x)\qquad(x>0). 
+$$
+et nous d\'eduisons de la $2\pi$-p\'eriodicit\'e des fonctions $z\mapsto G_{z,k}$ et $z\mapsto F_{z,k}\ \,(1\le k\le n_z)$~que 
+$$
+f(x)=\sum_{z\in\sc P(\sigma)}\sum_{1\le k\le n_z}\pss f,G_{z,k}\pss F_{z,k}(x)+r_\sigma(x)\qquad(x>0). 
+$$
+Comme la d\'efinition de l'espace $\sc H$ et les identit\'e \eqref{deffb} et \eqref{deffb2} impliquent que 
+$$
+\ps f,g\ps=\langle\!\langle f,g\rangle\!\rangle\qquad(f\in\sc E,g\in\sc E^*)
+$$
+et comme $f\in\sc E$ et $G_{z,k}\in\sc E^*\ \,(1\le k\le n_z)$ d'apr\`es le th\'eor\`eme \eqrefn{sol1*}, nous obtenons que 
+$$
+f(x)=\sum_{z\in\sc P(\sigma)}\sum_{1\le k\le n_z}\langle\!\langle f,G_{z,k}\rangle\!\rangle F_{z,k}(x)+r_\sigma(x)\qquad(x>0). 
+$$
+En reportant dans \eqref{Loudblast}, nous concluons que l'identit\'e \eqref{Sublime} est satisfaite. 
+\bigskip
+
+
+Pour chaque couple de nombres r\'eels $(\sigma,\sigma')$ v\'erifiant $\sigma'<\sigma$ et  
+$$
+x+i\ob R\subset\sc U\qquad(\sigma'\le x<\sigma)\eqdef{EdT}
+$$ 
+\'etablissons l'identit\'e  
+$$
+R_{f,\sigma'}(x)=R_{f,\sigma}(x)\qquad(x>0). \eqdef{EndT}
+$$
+\'Etant donn\'es un tel couple de nombres r\'eels $(\sigma,\sigma')$, nous d\'eduisons de la relation \eqref{EdT} et de la d\'efinition de $\sc U$ 
+que $n_z=0$ pour chaque nombre complexe $z$ v\'erifiant $\sigma'\le \re z\le \sigma$. En~particulier, nous remarquons d'une part que 
+$$
+\sum_{\ss\sigma'\le\re z<\sigma\atop\ss-\pi<\im z\le\pi}\sum_{1\le k\le n_z}\langle\!\langle f,G_{z,k}\rangle\!\rangle F_{z,k}(x)=0\qquad(x>0)
+$$ 
+et d'autre part que 
+$$
+\sum_{\sc P(\sigma')}\sum_{1\le k\le n_z}\langle\!\langle f,G_{z,k}\rangle\!\rangle F_{z,k}(x)=\sum_{\sc P(\sigma)}\sum_{1\le k\le n_z}\langle\!\langle f,G_{z,k}\rangle\!\rangle F_{z,k}(x)\qquad(x>0). 
+$$
+A fortiori, nous d\'eduisons l'identit\'e \eqref{EndT} de la d\'efinition \eqref{Loudblast}. 
+\bigskip
+
+Enfin, pour chaque nombre r\'eel $\sigma$, \'etablissons la majoration \eqref{oiseau}. 
+Nous rappelons que le compl\'ementaire $\ol{\sc U}$ de l'ouvert $\sc U$ est ferm\'e, discret et $2\pi i$-p\'eriodique. 
+\'Etant donn\'e $\sigma\in\ob R$, nous en d\'eduisons qu'il existe un nombre r\'eel $\sigma'<\sigma$ v\'erifiant \eqref{EdT}. 
+En~particulier, l'identit\'e \eqref{EndT} est satisfaite et nous d\'eduisons de \eqref{Sublime} que 
+$$
+R_{f,\sigma}(x)=R_{f,\sigma'}(x)=r_{\sigma'}(x)\qquad(x>0). 
+$$
+Nous posons $\sc K':=\{z=\sigma'+it:-\pi\le t\le \pi\}$ et nous d\'eduisons de la relation  $\sigma'+i\ob R\subset\sc U$ que le compact $\sc K'$ est inclus dans $\sc U$. 
+D'apr\`es l'identit\'e \eqref{Rsigma2}, il suit
+$$
+R_{f,\sigma}(x)\ll\sup_{z\in\sc K'}\b|\Delta_x(z)\b|\qquad(x>0).\eqdef{voisin}
+$$
+En observant que les fonctions $P$ et $z\mapsto\pss f,t\mapsto G(t,z)\pss$ sont continues~sur~le compact $\sc K'$ et que l'application $P$ ne s'annule pas sur $\sc K'\subset\sc U$, 
+nous~d\'eduisons de \eqref{deadeyes} que 
+$$
+\Delta_x(z)\ll\b|\bps f,t\mapsto G(t-x,z)\ps\b|+\b|F(x,z)\b|\qquad(x>0,z\in\sc K'). \eqdef{Rrrh}
+$$
+Comme $\sc K'\subset\sc U$, la fonction $\phi$ ne s'annule pas sur le compact $\sc K'$ et nous proc\'edons comme dans la preuve du lemme~\eqrefn{Tech3} pour \'etablir l'estimation \eqref{morningstar} et pour en d\'eduire que 
+$$
+{\e^{-u(z+2\pi in)}\F\phi(z+2\pi in)}+{\e^{-u(z-2\pi in)}\F\phi(z-2\pi in)}=-{\sin(2\pi nu)\F \pi n}\e^{-uz}+O\Q({\e^{-\sigma'u}\F n^2+1}\W)
+\qquad\b(u\in\ob R, z\in\sc K',n\ge1\b). 
+$$
+En reportant dans \eqref{DeathF}, nous obtenons alors que 
+$$
+G(u,z)=-\e^{-uz}\sum_{n=1}^\infty{\sin(2\pi nu)\F \pi n}+O\b(\e^{-\sigma'u}\b)\qquad(u\in\ob R,z\in\sc K'). 
+$$ 
+{\it A fortiori}, il r\'esulte du lemme \eqrefn{Tech} et des relations $\re z=\sigma'\le \sigma\ \,(z\in\sc K')$ que 
+$$
+G(t-x,z)\ll\e^{\sigma'x}\le \e^{\sigma x}\qquad(0\le t\le \tau+\theta,x>0,z\in\sc K')
+$$ 
+et nous d\'eduisons des relations  \eqref{deffb2} et $f\in\sc C(\ob R)$ que 
+$$
+\bps f,t\mapsto G(t-x,z)\ps\ll\e^{\sigma x}\qquad(x>0,z\in\sc K').
+$$
+En reportant dans \eqref{Rrrh}, il suit 
+$$
+\Delta_x(z)\ll\e^{\sigma x}+\b|F(x,z)\b|\qquad(x>0,z\in\sc K'). 
+$$
+De m\^eme, nous proc\'edons comme dans la preuve du lemme \eqrefn{Tech6} pour \'etablir \eqref{lalalala} et \eqref{Rahlala} et pour en d\'eduire que 
+$$
+{(1-\e^{-z})\F(z+2\pi in)}\ {\e^{(x-\theta)(z+2\pi in)}\F\phi(z+2\pi in)}\ll{\e^{\sigma' x}\F n^2+1}\qquad(z\in\sc K',n\in\ob Z).
+$$
+En reportant dans \eqref{DeathF}, nous obtenons alors que 
+$$
+F(x,z)\ll \e^{\sigma'x}\le\e^{\sigma x}\qquad(x>0,z\in\sc K')
+$$ 
+et par suite que 
+$$
+\Delta_x(z)\ll\e^{\sigma x}\qquad(x>0,z\in\sc K'). 
+$$
+Enfin, en reportant cette majorations dans \eqref{voisin}, nous en d\'eduisons \eqref{oiseau}. 
+\hfill\qed\bigskip
+
+
+\proof{ du th\'eor\`eme \eqrefn{TDA*}}. \'Etant donn\'ee une solution $g$ de l'\'equation diff\'erentielle \eqref{eqg}, nous~d\'eduisons du 
+th\'eor\`eme \eqrefn{Teum*} qu'il existe un nombre $r>|p|$ v\'erifiant \eqref{majg} et~aussi que la fonction $g$ admet sur le demi-plan \eqref{dpp} 
+une~transform\'ee de Laplace d\'efinie par 
+$$
+\sc Lg(z):=\int_{-\infty}^0 g(x)\e^{-xz}\d x
+\qquad(z\in\sc P).
+$$
+D'apr\`es la propri\'et\'e~\eqrefn{TL*}, cette transform\'ee de Laplace peut \^etre prolong\'ee en une fonction, 
+m\'eromorphe sur l'ouvert $\sc C$ et holomorphe sur l'ouvert $\sc U:=\{z\in\sc C:P(z)\neq0\}$, v\'erifiant~l'identit\'e \eqref{Lg}. 
+\bigskip
+
+
+Pour chaque $\kappa\in\sc P$ v\'erifiant \eqref{condidi}, nous allons maintenant d\'eduire de \eqref{Lg} que 
+$$
+g(y)={1\F2\pi i}\int_{\kappa}^{\kappa+2\pi i}\Q[\!\!\Q[x\mapsto G(y-x,z)-q{G(y,z)\F P(z)}F(x,z),g\W]\!\!\W]\d z
+\qquad(y<0). \eqdef{lapin1*}
+$$
+Nous rappelons d'une part que l'ouvert $\sc U$ est invariant par la translation $z\mapsto z+2\pi i$  et d'autre part que son compl\'ementaire dans $\ob C$ est discret. 
+En~particulier, il existe une infinit\'e de nombre complexes $\kappa\in D$ v\'erifiant \eqref{condidi}. Nous fixons un tel nombre complexe~$\kappa$ 
+et nous d\'eduisons du th\'eor\`eme de Laplace inverse que 
+$$
+g(y)={1\F2\pi i}\int_{\kappa-i\infty}^{\kappa+i\infty}\sc Lg(s)\e^{-ys}\d s
+\qquad(y<0). 
+$$
+En proc\'edant au changement de variable affine $s=z+2\pi in$, nous obtenons que 
+$$
+\int_{\kappa+2\pi in}^{\kappa+2\pi in+2\pi i}\sc Lg(s)\e^{-ys}\d s=\int_\kappa^{\kappa+2\pi i}\sc Lg(z+2\pi in)\e^{-y(z+2\pi in)}\d z
+\qquad(y<0,n\in\ob Z)
+$$
+et nous remarquons alors que 
+$$
+g(y)={1\F2\pi i}\ \lim_{N\to\infty}\ \int_{\kappa}^{\kappa+2\pi i}\Bg(\sum_{-N\le n\le N}\sc Lg(z+2\pi in)\e^{-y(z+2\pi in)}\Bg)\d z
+\qquad(y<0).\!\!\!\!\! \eqdef{lapinv*}
+$$
+La forme $\pss\cdot,\cdot,\pss$ \'etant bilin\'eaire, la relation \eqref{Lg} implique que 
+$$
+\sc Lg(z)\e^{-yz}=\pss x\mapsto {\e^{(x-y)z}\F\phi(z)}
+-q{\e^{-yz}\F\phi(z)P(z)}F(x,z)
+,g\pss
+\qquad(y<0,z\in\sc U). 
+$$
+De m\^eme, comme les fonctions $P$ et $z\mapsto F(x,z)$ sont des fonctions $2\pi i$-p\'eriodiques, pour~chaque entier $N\ge0$ et chaque $u\in\sc U$, 
+nous d\'eduisons de \eqref{scGk} et \eqref{FNxz} que
+$$
+\sum_{-N\le n\le N}\!\!\!\!\sc Lg(z+2\pi in)\e^{-y(z+2\pi in)}=\Q[\!\!\Q[x\mapsto \sc G_N(y-x,z)-q{\sc G_N(y,z)\F P(z)}F(x,z)\W]\!\!\W]
+\quad(y<0). 
+$$
+En particulier, il r\'esulte de l'identit\'e \eqref{lapinv*} que 
+$$
+g(y)={1\F2\pi i}\ \lim_{N\to\infty}\ \int_{\kappa}^{\kappa+2\pi i}\Q[\!\!\Q[x\mapsto \sc G_N(y-x,z)-q{F(x,z)\F P(z)}\sc G_N(y,z),g\W]\!\!\W]\d z
+\qquad(y<0). \eqdef{lapin2*}
+$$
+Nous fixons $y<0$ et nous d\'eduisons de \eqref{condidi} que le segment $S$ d'extr\'emit\'es $\kappa$ et $\kappa+2\pi i$ 
+est inclus dans $\sc U$. Comme la fonction $P$ est holomorphe et ne s'annule pas sur l'ouvert~$\sc U$, 
+nous d\'eduisons du lemme \eqrefn{Tech7} d'une part que $(x,z)\mapsto F(x,z)$ est continue sur~$\ob R\times\sc C$ et d'autre~part que 
+la fonction 
+$$
+(x,z)\mapsto q{F(x,z)\F P(z)}
+$$ 
+est uniform\'ement born\'ee sur le compact $[0,\theta+\tau]\times S$. De plus, il r\'esulte du lemme \eqrefn{Tech3} que la~suite de~fonctions  $(x,z)\mapsto \sc G_N(y-x,z)\ \,(N\ge0)$ 
+est uniform\'ement born\'ee et converge vers $z\mapsto F(t,z)$ 
+sur~le compact $[0,\theta+\tau]\times S$. 
+En particulier, la suite de fonctions 
+$$
+(x,z)\mapsto \sc G_N(y-x,z)-q{\sc G_N(y,z)\F P(z)}F(x,z)\qquad(N\ge0)
+$$
+est uniform\'ement born\'ee et converge simplement sur le compact $[0,\theta+\tau]\times S$ vers   
+$$
+(x,z)\mapsto G(y-x,z)-q{G(y,z)\F P(z)}F(x,z). 
+$$
+Nous d\'eduisons alors du th\'eor\`eme de Lebesgue et des relations $g\in\sc H$ et \eqref{deffb2} que  
+$$
+z\mapsto \Q[\!\!\Q[x\mapsto \sc G_N(y-x,z)-q{\sc G_N(y,z)\F P(z)}F(x,z),g\W]\!\!\W]\qquad(N\ge0)
+$$
+est une suite de fonctions uniform\'ement born\'ee sur le segment $S$, convergeant simplement sur $S$ vers l'application 
+$$
+\Omega_y:z\mapsto \Q[\!\!\Q[x\mapsto G_{y-x}(z)-q{G(y,z)\F P(z)}F(x,z),g\W]\!\!\W]\eqdef{Omega}
+$$
+En appliquant le th\'eor\`eme de convergence domin\'ee \`a l'int\'egrale \eqref{lapin2*}, 
+nous en d\'eduisons que l'identit\'e \eqref{lapin1*} est satisfaite. 
+\bigskip
+
+
+Pour chaque nombre r\'eel $\sigma<r$ v\'erifiant $\sigma+i\ob R\subset \sc U$,  nous posons 
+$$
+s_\sigma(x):={1\F2\pi i}\int_{\sigma}^{\sigma+2\pi i}\Q[\!\!\Q[x\mapsto G(y-x,z)-q{G(y,z)\F P(z)}F(x,z),g\W]\!\!\W]\d z
+\qquad(y<0), \eqdef{Ssigma}
+$$ 
+nous notons $\sc R_{\sigma,\kappa}$ le pav\'e de sommets oppos\'es $\sigma+i\im\kappa$ et $\kappa+2\pi i$ 
+et nous prouvons que 
+$$
+g(y)=\sum_{z\in\sc R_{\sigma,\kappa}}\hbox{Res}(\Omega,z)+s_\sigma(x)\qquad(y<0). \eqdef{idest*}
+$$
+Par bilin\'earit\'e de la forme $\pss\cdot,\cdot\pss$, nous d\'eduisons de \eqref{Delta} que 
+$$
+\Omega_y(z)={\pss x\mapsto G(y-x,z),g\pss P(z)-q\pss x\mapsto F(x,z),g\pss G(y,z)\F P(z)}\qquad(z\in \sc U). 
+$$
+Comme les fonctions $P$, $z\mapsto G(y,z)$, $z\mapsto\pss x\mapsto F(x,z),g\pss$ et $z\mapsto\pss x\mapsto G(y-x,z),g\pss$ 
+sont holomorphes sur l'ouvert $\sc U$ et comme $P$ ne s'annule pas sur $\sc U$, nous remarquons que la fonction $\Omega_y$ 
+est holomorphe sur l'ouvert $\sc U$. 
+La fronti\`ere rectangulaire $\partial\sc R_{\sigma,\kappa}$ du~pav\'e $\sc R_{\sigma,\kappa}$ \'etant incluse dans l'ouvert $\sc U$, 
+d'apr\`es les relations \eqref{condidi} et $\sigma+i\ob R\subset\sc U$, et~le~compl\'ementaire $\ol\sc U$ 
+de l'ouvert $\sc U$ dans $\ob C$ \'etant discret, 
+il r\'esulte alors du th\'eor\`eme des r\'esidus que  
+$$
+{1\F2\pi i}\oint_{\partial \sc R_\sigma}\Omega_y(z)\d z=\sum_{z\in\sc R_\sigma}\hbox{Res}\b(\Omega,z\b). 
+$$
+Comme $P$, $z\mapsto F(x,z)$, $z\mapsto G(y,z)$ et $z\mapsto G(y-x,z)$ sont des fonctions $2\pi i$-p\'eriodiques 
+d'apr\`es \eqref{DeathP}, 
+\eqref{DeathF}et  \eqref{DeathG}, il en est de m\^eme pour $\Omega_y$. A fortiori, 
+nous obtenons que 
+$$
+\int\limits_{\kappa+2\pi i}^{\sigma+i\im\kappa+2\pi i}\Omega_y(z)\d z
++\int\limits_{\sigma+i\im\kappa}^\kappa\Omega_y(z)\d z=0 
+$$
+et nous en d\'eduisons que  
+$$
+\int\limits_{\kappa}^{\kappa+2\pi i}\Omega_y(z)\d z
++\int\limits_{\sigma+i\im\kappa+2\pi i}^{\sigma+i\im\kappa}\Omega_y(z)\d z=\sum_{z\in\sc R_\sigma}
+\hbox{Res}\b(\Omega_y,z\b). 
+$$
+Comme l'int\'egrale de la fonction $2\pi i$-p\'eriodique $\Omega$ sur le segment d'extr\'emit\'es $\sigma$ et $\sigma+2\pi i$ 
+est \'egale \`a son int\'egrale sur le segment d'extr\'emit\'es $\sigma+i\im\kappa$ et $\sigma+i\im\kappa i+2\pi i$, il suit 
+$$
+\int\limits_{\kappa}^{\kappa+2\pi i}\Omega_y(z)\d z
+-\int\limits_\sigma^{\sigma+2\pi i}\Omega_y(z)\d z=\sum_{z\in\sc R_\sigma}
+\hbox{Res}\b(\Omega_y,z\b). 
+$$
+Nous d\'eduisons alors de \eqref{lapin1*} et \eqref{Ssigma} que l'identit\'e \eqref{idest*} est satisfaite. 
+\bigskip
+
+
+
+Pour chaque nombre r\'eel $\sigma<r$ v\'erifiant $\sigma+i\ob R\subset \sc U$,  prouvons que 
+$$
+S_{f,\sigma}(x)=s_\sigma(x)\qquad(x<0). \eqdef{Sublime*}
+$$
+Soient $\sigma<r$ et $z\in\ob C$ tels que $\sigma+i\ob R\subset\sc U$.  
+Nous remarquons qu'il existe $\epsilon>0$ tel~que la couronne 
+$\{w\in\ob C:0<|w-z|\le\epsilon\}$ soit incluse dans l'ouvert $\sc C$ et nous en d\'eduisons que 
+$$
+\hbox{Res}_z(\Omega_y)={1\F2\pi i}\oint\limits_{|w-z|=\epsilon}{\Omega_y(w)\F w-z}\d w\qquad(x<0).
+$$  
+Notant $\Delta_{x,y}$ l'application d\'efinie par \eqref{DeathD} pour chaque couple $(x,y)$ de nombres r\'eels, 
+nous~observons que 
+$$
+\Omega_y(w)=\pss  x\mapsto \Delta_{x,y}(w),g\pss\qquad(y<0,w\in\sc C). 
+$$
+En particulier, il r\'esulte de la bilin\'earit\'e de la forme $\pss\cdot,\cdot\pss$ que 
+$$
+\hbox{Res}_z(\Omega_y)={1\F2\pi i}\oint\limits_{|w-z|=\epsilon}\pss x\mapsto {\Delta_{x,y}(w)\F w-z},g\pss\d w\qquad(y<0).
+$$
+Comme $(w,y)\mapsto \Delta_{x,y}(w)/(w-z)$ est localement int\'egrable sur $\{w\in\ob C:|w-z|=\epsilon\}\times \ob R$, 
+nous d\'eduisons du th\'eor\`eme de Fubini et de l'identit\'e \eqref{deffb2} que 
+$$
+\hbox{Res}_z(\Omega_y)=\bgps x\mapsto{1\F2\pi i}\oint\limits_{|w-z|=\epsilon}{\Delta_{x,y}\F w-z}\d w,g\ps=
+\bps x\mapsto \hbox{Res}_z(\Delta_{x,y}),g\ps\qquad(y<0).
+$$
+A  fortiori, la propri\'et\'e \eqrefn{Tech8} induit que 
+$$
+\hbox{Res}_z(\Omega_y)=\bgps x\mapsto \sum_{1\le k\le n_z}F_{z,k}(x)G_{z,k}(y),g\ps\qquad(y<0,z\in\ob C).
+$$
+Par bilin\'earit\'e de la forme $\pss\cdot,\cdot\pss$, il suit 
+$$
+\hbox{Res}_z(\Omega_y)= \sum_{1\le k\le n_z}\pss F_{z,k},g\pss G_{z,k}(y)\qquad(y<0,z\in\ob C). 
+$$
+En reportant dans \eqref{idest}, nous concluons enfin que 
+$$
+g(y)=\sum_{z\in\sc R(\sigma,\kappa)}\sum_{1\le k\le n_z}\pss F_{z,k},g\pss G_{z,k}(y)+s_\sigma(y)\qquad(y<0). 
+$$
+En faisant tendre le nombre r\'eel $\kappa$ vers $+\infty$, nous obtenons alors que 
+$$
+g(y)=\sum_{\ss\im \kappa<\im z<\im\kappa+2\pi\atop\ss \re z>\sigma}\ \sum_{1\le k\le n_z}\pss F_{z,k},g\pss G_{z,k}(y)+s_\sigma(y)\qquad(y<0). 
+$$
+En continuant comme dans la preuve du th\'eor\`eme \eqrefn{TDA}, nous en d\'eduisons alors que 
+$$
+g(y)=\sum_{z\in\sc P(\sigma)}\sum_{1\le k\le n_z}\langle\!\langle F_{z,k},g\rangle\!\rangle G_{z,k}(y)+s_\sigma(y)\qquad(y<0)
+$$
+et nous reportons dans \eqref{Loud} pour  conclure que l'identit\'e \eqref{Sublime*} est satisfaite. 
+\bigskip
+
+Nous continuons en d\'emontrant, comme dans la preuve du th\'eor\`eme \eqrefn{TDA}, que la relation
+$$
+S_{f,\sigma}(y)=s_\sigma(y)\qquad(y<0)
+$$
+est satisfaite pour chaque nombre $\sigma<r$ v\'erifiant $\sigma+i\ob R\subset \sc U$, en prouvant  
+l'identit\'e  
+$$
+S_{f,\sigma'}(y)=S_{f,\sigma}(y)\qquad(y<0). 
+$$
+pour chaque couple de nombres r\'eels $(\sigma,\sigma')$ v\'erifiant $\sigma'<\sigma$ et  
+$$
+y+i\ob R\subset\sc U\qquad(\sigma'\le y<\sigma)
+$$ 
+et en \'etablissant la majoration \eqref{serpent}. Nous omettons les d\'emonstrations de ces pro\-pri\'e\-t\'es, qui sont conceptuellement identiques \`a celles des relations \eqref{Sublime}, \eqref{EndT} et \eqref{oiseau}
+ figurant dans la preuve du th\'eor\`eme~\eqrefn{TDA}. 
+\hfill\qed\bigskip
+
+\Sect Biblio, Bibliographie. 
+
+{\eightpts
+\DefRef GyoriLadas ; I. Gy{\"o}ri and G. Ladas, Oscillation Theory of Delay Differential Equations with Application ; Clarendon Press, Oxford ; { } ; $\!\!$(1991). 
+
+\DefRef GopalsamyGyoriLadas ; K. Gopalsamy, I. Gy{\"o}ri and G. Ladas, Oscillation of a class of defay equation with continuous 
+and piecewise constant arguments ; Funk. Ekvac. ; 32 ; (1989), 395-496. 
+
+\DefRef WangYan ; Y. Wang and J. Yan, A necessary and sufficient condition for the oscillation of a delay equation with continuous and piecewise constant arguments ; Acta. Math. Hungar. ; 79 (3) ; (1998), 229-235. 
+\par 
+}
+%\bye

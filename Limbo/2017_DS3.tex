@@ -1,0 +1,208 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iftrue
+\page
+\centerline{\bfb DEVOIR SURVEILLE 3}
+\blank[big]
+
+\startList
+
+
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+
+
+\item%Exo
+{\it Les flèches (optionnelles) sont utilisées pour aider les étudiants à distinguer les vecteurs, dans cet exercice mélangeant suites et espaces vectoriels }\crlf
+On considère l’ensemble de suites suivant :
+\startformula
+E = \{\vec u=(u_n)_{n∈ℕ} : ∀ n ∈ ℕ , 8u_{n+3} −12u_{n+2} + 6u_{n+1} − u_n = 0\} 
+\stopformula
+Soient $\vec i=(i_n)_{n∈ℕ}$, $\vec j=(j_n)_{n∈ℕ}$, $\vec k=(k_n)_{n∈ℕ}$ les suites définies par 
+\startformula
+\Align{
+\NC i_n=\Q({1\F 2}\W)^n\qquad (n∈ℕ)\NR
+\NC j_n=n\Q({1\F 2}\W)^n\qquad (n∈ℕ)\NR
+\NC k_n=n^2\Q({1\F 2}\W)^n\qquad (n∈ℕ)
+}
+\stopformula
+\startList%1
+\item Prouver que $E$ forme un sous-espace vectoriel de l’espace $ℝ^ℕ$ des suites réelles
+\item\startList%2
+\item Prouver que $\vec i∈E$, que $\vec j∈E$ et que $\vec k∈E$ (sur 6 points)
+\item Prouver que $(\vec i,\vec j,\vec k)$ est une famille libre de $E$
+\stopList%2
+\item Soit $\vec u=(u_n)_{n∈ℕ}$ une suite de $E$. On définit une suite $\vec w=(w_n)_{n∈ℕ}$ en posant
+\startformula
+w_k=2^{k+1}u_{k+1}-2^ku_k\qquad(k∈ℕ)
+\stopformula
+\startList%2
+\item On admet qu'il existe $(λ,μ)∈ℝ^2$ tel que 
+\startformula
+w_k=λ+μk\qquad(k∈ℕ)
+\stopformula
+Pour $n∈ℕ^*$, calculer de deux manière la somme $\D S_{n-1}=∑_{k=0}^{n-1}w_k$.
+\item En déduire que $\vec u$ est une combinaison linéaire des suites $\vec i$, $\vec j$, $\vec k$.  
+\stopList%2
+\item A l'aide de ce qui précède, déterminer une base de $E$.
+\item {\bf On va démontrer ici le résultat admis au 3a).}\crlf
+On considère une suite $\vec u=(u_n)_{n∈ℕ}$ de $E$ et on pose $\vec w=(w_n)_{n∈ℕ}$ avec 
+\startformula
+w_k = 2^{k+1}u_{k+1}-2^ku_k\qquad(k∈ℕ)
+\stopformula
+\startList%2
+\item Prouver que $∀k∈ℕ, w_{k+2}-2w_{k+1}+w_k=0$
+\item En déduire l'expression de $w_k$ en fonction de $k$ admise au 3a)
+\stopList%2
+\item On pose $F=\{\vec u=(u_n)_{n∈ℕ}∈E:u_0-2u_1=0\}$
+\startList%2
+\item Montrer que $F$ est un sous-espace vectoriel de $E$
+\item Montrer que $\vec i∈F$.
+\item Soit $\vec u=(u_n)_{n∈ℕ}∈F$. Justifier que $∃!(α, β, γ)∈ℝ^3$ tel que 
+\startformula
+u_n=αi_n+βj_n+γk_n\qquad(n∈ℕ)
+\stopformula
+puis montrer que $γ=-β$.
+\item En déduire une base de $F$
+\stopList%2
+\stopList%1
+
+\goodbreak
+
+\item%Exo(dénombrement)
+Un site internet demande de choisir un mot de passe de $8$ caractères 
+parmi les $26$ lettres minuscules de l’alphabet, les $10$ chiffres et $6$ signes de ponctuation (,;!.:?).
+\startList 
+\item Combien y a-t-il de mots de passe possibles ?
+\item Combien y a-t-il de mots de passe possibles commençant par $5$ minuscules et se terminant par un nombre avec $3$ chiffres distincts
+\item Combien y a-t-il de mots de passe possibles avec au moins un chiffre ou un signe de ponctuation ? 
+\item Combien y a t-il de mots de passe avec au moins deux signes de ponctuation ? 
+\item Combien y a t-il de mots de passe avec exactement trois chiffres et un signe de ponctuation
+\item Combien y a-t'il de mots de passe constitués uniquement de $8$ chiffres distincts placés dans l'ordre croissant
+\stopList
+
+
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][A,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][n,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+
+\item%Exo(proba)
+Soit $n ∈ ℕ^∗$. On considère trois urnes : l’urne n° $1$ contient deux boules rouges et trois boules bleues, 
+l’urne n° $2$ contient une boule rouge et aucune boule bleue et l’urne n° $3$ contient une 
+boule bleue et aucune boule rouge.
+On choisit d’abord une de ces trois urnes au hasard avec équiprobabilité. Une fois cette urne choisie, 
+on effectue dans cette urne et sans jamais en changer un nombre fini de n de tirages successifs 
+d’une boule, avec remise dans cette urne. Lorsque l’urne a été choisie, les tirages sont 
+considérés comme indépendants.
+Pour $i∈\{1, 2, 3\}$ on note $U_i$ l’événement \quote{l’urne choisie pour les tirages est l’urne n° $i$}.
+Pour tout entier naturel non nul $k$, on note $R_k$ l’événement \quote{le $k\high{ième}$ tirage a amené une boule
+rouge}.
+\startList%Partie
+\item%A
+\startList%1
+\item Donner les probabilités conditionnelles $P_{U_1}(R_k)$, $P_{U_2}(R_k)$, $P_{U_3}(R_k)$ et en déduire que $P(R_k)={7\F 15}$.
+\item\startList%22
+\item Justifier que $P_{U_1}(R_1∩R_2∩⋯∩R_n)=\Q({2\F 5}\W)^n$.
+\item Préciser les valeurs de $P_{U_2}(R_1∩R_2∩⋯∩R_n)$ et $P_{U_3}(R_1∩R_2∩⋯∩R_n)$.
+\item En déduire que $P(R_1∩R_2∩⋯∩R_n)={1\F 3}\Q({2\F 5}\W)^n+{1\F 3}$
+\stopList%22
+\item Montrer que les événements $R_1$ et $R_2$ ne sont pas indépendants pour la probabilité $P$
+\stopList%1
+\item%Partie B
+\startList%1
+\item
+Pour $2⩽k⩽n$, montrer que 
+\startformula
+P_{R_1∩R_2∩⋯∩R_{k-1}}(R_k)={1+\Q({2\F 5}\W)^k\F 1+\Q({2\F 5}\W)^{k-1}}
+\stopformula
+\item Pour $1⩽k⩽n$, on note $A_k$ l’événement \quote{une boule bleue apparaît pour la première fois 
+au tirage n° $k$} et $A$ l’événement \quote{aucune boule bleue n’apparaît jamais lors des $n$ tirages}.
+\startList%22
+\item Calculer $P(A_1)$
+\item Soit $k⩾2$. Exprimer $A_k$ en fonction des événements $R_k$.\crlf
+En déduire, avec les questions précédentes, pour $k⩾2$, la valeur de $P(A k)$ en fonction de $k$.
+\item Calculer la probabilité $P(A)$. 
+\stopList%22
+\stopList%1
+\stopList%Partie
+\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup,nowhite]
+\setupitemgroup[List][4][a,joineup,nowhite]
+
+\goodbreak
+\item%Exo
+On pose $∀x∈ℝ,\quad g(x)=\e^x-x$. 
+\startList%1
+\item\startList%11
+\item Etudier les variations de $g$
+\item Pour $n⩾2$, prouver que l'équation $g(x)=n$ admet une unique solution strictement positive, que l'on notera $β_n$, et une unique solution strictement négative, que l'on notera $α_n$. 
+\stopList%11
+\item%2
+\startList%22
+\item Pour $n⩾2$, montrer que $1⩽g(\ln n)⩽n$.
+\item Pour $n⩾2$, montrer que $\D g(\ln(2n))=n+g(\ln(n))-\ln 2$ puis que 
+\startformula g(\ln(2n))⩾n
+\stopformula
+\item Pour $n⩾2$, en déduire que $\D\ln(n)⩽β_n⩽\ln(2n)$ puis que $\D\lim_{n→+∞}β_n$.
+\item Déterminer $\D\lim_{n→+∞}{β_n\F\ln(n)}$
+\stopList%22
+\item {\bf Dans cette question, on cherche une valeur approchée de $α_2$}.\crlf
+On considère la suite $u$ définie par $u_0=-1$ et 
+\startformula
+u_{n+1}=\e^{u_n}-2\qquad(n∈ℕ)
+\stopformula
+\startList
+\item Calculer $g(-2)$ et $g(-1)$. En déduire que $α_2∈]-2,-1[$
+\item Montrer que $α_2⩽u_k⩽-1$ pour $k∈ℕ$. 
+\item On pose $∀t∈[α_2, -1]$, $h(t)=\e^t-2$. Montrer que 
+\startformula
+h(x)-α_2⩽{1\F \e}(x-α_2)\qquad(α_2⩽x⩽-1)
+\stopformula
+\item En déduire que $\D 0⩽u_{k+1}-α_2⩽{1\F\e}(u_k-α_2)$ pour $k∈ℕ$.
+\item Montrer que $\D 0⩽u_k-α_2⩽\Q({1\F\e}\W)^k$ pour $k∈ℕ$
+\item En déduire que la suite $u$ converge et préciser sa limite.
+\stopList
+\stopList
+
+
+
+
+
+\stopList%Exos
+
+\stoptext
+\stopcomponent
+\endinput

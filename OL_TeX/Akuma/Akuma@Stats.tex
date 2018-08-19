@@ -1,0 +1,474 @@
+\catcode`@=11\relax
+\input LD@Header.tex
+\input qhsort.tex
+\catcode`@=11\relax
+\input LD@Library.tex
+\input LD@Akuma@Japanese.tex
+\catcode`@=11\relax
+
+\lccode"2019="0027\relax% to get hyphen with words with apostrophes
+
+%%
+%% Fontes utilisées
+%%
+
+\def\FontCSName #1 #2\EndFontCSName{%
+	\EA\gdef\CS #1\EC##1{%
+		\unless\ifcsname #1##1\endcsname 
+			\EA\font\CS #1##1\EC="#2" at ##1pt%
+		\fi
+		\CS #1##1\EC
+	}%
+}%
+\def\FontCSDef #1.{%
+	\for\OLFont:=#1\do{%
+		\EA\FontCSName\OLFont\EndFontCSName
+	}%
+}%
+
+\FontCSDef Arial Arial,ArialB Arial Bold,ArialIT Arial Italic,ArialBIT Arial Bold Italic,Kaisho HGSeikaishotaiPRO,Mincho MS Mincho.%%% Automated but might bring Errors
+
+\def\FontDef #1.{%
+	\def\FontName ##1=##2@##3\EndFontName{%
+		\EA\global\EA\font\CS ##1\EC="##2" at ##3pt%
+	}%
+	\for\OLFont:=#1\do{%
+		\EA\FontName \OLFont\EndFontName
+	}%
+}%
+
+\FontDef Romaji=Arial@5,Grade=Arial@4.
+
+
+
+
+
+
+%\font\Fontindex="HGSeikaishotaiPRO" at 10pt
+
+
+\font\StrokeFont="Arial:color=FF0F0Fl" at 4pt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%                                                                                                            Fontes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% -> Dingbats
+\font\LD@Dingbats@Japan="japanapush" at 12pt%      r=rice bowl,   t=bentou,    v=temple,     w=zen gate,     z=japan
+\font\LD@Dingbats@X="Geisha" at 12pt
+\font\LD@Dingbats@MartialArts="McCoy Dingbat Karate" at 12pt
+
+
+
+\font\LD@Font@IndexNumber="Arial" at 6pt
+\font\LD@Font@Nihongo="HGSeikaishotaiPRO" at 28pt
+\font\LD@Font@BushuArray="HGSeikaishotaiPRO" at 10pt
+\font\LD@Font@BushuMeaningsArray="Arial" at 6pt
+\font\LD@Font@BigKanji="HGSeikaishotaiPRO" at 66pt
+\font\LD@Font@Mincho="MS PMincho" at 18pt
+\font\LD@Font@Word="HGSeikaishotaiPRO" at 10pt
+\font\LD@Font@Kana="HGSeikaishotaiPRO" at 10pt
+\font\LD@Font@WordKana="HGSeikaishotaiPRO" at 10pt
+\font\LD@Font@Bushu="HGSeikaishotaiPRO" at 10pt
+\font\LD@Font@Meanings="Arial" at 8pt
+\font\LD@Font@BushuMeanings="Arial" at 6pt
+\font\LD@Font@Numbers="Arial" at 4pt
+\font\LD@Font@Index="Arial" at 5pt
+\font\LD@Font@IndexItalic="Arial Italic" at 5pt
+\font\LD@Font@TinyKaisho="HGSeikaishotaiPRO" at 6pt
+\font\LD@Font@TinyArial="Arial" at 4pt
+\font\LD@Font@One="Arial" at 8pt
+\font\LD@Font@Two="Arial Italic" at 8pt
+\newcount\LD@Font@Number\global\LD@Font@Number=0\relax
+\def\LD@Font@Set{% 
+	\global\advance\LD@Font@Number by 1\relax
+	\ifcase\LD@Font@Number
+	\or
+		\global\let\LD@Font@Sens\LD@Font@One
+	\else
+		\global\let\LD@Font@Sens\LD@Font@Two
+		\global\LD@Font@Number=0\relax
+	\fi
+}%
+\def\LD@Font@Reset{%
+	\global\LD@Font@Number=0\relax
+	\LD@Font@Set
+}%
+\LD@Font@TinyKaisho
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%                                                                                                            Stats 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\JLPTKanji#1{%
+\begingroup
+	\LD@Counter@A=#1\relax
+	\advance\LD@Counter@A by1\relax
+	\ifcase\LD@Counter@A
+		{\Kaisho6片仮名}\or
+		{\Kaisho6平仮名}\or
+		JLPT 4\or
+		JLPT 3\or
+		JLPT 2\or
+		JLPT 1\or
+		NF\or
+		Autre%
+	\fi
+\endgroup
+}%
+\def\GradeKanji#1{%
+\begingroup
+	\LD@Counter@A=#1\relax
+	\advance\LD@Counter@A by1\relax
+	\ifcase\LD@Counter@A
+	 	{\Kaisho6片仮名}\or
+		{\Kaisho6平仮名}\or
+		CP\or
+		CE1\or
+		CE2\or
+		CM1\or
+		CM2\or
+		6ème\or
+		College\or
+		Nom\or
+		Autre\or
+	\fi
+\endgroup
+}%
+\def\JLPTTango#1{%
+\begingroup
+	\LD@Counter@A=#1\relax
+	\ifcase\LD@Counter@A
+	 	\or
+		JLPT 4\or
+		JLPT 3\or
+		JLPT 2\or
+		JLPT 1\or
+		NF\or
+		Autre\or
+	\fi
+\endgroup
+}%
+\def\LD@Stats{%
+%\immediate\write16{Displaying Stats...}%
+\begingroup
+	\def\JLPTSwap##1{%
+		\LD@Counter@A=##1\relax
+		\global\advance\LD@Counter@A by1\relax
+		\ifcase\LD@Counter@A
+			\def##1{-1}\or
+			\def##1{0}\or
+			\def##1{4}\or
+			\def##1{3}\or
+			\def##1{2}\or
+			\def##1{1}\or
+		\fi
+	}%
+	\PAR
+	\centerline{\ArialB{20}Statistiques}
+	\medskip
+	{\Arial 8Tableau representant pour chaque niveau de vocabulaire, le nombre de mots {\Kaisho8(単語)} que l'on peut écrire en utilisant les caractères {\Kaisho8(漢字)} d'un niveau inférieur à un seuil fixé.}
+	\medskip
+	\centerline{%
+		\tikzpicture
+			\foreach \x in{1,2,...,6}
+				\foreach \y in{-1,0,...,6}
+					\node[rectangle,draw,text width=1cm,text height=10pt,text depth=2pt,inner sep=0pt,text centered] at (\x*1cm,-\y*12pt) {%
+					\let\LDX=\x\JLPTSwap\LDX\LD@Stat@Display{\LDX|\y}};
+               		\foreach \x in{1,2,...,6}
+				\node[rectangle, text width=1cm,text height=10pt,text depth=2pt,inner sep=0pt, text centered] (a\x)at (\x*1cm,24pt) {\Arial6\JLPTTango{\x}};
+			\draw [snake=brace] (a1.north west) -- (a6.north east) node[midway](G){};
+			\node [above of=G, node distance=8pt]  {\Kaisho{10}単語};
+			\foreach \y in{-1,0,...,6}
+			\node[rectangle, text width=0.8cm,text height=10pt,text depth=2pt,inner sep=0pt] at (0cm,-\y*12pt) (b\y) {\noindent\hfill\Arial6\JLPTKanji{\y}\hskip4pt};
+			\draw [snake=brace] (b6.south west) -- (b-1.north west) node[midway](H){};
+			\node (J) at (H.west) {};\node [left of=J,node distance=4pt](K){};
+			\node[above of=K,node distance=5pt] {\Kaisho{10}漢};
+			\node[below of=K,node distance=5pt] {\Kaisho{10}字};
+		\endtikzpicture
+	}%
+	\centerline{%
+		\tikzpicture
+			\foreach \x in{1,2,...,6}
+				\foreach \y in{-1,0}
+					\node[rectangle,draw, text width=1cm,text height=10pt,text depth=2pt,inner sep=0pt, text centered] at (\x*1cm,-\y*12pt) {%
+					\let\LDX=\x\JLPTSwap\LDX\LD@Stat@Display{\LDX|\y}};
+			\foreach \x in{1,2,...,6}
+				\foreach \y in{1,2,...,9}
+					\node[rectangle,draw, text width=1cm,text height=10pt,text depth=2pt,inner sep=0pt, text centered] at (\x*1cm,-\y*12pt) {%
+					\let\LDX=\x\JLPTSwap\LDX\LD@Stat@Display{\LDX|G\y}};
+               		\foreach \x in{1,2,...,6}
+				\node[rectangle, text width=1cm,text height=10pt,text depth=2pt,inner sep=0pt, text centered] (a\x)at (\x*1cm,24pt) {\Arial6\JLPTTango{\x}};
+			\draw [snake=brace] (a1.north west) -- (a6.north east) node[midway](G){};
+			\node [above of=G, node distance=8pt]  {\Kaisho{10}単語};
+			\foreach \y in{-1,0,...,9}
+			\node[rectangle, text width=0.9cm,text height=10pt,text depth=2pt,inner sep=0pt] at (0cm,-\y*12pt) (b\y) {\noindent\hfill\Arial6\GradeKanji{\y}\hskip4pt};
+			\draw [snake=brace] (b9.south west) -- (b-1.north west) node[midway](H){};
+			\node (J) at (H.west) {};\node [left of=J,node distance=4pt](K){};
+			\node[above of=K,node distance=5pt] {\Kaisho{10}漢};
+			\node[below of=K,node distance=5pt] {\Kaisho{10}字};
+		\endtikzpicture
+	}%
+	\endgroup
+}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Language choice					%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\LD@Akuma@Language{fre}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Loading Kanjidic					%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\LD@Kanjidic@Load
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Kanjidic Preprocessing				%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\LD@Yomigana@Kanji@Preprocessing
+\LD@Yomigana@Preprocessing@Default
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Loading JMdict					%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\LD@Reading@Compound@List{}%
+\newcount\LD@Stats@Counter
+\def\LD@Stats@Yomigana@Process#1#2{{% #1 is the Kanji string and #2 is the Yomigana string
+	\edef\LD@Stats@Tail{#1}%
+	\def\LD@Reading@Compound{}% N
+	\LD@Loop@For\LD@Stats@Loop@Member=#2\WithSeparator |\Do{%
+		\LD@String@Split\LD@Stats@Tail{}\LD@Stats@Head\LD@Stats@Tail
+		\LD@String@Split\LD@Stats@Loop@Member{}\LD@Token\LD@Test
+		\if *\LD@Token
+			\def\LD@Stats@Irregular{*}%
+		\else
+			\def\LD@Stats@Irregular{}%
+			\let\LD@Test\LD@Stats@Loop@Member
+		\fi
+	\let\LD@Temp\LD@Stats@Loop@Member
+		\ifx\LD@Test\LD@Empty
+			\ifx\LD@Stats@Tail\LD@Empty
+			\else
+				% empty reading for Kanji....
+				\edef\LD@Reading@Compound{\LD@Reading@Compound\LD@Stats@Head}% Y
+			\fi
+		\else
+			\unless\ifx\LD@Reading@Compound\LD@Empty
+				% Compound End
+				\edef\LD@Reading@Compound{\LD@Reading@Compound\LD@Stats@Head}%
+				\LD@Stat@Update{\LD@Reading@Compound ,\LD@Test}%
+				\edef\LD@Temp{\LD@Reading@Compound ,\LD@Test |}%
+				\edef\LD@Test{\LD@Reading@Compound@List |\LD@Temp}%
+				\EA\LD@String@Split\EA\LD@Test\EA{\EA |\LD@Temp}\LD@Trash\LD@Test
+				\ifx\LD@Test\LD@Empty
+					\xdef\LD@Reading@Compound@List{\LD@Reading@Compound@List\LD@Temp}%
+				\fi
+				\def\LD@Reading@Compound{}% N
+			\else
+				% Kanji
+				\ifcsname LD@Stats@@\LD@Stats@Head\endcsname
+					\EA\let\EA\LD@Stats@CS\CS LD@Stats@@\LD@Stats@Head\EC
+					\edef\LD@Test{\LD@Stats@CS,\LD@Temp,}%
+					\EA\LD@String@Split\EA\LD@Test\EA{\EA,\LD@Temp,}\LD@Trash\LD@Test
+					\unless\ifx\LD@Test\LD@Empty
+						% already there...increment it
+						\EA\LD@String@Split\EA\LD@Stats@CS\EA{\EA,\LD@Temp,}\LD@Temp@A\LD@Temp@B
+						\LD@String@Split\LD@Temp@B ,\LD@Temp@B\LD@Temp@C
+						\unless\ifx\LD@Compound@Root\LD@Empty
+							\let\LD@Temp@B\LD@Compound@Root
+						\fi
+						\LD@String@Split\LD@Temp@C ,\LD@Temp@C\LD@Temp@D
+						\LD@String@Split\LD@Temp@D |\LD@Number\LD@Temp@D
+						\LD@Stats@Counter=\LD@Number\relax
+						\advance\LD@Stats@Counter by1\relax
+						\ifnum\LD@Stats@Counter>9\relax
+							\EA\xdef\CS LD@Stats@@\LD@Stats@Head\EC{\LD@Temp@A,\LD@Temp,\LD@Temp@B,\LD@Temp@C,\the\LD@Stats@Counter|\LD@Temp@D}%
+						\else
+							\EA\xdef\CS LD@Stats@@\LD@Stats@Head\EC{\LD@Temp@A,\LD@Temp,\LD@Temp@B,\LD@Temp@C,0\the\LD@Stats@Counter|\LD@Temp@D}%
+						\fi
+					\else
+						% first there
+						\EA\xdef\CS LD@Stats@@\LD@Stats@Head\EC{\CS LD@Stats@@\LD@Stats@Head\EC,\LD@Temp,\LD@Compound@Root,\LD@Stats@Irregular,01| }%
+					\fi
+					\def\LD@Reading@Compound{}% N
+				\else
+					\EA\xdef\CS LD@Stats@@\LD@Stats@Head\EC{,\LD@Temp,\LD@Compound@Root,\LD@Stats@Irregular,01| }%
+					\def\LD@Reading@Compound{}% N
+				\fi
+			\fi
+		\fi
+	}%
+}}%
+\def\LD@JMdict@Load@Stats{%
+	\def\LD@XML@Entry@Kana@Do{%
+		%\global\advance\LD@Entry@Quirks by1\relax
+		\global\advance\LD@Entry@Count by1\relax
+		{%
+		\def\TangoMaxKanjiLevel{0}%
+		\def\TangoMaxKanjiGrade{0}%
+		\LD@String@Split\LD@Kana@Reading{}\LD@Token\LD@Trash
+		\IfKatakana\LD@Token{%
+			\def\TangoMaxKanjiLevel{-1}%
+			\def\TangoMaxKanjiGrade{-1}%
+		}%
+		\LD@Akuma@Option@Process\LD@Kana@Info
+		\ifx\LD@JLPT\LD@Empty
+			\ifx\LD@nf\LD@Empty
+				\LD@Stat@Update{6|\TangoMaxKanjiLevel}%
+				\LD@Stat@Update{6|G\TangoMaxKanjiGrade}%
+			\else
+				\LD@Stat@Update{5|\TangoMaxKanjiLevel}%
+				\LD@Stat@Update{5|G\TangoMaxKanjiGrade}%
+			\fi
+			\def\LD@JLPT{{}}%
+		\else
+			\LD@Stat@Update{\LD@JLPT|\TangoMaxKanjiLevel}%
+			\LD@Stat@Update{\LD@JLPT|G\TangoMaxKanjiGrade}%
+		\fi}%
+	}%
+	\def\LD@XML@Entry@Kanji@Do{{%	
+		%\unless\ifx\LD@Entry@Sense\LD@Empty
+			\LD@Yomigana\LD@Kanji@Reading\LD@Kana@Reading
+%			{%
+%			\LD@Tango@Info@Get\LD@Kanji@Reading
+%			\LD@Akuma@Option@Process\LD@Kanji@Info
+%			\ifx\LD@JLPT\LD@Empty
+%				\ifx\LD@nf\LD@Empty
+%					\LD@Stat@Update{6|\TangoMaxKanjiLevel}%
+%					\LD@Stat@Update{6|G\TangoMaxKanjiGrade}%
+%				\else
+%					\LD@Stat@Update{5|\TangoMaxKanjiLevel}%
+%					\LD@Stat@Update{5|G\TangoMaxKanjiGrade}%
+%				\fi
+%			\else
+%				\LD@Stat@Update{\LD@JLPT|\TangoMaxKanjiLevel}%
+%				\LD@Stat@Update{\LD@JLPT|G\TangoMaxKanjiGrade}%
+%			\fi
+%			}%	
+			\def\LD@Compound@Root{}% N
+			\ifnum\LD@Yomigana@Quirks@G@Level>0\relax
+				\global\advance\LD@Entry@Quirks by1\relax
+				\LD@String@Length\LD@Kanji@Reading\LD@Counter@Temp@A
+				\ifnum\LD@Counter@Temp@A=1\relax
+					\LD@Stat@Update{Compound1}%
+					\def\LD@Compound@Root{+}% Y
+%					\LD@Kanji@Reading\qquad \LD@Kana@Reading\PAR
+				\else
+					\ifnum\LD@Counter@Temp@A=\LD@Yomigana@Quirks@G@Level\relax
+						\LD@Stat@Update{Compound\the\LD@Counter@Temp@A}%
+						\def\LD@Compound@Root{+}% Y
+%						\LD@Kanji@Reading\qquad \LD@Kana@Reading\PAR
+					\fi
+				\fi
+			\fi
+			\global\advance\LD@Entry@Count by1\relax
+			\LD@Stats@Yomigana@Process\LD@Kanji@Reading\LD@Yomigana@GlobalFurigana	
+		%\fi	
+	}}%
+	\input LD@Akuma@JMdictParser.tex
+	\LD@XML@Parser{JMdict.xml}%
+}%
+\def\LD@XML@Parser#1{%
+	\LD@Time@Benchmark{Parsing #1...}%
+	\xdef\LD@XML@SavedTimeStart{\the\LD@Time@Moment}%
+	%\begingroup
+		%\newlinechar=`\^^M\relax
+		%\xdef\LD@Newline{^^M}%
+		%\catcode`\^^M=13\relax
+		%\catcode`@=11\relax
+		%\catcode`]=0\relax
+		%\catcode`>=12\relax
+		%\def\>{\catcode`\]=11\relax}%
+		%\catcode9=13\relax% Tabs
+		%\catcode`(=11\relax
+		%\catcode`)=11\relax
+		%\catcode`.=11\relax
+		%\catcode`:=11\relax
+		%\catcode`§=11\relax
+		%\catcode`*=11\relax
+		%\catcode`-=11\relax
+		%\catcode`,=11\relax
+		%\catcode`¤=0\relax
+		\catcode`$=11\relax% Maths
+		\catcode`^=11\relax% Superscript
+		\catcode`_=11\relax% Subscript
+		\catcode`&=11\relax% Alignement
+		\catcode`\#=11\relax% Parameters
+		\catcode`?=11\relax
+		\catcode`!=11\relax
+		\catcode`[=11\relax
+		\catcode`~=11\relax
+		\catcode`/=11\relax
+		\catcode`'=11\relax
+		\catcode`"=11\relax
+		\catcode`+=11\relax
+		\catcode`°=11\relax
+		\catcode`;=11\relax
+		\catcode`µ=11\relax
+		\catcode`£=11\relax
+		\catcode`¨=11\relax
+		\catcode`\{=11\relax
+		\catcode`\}=11\relax
+		\catcode`\%=11\relax
+		\catcode`\\=11\relax
+		\LD@XML@Init
+		\input #1%
+	%\endgroup
+	\LD@Time@Moment=\LD@XML@SavedTimeStart\relax	
+	\LD@Time@Benchmark [silent]\LD@Temp
+	\immediate\write16{Parsing of #1 done in \LD@Temp.}%
+	\LD@Font@Kana
+	\global\LD@Counter@A=0\relax
+	\loop
+		\advance\LD@Counter@A by1\relax
+		\noindent\the\LD@Counter@A : \CS\the\LD@Counter@A\EC. \CS LD@Stats@@\CS\the\LD@Counter@A\EC\EC\PAR
+	\ifnum\LD@Counter@A<\LD@XML@Entries\relax
+	\repeat
+	% remove the trailing |
+	\LD@String@LastChar\LD@Reading@Compound@List\LD@Reading@Compound@List\LD@trash
+	\LD@Loop@For\LD@Compound=\LD@Reading@Compound@List\WithSeparator |\Do{%
+		\noindent|\LD@Compound| : \LD@Stat@Display{\LD@Compound}\PAR
+	}%
+	\catcode`\%=14\relax
+	\catcode`\\=0\relax
+	\catcode`\{=1\relax
+	\catcode`\}=2\relax
+	\catcode`$=3\relax% Maths
+	\catcode`&=4\relax% Alignement
+	% 5 is end of line ^M
+	\catcode`\#=6\relax% Parameters
+	\catcode`^=7\relax% Superscript
+	\catcode`_=8\relax% Subscript
+	% 9 is ignored char
+	% 10 is space
+	% 11 is letter
+	% 12 is other
+	% 13 is active
+	% 14 is comment
+	% 15 is invalid
+}%
+\LD@JMdict@Load@Stats
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Stats							%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\singlecolumn
+%\LD@Stats
+%\write16{\the\LD@Entry@Count Entries}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Kanji Reading usage					%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bye

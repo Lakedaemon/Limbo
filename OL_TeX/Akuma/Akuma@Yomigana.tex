@@ -1,0 +1,85 @@
+\catcode`@=11\relax
+\let\EA=\expandafter
+\let\CS=\csname
+\let\EC=\endcsname
+%\def\Api{Apiold}%
+\def\KoAkuma{Rules}%
+\def\Obsolete{N}%
+\input LD@Header.tex
+\input qhsort.tex
+\catcode`@=11\relax
+\global\let\LD@meaning@Saved\meaning
+\input LD.tex
+\catcode`@=11\relax
+\LD@Time@Start{Processing the Document...}%
+
+
+\lccode"2019="0027\relax% to get hyphen with words with apostrophes
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%						Fonts						%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\input LD@Luatex.tex
+%\font\LD@Font@Kana={G:/TeX/Akuma/HGRSKP.ttf} at 8pt
+
+\font\LD@Font@Kana=''HGSeikaishotaiPRO'' at 10pt
+\LD@Font@Kana
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Language choice					%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\LD@Akuma@Language{fr}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Loading Kanjidic					%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\LD@Kanjidic@Load
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Kanjidic Preprocessing				%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\LD@Yomigana@Kanji@Preprocessing
+\LD@Yomigana@Preprocessing@Default
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%												%
+%					Loading JMdict					%
+%												%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\LD@JMdict@Yomigana@Save
+\noindent Q1: \LD@Stat@Display{Quirk1}\par
+\noindent Q2: \LD@Stat@Display{Quirk2}\par
+\noindent Q3: \LD@Stat@Display{Quirk3}\par
+\noindent Q4: \LD@Stat@Display{Quirk4}\par
+\noindent Q5: \LD@Stat@Display{Quirk5}\par
+\noindent Q6: \LD@Stat@Display{Quirk6}\par
+\noindent Q10: \LD@Stat@Display{Quirk10}\par
+\noindent Q11: \LD@Stat@Display{Quirk11}\par
+\noindent Q12: \LD@Stat@Display{Quirk12}\par
+\noindent Q13: \LD@Stat@Display{Quirk13}\par
+\noindent Q20: \LD@Stat@Display{Quirk20}\par
+\noindent Q21: \LD@Stat@Display{Quirk21}\par
+\noindent Q22: \LD@Stat@Display{Quirk22}\par
+\noindent Q30: \LD@Stat@Display{Quirk30}\par
+\noindent Q31: \LD@Stat@Display{Quirk31}\par
+\noindent Q40: \LD@Stat@Display{Quirk40}\par
+\noindent C1: \LD@Stat@Display{Compound1}\par
+\noindent C2: \LD@Stat@Display{Compound2}\par
+\noindent C3: \LD@Stat@Display{Compound3}\par
+\noindent C4: \LD@Stat@Display{Compound4}\par
+\bye

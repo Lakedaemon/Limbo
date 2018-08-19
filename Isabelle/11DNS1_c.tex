@@ -1,0 +1,168 @@
+\documentclass[10pt,a4paper]{article}
+\setlength{\textwidth}{17cm}
+\setlength{\marginparwidth}{0cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\textheight}{26cm}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\headheight}{0.5cm}
+\setlength{\headsep}{0.5cm}
+\setlength{\hoffset}{-0.5cm}
+\setlength{\voffset}{0cm}
+
+\usepackage[francais]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[latin1]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{fancybox}
+\usepackage{graphicx}
+\usepackage{pstricks,pst-plot}
+
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\K}{\ensuremath{\mathbb{K}}}
+\newcommand{\ch}{\ensuremath{\text{ch\,}}}
+\newcommand{\sh}{\ensuremath{\text{sh\,}}}
+\newcommand{\tnh}{\ensuremath{\text{th\,}}}
+\newcommand{\ach}{\ensuremath{\text{argch\,}}}
+\newcommand{\ash}{\ensuremath{\text{argsh\,}}}
+\newcommand{\ath}{\ensuremath{\text{argth\,}}}
+\newcommand{\re}{\ensuremath{\text{Re\,}}}
+\newcommand{\Id}{\ensuremath{\text{Id}}}
+\newcommand{\im}{\ensuremath{\text{Im\,}}}
+\newcommand{\Ker}{\ensuremath{\text{Ker\,}}}
+\newcommand{\Vect}{\ensuremath{\text{Vect}}}
+\newcommand{\Card}{\ensuremath{\text{Card}}}
+\newcommand{\rg}{\ensuremath{\text{rg}}}
+
+\begin{document}
+
+\lhead{Correction du DNS n°1}
+\rhead{Page \thepage{} sur \pageref{LastPage}}
+\cfoot{isabelle.chauvin@free.fr}
+\lfoot{PTSI, Lycée Newton, Clichy}
+\rfoot{Année 2011-2012}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\pagestyle{fancy}
+
+\begin{center}
+	\shadowbox{\Large{\textbf{CORRECTION DU DNS n°1}}}
+\end{center}
+
+%\textbf{Partie A}
+
+	\begin{enumerate}
+		\item On sait que $\lim \limits_{x \to 0} x \ln(x) = 0$ ; 
+			de plus, $\lim \limits_{x \to 0} x + 1 = 1$, 
+			donc $\lim \limits_{x \to 0} f(x) = 0 = f(0)$, 
+			et \fbox{$f$ est continue en 0}.\\
+			Evaluons maintenant 
+			$\lim \limits_{x \to 0} \frac{f(x) - f(0)}{x-0}$ : \quad 
+			pour $x > 0,\; \frac{f(x) - f(0)}{x-0}
+			= \frac{\ln x}{x+1}$ ; 
+			or $\lim \limits_{x \to 0} \ln(x) = -\infty$ 
+			et $\lim \limits_{x \to 0} x + 1 = 1$, 
+			donc $\lim \limits_{x \to 0} \frac{f(x) - f(0)}{x-0} = -\infty$, 
+			et \fbox{$f$ n'est pas dérivable en 0}.
+		\item 
+			\begin{enumerate}
+				\item $\varphi$ est dérivable sur $\R_+^*$, 
+					et $\forall x \in \R_+^*,\; 
+					\varphi'(x) = \frac{1}{x} + 1 = \frac{1 + x}{x} > 0$, 
+					donc \fbox{$\varphi$ croît strictement sur $\R_+^*$}.
+				\item Par opérations usuelles sur les limites, 
+					$\lim \limits_{x \to 0} \varphi(x) = -\infty$ 
+					et $\lim \limits_{x \to +\infty} \varphi(x) = +\infty$.\\
+					Comme $\varphi$ est continue et strictement 
+					croissante sur $\R_+^*$, alors elle réalise une bijection 
+					de $\R_+^*$ dans $]-\infty ; +\infty[\ = \R$ d'après les 
+					limites précédentes.\\
+					Enfin, $0 \in \R$, donc 0 admet un unique antécédent 
+					par $\varphi$ dans $\R_+^*$ \\
+					ou encore : \fbox{l'équation $\varphi(x) = 0$ admet une 
+					unique solution notée $\beta$ dans $\R_+^*$}.
+				\item On utilise maintenant une calculatrice, 
+					et on constate que 
+					$\varphi(0,27) < 0$ et $\varphi(0,28) > 0$.\\
+					$\varphi$ est continue sur $\R_+^*$, 
+					et on peut lui appliquer le théorème des valeurs 
+					intermédiaires : $\varphi$ s'annule sur $[0,27 ; 0,28]$.
+					Par ce qui précède, 
+					forcément \fbox{$\beta \in [0,27 ; 0,28]$}.
+				\item $f$ est dérivable sur $\R_+^*$ comme quotient de 
+					fonctions dérivables sur $\R_+^*$, \\
+					et $\forall x \in \R_+^*,\; 
+					f'(x) = \frac{(1 + \ln x)(x+1) - x \ln x}{(x+1)^2}
+					= \frac{x + 1 + \ln x}{(x+1)^2}$
+					donc \fbox{$\forall x \in \R_+^*,\; 
+					f'(x) = \frac{\varphi(x)}{(x+1)^2}$}.
+				\item D'après 2.(a) et 2.(b), on obtient le signe 
+					de $\varphi$, 
+					c'est-à-dire celui de $f'$ par 2.(d).\\
+					$\begin{array}{l|ccccc}
+					x & 0 & & \beta & & +\infty \\ \hline
+					\varphi(x) & \| & - & 0 & + \\ \hline
+					f'(x) & \| & - & 0 & + \\ \hline
+					f & 0 & \searrow & | & \nearrow
+					\end{array}$
+			\end{enumerate}
+		\item 
+			\begin{enumerate}				\item Soit $x > 0$ ; on simplifie $f(x) = \frac{x \ln x}{x+1}
+					= \frac{\ln x}{1 + \frac{1}{x}}$\\
+					Or $\lim \limits_{x \to +\infty} 1 + \frac{1}{x} = 1$ 
+					et $\lim \limits_{x \to \infty} \ln x = +\infty$, 
+					donc 
+					\fbox{$\lim \limits_{x \to +\infty} f(x) = +\infty$}.
+				\item Soit $x > 0$ ; on évalue 
+					$\ln(x) - f(x) = \frac{(x+1) \ln x - x \ln x}{x+1}
+					= \frac{\ln x}{x+1}$\\
+					Par croissance comparée, 
+					$\lim \limits_{x \to +\infty} \frac{\ln x}{x+1} = 0$, 
+					donc 
+					\fbox{$\lim \limits_{x \to +\infty} \ln(x) - f(x) = 0$}.
+			\end{enumerate}
+		\item 
+			\begin{enumerate}				\item Annulations de $f$ (on a déjà $f(0) = 0$ par 
+					l'énoncé):\\
+					Pour $x > 0,\quad 
+					f(x) = 0 
+					\iff x \ln x = 0 
+					\iff \ln x = 0 
+					\iff x = 1$\\
+					donc \fbox{$f$ s'annule seulement en 0 et en 1}.
+				\item Calcul de $f(\beta)$ :\\
+					Par définition de $\beta$, 
+					$\varphi(\beta) = 0$, donc $\ln(\beta) + \beta + 1 = 0$, 
+					et donc $\ln(\beta) = - 1 - \beta$.\\
+					Alors $f(\beta) = \frac{\beta \ln \beta}{\beta + 1}
+					= \frac{\beta (-1-\beta)}{\beta + 1}
+					= -\beta$
+					et \fbox{$f(\beta) = -\beta$}.
+				\item Courbes :\\
+					\begin{center}
+					\psset{unit=1.5}
+					\begin{pspicture}(0,-2)(10,3)
+					\psline[linewidth=0.04cm]{->}(0,0)(10,0)
+					\psline[linewidth=0.04cm]{->}(0,-2)(0,3)
+					\psgrid[gridcolor=green, gridwidth=0.2pt, subgriddots=1, 
+						subgridwidth=0, subgriddiv=0, gridlabels=7pt]
+						(0,0)(0,-2)(10,3)
+					\psplot[plotstyle=curve,linestyle=dashed]{0.1}{10}{x ln}
+					\psplot[plotstyle=curve]{0.01}{10}
+						{x ln x mul x 1 add div}
+					\psline{<->}(0.05,-0.278)(0.65,-0.278)
+					\psline[linestyle=dashed](0.278,0.05)(0.278,-0.278)
+					\uput{0}[0](0.3,0.2){$\beta$}
+					\uput{0}[0](-0.4,-0.3){$-\beta$}
+					\uput{0}[0](10.2,2){${\cal C}$}
+					\uput{0}[0](10.2,2.4){$\Gamma$}
+					\end{pspicture}
+					\end{center}			\end{enumerate}
+	\end{enumerate}
+
+\end{document}

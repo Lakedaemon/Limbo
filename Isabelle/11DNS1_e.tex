@@ -1,0 +1,187 @@
+\documentclass[10pt,a4paper]{article}
+\setlength{\textwidth}{17cm}
+\setlength{\marginparwidth}{0cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\textheight}{26cm}
+\setlength{\topmargin}{-1.5cm}
+\setlength{\headheight}{0.5cm}
+\setlength{\headsep}{0.5cm}
+\setlength{\hoffset}{-0.5cm}
+\setlength{\voffset}{0cm}
+
+\usepackage[francais]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[latin1]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{fancybox}
+\usepackage{graphicx}
+\usepackage{pstricks,pst-plot}
+
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\K}{\ensuremath{\mathbb{K}}}
+\newcommand{\ch}{\ensuremath{\text{ch\,}}}
+\newcommand{\sh}{\ensuremath{\text{sh\,}}}
+\newcommand{\tnh}{\ensuremath{\text{th\,}}}
+\newcommand{\ach}{\ensuremath{\text{argch\,}}}
+\newcommand{\ash}{\ensuremath{\text{argsh\,}}}
+\newcommand{\ath}{\ensuremath{\text{argth\,}}}
+\newcommand{\re}{\ensuremath{\text{Re\,}}}
+\newcommand{\Id}{\ensuremath{\text{Id}}}
+\newcommand{\im}{\ensuremath{\text{Im\,}}}
+\newcommand{\Ker}{\ensuremath{\text{Ker\,}}}
+\newcommand{\Vect}{\ensuremath{\text{Vect}}}
+\newcommand{\Card}{\ensuremath{\text{Card}}}
+\newcommand{\rg}{\ensuremath{\text{rg}}}
+
+\begin{document}
+
+\lhead{DNS n°1}
+\rhead{Page \thepage{} sur \pageref{LastPage}}
+\cfoot{isabelle.chauvin@free.fr}
+\lfoot{PTSI, Lycée Newton, Clichy}
+\rfoot{Année 2011-2012}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\pagestyle{fancy}
+
+\begin{center}
+	\shadowbox{\Large{\textbf{DEVOIR NON SURVEILLE n°1}}}\\
+	A rendre le vendredi 16/09/2011\\
+	Exceptionnellement, on pourra utiliser une calculatrice
+\end{center}
+
+	%% EXTRAIT (PROBLÈME) DU BAC C 1991, académie de Paris
+	%\subsection*{Partie A}
+	
+		\noindent
+		Le but de cet exercice est d'étudier la fonction $f$ définie sur 
+		$[0,+\infty[$ par :
+		$$\left\{ \begin{array}{ll}
+		f(x) = \dfrac{x\ln (x)}{x+1} & \text{ si } x > 0 \\
+		f(0) = 0 
+		\end{array} \right.$$
+		\begin{enumerate}
+			\item Étudier la continuité et la dérivabilité de $f$ en $0$.
+			\item 
+				\begin{enumerate}
+					\item Soit $\varphi$ la fonction définie sur 
+						$]0,+\infty[$ par :
+						$\varphi (x) = \ln (x) + x + 1$.\\
+						Étudier les variations de $\varphi$.
+					\item Établir que l'équation $\varphi (x) = 0$ admet 
+						une solution $\beta$ et une seule.
+					\item Montrer que 
+						$0,27 \leqslant \beta \leqslant 0,28$. \\
+						(On ne demande pas de construire la 
+						courbe représentative de $\varphi$.)
+					\item Pour $x > 0$, exprimer $f'(x)$ à l'aide de 
+						$\varphi (x)$.
+					\item En déduire les variations de $f$.
+				\end{enumerate}
+			\item 
+				\begin{enumerate}
+					\item Déterminer la limite de $f$ en $+\infty$
+					\item Déterminer la limite de $\ln (x) - f(x)$ 
+						lorsque $x$ tend vers $+\infty$.
+				\end{enumerate}
+			\item Construire soigneusement les courbes représentatives 
+				${\cal C}$ de $f$ et $\Gamma$ de $x \mapsto \ln (x)$ 
+				dans un repère orthonormé. \\
+				En particulier, on cherchera les annulations de $f$ 
+				et on donnera la valeur de $f(\beta)$ à l'aide de 
+				$\beta$.\\[2cm]
+		\end{enumerate}
+		
+	%\subsection*{Partie B}
+	
+	%	\noindent
+	%	On se propose d'étudier l'équation $f(x) = 1$.\\
+	%	À cet effet, on introduit la fonction $g$ définie sur 
+	%	$]0,+\infty[$ par :
+	%	$g(x) = e.e^{\frac{1}{x}}$.
+	%	\begin{enumerate}
+	%		\item Montrer que l'équation $f(x) = 1$ admet une solution 
+	%			$\alpha$ et une seule, et que $3,5 < \alpha < 3,7$. \\
+	%			Placer sur le graphe le point de ${\cal C}$ d'abscisse 
+	%			$\alpha$.
+	%		\item 
+	%			\begin{enumerate}
+	%				\item Montrer que l'équation $f(x) = 1$ équivaut à 
+	%					l'équation $g(x) = x$.
+	%				\item Étudier la monotonie de $g$.
+	%				\item Prouver que pour tout élément $x$ de 
+	%					$[3,5 ; 3,7], \quad g(x)$ appartient aussi à 
+	%					$[3,5 ; 3,7]$.
+	%				\item Établir que pour tout élément $x$ de 
+	%					$[3,5 ; 3,7], \quad |g'(x)| \leqslant |g'(3,5)|
+	%					\leqslant \frac{1}{3}$.\\
+	%					En déduire que :
+	%					$|g(x)-\alpha| \leqslant \frac{1}{3} |x-\alpha|$.
+	%			\end{enumerate}
+	%		\item Soit $(u_n)$ la suite d'éléments de $[3,5 ; 3,7]$ 
+	%			définie par la relation de récurrence $u_{n+1} = g(u_n)$ 
+	%			et la condition initiale $u_0 = 3,5$.
+	%			\begin{enumerate}
+	%				\item Montrer que pour tout entier $n \geqslant 0, 
+	%					\quad |u_n-\alpha| \leqslant \frac{1}{5} \times 
+	%					\frac{1}{3^n}$.\\
+	%					En déduire la limite de $(u_n)$.
+	%				\item Donner une valeur décimale approchée de 
+	%					$\alpha$ à ${10}^{-3}$ près.
+	%			\end{enumerate}
+	%	\end{enumerate}
+	
+\begin{center}
+	\shadowbox{\Large{\textbf{DEVOIR NON SURVEILLE n°1}}}\\
+	A rendre le vendredi 16/09/2011\\
+	Exceptionnellement, on pourra utiliser une calculatrice
+\end{center}
+
+	%% EXTRAIT (PROBLÈME) DU BAC C 1991, académie de Paris
+	%\subsection*{Partie A}
+	
+		\noindent
+		Le but de cet exercice est d'étudier la fonction $f$ définie sur 
+		$[0,+\infty[$ par :
+		$$\left\{ \begin{array}{ll}
+		f(x) = \dfrac{x\ln (x)}{x+1} & \text{ si } x > 0 \\
+		f(0) = 0 
+		\end{array} \right.$$
+		\begin{enumerate}
+			\item Étudier la continuité et la dérivabilité de $f$ en $0$.
+			\item 
+				\begin{enumerate}
+					\item Soit $\varphi$ la fonction définie sur 
+						$]0,+\infty[$ par :
+						$\varphi (x) = \ln (x) + x + 1$.\\
+						Étudier les variations de $\varphi$.
+					\item Établir que l'équation $\varphi (x) = 0$ admet 
+						une solution $\beta$ et une seule.
+					\item Montrer que 
+						$0,27 \leqslant \beta \leqslant 0,28$. \\
+						(On ne demande pas de construire la 
+						courbe représentative de $\varphi$.)
+					\item Pour $x > 0$, exprimer $f'(x)$ à l'aide de 
+						$\varphi (x)$.
+					\item En déduire les variations de $f$.
+				\end{enumerate}
+			\item 
+				\begin{enumerate}
+					\item Déterminer la limite de $f$ en $+\infty$
+					\item Déterminer la limite de $\ln (x) - f(x)$ 
+						lorsque $x$ tend vers $+\infty$.
+				\end{enumerate}
+			\item Construire soigneusement les courbes représentatives 
+				${\cal C}$ de $f$ et $\Gamma$ de $x \mapsto \ln (x)$ 
+				dans un repère orthonormé. \\
+				En particulier, on cherchera les annulations de $f$ 
+				et on donnera la valeur de $f(\beta)$ à l'aide de $\beta$.
+		\end{enumerate}
+
+\end{document}

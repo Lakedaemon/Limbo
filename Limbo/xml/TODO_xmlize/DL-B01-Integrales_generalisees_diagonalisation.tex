@@ -1,0 +1,71 @@
+\catcode`@=11\relax
+\input LD@Header.tex
+\input LD@Library.tex
+
+\def\LD@Maths@Exercice@Display{\ignorespaces\LD@Exo@@Exo}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%															%
+%						Probleme 00 : Révisions de sup					%
+%															%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vglue-10mm\rightline{Sp\'e PT\hfill mini DL 2 (pour le 17/10) : pr\'eparation au ds.\hfill\date}%
+\bigskip
+\bigskip
+\vfill
+\noindent
+$E$ d\'esigne l'espace vectoriel r\'eel des fonctions continues sur $\ob R$ \`a valeurs dans $\ob R$. 
+\par\noindent
+$E_1$ est l'ensemble des fonctions $f$ de $E$ telles que l'int\'egrale g\'en\'eralis\'ee
+$$
+\int_x^{+\infty}f(t)\e^{-t}\d t
+$$
+converge pour chaque $x\in\ob R$. 
+\bigskip\noindent
+1. Montrer que $E_1$ est un sous-espace vectoriel de $E$. 
+\bigskip\noindent
+2.  {Etude de quelques exemples : }
+\smallskip\noindent
+a. Montrer que l'int\'egrale $\int_x^{+\infty}\e^{-t}\d t$ converge pour chaque $x\in\ob R$. 
+Plus g\'en\'eralement, \'etant donn\'e $n\in\ob N$, montrer que $\int_x^{+\infty}t^n\e^{-t}\d t$ converge pour $x\in\ob R$.
+\medskip\noindent
+b. L'int\'egrale g\'en\'eralis\'ee $\int_x^{+\infty}\cos(t)\e^{-t}\d t$ existe-t-elle pour chaque $x\in\ob R$ ?
+\medskip\noindent
+c. En d\'eduire des exemples de fonctions appartenant \`a $E_1$. 
+\bigskip\noindent
+3. On pose 
+$$
+\eqalign{\varphi:E_1&\to E\cr f&\mapsto F}\quad\mbox{ avec }\quad F(x):=\e^x\int_x^{+\infty}f(t)\e^{-t}\d t\qquad(x\in\ob R).
+$$
+a. Montrer que $F$ est de classe $\sc C^1$ sur $\ob R$ et que $F=F'+f$. 
+\medskip\noindent
+b. Montrer que $\varphi$ est une application lin\'eaire. 
+\medskip\noindent
+c. L'application $\varphi$ est-elle injective ?
+\medskip\noindent
+d. Lorsque $f\in E_1$ est un vecteur propre de $\varphi$, montrer que $f$ est solution d'une \'equation diff\'erentielle lin\'eaire du premier ordre \`a coefficients constants. 
+D\'eterminer les valeurs propres et les vecteurs propres~de~$\varphi$. 
+\medskip\noindent
+e. Soit $f\in E_1$ une fonction born\'ee et de classe $\sc C^1$ sur $\ob R$. Montrer que $f'\in E_1$ et que $\varphi(f')=\varphi(f)'$. 
+\bigskip\noindent
+4. Soient $n\in\ob N$ et $E_2$  le $\ob R$-espace vectoriel des polyn\^omes de degr\'e inf\'erieur ou \'egal \`a $n$. 
+\smallskip\noindent
+a. Montrer que $E_2\subset E_1$. 
+\medskip\noindent
+b. Soit $\psi$ la restriction de $\varphi$ \`a $E_2$ (au d\'epart et \`a l'arriv\'ee).
+\smallskip\noindent
+i) Montrer que $\psi$ est un endomorphisme de $E_2$.\pn
+ii) Est-ce un automorphisme de $E_2$ ? \pn
+iii) $\psi$ est-il diagonalisable ?
+\medskip\noindent
+c. Soit $f\in E_2$ une fonction pour laquelle il existe un nombre r\'eel $a$ tel que 
+$$
+f(x)\ge 0\qquad(x\ge a).
+$$
+Prouver que l'on a 
+$$
+\sum_{k=0}^nf^{(k)}(x)\ge0\qquad(x\ge a).
+$$
+\vfill
+\bye

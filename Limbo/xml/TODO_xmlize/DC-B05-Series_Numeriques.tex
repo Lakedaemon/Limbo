@@ -1,0 +1,108 @@
+\catcode`@=11\relax
+
+\input LD@Maths@TD.tex
+
+\vglue-10mm\rightline{Spé PT\hfill Corrigé\hfill}
+\bigskip
+
+Exemple 1. Il résulte du changement d'indice $k=n+1+\ell$ que 
+$$
+r_n=\sum_{k=n+1}^\infty{1\F2^k}=\sum_{\ell=0}^\infty{1\F2^{n+1+\ell}}={1\F2^{n+1}}\sum_{\ell=0}^\infty{1\F2^\ell}={1\F2^{n+1}}{1\F1-1/2}
+={1\F 2^n}=a_n\qquad(n\ge0).
+$$
+A fortiori, la série $\sum_{k=0}^\infty r_n$ converge en tant que série géométrique de raison $a={1\F2}$ et l'on a 
+$$
+\sum_{k=0}^\infty r_n=\sum_{k=0}^\infty {1\F 2^n}={1\F 1-1/2}=2.
+$$
+\bigskip\noindent
+Exemple 2. a. L'application $t\mapsto{1\F t^2}$ étant décroissante sur l'intervalle $[1, \infty[$ et à fortiori sur l'intervalle $[k,k+1]$ pour $k\ge1$, nous remarquons que 
+$$
+{1\F (k+1)^2}\le {1\F t^2}\le{1\F k^2}\qquad(k\ge1).
+$$
+b. En intégrant la relation précédente, nous déduisons de la croissance de l'intégrale que 
+$$
+{1\F (k+1)^2}=\int_k^{k+1}{\d t\F (k+1)^2}\le \int_k^{k+1}{\d t\F t^2}\le\int_k^{k+1}{\d t\F k^2}={1\F k^2}\qquad(k\ge1).
+$$
+En sommant cette relation pout $n+1\le k\le N$, il résulte de la relation de chasles que 
+$$
+\sum_{k=n+1}^N{1\F(k+1)^2}\le \sum_{k=n+1}^N \int_k^{k+1}{\d t\F t^2}=\int_{n+1}^{N+1}{\d t\F t^2}\le \sum_{k=n+1}^N{1\F k^2}\qquad (1\le n+1\le N).
+$$
+c. En remarquant que 
+$$
+\int_{n+1}^{N+1}{\d t\F t^2}=\Q[-{1\F t}\W]_{n+1}^{N+1}={1\F n+1}-{1\F N+1}\qquad (1\le n+1\le N),
+$$
+nous faisons alors tendre $N$ vers $+\infty$ et nous déduisons de la conservation des inégalités larges par passage à la limite que  
+$$
+\sum_{k=n+1}^\infty{1\F(k+1)^2}\le {1\F n+1}\le \sum_{k=n+1}^\infty{1\F k^2}=r_n\qquad (1\le n+1\le N).
+$$
+En procédant alors au changement d'indice $k+1=\ell$ sur la série de gauche, nous obtenons alors que 
+$$
+r_n-{1\F (n+1)^2}=\sum_{\ell=n+2}^\infty{1\F\ell^2}\le  {1\F n+1}\le r_n\qquad (n\ge0)
+$$
+et a fortiori que
+$$
+{1\F n+1}\le r_n\le {1\F n+1} + {1\F (n+1)^2}\qquad(n\ge0).
+$$
+d. En divisant la relation précédente par ${1\F n+1}$, nous obtenons que 
+$$
+1\le {r_n\F 1/(n+1)}\le 1 + {1\F n+1}\qquad(n\ge0).
+$$
+Comme les termes de gauche et de droites convergent vers $1$ lorsque $n$ tends vers $+\infty$, il résulte du principe des gendarmes que le quotient de $r_n$ par $1/(n+1)$ converge vers $1$ et par conséquent que $r_n\sim{1\F(n+1)}\sim{1\F n}\quad(n\to+\infty)$.
+\medskip
+La série $\sum_{k=0}^\infty r_n$ diverge car elle a la même nature que la série de Riemann $\sum_{k=0}^\infty {1\F n+1}$, qui diverge. 
+\bigskip
+Exemple 3. La série $\sum_{k=0}^\infty {(-1)^n\F n}$ converge d'après le théorème spécial des séries alternées, en effet la quantité $|a_n|=1/n$ est décroissante, de limite nulle et le nombre $(-1)^na_n=1/n$ est toujours positif.
+\medskip\noindent
+4.a. En intégrant sur l'intervalle $[0,1]$ la majoration 
+$$
+0\le {x^n\F 1+x}\le x^n\qquad (0\le x\le 1, n\ge0),
+$$
+nous déduisons de la croissance de l'intégrale que 
+$$
+0\le \int_0^1{x^n\d x\F1+x}\le \int_0^1x^n\d x=\Q[{x^n+1\F n+1}\W]_0^1={1\F n+1}\qquad(n\ge0).
+$$
+En faisant tendre $n$ vers $+\infty$, il r\'esulte du principe des gendarmes que $\lim_{n\to+\infty}\int_0^1{x^n\d x\F1+x}=0$ et a fortiori que $\lim_{n\to+\infty}I_n=0$. 
+\bigskip\noindent
+b. En remarquant que nous avons affaire à une somme géométrique, nous obtenons que 
+$$
+\sum_{k=0}^{n-1}(-x)^k={(-x)^n-1\F -x-1}={1\F x+1}-(-1)^n{x^n\F 1+x}\qquad (0\le x\le 1).
+$$
+En intégrant cette relation sur l'intervalle $[0,1]$, il suit 
+$$
+\sum_{k=0}^{n-1}\int_0^1(-x)^k\d x=\int_0^1\Q(\sum_{k=0}^{n-1}(-x)^k\W)=\int_0^1\Q({1\F x+1}-(-1)^n{x^n\F 1+x}\W)\d x.
+$$
+En primitivant, il nous obtenons d'une part que 
+$$
+\sum_{k=0}^{n-1}\Q[-{(-x)^{k+1}\F k+1}\W]_0^1=\Q[\ln(x+1)\W]_0^1-I_n
+$$
+mais également, après simplification, que 
+$$
+\sum_{k=0}^{n-1}{(-1)^{k}\F k+1}=\ln2-I_n.
+$$
+En procédant au changement d'indice $\ell=k+1$ dans la somme, il suit
+$$
+I_n=\ln 2+ \sum_{\ell=1}^n{(-1)^\ell\F\ell}\qquad(n\ge1).
+$$
+c. En faisant tendre $n$ vers $+\infty$ dans la relation précédente, nous déduisons du résultat de la question 4a que 
+$$
+0=\lim_{n\to+\infty}I_n=\ln 2+\sum_{\ell=1}^\infty{(-1)^\ell\F\ell}.
+$$
+Nous remarquons enfin que 
+$$
+r_n=\sum_{k=n+1}^\infty{(-1)^{k}\F k}=\sum_{k=1}^\infty{(-1)^{k}\F k}-\sum_{k=1}^n{(-1)^{k}\F k}=-\ln2-(I_n-\ln 2)=-I_n\qquad(n\ge0).
+$$
+5a. En intégrant par partie, nous obtenons que 
+$$
+\int_0^1{x^n\F 1+x}\d x=\Q[{x^{n+1}\F (n+1)(1+x)}\W]_0^1+\int_0^1{x^{n+1}\F(n+1)(1+x)^2}\d x={1\F 2(n+1)}+{1\F n+1}\int_0^1{x^n\F (1+x)^2}\d x
+$$
+En procédant comme en 4a, nous prouvons que 
+$$
+0\le \int_0^1{x^n\F (1+x)^2}\d x\le \int_0^1x^n\d x={1\F n+1}\qquad (n\ge0).
+$$
+A fortiori, nous avons $\int_0^1{x^n\F (1+x)^2}\d x=O({1\F n+1})$. En plutipliant par $(_1)^n$, nous concluons que 
+$$
+I_n={(-1)^n\F 2(n+1)}+O\Q({1\F (n+1)^2}\W)={(-1)^n\F 2(n+1)}+O\Q({1\F n^2}\W) \qquad (n\ge 1).
+$$
+5b. Il résulte de l'estimation précédente que la série $\sum_{n=1}^\infty r_n$ est (semi)-convergente car la série $\sum_{n=1}^\infty{(-1)^n\F 2(n+1)}$ est (semi)-convergente d'apreès le théorème spécial des séries alternées (et les sommes de Riemann) et la série de terme général en $O({1\F n^2})$ est absolument convergente. 
+
+\bye

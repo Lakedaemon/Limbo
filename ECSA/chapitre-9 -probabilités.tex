@@ -1,0 +1,249 @@
+%2multibyte Version: 5.50.0.2953 CodePage: 65001
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{Codepage=65001}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Tuesday, May 27, 2014 08:43:58}
+%TCIDATA{LastRevised=Wednesday, June 29, 2016 09:00:20}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{PageSetup=28,28,28,28,0}
+%TCIDATA{AllPages=
+%H=36
+%F=36
+%}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+\begin{document}
+
+
+\subsubsection{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \protect\underline{%
+Chapitre 9 : Simulation de lois de probabilit\'{e}s avec Scilab.}}
+
+\paragraph{\protect\underline{1. La commande $\func{rand}.$}}
+
+\textit{Rappel :D\'{e}f : On dit que }$X$\textit{\ suit une loi uniforme sur 
+}$\left[ a,b\right[ $\textit{\ si }$X$\textit{\ est une va \`{a} densit\'{e}
+de densit\'{e} }$f$\textit{\ d\'{e}finie par :}
+
+$\left\{ 
+\begin{array}{c}
+f(x)=\frac{1}{b-a}\text{ si }x\in \left[ a,b\right[ \\ 
+f(x)=0\text{ si }x\notin \left[ a,b\right[%
+\end{array}%
+\right. \mathit{.}$
+
+\textit{On note }$X\hookrightarrow U(\left[ a,b\right[ ).$
+
+\textit{Proposition :La fonction de r\'{e}partition d'une loi uniforme sur }$%
+\left[ a,b\right[ $\textit{\ est d\'{e}finie par : }$\left\{ 
+\begin{array}{c}
+F(x)=0\text{ si }x<a \\ 
+F(x)=\frac{x-a}{b-a}\text{ si }x\in \left[ a,b\right[ \\ 
+F(x)=1\text{ si }x\geq b%
+\end{array}%
+\right. .$
+
+D\'{e}finition de la fonction $\func{rand}\left( {}\right) :$
+
+- la fonction $\func{rand}\left( {}\right) $ donne un r\'{e}sultat choisi
+"au hasard" dans $\left[ 0;1\right[ $ donc suivant la loi uniforme sur $%
+\left[ 0;1\right[ .$
+
+- Pour tous entiers $m$ et $n,$ la fonction $\func{rand}(m,n)$ donne une
+matrice \`{a} m lignes et n colonnes, chaque coefficient \'{e}tant choisi
+selon une loi uniforme sur $\left[ 0;1\right[ .$
+
+Exemple 1 : Taper dans la console les lignes d'instructions :
+
+$-\rightarrow x=\func{rand}()$
+
+$-\rightarrow x=floor(10\ast \func{rand}())$
+
+$-\rightarrow x=\func{rand}(3,2)$
+
+$-\rightarrow x=floor(10\ast \func{rand}(3,2))$
+
+\paragraph{\protect\underline{2.Commande grand et simulations des variables
+al\'{e}atoires discr\`{e}tes usuelles.}}
+
+La fonction $g\func{rand}$ permet de simuler des lois usuelles. \ Ainsi $Y=g%
+\func{rand}(nombre-lignes,nombres-\func{col}onnes,nom-loi,param\acute{e}%
+tres) $ permet de cr\'{e}er une matrice de taille $r\times s$ , chaque
+coefficient \'{e}tant choisi suivant la loi.
+
+Soient $r$ et $s$ deux entiers naturels non nuls.
+
+La commande $A=g\func{rand}(r,s,^{\prime }$uin',$1,n)$ cr\'{e}e une matrice
+de taille $r\times s$ , chaque coefficient \'{e}tant choisi selon la loi
+uniforme sur $\left[ \left\vert 1;n\right\vert \right] $ de mani\`{e}re ind%
+\'{e}pendante.
+
+La commande $A=g\func{rand}(r,s,^{\prime }$bin',$n,p)$ cr\'{e}e une matrice
+de taille $r\times s$ , chaque coefficient \'{e}tant choisi selon la loi bin%
+\^{o}miale de param\`{e}tres $(n,p)$ de mani\`{e}re ind\'{e}pendante.
+
+La commande $A=g\func{rand}(r,s,^{\prime }$geom',$p)$ cr\'{e}e une matrice
+de taille $r\times s$ , chaque coefficient \'{e}tant choisi selon la loi g%
+\'{e}om\'{e}trique de param\`{e}tre $p$ de mani\`{e}re ind\'{e}pendante.
+
+La commande $A=g\func{rand}(r,s,^{\prime }$poi',$lambda)$ cr\'{e}e une
+matrice de taille $r\times s$ , chaque coefficient \'{e}tant choisi selon la
+loi de Poisson de param\`{e}tre $lambda$ de mani\`{e}re ind\'{e}pendante.
+
+Exemple 2 : Taper dans la console les lignes d'instructions :
+
+$-\rightarrow x=g\func{rand}(1000,1,"bin",30,0.5);$
+
+$-\rightarrow c=linspace(0,30,31);$
+
+$-\rightarrow histplot(c,x).$
+
+\paragraph{\protect\underline{3. Histogrammes.}}
+
+Si y est un vecteur, la commande bar(y) trace un histogramme dont la hauteur
+de chaque barre est donn\'{e}e par les coefficients de y. On peut aussi pr%
+\'{e}ciser les abscisses des barres en donnant un vecteur x de m\^{e}me
+longueur ( m\^{e}me nombre de colonne ) que y : bar(x,y).L' instruction bar
+suppose qu'on ait d\'{e}j\`{a} ordonn\'{e} les donn\'{e}es par classe : y
+correspond aux effectifs et x \`{a} la liste des diff\'{e}rentes classes.
+
+Ce travail fastidieux peut \^{e}tre automatis\'{e} par l'instruction
+histplot.Scilab dispose de la commande hisplot pour tracer des histogrammes
+avec deux utilisations possibles :
+
+- si $x$ est une matrice dont les coefficients sont les donn\'{e}es, la
+commande $histplot(n,x),$ r\'{e}partit les donn\'{e}es dans $n$ classes de m%
+\^{e}me largeur et trace l'histogramme correspondant, l'effectif de chaque
+classe \'{e}tant normalis\'{e} par l'effectif total. (de telle sorte que
+l'aire totale soit \'{e}gale \`{a} 1)
+
+- si $b$=$\left[ b_{1},...,b_{p}\right] $ est un vecteur ligne d\'{e}%
+finissant les classes $\left[ b_{1},b_{2}\right[ ,...,\left[ b_{p-1},b_{p}%
+\right[ $ et si $x$ est une matrice dont les coefficients sont les donn\'{e}%
+es, la commande $histplot(b,x),$ r\'{e}partit les donn\'{e}es dans les
+classes d\'{e}finies par $b$ et trace l'histogramme correspondant,
+l'effectif de chaque classe \'{e}tant normalis\'{e} par l'effectif total.
+
+Exemple 3 : Taper dans la console les lignes d'instructions :
+
+$-\rightarrow y=floor(10\ast \func{rand}(1,5))$
+
+$-\rightarrow bar(y)$
+
+$-\rightarrow z=linspace(5,21,5)$
+
+$-\rightarrow bar(z,y)$
+
+$-\rightarrow x=floor(10\ast \func{rand}(4,2))$
+
+$-\rightarrow histplot(4,x).$
+
+Remarque :La fonction $histplot(b,x)$ dessine un histogramme des donn\'{e}es
+contenues dans le vecteur $x$ en utilisant les classes $b$. Quand le nombre
+de classes n est fourni au lieu de $b$, celles-ci sont d\'{e}finies telles
+que : \ b(1) = min(x) \TEXTsymbol{<} b(2) =b(1) + db \TEXTsymbol{<} ... 
+\TEXTsymbol{<} b(n+1) = max(x) avec db = (b(n+1)-b(1))/n. Les classes sont d%
+\'{e}finies par C1 = [b(1), b(2)] puis Ci = ] b(i), b(i+1)] pour i =
+2,3,...,n.
+
+En notant Nmax le nombre total de donn\'{e}es (Nmax = longueur(x)) et Ni le
+nombre de donn\'{e}es se situant dans Ci, la valeur de l'histogramme pour x
+appartenant \`{a}~ Ci est \'{e}gale \`{a}~ Ni/(Nmax (x(i+1)-x(i))) quand on
+normalise (comportement par d\'{e}faut) et sinon elle vaut simplement Ni.
+
+\underline{Exercice 1 :}On consid\`{e}re des lancers d'un d\'{e} cubique 
+\'{e}quilibr\'{e}.
+
+1) Que fait la s\'{e}quence suivante :
+
+S = 0;
+
+for i =1 :10
+
+\ d = floor(6*rand()+1);\ 
+
+S = S+d ;
+
+\ \ end
+
+moy = S/10;
+
+disp(moy)
+
+2) Ecrire un programme qui simule 1000 lancers de d\'{e}s et qui compte et
+affiche le nombre de 6 obtenus. Ce programme permet de simuler quelle loi
+discr\`{e}te usuelle ?\ 
+
+\underline{Exercice 2 :}On se propose de simuler informatiquement une
+variable al\'{e}atoire.
+
+On consid\`{e}re le programme informatique suivant :
+
+\texttt{\ }ini=floor(3*rand());
+
+if ini==2 then
+
+y=floor(2*rand())+1
+
+else y=3
+
+end
+
+disp(y)
+
+On appelle $Y$ le contenu de y apr\`{e}s ex\'{e}cution du programme exo 2.
+
+Donner la loi de $Y$, calculer et son esp\'{e}rance $E(Y).$
+
+\underline{Exercice 3 :} Simulation de la loi g\'{e}om\'{e}trique de param%
+\`{e}tre $p.$
+
+1. En utilisant la fonction $\func{rand}().$
+
+a. Soit $p\in \left] 0,1\right[ .$ Soit \textit{On note }$X\hookrightarrow U(%
+\left[ 0,1\right] ).$Calculer $P(X\leq p).$
+
+b. Ecrire un programme en Scilab qui permet de simuler une loi g\'{e}om\'{e}%
+trique $Y$ de param\`{e}tre $p.$
+
+2. En utilisant la fonction $g\func{rand}().$
+
+a. A l'aide d'une boucle $while$ et de la commande $g\func{rand}%
+(1,1,"bin",1,p)$ ( qui permet de simuler une loi de Bernoulli ), simuler \
+une va qui suit une loi g\'{e}om\'{e}trique $Y$ de param\`{e}tre $p.$
+
+b. A l'aide du g\'{e}n\'{e}rateur $g\func{rand}$ simuler directement un \'{e}%
+chantillon i.id de taille 100 de loi g\'{e}om\'{e}trique de param\`{e}tre $%
+p=0.2$ et tracer l'histogramme correspondant .( Le vecteur b d\'{e}finissant
+les classes varie de 0.5 \`{a} 20.5 avec un pas de 1.)
+
+\end{document}

@@ -1,0 +1,258 @@
+%2multibyte Version: 5.50.0.2953 CodePage: 65001
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{Codepage=65001}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wed Oct 13 14:25:44 2004}
+%TCIDATA{LastRevised=Wednesday, June 29, 2016 08:58:02}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="General\Blank Document">}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+%TCIDATA{PageSetup=28,28,28,14,0}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+\begin{document}
+
+
+\subsection{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\protect\underline{Chapitre 5 $:$ Instruction \ conditionnelle If}.}
+
+\subsubsection{\protect\bigskip \protect\underline{1. R\'{e}daction de l'
+instruction conditionnelle $if.$}}
+
+L'instruction conditionnelle \ de base permet de donner des instructions diff%
+\'{e}rentes selon qu'un test est vrai ou faux.
+
+\bigskip
+
+\underline{Premi\`{e}re r\'{e}daction :} $%
+\begin{array}{c}
+if\text{ cond 1 }then \\ 
+Instruction\text{ A} \\ 
+end%
+\end{array}%
+$
+
+Si la condition bool\'{e}enne 1 est vraie alors l'instruction A est r\'{e}%
+alis\'{e}e.
+
+\bigskip
+
+\underline{Deuxi\`{e}me r\'{e}daction : } $%
+\begin{array}{c}
+if\text{ cond 2 }then \\ 
+\text{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }Instruction%
+\text{ A } \\ 
+\text{ \ }else \\ 
+\text{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }Instruction\text{ B}
+\\ 
+end%
+\end{array}%
+$
+
+Si la condition bool\'{e}enne 2 est vraie, l'instruction A est ex\'{e}cut%
+\'{e}e sinon l'instruction B est ex\'{e}cut\'{e}e.
+
+\bigskip
+
+Remarques :
+
+- \ Il existe une autre synthaxe de $if$ \ utile pour \'{e}crire des
+instructions tenant sur une ligne , qui utilise des virgules "," :
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if condition \ then,
+Instruction A, else, Instruction B, end
+
+- Quand $else$ est suivi d'un $if$ , on peut utiliser la forme $elseif$ de
+la fa\c{c}on suivante :
+
+$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ 
+\begin{array}{c}
+if\text{ cond 1 }then \\ 
+\text{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }Instruction%
+\text{ A1 } \\ 
+\text{ \ }elseif\text{ cond 2 \ }then \\ 
+\text{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }Instruction\text{ A2}
+\\ 
+else\text{ \ \ \ }Instruction\text{ A3} \\ 
+end%
+\end{array}%
+$
+
+L'utilisation de $if$ \ $elseif$ permet de sp\'{e}cifier plusieurs
+conditions. Seules les instructions correspondant \`{a} la premi\`{e}re
+condition v\'{e}rifi\'{e}e sont ex\'{e}cut\'{e}es.
+
+- La seule contrainte est que chaque mot-cl\'{e} $then$ doit \^{e}tre sur la
+m\^{e}me ligne que le $if$ ou le $elseif$ correspondant.
+
+\bigskip \underline{Rappels : op\'{e}rateurs relationnels et logiques.}
+
+Une variable logique ou bool\'{e}enne correspond \`{a} une expression
+logique. Elle peut prendre deux valeurs : vraie ( $\%t$ ) ou fausse ( $\%f$
+).
+
+Logiques : $%
+\begin{array}{ccc}
+\& & | & \symbol{126} \\ 
+et & ou\text{ } & non%
+\end{array}%
+$
+
+Comparaisons et tests : $%
+\begin{array}{cccccc}
+== & < & > & >= & <= & <> \\ 
+\text{{\small \'{e}galit\'{e}}} & \text{{\small inf\'{e}rieur strict}} & 
+\text{{\small sup\'{e}rieur strict}} & \text{{\small sup\'{e}rieur ou \'{e}%
+gal}} & \text{{\small inf\'{e}rieur ou \'{e}gal}} & \text{{\small diff\'{e}%
+rent}}%
+\end{array}%
+$
+
+\subsubsection{\protect\underline{2. Exercices .}}
+
+\paragraph{\protect\underline{Exercice 1 :}}
+
+On consid\`{e}re le programme suivant :
+
+a=input("donner la valeur de a");
+
+b=input("donner la valeur de b");
+
+\ \ \ if a \TEXTsymbol{<} b then
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux = a
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a = b
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b= aux
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ end
+
+disp(a,"a=");
+
+disp("b=",b);
+
+1. Pour a = 2 et b = 6, donner les valeurs de a et b \`{a} la fin du
+programme. Expliquer l'action de ce programme sur a et b.
+
+2. Idem pour a = 9 et b = 3.
+
+\paragraph{\protect\underline{Exercice 2 :}}
+
+On consid\`{e}re le programme suivant :
+
+a=input("donner la valeur de a");
+
+b=input("donner la valeur de b");
+
+c=input("donner la valeur de c");
+
+\ \ \ \ if a \TEXTsymbol{>} b then \ d = a
+
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ else \ \ d = b
+
+\ \ \ end
+
+\ \ \ \ if c \TEXTsymbol{>} d then d =c
+
+\ \ \ end
+
+disp(d)
+
+1. Pour a =-1, b=6, c=9, donner la valeur affich\'{e}e par l'ordinateur.
+Expliquer l'objectif de ce programme.\ \ \ 
+
+2. Idem pour a =8, b=17, c=-4.
+
+\paragraph{\protect\underline{Exercice 3 :}}
+
+Soit $f$ la fonction d\'{e}finie sur $\mathbb{R}$ par :$f(x)=\dfrac{\exp (x)%
+}{x-1}$ si $x\leq 0$ et $f(x)=x\ln x-1$ \ si $x>0$
+
+1. Etudier la continuit\'{e} de $f$ sur $%
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+.$
+
+2. \ Ecrire un programme qui demande \`{a} l'utilisateur une valeur $x$ et
+qui affiche la valeur de $f(x).$
+
+\paragraph{\protect\underline{Exercice 4 :}}
+
+Soit $f$ la fonction d\'{e}finie sur $\mathbb{R}$ par :$\left\{ 
+\begin{array}{c}
+f(x)=\exp (-x)+x-2\text{ si }x\leq 0 \\ 
+f(x)=x\cos x-1\text{ \ si }x\epsilon \left] 0;3\right] \\ 
+f(x)=\frac{x^{2}+2}{x-1}\text{ \ si }x>3%
+\end{array}%
+\right. .$
+
+Ecrire un programme qui demande \`{a} l'utilisateur une valeur $x$ et qui
+affiche la valeur de $f(x).$
+
+\bigskip
+
+\paragraph{\protect\underline{Exercice \ 5 :}}
+
+Ecrire un programme qui demande \`{a} l'utilisateur un entier naturel non
+nul $n$ et qui permet d'afficher la matrice de $M_{n}\left( 
+%TCIMACRO{\U{211d} }%
+%BeginExpansion
+\mathbb{R}
+%EndExpansion
+\right) $ de la forme suivante :
+
+$A_{n}=\left( 
+\begin{array}{ccccc}
+2 & -1 & -1 & \cdots & -1 \\ 
+3 & 2 & \ddots &  & \vdots \\ 
+3 & \ddots & \ddots & \ddots & -1 \\ 
+\vdots &  & \ddots & 2 & -1 \\ 
+3 & \cdots & 3 & 3 & 2%
+\end{array}%
+\right) .$
+
+\paragraph{\protect\underline{Exercice 6 :}}
+
+Ecrire un programme prenant en entr\'{e}e un trin\^{o}me $aX^{2}+bX+c,$ avec 
+$a\neq 0$, repr\'{e}sent\'{e} par un tableau de ses coefficients et
+affichant ses racines r\'{e}elles si elles existent ou "aucune racine r\'{e}%
+elle" sinon.
+
+\end{document}

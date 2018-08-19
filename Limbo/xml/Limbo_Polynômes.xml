@@ -6,52 +6,9 @@
 
 <text>Dans tout ce chapitre, le symbole $𝕂$ désigne le corps $𝕂=ℝ$ ou le corps $𝕂=ℂ$.</text>
 
-<section t="Généralités">
+<section t="Polynômes">
 
-<definition>Un polynôme (formel) à coefficients dans $𝕂$ (de l'indeterminée $X$) est une suite $(a_k)_{k∈ℕ}$ de nombres de $𝕂$, nulle à partir d'un certain rang $n$, que l'on note
-\startsdformula
-∑_{k=0}^∞a_kX^k=P=∑_{k=0}^na_kX^k
-\stopsdformula
-</definition>
-
-<concept t="espace"><text>L'ensemble de tous les polynômes à coefficients dans $𝕂$ est noté $𝕂[X]$.</text>
-<notation>
-\startformula 
-𝕂[X]:=\Q\{∑_{k=0}^na_kX^k:n⩾0\Et a_0,⋯,a_n∈𝕂\W\}
-\stopformula
-</notation>
-</concept>
-
-<concept t="fonction polynôme"><text>Une fonction polynôme peut être associée à chaque polynôme en substituant une variable à l'indeterminée.</text>
-<definition>$f:ℝ→ℂ$ est une fonction polynôme \ssi il existe $N∈ℝ$ et $a_0,⋯,a_N$ dans $𝕂$ tels que 
-\startsdformula
-f(x)=∑_{k=0}^Na_kx^k\qquad(x∈ℝ)
-\stopsdformula
-</definition>
-<remark>Le nombre $P(x)$ est la valeur (numérique) du polynôme $P$ en $x$. \crlf
-Calculer cette valeur revient à substituer $x$ à la place de $X$ dans l'expression de $P$</remark>
-</concept>
-
-<property>La fonction polynôme associée à un polynôme $\D P=∑_{k=0}^Na_kX^k$ est la fonction
-\startsdformula
-\Function{f:ℝ→ℂ|x↦\D ∑_{k=0}^Na_kx^k}
-\stopsdformula</property>
-
-
-<concept t="égalité">
-<property>Soient $P$ et $Q$ deux polynômes. Alors, $P=Q⟺∀ x∈𝕂,P(x)=Q(x)$</property>
-<remark>Deux polynômes sont égaux \ssi leurs fonctions polynômes associées sont les mêmes.</remark>
-<remark>Autrement dit, deux polynômes ayant en tout point de $ℝ$ ou $ℂ$ même valeur
-numérique ont mêmes cœfficients.</remark>
-</concept>
-
-
-<context>\important{Les détails techniques subtils de la définition des polynômes formels ne sont pas à connaître. 
-En~particulier, on pourra librement les identifier aux fonctions polynomiales. Cependant, pour la suite de ce chapitre, les propriétés seront exprimés dans le formalisme des polynômes (parce que c'est plus naturel), dont le maniement est familier : 
-on les manipule comme les expressions comportant des variables}</context>
-
-
-<concept p="-e" t="polynôme" m="-β+β"><text>Un polynôme est une combinaison linéaire de monômes.</text>
+<concept t="polynôme" m="-β+β"><text>Un polynôme est une combinaison linéaire de monômes.</text>
 <definition h="$a_0,⋯,a_n∈𝕂$">
 \startformula 
 P=∑_{k=0}^na_kX^k
@@ -63,63 +20,105 @@ P=∑_{k=0}^na_kX^k
 <remark>Un monôme est un polynôme du type $P=X^k$ pour $k∈ℕ$.</remark>
 </concept>
 
-
-</section><section t="Opérations algébriques">
-
-<context>Dans cette section,$P$ et $Q$ désignent deux polynômes à coefficients dans $𝕂$
+<concept t="fonction polynôme"><text>Une fonction polynôme peut être associée à chaque polynôme en substituant une variable à l'indeterminée.</text>
+<definition h="$P=∑_{k=0}^na_kX^k$">
 \startformula 
-P=∑_{k=0}^∞a_kX^k\quad\Et\quad  Q=∑_{k=0}^∞b_kX^k
+P(x):=∑_{k=0}^na_kx^k\qquad(x∈𝕂).
 \stopformula
-</context>
+</definition>
+<remark>Le nombre $P(x)$ est la valeur (numérique) du polynôme $P$ en $x$. \crlf
+Calculer cette valeur revient à substituer $x$ à la place de $X$ dans l'expression de $P$</remark>
+</concept>
+
+<concept t="égalité">
+<property h="$P,Q∈𝕂[X]$">
+$$
+P=Q⟺∀ x∈𝕂,P(x)=Q(x).
+$$</property>
+<remark>Deux polynômes sont égaux \ssi leurs fonctions polynômes associées sont les mêmes.</remark>
+<remark>Autrement dit, deux polynômes ayant en tout point de $ℝ$ ou $ℂ$ même valeur
+numérique ont mêmes cœfficients.</remark>
+<remark>En BCPST, les polynômes seront (abusivement) confondus avec les fonctions polynômes</remark>
+</concept>
+
+<concept t="espace"><text>L'ensemble de tous les polynômes à coefficients dans $𝕂$ est noté $𝕂[X]$.</text>
+<definition>
+\startformula 
+𝕂[X]:=\Q\{∑_{k=0}^na_kX^k:n⩾0\Et a_0,⋯,a_n∈𝕂\W\}
+\stopformula
+</definition>
+</concept>
 
 <concept t="addition\\multiple"><text>La somme et les multiples (plus généralement les combinaisons linéaires) 
 de polynômes à coefficients dans $𝕂$ sont des polynômes à coefficients dans $𝕂$.</text>
 <combination>
-<definition t="somme">$\D ∑_{k=0}^∞a_kX^k + ∑_{k=0}^∞b_kX^k:=∑_{k=0}^∞\rare{\underbrace{\normal{(a_k+b_k)}}_{c_k}}X^k$</definition>
-<definition t="multiple">$\D λ⋅∑_{k=0}^∞a_kX^k:=∑_{k=0}^∞\rare{\underbrace{\normal{(λa_k)}}_{c_k}}X^k\qquad(λ∈𝕂)$</definition></combination>
-<property>$(𝕂[X], +, ⋅)$ est un $𝕂$-espace vectoriel</property>
+<definition h="$P=∑_{k=0}^pa_kX^k$, $Q=∑_{ℓ=0}^qb_ℓX^ℓ$">\startformula 
+P+Q:=∑_{k=0}^k(a_k+b_k)X^k
+\stopformula</definition>
+<definition h="$P=∑_{k=0}^pa_kX^k$">
+\startformula 
+λ⋅P:=∑_{k=0}^nλa_kX^k
+\stopformula
+</definition></combination>
 </concept>
 
 <concept t="produit"><text>Le produit de polynômes à coefficients dans $𝕂$ est un polynôme à coefficients dans~$𝕂$.</text>
-<definition m="?" t="produit" c="" h="$P=∑_{k=0}^pa_kX^k$, $Q=∑_{ℓ=0}^qb_ℓX^ℓ$">
-$\D \D \Q(∑_{m=0}^∞a_mX^m\W) × ∑_{n=0}^∞b_nX^n:=∑_{k=0}^∞\rare{\underbrace{\normal{\Q(∑_{m+n=k}a_m×b_n\W)}}_{c_k}}X^k$</definition>
+<definition h="$P=∑_{k=0}^pa_kX^k$, $Q=∑_{ℓ=0}^qb_ℓX^ℓ$">
+\startformula 
+P×Q:=∑_{s=0}^{p+q}\Q( ∑_{k+ℓ=s}a_k×b_ℓ\W)X^s
+\stopformula</definition>
 </concept>
 
 <concept t="algèbre">
-<property>On calcule avec les polynômes comme avec les nombres réels</property>
-<property p="-e">\startformula 
+<property>\startformula 
 (𝕂[X],+,⋅,×) \text{ algèbre commutative}
-\stopformula</property>
-<remark>Autrement dit, on calcule avec les polynômes comme on calcule avec les nombres réels en ce qui concerne sommes, multiples et produits. 
-Les propriétés classiques (distributivité, associativité, commutativité, …) sont valables pour les polynômes.</remark>
+\stopformula</property><remark>Autrement dit, on calcule avec les polynômes comme on calcule avec les nombres réels en ce qui concerne sommes, multiples et produits. 
+Les propriétés calssiques (distributivité, associativité, commutativité, …) sont valables pour les polynômes.</remark>
 </concept>
 
 <concept t="Identité\\algébrique">
-<property t="Identité\\algébrique" c="" h="$P,Q$ polynômes, $n∈ℕ$">$\D P^n-Q^n=(P-Q)\sum_{k=0}^{n-1}P^kQ^{n-1-k}\qquad(n∈ℕ)$
+<property h="$P,Q$ polynômes, $n∈ℕ$"> 
+\startformula
+P^n-Q^n=(P-Q)\sum_{k+ℓ=n-1}P^kQ^ℓ
+\stopformula
 </property>
 <remark>Cette égalité est vraie pour $n=0$ avec la convention selon laquelle $P^0=Q^0=I_n$ 
 et selon laquelle une somme vide est nulle. </remark>
 </concept>
 
 <concept t="Binôme\\de Newton">
-<property t="binôme de Newton" m="+" i="identité+binôme de Newton" c="" h="$P,Q$ polynômes, $n∈ℕ$"> 
-$\D (P+Q)^n=\sum_{k=0}^n{n\choose k}P^kQ^{n-k}\qquad(n∈ℕ)$</property>
+<property m="+" i="identité+binôme de Newton" h="$P,Q$ polynômes, $n∈ℕ$"> 
+\startformula
+(P+Q)^n=\sum_{k+ℓ=n}{n\choose k}P^kQ^ℓ
+\stopformula
+</property>
 <remark>Cette égalité est vraie pour $n=0$ avec la convention selon laquelle $P^0=Q^0=1$ 
 et selon laquelle une somme vide est nulle. </remark>
 </concept>
 
-</section>
-<section t="dérivation">
+</section><section t="dérivation">
 
 <concept t="dérivée"><text>La dérivée d'un polynômes à coefficients dans $𝕂$ est un polynôme à coefficients dans~$𝕂$.</text>
-<definition m="?" t="dérivation">$\D\Q(∑_{k=0}^∞a_kX^k\W)':=∑_{k=1}^∞ka_kX^{k-1}\rare{=∑_{k=0}^∞(k+1)a_{k+1}X^k}$</definition>
+<definition h="$P=∑_{k=0}^na_kX^k$">
+\startformula 
+P':=∑_{k=1}^nka_kX^{k-1}
+\stopformula</definition>
 </concept>
 
 <concept t="somme\\multiple\\produit"><text></text>
 <combination>
-<property t="somme" c="" h="$P,Q$ polynômes">$(P+Q)'=P'+Q'$</property>
-<property t="multiple" c="" h="$λ∈𝕂$, $P$ polynôme">$(λ⋅P)'=λ⋅P'$</property>
-<property t="produit" c="" h="$P,Q$ polynômes">$(P×Q)'=P'×Q+P×Q'$</property>
+<property h="$P,Q$ polynômes">
+\startformula 
+(P+Q)'=P'+Q'
+\stopformula</property>
+<property h="$λ∈𝕂$, $P$ polynôme">
+\startformula 
+(λ⋅P)'=λ⋅P'
+\stopformula</property>
+<property h="$P,Q$ polynômes">
+\startformula 
+(P×Q)'=P'×Q+P×Q'
+\stopformula</property>
 </combination>
 <remark>La dérivée d'une combinaison linéaire de polynômes est lacombinaison linéaire de leurs dérivées
 \startformula 
@@ -128,22 +127,26 @@ et selon laquelle une somme vide est nulle. </remark>
 </concept>
 
 <concept t="Formule de Leibniz">
-<theorem t="formule de Leibniz" m="?" c="" h="$P,Q$ polynômes, $n∈ℕ$">
-$\D (PQ)^{(n)}= ∑_{k=0}^n{n\choose k}P^{(k)}Q^{(n-k)}\qquad(n∈ℕ)$</theorem>
+<theorem h="$P,Q$ polynômes, $n∈ℕ$">
+\startformula 
+(PQ)^{(n)}= ∑_{0 ⩽ k ⩽ n}{n\choose k}P^{(k)}Q^{(n-k)}
+\stopformula</theorem>
 </concept>
 
 </section><section t="Substitution">
 
 <concept t="composée"><text>La composée de deux polynômes à coefficients dans $𝕂$ est un polynôme à coefficients dans $𝕂$.</text>
-<definition>$\D Q(P)=\rare{Q∘P}=∑_{k=0}^∞a_kP^k\qquad(P\Et Q=∑_{k=0}^∞a_kX^k\text{ dans }𝕂[X])$</definition>
-<property>$Q(X)=Q\qquad(Q∈𝕂[X])$</property>
+<definition h="$P∈𝕂[X]$, $Q=∑_{k=0}^pa_kX^k$">
+\startformula 
+Q∘P:=∑_{k=0}^pa_kP^k
+\stopformula</definition>
 </concept>
 
-<concept t="formules de Taylor"><theorem  t="formule de Taylor" c="" h="$P$ polynôme, $a∈𝕂$">
-$\D P(X+a)=∑_{k=0}^∞P^{(k)}(a){X^k\F k!}\qquad(P∈𝕂[X], a∈𝕂)$</theorem>
-
-<theorem  t="\rare{formule de Taylor \dagger}" c="" h="$P$ polynôme, $a∈𝕂$">
-$\D P(X+a)=∑_{k=0}^∞P^{(k)}(X){a^k\F k!}\qquad(P∈𝕂[X], a∈𝕂)$</theorem>
+<concept t="formule de Taylor"><theorem h="$P$ polynôme, $a∈𝕂$">
+\startformula 
+P(X+a)=∑_{k⩾0}P^{(k)}(a){X^k\F k!}
+\stopformula
+</theorem>
 </concept>
 <remark>La somme est finie car les dérivées de $P$ sont toutes nulles à partir d'un certain rang.</remark>
 <remark>Pour les polynômes (uniquement), la variante (beaucoup moins utile) suivante est également satisfaite
@@ -152,81 +155,94 @@ P(X+a)=∑_{k⩾0}P^{(k)}(X){a^k\F k!}
 \stopformula
 </remark>
 
-</section>
-<section t="degré">
+</section><section t="degré">
 
 <concept t="degré">
-<definition t="degré">$\D\deg\bigg(\underbrace{∑_{k=0}^∞a_kX^k}_P\bigg)=\max\{k:a_k≠0\}\qquad(\important{P≠0})$</definition>
-<convention>$\deg(0)=-∞$</convention>
-<property>$\deg(c)=0\qquad(c∈𝕂^*)$</property>
+<definition h="$P= ∑_{k=0}^na_kX^k$">
+\startformula 
+\deg(P)=\sup\{k:a_k≠0\}.
+\stopformula</definition>
 <remark>Le degré d'un polynôme non nul est un nombre entier positif.</remark>
-<property>$\D ∑_{k=0}^∞a_kX^k=P=∑_{k=0}^{\deg(P)}a_kX^k\qquad(\important{P≠0})$</property>
+<remark>Le degré du polynôme nul est $-∞$.</remark>
+<remark>Le degré d'un polynôme constant non nul est $0$.</remark>
+<remark>Chaque polynôme non-nul $P$ vérifie 
+\startformula 
+P= ∑_{k=0}^{\deg(P)}a_kX^k.
+\stopformula
+</remark>
 <remark>Pour un polynôme non nul, le coefficient $a_{\deg(P)}$ est appelé coefficient du monôme dominant de $P$</remark>
 </concept>
 
 <concept t="polynôme unitaire">
-<definition>$\D P= ∑_{k=0}^na_kX^k\text{ unitaire}⟺\System{[align=left]
+<definition h="$P= ∑_{k=0}^na_kX^k$">
+\startformula 
+P\text{ unitaire}⟺\System{
 \NC P≠0\NR
 a_{\deg(P)}=1
-}$
+}
+\stopformula
 </definition>
 <example>$X^3+2X+7$ et $(X+1)^{1337}$ sont des polynômes unitaires. Le polynôme $7X^3+1$ n'en est pas un, car son monôme dominant est $7X^3$.</example>
 </concept>
 
 <concept t="somme\\multiple\\produit\\dérivation">
 
-<property t="somme" m="?" c="" h="$P,Q$ polynômes">
-$\D \deg(P+Q) \Align {[align={left}]\NC\NR
-\NC = \max\big\{\deg(P),\deg(Q)\big\}\qquad \text{ si }\deg(P)≠\deg(Q)\NR
-\NC ⩽\max\big\{\deg(P),\deg(Q)\big\}\qquad \text{ sinon}
+<property h="$P,Q$ polynômes">
+\startformula 
+\Align{
+\NC \deg(P+Q) \NC ⩽\max\big\{\deg(P),\deg(Q)\big\}\qquad (\deg(P)=\deg(Q))\NR
+\NC  \NC = \max\big\{\deg(P),\deg(Q)\big\}\qquad (\deg(P)≠\deg(Q))
 }
-$</property>
-<combination>
-<property t="multiple" c="" h="$λ≠0$, $P$ polynôme non nul">
-$\deg(λP)=\deg(P)\qquad(P≠0, λ∈𝕂^*)$
+\stopformula
 </property>
-<property m="?" t="produit" c="" h="$P,Q$ polynômes non nuls">
-$\deg(P×Q)=\deg(P)+\deg(Q)\qquad(P≠0,Q≠0)$</property>
+<combination>
+<property h="$λ≠0$, $P$ polynôme non nul">
+\startformula 
+λ\deg(P)=\deg(P)
+\stopformula
+</property>
+<property h="$P,Q$ polynômes non nuls">
+\startformula 
+\deg(PQ)=\deg(P)+\deg(Q)
+\stopformula
+</property>
+
 </combination>
-<property m="?" t="dérivée">
-$\deg(P')\Align{[align={left, left}]
-\NC \NR
-\NC  = \deg(P) - 1\NC\text{si } \deg(P)⩾1\NR
-\NC  = -∞\NC\text{sinon}
-}$</property>
+<property h="$P$ polynôme">
+\startformula 
+\Align{ 
+\NC \deg(P') \NC = \deg(P) - 1\qquad (\deg(P)⩾1)\NR
+\NC  \NC = -∞\qquad (\deg(P)⩽0)
+}
+\stopformula
+</property>
 </concept>
 
-<concept m="?"  t="espace $𝕂_n[X]$"><text>L'ensemble des polynômes à coefficients dans $𝕂$ de degré inférieur à $n$ est noté $𝕂_n[X]$.</text>
-<definition t="espace $𝕂_n[X]$">$𝕂_n[X]:=\{P∈𝕂[X]:\deg(P)⩽n\}\qquad(n∈ℕ)$</definition>
-<property>$P∈𝕂_n[X]⟺∃(a_0,⋯,a_n)∈𝕂^{n+1}:P=a_0+a_1X+⋯+a_nX^n\qquad(n∈ℕ)$</property>
 
-<property>$𝕂_n[X]$ est un sous-espace vectoriel de $𝕂[X]$</property>
+<concept t="espace $𝕂_n[X]$"><text>L'ensemble des polynômes à coefficients dans $𝕂$ de degré inférieur à $n$ est noté $𝕂_n[X]$.</text>
+<definition h="$n∈ℕ$">
+\startformula 
+𝕂_n[X]:=\{P∈𝕂[X]:\deg(P)⩽n\}
+\stopformula
+</definition>
+<remark>Pour $n⩾0$, on a 
+\startformula 
+P∈𝕂_n[X]⟺∃(a_0,⋯,a_n)∈𝕂^n:P=a_0+a_1X+⋯+a_nX^n
+\stopformula</remark>
 </concept>
-</section>
 
-<section t="Diviseurs et division euclidienne">
+</section><section t="racines">
 
 <concept t="diviseur"><text>Un polynôme $P$ est un diviseur de $Q$ \ssi $Q$ est un multiple de $P$.</text>
-<definition t="diviseur" m="?" c="" h="$P, Q∈𝕂[X]$">$Q\text{ divise }P⟺Q|P⟺∃R∈𝕂[X], P=Q×R$</definition>
-<definition t="multiple">$P \text{ multiple de } Q ⟺ Q|P⟺ Q\text{ diviseur de } P$</definition>
+<definition h="$P, Q∈𝕂[X]$">
+\startformula 
+Q|P⟺∃R∈𝕂[X], P=Q×R
+\stopformula</definition>
 <remark>Lorsque $P$ est un diviseur de $Q$, on dit également que $P$ divise $Q$ et l'on note $P|Q$.</remark>
 <remark>Le polynôme $0$ est un multiple de tout polynôme (tous les polynômes divisent $0$).</remark>
-<property>$0|P⟺ P = 0$</property>
-<property>$Q|P⟹0⩽\deg(Q)⩽\deg(P)\qquad(\important{P≠0})$</property>
+<remark>Le seul multiple de $0$ est $0$ ($0$ n'est diviseur d'aucun polynôme à part lui-même)</remark>
+<remark>Si $Q$ est un diviseur de$P\neq0$, on a forcément $0⩽\deg(Q)⩽\deg(P)$.</remark>
 </concept>
-
-<concept t="division euclidienne"><property t="division euclidienne">Soient deux polynômes $P$ et $D≠0$. Alors, il existe deux polynômes $Q$ et $R$, uniques, tels que  
-$P=QD+R$ et $\deg(R)\Le\deg(D)$
-</property></concept>
-
-<definition t="Polynômes irreductibles">$P≠0$ est reductible dans $𝕂$ \ssi $P$ admet un diviseur $D∈𝕂[X]$ de degré vérifiant $0\Le \deg(D)\Le \deg(Q)$\crlf
-Dans le cas contraire, $P$ est dit irreductible dans $𝕂$</definition>
-</section>
-
-<property>$P∈𝕂_1[X]^*⟹ P \text{ irreductible dans }𝕂$</property>
-<section t="Racines">
-
-<context>Dans cette section, $n∈ℕ$, $α∈𝕂$ et $P$ désigne un polynôme de $𝕂[X]$ </context>
 
 <concept t="équation polynomiale"><text>L'équation algèbrique (polynômiale) 
 associée à un polynôme $P= ∑_{k=0}^Na_kX^k$ est l'équation $\tilde P(x)=0$, c'est à dire 
@@ -238,29 +254,37 @@ d'inconnue $x$ variant dans $ 𝕂$.
 </concept>
 
 <concept t="zéro\\racine"><text>Un zéro (ou une racine) d'un polynôme $P$ est une solution de l'équation polynômiale $P(x)=0$. </text>
-<definition t="racine" m="?" c="" h="$P∈𝕂[X]$, $α∈𝕂$">
-$\ChoicesR{\NC α\text{ racine de }P\NR\NC α\text{ zéro de }P}⟺P(α)=0$</definition>
-<property m="?" t="racine">$P(α)=0⟺ (X-α)|P⟺ ∃Q∈𝕂[X], P=(X-α)Q$</property>
-
-</concept>
-
-<concept t="multiplicité">
-<definition t="multiplicité">$α$ est une racine de $P$ de multiplicité $n$ \ssi
+<definition h="$P∈𝕂[X]$, $α∈𝕂$">
 \startformula 
-\System{[align=left]
+α\text{ racine de }P⟺P(α)=0
+\stopformula
+</definition>
+<remark> On a 
+\startformula 
+\Align{
+\NC P(α)=0\NC ⟺ α\text{ racine de } P \NR 
+\NC \NC ⟺ ∃R∈𝕂[X], P=(X-α)R\NR
+\NC\NC ⟺ (X-α)|P
+}\stopformula </remark>
+<remark>$α$ est une racine de $P$ de multiplicité $n$ \ssi
+\startformula 
+\System{
 \NC P(α)=0\NR
 \NC ⋮\NR
 \NC P^{(n-1)}(α)=0\NR
 \NC P^{(n)}(α)≠0
 }
 \stopformula
-</definition>
-<property>La multiplicité $n$ de $z$ en tant que racine d'un polynôme $P$ est un entier de $ℕ$.\crlf
-\crlf{\it Si $z$ est racine de $P$, $n⩾1$ et sinon $n=0$}</property>
-<property c="" h="$P∈𝕂[X]$, $α∈𝕂$">$α\text{ racine de multiplicité $n$ de $P$ }\ \Align{
-\NC\NC\NR
-\NC ⟺ \NC P=(X-α)^n\Et R(α)≠0\NR
-\NC ⟺\NC (X-α)^n|P\Et(X-α)^{n+1}\not|P}$</property>
+</remark>
+<remark>Les nombres deux à deux distincts $α_1,⋯,α_k$  sont racines de $P$ de multiplicité $n_1,⋯,n_k$ \ssi $(X-α_1)^{n_1}⋯(X-α_k)^{n_k}$ divise $P$.
+$2$ à $2$  distincts de $P$ 
+</remark>
+</concept>
+
+<concept t="multiplicité"><property h="$P∈𝕂[X]$, $α∈𝕂$">
+\startformula 
+α\text{ racine de multiplicité $n$ de }⟺ P=(X-α)^nR\Et R(α)≠0.
+\stopformula</property>
 <remark>La~multiplicité de $ α$ en temps que racine de $P$ est le plus grand entier $n ⩾1$ 
 pour lequel il~existe $R ∈ 𝕂[X]$ tel que 
 \startformula 
@@ -274,91 +298,67 @@ C'est aussi le plus grand entier $n ⩾1$ pour lequel on a
 \NC⋮\NR
 \NC P^{(n-1)}( α)=0}
 \stopformula</remark>
-
-
-<property>Les nombres deux à deux distincts $α_1,⋯,α_k$  sont des racines de $P$ de multiplicité respective $n_1,⋯,n_k$ \ssi $(X-α_1)^{n_1}⋯(X-α_k)^{n_k}$ divise $P$.
-</property>
-
-
 </concept>
 
 
 <concept t="racines et degré">
-<theorem m="?" t="racines et degré" c="" h="$P$ polynôme non nul">Un polynôme $P≠0$ admet au plus $\deg(P)$ racines distinctes</theorem>
-<corollary t="trop de racines">Si $P∈𝕂_n[X]$ admet au moins $n+1$ racines, alors $P=0$</corollary>
+<theorem h="$P$ polynôme non nul">
+\startformula 
+P\text{ admet au plus $\deg(P)$ racines distinctes} 
+\stopformula</theorem>
+<remark>Autrement dit, si $P∈𝕂_n[X]$ admet au moins $n+1$ racines, alors $P=0$. </remark>
 </concept>
 
 <concept t="théorème de Gauss"><text>Tout polynôme non constant admet au moins une racine dans $ℂ$.</text>
-<theorem t="théorème de Gauss" c="" h="$P$ polynôme">$\deg(P)⩾1⟹∃α∈ℂ:P(α)=0$</theorem>
+<theorem h="$P$ polynôme">
+\startformula 
+\deg(P)⩾1⟹∃α∈ℂ:P(α)=0
+\stopformula</theorem>
 </concept>
 
-<corollary>$P \text{ irreductible dans }ℂ⟺P∈ℂ_1[X]^*$</corollary>
-
-</section>
-
-<section t="Décomposition en produit">
-
-<context>Dans cette section, $\D P=∑_{k=0}^nc_kX^n$ désigne un polynôme \important{de degré $n⩾1$} à coefficients dans $𝕂$, 
-dont les racines complexes $α_1, …α_p$ admettent respectivement les multiplicité $n_1,…,n_p$.</context>
-
-
 <concept t="décomposition">
-<theorem t="décomposition sur $ℂ$">$\D∃(z_1,⋯,z_n)∈ℂ^n, P=c_n∏_{1⩽k⩽n}(X-z_k)$</theorem>
-<remark>Les nombres $α_1,…,α_n$ sont uniques (à une permutation près). Ce sont les racines de $P$</remark>
-<theorem t="décomposition sur $ℂ$ (avec multiplicité)" c="" h="$P$ polynôme">
-$ P=c_n∏_{1⩽k⩽p}(X-α_k)^{n_k}$
-\crlf{\it Cette décomposition est unique à permutation des racines près} 
+<theorem h="$\deg(P)⩾1$">
+\startformula 
+∃c≠0,∃(α_1,⋯,α_n)∈ℂ^n, P=c∏_{1⩽k⩽n}(z-α_k)
+\stopformula
 </theorem>
+<remark>Le nombre $c$ est unique : c'est le coefficient du monôme dominant de $P$</remark>
+<remark>Les nombres $α_1,…,α_n$ sont uniques (à une permutation près). </remark>
+<remark>Si l'on note $β_1, …β_p$ les racines de $P$ munies de leur multiplicité $n_1,…,n_p$, on peut également écrire que 
+\startformula 
+P=c∏_{1⩽ℓ⩽p}(z-β_ℓ)^{n_ℓ}.
+\stopformula
+Cette décomposition est unique (à permutation près) et on a $\displaystyle d=∑_{1⩽ℓ⩽p}n_ℓ$.</remark>
 <remark>Cette identité constitue la décomposition de $P$ en produit de polynômes irreductibles.</remark>
 <remark>Un polynôme de degré $n⩾1$ admet exactement $n$ racines dans $ℂ$, pas forcéme nt distinctes.</remark>
 </concept>
 
-<property>$n1+⋯+n_p=n$</property>
-<corollary t="nombre de racines">Un polynôme non nul admet autant de racines complexes, comptées avec multiplicité, que son degré</corollary>
-
-<concept t="relations coefficients-racines"> 
-<property t="relations coefficients-racines">Les racines de $X^2-sX+p$ sont $z$ et $z'$ \ssi
-\startsdformula\System{[align=left]
-\NC s=z+z'\NR
-\NC p = zz'
-}\stopsdformula
-</property>
-<remark>On obtient ces relations en développant l'identité
-\startformula 
-X^2-sX+p=(X-s)(X-z)
-\stopformula
-et en identifiant les coefficients des monômes $X^0$ et $X^1$. 
-</remark>
-</concept>
-
-
-<context>\subject{Décomposition des polynômes réels}
-Pour la suite de cette section $P$ désigne un polynôme à coefficients réels</context>
-
-
 <concept t="polynômes réels">
-<property t="décomposition sur $ℝ$ (avec multiplicité)" c="" h="$P∈ℝ[X]$">$α \text{ racine de } P ⟺ \overline α \text{ racine de } P$</property>
-<corollary>Les racines complexes de $P$ sont conjuguées. {\it ( en particulier, on peux rassembler les racines de $P$ qui ne sont pas réeelles par paires)}</corollary>
-<corollary>$P \text{ irreductible dans }ℝ⟺ (P∈ℝ_1[X]^* \Ou P \text{ trinôme de discriminant $Δ\Le0$})$</corollary>
-<property>Deux racines complexes conjuguées de $P$ ont la même multiplicité.</property>
+<property h="$P∈ℝ[X]$">
+\startformula 
+α \text{ racine de } P ⟹ \overline α \text{ racine de } P
+\stopformula
+</property>
+<remark>Les racines complexes de $P$ sont conjuguées. Autrement dit, on peux rassembler les racines de $P$ qui ne sont pas réeelles par paires $\{α, \overline α\}$.</remark>
+<remark>Deux racines complexes conjuguées de $P$ ont la même multiplicité.</remark>
 <remark>On obtient un polynôme réel en couplant les racines conjuguées, en effet
 \startformula 
 (X-α)^n(X-\overline α)^n=\big[(X-α)(X-\overline α)\big]^n=\big[X^2-2ℜe(α)X+|α^2|\big]^n
 \stopformula
 Si $α\∉ℝ$, on remarque de plus que $Δ=4ℜe(α)^2-4|α|^2\Le 0$.
 </remark>
-<property>Un polynôme réel $P=∑_{k=0}^nc_kX^k$ de degré $n⩾1$ se décompose de manière unique sous la forme
+<remark>Un polynôme réel non constant $P$ se décompose de manière unique sous la forme
 \startformula 
-P=c_n∏_{ℓ=1}^p(X-β_ℓ)^{n_ℓ}×∏_{ℓ=1}^q(X^2+a_ℓX+b_ℓ)^{m_ℓ}
+P=c∏_{1⩽ℓ⩽p}(X-β_ℓ)^{n_ℓ}×∏_{1⩽ℓ⩽q}(X^2+a_ℓX+b_ℓ)^{m_ℓ}
 \stopformula
-où les $β_1,…,β_p$ sont des racines réelles de $P$ et où le discriminant du trinôme réel $X^2+a_ℓX+b_ℓ$ est strictement négatif (il ne possède dont que des racines complexes irréelles conjuguées) 
+où les $β_1,…,β_p$ sont réels, où le discriminant $Δ_ℓ$ du polynôme $X^2+a_ℓX+b_ℓ$ est strictement négatif (et ne possède dont que des racines complexes irréelles) 
 et où 
-\startsdformula 
-n = ∑_{1⩽ℓ⩽p}n_ℓ+2∑_{1⩽ℓ⩽q}m_ℓ
-\stopsdformula
-</property>
+\startformula 
+\deg(P) = ∑_{1⩽ℓ⩽p}n_ℓ+∑_{1⩽ℓ⩽q}m_ℓ
+\stopformula
+</remark>
 </concept>
-<!--
+
 <concept t="décomposition réelle">
 <theorem h="$P∈ℝ[X]$, $\deg(P)⩾1$">
 \startformula 
@@ -373,19 +373,19 @@ P=c∏_{1⩽ℓ⩽p}(X-β_ℓ)^{n_ℓ}.
 \stopformula
 Cette décomposition est unique (à permutation près) et on a $\displaystyle d=∑_{1⩽ℓ⩽p}n_ℓ$.</remark>
 <remark>Cette identité constitue la décomposition de $P$ en produit de polynômes irreductibles.</remark>
-<remark>Un polynôme de degré $n⩾1$ admet exactement $n$ racines dans $ℂ$, pas forcément distinctes.</remark>
-</concept>-->
+<remark>Un polynôme de degré $n⩾1$ admet exactement $n$ racines dans $ℂ$, pas forcéme nt distinctes.</remark>
+</concept>
 
 
-<concept p="-e" t="relations coefficients-racines"> 
-<property t="relations coefficients-racines">Soient $z_1,⋯, z_n$ les racines d'un polynôme $\D P= ∑_{0 ⩽ k ⩽ n}c_kX^k$ de degré $n⩾1$. Alors, 
+<concept t="relations coefficients-racines"> 
+<property h="$n⩾1$, $P= ∑_{0 ⩽ k ⩽ n}a_kX^k$ de racines $α_1,\cdots, α_n$">
 \startformula 
 \Align{
-\NC  ∑_{1 ⩽ k ⩽ n}z_k\NC =-{c_{n-1}\F c_n}\NR
+\NC  ∑_{1 ⩽ k ⩽ n}z_k\NC =-{a_{n-1}\F a_n}\NR
 \NC ⋮\NC ⋮\NR
-\NC  ∑_{1 ⩽ i_1\Le ⋯\Le i_p ⩽ n }z_{i_1}z_{i_2}\cdots z_{i_p}\NC =(-1)^p{c_{n-p}\F c_n}\qquad (1 ⩽ p ⩽ n)\NR
+\NC  ∑_{1 ⩽ i_1\Le ⋯\Le i_p ⩽ n }z_{i_1}z_{i_2}\cdots z_{i_p}\NC =(-1)^p{a_{n-p}\F a_n}\qquad (1 ⩽ p ⩽ n)\NR
 \NC ⋮\NC ⋮\NR
-\NC z_1z_2\cdots z_n\NC =(-1)^n{c_0\F c_n}
+\NC z_1z_2\cdots z_n\NC =(-1)^n{a_0\F a_n}
 }
 \stopformula
 </property>
@@ -402,8 +402,12 @@ et en identifiant les coefficients de chaque monôme $X^k$ pour $0⩽k⩽n$.
 \stopformula</item></uses>
 </concept>
 
+
 <concept t="racines n\high{ième} de l'unité" m="-β+β">
-<property t="racines n\high{ième} de l'unité">$X^n-1= ∏_{k=1}^n\Q(X-\e^{2 π ik/n}\W)\qquad(n⩾1)$
+<property h="$n⩾1$"> 
+\startformula 
+X^n-1= ∏_{k=0}^{n-1}\Q(X-\e^{2 π ik/n}\W).
+\stopformula
 </property>
 </concept>
 

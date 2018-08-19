@@ -1,0 +1,79 @@
+\magnification 1200
+\hsize180truemm\vsize 270truemm\hoffset=-10truemm\voffset=-13truemm
+\pretolerance=500\tolerance=1000\brokenpenalty=5000
+\parindent3mm
+
+
+\input color.txs
+\input pstricks
+\input pst-plot
+\input eplaingt
+\input Macrols
+\input ExosPTSI
+
+%%%  Numérotation automatique des questions 
+\newcount\numeroexo
+\newcount\numeroqprob
+\numeroqprob=0
+\def\pbq#1\par{\global\advance\numeroqprob by 1\noindent\the\numeroexo.\the\numeroqprob. #1\medskip}
+
+%%% Probleme 1.
+\vglue-10mm\rightline{PTSI\hfill TD 16 : limites, d\'eveloppements limit\'es\hfill\date}
+\bigskip\noindent
+{\bf Compl\'ement de cours : }On admettra pour ce TD que 
+$$
+\eqalignno{
+&\e^x=1+x+{x^2\F 2}+\cdots+{x^n\F n!}+o_0(x^n),&(1)
+\cr
+&{1\F 1-x}=1+x+x^2+\cdots x^n+o_0(x^n).&(2)
+\cr
+&\ln(1+x)=x-{x^2\F 2}+{x^3\F 3}+\cdots+(-1)^{n-1}{x^n\F n}+o_0(x^n). &(3)
+}
+$$
+On rappelle que les \'egalit\'es pr\'ec\'edentes ne sont utiles que si $x\to0$. Par ailleurs, la variable $x$ a le droit d'\^etre complexe dans les \'egalit\'es $(1)$ et $(2)$. 
+\bigskip
+
+\Exercice{} 1. Determiner pour la fonction $f(x)={\e^x\F 1-x}$ une estimation du type 
+$$
+{\e^x\F 1-x}=a+bx+cx^2+dx^3+o_0(x^3)
+$$ 
+\bigskip
+
+\Exercice{} 2. Calculer la limite 
+$$
+\lim_{x\to 0} {\e^{-x}-{1\F 1+x}\F x^2}
+$$ 
+
+\Exercice{} 3 (estimations des fonctions hyperboliques et trigonom\'etriques). \pn
+a) Trouver une estimation du m\^eme type que (1) pour les fonctions $\ch(x)$ et $\sh (x)$ autour de $x=0$. \pn
+b) En d\'eduire pour la tangente hyperbolique une estimation du type 
+$$
+\th(x)=ax+bx^3+o_0(x^3)
+$$
+c) refaire pour les fonctions $\sin(x)$, $\cos(x)$ la question (a) et pour la fonction $\tan(x)$ la question (b). 
+\medskip
+
+\Exercice{} 4 Trouver un \'equivalent lorsque $x\to0$ de la fontion 
+$$
+f(x)={1\F \sh(2x)}+{1\F \sin(2x)}-{1\F x}.
+$$
+
+\Exercice{} 5. (estimation des puissances) Soit $\alpha>0$. \pn
+a) D\'eterminer pour la fonction $f(x)=(1+x)^\alpha$ une estimation du type 
+$$
+(1+x)^\alpha=a+bx+cx^2+dx^3+o_0(x^3). 
+$$
+b) Calculer la limite 
+$$
+\lim_{n\to\infty}\Q(\sqrt{n^2+1}-2n+\sqrt{n^2-1}\W)n^3
+$$
+
+\Exercice{} 6. Calculer la limite
+$$
+\lim_{x\to 0}{2\tan(x)-\sin(2x)\F \sqrt{2+x^3}-\sqrt{2-3x^3}}
+$$
+
+\bigskip
+
+\bye
+ 

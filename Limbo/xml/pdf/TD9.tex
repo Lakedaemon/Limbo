@@ -1,0 +1,39 @@
+\magnification 1200
+\hsize180truemm\vsize 270truemm\hoffset=-10truemm\voffset=-13truemm
+\pretolerance=500\tolerance=1000\brokenpenalty=5000
+\parindent3mm
+
+
+\input color.txs
+\input pstricks
+\input pst-plot
+\input eplaingt
+\input Macrols
+
+\input ExosPTSI
+
+%%%  Numérotation automatique des questions 
+\newcount\numeroexo
+\newcount\numeroqprob
+\numeroqprob=0
+\def\pbq#1\par{\global\advance\numeroqprob by 1\noindent\the\numeroexo.\the\numeroqprob. #1\medskip}
+
+%%% Probleme 1.
+\vglue-10mm\rightline{PTSI\hfill TD 7 : Courbes param\'etr\'ees cart\'esiennes\hfill \date}
+\bigskip 
+\exoet
+\vfill
+\exoqn
+{\it Rappels : Si $a$ est une racine (\'evidente) d'un polyn\^ome en $P$ de la variable~$t$, on~peut factoriser $t-a$ dans l'expression de $P$. }
+\medskip\noindent
+{\it Etudier la position d'une courbe param\'etr\'ee $t\mapsto \b(x(t),y(t)\b)$ par rapport \`a une droite d'\'equation $y=ax+b$ consiste \`a \'etudier le signe de $y(t)-ax(t)-b$. }
+\vfill
+\exoex
+\vfill
+\exoqo
+\vfill
+\exoeu
+\vfill
+\exoer
+\bye
+ 

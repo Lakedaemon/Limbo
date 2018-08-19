@@ -1,0 +1,27 @@
+\catcode`@=11\relax
+%\input LD@Lua@Akuma@Japanese.tex
+\input LD@Luatex.tex
+\font\LD@Font@Kana={F:/Tex/Akuma/HGRSKP.ttf} at 10pt
+\font\LD@Font@Kana@Tiny={F:/Tex/Akuma/HGRSKP.ttf} at 6pt
+\LD@Font@Kana
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%													%
+%					Language choice					%
+%													%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\LD@Akuma@Language{fre}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%													%
+%					Kanjidic Preprocessing				%
+%													%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\LD@Kanjidic@Load
+
+\directlua0{
+	dofile("F:/TeX/LD@Library/Akuma.lua")
+}
+\bye

@@ -1,0 +1,317 @@
+\catcode`@=11
+\let\EA=\expandafter
+\let\CS=\csname
+\let\EC=\endcsname
+\def\KoAkuma{Rules}%
+\def\Obsolete{N}%
+\input LD@Header.tex
+\catcode`@=11\relax
+\input LD.tex
+%%
+%% Paper Layout
+%%
+
+\def\AFour{
+\hsize187truemm\vsize 270truemm\hoffset=-17truemm\voffset=-13truemm
+\pretolerance=500\tolerance=1000\brokenpenalty=5000
+\parindent0mm
+\pdfpagewidth=210truemm
+\pdfpageheight=297truemm
+\paperwidth=210truemm
+\paperheight=297truemm
+}
+
+\def\AFive{%
+\global\hsize132.5truemm\global\vsize188truemm\voffset=-20truemm
+\hoffset=-18.25truemm
+\pretolerance=500\tolerance=1000\brokenpenalty=5000
+\parindent0mm
+\paperwidth=132.5truemm
+\paperheight=188truemm
+\pdfpagewidth=148.5truemm
+\pdfpageheight=210truemm}%
+\AFive
+
+%%
+%% Fontes utilisées
+%%
+
+\def\FontCSName #1 #2\EndFontCSName{\EA\def\csname #1\endcsname##1{%
+\EA\ifx\csname #1##1\endcsname\relax\EA\font\csname #1##1\endcsname="#2" at ##1pt\fi\csname #1##1\endcsname}}%
+\def\FontCSDef #1.{%
+\for\OLFont:=#1\do{\EA\FontCSName \OLFont\EndFontCSName}}
+
+\FontCSDef Arial Arial,ArialB Arial Bold,ArialIT Arial Italic,ArialBIT Arial Bold Italic,Kaisho HGSeikaishotaiPRO,Mincho MS Mincho.%%% Automated but might bring Errors
+
+%\def\FontDef #1.{%
+%\def\FontName ##1=##2@##3\EndFontName{\EA\font\csname ##1\endcsname="##2" at ##3pt}%
+%\for\OLFont:=#1\do{\EA\FontName \OLFont\EndFontName}}
+
+%\FontDef Romaji=Arial@5,Grade=Arial@4.
+
+
+\newcount\FontNumber\global\FontNumber=0
+\def\Sens{%
+\global\advance\FontNumber by 1
+\ifnum\FontNumber>3\FontNumber=0\fi
+\ifcase\FontNumber \Arial7\or\ArialIT7\or\Arial7\or\ArialIT7\fi}%
+\def\ResetFont{\global\FontNumber=0\Arial7}%
+
+
+\font\TangoBig="HGSeikaishotaiPRO" at 28pt\TangoBig
+\font\Tango="HGSeikaishotaiPRO" at 16pt\Tango
+\font\TangoAlt="HGSeikaishotaiPRO:color=FF0F0F" at 16pt
+\font\TangoRubi="HGSeikaishotaiPRO" at 6pt
+\font\TangoRubiAlt="HGSeikaishotaiPRO:color=FF0F0F" at 8pt
+\font\TangoKana="HGSeikaishotaiPRO" at 12pt
+\font\TangoKanaAlt="HGSeikaishotaiPRO:color=FF0F0F" at 12pt
+\font\TangoGrade="Arial" at 4pt
+\font\TangoGradeAlt="Arial:color=FF0F0F" at 4pt
+
+\font\Kana="HGSeikaishotaiPRO" at 6pt
+\font\TangoLecture="HGSeikaishotaiPRO" at 8pt
+\font\TangoLectureAlt="HGSeikaishotaiPRO:color=FF0F0F" at 8pt
+\font\TangoKanjiNumber="HGSeikaishotaiPRO" at 4pt
+\font\TangoKanjiNumberAlt="HGSeikaishotaiPRO:color=FF0F0F" at 4pt
+\font\TangoKanjiGrade="Arial" at 4pt
+\font\TangoKanjiGradeAlt="Arial:color=FF0F0F" at 4pt
+
+
+\font\BunpouBig="HGSeikaishotaiPRO" at 28pt
+\font\Bunpou="HGSeikaishotaiPRO" at 16pt
+\font\BunpouBigRomaji="Arial" at 10pt
+\font\BunpouRomaji="Arial" at 10pt
+\font\BunpouKana="HGSeikaishotaiPRO" at 10pt
+\font\BunpouKanaAlt="HGSeikaishotaiPRO:color=FF0F0F" at 10pt
+\font\BunpouGrade="Arial" at 5pt
+\font\BunpouPage="Arial" at 5pt
+
+\BunpouRomaji
+\def\BunpouKanaFont{\BunpouKana}
+\def\BunpouKanaFontAlt{\BunpouKanaAlt}
+\def\Nihongo#1{{\BunpouKana #1}}
+\lccode"2019="0027% to get hyphen with words with apostrophes
+
+
+\def\fontetitreun{\twelvepts\gpdouze\ArialB{12}}
+\font\OLelevenib="Arial Bold Italic" at 11pt
+\font\OLnineib="Arial Bold Italic" at 9pt
+\font\OLelevenrm="Arial" at 11pt
+\font\OLeightrm="Arial" at 8pt
+\font\OLnineib="Arial Bold Italic" at 9pt
+\font\OLeleveni="Arial Italic" at 11pt
+\font\OLeighti="Arial Italic" at 8pt
+\font\OLsixi="Arial Italic" at 6pt
+\def\fontetitredeux{\textfont1=\OLeleveni\scriptfont1=\OLnineit\ArialIT{11}}
+\def\fontetitredeuxb{\eleventi\gponze\textfont1=\OLelevenib\scriptfont1=\OLnineib}
+\def\fontetitretrois{\textfont0=\OLelevenrm\scriptfont0=\OLeightrm\textfont1=\OLeleveni\scriptfont1=\OLeighti\scriptscriptfont1=\OLsixi\OLeleveni}
+
+\catcode`@=11
+
+%
+%%
+%%% Concepts
+%%
+%
+
+\def\Concept{\@getoptionalarg\@Concept}%
+\def\@Concept#1\par{%
+	\ifHtml
+		\noindent
+		\ifx\@optionalarg\empty
+		\else
+			\EA\sidx\EA{\@optionalarg}%
+		\fi
+		\HCode{<div class="concept">}\ignorespaces#1\HCode{</div>}%
+	\else
+		\ifdim\lastskip<\medskipamount
+			\removelastskip\medskip
+		\fi
+		\vskip0pt plus.01\vsize\penalty-100\vskip0pt plus-.01\vsize
+                        \noindent
+		\ifx\@optionalarg\empty
+		\else
+			\EA\sidx\EA{\@optionalarg}%
+		\fi
+		$\underline{\hbox{\ArialIT{11}\edef\temp{#1}\trim\temp\temp}}$\medskip
+	\fi
+}
+
+
+
+
+%\def\CitSec#1{\refn{§#1}} 
+
+
+
+%\input Romanize.xetex
+\newcount\tangomots
+
+%%
+%%         Bunpou
+%%
+
+\newcount\BunpouCount\BunpouCount=0
+\newdimen\OLWidth
+\newdimen\OLDim
+\newdimen\OLVOffset
+
+\catcode`@=11
+\def\Grammaire{\@getoptionalarg\@Grammaire}
+
+\newif\ifOneLine
+\def\@Grammaire #1, #2, #3=> #4. {%
+\global\advance\BunpouCount by1\relax
+	\ifHtml
+		\noindent\sidx{#3}%
+		\HCode{<div class="concept">}\ignorespaces#1\HCode{</div>}%
+	\else
+		\ifdim\lastskip<\medskipamount
+			\removelastskip\medskip
+		\fi
+		\vskip0pt plus.01\vsize\penalty-100\vskip0pt plus-.01\vsize\noindent
+		\setbox66=\hbox{\BunpouBigRomaji #3}\setbox67=\hbox{\BunpouRomaji #4}\OLWidth=\wd66\advance\OLWidth by \wd67\OLDim=\hsize\divide\OLDim by2\advance\OLWidth by 5pt
+		\ifdim\OLWidth<\OLDim
+			\OneLinetrue
+		\else
+			\OneLinefalse
+		\fi
+		\ifx\@optionalarg\empty
+		\else
+			\EA\Split\EA{\@optionalarg}{}\OLTest\Trash
+			\if-\OLTest
+				\EA\Split\EA{\@optionalarg},\Trash\@optionalarg
+				\OneLinetrue
+			\fi
+		\fi	
+		\ifOneLine
+			\setbox67=\hbox{\boxit{\noindent\hsize=\OLWidth\box66 : {\BunpouRomaji #4}\vtop to4pt{}}}%
+			\setbox66=\hbox{\BunpouGrade #1\hskip2pt}\OLVOffset=\ht67\advance\OLVOffset by-\ht66%
+			\llap{\smash{\raise\OLVOffset\hbox{\copy66}}}%
+			\setbox66=\hbox{\BunpouPage #2\hskip2pt}%
+			\advance\OLVOffset by-\ht66\advance\OLVOffset by -1pt%
+			\llap{\smash{\raise\OLVOffset\hbox{\copy66}}}%
+			\ifx\@optionalarg\empty
+			\else
+				\EA\for\EA\OLTemp\EA:\EA=\@optionalarg\do{%
+					\setbox66=\hbox{\OLTemp\hskip2pt}%	
+					\advance\OLVOffset by-\ht66\advance\OLVOffset by -1pt%
+					\llap{\smash{\raise\OLVOffset\hbox{\copy66}}}%
+				}%
+			\fi
+			\copy67\vskip-\ht67\vskip-4pt\OLWidth=\wd67%
+			\advance\OLWidth by5pt\OLDim=\hsize\advance\OLDim by-\OLWidth\leavevmode\noindent\parshape 3 \OLWidth \OLDim \OLWidth \OLDim 0pt \hsize 
+		\else
+			\divide\OLWidth by 2%\multiply\OLWidth by2%\OLWidth=\OLDim
+			\setbox67=\hbox{\boxit{\noindent\hsize=\OLWidth\box66 : {\BunpouRomaji #4}\vtop to4pt{}}}%
+			\setbox66=\hbox{\BunpouGrade #1\hskip2pt}\OLVOffset=\ht67\advance\OLVOffset by-\ht66%
+			\llap{\smash{\raise\OLVOffset\hbox{\copy66}}}%
+			\setbox66=\hbox{\BunpouPage #2\hskip2pt}%
+			\advance\OLVOffset by-\ht66\advance\OLVOffset by -1pt%
+			\llap{\smash{\raise\OLVOffset\hbox{\copy66}}}%
+			\ifx\@optionalarg\empty
+			\else
+				\for\OLTemp:=\@optionalarg\do{%
+					\setbox66=\hbox{\OLTemp\hskip2pt}%	
+					\advance\OLVOffset by-\ht66\advance\OLVOffset by -1pt%
+					\llap{\smash{\raise\OLVOffset\hbox{\copy66}}}%
+				}%
+			\fi
+			\copy67\vskip-\ht67\vskip-4pt\OLWidth=\wd67
+			\advance\OLWidth by5pt\OLDim=\hsize\advance\OLDim by-\OLWidth\leavevmode\noindent\parshape 3 \OLWidth \OLDim \OLWidth \OLDim 0pt \hsize 
+		\fi
+	\fi
+}
+\catcode`@=12
+
+\def\Vf{$\hbox{\Arial{16} V}$}%
+\def\VF{$\hbox{\Bunpou V}$}%
+
+
+\hfuzz0pt
+\headline={}
+\def\footnote{}
+\XeTeXlinebreaklocale "en"
+\overfullrule=0pt
+
+
+\headline={}%
+%\def\LInsert{\vrule\hskip-0.4pt\hfil}%
+%\def\RInsert{\hfil\vrule\hskip-0.4pt}%
+%\def\CInsert{\vrule}%
+%\def\BInsert{\vskip-0.4pt\hrule}%
+%\def\TInsert{\hrule}%
+%\gutter=1pc
+
+%\twocolumns
+
+
+%%% Parse the Kanji
+
+
+
+
+%%% Format the word
+
+\newif\ifred
+\def\Seth#1#2\inside#3=#4{\def\insert##1##2{\OLtok={#3}\xdef#4{\the\OLtok}}\EA\insert{#1}{#2}}%
+
+\def\Construct#1#2#3#4{% Expands #2 and put it  following rule #3 inside #4 and saves it in #1 
+\csname def\endcsname\insert#3{\OLtok={#4}\xdef#1{\the\OLtok}}\edef\InsertData{#2}\EA\insert\InsertData}%
+
+\catcode`@=11
+
+\def\empty{}
+\def\Split#1#2#3#4{\def\@LCut##1#2##2\empty{\def#3{##1}\def#4{##2}}\@LCut#1\empty}
+%% can treat control sequences as tokens
+
+
+\catcode`@=12
+
+\def\Tangohuri#1#2{%
+	\redfalse\gdef\Tail{#1}\xdef\OLBox{}%
+	\for\Hiragana:=#2\do
+	{%
+		\EA\Split\EA{\Tail}{}\Head\Tail
+		\ifx\empty\Head
+		\else
+			\if(\Head
+				\redtrue
+			\else 
+                          		\if)\Head
+					\redfalse
+				\else 
+                          			\ifx\Head\Hiragana 
+                            				\ifred
+							\Append\TangoKanaAlt\to\OLBox
+						\else
+							\Append\TangoKana\to\OLBox
+						\fi
+						\EA\Append\Head\to\OLBox
+                          			\else 
+                               				\ifred 
+							\Construct\oltempo{\Head|\Hiragana|}{##1|##2|}{$\mathop{\hbox{\TangoAlt ##1}}\limits_{\hfill\hbox{\TangoRubiAlt ##2}\hfill}$}%
+                               				\else  
+							\Construct\oltempo{\Head|\Hiragana|}{##1|##2|}{$\mathop{\hbox{\Tango ##1}}\limits_{\hfill\hbox{\TangoRubi ##2}\hfill}$}%
+ 						\fi
+                             				\EA\Append\oltempo\to\OLBox  
+                          			\fi
+				\fi
+			\fi
+	\fi
+	}%
+	\OLBox
+}%
+
+\def\RuleHuri #1 : #2 -> #3 : #4.{\leavevmode\hbox{\Tangohuri{#1}{#2}}\quad\hbox{$\Longrightarrow$}\quad\hbox{\Tangohuri{#3}{#4}}}%
+
+\catcode`@=11
+\def\@@ps{}
+\def\FormatArrow #1,#2\@@ps{\limits_{\hbox{#1}}^{\hbox{#2}}}%
+\def\Rule{\@getoptionalarg\@LRule}
+\def\@LRule #1 -> #2.{\tikzpicture[baseline=(groar.north)]\node[rectangle,draw](rah){\BunpouKana #1\ $\mathop{\Longrightarrow}\ifx\@optionalarg\empty\else\EA\FormatArrow\@optionalarg\@@ps\fi$\ \BunpouKana #2};\node[south of=rah, node distance=10pt](groar){};\endtikzpicture}%
+\def\OLRule #1.{\tikzpicture[baseline=(groar.north)]\node[rectangle,draw](rah){\BunpouRomaji#1};\node[south of=rah, node distance=10pt](groar){};\endtikzpicture}%
+\catcode`@=12
+\input Bunpou.utf
+\definexref{BunpouCount}{\the\BunpouCount}{eq}
+\bye

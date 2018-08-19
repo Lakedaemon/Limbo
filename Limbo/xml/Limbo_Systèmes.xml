@@ -5,30 +5,33 @@
 <chapter t="Systèmes d'équations linéaires">
 
 <section t="Systèmes linéaires">
-<context>Dans ce chapitre, $m$ et $n$ désignent des entiers, $a_i$, $b_i$ et $a_{i,j}$ désignent des constantes de $𝕂$ et 
-$x_i$ désignent des variables qui prennent des valeurs dans $𝕂$</context>
 
 <concept t="équation linéaire\\second membre">
 <text>Une équation linéaire de $n$ variables $x_1,⋯,x_n$ avec second membre  
-est une équation du type</text>
-<definition t="équation linéaire">$a_1x_1+a_2x_2+⋯+a_nx_n=b$\crlf
-L'équation est dite \quote{homogène} ou \quote{sans second membre} lorsque $b=0$.
+est du type
+\startformula
+a_1x_1+a_2x_2+⋯+a_nx_n=b,
+\stopformula
+où $a_1,⋯,a_n$ et $b$ sont des nombres complexes fixés.</text>
+<remark>L'équation est dite \quote{homogène} ou \quote{sans second membre} lorsque $b=0$.
 Dans le cas contraire, elle est dite \quote{avec second membre}.
-</definition>
+</remark>
 </concept>
 
 <concept t="système">
-<text>Un système linéaire est un système constitué d'équations linéaires. </text>
-<definition t="système linéaire">$\displaystyle
+<text>Un système linéaire est un système constitué d'équations linéaires. 
+\startformula
 (S)\qquad 
-\System{[align={left,left,left,left,left,left}]
-\NC a_{1,1}x_1 \NC +a_{1,2}x_2\NC ⋯ \NC +a_{1,n} x_n\NC =\NC b_1\NR
-\NC a_{2,1}x_1\NC +a_{2,2}x_2\NC ⋯\NC +a_{2,n} x_n\NC =\NC b_2\NR
-\NC ⋯\NC ⋯ \NC ⋯\NC ⋯ \NC = \NC⋯\NR
-\NC a_{m,1}x_1\NC +a_{m,2}x_2\NC ⋯\NC +a_{m,n} x_n\NC =\NC b_m
-}$\crlf
-Le système est dit \quote{homogène} ou \quote{sans second membre} lorsque toutes ses équations sont sans second membre.
-Il est dit \quote{avec second membre} dans le cas contraire.</definition>
+\startSystem[align={left,left,left,left,left}]
+\NC a_{1,1}x_1 \NC +a_{1,2}x_2\NC ⋯ \NC +a_{1,n} x_n\NC =b_1\NR
+\NC a_{2,1}x_1\NC +a_{2,2}x_2\NC ⋯\NC +a_{2,n} x_n\NC =b_2\NR
+\NC ⋯\NC ⋯ \NC ⋯\NC ⋯ \NC = ⋯\NR
+\NC a_{m,1}x_1\NC +a_{m,2}x_2\NC ⋯\NC +a_{m,n} x_n\NC =b_m
+\stopSystem
+\stopformula
+</text>
+<remark>Le système est \quote{homogène} ou \quote{sans second membre} lorsque toutes ses équations sont sans second membre.
+Il est dit \quote{avec second membre} dans le cas contraire.</remark>
 <remark>Le système homogène associé à $(S)$ est le système
 \startformula
 (H)\qquad\startSystem[align={left,left,left,left,left}]
@@ -39,11 +42,6 @@ Il est dit \quote{avec second membre} dans le cas contraire.</definition>
 \stopSystem
 \stopformula
 </remark>
-</concept>
-
-
-<concept t="système de Cramer">
-<definition t="système de Cramer">Un système linéaire est de Cramer \ssi il a une unique solution</definition>
 </concept>
 
 
@@ -149,9 +147,13 @@ Deux systèmes carrés \quote{diagonaux} :
 </concept>
 
 <concept t="systèmes équivalents">
-<text>Deux systèmes sont dits équivalents \ssi ils ont les même solutions. 
+<text>Deux systèmes sont dits équivalents \ssi leur ensemble solution est le même. 
 </text>
-<definition t="$S ⟺ S'$">Deux systèmes sont équivalents \ssi ils ont les même solutions. </definition>
+<property>
+\startformula
+(S) ⟺ (S') \quad\text{ signifie }\quad \{ x\text{ solution de } S\} = \{y \text{ solution de } S'\}
+\stopformula
+</property>
 <uses><item>Simplification de systèmes
 \startformula
 \startSystem
@@ -174,7 +176,9 @@ Deux systèmes carrés \quote{diagonaux} :
 
 <concept t="Echange de lignes">
 <text>En intervertissant deux lignes (opération élémentaire $Li⟷L_j$), on transforme un système d'équations linéaires en système équivalent.</text>
-<property t="$L_i\leftrightarrow L_j$">$\displaystyle\startSystem
+<property>
+\startformula
+\startSystem
 \NC⋯\NR
 \NC L_i\NR
 \NC ⋯\NR
@@ -189,7 +193,7 @@ Deux systèmes carrés \quote{diagonaux} :
 \NC L_i\NR
 \NC ⋯
 \stopSystem
-$
+\stopformula
 </property>
 <remark>Souvent, il n'est pas nécessaire d'intervertir les lignes</remark>
 <uses><item>Système \quote{diagonale} ou \quote{triangulaire} : 
@@ -207,10 +211,11 @@ $
 </item></uses>
 </concept>
 
-<concept t="Multiple de ligne">
+<concept t="Multiplication de ligne">
 <text>En multipliant une ligne par un nombre non nul (opération élémentaire $Li⟵λL_i$), on transforme un système d'équations linéaires en système équivalent.</text>
-<property t="$L_i ← λL_i$">
-$\startSystem
+<property h="$λ≠0$">
+\startformula
+\startSystem
 \NC ⋯\NR
 \NC L_i\NR
 \NC ⋯
@@ -221,7 +226,7 @@ $\startSystem
 \NC  λL_i\NR
 \NC ⋯
 \stopSystem
-\qquad (λ≠0)$
+\stopformula
 </property>
 <uses><item>Simplification de ligne : 
 \startformula
@@ -244,7 +249,8 @@ $\startSystem
 
 <concept t="Combinaison linéaire de lignes">
 <text>En ajoutant à une ligne une combinaison linéaire des autres lignes (opération élémentaire $Li⟵Li+\sum_{j≠i}λ_jL_j$), on transforme un système d'équations linéaires en système équivalent.</text>
-<property t="$L_i ←L_i+\sum\limits_{j≠i}λ_jL_j$">$
+<property>
+\startformula
 \startSystem
 \NC ⋯\NR
 \NC L_i\NR
@@ -253,9 +259,10 @@ $\startSystem
 ⟺
 \startSystem
 \NC ⋯\NR
-\NC  L_i+\sum\limits_{j≠i}λ_jL_j\NR
+\NC  Li+\sum\limits_{j≠i}λ_jL_j\NR
 \NC ⋯
-\stopSystem\qquad (λ_j∈𝕂)$
+\stopSystem
+\stopformula
 </property>
 <uses><item>Pivot : $L_2⟵L_2-2L_1$
 \startformula
@@ -275,47 +282,6 @@ $\startSystem
 \stopformula
 </item></uses>
 </concept>
-
-
-<concept t="Pivot (sans division)">
-<text>Pour éviter un pivot de Gauss sans effectuer de division, il est utile d'avoir recours à l'opération suivante</text>
-<corollary t="$L_i ← aL_i+bL_j$">
-$\displaystyle\startSystem
-\NC⋯\NR
-\NC L_i\NR
-\NC ⋯\NR
-\NC L_j\NR
-\NC ⋯
-\stopSystem
-⟺
-\quad \startSystem
-\NC⋯\NR
-\NC aL_i+bL_j\NR
-\NC ⋯\NR
-\NC L_j\NR
-\NC ⋯
-\stopSystem
-\qquad(a≠0, b∈𝕂)$
-</corollary>
-<uses><item>Pivot : $L_2⟵L_2-2L_1$
-\startformula
-\startSystem[align=right]
-\NC \inframed{x}-2y=2\NR
-\NC 2x+3y=9
-\stopSystem
-⟺
-\startSystem[align=right]
-\NC x + 2y=3\NR
-\NC 7y=7
-\stopSystem⟺
-\startSystem
-\NC x=4\NR
-\NC y=1
-\stopSystem
-\stopformula
-</item></uses>
-</concept>
-
 
 <concept t="suite d'opérations"><text>
 En effectuant plusieurs opérations élémentaires, on transforme un système linéaire en système équivalent à condition de les éffectuer successivement (en série). 
@@ -455,23 +421,14 @@ on procède par substitutions en diminuant progressivement le nombre de variable
 
 
 <concept t="méthode de Gauss"><text>La méthode de Gauss consiste à résoudre le système, 
-en procèdant par pivots pour éliminer des variables et rendre le système soit diagonal {\it recommandé}, soit triangulaire.</text>
+en procèdant par pivots pour éliminer des variables et rendre le système soit triangulaire, soit diagonal.</text>
 <remark>Il est recommandé d'utiliser cette technique de résolution : les calculs sont simples, 
 rapides, compréhensibles et moins sujets aux erreur, qui sont elles mêmes, faciles à trouver et à corriger.</remark>
-<craft t="Méthode de Gauss">
-\startList\item choisir un pivot non nul {\it (de préférence un petit nombre entier)}
-\item Effectuer l'opération $L_i⟵aL_i-bL_{\text{pivot}}$ pour éliminer les variables sur la colonne du pivot
-\startSet\item Factoriser et simplifier les lignes au besoin
-\item Enlever les lignes $0=0$ ({\it dédupliquer les lignes identiques}) 
-\item En cas de ligne $0≠0$ ({\it ou de relations incompatibles}), le système n'a pas de solution.
-\stopSet
-\item Recommencer en choisissant un pivot sur une autre ligne et une autre colonne
-\item Lorsque le système est diagonal, faire passer les variables supplémentaires à droite de l'égalité 
-\stopList
+<example>Résolution d'un système $3×3$ par la méthode des pivots de Gauss 
 \startformula
 \startmatrix[align=left]
 \startSystem[distance=0.3em]
-\NC \important{\inframed{x}}\NC-\NC  y\NC-\NC  z\NC=\NC 1\NR
+\NC \inframed{x}\NC-\NC  y\NC-\NC  z\NC=\NC 1\NR
 \NC x           \NC+\NC  y\NC+\NC 3z\NC=\NC 7\NR
 \NC x           \NC+\NC 3y\NC+\NC  z\NC=\NC 7\NR
 \stopSystem
@@ -479,32 +436,32 @@ rapides, compréhensibles et moins sujets aux erreur, qui sont elles mêmes, fac
 \ ⟺\ \startmatrix 
 \NC L_2⟵L_2-L_1\NR
 \NC L_3⟵L_3-L_1\NR
-\stopmatrix\rare{\quad 
+\stopmatrix\quad 
 \startSystem[distance=0.3em]
 \NC x\NC-\NC y    \NC-\NC  z\NC =\NC 1\NR
 \NC  \NC \NC 2y   \NC+\NC 4z\NC =\NC 6\NR 
 \NC  \NC \NC  4y  \NC+\NC 2z\NC =\NC 6\NR 
-\stopSystem}
+\stopSystem
 \NC{}
 \ ⟺\ \startSystem[distance=0.3em]
-\NC \inframed{x}\NC-\NC             y\NC-\NC  z\NC=\NC 1\NR
-\NC  \NC \NC   \important{\inframed{y}}\NC+\NC 2z\NC=\NC 3\NR
+\NC x\NC-\NC             y\NC-\NC  z\NC=\NC 1\NR
+\NC  \NC \NC  \inframed{y}\NC+\NC 2z\NC=\NC 3\NR
 \NC  \NC \NC            2y\NC+\NC  z\NC=\NC 3\NR
 \stopSystem
 \NR\NC\NC{}
 \ ⟺\ \startmatrix 
 \NC L_1⟵L_1+L_2\NR
 \NC L_3⟵L_3-2L_2\NR
-\stopmatrix\quad \rare{\startSystem[distance=0.3em]
+\stopmatrix\quad \startSystem[distance=0.3em]
 \NC x\NC\NC  \NC+\NC  z\NC=\NC 4\NR
 \NC  \NC\NC y\NC+\NC 2z\NC=\NC 3\NR
 \NC  \NC\NC  \NC-\NC 3z\NC=\NC-3\NR
-\stopSystem}
+\stopSystem
 \NC{} 
 \ ⟺\ \startSystem[distance=0.3em]
-\NC \inframed{x}\NC\NC  \NC+\NC             z\NC=\NC 4\NR
-\NC  \NC\NC \inframed{y}\NC+\NC            2z\NC=\NC 3\NR
-\NC  \NC\NC  \NC \NC  \important{\inframed{z}}\NC=\NC 1\NR
+\NC x\NC\NC  \NC+\NC             z\NC=\NC 4\NR
+\NC  \NC\NC y\NC+\NC            2z\NC=\NC 3\NR
+\NC  \NC\NC  \NC \NC  \inframed{z}\NC=\NC 1\NR
 \stopSystem
 \NR\NC
 \NC{}
@@ -512,23 +469,29 @@ rapides, compréhensibles et moins sujets aux erreur, qui sont elles mêmes, fac
 \NC L_1⟵L_1-L_3\NR
 \NC L_2⟵L_2-2L_3\NR
 \stopmatrix\quad \startSystem
-\NC \inframed{x}\NC  \NC  \NC =\NC 3\NR
-\NC  \NC \inframed{y}\NC  \NC =\NC 1\NR
-\NC  \NC  \NC \inframed{z}\NC =\NC 1\NR
+\NC x\NC  \NC  \NC =\NC 3\NR
+\NC  \NC y\NC  \NC =\NC 1\NR
+\NC  \NC  \NC z\NC =\NC 1\NR
 \stopSystem
 \NC{}\NC{}
 \NC
 \stopmatrix
 \stopformula
-</craft>
+</example>
 </concept>
 
-<concept t="solutions des systèmes homogènes"><theorem>Un système linéaire homogène a $\Choices{[align=left]\NC \text{soit la solution nulle}\NR\NC\text{soit une infinité de solutions}\NR}$</theorem></concept>
 
-<concept  t="structure des solutions"><text>La solution générale d'un système linéaire $S$ 
+
+
+
+
+
+<concept t="structure des solutions"><text>La solution générale d'un système linéaire $S$ 
 est la somme d'une de ses solutions particulières et de la solution générale du système linéaire homogène $(H)$ associé.</text>
-<theorem>Soit $x_0$ une solution particulière de $S$, de système homogène associé $H$. Alors, 
-\startsdformula x \text{ solution de } S ⟺ x-x_0 \text{ solution de }H\stopsdformula</theorem>
+<theorem>\startformula 
+\text{sol. de } S = \text{sol. part. de } S + \text{sol. de } H
+\stopformula
+</theorem>
 <example>
 \startformula
 (S)\quad 
@@ -554,8 +517,22 @@ x+y=1 ⟺ x=1-y\qquad (y∈ℝ) ⟺ y=1-x\qquad (x∈ℝ).
 </remark>
 </concept>
 
+<concept t="système homogène">
+<text>Pour un système homogène, il y a deux cas possibles :
+\startitemize[packed,1]
+\item soit il admet exactement une solution : la solution nulle, pour laquelle toutes les variables sont nulles.
+\item soit il possède une infinité de solutions.
+\stopitemize
+</text>
+</concept>
 
-<concept t="solutions des systèmes linéaires"><corollary>Un système linéaire a $\Choices{[align=left]\NC \text{soit aucune solution}\NR \text{soit une unique solution}\NR\NC\text{soit une infinité de solutions}\NR}$</corollary></concept>
+<concept t="système avec second membre"><text>Pour un système linéaire avec second membre, il y a trois cas possibles : 
+\startitemize[packed,1]
+\item soit il n'admet aucune solution.
+\item soit il admet exactement une solution.
+\item soit il admet une infinité de solutions.
+\stopitemize</text>
+</concept>
 
 </section>
 

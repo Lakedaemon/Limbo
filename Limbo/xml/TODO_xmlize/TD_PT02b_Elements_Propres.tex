@@ -1,0 +1,72 @@
+\catcode`@=11\relax
+
+\input LD@Maths@TD.tex
+
+\vglue-10mm\rightline{PT\hfill TD 2 :  Polynômes caractéristiques et valeurs propres\hfill}
+\bigskip
+\bigskip
+
+\Definition [$n\ge1$, $A\in\sc M_n(\ob K)$] 
+Le polynôme caractéristique de la matrice $A$ est l'unique polynôme $P_A\in\ob K[X]$ vérifiant 
+$$
+\forall \lambda\in\ob K, \qquad P_A(\lambda)=\det(A-\lambda\mbox{I}_n).
+$$
+
+\hrule
+\centerline{Polynôme caractéristique\strut}
+\hrule\medskip
+
+\Exercice{PTaqi}
+\bigskip
+\Exercice{PTaqj}
+\bigskip
+\Exercice{PTalk}
+\bigskip
+
+\Definition [$n\ge1$, $A\in\sc M_n(\ob K)$, $\lambda\in\ob K$] 
+$\lambda$ est une valeur propre de $M \ssi$ il existe $X\neq0$ dans $\sc M_{n,1}(\ob K)$ tel que $AX=\lambda X$. 
+
+\Propriete [$n\ge1$, $A\in\sc M_n(\ob K)$] 
+$$
+\eqalign{
+\lambda\sbox{ est une valeur propre de }A&\ssi A-\lambda\mbox I_n\sbox{ n'est pas inversible}\cr
+&\ssi\mbox{rang}(A-\lambda\mbox I_n)\neq n\cr
+&\ssi \det(A-\lambda\mbox I_n)=0\cr 
+&\ssi P_A(\lambda)=0
+}
+$$ 
+
+\hrule
+\centerline{Valeurs propres}
+\hrule\medskip
+
+\Exercice{PTamo}
+\bigskip
+
+\Exercice{PTamn}
+\bigskip
+
+
+% 
+% \Chapter Indications, Indications.
+% 
+% \LD@Exo@Indication@Display
+% 
+% \Chapter Notions, Notions.
+% 
+% \LD@Exo@Notion@Display
+
+\Chapter Solutions, Solutions.
+
+\LD@Exo@Sol@Display
+
+\bye
+
+
+
+
+
+
+
+
+

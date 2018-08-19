@@ -1,0 +1,189 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\%blank[big]}]
+%\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][4][1,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iftrue
+\page
+\centerline{\bfb DEVOIR MAISON 8}
+\blank[big]
+
+\setupitemgroup[List][1][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+\centerline{\bf EXERCICE 1}
+Pour $α∈ℝ^*$ fixé, on pose $\D A=\Matrix{
+\NC 0 \NC α\NC α^2\NC α^3\NR
+\NC {1\F α}\NC 0\NC α\NC α^2\NR
+\NC {1\F α^2}\NC {1\F α}\NC 0 \NC α\NR
+\NC {1\F α^3}\NC {1\F α^2}\NC {1\F α}\NC 0
+}$ et on note $B={1\F 4}(A+I_4)$ et $C={1\F 4}(3I_4-A)$
+\startList
+\item%1
+\startList
+\item Calculer $A^2$. En déduire que $A^2 − 2A = x.I_4$ avec $x$ réel à préciser.
+\item Montrer que $A$ est inversible et exprimer $A^{−1}$ en fonction de $A$ et de $I_4$
+\stopList
+\item%2
+\startList
+\item Montrer que $B × C = C × B = 0$, sans poser de produit matriciel, à l’aide de 1.a. 
+\item Montrer que pour tout $i∈ℕ^*$ et pour tout $j ∈ ℕ^*$, $B^i × C^j = 0$.
+\item Prouver que $B^2 = B$ et que $C^2 = C$. \crlf
+On admet qu’une récurrence triviale donne que $∀ n ∈ ℕ^∗$ , $B^n = B$ et $C^n = C$
+\stopList
+\item%3
+Dans cette question, on s’intéresse à $A^n$ pour $n ∈ ℕ^∗$ fixé.
+\startList
+\item Prouver que $A=3B-C$
+\item A l’aide de ce qui précède, exprimer $A^n$ en fonction de $n$, $B$ et $C$
+\item Montrer que $A^n∈\Vect(A,I)$
+\stopList
+\stopList
+
+\blank[big]
+\centerline{\bf EXERCICE 2}
+Dans cet exercice $n∈ℕ$ avec $n⩾3$.
+\startList
+\item%1
+\startList
+\item Pour $1⩽k⩽n$, montrer que $\D {k\F n}{n\choose k}={n-1\choose k-1}$
+\item En déduire que $\D ∑_{k=0}^n{n\choose k}{k\F n}x^k(1-x)^{n-k}=x$ pour $x∈[0,1]$
+\stopList
+\item%2
+On pose $\D J_n=\int_0^1\Q[∑_{k=0}^n{k\F n}{n\choose k}x^k(1-x)^{n-k}\W]\d x$ 
+et 
+\startsdformula
+I(k,n)=\int_0^1x^k(1-x)^{n-k}\d x\qquad(0⩽k⩽n)
+\stopsdformula
+\startList
+\item A l'aide de 1.b), calculer $J_n$
+\item On admet que $\D I(k,n)={1\F(n+1){n\choose k}}$ pour $0⩽k⩽n$. \crlf
+En utilisant cette égalité pour calculer $J_n$, retrouver la valeur de $\D ∑_{k=0}^nk$.
+\stopList
+\item%3
+On pose $\D K_n=\int_0^1h_n(x)\d x$, avec 
+\startformula
+h_n(x)={1\F n(n-1)}∑_{k=0}^n{n\choose k}k(k-1)x^k(1-x)^{n-k}\qquad (0⩽x⩽1)
+\stopformula
+\startList
+\item Pour $2⩽k⩽n$, montrer que $\D {k(k-1)\F n(n-1)}{n\choose k}={a\choose b}$, avec $a$, $b$ à exprimer en fonction de $k$ et $n$. 
+\item En déduire, pour $0⩽x⩽1$, l'expression de $h_n(x)$ en fonction de $x$.
+\item En calculant $K_n$ de deux manières, calculer $∑k(k-1)$ en fonction de $n$
+\item Retrouver alors la valeur de $∑_{k=0}^nk^2$
+\stopList
+\item%4
+Dans cette question, on démontre l'égalité admise au 2b)
+\startList
+\item A l'aide d'une intégration par partie, montrer que 
+\startformula
+I(k,n)={k\F n+1-k}I(k-1,n)\qquad(1⩽k⩽n)
+\stopformula
+\item En déduire que 
+\startformula
+I(k,n)={1\F (n+1){n\choose k}}\qquad(0⩽k⩽n)
+\stopformula
+\stopList
+\stopList
+
+\setupitemgroup[List][1][I,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+\blank[big]
+\centerline{\bf EXERCICE 3}
+Soit $n⩾2$. Dans tout le problème, $A∈\mc M_n(ℝ)$ désigne une matrice carrée non nulle de taille $n$ vérifiant $A^2=0$
+\startList
+\item{\bf Quelques généralités}
+\startList
+\item En raisonnant par l'absurde, prouver que $A$ n'est pas inversible
+\item Soit $(λ,μ)∈ℝ^2$ tels que $λA+μI_n=0$. Montrer que $λ=μ=0$
+\item On pose $M=A+tI_n$ avec $t∈ℝ^*$
+\startList
+\item Montrer que $M^2=2tM-t^2I_n$
+\item En déduire que $M$ est inversible et préciser $M^{-1}$ en fonction de $t$, $A$ et de $I_n$
+\stopList
+\stopList
+\item{\bf Etude d'un cas particulier}\crlf%II
+Dans toute cette partie, on pose $B=A+I_n$. 
+\startList
+\item%1
+\startList
+\item Calculer $B^2$ en fonction de $A$ et de $I_n$
+\item Montrer que $B^k=I_n+kA$ pour $k∈ℕ$
+\stopList
+\item%2
+On pose $\D S_p=∑_{k=0}^pB^k$ pour $p∈ℕ$. \crlf
+A l'aide de ce qui précède, exprimer $S_p$ en fonction de $p$, $A$ et de $I_n$
+\stopList
+\item{\bf Etude du cas général}\crlf
+Dans cette étude, on considère les matrices $N_λ=A+λI_n$ avec $λ∈ℝ\ssm\{0,1\}$. 
+\startList
+\item\startList
+\item Calculer $N_λ^2$ en fonction de $λ$, $A$ et $I_n$.
+\item Pour $k⩾1$, calculer $N_λ^k$ en fonction de $λ$, $k$, $A$ et $I_n$
+\stopList
+\item %2
+Pour $p∈ℕ^*$, on pose $\D x_p=∑_{k=1}^pkλ^{k-1}$
+\startList
+\item A l'aide du changement d'indice $j=k-1$, prouver que 
+\startsdformula
+x_p=λ(x_p-pλ^{p-1})+{1-λ^p\F1-λ}
+\stopsdformula
+\item En déduire que $x_p={1\F (1-λ)^2}(pλ^{p+1}-β_nλ^p+1)$ avec $β_p$ à exprimer en fonction de $p$
+\stopList
+\item%3
+Pour $p∈ℕ^*$, on pose $T_p=\D ∑_{k=0}^pN_λ^k$. Prouver que 
+\startformula
+T_p=α_pI_n+x_pA\qquad(p⩾1),
+\stopformula
+avec $x_p$ défini au 2) et $α_p$ à préciser en fonction de $p$.
+\stopList
+\item {\bf Calcul de $T_p$ par une autre méthode}\crlf
+On reprend dans cette partie les notations de la partie III\crlf
+On pose $M=N_λ-I_n=A+(λ-1)I_n$ avec $λ∈ℝ\ssm\{0,1\}$
+\startList
+\item A l’aide d’un résultat établi dans la partie I (dont on justifiera l’emploi) montrer que $M$ est
+inversible et exprimer $M^{−1}$ en fonction de $λ$, $A$ et de $I_n$
+\item Prouver que $\D (N_λ-I_n)×∑_{j=0}^kN_λ^j=N_λ^{k+1}-I_n$ pour $k∈ℕ^*$. 
+\item Déterminer alors l'expression de $T_p$ en fonction de $I_n$ et de $A$
+\stopList
+\stopList
+
+
+
+
+
+
+
+\stoptext
+\stopcomponent
+\endinput

@@ -1,0 +1,48 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+\centerline{\bfb DEVOIR SURVEILLE 7}
+\blank[big]
+\
+\startList
+
+\sym{Exo 1} \filterpages[xml/2013/DS7/DS8 (2012-2013).pdf][2,3][width=18cm]
+
+
+
+
+
+
+\stopList
+
+\iftrue
+\page
+\centerline{\bfb CORRECTION DU DEVOIR SURVEILLE 7}
+\blank[big]
+\startList
+
+
+\sym{Exo 1} \filterpages[xml/2013/DS7/DS8 (2012-2013).pdf][7, 8, 9, 10,11,12,13][width=18cm]
+
+
+\stopList
+\fi
+\stoptext
+\stopcomponent
+\endinput

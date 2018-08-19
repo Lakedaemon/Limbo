@@ -1,0 +1,188 @@
+\startcomponent component_DS1
+\project project_Res_Mathematica
+\environment environment_Maths
+\environment environment_Inferno
+\xmlprocessfile{exo}{xml/Limbo_Exercices.xml}{}
+\iffalse
+\setupitemgroup[List][1][R,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+\fi
+
+%\setupitemgroup[List][1][A,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\blank[big]}]
+%\setupitemgroup[List][1][R,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][1][n,inmargin][after=,before=,left={\bf Exo },symstyle=bold,inbetween={\%blank[big]}]
+%\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+%\setupitemgroup[List][4][1,joineup,nowhite]
+%\setupitemgroup[List][4][a,joineup,nowhite]
+\definecolor[myGreen][r=0.55, g=0.76, b=0.29]%
+\setuppapersize[A4]
+\setuppagenumbering[location=]
+\setuplayout[header=0pt,footer=0pt]
+\def\conseil#1{{\myGreen\it #1}}%
+
+
+\starttext
+\setupheads[alternative=middle]
+%\showlayout
+\def\gah#1{\margintext{Exercice #1}}
+
+\iftrue
+\page
+\centerline{\bfb DEVOIR MAISON 7}
+\blank[big]
+
+\setupitemgroup[List][1][A,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][2][n,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][3][a,joineup][after=,before=,inbetween={\blank[small]}]
+\setupitemgroup[List][4][1,joineup,nowhite]
+
+\centerline{\bf PROBLÈME 1 - UNE ÉLECTION EN DEUX TOURS ... OU TROIS}
+\blank[big]
+\startList%Partie
+\item%A
+{\bf Les candidats en lice}\crlf
+Lors d’une élection, 7 candidats se présentent : 6 hommes et une femme.
+On suppose qu’il n’y jamais d’ex-aequo.
+\startList
+\item De combien de façons ces candidats peuvent-ils être classés à l’issue du scrutin s’il n’y a pas d’ex-aequo ?
+\item Combien y a-t-il de trios de tête possibles (c’est-à-dire de possibilités pour les premier, deuxième et troisième) ?
+\item Combien y a-t-il de trios de tête possibles avec la candidate à l’une des trois places ?
+\stopList
+\item {\bf Les reports de voix pour le second tour}\crlf
+À l’issue du premier tour, le candidat A a obtenu $40\%$ des suffrages, le candidat B a obtenu 30\% et les 30\%
+restant se répartissent entre les autres candidats, les votes blancs et nuls.
+Seuls les candidats A et B restent en lice pour le second tour et on suppose que les votants du second tour
+sont exactement ceux ayant voté au premier (on ne considère donc pas les abstentionnistes du premier ou
+du second tour).\crlf
+Après une relecture  des programmes des deux candidats, il s’avère que :
+\startitemize[1]
+\item un individu ayant voté pour A au premier tour a une probabilité égale à $0,7$ de confirmer son vote au
+second tour, une probabilité égale à $0,2$ de finalement voter pour B au second tour et une probabilité égale
+à $0,1$ de voter blanc ou nul au second tour ;
+\item un individu ayant voté pour B au premier tour a une probabilité égale à $0,85$ de confirmer son vote au
+second tour, une probabilité égale à $0,05$ de finalement voter pour A au second tour et une probabilité
+égale à $0,1$ de voter blanc ou nul au second tour ;
+\item un individu ayant voté pour un autre candidat, voté blanc ou voté nul au premier tour a une probabilité
+égale à $0,3$ de voter pour A au second tour, une probabilité égale à $0,4$ de voter pour B au second tour et
+une probabilité égale à $0,3$ de voter blanc ou nul au second tour.
+\stopitemize
+\startList%B
+\item On choisit un électeur au hasard.\crlf
+Quelle est la probabilité qu’il vote pour A au second tour ? Quelle est la probabilité qu’il vote pour B au
+second tour ?
+\item On choisit un électeur au hasard.\crlf
+Sachant que cet électeur a voté pour B au second tour, quelle est la probabilité qu’il ait également voté
+pour B au premier tour ?
+\item Quelle est la probabilité qu’un électeur, choisi au hasard, ait voté de la même façon aux deux tours
+(c’est-à-dire deux fois pour A, deux fois pour B ou deux fois ni pour A, ni pour B) ?
+\stopList
+\item {\bf La campagne sur internet}
+Lors des derniers jours de la campagne de \quote{l’entre deux tours}, l’équipe de communiquants de l’un des deux
+candidats décide d’être très active sur les réseaux sociaux en postant régulièrement des messages tantôt
+valorisant le programme de leur candidat, tantôt dénigrant celui de leur adversaire. On suppose que :
+\startitemize[1]
+\item si le $k\high{ième}$ message valorise le programme de son candidat alors il y a une probabilité 
+égale à $0,6$ que le suivant valorise à nouveau ce programme (donc une probabilité égale à $0,4$ 
+	qu’il dénigre le programme du candidat adverse) 
+\item si le $k\high{ième}$ message dénigre le programme du candidat adverse 
+alors il y a une probabilité égale à $0,8$ que le suivant valorise 
+le programme de son candidat (donc une probabilité égale à $0,2$ qu’il dénigre à nouveau
+le programme du candidat adverse).\crlf
+On note $V_k$ l’événement \quote{le $k\high{ième}$ message valorise le programme de son candidat}.
+\stopitemize
+\startList
+\item Quelles sont les probabilités directement données par l’énoncé ?
+\item Soit $k∈ℕ$. Exprimer $P(V_{k+1})$ en fonction de $P(V_k)$ (en justifiant bien).
+\item Déterminer l’expression de $P(V_k)$ en fonction de $k∈ℕ$ et de $P(V_0)$.
+\item Quelle est la limite de la suite $\big(P(V_k)\big)_{k∈ℕ}$
+\stopList
+\item {\bf Épilogue}\crlf
+Le scrutin du second tour ayant été largement entaché de fraudes, les candidats A et B décident, dans la plus
+pure tradition française, de régler leur différend par un duel au pistolet.\crlf
+Les candidats vont tirer à tour de rôle, le premier qui touche son adversaire a gagné. Le candidat A tire en
+premier et a, à chaque tir, la probabilité $p_1$ de toucher son adversaire alors que, pour le candidat B, cette
+probabilité est égale à $p_2$ (avec $p_1 > 0$ et $p_2 > 0$).\crlf
+On supposera les différents tirs mutuellement indépendants (bien que le succès d’un tir mette un terme à l’expérience).\crlf
+Pour tout $n∈ℕ^∗$ , on note :
+\startitemize[1]
+\item $A_n$ l’événement \quote{le tireur A effectue un $n\high{ième}$ tir et touche son adversaire}
+\item  $B_n$ l’événement \quote{le tireur B effectue un $n\high{ième}$ tir et touche son adversaire}
+\item $C_n$ l’événement \quote{le $n\high{ième}$ tir est réussi}.
+\stopitemize
+\startList
+\item Calculer $P(C_1)$, $P(C_2)$ et $P(C_3)$.
+\item Soit $n ∈ℕ^*$, calculer la probabilité de $P(C_n)$.
+\item Déterminer la limite quand $N$ tend vers $+∞$ de $\D∑_{n=1}^NP(C_n)$. 
+\stopList
+\stopList
+\blank[big]
+\centerline{\bf PROBLÈME 2 - TIRAGES SANS REMISE PUIS AVEC REMISE}
+\blank[big]
+Soit $n$ et $b$ deux entiers avec $n⩾1$ et $b⩾2$. 
+On considère une urne contenant $n$ boules noires et $b$ boules blanches, toutes indiscernables.
+Un joueur A effectue des tirages successifs d’une boule sans remise dans l’urne jusqu’à obtenir 
+une boule blanche.\crlf
+Il laisse alors la place au joueur B qui effectue des tirages successifs d’une boule avec remise 
+dans l’urne jusqu’à obtenir une boule blanche.\crlf
+On suppose qu’il existe un espace probabilisé, d’univers $Ω$ et de probabilité $P$, 
+permettant de modéliser cette expérience. \crlf
+Pour tout $k ∈ℕ$ , on note :
+\startitemize[1]
+\item $X_k$ l’événement \quote{le joueur A tire $k$ boules noires avant de tirer une boule blanche}
+\item $Y_k$ l’événement \quote{le joueur B tire $k$ boules noires avant de tirer une boule blanche}.
+\stopitemize
+Par exemple, si $n = 3$ et $b = 7$ et si les tirages successifs ont donné successivement des boules noire, 
+blanche, noire, noire, noire, noire et blanche, alors :
+\startitemize
+\item A a effectué deux tirages, il a tiré une boule noire puis une boule blanche
+\item l’urne contenait alors 8 boules dont deux noires et six blanches ;
+\item B a alors effectué cinq tirages successifs dans cette urne, il a pioché 4 boules noires qu’il a reposées dans
+l’urne puis il a pioché une boule blanche
+\item les événements $X_1$ et $Y_4$ sont donc réalisés.
+\stopitemize
+
+\startList
+\item {\bf Étude du cas particulier où $b$ et $n$ valent $2$}\crlf
+On suppose donc ici que l’urne contient initialement $2$ boules blanches et $2$ boules noires.
+\startList
+\item Calculer les probabilités des événements $X_0$ , $X_1$ et $X_2$.
+\item Montrer que $P(Y_0)={1\F 2}$.
+\item Pour tout $i∈ℕ$, calculer les probabilités suivantes :
+\startformula
+P(X_0∩Y_i), \qquad P(X_1∩Y_i),\qquad P(X_2∩Y_i)
+\stopformula
+\item En déduire, pour tout $i ∈ℕ$, l’expression de $P(Y_i)$ puis déterminer la limite 
+(éventuelle) quand $N$ tend vers $+∞$ de $\D∑_{i=0}^NP(Y_i)$
+\stopList
+\item {\bf Retour au cas général}
+\startList
+\item Pour tout $k∈ ⟦1, n⟧$, calculer $P(X_k)$ et montrer que : $\D P(X_k)={{n-k+b-1\choose b-1}\F {n+b\choose b}}$
+\item Utiliser la question qui précède pour justifier que $\D∑_{k=0}^n{k+b-1\choose b-1}={n+b\choose b}$\crlf
+Par conséquent on vient de démontrer la formule suivante :
+\placeformula[gah]
+\startformula
+∀N∈ℕ, ∀a∈ℕ,∑_{k=0}^N{k+a\choose a}={N+a+1\choose a+1}
+\stopformula
+\item Soit $k⩾1$, $N⩾1$ et $a∈ℕ$. Comparer $\D k{k+a\choose a}$ et $\D (a+1){k+1\choose a+1}$ puis justifier que 
+\startformula
+∑_{k=0}^N k{k+a\choose a}=(a+1)∑_{k=0}^{N-1}{k+a+1\choose a+1}
+\stopformula
+\item A l'aide des questions précédentes, calculer $\D\sum_{k=0}^n(n-k)P(X_k)$ puis $\D∑_{k=0}^nkP(X_k)$
+\item Pour tout $k∈⟦0,n⟧$ et tout $i∈ℕ$, calculer $P(X_k∩Y_i)$.\crlf
+Les événements $X_k$ et $Y_i$ sont-ils indépendants ?
+\stopList
+\stopList
+
+
+
+
+
+
+
+
+\stoptext
+\stopcomponent
+\endinput

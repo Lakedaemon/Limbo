@@ -1,0 +1,188 @@
+\catcode`@=11\relax
+
+\input LD@Maths@TD.tex
+
+\vglue-10mm\rightline{Spé PT\hfill TD 6 :  Intégrales généralisées\hfil }
+
+
+\Chapter Outils, Nature des intégrales généralisées.
+
+\Section 1, Algorithme d'étude.
+
+\overfullrule0pt%
+\Methode [Nature d'une intégrale $\int_a^bf(t)\d t$]
+\noindent A) Repérer les points à problème potentiel en répondant à la question : 
+$$\hbox{
+Pour quels $t\in[a,b]$, la quantité $f(t)$ est-elle continue ou prolongeable par continuité ? 
+}
+$$
+B) Trouver la nature des petites intégrales avec un seul point à problème potentiel via : 
+\PAR\noindent
+1) Une primitive
+\PAR\noindent
+2) Un changement de variable
+\PAR\noindent
+3) Une intégration par partie
+\PAR\noindent
+4) La convergence absolue (permet souvent de se ramener à une fonction de signe constant)
+\PAR\noindent
+5) Lorsque $f(t)$ est de signe constant autour du point à problème potentiel $b$, on utilise ausi 
+\PAR
+a) Un équivalent $\sim$ de $f(t)$ en $b$.
+\PAR
+b) Une inégalité avec $\le$. 
+\PAR
+b') Une inégalité avec $o$ en $b$.
+\PAR\noindent
+6) Chasles
+\PAR\noindent
+7) L'addition
+
+\Section 2, Changement de variable.
+
+\medskip
+\Theoreme [$a<b$ dans $\overline{\ob R}$, $\varphi$ difféomorphisme de classe $\sc C^1$ de {$\Q]a,b\W[$} dans un intervalle $I$]
+Si $f:I\to\ob C$ est continue par morceaux sur $I$. 
+Alors $\int_{\varphi(a)}^{\varphi(b)}f(x)\d x$ et $\int_a^bf\big(\varphi(t)\big)\varphi'(t)\d t$ 
+ont même nature. En cas de convergence, on a 
+\Equation [\bf Changement de variable]
+$$
+\int_{\varphi(a)}^{\varphi(b)}f(x)\d x=\int_a^bf\big(\varphi(t)\big)\varphi'(t)\d t.
+$$
+
+\Section 3, Intégration par partie.
+
+\medskip
+\Theoreme[$a$ et $b$ dans $\ol{\ob R}$, $f$ et $g$ deux fonctions de classe $\sc C^1$ sur {$\Q]a,b\W[$}] 
+Si deux des trois nombres $\int_a^bf'(t)g(t)\d t$, $\int_a^bf(t)g'(t)\d t$ et 
+$$
+\Big[f(t)g(t)\Big]_a^b:=\lim\limits_{t\to b}\Big(f(t)g(t)\Big)-\lim\limits_{t\to a}\Big(f(t)g(t)\Big)
+$$
+sont définis, alors le troisième l'est aussi et l'on a 
+\Equation [\bf Intégration par partie]
+$$
+\int_a^bf'(t)g(t)\d t=\Big[f(t)g(t)\Big]_a^b-\int_a^bf(t)g'(t)\d t. 
+$$
+
+\Section 4, Convergence absolue.
+
+\medskip
+\Propriete [$(a,b)\in\ol{\ob R}^2$ et {$f:\Q]a,b\W[\to\ob C$ continue par morceaux sur~$\Q]a,b\W[$}]
+Si l'intégrale $\int_a^b\big|f(t)\big|\d t$ converge, alors l'intégrale $\int_a^bf(t)\d t$ converge et l'on a 
+\Equation [\bf convergence absolue]
+$$
+\Q|\int_a^bf(t)\d t\W|\le \int_a^b\b|f(t)\b|\d t. 
+$$
+
+
+\Subsection 41, Intégrales absolument-convergentes.
+
+\Propriete L'intégrale $\int_a^bf(t)\d t$ converge absolument $\ssi$ l'intégrale $\int_a^b\big|f(t)\big|\d t$ converge. 
+
+\Subsection 42, Intégrales semi-convergentes.
+
+\Propriete L'intégrale $\int_a^bf(t)\d t$ est ``semi-convergente'' $\ssi$ $\int_a^bf(t)\d t$ converge et $\int_a^b\big|f(t)\big|\d t$ diverge.
+
+
+\Section 5, Outils de comparaison.
+
+\Subsection 51, Equivalents.
+
+\Theoreme [$a\in\ob R$ et $b>a$ un élément de $\ol R$] 
+Soient $f$ et $g$ des fonctions continues par morceaux et {\bf positives} sur $\Q[a,b\W[$ telles que 
+$$
+f(x)\mathop{\sim}\limits_bg(x).
+$$ 
+Alors,~$\int_a^bf(t)\d t$ et $\int_a^bg(t)\d t$ ont même nature. 
+
+\Subsection 52, Inégalités.
+
+\Propriete [$a\in\ob R$, $b>a$ un élément de $\ol R$] 
+Soient $f:\Q[a,b\W[\to\ob R$ et $g:\Q[a,b\W[\to\ob R$ deux applications continues par morceaux avec  
+$$
+0\le f(x)\le g(x)\qquad (a\le x<b). 
+$$
+Si $\int_a^bf(t)\d t$ diverge, alors $\int_a^bg(t)\d t$ diverge. \medskip\noindent
+Si $\int_a^bg(t)\d t$ converge alors $\int_a^bf(t)\d t$ converge et l'on a 
+\Equation [\bf Intégration des inégalités]
+$$
+0\le \int_a^bf(t)\d t\le \int_a^bg(t)\d t. 
+$$ 
+
+\Subsection 53, Fonctions négligeables.
+
+\Theoreme 
+[$a\in\ob R$ et $b>a$ élément de $\ol R$]
+Soient  $f$ et $g$ des fonctions continues par morceaux et {\bf positives} sur $\Q[a,b\W[$ telles que 
+$$
+f(x)=o_b\b(g(x)\b).
+$$ 
+Si $\int_a^b f(t)\d t$ diverge, alors $\int_a^bg(t)\d t$ diverge. \pn
+Si $\int_a^b g(t)\d t$ converge, alors $\int_a^bf(t)\d t$ converge.  
+
+\goodbreak
+
+\Chapter Exos, Exercices.
+
+\Section 1, Comparaison.
+
+\Exercice{PTacr}
+\vfill
+\Exercice{PTuh}
+\vfill
+\Exercice{PTug}
+\vfill
+\Exercice{PTuf}
+\vfill
+\Exercice{PTtp}
+\vfill
+\Exercice{PTlj}
+\vfill
+\Exercice{PTapl}
+\vfill
+\Exercice{PTaix}
+\vfill
+\Exercice{PTaiu}
+\vfill
+\Exercice{PTapm}
+\vfill
+\Exercice{PTapk}
+
+\Section 1, Primitives.
+
+\Exercice{PTagf}
+\vfill
+\Exercice{PTapi}
+\vfill
+\Exercice{PTaph}
+\vfill
+\Exercice{PTapt}
+
+\Section 1, Changerment de variable.
+
+\Exercice{PTapo}
+\vfill
+\Exercice{PTapn}
+\vfill
+\Exercice{PTalu}
+
+
+
+
+
+
+
+% 
+\Chapter Indications, Indications.
+% 
+ \LD@Exo@Indication@Display
+% 
+%\Chapter Notions, Notions.
+% 
+\LD@Exo@Notion@Display
+
+\Chapter Solutions, Solutions.
+
+\LD@Exo@Sol@Display
+
+\bye

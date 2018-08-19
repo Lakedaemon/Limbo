@@ -1,0 +1,313 @@
+\catcode`@=11\relax
+\def\Api{Mathematicon@Api}%
+\input LD@Header.tex
+\input LD.tex
+\input LD@Lilypond.tex
+\input LD@Drums@Sessions.tex
+
+\catcode`@=11\relax
+\def\@firstofone#1{#1}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%															%
+%						Exercices								%
+%															%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\LD@Drums@Lilypond@Process{N}%
+\font\LD@Font@Lilypond="Emmentaler" at 14pt
+
+
+\def\LD@Drums@Cymbals#1{%
+	\LD@Counter=#1\relax
+	\ifcase\LD@Counter
+		\raise2pt\hbox{\LD@Font@Lilypond \char57607}%
+	\or
+		\raise2pt\hbox{\LD@Font@Lilypond \char57653}%
+		\kern-1pt\raise6.7pt\hbox{\LD@Font@Lilypond \char57783}%
+		\kern-1pt\raise9.45pt\rlap{\vrule depth1pt width7.635pt height1pt}\ 
+		\raise2pt\hbox{\LD@Font@Lilypond \char57653}%
+		\kern-1pt\raise6.7pt\hbox{\LD@Font@Lilypond \char57783}%
+	\or
+		\raise2pt\hbox{\LD@Font@Lilypond \char57653}%
+		\kern-1pt\raise7pt\hbox{\LD@Font@Lilypond \char57783}%
+	\else
+		\raise4pt\hbox{\LD@Font@Lilypond \char57609}\ 
+		\raise2pt\hbox{\LD@Font@Lilypond \char57653}%
+		\kern-1pt\raise7pt\hbox{\LD@Font@Lilypond \char57783}%
+		\raise10pt\hbox{\LD@Font@Lilypond\char57737}%
+	\fi
+}%
+\def\LD@Drums@HiHat#1{%
+	\LD@Counter=#1\relax
+	\ifcase\LD@Counter
+		\ \ \raise2pt\hbox{\LD@Font@Lilypond \char57607}%
+	\or
+		\raise2pt\hbox{\LD@Font@Lilypond \char57639}%
+		\kern-1pt\raise6.2pt\hbox{\LD@Font@Lilypond \char57783}%
+		\kern-1pt\raise9.45pt\rlap{\vrule depth1pt width7.635pt height1pt}\ 
+		\raise2pt\hbox{\LD@Font@Lilypond \char57639}%
+		\kern-1pt\raise6.2pt\hbox{\LD@Font@Lilypond \char57783}%
+	\or
+		\ \raise2pt\hbox{\LD@Font@Lilypond \char57639}%
+		\kern-1pt\raise6.2pt\hbox{\LD@Font@Lilypond \char57783}%
+	\else
+		\raise4pt\hbox{\LD@Font@Lilypond \char57609}\ 
+		\raise2pt\hbox{\LD@Font@Lilypond \char57639}%
+		\kern-1pt\raise7pt\hbox{\LD@Font@Lilypond \char57783}%
+		\raise10pt\hbox{\LD@Font@Lilypond\char57737}%
+	\fi
+}%
+
+\Thème Noires.
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{\repeat "unfold" 2 {bd4 sn4}}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{\repeat "unfold" 2 {sn4 bd4}}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{\repeat "unfold" 2 {sn4 sn4}}}|
+rightfoot=\drummode{\repeat volta 8{\repeat "unfold" 2 {bd4 s4}}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{\repeat "unfold" 2 {sn4 sn4}}}|
+rightfoot=\drummode{\repeat volta 8{\repeat "unfold" 2 {s4 bd4}}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{s4 sn4 sn4 s4}}|
+rightfoot=\drummode{\repeat volta 8{bd4 s4 s4 bd4}}|
+
+\Thème Croches. 
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{s4 sn8_> sn8 s4 sn4_>}}|
+rightfoot=\drummode{\repeat volta 8{bd4 s4 bd4 s4}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{s4 sn8_> sn8 s4 sn8_> sn8}}|
+rightfoot=\drummode{\repeat volta 8{bd4 s4 bd4 s4}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd4 sn8_> sn8 bd4 sn8_> bd8}}|
+
+
+\Lilypond
+righthand=\drummode{\repeat volta 4{\repeat "unfold" 16 {cymr8}}}|
+lefthand=\drummode{\repeat volta 4{bd4 sn8_> sn8 bd4 sn8_> bd8 bd4 sn8_> sn8 bd8 sn8_> sn8_> bd8}}|
+
+\def\LD@Drums@Lilypond@Process{Y}%
+\Lilypond [Title=Orion]
+righthand=\drummode{\repeat volta 2{\repeat "unfold" 16 {cymr8}}}|
+lefthand=\drummode{\repeat volta 2{bd4 sn4_> bd4 sn4_> bd4 sn4_> bd4 sn8_> bd8}}|
+
+\def\LD@Drums@Lilypond@Process{N}%
+
+\Thème Contre-temps. 
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{\repeat unfold 4{sn8 bd8}}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{r8 bd8 sn8_> bd8 r8 bd8 sn8_> bd8}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd4 sn8_> bd8 r4 sn8_> bd8}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{s4 sn8_> s8 s4 sn4_>}}|
+rightfoot=\drummode{\repeat volta 8{bd4 s8 bd8 s8 bd8 bd4}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd4 sn8_> bd8 r8 bd8 sn8_> bd8}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd8 bd8 sn4_> bd8 sn8_> sn4}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd8 bd8 sn8_> sn8 bd4 sn8_> bd8}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd8 bd8 sn8_> sn8 bd8 bd8 sn8_> sn8}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{s4 sn8_> sn8 r4 sn8_> sn8}}|
+rightfoot=\drummode{\repeat volta 8{bd8 bd8 s4 bd8 bd8 s8 bd8}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 4{\repeat "unfold" 16 {cymr8}}}|
+lefthand=\drummode{\repeat volta 4{bd4 sn8_> sn8 bd8 bd8 sn8_> bd8 bd4 sn8_> bd8 r8 bd8 sn8_> bd8}}|
+
+\Lilypond [LineWidth=150]
+righthand=\drummode{\repeat "volta" 2 {\repeat "unfold" 96 {cymr8}}}|
+lefthand=\drummode{\repeat "volta" 2 {
+bd4 sn4_> bd4 sn4_> 
+bd4 sn8_> bd8 r8 bd8 sn8_> bd8 
+bd4 sn4 sn4 bd4 
+bd4 sn8_> bd8 r8 bd8 sn8_> bd8 
+bd4 sn8_> sn8 bd8 bd8 sn8_> bd8 
+bd4 sn8_> bd8 r8 bd8 sn4_> 
+bd8 bd8 sn8_> sn8 bd8 bd8 sn8_> sn8 
+sn8 bd8 sn8 bd8 sn8 bd8 sn8 bd8 
+bd4 sn4_> bd8 bd8 sn8_> bd8 
+bd4 sn8_> bd8 r8 bd8 sn8_> bd8 
+bd4 sn4 sn4 sn8 bd8 
+sn8 bd8 sn8 bd8 bd4 r4 
+}}|
+rightfoot=\drummode{\repeat "volta" 2 {s1 s1 s1 s1 s1 s2 s4 bd4 s1 s1 s1}}|
+
+\Thème Double-croches. 
+
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd4  sn4_> bd4 sn8._> sn16}}|
+
+
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd8 bd8  sn8._> sn16 bd8 bd8 sn8._> sn16}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 6{\repeat "unfold" 16 {cymr8}}}|
+lefthand=\drummode{\repeat volta 6{
+bd4  sn4_> bd4 sn8._> sn16
+bd16 sn16 bd8 sn4_> bd8 bd8 sn8._> sn16
+}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd16 sn16 bd8  sn8._> sn16 bd16 sn16 bd8 sn8._> sn16}}|
+
+\Lilypond
+righthand=\drummode{\partial 16 s16\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\partial 16 sn16 \repeat volta 8{bd16 sn16 bd8  sn16_> bd16 sn8 bd16 sn16 bd8 sn8._> sn16}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd8 bd8  sn8._> sn16 bd16 sn16 bd8 sn4_> }}|
+
+
+
+\Lilypond[LineWidth=150]
+righthand=\drummode{\repeat "volta" 2 {\repeat "unfold" 64 {cymr8}}}|
+lefthand=\drummode{\repeat "volta" 2 {
+bd8 bd8 sn8._> sn16 bd8 bd8 sn8._> sn16 
+bd4 sn4_> bd4 sn8._> sn16 
+bd16 sn16 bd8 sn4_> bd8 bd8 sn8._> sn16 
+bd16 sn16 bd8 sn8._> sn16  bd16 sn16 bd8 sn8._> sn16 
+bd8 bd8 sn8._> sn16 bd8 bd8 sn8._> sn16 
+bd16 sn16 bd8 sn16_> bd16 sn8 bd16 sn16 bd8  sn8._> sn16 
+bd8 bd8 sn8._> sn16 bd16 sn16 bd8 sn4_> 
+bd16 sn16 bd8 sn16_> bd16 sn8 sn4_> r4 
+}}|
+rightfoot=\drummode{\repeat "volta" 2 {s1 s1 s1 s1 s1 s1 s1 s2 bd4 s4}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd8 bd8  sn8._> sn16 bd16 sn16 bd16 bd16 sn4_> }}|
+
+\Lilypond
+righthand=\drummode{\partial 16 s16\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\partial 16 sn16 \repeat volta 8{bd16 sn16 bd16 bd16  sn8._> sn16 bd16 sn16 bd16 bd16 sn8._> sn16}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{
+bd16 sn16 bd16 bd16  sn16_> bd16 sn16 sn16 bd16 sn16 bd16 bd16 sn4_>}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{
+bd4  sn16_> bd16 sn16 sn16 bd16 sn16 bd16 bd16 sn8._> bd16}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 4{\repeat "unfold" 16 {cymr8}}}|
+lefthand=\drummode{\repeat volta 4{
+bd8 bd8 sn8._> sn16 bd8 bd8  sn16_> bd16 sn16 sn16 bd16 sn16 bd16 bd16 sn8._> sn16 bd8 bd8 sn16_> bd16 sn16 sn16}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd8 bd8 sn8._>bd16 r16 sn16_> r16 bd16  sn8._> bd16}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{\repeat unfold 4{sn16 bd8 bd16}}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{\repeat unfold 2{r16 bd8 bd16 sn16_> bd8 bd16}}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{sn16 bd16 r8 sn16 bd16 r8 sn16 bd8 bd16 sn4}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd8 bd8 sn4_> sn16 bd8 bd16 sn4_>}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd8 bd8 sn8._> bd16 bd8 bd8 sn16_> bd8 bd16}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd8. bd16 sn8._> bd16 bd8. bd16 sn16_> bd8 bd16}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd16 bd8 bd16 sn4_> bd16 bd8 bd16 sn8_> bd16 bd16}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{bd8. bd16 r16 sn16 bd16 r16 r16 sn16 bd16 bd16 sn4_>}}|
+
+\Lilypond
+righthand=\drummode{\repeat volta 8{\repeat "unfold" 8 {cymr8}}}|
+lefthand=\drummode{\repeat volta 8{sn16 bd8 sn16 bd8 sn16 bd16 r16 sn16 bd16 bd16 sn4_>}}|
+
+
+\Lilypond[LineWidth=160]
+righthand=\drummode{\repeat "volta" 2 {\repeat "unfold" 96 {cymr8}}}|
+lefthand=\drummode{\repeat "volta" 2 {
+bd8 bd8 sn8._> sn16 bd16 sn16 bd16 bd16 sn4_> 
+bd16 sn16 bd16 bd16  sn16_> bd16 sn16 sn16 bd16 sn16 bd16 bd16 sn4_> 
+bd8 bd8 sn8._> sn16 bd8 bd8  sn16_> bd16 sn16 sn16 
+bd4 sn16_> bd16 sn16 sn16 bd16 sn16 bd16 bd16 sn8._> sn16 
+bd8 bd8 sn8._> bd16 sn8._> bd16 sn8._> bd16 
+\repeat unfold 4{sn16 bd8 bd16} 
+\repeat unfold 2{r16 bd8 bd16 sn16_> bd8 bd16} 
+\repeat unfold 2{bd16 sn16 bd8 sn8._> sn16} 
+sn16 bd16 r8 sn16 bd16 r8 sn16 bd8 bd16 sn4 
+bd16 bd8 bd16 sn4_> bd16 bd8 bd16 sn4_> 
+bd8. bd16 r16 sn16 bd8 bd16 sn16 bd16 bd16 sn4_> 
+sn16 bd8 sn16 bd8. sn16 sn4 r4 
+}}|
+rightfoot=\drummode{\repeat "volta" 2 {s1 s1 s1 s1 s1 s1 s1 s1 s1 s1 s1 s2 bd4 s4}}|
+
+\def\LD@Drums@Lilypond@Process{Y}%
+\def\LD@Drums@Lilypond@Process{N}%
+
+\vfill\null
+\bye
+
+
+
+
